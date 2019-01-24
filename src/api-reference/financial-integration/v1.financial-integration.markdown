@@ -17,6 +17,7 @@ Below are some benefits for using the Financial Integration service:
 * Opportunity to modify and retry before the object is locked in SAP Concur.
 * Ensures data sync between systems.
 
+## Contents
 
 * [Financial Integration Service Use Cases](/api-reference/financial-integration/v4.financial-integration-service-use-cases.html)
 * [Products and Editions](#products-editions)
@@ -279,7 +280,6 @@ Name|Type|Format|Description
 `companyId`|`string`|`path`|**Required** Company Outtask Id in Concur
 `docType`|`string`|`path`|**Required** The financial document type to return. VALUES: expense; invoice; cashadvance. Only one type of transactions can be retrieved at a time
 `confirmationRequest`||[body](#confirmationrequest)|**Required** The JSON request to be posted
-
 
 #### Headers
 
