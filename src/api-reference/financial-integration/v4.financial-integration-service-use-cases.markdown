@@ -64,82 +64,80 @@ Expense Report with one expense item: Bus - USD 10.
 
 **Expense Account**
 
-| Debit     | Credit |
-|-----------|--------|
-| ER &nbsp; &nbsp; &nbsp; USD 10 |        |
+Debit|Credit
+---|---
+ER USD 10|-
 
 **Employee Vendor Account**
 
-| Debit | Credit    |
-|-------|-----------|
-|       | ER &nbsp; &nbsp; &nbsp; USD 10 |
+Debit|Credit
+---|---
+-|ER USD 10
 
 **Posting Record**
 
-| Account         | Debit  | Credit |
-|-----------------|--------|--------|
-| Expense         | USD 10 |        |
-| Employee Vendor |        | USD 10 |
+Account|Debit|Credit
+---|---|---
+Expense|USD 10|-
+Employee Vendor|-|USD 10
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#esopce)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#esopce)
 
 #### JSON Example
 
 **Allocation configuration varies by client, and may include different fields than listed in this example.**
 
-```
+```json
 {
-"employee": {
- "empId": "101002",
- "empLastName": "Brown"
- "empFirstName": "Terry",
-}
-"report":
-{
- "ReportId": "5BE3772C19AC40CE8EF2",
- "ReportKey": 102006,
- "rptSubmitDate": "2004-7-07",
-}
-
-"expenseEntry":
-
-{
- "entryId": "1234",
- "entryDate": "2004-06-24",
- "expenseTypeName": "Bus", \*\*localized value\*\*
- "EntryIsPersonal": "N",
- "allocation": {
-   "allocationKey": "95642",
-   "allocationPercentage": 100,
-   "allocationCustom1": "1101", {
+  "employee": {
+    "empId": "101002",
+    "empLastName": "Brown",
+    "empFirstName": "Terry",
+  },
+  "report":
+  {
+    "ReportId": "5BE3772C19AC40CE8EF2",
+    "ReportKey": 102006,
+    "rptSubmitDate": "2004-7-07",
+  },
+  "expenseEntry":
+  {
+    "entryId": "1234",
+    "entryDate": "2004-06-24",
+    "expenseTypeName": "Bus", \*\*localized value\*\*
+    "EntryIsPersonal": "N",
+    "allocation": {
+      "allocationKey": "95642",
+      "allocationPercentage": 100,
+      "allocationCustom1": "1101", {
         "name": "SAP",
         "type": "connectedList",
-}
-   "allocationCustom2": "Concur", {
+      },
+      "allocationCustom2": "Concur", {
         "name": "Concur",
         "type": "connectedList",
-        }
-   "allocationCustom3": "CC", {
+      },
+      "allocationCustom3": "CC", {
         "name": "Cost Center",
         "type": "connectedList",
-        }
-   "allocationCustom4": "01894", {
+      },
+      "allocationCustom4": "01894", {
         "name": "Finance",
         "type": "connectedList",
-}
-   "allocationCustom5": null, {
+      },
+      "allocationCustom5": null, {
         "name": null,
         "type": null,
-}
-   "journal": {
+      },
+      "journal": {
         "payer": "COMPANY",
         "payee": "EMPLOYEE",
         "journalAmount": +10.0000,
         "debitCredit": "DR",
         "accountCode": "7271001",
-   }
- }
-}
+      }
+    }
+  }
 }
 ```
 
@@ -153,54 +151,53 @@ The user receives a USD 50 cash rebate for a hotel stay that was fully reimburse
 
 **Expense Account**
 
-| Debit | Credit    |
-|-------|-----------|
-|       | ER &nbsp; &nbsp; &nbsp; USD 50 |
+Debit|Credit
+---|---
+-|ER USD 50
 
 **Employee Vendor Account**
 
-| Debit     | Credit |
-|-----------|--------|
-| ER &nbsp; &nbsp; &nbsp; USD 50 |        |
+Debit|Credit
+---|---
+ER USD 50|-
 
 **Posting Record**
 
-| Account         | Debit  | Credit |
-|-----------------|--------|--------|
-| Expense         |        | USD 50 |
-| Employee Vendor | USD 50 |        |
+Account|Debit|Credit
+---|---|---
+Expense|-|USD 50
+Employee Vendor|USD 50|-
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#esopcc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#esopcc)
 
 #### JSON Example
 
 Allocation configuration varies by client, and may include different fields than listed in this example.
 
-```
+```json
 "expenseEntry": {
- "entryId": "1229",
- "entryDate": "2004-06-30",
- "vendorName": "Ritz Carlton", \*\*localized value\*\*
- "expenseTypeName": "Parking", \*\*localized value\*\*
- "EntryIsPersonal": "N",
- "allocation": {
-   "allocationCustom1": "1101", {
-        "name": "SAP",
-        "type": "connectedList",
-}
-   "journal": {
-        "payer": "EMPLOYEE",
-        "payee": "COMPANY",
-        "journalAmount": -50.0000,
-        "debitCredit": "CR",
-        "accountCode": "7271001",
+  "entryId": "1229",
+  "entryDate": "2004-06-30",
+  "vendorName": "Ritz Carlton", \*\*localized value\*\*
+  "expenseTypeName": "Parking", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "journal": {
+      "payer": "EMPLOYEE",
+      "payee": "COMPANY",
+      "journalAmount": -50.0000,
+      "debitCredit": "CR",
+      "accountCode": "7271001",
     }
-   }
+  }
 }
 ```
 
 ## <a name="uspcme"></a>Simple Personal Car Mileage Expense
-
 
 #### Description
 
@@ -210,49 +207,49 @@ The user enters a single personal car mileage transaction for a round trip to th
 
 **Expense Account**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER &nbsp; &nbsp; &nbsp; USD 21.70 |        |
+Debit|Credit
+---|---
+ER USD 21.70|-
 
 **Employee Vendor Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER &nbsp; &nbsp; &nbsp; USD 21.70 |
+Debit|Credit
+---|---
+-|ER USD 21.70
 
 **Posting Record**
 
-| Account         | Debit     | Credit    |
-|-----------------|-----------|-----------|
-| Expense         | USD 21.70 |           |
-| Employee Vendor |           | USD 21.70 |
+Account|Debit|Credit
+---|---|---
+Expense|USD 21.70|-
+Employee Vendor|-|USD 21.70
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#espcme)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#espcme)
 
 #### JSON Example
 
 **Allocation configuration varies by client, and may include different fields than listed in this example.**
 
-```
+```json
 "expenseEntry": {
-"entryId": "1534",
-"entryDate": "2004-06-21",
-"vendorName": null
-"expenseTypeName": "Mileage", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
-}
-"journal": {
-"payer": "COMPANY",
-"payee": "EMPLOYEE",
-"journalAmount": +21.7000,
-"debitCredit": "DR",
-"accountCode": "7271109",
-}
-}
+  "entryId": "1534",
+  "entryDate": "2004-06-21",
+  "vendorName": null,
+  "expenseTypeName": "Mileage", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "journal": {
+      "payer": "COMPANY",
+      "payee": "EMPLOYEE",
+      "journalAmount": +21.7000,
+      "debitCredit": "DR",
+      "accountCode": "7271109",
+    }
+  }
 }
 ```
 
@@ -262,28 +259,28 @@ The user enters a single personal car mileage transaction for a round trip to th
 
 A German traveler receives meal per diems that are higher the legal rates. In this case he gets EUR 50 instead of EUR 24 for a full day.
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#etacsrg)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#etacsrg)
 
 #### Posting Example
 
 **Expense Account**
 
-| Debit     | Credit |
-|-----------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 50 |        |
+Debit|Credit
+---|---
+ER EUR 50|-
 
 **Employee Vendor Account**
 
-| Debit | Credit    |
-|-------|-----------|
-|       | ER &nbsp; &nbsp; &nbsp; EUR 50 |
+Debit|Credit
+---|---
+-|ER EUR 50
 
 **Posting Record**
 
-| Account         | Debit  | Credit |
-|-----------------|--------|--------|
-| Expense         | EUR &nbsp; &nbsp; &nbsp; 50 |        |
-| Employee Vendor |        | EUR &nbsp; &nbsp; &nbsp; 50 |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 50|-
+Employee Vendor|-|EUR 50
 
 ## <a name="uvath"></a>VAT Handling
 
@@ -299,31 +296,31 @@ Expense Report with one expense item: Bus - EUR 11.90 (including 19% - EUR 1.90 
 
 **Expense Account**
 
-| Debit     | Credit |
-|-----------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 10 |        |
+Debit|Credit
+---|---
+ER EUR 10|-
 
 **VAT Account**
 
-| Debit       | Credit |
-|-------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 1.90 |        |
+Debit|Credit
+---|---
+ER EUR 1.90|-
 
 **Employee Vendor Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER &nbsp; &nbsp; &nbsp; EUR 11.90 |
+Debit|Credit
+---|---
+-|ER EUR 11.90
 
 **Posting Record**
 
-| Account         | Debit    | Credit    |
-|-----------------|----------|-----------|
-| Expense         | EUR 10   |           |
-| VAT             | EUR 1.90 |           |
-| Employee Vendor |          | EUR 11.90 |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 10|-
+VAT|EUR 1.90|-
+Employee Vendor|-|EUR 11.90
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#eepwst)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eepwst)
 
 ## <a name="undv"></a>Non-Deductible VAT
 
@@ -347,50 +344,50 @@ Expense report with a hotel receipt that does not include the company address.
 
 **Expense Account**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 10.00 |        |
+Debit|Credit
+---|---
+ER EUR 10.00|-
 
 **Non-deductible VAT Expense Account**
 
-| Debit       | Credit |
-|-------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 1.90 |        |
+Debit|Credit
+---|---
+ER EUR 1.90|-
 
 **Employee Vendor Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER &nbsp; &nbsp; &nbsp; EUR 11.90 |
+Debit|Credit
+---|---
+-|ER EUR 11.90
 
 **Posting Record**
 
-| Account                    | Debit    | Credit    |
-|----------------------------|----------|-----------|
-| Expense                    | EUR 10   |           |
-| Non-deductible VAT Expense | EUR 1.90 |           |
-| Employee Vendor            |          | EUR 11.90 |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 10|-
+Non-deductible VAT Expense|EUR 1.90|-
+Employee Vendor|-|EUR 11.90
 
 ### <a name="uiveps"></a>Include VAT in Expense Posting: Show the VAT Amount in Tax Reporting
 
 **Expense Account**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 11.90 |        |
+Debit|Credit
+---|---
+ER EUR 11.90|-
 
 **Employee Vendor Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER &nbsp; &nbsp; &nbsp; EUR 11.90 |
+Debit|Credit
+---|---
+-|ER EUR 11.90
 
 **Posting Record**
 
-| Account         | Debit     | Credit    |
-|-----------------|-----------|-----------|
-| Expense         | EUR 11.90 |           |
-| Employee Vendor |           | EUR 11.90 |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 11.90|-
+Employee Vendor|-|EUR 11.90
 
 **VAT Records**
 
@@ -401,22 +398,22 @@ Expense report with a hotel receipt that does not include the company address.
 
 **Expense Account**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 11.90 |        |
+Debit|Credit
+---|---
+ER EUR 11.90|-
 
 **Employee Vendor Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER &nbsp; &nbsp; &nbsp; EUR 11.90 |
+Debit|Credit
+---|---
+-|ER EUR 11.90
 
 **Posting Record**
 
-| Account         | Debit     | Credit    |
-|-----------------|-----------|-----------|
-| Expense         | EUR 11.90 |           |
-| Employee Vendor |           | EUR 11.90 |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 11.90|-
+Employee Vendor|-|EUR 11.90
 
 **VAT Records**
 
@@ -437,64 +434,64 @@ For a hotel receipt of EUR 230 (including 15% - EUR 30 VAT) the VAT is only dedu
 
 **Expense Account**
 
-| Debit         | Credit |
-|---------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 200.00 |        |
+Debit|Credit
+---|---
+ER EUR 200.00|-
 
 **VAT Account**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 15.00 |        |
+Debit|Credit
+---|---
+ER EUR 15.00|-
 
 **Non-deductible VAT Account**
 
-| Debit     | Credit |
-|-----------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 15 |        |
+Debit|Credit
+---|---
+ER EUR 15|-
 
 **Employee Vendor Account**
 
-| Debit | Credit     |
-|-------|------------|
-|       | ER &nbsp; &nbsp; &nbsp; EUR 230 |
+Debit|Credit
+---|---
+-|ER EUR 230
 
 **Posting Record**
 
-| Account            | Debit   | Credit  |
-|--------------------|---------|---------|
-| Expense            | EUR 200 |         |
-| VAT                | EUR 15  |         |
-| Non-deductible VAT | EUR 15  |         |
-| Employee Vendor    |         | EUR 230 |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 200|-
+VAT|EUR 15|-
+Non-deductible VAT|EUR 15|-
+Employee Vendor|-|EUR 230
 
 ##### Option 2
 
 **Expense Account**
 
-| Debit      | Credit |
-|------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 215 |        |
+Debit|Credit
+---|---
+ER EUR 215|-
 
 **VAT Account**
 
-| Debit     | Credit |
-|-----------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 15 |        |
+Debit|Credit
+---|---
+ER EUR 15|-
 
 **Employee Vendor Account**
 
-| Debit | Credit     |
-|-------|------------|
-|       | ER &nbsp; &nbsp; &nbsp; EUR 230 |
+Debit|Credit
+---|---
+-|ER EUR 230
 
 **Posting Record**
 
-| Account         | Debit   | Credit  |
-|-----------------|---------|---------|
-| Expense         | EUR 215 |         |
-| VAT             | EUR 15  |         |
-| Employee Vendor |         | EUR 230 |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 215|-
+VAT|EUR 15|-
+Employee Vendor|-|EUR 230
 
 ## <a name="uferwv"></a>Foreign Expense Report Without VAT
 
@@ -508,22 +505,22 @@ German employee enters a receipt for US-based training. In this case, independen
 
 **Expense Account**
 
-| Debit      | Credit |
-|------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 100 |        |
+Debit|Credit
+---|---
+ER EUR 100|-
 
 **Employee Vendor Account**
 
-| Debit | Credit     |
-|-------|------------|
-|       | ER &nbsp; &nbsp; &nbsp; EUR 100 |
+Debit|Credit
+---|---
+-|ER EUR 100
 
 **Posting Record**
 
-| Account                      | Debit   | Credit  |
-|------------------------------|---------|---------|
-| Expense (including tax code) | EUR 100 |         |
-| Employee Vendor              |         | EUR 100 |
+Account|Debit|Credit
+---|---|---
+Expense (including tax code)|EUR 100|-
+Employee Vendor|-|EUR 100
 
 ## <a name="uitem"></a>Itemization
 
@@ -541,33 +538,33 @@ For a hotel receipt of EUR 214 (including 7% - EUR 14 VAT) the costs per night s
 
 **Expense Accounts**
 
-| Debit                 | Credit |
-|-----------------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 100|
-| ER  &nbsp; &nbsp; &nbsp; EUR 100|        |
+Debit|Credit
+---|---
+ER EUR 100|-
+ER EUR 100|-
 
 **VAT Account**
 
-| Debit             | Credit |
-|-------------------|--------|
-| ER &nbsp; &nbsp; &nbsp; EUR 7|
-|ER &nbsp; &nbsp; &nbsp; EUR 7 |        |
+Debit|Credit
+---|---
+ER EUR 7|-
+ER EUR 7|-
 
 **Employee Vendor Account**
 
-| Debit | Credit     |
-|-------|------------|
-|       | ER EUR 214 |
+Debit|Credit
+---|---
+-|ER EUR 214
 
 **Posting Record**
 
-| Account         | Debit   | Credit  |
-|-----------------|---------|---------|
-| Expense         | EUR 100 |         |
-| VAT             | EUR 7   |         |
-| Expense         | EUR 100 |         |
-| VAT             | EUR 7   |         |
-| Employee Vendor |         | EUR 214 |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 100|-
+VAT|EUR 7|-
+Expense|EUR 100|-
+VAT|EUR 7|-
+Employee Vendor|-|EUR 214
 
 ## <a name="ucosta"></a>Cost Allocation
 
@@ -597,24 +594,24 @@ Employee requests a cash advance of USD 300.
 
 **Cash Advance Clearing Account**
 
-| Debit      | Credit |
-|------------|--------|
-| CA &nbsp; &nbsp; &nbsp; USD 300 |        |
+Debit|Credit
+---|---
+CA USD 300|-
 
 **Employee Vendor Account**
 
-| Debit | Credit     |
-|-------|------------|
-|       | CA &nbsp; &nbsp; &nbsp; USD 300 |
+Debit|Credit
+---|---
+-|CA USD 300
 
 **Posting Record**
 
-| Account                       | Debit   | Credit  |
-|-------------------------------|---------|---------|
-| Cash Advance Clearing Account | USD 100 |         |
-| Employee Vendor               |         | USD 100 |
+Account|Debit|Credit
+---|---|---
+Cash Advance Clearing Account|USD 100|-
+Employee Vendor|-|USD 100
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#epc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#epc)
 
 ### <a name="ucreditc"></a>Credit Card
 
@@ -628,24 +625,24 @@ Employee gets USD 300 from an ATM using a company paid credit card.
 
 **Cash Advance Clearing Account**
 
-| Debit      | Credit |
-|------------|--------|
-| CA &nbsp; &nbsp; &nbsp; USD 300 |        |
+Debit|Credit
+---|---
+CA USD 300|-
 
 **Credit Card Clearing Account**
 
-| Debit | Credit     |
-|-------|------------|
-|       | CA &nbsp; &nbsp; &nbsp; USD 300 |
+Debit|Credit
+---|---
+-|CA USD 300
 
 **Posting Record**
 
-| Account                       | Debit   | Credit  |
-|-------------------------------|---------|---------|
-| Cash Advance Clearing Account | USD 300 |         |
-| Credit Card Clearing Account  |         | USD 300 |
+Account|Debit|Credit
+---|---|---
+Cash Advance Clearing Account|USD 300|-
+Credit Card Clearing Account|-|USD 300
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#ecc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ecc)
 
 ## <a name="uapp"></a>Application
 
@@ -661,196 +658,202 @@ The user has gone to an ATM and withdrawn USD 300 in cash on the corporate card.
 
 **Cash Advance Clearing Account**
 
-| Debit | Credit     |
-|-------|------------|
-|       | ER &nbsp; &nbsp; &nbsp; USD 300 |
+Debit|Credit
+---|---
+-|ER USD 300
 
 **Expense Account**
 
-| Debit                   | Credit |
-|-------------------------|--------|
-| ER (Rental Car) &nbsp; &nbsp; &nbsp; USD 245 |        |
-| ER (Meal) USD &nbsp; &nbsp; &nbsp; 60        |        |
-| ER (Parking) &nbsp; &nbsp; &nbsp; USD 10     |        |
+Debit|Credit
+---|---
+ER (Rental Car) USD 245|-
+ER (Meal) USD 60|-
+ER (Parking) USD 10|-
 
 **Employee Vendor Account**
 
-| Debit | Credit    |
-|-------|-----------|
-|       | CA &nbsp; &nbsp; &nbsp; USD 15 |
+Debit|Credit
+---|---
+-|CA USD 15
 
 **Posting Record**
 
-| Account                       | Debit   | Credit  |
-|-------------------------------|---------|---------|
-| Expense Account               | USD 245 |         |
-| Expense Account               | USD 60  |         |
-| Expense Account               | USD 10  |         |
-| Cash Advance Clearing Account |         | USD 300 |
-| Employee Vendor               |         | USD 15  |
+Account|Debit|Credit
+---|---|---
+Expense Account|USD 245|-
+Expense Account|USD 60|-
+Expense Account|USD 10|-
+Cash Advance Clearing Account|-|USD 300
+Employee Vendor|-|USD 15
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#ecailt)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ecailt)
 
 #### JSON Example
 
 **Cash Advance Application credited against Expense Entries.**
 
-```
+```json
 "expenseEntry": {
-"entryId": "1240",
-"entryDate": "2004-07-24",
-"vendorName": "AVIS", \*\*localized value\*\*
-"expenseTypeName": "Rental Car", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
-}
-"journal": {
-"payer": "COMPANY",
-"payee": "EMPLOYEE",
-"journalAmount": +245.0000,
-"debitCredit": "DR",
-"accountCode": "7271008",
-}
-"cashAdvanceJournal": {
-"payer": "EMPLOYEE",
-"payee": "COMPANY",
-"journalAmount": -245.0000,
-"debitCredit": "CR",
-"accountCode": "1009990",
-"caAmount": 300.0000,
-"caTranType": 2,
-} } }
-"expenseEntry": {
-"entryId": "1241",
-"entryDate": "2004-07-25",
-"vendorName": "MORTONS", \*\*localized value\*\*
-"expenseTypeName": "Business Meal", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
-}
-"journal": {
-"payer": "COMPANY",
-"payee": "EMPLOYEE",
-"journalAmount": +67.0000,
-"debitCredit": "DR",
-"accountCode": "7271110",
-}
-"cashAdvanceJournal": {
-"payer": "EMPLOYEE",
-"payee": "COMPANY",
-"journalAmount": -55.0000,
-"debitCredit": "CR",
-"accountCode": "1009990",
-"caAmount": 300.0000,
-"caTranType": 2,
-} } }
-"expenseEntry": {
-"entryId": "1241",
-"entryDate": "2004-07-25",
-"vendorName": null
-"expenseTypeName": "Parking", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
-}
-"journal": {
-"payer": "COMPANY",
-"payee": "EMPLOYEE",
-"journalAmount": +10.0000,
-"debitCredit": "DR",
-"accountCode": "7271005",
-}
-}
-}
+  "entryId": "1240",
+  "entryDate": "2004-07-24",
+  "vendorName": "AVIS", \*\*localized value\*\*
+  "expenseTypeName": "Rental Car", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "journal": {
+      "payer": "COMPANY",
+      "payee": "EMPLOYEE",
+      "journalAmount": +245.0000,
+      "debitCredit": "DR",
+      "accountCode": "7271008",
+    },
+    "cashAdvanceJournal": {
+      "payer": "EMPLOYEE",
+      "payee": "COMPANY",
+      "journalAmount": -245.0000,
+      "debitCredit": "CR",
+      "accountCode": "1009990",
+      "caAmount": 300.0000,
+      "caTranType": 2,
+      } } }
+      "expenseEntry": {
+        "entryId": "1241",
+        "entryDate": "2004-07-25",
+        "vendorName": "MORTONS", \*\*localized value\*\*
+        "expenseTypeName": "Business Meal", \*\*localized value\*\*
+        "EntryIsPersonal": "N",
+        "allocation": {
+          "allocationCustom1": "1101", {
+            "name": "SAP",
+            "type": "connectedList",
+          },
+          "journal": {
+            "payer": "COMPANY",
+            "payee": "EMPLOYEE",
+            "journalAmount": +67.0000,
+            "debitCredit": "DR",
+            "accountCode": "7271110",
+          },
+          "cashAdvanceJournal": {
+            "payer": "EMPLOYEE",
+            "payee": "COMPANY",
+            "journalAmount": -55.0000,
+            "debitCredit": "CR",
+            "accountCode": "1009990",
+            "caAmount": 300.0000,
+            "caTranType": 2,
+            } } }
+            "expenseEntry": {
+              "entryId": "1241",
+              "entryDate": "2004-07-25",
+              "vendorName": null,
+              "expenseTypeName": "Parking", \*\*localized value\*\*
+              "EntryIsPersonal": "N",
+              "allocation": {
+                "allocationCustom1": "1101", {
+                  "name": "SAP",
+                  "type": "connectedList",
+                },
+                "journal": {
+                  "payer": "COMPANY",
+                  "payee": "EMPLOYEE",
+                  "journalAmount": +10.0000,
+                  "debitCredit": "DR",
+                  "accountCode": "7271005",
+                }
+              }
+            }
 ```
 #### JSON Example
 
 **Cash Advance Application credited against Expense Report.**
 
-```
+```json
 {
-"employee": {
-"empId": "101002",
-"empLastName": "Brown"
-"empFirstName": "Terry",
-}
-"report":
-{
-"ReportId": "5BE3772C19AC40CE8EF2",
-"ReportKey": 102006,
-"rptSubmitDate": "2004-7-07",
-"cashAdvanceJournal": {
-"payer": "EMPLOYEE",
-"payee": "COMPANY",
-"journalAmount": -300.0000,
-"debitCredit": "CR",
-"accountCode": "1009990",
-"caAmount": 300.0000,
-"caTranType": 2,
-}
-}
-"expenseEntry": {
-"entryId": "1240",
-"entryDate": "2004-07-24",
-"vendorName": "AVIS", \*\*localized value\*\*
-"expenseTypeName": "Rental Car", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
-}
-"journal": {
-"payer": "COMPANY",
-"payee": "EMPLOYEE",
-"journalAmount": +245.0000,
-"debitCredit": "DR",
-"accountCode": "7271008",
-} } }
-"expenseEntry": {
-"entryId": "1241",
-"entryDate": "2004-07-25",
-"vendorName": "MORTONS", \*\*localized value\*\*
-"expenseTypeName": "Business Meal", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
-}
-"journal": {
-"payer": "COMPANY",
-"payee": "EMPLOYEE",
-"journalAmount": +67.0000,
-"debitCredit": "DR",
-"accountCode": "7271110",
-} } }
-"expenseEntry": {
-"entryId": "1241",
-"entryDate": "2004-07-25",
-"vendorName": null
-"expenseTypeName": "Parking", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
-}
-"journal": {
-"payer": "COMPANY",
-"payee": "EMPLOYEE",
-"journalAmount": +10.0000,
-"debitCredit": "DR",
-"accountCode": "7271005",
-} } }
+  "employee": {
+    "empId": "101002",
+    "empLastName": "Brown",
+    "empFirstName": "Terry",
+  },
+  "report":
+  {
+    "ReportId": "5BE3772C19AC40CE8EF2",
+    "ReportKey": 102006,
+    "rptSubmitDate": "2004-7-07",
+    "cashAdvanceJournal": {
+      "payer": "EMPLOYEE",
+      "payee": "COMPANY",
+      "journalAmount": -300.0000,
+      "debitCredit": "CR",
+      "accountCode": "1009990",
+      "caAmount": 300.0000,
+      "caTranType": 2,
+    }
+  },
+  "expenseEntry": {
+    "entryId": "1240",
+    "entryDate": "2004-07-24",
+    "vendorName": "AVIS", \*\*localized value\*\*
+    "expenseTypeName": "Rental Car", \*\*localized value\*\*
+    "EntryIsPersonal": "N",
+    "allocation": {
+      "allocationCustom1": "1101", {
+        "name": "SAP",
+        "type": "connectedList",
+      },
+      "journal": {
+        "payer": "COMPANY",
+        "payee": "EMPLOYEE",
+        "journalAmount": +245.0000,
+        "debitCredit": "DR",
+        "accountCode": "7271008",
+      }
+    }
+  }
+  "expenseEntry": {
+    "entryId": "1241",
+    "entryDate": "2004-07-25",
+    "vendorName": "MORTONS", \*\*localized value\*\*
+    "expenseTypeName": "Business Meal", \*\*localized value\*\*
+    "EntryIsPersonal": "N",
+    "allocation": {
+      "allocationCustom1": "1101", {
+        "name": "SAP",
+        "type": "connectedList",
+      },
+      "journal": {
+        "payer": "COMPANY",
+        "payee": "EMPLOYEE",
+        "journalAmount": +67.0000,
+        "debitCredit": "DR",
+        "accountCode": "7271110",
+      }
+    }
+  }
+  "expenseEntry": {
+    "entryId": "1241",
+    "entryDate": "2004-07-25",
+    "vendorName": null,
+    "expenseTypeName": "Parking", \*\*localized value\*\*
+    "EntryIsPersonal": "N",
+    "allocation": {
+      "allocationCustom1": "1101", {
+        "name": "SAP",
+        "type": "connectedList",
+      },
+      "journal": {
+        "payer": "COMPANY",
+        "payee": "EMPLOYEE",
+        "journalAmount": +10.0000,
+        "debitCredit": "DR",
+        "accountCode": "7271005",
+      }
+    }
+  }
 ```
 ### <a name="ucahtp"></a>Cash Advance Is Higher Than the Payout Amount
 
@@ -864,79 +867,82 @@ The user has requested and received a USD 400 cash advance and in the course of 
 
 **Cash Advance Clearing Account**
 
-| Debit | Credit     |
-|-------|------------|
-|       | ER &nbsp; &nbsp; &nbsp; USD 400 |
+Debit|Credit
+---|---
+-|ER USD 400
 
 **Expense Account**
 
-| Debit                   | Credit |
-|-------------------------|--------|
-| ER (Rental Car) &nbsp; &nbsp; &nbsp; USD 245 |        |
-| ER (Meal) &nbsp; &nbsp; &nbsp; USD 60        |        |
-| ER (Parking) &nbsp; &nbsp; &nbsp; USD 10     |        |
+Debit|Credit
+---|---
+ER (Rental Car) USD 245|-
+ER (Meal) USD 60|-
+ER (Parking) USD 10|-
 
 **Employee Vendor Account**
 
-| Debit     | Credit |
-|-----------|--------|
-| ER &nbsp; &nbsp; &nbsp; USD 85 |        |
+Debit|Credit
+---|---
+ER USD 85|-
 
 **Posting Record**
 
-| Account                       | Debit   | Credit  |
-|-------------------------------|---------|---------|
-| Expense Account               | USD 245 |         |
-| Expense Account               | USD 60  |         |
-| Expense Account               | USD 10  |         |
-| Cash Advance Clearing Account |         | USD 400 |
-| Employee Vendor               | USD 85  |         |
+Account|Debit|Credit
+---|---|---
+Expense Account|USD 245|-
+Expense Account|USD 60|-
+Expense Account|USD 10|-
+Cash Advance Clearing Account|-|USD 400
+Employee Vendor|USD 85|-
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#ecaiht)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ecaiht)
 
 #### JSON Example
 
 **Nested under entries design: Would include all the same data as show in case(9), with the addition of this Cash Advance Return entry**
 
-```
+```json
 "expenseEntry": {
-"entryId": "1246",
-"entryDate": "2004-07-31",
-"vendorName": null
-"expenseTypeName": "Cash Advance Return", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
+  "entryId": "1246",
+  "entryDate": "2004-07-31",
+  "vendorName": null,
+  "expenseTypeName": "Cash Advance Return", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "cashAdvanceJournal": {
+      "payer": "EMPLOYEE",
+      "payee": "COMPANY",
+      "journalAmount": -78.0000,
+      "debitCredit": "CR",
+      "accountCode": "1009990",
+      "caAmount": 300.0000,
+      "caTranType": 2,
+    }
+  }
 }
-"cashAdvanceJournal": {
-"payer": "EMPLOYEE",
-"payee": "COMPANY",
-"journalAmount": -78.0000,
-"debitCredit": "CR",
-"accountCode": "1009990",
-"caAmount": 300.0000,
-"caTranType": 2,
-} } }
 ```
 **Application total nested under Expense Report design:**
 
-```
+```json
 "report":
 {
-"ReportId": "5BE3772C19AC40CE8EF2",
-"ReportKey": 102006,
-"rptSubmitDate": "2004-7-07",
-"cashAdvanceJournal": {
-"payer": "EMPLOYEE",
-"payee": "COMPANY",
-"journalAmount": -400.0000,
-"debitCredit": "CR",
-"accountCode": "1009990",
-"caAmount": 400.0000,
-"caTranType": 2,
-} }
+  "ReportId": "5BE3772C19AC40CE8EF2",
+  "ReportKey": 102006,
+  "rptSubmitDate": "2004-7-07",
+  "cashAdvanceJournal": {
+    "payer": "EMPLOYEE",
+    "payee": "COMPANY",
+    "journalAmount": -400.0000,
+    "debitCredit": "CR",
+    "accountCode": "1009990",
+    "caAmount": 400.0000,
+    "caTranType": 2,
+  }
+}
 ```
 
 ## <a name="ucci"></a>Credit Card Items
@@ -963,22 +969,22 @@ Expense Report with one employee paid credit card item: Bus - USD 10.
 
 **Expense Account**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 10 |        |
+Debit|Credit
+---|---
+ER 10 USD 10|-
 
 **Employee Vendor Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 10 |
+Debit|Credit
+---|---
+-|ER 10 USD 10
 
 **Posting Record**
 
-| Account         | Debit  | Credit |
-|-----------------|--------|--------|
-| Expense         | USD 10 |        |
-| Employee Vendor |        | USD 10 |
+Account|Debit|Credit
+---|---|---
+Expense|USD 10|-
+Employee Vendor|-|USD 10
 
 ### <a name="upccva"></a>Payment via Credit Card Vendor Account (Split Payment)
 
@@ -992,50 +998,50 @@ Rental car paid with IBIP card for USD 10.
 
 **Expense Account**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 10 |        |
+Debit|Credit
+---|---
+ER 10 USD 10|-
 
 **Credit Card Vendor Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 10 |
+Debit|Credit
+---|---
+-|ER 10 USD 10
 
 **Posting Record**
 
-| Account            | Debit  | Credit |
-|--------------------|--------|--------|
-| Expense            | USD 10 |        |
-| Credit Card Vendor |        | USD 10 |
+Account|Debit|Credit
+---|---|---
+Expense|USD 10|-
+Credit Card Vendor|-|USD 10
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#epvccva)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#epvccva)
 
 #### JSON Example
 
 **Allocation configuration varies by client, and may include different fields
 than listed in this example.**
 
-```
+```json
 "expenseEntry": {
-"entryId": "1235",
-"entryDate": "2004-06-26",
-"vendorName": "HERTZ", \*\*localized value\*\*
-"expenseTypeName": "Rental Car", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
-}
-"journal": {
-"payer": "COMPANY",
-"payee": "IBCP CORP",
-"journalAmount": +10.0000,
-"debitCredit": "DR",
-"accountCode": "7271008",
-}
-}
+  "entryId": "1235",
+  "entryDate": "2004-06-26",
+  "vendorName": "HERTZ", \*\*localized value\*\*
+  "expenseTypeName": "Rental Car", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "journal": {
+      "payer": "COMPANY",
+      "payee": "IBCP CORP",
+      "journalAmount": +10.0000,
+      "debitCredit": "DR",
+      "accountCode": "7271008",
+    }
+  }
 }
 ```
 
@@ -1049,50 +1055,50 @@ The user receives a USD 349 credit on the corporate card for an unused airline t
 
 **Expense Account**
 
-| Debit | Credit        |
-|-------|---------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 349 |
+Debit|Credit
+---|---
+-|ER 10 USD 349
 
 **Credit Card Vendor Account**
 
-| Debit         | Credit |
-|---------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 349 |        |
+Debit|Credit
+---|---
+ER 10 USD 349|-
 
 **Posting Record**
 
-| Account            | Debit   | Credit  |
-|--------------------|---------|---------|
-| Expense            |         | USD 349 |
-| Credit Card Vendor | USD 349 |         |
+Account|Debit|Credit
+---|---|---
+Expense|-|USD 349
+Credit Card Vendor|USD 349|-
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#ectvcc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ectvcc)
 
 #### JSON Example
 
 **Allocation configuration varies by client, and may include different fields
 than listed in this example.**
 
-```
+```json
 "expenseEntry": {
-"entryId": "1535",
-"entryDate": "2004-08-26",
-"vendorName": "JET BLUE", \*\*localized value\*\*
-"expenseTypeName": "Airfare", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
-}
-"journal": {
-"payer": "IBCP CORP",
-"payee": "COMPANY",
-"journalAmount": -349.0000,
-"debitCredit": "CR",
-"accountCode": "7271101",
-}
-}
+  "entryId": "1535",
+  "entryDate": "2004-08-26",
+  "vendorName": "JET BLUE", \*\*localized value\*\*
+  "expenseTypeName": "Airfare", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "journal": {
+      "payer": "IBCP CORP",
+      "payee": "COMPANY",
+      "journalAmount": -349.0000,
+      "debitCredit": "CR",
+      "accountCode": "7271101",
+    }
+  }
 }
 ```
 
@@ -1106,96 +1112,102 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 **Expense Account**
 
-| Debit         | Credit |
-|---------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 125 |        |
-| ER 10 &nbsp; &nbsp; &nbsp; USD 125 |        |
-| ER 10 &nbsp; &nbsp; &nbsp; USD 20  |        |
+Debit|Credit
+---|---
+ER 10 USD 125|-
+ER 10 USD 125|-
+ER 10 USD 20|-
 
 **Credit Card Vendor Account**
 
-| Debit | Credit        |
-|-------|---------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 270 |
+Debit|Credit
+---|---
+-|ER 10 USD 270
 
 **Posting Record**
 
-| Account            | Debit   | Credit  |
-|--------------------|---------|---------|
-| Expense            | USD 125 |         |
-| Expense            | USD 125 |         |
-| Expense            | USD 20  |         |
-| Credit Card Vendor |         | USD 270 |
+Account|Debit|Credit
+---|---|---
+Expense|USD 125|-
+Expense|USD 125|-
+Expense|USD 20|-
+Credit Card Vendor|-|USD 270
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#esiccc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#esiccc)
 
 #### JSON Example
 
 **Allocation configuration varies by client, and may include different fields
 than listed in this example.**
 
-```
+```json
 "expenseEntry": {
-"entryId": "1236",
-"entryDate": "2004-06-27",
-"vendorName": "MARRIOT", \*\*localized value\*\*
-"expenseTypeName": "Hotel", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
+  "entryId": "1236",
+  "entryDate": "2004-06-27",
+  "vendorName": "MARRIOT", \*\*localized value\*\*
+  "expenseTypeName": "Hotel", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "journal": {
+      "payer": "COMPANY",
+      "payee": "IBCP CORP",
+      "journalAmount": +125.0000,
+      "debitCredit": "DR",
+      "accountCode": "7271001",
+    }
+  }
 }
-"journal": {
-"payer": "COMPANY",
-"payee": "IBCP CORP",
-"journalAmount": +125.0000,
-"debitCredit": "DR",
-"accountCode": "7271001",
-} } }
 "expenseEntry": {
-"entryId": "1237",
-"entryDate": "2004-06-28",
-"vendorName": "MARRIOT", \*\*localized value\*\*
-"expenseTypeName": "Hotel", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
+  "entryId": "1237",
+  "entryDate": "2004-06-28",
+  "vendorName": "MARRIOT", \*\*localized value\*\*
+  "expenseTypeName": "Hotel", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "journal": {
+      "payer": "COMPANY",
+      "payee": "IBCP CORP",
+      "journalAmount": +125.0000,
+      "debitCredit": "DR",
+      "accountCode": "7271001",
+    }
+  }
 }
-"journal": {
-"payer": "COMPANY",
-"payee": "IBCP CORP",
-"journalAmount": +125.0000,
-"debitCredit": "DR",
-"accountCode": "7271001",
-} } }
 "expenseEntry": {
-"entryId": "1237",
-"entryDate": "2004-06-27",
-"vendorName": "MARRIOT", \*\*localized value\*\*
-"expenseTypeName": "Dinner", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
+  "entryId": "1237",
+  "entryDate": "2004-06-27",
+  "vendorName": "MARRIOT", \*\*localized value\*\*
+  "expenseTypeName": "Dinner", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "journal": {
+      "payer": "COMPANY",
+      "payee": "IBCP CORP",
+      "journalAmount": +20.0000,
+      "debitCredit": "DR",
+      "accountCode": "7271001",
+    }
+  }
 }
-"journal": {
-"payer": "COMPANY",
-"payee": "IBCP CORP",
-"journalAmount": +20.0000,
-"debitCredit": "DR",
-"accountCode": "7271001",
-} } }
 ```
 
 ### <a name="uiwpen"></a>IBCP With Personal Expense: No Out-of-Pocket
 
 Personal expenses paid by an IBCP credit card will not be included in the JSON.
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#eiwpe)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eiwpe)
 
 ### <a name="uiwpegt"></a>IBCP (With Offsets) With Personal Expense: Out-of-Pocket Greater Than Personal Expense
 
@@ -1207,39 +1219,39 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 **Expense Account**
 
-| Debit                 | Credit |
-|-----------------------|--------|
-| ER 10 (Hotel) &nbsp; &nbsp; &nbsp; USD 125 |        |
-| ER 10 (Hotel &nbsp; &nbsp; &nbsp;  USD 125 |        |
-| ER 10 (Dinner) &nbsp; &nbsp; &nbsp; USD 20 |        |
-| ER 10 (Taxi) &nbsp; &nbsp; &nbsp; USD 14   |        |
-| ER 10 (Taxi) &nbsp; &nbsp; &nbsp; USD 21   |        |
+Debit|Credit
+---|---
+ER 10 (Hotel) USD 125|-
+ER 10 (Hotel  USD 125|-
+ER 10 (Dinner) USD 20|-
+ER 10 (Taxi) USD 14|-
+ER 10 (Taxi) USD 21|-
 
 **Credit Card Vendor Account**
 
-| Debit | Credit        |
-|-------|---------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 284 |
+Debit|Credit
+---|---
+-|ER 10 USD 284
 
 **Employee Vendor Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 21 |
+Debit|Credit
+---|---
+-|ER 10 USD 21
 
 **Posting Record**
 
-| Account            | Debit   | Credit  |
-|--------------------|---------|---------|
-| Expense            | USD 125 |         |
-| Expense            | USD 125 |         |
-| Expense            | USD 20  |         |
-| Expense            | USD 14  |         |
-| Expense            | USD 21  |         |
-| Credit Card Vendor |         | USD 284 |
-| Employee Vendor    |         | USD 21  |
+Account|Debit|Credit
+---|---|---
+Expense|USD 125|-
+Expense|USD 125|-
+Expense|USD 20|-
+Expense|USD 14|-
+Expense|USD 21|-
+Credit Card Vendor|-|USD 284
+Employee Vendor|-|USD 21
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#eiwoegt)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eiwoegt)
 
 ### <a name="uwpelt"></a>IBCP (With Offsets) With Personal Expense: Out-of-Pocket Less Than Personal Expense
 
@@ -1251,31 +1263,31 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 **Expense Account**
 
-| Debit                 | Credit |
-|-----------------------|--------|
-| ER 10 (Hotel) &nbsp; &nbsp; &nbsp; USD 125 |        |
-| ER 10 (Hotel) &nbsp; &nbsp; &nbsp; USD 125 |        |
-| ER 10 (Dinner) &nbsp; &nbsp; &nbsp; USD 20 |        |
-| ER 10 (Parking) &nbsp; &nbsp; &nbsp; USD 5 |        |
+Debit|Credit
+---|---
+ER 10 (Hotel) USD 125|-
+ER 10 (Hotel) USD 125|-
+ER 10 (Dinner) USD 20|-
+ER 10 (Parking) USD 5|-
 
 **Credit Card Vendor Account**
 
-| Debit | Credit        |
-|-------|---------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 275 |
+Debit|Credit
+---|---
+-|ER 10 USD 275
 
 **Posting Record**
 
-| Account            | Debit   | Credit     |
-|--------------------|---------|------------|
-| Expense            | USD 125 |            |
-| Expense            | USD 125 |            |
-| Expense            | USD 30  |            |
-| Expense            | USD 14  |            |
-| Expense            | USD 21  |            |
-| Credit Card Vendor |         | USD 275 |
+Account|Debit|Credit
+---|---|---
+Expense|USD 125|-
+Expense|USD 125|-
+Expense|USD 30|-
+Expense|USD 14|-
+Expense|USD 21|-
+Credit Card Vendor|-|USD 275
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#eiwolt)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eiwolt)
 
 ## <a name="ucpcc"></a>Company Paid Credit Card
 
@@ -1292,42 +1304,42 @@ Hotel costs (EUR 107) are paid via company paid credit card (including EUR 7 VAT
 
 **Expense Account**
 
-| Debit         | Credit |
-|---------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; EUR 100 |        |
+Debit|Credit
+---|---
+ER 10 EUR 100|-
 
 **VAT**
 
-| Debit       | Credit |
-|-------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; EUR 7 |        |
+Debit|Credit
+---|---
+ER 10 EUR 7|-
 
 **Credit Card Clearing Account**
 
-| Debit                  | Credit        |
-|------------------------|---------------|
-| *CC Statement &nbsp; &nbsp; &nbsp; EUR 107* | ER 10 &nbsp; &nbsp; &nbsp; EUR 107 |
+Debit|Credit
+---|---
+CC Statement EUR 107|ER 10 EUR 107
 
 **Credit Card Vendor Account**
 
-| Debit | Credit                 |
-|-------|------------------------|
-|       | *CC Statement &nbsp; &nbsp; &nbsp; EUR 107* |
+Debit|Credit
+---|---
+-|CC Statement EUR 107
 
 **Posting Record - Expense Report**
 
-| Account             | Debit   | Credit  |
-|---------------------|---------|---------|
-| Expense             | EUR 100 |         |
-| VAT                 | EUR 7   |         |
-| CC Clearing Account |         | EUR 107 |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 100|-
+VAT|EUR 7|-
+CC Clearing Account|-|EUR 107
 
 **Posting Record - Credit Card Statement**
 
-| Account               | Debit     | Credit    |
-|-----------------------|-----------|-----------|
-| *CC Clearing Account* | *EUR 107* |           |
-| *CC Vendor Account*   |           | *EUR 107* |
+Account|Debit|Credit
+---|---|---
+CC Clearing Account|EUR 107|-
+CC Vendor Account|-|EUR 107
 
 ### <a name="ucvea"></a>Clearing via Expense Account
 
@@ -1343,69 +1355,71 @@ Hotel costs (EUR 107) are paid via company paid credit card (including EUR 7 VAT
 
 **Expense Account**
 
-| Debit                  | Credit        |
-|------------------------|---------------|
-| ER 10 &nbsp; &nbsp; &nbsp; EUR 100          |               |
-|                        | ER 10 &nbsp; &nbsp; &nbsp; EUR 100 |
-| *CC Statement &nbsp; &nbsp; &nbsp; EUR 100* |               |
+Debit|Credit
+---|---
+ER 10 EUR 100|-
+-|ER 10 EUR 100
+CC Statement EUR 100|-
 
 **VAT**
 
-| Debit                | Credit      |
-|----------------------|-------------|
-| ER 10 &nbsp; &nbsp; &nbsp; EUR 7          |             |
-|                      | ER 10 &nbsp; &nbsp; &nbsp; EUR 7 |
-| *CC Statement &nbsp; &nbsp; &nbsp; EUR 7* |             |
+Debit|Credit
+---|---
+ER 10 EUR 7|-
+-|ER 10 EUR 7
+CC Statement EUR 7|-
 
 **Credit Card Vendor Account**
 
-| Debit | Credit                 |
-|-------|------------------------|
-|       | *CC Statement &nbsp; &nbsp; &nbsp; EUR 107* |
+Debit|Credit
+---|---
+-|CC Statement EUR 107
 
 **Posting Record - Expense Report**
 
-| Account | Debit   | Credit  |
-|---------|---------|---------|
-| Expense | EUR 100 |         |
-| VAT     | EUR 7   |         |
-| Expense |         | EUR 100 |
-| VAT     |         | EUR 7   |
+Account|Debit|Credit
+---|---|---
+Expense|EUR 100|-
+VAT|EUR 7|-
+Expense|-|EUR 100
+VAT|-|EUR 7
 
 **Posting Record - Credit Card Statement**
 
-| Account             | Debit     | Credit    |
-|---------------------|-----------|-----------|
-| *Expense*           | *EUR 100* |           |
-| *VAT*               | *EUR 7*   |           |
-| *CC Vendor Account* |           | *EUR 107* |
+Account|Debit|Credit
+---|---|---
+Expense*EUR 100*|-
+|VAT|EUR 7|-
+|CC Vendor Account|-|EUR 107
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#ecvea)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ecvea)
 
 #### JSON Example
 
 **Allocation configuration varies by client, and may include different fields
 than listed in this example.**
 
-```
+```json
 "expenseEntry": {
-"entryId": "1236",
-"entryDate": "2004-06-27",
-"vendorName": "DELTA", \*\*localized value\*\*
-"expenseTypeName": "Airfare", \*\*localized value\*\*
-"EntryIsPersonal": "N",
-"allocation": {
-"allocationCustom1": "1101", {
-"name": "SAP",
-"type": "connectedList",
+  "entryId": "1236",
+  "entryDate": "2004-06-27",
+  "vendorName": "DELTA", \*\*localized value\*\*
+  "expenseTypeName": "Airfare", \*\*localized value\*\*
+  "EntryIsPersonal": "N",
+  "allocation": {
+    "allocationCustom1": "1101", {
+      "name": "SAP",
+      "type": "connectedList",
+    },
+    "journal": {
+      "payer": "COMPANY",
+      "payee": "COMPANY PAID",
+      "journalAmount": +450.0000,
+      "debitCredit": "DR",
+      "accountCode": "7271101",
+    }
+  }
 }
-"journal": {
-"payer": "COMPANY",
-"payee": "COMPANY PAID",
-"journalAmount": +450.0000,
-"debitCredit": "DR",
-"accountCode": "7271101",
-} } }
 ```
 
 ### <a name="ucccepe"></a>CBCP Corporate Card Charge for Entirely Personal Expense (Net Due Company With and Without Offsets)
@@ -1418,24 +1432,24 @@ The employee mistakenly uses the corporate card to pay for a personal dinner exp
 
 **Employee Vendor Account**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 53 |        |
+Debit|Credit
+---|---
+ER 10 USD 53|-
 
 **Credit Card Clearing Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 53 |
+Debit|Credit
+---|---
+-|ER 10 USD 53
 
 **Posting Record - Expense Report**
 
-| Account              | Debit  | Credit |
-|----------------------|--------|--------|
-| Employee Vendor      | USD 53 |        |
-| Credit Card Clearing |        | USD 53 |
+Account|Debit|Credit
+---|---|---
+Employee Vendor|USD 53|-
+Credit Card Clearing|-|USD 53
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccep)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccep)
 
 ### <a name="ucccwoffset"></a>CBCP Corporate Card Charge with Itemization and Personal Expense (Net Due Employee With Offsets)
 
@@ -1447,37 +1461,37 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 **Expense Account**
 
-| Debit                 | Credit |
-|-----------------------|--------|
-| ER 10 (Hotel) &nbsp; &nbsp; &nbsp; USD 125 |        |
-| ER 10 (Hotel) &nbsp; &nbsp; &nbsp; USD 125 |        |
-| ER 10 (Dinner) &nbsp; &nbsp; &nbsp; USD 20 |        |
-| ER 10 (Taxi) &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; USD 35   |        |
+Debit|Credit
+---|---
+ER 10 (Hotel) USD 125|-
+ER 10 (Hotel) USD 125|-
+ER 10 (Dinner) USD 20|-
+ER 10 (Taxi)  USD 35|-
 
 **Employee Vendor Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 21 |
+Debit|Credit
+---|---
+-|ER 10 USD 21
 
 **Credit Card Clearing Account**
 
-| Debit | Credit        |
-|-------|---------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 284 |
+Debit|Credit
+---|---
+-|ER 10 USD 284
 
 **Posting Record - Expense Report**
 
-| Account              | Debit   | Credit  |
-|----------------------|---------|---------|
-| Expense              | USD 125 |         |
-| Expense              | USD 125 |         |
-| Expense              | USD 20  |         |
-| Expense              | USD 35  |         |
-| Employee Vendor      |         | USD 21  |
-| Credit Card Clearing |         | USD 284 |
+Account|Debit|Credit
+---|---|---
+Expense|USD 125|-
+Expense|USD 125|-
+Expense|USD 20|-
+Expense|USD 35|-
+Employee Vendor|-|USD 21
+Credit Card Clearing|-|USD 284
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccwi)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccwi)
 
 ### <a name="ucccnoff"></a>CBCP Corporate Card Charge With Itemization and Personal Expense (Net Due Employee Without Offsets)
 
@@ -1489,39 +1503,39 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 **Expense Account**
 
-| Debit                 | Credit |
-|-----------------------|--------|
-| ER 10 (Hotel) &nbsp; &nbsp; &nbsp; USD 125 |        |
-| ER 10 (Hotel) &nbsp; &nbsp; &nbsp; USD 125 |        |
-| ER 10 (Dinner) &nbsp; &nbsp; &nbsp; USD 20 |        |
-| ER 10 (Taxi) &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; USD 35   |        |
+Debit|Credit
+---|---
+ER 10 (Hotel) USD 125|-
+ER 10 (Hotel) USD 125|-
+ER 10 (Dinner) USD 20|-
+ER 10 (Taxi)  USD 35|-
 
 **Employee Vendor Account**
 
-| Debit        | Credit       |
-|--------------|--------------|
-|              | ER 10 &nbsp; &nbsp; &nbsp; USD 35 |
-| ER 10 &nbsp; &nbsp; &nbsp; USD 14 |              |
+Debit|Credit
+---|---
+-|ER 10 USD 35
+ER 10 USD 14|-
 
 **Credit Card Clearing Account**
 
-| Debit | Credit        |
-|-------|---------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 284 |
+Debit|Credit
+---|---
+-|ER 10 USD 284
 
 **Posting Record - Expense Report**
 
-| Account              | Debit   | Credit  |
-|----------------------|---------|---------|
-| Expense              | USD 125 |         |
-| Expense              | USD 125 |         |
-| Expense              | USD 20  |         |
-| Expense              | USD 35  |         |
-| Employee Vendor      |         | USD 35  |
-| Employee Vendor      | USD 14  |         |
-| Credit Card Clearing |         | USD 284 |
+Account|Debit|Credit
+---|---|---
+Expense|USD 125|-
+Expense|USD 125|-
+Expense|USD 20|-
+Expense|USD 35|-
+Employee Vendor|-|USD 35
+Employee Vendor|USD 14|-
+Credit Card Clearing|-|USD 284
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccip)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccip)
 
 ### <a name="ucccepe"></a>CBCP Corporate Card Charge for Entirely Personal Expense (Net Due Company Without Offsets)
 
@@ -1533,24 +1547,24 @@ The employee mistakenly uses the corporate card to pay for a personal dinner exp
 
 **Employee Vendor Account Accounts**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 53 |        |
+Debit|Credit
+---|---
+ER 10 USD 53|-
 
 **Credit Card Clearing Account**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 53 |
+Debit|Credit
+---|---
+-|ER 10 USD 53
 
 **Posting Record - Expense Report**
 
-| Account                      | Debit  | Credit |
-|------------------------------|--------|--------|
-| Employee Vendor              | USD 53 |        |
-| Credit Card Clearing Account |        | USD 53 |
+Account|Debit|Credit
+---|---|---
+Employee Vendor|USD 53|-
+Credit Card Clearing Account|-|USD 53
 
-[Standard Accounting Extract Details](https://developer.concur.com/api-reference/financial-integration/v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccep)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccep)
 
 ## <a name="udocsp"></a>Document Splits
 
@@ -1569,41 +1583,41 @@ We will only support the SAP standard I/Co posting process that can be set up in
 
 **Employee Vendor Account**
 
-| Debit | Credit        |
-|-------|---------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 100 |
+Debit|Credit
+---|---
+-|ER 10 USD 100
 
 **ICO Clearing Account**
 
-| Debit         | Credit |
-|---------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 100 |        |
+Debit|Credit
+---|---
+ER 10 USD 100|-
 
 **ICO Clearing Account**
 
-| Debit | Credit        |
-|-------|---------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 100 |
+Debit|Credit
+---|---
+-|ER 10 USD 100
 
 **Expense Account**
 
-| Debit         | Credit |
-|---------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 100 |        |
+Debit|Credit
+---|---
+ER 10 USD 100|-
 
 **Posting Record - Employee Company Code**
 
-| Account                        | Debit   | Credit  |
-|--------------------------------|---------|---------|
-| Employee Vendor                |         | USD 100 |
-| I/CO Clearing Clearing Account | USD 100 |         |
+Account|Debit|Credit
+---|---|---
+Employee Vendor|-|USD 100
+I/CO Clearing Clearing Account|USD 100|-
 
 **Posting Record - Cost Object Company Code**
 
-| Account                        | Debit   | Credit  |
-|--------------------------------|---------|---------|
-| I/CO Clearing Clearing Account | USD 100 |         |
-| Expense Account                |         | USD 100 |
+Account|Debit|Credit
+---|---|---
+I/CO Clearing Clearing Account|USD 100|-
+Expense Account|-|USD 100
 
 ## <a name="ungls"></a>New G/L Split
 
@@ -1617,38 +1631,38 @@ For a coding example you can look at the CfTE method CL_DCFL_FIN_PREPROC_INIT_TV
 
 **Employee Vendor Account - Posting 1**
 
-| Debit | Credit        |
-|-------|---------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 100 |
+Debit|Credit
+---|---
+-|ER 10 USD 100
 
 **Expense Account - Posting 1**
 
-| Debit         | Credit |
-|---------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 100 |        |
+Debit|Credit
+---|---
+ER 10 USD 100|-
 
 **Credit Card Clearing Account - Posting 2**
 
-| Debit | Credit       |
-|-------|--------------|
-|       | ER 10 &nbsp; &nbsp; &nbsp; USD 50 |
+Debit|Credit
+---|---
+-|ER 10 USD 50
 
 **Expense Account - Posting 2**
 
-| Debit        | Credit |
-|--------------|--------|
-| ER 10 &nbsp; &nbsp; &nbsp; USD 50 |        |
+Debit|Credit
+---|---
+ER 10 USD 50|-
 
 **Posting Record - Posting 1**
 
-| Account         | Debit   | Credit  |
-|-----------------|---------|---------|
-| Employee Vendor |         | USD 100 |
-| Expense Account | USD 100 |         |
+Account|Debit|Credit
+---|---|---
+Employee Vendor|-|USD 100
+Expense Account|USD 100|-
 
 **Posting Record - Posting 2**
 
-| Account                      | Debit  | Credit |
-|------------------------------|--------|--------|
-| Credit Card Clearing Account | USD 50 |        |
-| Expense Account              |        | USD 50 |
+Account|Debit|Credit
+---|---|---
+Credit Card Clearing Account|USD 50|-
+Expense Account|-|USD 50
