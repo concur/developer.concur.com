@@ -11,7 +11,7 @@ This callout differs from the inbound SAP Concur web services in the following w
 * The third-party developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by SAP Concur. This guide specifies the request and response format required by SAP Concur.
 * The client Expense administrator must configure a list (most commonly a connected list), and SAP Concur must perform database configuration on the list before this service can be used.
 
-
+## Contents
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
 * [Fetch List Process Details](#fetch-list-process-details)
@@ -22,8 +22,8 @@ This callout differs from the inbound SAP Concur web services in the following w
 * [Responses and Errors](#responses-errors)
 
 ## <a name="products-editions"></a>Products and Editions
-* **Expense** for Concur Professional/Premium
-* Concur's mobile app
+* Concur Expense Professional Edition
+* The SAP Concur Mobile App
 
 ## <a name="product-restrictions"></a>Product Restrictions
 SAP Concur products are highly configurable, and not all clients will have access to all features.

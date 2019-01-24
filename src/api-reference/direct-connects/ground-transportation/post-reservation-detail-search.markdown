@@ -3,6 +3,22 @@ title: Post a reservation detail search
 layout: reference
 ---
 
+* [Schema](#schema)
+  * [Error Child](#error-child)
+  * [Primary Passenger Child](#primary-passenger-child)
+  * [Pickup Location](#pickup-location)
+  * [Dropoff Location](#dropoff-location)
+  * [Vehicle Child](#vehicle-child)
+  * [Vendor Child](#vendor-child)
+  * [Form of Payment Child](#form-payment-child)
+  * [Rate Information](#rate-info)
+  * [Reply Credit Card](#reply-credit-card)
+  * [Airport](#airport)
+  * [Flight Child](#flight-child)
+  * [Train Station](#train-station)
+  * [Train Child](#train-child)
+* [Example](#example)
+
 ## Request
 The following request is sent to the supplier when the Travel user selects a ground transportation reservation to get additional details.
 
@@ -46,7 +62,7 @@ The supplier responds to the request by supplying the full reservation details.
 ### Content Type
 application/xml
 
-### Content Body
+### <a name="schema"></a>Content Body
 The response will include a CC_LimoReservationDetailReply parent element, with the following child elements:
 
 |Element Name|Required/Optional|Data Type|Description|
@@ -83,7 +99,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |  AccountingInfo |  N |  |The accounting information for the reservation. This parent element contains the following child elements: AccountingField1  through AccountingField5|
 
 
-#### Error Child Elements <a name="Error"></a>
+#### Error Child Elements <a name="error"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 | ---------- | --------------- |-------- |-----------|
@@ -91,7 +107,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |ErrorSource | | |The source of the error. |
 |ErrorDescription| | |The additional error information. |
 
-#### PrimaryPassenger Child Element <a name="PrimaryPassenger"></a>
+#### PrimaryPassenger Child Element <a name="primary-passenger-child"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -102,7 +118,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |CellPhone | | |The contact's cell phone number.|
 |EmailAddress | | |The contact's email address. |
 
-### PickupLocation <a name="PickupLocation"></a>
+### PickupLocation <a name="pickup-location"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -116,7 +132,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | PostalCode |  | |The location postal code. |
 | ExtraNotes |  | |Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
 
-### DropoffLocation <a name="DropoffLocation"></a>
+### DropoffLocation <a name="dropoff-location"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -130,7 +146,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | PostalCode |  | |The location postal code. |
 | ExtraNotes |  | |Additional notes about the location. Example: Apartment Building, gravel driveway, etc. |
 
-### Vehicle Child Elements <a name="vehicle"></a>
+### Vehicle Child Elements <a name="vehicle-child"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -140,7 +156,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | VehicleID |  | |Information to identify the specific vehicle.|
 
 
-#### Vendor Child Elements <a name="vendor"></a>
+#### Vendor Child Elements <a name="vendor-child"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -149,7 +165,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | PhoneNumber |  | |The vendor's phone number. |
 
 
-### FormOfPayment Child Elements <a name="formofpayment"></a>
+### FormOfPayment Child Elements <a name="form-payment-child"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -158,7 +174,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |Check |  | |If present, the passenger will pay with a check. |
 |DirectBilling |  | |If present, the passenger will pay through direct billing. |
 
-### Rate Information Elements
+### <a name="rate-info"></a>Rate Information Elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -179,7 +195,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |OptionalExtraStopCharge	|N|	|The charge for any additional stops.|
 |OptionalExtraTimeCharge	|N|	|The charge for each additional hour.|
 
-### Reply Credit Card Elements
+### <a name="reply-credit-card"></a>Reply Credit Card Elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -187,14 +203,14 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |Number	|Y|	|The card number.|
 |Expiration|	Y|	|The card expiration date. Format: 2013-02-19.|
 
-### Airport Elements
+### <a name="airport"></a>Airport Elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |AirportCode	| | |The IATA code for the airport.|
 |Flight	| | |The flight information. For information about the child elements of this parent element, see the **Flight elements** table.|
 
-### Flight Child Elements
+### <a name="flight-child"></a>Flight Child Elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -203,7 +219,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |ArrivalDateTime|	| |The flight arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 |DepartureDateTime| | 	|The flight departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
 
-### Train Station Elements
+### <a name="train-station"></a>Train Station Elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -213,7 +229,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |State|	| |The state the station is located in. Preferably 2 characters, max 10 characters.|
 |Train|	| |The train information. For information about the child elements of this parent element, see the **Train elements** table. |
 
-### Train Child Elements
+### <a name="train-child"></a>Train Child Elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -223,7 +239,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |ArrivalDateTime| | |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 |DepartureDateTime| | |The train departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
 
-## XML Example of Successful Response
+## <a name="example"></a>XML Example of Successful Response
 
 ```http
 HTTPS/1.1 200 OK

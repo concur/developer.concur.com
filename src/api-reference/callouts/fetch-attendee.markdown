@@ -12,7 +12,7 @@ This callout differs from the standard SAP Concur web services in the following 
 * Clients can either choose to create their own application connector using PHP, Java, .NET etc or can use one of SAP Concur Partner's Attendee Fetch applications.
 * The client SAP Concur Administrator must select the attendee types that will use this functionality during application connector registration. Once the attendee types are selected, they will be automatically configured to not allow users to create new attendees manually.
 
-
+## Contents
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
 * [Concur Connect Callout Details](#concur-connect-callout-details)
@@ -26,10 +26,10 @@ This callout differs from the standard SAP Concur web services in the following 
 
 ### <a name="products-editions"></a>Products and Editions
 
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-* **Expense** for Mobile
-* **Request** for Concur Professional/Premium
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+* Expense in the SAP Mobile App
+* Concur Request Professional Edition
 
 ### <a name="product-restrictions"></a>Product Restrictions    
 

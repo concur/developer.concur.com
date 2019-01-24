@@ -16,7 +16,7 @@ This callout differs from the standard SAP Concur web services in the following 
 * The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by SAP Concur. This guide specifies the request and response format required by SAP Concur.
 * The client Expense administrator must configure a new form field and add the field to the desired form before this service can be used.
 
-
+## Contents
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
 * [Concur Connect Callout Details](#concur-connect-callout-details)
@@ -29,7 +29,7 @@ This callout differs from the standard SAP Concur web services in the following 
 
 ### <a name="products-editions"></a>Products and Editions
 
-* **Expense** for Concur Professional/Premium
+* Concur Expense Professional Edition
 
 ### <a name="product-restrictions"></a>Product Restrictions
 

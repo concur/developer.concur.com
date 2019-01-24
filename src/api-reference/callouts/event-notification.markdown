@@ -12,6 +12,7 @@ This callout differs from the standard SAP Concur web services in the following 
 * The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by SAP Concur. This guide specifies the request and response format required by SAP Concur.
 * The developer or client can choose to create their own application connector using a different language, such as PHP, if preferred.
 
+## Contents
 * [Products and Editions](#products-editions)
 * [Example Use Case](#example-use-case)
 * [Product Restricitions](#product-restrictions)
@@ -23,9 +24,9 @@ This callout differs from the standard SAP Concur web services in the following 
   * [Response and Errors](#response-errors)
 
 ## <a name="products-editions"></a>Products and Editions
-* **Expense** for Concur Professional/Premium
-* **Request** for Concur Professional/Premium
-* Concur Mobile
+* Concur Expense Professional Edition
+* Concur Request Professional Edition
+* The SAP Concur Mobile App
 
 ## <a name="example-use-case"></a>Example Use Case
 

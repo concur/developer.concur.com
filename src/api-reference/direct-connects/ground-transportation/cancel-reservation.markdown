@@ -3,8 +3,12 @@ title: Cancel a reservation
 layout: reference
 ---
 
-## Description
 The Cancel Reservation operation is sent to the supplier to cancel a travel reservation on behalf of a user. The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains.  The standard location is: `https://{servername}/concur/groundtransportation`. This URI is configured by the supplier when registering the partner application.
+
+* [Schema](#content-body)
+  * [Rate Information](#rate-info)
+  * [Reply Credit Card](#reply-credit-card)
+* [Example](#example)
 
 ## Request
 
@@ -53,7 +57,7 @@ The supplier responds to the request by supplying the full reservation details, 
 
 * application/xml
 
-### Content Body
+### <a name="content-body"></a>Content Body
 The response will include a CC_LimoCancelReply parent element, with the following child elements:
 
 
@@ -90,7 +94,7 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 |  ProviderFeedback |  N |  Any additional feedback from the supplier. |
 |  AccountingInfo |  N |  The accounting information for the reservation. This parent element contains the following child elements:<br>**AccountingField1** through **AccountingField5**: These fields contain detailed accounting information. |
 
-## Rate Information Elements
+## <a name="rate-info"></a>Rate Information Elements
 
 |Element  |Required?| Description|
 |---|:---:|---|
@@ -111,7 +115,7 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 |OptionalExtraStopCharge| N|  The charge for any additional stops.|
 |OptionalExtraTimeCharge  |N| The charge for each additional hour.|
 
-## Reply Credit Card Elements
+## <a name="reply-credit-card"></a>Reply Credit Card Elements
 
 |Element  |Required?  |Description|
 |----|:----:|----|
@@ -119,7 +123,7 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 |Number |Y  |The card number.|
 |Expiration |Y  |The card expiration date. Format: 2013-02-19|
 
-## Example of Successful Response
+## <a name="example"></a>Example of Successful Response
 ```http
 HTTPS/1.1 200 OK
 Content-Type: application/xml

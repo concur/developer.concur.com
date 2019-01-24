@@ -3,10 +3,26 @@ title: Post a reservation sell request
 layout: reference
 ---
 
-## Description
 A post reservation sell request is sent when a Travel user attempts to book a ground transportation reservation.
 
-## Request
+* [Request](#request)
+  * [Request Schema](#req-schema)
+	* [Airport](#airport)
+    * [Train Station](#train-station)
+   * [Credit Card](#credit-card)
+  * [Request Example](#req-example)
+* [Response](#response)
+  * [Response Schema](#res-schema)
+    * [Error](#error)
+	* [Primary Passenger](#primary-passenger)
+	* [Rate Information](#rate-info)
+	* [Vehicle](#vehicle)
+	* [Vendor](#vendor)
+	* [Form of Payment](#form-payment)
+	* [Reply Credit Card](#reply-credit-card)
+  * [Response Example](#res-example)
+
+## <a name="request"></a>Request
 
 ### Supported Accept Types
 application/xml
@@ -20,12 +36,12 @@ The URI is configured by the supplier when registering the partner application.
 
 ### Headers
 
-#### Authorization header
+#### Authorization Header
 Authentication header with Base64 encoded basic authentication credentials (login ID and password) is required. The basic authentication credentials are established during the application review process.
 
 Authorization: Basic {Base64 encoded LoginID:Password}
 
-### Request Body
+### <a name="req-schema"></a>Request Body
 The request will contain a **CC_LimoSellRequest** parent element, containing the following child elements.
 
 #### CorporateClient
@@ -36,7 +52,7 @@ The corporate client the booking is on behalf of. This parent element contains t
 #### Booker
 The user booking the reservation. This parent element contains the following child elements:
 
-* **UserID:**	The user's Concur user ID.
+* **UserID:**	The user's SAP Concur user ID.
 * **EmailAddress:**	The user's email address.
 * **Phone:**	The user's contact number.
 
@@ -207,7 +223,7 @@ The details of the extra stop arrangement, if available.
 #### RequestedDriver
 The name of the requested driver, if available.
 
-### Airport Elements
+### <a name="airport"></a>Airport Elements
 
 #### AirportCode
 The IATA code for the airport.
@@ -218,7 +234,7 @@ Flight:	The flight information. This parent element contains the following child
 * ArrivalDateTime:	The flight arrival time. Only provided for the PickupLocation element. **Format:** 2015-05-19T18:00:00
 * DepartureDateTime:	The flight departure time. Only provided for the DropoffLocation element. **Format:** 2015-05-19T18:00:00
 
-### Train Station Elements
+### <a name="train-station"></a>Train Station Elements
 
 #### StationCode
 The station code.
@@ -242,7 +258,7 @@ The train information. This parent element contains the following child elements
 * DepartureDateTime:	The train arrival time. Only provided for the PickupLocation element. **Format:** 2015-05-19T18:00:00
 
 
-### Credit Card Elements
+### <a name="credit-card"></a>Credit Card Elements
 
 #### Type
 The card type.
@@ -271,7 +287,7 @@ The country of the billing address of the car.
 #### PostalCode
 The postal code of the billing address of the car.
 
-### XML Example Request
+### <a name="req-example"></a>XML Example Request
 
 ```http
 POST /concur/groundtransportation HTTPS/1.1
@@ -346,13 +362,13 @@ Content-Length: {length of content body}
 </CC_LimoSellRequest>
 ```
 
-## Response
+## <a name="response"></a>Response
 The supplier responds to the Sell request by returning the details of the booked reservation.
 
 ### Supported Content Types
 application/xml
 
-### Content Body
+### <a name="res-schema"></a>Content Body
 The response will include a **CC_LimoSellReply** parent element, with the following child elements:
 
 
@@ -389,7 +405,7 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 |  ProviderFeedback |  N |  Any additional feedback from the supplier. |
 |  AccountingInfo |  N |  The accounting information for the reservation. This parent element contains one or more **AccountingField** elements: **AccountingField1** through **AccountingField5**. These fields contain detailed accounting information. |
 
-#### Error elements
+#### <a name="error"></a>Error Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -397,7 +413,7 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 | ErrorSource | The source of the error. |
 | ErrorDescription | The additional error information. |
 
-#### PrimaryPassenger elements
+#### <a name="primary-passenger"></a>PrimaryPassenger Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -408,7 +424,7 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 |  CellPhone |  The contact's cell phone number. |
 |  EmailAddress |  The contact's email address. |
 
-#### Rate Information elements
+#### <a name="rate-info"></a>Rate Information Elements
 
 |Element Name|Required?|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -429,14 +445,14 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 |OptionalExtraStopCharge	|N|	|The charge for any additional stops.|
 |OptionalExtraTimeCharge	|N|	|The charge for each additional hour.|
 
-#### Vehicle elements
+#### <a name="vehicle"></a>Vehicle Elements
 
 |  Element |  Description |
 |-------------|----------------------|
 |  VehicleType |  One of the following values:  <br/>100: Sedan  <br/>200: Limo  <br/>250: Stretch Limo  <br/>300: SUV  <br/>350: Stretch SUV  <br/>400: Van  <br/>450: Mini-Bus  <br/>500: Motor Coach  <br/>600: Shuttle  <br/>700: Trolley  <br/>800: Carriage  <br/>900: Any |
 |  VehicleID |  Information to identify the specific vehicle. |
 
-#### Vendor elements
+#### <a name="vendor"></a>Vendor Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -444,7 +460,7 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 |  VendorName |  The vendor's name. |   
 |  PhoneNumber |  The vendor's phone number. |
 
-#### FormOfPayment elements
+#### <a name="form-payment"></a>FormOfPayment Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -453,7 +469,7 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 |  Check |  If present, the passenger will pay with a check. |
 |  DirectBilling |  If present, the passenger will pay through direct billing. |
 
-#### Reply Credit Card elements
+#### <a name="reply-credit-card"></a>Reply Credit Card Elements
 
 |Element Name| Required? |Description|
 |------------|------|------------------------|
@@ -461,7 +477,7 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 | Number | Y | The card number. |
 | Expiration | Y| The card expiration date. Format: 2013-02-19 |
 
-### XML Example of Successful Response
+### <a name="res-example"></a>XML Example of Successful Response
 
 ```http
 HTTPS/1.1 200 OK
