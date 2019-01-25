@@ -49,7 +49,7 @@ This API supports only Company access tokens.
 Payment providers can use this endpoint to get a list of payments.
 * This method will return all payments with a status [PENDING_RETRIEVAL](#schema-payment-update-status) and payment method `PAVPVD`. After an invoice is approved and extracted it will be converted into a payment with status [PENDING_RETRIEVAL](#schema-payment-update-status).
 * It returns a maximum of 500 records at a time. In order to ensure that all payments are retrieved, call this method until you receive an empty payment in the response.
-* The payment provider will need to acknowledge that payments were received, using [Updating a Payment With Status](#updating-payment) and updating the status of the payment to [RETRIEVED](#schema-payment-update-status).
+* The payment provider will need to acknowledge that payments were received, using [Updating a Payment With Status](#updating-payment) and updating the status of the payment to any status other than [PENDING_RETRIEVAL](#schema-payment-update-status).
 
 ### Request
 
