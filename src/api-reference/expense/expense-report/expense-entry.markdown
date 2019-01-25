@@ -3,20 +3,17 @@ title: Entries
 layout: reference
 ---
 
-
-# Entries
-
-* [Retrieve all expense entries](#get)
-* [Create a new expense entry](#post)
-* [Updates an expense entry](#put)
-* [Delete an expense entry](#delete)
+* [Retrieve All Expense Entries](#get)
+* [Create a New Expense Entry](#post)
+* [Updates an Expense Entry](#put)
+* [Delete an Expense Entry](#delete)
 * [Schema](#schema)
 
 
 1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
 
 
-## <a name="get"></a>Retrieve all expense entries
+## <a name="get"></a>Retrieve All Expense Entries
 
 In order to retrieve all expense entries, you must use [version 2.0.](/api-reference/expense/expense-report/expense-report-get.html)
 
@@ -165,7 +162,7 @@ https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0
 
 -->
 
-## <a name="post"></a>Create a new expense entry
+## <a name="post"></a>Create a New Expense Entry
 
     POST  /api/v3.0/expense/entries
 
@@ -183,7 +180,7 @@ Name | Type | Format | Description
 https://www.concursolutions.com/api/v3.0/expense/entries
 ```
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
@@ -193,7 +190,7 @@ https://www.concursolutions.com/api/v3.0/expense/entries
 ```
 
 
-## <a name="put"></a>Updates an expense entry
+## <a name="put"></a>Updates an Expense Entry
 
     PUT  /api/v3.0/expense/entries/{id}
 
@@ -211,12 +208,12 @@ Name | Type | Format | Description
 https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
 ```
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 ```
 no content
 ```
 
-## <a name="delete"></a>Delete an expense entry
+## <a name="delete"></a>Delete an Expense Entry
 
     DELETE  /api/v3.0/expense/entries/{id}
 
@@ -235,7 +232,7 @@ https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0
 ```
 
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```
 no content

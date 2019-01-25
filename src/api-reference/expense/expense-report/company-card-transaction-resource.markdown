@@ -3,10 +3,6 @@ title: Company Card Transactions
 layout: reference
 ---
 
-# Company Card Transaction
-
-## Description
-
 The corporate or credit card charges that are available for use in expense reports for the OAuth consumer.
 
 ## Version
@@ -19,34 +15,31 @@ The corporate or credit card charges that are available for use in expense repor
 [GET](#get)
 
 
-## <a name="get"></a>Get company card transactions
+## <a name="get"></a>Get Company Card Transactions
 
-
-
-### Description
 Retrieves a list of unassigned company card charges for the user specified in the OAuth access token.
 
 ### Request
 
-### Request parameters
+### Request Parameters
 None.
 
-### Content types
+### Content Types
 application/xml
 
-### Authorization header
-Authorization header with OAuth token for valid Concur user. Required.
+### Authorization Header
+Authorization header with OAuth token for valid SAP Concur user. Required.
 
 ### Response
 
-### Content types
+### Content Types
 application/xml
 
-### Content body
+### Content Body
 
 This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction.
 
-#### CardCharge child elements
+#### CardCharge Child Elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -60,7 +53,7 @@ This request will return a **CardCharges** parent element with a **CardCharge** 
 
 ### Examples
 
-### XML example request
+### XML Example Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges/ HTTP/1.1
@@ -68,7 +61,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-###  XML example of successful response
+###  XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK

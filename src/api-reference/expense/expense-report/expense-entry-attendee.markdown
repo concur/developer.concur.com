@@ -3,14 +3,11 @@ title: Entry Attendee Associations
 layout: reference
 ---
 
-
-
-# Entry Attendee
-* [Retrieve all entry-attendee associations owned by the user](#get)
-* [Retrieve an entry-attendee association by ID](#getID)
-* [Create a new entry-attendee association](#post)
-* [Update a specified entry-attendee association](#put)
-* [Delete a specified entry-attendee association](#delete)
+* [Retrieve All Entry-Attendee Associations Owned by the User](#get)
+* [Retrieve an Entry-Attendee Association by ID](#getID)
+* [Create a New Entry-Attendee Association](#post)
+* [Update a Specified Entry-Attendee Association](#put)
+* [Delete a Specified Entry-Attendee Association](#delete)
 * [Schema](#schema)
 
 ## Version  
@@ -20,7 +17,7 @@ layout: reference
 2.0 documentation is available [here.](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html)
 
 
-## <a name="get"></a>Retrieve all entry-attendee associations owned by the user
+## <a name="get"></a>Retrieve All Entry-Attendee Associations Owned by the User
 
     GET  /api/v3.0/expense/entryattendeeassociations
 
@@ -40,7 +37,7 @@ Name | Type | Format | Description
 https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?limit=15&user=ALL
 ```
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
@@ -75,7 +72,7 @@ https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?limit
 }
 ```
 
-## <a name="getID"></a>Retrieve an entry-attendee association by ID
+## <a name="getID"></a>Retrieve an Entry-Attendee Association by ID
 
     GET  /api/v3.0/expense/entryattendeeassociations/{id}
 
@@ -94,7 +91,7 @@ Name | Type | Format | Description
 https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM%24s2kvfcQ8xC%24p6uaPsY6V6qB7FqOU
 ```
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
@@ -112,7 +109,7 @@ https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM
 }
 ```
 
-## <a name="post"></a>Create a new entry-attendee association
+## <a name="post"></a>Create a New Entry-Attendee Association
 
     POST  /api/v3.0/expense/entryattendeeassociations
 
@@ -130,7 +127,7 @@ Name | Type | Format | Description
 https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations
 ```
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
@@ -139,7 +136,7 @@ https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations
 }
 ```
 
-## <a name="put"></a>Update a specified entry-attendee association
+## <a name="put"></a>Update a Specified Entry-Attendee Association
 
     PUT  /api/v3.0/expense/entryattendeeassociations/{id}
 
@@ -152,7 +149,7 @@ Name | Type | Format | Description
 `content`	|	-	|	`body`	|	**Required** The partial or complete EntryAttendeeAssociation object to update.
 
 
-## <a name="delete"></a>Delete a specified entry-attendee association
+## <a name="delete"></a>Delete a Specified Entry-Attendee Association
 
     DELETE  /api/v3.0/expense/entryattendeeassociations/{id}
 
@@ -163,7 +160,7 @@ Name | Type | Format | Description
 https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM%24s2kvfcQ8xC%24p6uaPsY6V6qB7FqOU
 ```
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```
 no content

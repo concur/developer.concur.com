@@ -3,9 +3,6 @@ title: Expense Form Field
 layout: reference
 ---
 
-# Expense form field
-
-## Description
 The configured fields for the specified expense form.
 
 ## Version
@@ -17,9 +14,7 @@ The configured fields for the specified expense form.
 ## Operations
 [GET](#get)
 
-## <a name="get"></a>Get a list of form fields
-
-### Description
+## <a name="get"></a>Get a List of Form Fields
 Retrieves the details of the configured form fields for the specified form.
 
 **NOTE**: When sending in requests using these fields, be sure to include the required fields from the form and any additional required fields specified in the request documentation.
@@ -27,8 +22,6 @@ Retrieves the details of the configured form fields for the specified form.
 ### Request
 
 #### Request parameters
-
-#### Path parameters
 
 | Parameter |Required/Optional| Description |
 |-----------------|--------|-----------------------------|
@@ -40,18 +33,18 @@ Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/
 
 ### Headers
 
-#### Authorization header
-Authorization header with OAuth token for valid Concur user. Required.
+#### Authorization Header
+Authorization header with OAuth token for valid SAP Concur user. Required.
 
-#### Accept header
+#### Accept Header
 application/xml
 
 ### Response
 
-### Content body
+### Content Body
 This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field.
 
-#### FormField elements
+#### FormField Elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -67,9 +60,7 @@ This request will return a **FormFieldsList** parent element with a **FormField*
 |  Custom |  Whether the field is custom. |
 |  Sequence |  The field order on the form. |
 
-### Examples
-
-### XML example request
+### XML Example Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7/Fields HTTP/1.1
@@ -77,7 +68,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-### XML example of successful response
+### XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK

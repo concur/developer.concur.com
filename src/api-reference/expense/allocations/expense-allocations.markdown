@@ -3,20 +3,18 @@ title: Allocations
 layout: reference
 ---
 
-# Allocations
-
 This resource can be used to retrieve information about the allocations that are associated with an entry in an expense report. v3.0
 
 
-* [Retrieve all allocations per entry or report](#get)
-* [Retrieve a single allocation by ID](#getID)
+* [Retrieve All Allocations Per Entry or Report](#get)
+* [Retrieve a Single Allocation by ID](#getID)
 * [Schema](#schema)
-* [Try it out](#try-it-out)
+* [Try It Out](#try-it-out)
 
 ### Version
 3.0
 
-## <a name="get"></a>Retrieve all allocations per entry or report
+## <a name="get"></a>Retrieve All Allocations Per Entry or Report
 
     GET  /api/v3.0/expense/allocations
 
@@ -40,7 +38,7 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 ```
 
 
-### JSON Example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
@@ -114,7 +112,7 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 [Allocations Schema](#schema)
 
 
-## <a name="getID"></a>Retrieve a single allocation by ID
+## <a name="getID"></a>Retrieve a Single Allocation by ID
 
     GET  /api/v3.0/expense/allocations/{id}
 
@@ -172,7 +170,7 @@ https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py%2
 ```
 
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
