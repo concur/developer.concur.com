@@ -39,7 +39,6 @@ SAP Concur partners with external payment providers for processing invoice payme
 Name|Description|Endpoint
 ---|---|---
 `invoice.providerpayment.write`|Read access to pending payments, and write access to payment status|GET,POST
-`company.read`|Required to get the SAP Concur company identifier|GET
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
