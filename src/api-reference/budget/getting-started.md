@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Budget v4 - Getting Started
 layout: reference
 ---
 
@@ -16,13 +16,14 @@ layout: reference
 
 ## Getting Started
 
-- [Overview](#overview)
-- [Version](#version)
-- [Regional Availability](#regional-availability)
-- [Explore the API](#explore-the-api)
-  - [Prerequisites](#prerequisites)
-  - [Acquire an Access Token](#retrieve-a-user-access-token)
-  - [Roles & Scopes](#roles-and-scopes)
+* [Overview](#overview)
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Explore the API](#explore-the-api)
+  * [Prerequisites](#prerequisites)
+  * [Acquire an Access Token](#retrieve-a-user-access-token)
 
 ### <a name="overview"></a>Overview
 
@@ -33,23 +34,33 @@ The sequence to configure budgets is to first setup the fiscal year and then the
 Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application UI. Also budget owner,
 approver and budget viewer permissions have to be assigned to users prior to configuring budgets.
 
-### <a name="version"></a>Version
+## <a name="products-editions"></a>Products and Editions
 
-4.0  
+* None
 
-### <a name="regional-availability"></a>Regional Availability
+## <a name="scope-usage"></a>Scope Usage
 
-```
-https://us.api.concursolutions.com/budget/v4/
-```
+The user needs to have the Budget Administrator role in order to access the api.  Company-level access which does not require a user role is also available.  See the [Company Level Authentication Documentation](#https://developer.concur.com/api-reference/authentication/company-auth.html) for more information.
 
-```
-https://emea.api.concursolutions.com/budget/v4/
-```
+The GET api endpoints for Fiscal Year require fiscalcalendar.read, fiscalcalendar.write, budgetitem.read, or budgetitem.write scope.
 
-```
-https://cn.api.concurcdc.cn/budget/v4/
-```
+POST and DELETE endpoints require fiscalcalendar.write or budgetitem.write scope.
+
+Budget Item Header, Budget Item Category, and Budget Tracking Field GET end points require budgetitem.read or budgetitem.write scope.
+
+Budget Item Header, Budget Item Category, and Budget Adjustements POST and DELETE end points require budgetitem.write.
+
+Name|Description|Endpoint
+---|---|---
+`quickexpense.writeonly`|Write quick expense.|POST
+
+## <a name="dependencies"></a>Dependencies
+
+N/A
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+N/A
 
 ### <a name="explore-the-api"></a>Explore the API
 
@@ -77,15 +88,3 @@ grant_type:password
 username:{YOUR USERNAME}
 password:{YOUR PASSWORD}
 ```
-
-#### <a name="roles-and-scopes"></a>Roles and Scopes:
-
-The user needs to have the Budget Administrator role in order to access the api.  Company-level access which does not require a user role is also available.  See the [Company Level Authentication Documentation](#https://developer.concur.com/api-reference/authentication/company-auth.html) for more information.
-
-The GET api endpoints for Fiscal Year require fiscalcalendar.read, fiscalcalendar.write, budgetitem.read, or budgetitem.write scope.
-
-POST and DELETE endpoints require fiscalcalendar.write or budgetitem.write scope.
-
-Budget Item Header, Budget Item Category, and Budget Tracking Field GET end points require budgetitem.read or budgetitem.write scope.
-
-Budget Item Header, Budget Item Category, and Budget Adjustements POST and DELETE end points require budgetitem.write.
