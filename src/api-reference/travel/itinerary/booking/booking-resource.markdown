@@ -5,6 +5,9 @@ layout: reference
 
 The Booking resource represents booking segments in the SAP Concur Travel system. TripLink suppliers use this resource to display a subset of the full booking fields.
 
+* [Create or Update Booking](#create-update-booking)
+* [Cancel a Booking](#cancel-booking)
+
 ## Version
 Version 1.1
 
@@ -15,17 +18,10 @@ Version 1.1
 
 In order to obtain itinerary data when making Itinerary API calls, the value of the OAuth scope parameter must be set to: `ITINER`
 
-
-## Operations
-
-* [Create or Update Booking](#create-update-booking)
-* [Cancel a Booking](#cancel-booking)
-
 ## <a name="create-booking"></a>Create or Update Booking
 
 Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.
 This endpoint can be used to create/update bookings for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create/update a booking on behalf of a user. The supplier or TMC must be registered with SAP Concur, and must have an account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
-
 
 ## Request
 
@@ -50,21 +46,19 @@ Examples:
 
 `https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}`
 
-
-### Content type
+### Content Type
 application/xml
 
-### Authorization header
+### Authorization Header
 Authorization header with OAuth token for a valid SAP Concur user. In order to create or update booking for anyone other than the OAuth consumer, the OAuth consumer must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
-### Request body root elements
+### Request Body Root Elements
 The request contains a Booking parent element with the following child elements:
 
 |  Required Element |  Description |
 |-------------------|--------------|
 |  BookingSource |  The supplier's name. |
 |  RecordLocator |  Record locator for this booking. This is often six alphanumeric characters but can have other formats depending on the booking source |
-
 
 |  Optional Element |  Description |
 |-------------------|--------------|
@@ -88,14 +82,12 @@ The request contains a Booking parent element with the following child elements:
 |  Warnings |  The warnings associated with the booking. |
 |  WebAddresses |  List of web addresses such as emails, pickup URLs, etc. associated with this bookings |
 
-
-### **Passenger** child elements
+### Passenger Child Elements
 
 |  Required Element |  Description   |
 |-------------------|----------------|
 |  NameFirst |  The first name of the passenger. |  
 |  NameLast |  The last name of the passenger. |
-
 
 |  Optional Element |  Description   |
 |-------------------|----------------|
@@ -107,12 +99,10 @@ The request contains a Booking parent element with the following child elements:
 |  TextName |  The user's full name as entered in the booking tool if different from the name in the database. |
 |  FrequentTravelerProgram |  Passenger's loyalty programs |
 
-
 ## Response
 This function returns the full trip details, as documented in the Response of the [Get Itinerary Details][2] function.
 
 If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to SAP Concur.  If the previous booking is not cancelled, the user will see both bookings in their SAP Concur trip list.
-
 
 ## Examples
 
@@ -255,7 +245,7 @@ Host: www.concursolutions.com
 Authorization: OAuth {access token}
 ```
 
-### Request parameters
+### Request Parameters
 
 #### Query Parameters - Required
 * **cancel?bookingSource={Supplier}**
@@ -277,22 +267,18 @@ The SAP Concur login ID of the user who owns the booking. Only provided when the
 Example:
 `https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}&userid_type=login_id&userid_value={loginID}`
 
-
-### Content type
+### Content Type
 application/xml
 
-
-### Authorization header
+### Authorization Header
 The authorization header must have an OAuth token for valid SAP Concur user.
 The OAuth consumer must be registered as a Supplier or TMC with SAP Concur, and must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
 
 ## Response
 This function returns the full booking details, as specified in the Booking Object Elements section.
 If the booking is not found, the function returns a HTTP 404 error and the following element:
 
 **Status**: This element contains the value: NotFound.
-
 
 ## Examples
 
