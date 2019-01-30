@@ -5,6 +5,13 @@ layout: reference
 
 The configured fields for the specified expense form.
 
+* [Get a List of Form Fields](#get-list-form-fields)
+  * [Request](#request)
+  * [Response](#response)
+    * [Response Schema](#res-schema)
+  * [Example Request](#ex-req)
+  * [Example Response](#ex-res)
+
 ## Version
 1.1
 
@@ -14,14 +21,14 @@ The configured fields for the specified expense form.
 ## Operations
 [GET](#get)
 
-## <a name="get"></a>Get a List of Form Fields
+## <a name="get-list-form-fields"></a>Get a List of Form Fields
 Retrieves the details of the configured form fields for the specified form.
 
 **NOTE**: When sending in requests using these fields, be sure to include the required fields from the form and any additional required fields specified in the request documentation.
 
-### Request
+### <a name="request"></a>Request
 
-#### Request parameters
+#### Request Parameters
 
 | Parameter |Required/Optional| Description |
 |-----------------|--------|-----------------------------|
@@ -39,9 +46,9 @@ Authorization header with OAuth token for valid SAP Concur user. Required.
 #### Accept Header
 application/xml
 
-### Response
+### <a name="response"></a>Response
 
-### Content Body
+### <a name="res-schema"></a>Response Schema
 This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field.
 
 #### FormField Elements
@@ -60,7 +67,7 @@ This request will return a **FormFieldsList** parent element with a **FormField*
 |  Custom |  Whether the field is custom. |
 |  Sequence |  The field order on the form. |
 
-### XML Example Request
+### <a name="ex-req"></a>XML Example Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7/Fields HTTP/1.1
@@ -68,7 +75,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-### XML Example of Successful Response
+### <a name="ex-res"></a>XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK

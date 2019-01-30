@@ -3,8 +3,7 @@ title: Introduction
 layout: reference
 ---
 
-## Disclaimer
-This version is a draft only. Hotel Service 2.0 API is not final and is a subject to change.
+{% include prerelease.html %}
 
 ## <a name="overview"></a>Overview
 The Hotel Services v2 Direct Connect from Concur Connect provides a method for Travel users to access hotel inventory.

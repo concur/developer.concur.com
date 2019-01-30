@@ -3,8 +3,8 @@ title: Post a reservation detail search
 layout: reference
 ---
 
-* [Schema](#schema)
-  * [Error Child](#error-child)
+* [Response Schema](#res-schema)
+  * [Error](#error)
   * [Primary Passenger Child](#primary-passenger-child)
   * [Pickup Location](#pickup-location)
   * [Dropoff Location](#dropoff-location)
@@ -22,19 +22,19 @@ layout: reference
 ## Request
 The following request is sent to the supplier when the Travel user selects a ground transportation reservation to get additional details.
 
-## URI
+### URI
 The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 `https://{servername}/concur/groundtransportation`
 
 The URI is configured by the supplier when registering the partner application.
 
-## Request Headers - Required
+### Request Headers - Required
 Authorization header with OAuth credentials. Refer to the OAuth documentation for more information.
 
-## Request Headers - Optional
+### Request Headers - Optional
 None
 
-## Request Body
+### Request Body
 The request will contain a CC_LimoReservationDetailRequest parent element, containing the following child element:
 
 |Element Name|Required/Optional|Data Type|Description|
@@ -62,7 +62,7 @@ The supplier responds to the request by supplying the full reservation details.
 ### Content Type
 application/xml
 
-### <a name="schema"></a>Content Body
+### <a name="res-schema"></a>Response Schema
 The response will include a CC_LimoReservationDetailReply parent element, with the following child elements:
 
 |Element Name|Required/Optional|Data Type|Description|

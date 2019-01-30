@@ -176,8 +176,7 @@ Name | Type | Format | Description
 
 ## <a name="schema"></a>Schema
 
-
-###<a name="EntryAttendeeAssociations"></a>Entry Attendee Associations
+### <a name="EntryAttendeeAssociations"></a>Entry Attendee Associations
 
 Name | Type | Format | Description
 -----|------|--------|------------

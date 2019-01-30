@@ -204,7 +204,7 @@ The supplier responds to the update request with the reservation details.
 ### Content Types
 application/xml
 
-### <a name="res-schema"></a>Response Body
+### <a name="res-schema"></a>Response Schema
 
 The response will include a **CC_LimoUpdateReply** parent element, with the following child elements:
 

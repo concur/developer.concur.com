@@ -85,7 +85,7 @@ You should now begin receiving notifications from SAP Concur when your users sub
 
 In this step, you will expand the application connector functionality to use the data sent by SAP Concur in the event notification to get details about the Request. You'll use the Request details to validate the Request in a later step. The application connector must be updated to perform the following steps, using the SAP Concur web services:
 
-###  <a name="het-oauth-token"></a>Get OAuth Access Token
+###  <a name="get-oauth-token"></a>Get OAuth Access Token
 
 All requests to SAP Concur web services must be authenticated using OAuth 2.0.
 
