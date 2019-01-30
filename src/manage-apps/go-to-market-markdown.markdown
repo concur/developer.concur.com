@@ -3,6 +3,8 @@ title: SAP Concur App Center - Go to Market
 layout: reference
 ---
 
+![Go To Market Door Image](./GTM1.jpg)
+
 Let us help you prepare for your SAP Concur App Center launch.
 
 [Get started now](/api-reference/index.html)
