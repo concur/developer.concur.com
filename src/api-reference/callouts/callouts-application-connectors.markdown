@@ -5,7 +5,7 @@ layout: reference
 
 * [Overview](#overview)
   * [Application Connector Management](#app-connector-management)
-* [Specifications](#specification)
+* [Specifications](#specifications)
   * [Security](#security)
   * [Authentication](#authentication)
 * [Managing Application Connectors](#managing-app-connectors)

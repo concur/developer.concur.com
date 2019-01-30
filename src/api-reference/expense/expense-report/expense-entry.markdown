@@ -10,7 +10,7 @@ layout: reference
 * [Schema](#schema)
   * [Entry](#entry)
   * [Custom Field](#custom-field)
-  * [Journey](#journal)
+  * [Journey](#journey)
 
 1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
 
