@@ -36,13 +36,16 @@ approver and budget viewer permissions have to be assigned to users prior to con
 
 ## <a name="products-editions"></a>Products and Editions
 
-* None
+* Concur Request Professional Edition
+* Concur Request Standard Edition
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+* Concur Invoice Professional Edition
+* Concur Invoice Standard Edition
 
 ## <a name="scope-usage"></a>Scope Usage
 
-The user needs to have the Budget Administrator role in order to access the api.  Company-level access which does not require a user role is also available.  See the [Company Level Authentication Documentation](#https://developer.concur.com/api-reference/authentication/company-auth.html) for more information.
-
-The GET api endpoints for Fiscal Year require fiscalcalendar.read, fiscalcalendar.write, budgetitem.read, or budgetitem.write scope.
+The GET API endpoints for Fiscal Year require fiscalcalendar.read, fiscalcalendar.write, budgetitem.read, or budgetitem.write scope.
 
 POST and DELETE endpoints require fiscalcalendar.write or budgetitem.write scope.
 
@@ -52,7 +55,10 @@ Budget Item Header, Budget Item Category, and Budget Adjustements POST and DELET
 
 Name|Description|Endpoint
 ---|---|---
-`quickexpense.writeonly`|Write quick expense.|POST
+`fiscalcalendar.read`|-|GET
+`fiscalcalendar.write`|-|GET, POST, DELETE
+`budgetitem.read`|-|GET
+`budgetitem.write`|-|GET, POST, DELETE
 
 ## <a name="dependencies"></a>Dependencies
 
@@ -60,7 +66,7 @@ N/A
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
-N/A
+The user needs to have the Budget Administrator role in order to access the API.  Company-level access which does not require a user role is also available.  See the [Company Level Authentication Documentation](#https://developer.concur.com/api-reference/authentication/company-auth.html) for more information.
 
 ### <a name="explore-the-api"></a>Explore the API
 
