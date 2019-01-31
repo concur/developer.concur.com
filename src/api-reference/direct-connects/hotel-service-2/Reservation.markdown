@@ -330,10 +330,11 @@ NamePrefix     |
 
 **Note:** This structure is used in both request and response. Different elements are used in each of them.
 
-| Element     | Required | Data Type | Description |
-|-------------|----------|-----------|-------------|
-| Memberships | N        | Complex   | (request only) A collection of Memberships, provides a list of reward programs like e.g. loyalty cards. |
-| Comments    | N        | Complex   | (response only) A collection of Comments, provides a list of arbitrary reservation comments like e.g. modification code. |
+| Element           | Required | Data Type | Description |
+|-------------------|----------|-----------|-------------|
+| Memberships       | N        | Complex   | (request only) A collection of Memberships, provides a list of reward programs like e.g. loyalty cards. |
+| Comments          | N        | Complex   | (response only) A collection of Comments, provides a list of arbitrary reservation comments like e.g. modification code. |
+| BasicPropertyInfo | N        | Complex   | See Availability |
 
 
 **Memberships**
