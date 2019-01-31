@@ -5,21 +5,23 @@ layout: reference
 
 The corporate or credit card charges that are available for use in expense reports for the OAuth consumer.
 
-## Version
-1.1
-
-## URI
-`https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges`
-
-## Operations
-[GET](#get)
-
-
-## <a name="get"></a>Get Company Card Transactions
-
 Retrieves a list of unassigned company card charges for the user specified in the OAuth access token.
 
-### Request
+* [Request](#request)
+* [Response](#response)
+  * [Schema](#schema)
+* [Examples](#examples)
+
+### Version
+1.1
+
+### URI
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges`
+
+#### Operations
+[GET](#get)
+
+## <a name="request"></a>Request
 
 ### Request Parameters
 None.
@@ -30,12 +32,12 @@ application/xml
 ### Authorization Header
 Authorization header with OAuth token for valid SAP Concur user. Required.
 
-### Response
+## <a name="response"></a>Response
 
 ### Content Types
 application/xml
 
-### Content Body
+### <a name="schema"></a>Schema
 
 This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction.
 
@@ -51,9 +53,9 @@ This request will return a **CardCharges** parent element with a **CardCharge** 
 |  TransactionCrnCode |  The currency code of the transaction amount. |
 |  TransactionDate |  The date of the transaction. |
 
-### Examples
+## <a name="examples"></a>Examples
 
-### XML Example Request
+#### XML Example Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges/ HTTP/1.1
@@ -61,7 +63,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-###  XML Example of Successful Response
+####  XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK

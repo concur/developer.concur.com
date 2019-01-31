@@ -3,14 +3,17 @@ title: Post an attendee search request
 layout: reference
 ---
 
+* [Request](#request)
+  * [Request Schema](#req-schema)
+  * [Request Example](#req-example)
+* [Response](#response)
+  * [Response Schema](#res-schema)
+    * [Custom Fields for Healthcare Provider Attendees](#custom-fields)
+  * [Response Example](#res-example)
 
+## <a name="request"></a>Request
 
-
-This callout supports the following POST actions:
-
-##  Post Attendee Search Request
-
-### Request URI
+### URI
 
 The Fetch Attendee version 2.0 callout sends the attendee information to a URI for the application connector, which can be in a custom location for each client. The default is:
 
@@ -18,19 +21,19 @@ The Fetch Attendee version 2.0 callout sends the attendee information to a URI f
 
 For backward compatibility, Fetch Attendee version 1.0 is used instead of version 2.0 when the URI uses v1.0 instead of v2.0. The URI is configured on the **Application Connector Registration** page under **Web Services>Administration>Manage Applications**.
 
-The application connector responds to the Fetch Attendee request by returning all attendees that match the search criteria. The result is limited to the maximum number of records specified in the request. If more than the maximum number of records are sent, Concur Expense displays a message in the Attendee Search window asking the user to refine their search. The authorization functionality in version 2.0 is the same as version 1.0
+The application connector responds to the Fetch Attendee request by returning all attendees that match the search criteria. The result is limited to the maximum number of records specified in the request. If more than the maximum number of records are sent, SAP Concur Expense displays a message in the Attendee Search window asking the user to refine their search. The authorization functionality in version 2.0 is the same as version 1.0
 
-## Headers
+### Headers
 
-### Authorization header
+#### Authorization Header
 
 Required. Authorization header with Basic authorization for endpoint. Refer to [Authentication][2] for more information.
 
-## Request body
+### <a name="req-schema"></a>Request Schema
 
 The request body contains an **AttendeeSearchRequest** parent element with an **Attendee** child element. The **Attendee** elements contain the values entered on the search form.
 
-### Attendee elements
+#### Attendee Elements
 
 |  Element |  Description |
 |-----|-----|
@@ -38,16 +41,16 @@ The request body contains an **AttendeeSearchRequest** parent element with an **
 |  Company |  Attendee's company. Also used for Institution Name for Healthcare Provider attendees. Maximum length is 150 characters. Required in the response. |
 |  Custom1 through Custom20 |Custom fields which vary for a given configuration. Maximum length is 100 characters. Required in the response.<br><br>For clients who purchased the HCP Connector, Custom7, Custom8, and Custom9 are mapped to the HCP Attendee Form as follows:<br/>Custom7: License number<br/>Custom8: State of license<br/>Custom9: Healthcare specialty description |
 |  Custom21 through Custom25 |Custom fields which vary for a given configuration. Maximum length is 100 characters. Required in the response.<br>For clients who purchased the HCP Connector, Custom15, Custom21, Custom22, and Custom23 are mapped to the HCP Attendee Form as follows:<br/>Custom15: Healthcare practice address<br/>Custom21: Attendee taxonomy<br/>Custom22: Attendee tax ID<br/>Custom23: Covered recipient ID |
-|  ExternalID |  Attendee's unique identifier outside of Concur. Maximum length is 48 characters.|
+|  ExternalID |  Attendee's unique identifier outside of SAP Concur. Maximum length is 48 characters.|
 |  FirstName |  Attendee's first name. Maximum length is 50 characters. |
 |  LastName |  Attendee's last name. Maximum length is 132 characters. |
 |  MaximumNumberRecords |  Maximum number of records that will be returned to the user for the given search criteria. |
 |  MiddleInitial |  Attendee's middle initial. Maximum length is 1 character. |
-|  OwnerLoginID |  Concur Login ID for the report owner (not the logged in user). The developer can use the User Resource: GET endpoint to obtain user profile details that identify the user and use this information to search for attendees in the system of record for that user. |
+|  OwnerLoginID |  SAP Concur Login ID for the report owner (not the logged in user). The developer can use the User Resource: GET endpoint to obtain user profile details that identify the user and use this information to search for attendees in the system of record for that user. |
 |  Suffix |  Attendee's name suffix. Maximum length is 32 characters. |
 |  Title |  Attendee's title. Maximum length is 32 characters. |
 
-####  XML Example Request
+####  <a name="req-example"></a>XML Example Request
 
 ```http
 POST /concur/attendee/v1.0/fetch HTTPS/1.1
@@ -97,19 +100,19 @@ Content-Length: {length of content body}
 </AttendeeSearchRequest>
 ```
 
-##  Post Attendee Search Response
+##  <a name="response"></a>Response
 
-### Supported Content Types                                                                                                   
+### Supported Content Types
 
 application/xml
 
-### Response Body
+### <a name="res-schema"></a>Response Schema
 
 The response will include an **AttendeeSearchResponse** parent element, with an **Attendee** child element for each search result.  
 
 If no attendees match the search criteria, the response returns an empty **AttendeeSearchResponse**.
 
-#### Attendee elements
+#### Attendee Elements
 
 The **Attendee** child element must contain all of the elements described below. The **FirstName**, **LastName**, and **ExternalID** elements must have values. All other elements must be returned in the response, however they can be empty if no data is available.
 
@@ -118,14 +121,14 @@ The **Attendee** child element must contain all of the elements described below.
 |  AttendeeTypeCode |  The attendee type code for the attendee type assigned to this attendee. Maximum length: 8 |
 |  Company |  The attendee's company. Required in the response. Also used for Institution Name for Healthcare Provider attendees. Maximum length: 150 |
 |  Custom1 through Custom25 | Varies depending on configuration. Required in the response. Maximum length of Custom1 through Custom20: 100 characters. Maximum length of Custom21 through Custom25: 48 characters. For information about Custom fields that are used by healthcare providers, see the **Custom fields for healthcare provider attendees** table below.  |
-|  ExternalID |  The attendee's unique identifier outside of Concur. Maximum length: 32 |
+|  ExternalID |  The attendee's unique identifier outside of SAP Concur. Maximum length: 32 |
 |  FirstName |  The attendee's first name. Maximum length: 50 |
 |  LastName |  The attendee's last name. Maximum length: 132 |
 |  MiddleInitial |  The middle initial of the attendee. Maximum length: 1. |
 |  Suffix |  The suffix of the attendee. Maximum length: 32. |
 |  Title |  The attendee's title. Maximum length: 32 |
 
-#### Custom fields for healthcare provider attendees
+#### <a name="custom-fields"></a>Custom Fields for Healthcare Provider Attendees
 
 |Field | Description |
 |------|-------|
@@ -147,9 +150,9 @@ The **Attendee** child element must contain all of the elements described below.
 **NOTES**:
 
 * When implementing the search logic, the search criteria should use logical AND between the fields, not logical OR. For example, if in the search dialog the user specifies Doe in the last name field and Acme in the company field, the connector must return only records where the Acme company has contacts with the last name of Doe. It must not return records for contacts with the last name Doe who belong to another company such as Apex.
-* If the application connector does not respond or returns an error, the user is notified in a popup window within Expense. Concur will not resend the request unless the user manually initiates the search again.
+* If the application connector does not respond or returns an error, the user is notified in a popup window within Expense. SAP Concur will not resend the request unless the user manually initiates the search again.
 
-####  XML Example of Successful Response
+####  <a name="res-schema"></a>XML Example of Successful Response
 
 ```http
 HTTPS/1.1 200 OK

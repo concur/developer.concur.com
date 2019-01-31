@@ -5,20 +5,23 @@ layout: reference
 
 Users that have granted delegate permissions to the another Expense user.
 
-## Version
-1.1
-
-## URI
-`https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators`
-
-## Operations
-[GET](#get)  
-
-## <a name="get"></a>Get Expense Delegators
-
 Retrieves the list of users that have granted delegate permissions to the user specified in the OAuth access token.
 
-### Request
+* [Request](#request)
+* [Response](#response)
+  * [Schema](#schema)
+* [Examples](#examples)
+
+### Version
+1.1
+
+### URI
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators`
+
+### Operations
+[GET](#get)  
+
+## <a name="request"></a>Request
 
 #### Request Parameters
 None.
@@ -31,12 +34,12 @@ Authorization header with OAuth token for valid SAP Concur user. Required.
 ### Accept Header
 application/xml
 
-### Response
+## <a name="response"></a>Response
 
 #### Content Types
 application/xml
 
-#### Content Body
+#### <a name="schema"></a>Schema
 
 This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer.
 
@@ -53,7 +56,7 @@ This request will return a **DelegatorsList** parent element with a **Delegator*
 |  ReceivesEmails |  Whether the delegate also receives the SAP Concur emails sent to the delegator. |
 |  DelegatorXUserID |  The user ID of the delegator. |
 
-### Examples
+## <a name="examples"></a>Examples
 
 #### XML Example Request
 
@@ -63,7 +66,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-### XML Example of Successful Response
+#### XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK
