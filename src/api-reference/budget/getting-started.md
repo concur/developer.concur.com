@@ -21,9 +21,6 @@ layout: reference
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
-* [Explore the API](#explore-the-api)
-  * [Prerequisites](#prerequisites)
-  * [Acquire an Access Token](#retrieve-a-user-access-token)
 
 ### <a name="overview"></a>Overview
 
@@ -45,20 +42,12 @@ approver and budget viewer permissions have to be assigned to users prior to con
 
 ## <a name="scope-usage"></a>Scope Usage
 
-The GET API endpoints for Fiscal Year require fiscalcalendar.read, fiscalcalendar.write, budgetitem.read, or budgetitem.write scope.
-
-POST and DELETE endpoints require fiscalcalendar.write or budgetitem.write scope.
-
-Budget Item Header, Budget Item Category, and Budget Tracking Field GET end points require budgetitem.read or budgetitem.write scope.
-
-Budget Item Header, Budget Item Category, and Budget Adjustements POST and DELETE end points require budgetitem.write.
-
-Name|Description|Endpoint
+Name|Description|Endpoint?
 ---|---|---
-`fiscalcalendar.read`|-|GET
-`fiscalcalendar.write`|-|GET, POST, DELETE
-`budgetitem.read`|-|GET
-`budgetitem.write`|-|GET, POST, DELETE
+`fiscalcalendar.read`|Grants read access to the fiscal year resource. |GET All Fiscal Years, GET a Fiscal Year
+`fiscalcalendar.write`|Grants read and write access to the fiscal year resource. |GET All Fiscal Years, GET a Fiscal Year, POST a Fiscal Year, DELETE a Fiscal Year
+`budgetitem.read`|Grants read access to the budget item resource. |GET Budget Category, GET Valid Expense Types, GET Budget Item, GET Budget Tracking Fields
+`budgetitem.write`|Grants read and write access to the budget item resource. |GET Budget Category, GET Valid Expense Types, GET Budget Item, GET Budget Tracking Fields, POST Budget Adjustment, POST Budget Category, POST Budget Item, DELETE Budget Category, DELETE Budget Item
 
 ## <a name="dependencies"></a>Dependencies
 
@@ -66,31 +55,4 @@ N/A
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
-The user needs to have the Budget Administrator role in order to access the API.  Company-level access which does not require a user role is also available.  See the [Company Level Authentication Documentation](#https://developer.concur.com/api-reference/authentication/company-auth.html) for more information.
-
-### <a name="explore-the-api"></a>Explore the API
-
-#### <a name="prerequisites"></a>Prerequisites
-
-1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
-
-Once you have registered your application, read about the [Budget Category](/api-reference/budget/budget-category.html), [Fiscal Year](/api-reference/budget/fiscal-year.html), [Budget Tracking Field](/api-reference/budget/budget-trackingfield.html), [Budget Adjustment](/api-reference/budget/budget-adjustments.html) and [Budget Item Header](/api-reference/budget/budget-header.html) endpoints.
-
-#### <a name="retrieve-a-user-access-token"></a>Retrieve a User Access Token:
-
-Before making requests to the Budget API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
-
-The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to access the Budget endpoints.
-
-Examples:
-
-#### Request
-```http
-POST https://us.api.concursolutions.com/oauth2/v0/token
-client_secret:{YOUR SECRET}
-client_id:{YOUR CLIENT ID}
-grant_type:password
-username:{YOUR USERNAME}
-password:{YOUR PASSWORD}
-```
+The user needs to have the Budget Administrator role in order to access the API.  Company-level access which does not require a user role is also available.  See the [Authentication Documentation](#https://developer.concur.com/api-reference/authentication/getting-started.html) for more information.
