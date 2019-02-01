@@ -44,8 +44,8 @@ approver and budget viewer permissions have to be assigned to users prior to con
 
 Name|Description|Endpoint?
 ---|---|---
-`fiscalcalendar.read`| Grants read access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year
-`fiscalcalendar.write`| Grants read and write access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year, POST a Fiscal Year, DELETE a Fiscal Year
+`fiscalcalendar.read`|Grants read access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year
+`fiscalcalendar.write`|Grants read and write access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year, POST a Fiscal Year, DELETE a Fiscal Year
 `budgetitem.read`|Grants read access to the budget resources.|GET Budget Category, GET Valid Expense Types, GET Budget Item, GET Budget Tracking Fields
 `budgetitem.write`|Grants read and write access to the budget resources.|GET Budget Category, GET Budget Item, GET Budget Tracking Fields, GET Valid Expense Types, POST Budget Adjustment, POST Budget Category, POST Budget Item, DELETE Budget Category, DELETE Budget Item
 
