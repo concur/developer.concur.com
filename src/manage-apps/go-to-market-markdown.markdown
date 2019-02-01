@@ -13,6 +13,7 @@ This page will provide you with the resources needed for your initial launch as 
 
 > If you’re not yet a SAP Concur App Center partner please [contact our Business Development team](mailto:bizdev@concur.com) to discuss an agreement.
 
+{% include marketing-one-page-open.html %}
 {% include marketing-blue-section-open.html %}
 
 ## App Certification
@@ -23,7 +24,9 @@ As you scope and fine tune your app, you should also be preparing for your app c
 
 ![Mobile Experience Example](./marketing-app.jpg)
 
+
 {% include marketing-blue-section-close.html %}
+{% include marketing-one-page-close.html %}
 
 ## Marketing Your App
 
