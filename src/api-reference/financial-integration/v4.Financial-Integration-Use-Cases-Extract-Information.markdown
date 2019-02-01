@@ -14,7 +14,8 @@ layout: reference
   * [Travel Allowances: Company Specific Rate Greater Than Government Rate](#etacsrg)
 * [VAT Handling](#evh)
   * [Expense Posting With Single Tax Item](#eepwst)
-* [Cash Advances](#eca)  * [Paid Cash](#epc)
+* [Cash Advances](#eca)
+  * [Paid Cash](#epc)
   * [Credit Card](#ecc)
   * [Cash Advance Is Lower Than the Payout Amount](#ecailt)
   * [Cash Advance Is Higher Than the Payout Amount](#ecaiht)
@@ -35,27 +36,27 @@ layout: reference
 
 ### <a name="esopce"></a>Simple Out-of-Pocket Cash Expense
 
-The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction.
+The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the **‘Is Personal’** flag is set to ‘N’. The employee will be reimbursed for this transaction.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1234              |                                 |                      | Parking               | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 10                   | DR                     | 7271005                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1234|-|-|Parking|N|REG|COMPANY|EMPLOYEE|USD 10|DR|7271005|-|-
 
 ### <a name="esopcc"></a>Simple Out-of-Pocket Cash Credit
 
 The Payer in this instance is the employee; the Payee is the company. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The company will be reimbursed for this transaction.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1229              |                                 | Ritz                 | Hotel                 | N                    | REG                             | EMPLOYEE                     | COMPANY                      | USD -50                  | CR                     | 7271001                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1229|-|Ritz|Hotel|N|REG|EMPLOYEE|COMPANY|USD -50|CR|7271001|-|-
 
 ### <a name="espcme"></a>Simple Personal Car Mileage Expense
 
 The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1534              |                                 |                      | Mileage               | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 21.70                | DR                     | 7271109                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1534|-|-|Mileage|N|REG|COMPANY|EMPLOYEE|USD 21.70|DR|7271109|-|-
 
 ### <a name="etacsrg"></a>Travel Allowances: Company Specific Rate Greater Than Government Rate
 
@@ -63,16 +64,17 @@ The Payer in this instance is the company; the Payee is the employee. Since it i
 
 The report entry item will be split into two Journal entry items: first item: amount up to the legal limit, second item: amount above the legal limit.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1534              |                                 |                      | Fixed Meals           | N                    | REG                             | COMPANY                      | EMPLOYEE                     | EUR 24                   | DR                     | 7271109                |                               |                                         |
-| 1534              |                                 |                      | Fixed Meals           | N                    | REG                             | COMPANY                      | EMPLOYEE                     | EUR 26                   | DR                     | 7271109                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1534|-|-|Fixed Meals|N|REG|COMPANY|EMPLOYEE|EUR 24|DR|7271109|-|-
+1534|-|-|Fixed Meals|N|REG|COMPANY|EMPLOYEE|EUR 26|DR|7271109|-|-
 
 ## <a name="evh"></a>VAT Handling
 
 ### <a name="eepwst"></a>Expense Posting With Single Tax Item
 
 #### Extract Details
+
 For the expense line: The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction. The **Tax Code** will also appear on this detail line along with the Tax Authority details (label and name).
 
 Tax data: The appearance of the tax data in the extract is governed by the
@@ -82,10 +84,10 @@ The **Journal Amount** on the Tax detail line can be set to either list the amou
 
 The **Tax Code** can also be set to appear in the **Account Code** field on the Tax detail line (instead of the account code), this is shown in this example. The difference between the ‘reclaim’ fields (`reclaim_tax_amount`, `reclaim_posted_amount`, `reclaim_adjusted_amount`) and other tax amount fields (`tax_amount`, `tax_posted_amount`, etc.) is that ‘Reclaim’ indicates that these figures are subject to the Reclaim percentage specified in the Tax configuration. For example: if a reclaim rate is set at 50% the `tax_posted_amount` and the `reclaim_posted_amount` would be GBP 100 and GBP 50 for a calculated **Tax Amount** of GBP 100.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[226] Tax Authority Label** | **[227] Tax Amount** | **[228] Tax Posted Amount** | **[229] Tax Source** | **[230] Reclaim Tax Amount** | **[231] Reclaim Posted Amount** | **[232] Tax Code** | **[233] Reclaim Domestic** |
-|-------------------|---------------------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|----------------------|-----------------------------|----------------------|------------------------------|---------------------------------|--------------------|----------------------------|
-| 1298              |                                 | Train                 | N                    | REG                             | EMPLOYEE                     | COMPANY                      | GBP 10                   | DR                     | 9991001                | ILR                           | 0                    | 0                           |                      | 0                            | 0                               | V1                 |                            |
-| 1298              |                                 | Train                 | N                    | REG                             | ILR                          | COMPANY                      | GBP 1.49                 | CR                     | V1                     | ILR                           | 1.49                 | 1.49                        | SYST                 | 1.49                         | 1.49                            | V1                 | Y                          |
+|[61] entry_id|[64] Entry Transaction Date|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[226] Tax Authority Label|[227] Tax Amount|[228] Tax Posted Amount|[229] Tax Source|[230] Reclaim Tax Amount|[231] Reclaim Posted Amount|[232] Tax Code|[233] Reclaim Domestic|
+---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
+1298|-|Train|N|REG|EMPLOYEE|COMPANY|GBP 10|DR|9991001|ILR|0|0|-|0|0|V1|-|-
+1298|-|Train|N|REG|ILR|COMPANY|GBP 1.49|CR|V1|ILR|1.49|1.49|SYST|1.49|1.49|V1|Y|-
 
 ## <a name="eca"></a>Cash Advances
 
@@ -95,9 +97,9 @@ The **Tax Code** can also be set to appear in the **Account Code** field on the 
 
 There will be one issuance record for each cash advance issued. The issuance record can be identified by the **Cash Advance Transaction Type** which will always be a ‘1’. The Payer is the Company and the Payee is the Employee. The **Journal Amount** is a DR transaction in the reimbursement currency. The **Cash Advance Amount** is the amount of the cash advance in the currency of issuance. The **Account Code** is the employee cash advance account code, which is an element of the employee profile.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-|                   |                                 |                      |                       |                      |                                 | COMPANY                      | EMPLOYEE                     | USD 300                  | DR                     | 1009990                | USD 300                       | 1                                       |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
+---|---|---|---|---|---|---|---|---|---|---|---|---
+-|-|-|-|-|-|COMPANY|EMPLOYEE|USD 300|DR|1009990|USD 300|1
 
 ### <a name="ecc"></a>Credit Card
 
@@ -105,9 +107,9 @@ This case will likely manifest itself in two separate extracts (especially if ex
 
 There will be one issuance record for each ATM cash withdrawal. The issuance record can be identified by the **Cash Advance Transaction Type** which will always be a ‘1’. The Payer is the Company and the Payee is the Employee. The **Journal Amount** is a DR transaction in the reimbursement currency. The **Cash Advance Amount** is the amount of the cash advance in the currency of issuance. The **Account Code** is the clearing account code which was configured for the CBCP corporate card payment type.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1121              |                                 |                      | Cash Advance          | N                    | REG                             | COMPANY                      | CBCP CORP                    | USD 300                  | DR                     | 1009990                | USD 300                       | 1                                       |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1121|-|-|Cash Advance|N|REG|COMPANY|CBCP CORP|USD 300|DR|1009990|USD 300|1
 
 ### <a name="ecailt"></a>Cash Advance Is Lower Than the Payout Amount
 
@@ -118,12 +120,12 @@ the USD 300 cash advance has been recovered. The credit journal amounts have the
 
 These offset records will have the following characteristics: the Payer is the employee; the Payee is the company. The **Debit/Credit** indicator will always be ‘CR’. The **Cash Advance Amount** field will always contain the total of the cash advances applied to the expense report. The **Cash Advance Transaction Type** will be a ‘2’. The employee will receive the net of the total cash expenses less the cash advance amount; in this example, USD 22.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1240              |                                 | AVIS                 | Rental Car            | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 245                  | DR                     | 7271008                |                               |                                         |
-| 1241              |                                 | MORTONS              | Business Meal         | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 60                   | DR                     | 7271110                |                               |                                         |
-| 1242              |                                 |                      | Parking               | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 10                   | DR                     | 7271005                |                               |                                         |
-| 1243              |                                 | AVIS                 | Rental Car            | N                    | REG                             | EMPLOYEE                     | COMPANY                      | USD -245                 | CR                     | 1009990                | USD 300                       | 2                                       |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1240|-|AVIS|Rental Car|N|REG|COMPANY|EMPLOYEE|USD 245|DR|7271008|-|-
+1241|-|MORTONS|Business Meal|N|REG|COMPANY|EMPLOYEE|USD 60|DR|7271110|-|-
+1242|-|-|Parking|N|REG|COMPANY|EMPLOYEE|USD 10|DR|7271005|-|-
+1243|-|AVIS|Rental Car|N|REG|EMPLOYEE|COMPANY|USD -245|CR|1009990|USD 300|2
 
 ### <a name="ecaiht"></a>Cash Advance Is Higher Than the Payout Amount
 
@@ -133,132 +135,130 @@ The four additional records are unique to an expense report containing a Cash Ad
 
 These offset records will have the following characteristics: the Payer is the employee; the Payee is the company. The **Debit/Credit** indicator will always be ‘CR’. The **Cash Advance Amount** field will always contain the total of the cash advances applied to the expense report. The **Cash Advance Transaction Type** will be a ‘2’. The employee will receive the net of the total cash expenses less the cash advance amount and in the case of a net due to company the employee will be required to submit a **Cash Advance Return** to retire the balance owed; in this example, USD 78.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1240              |                                 | AVIS                 | Rental Car            | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 245                  | DR                     | 7271008                |                               |                                         |
-| 1241              |                                 | MORTONS              | Business Meal         | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 67                   | DR                     | 7271110                |                               |                                         |
-| 1242              |                                 |                      | Parking               | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 10                   | DR                     | 7271005                |                               |                                         |
-| 1243              |                                 | AVIS                 | Rental Car            | N                    | REG                             | EMPLOYEE                     | COMPANY                      | USD -245                 | CR                     | 1009990                | USD 400                       | 2                                       |
-| 1244              |                                 | MORTONS              | Business Meal         | N                    | REG                             | EMPLOYEE                     | COMPANY                      | USD -67                  | CR                     | 1009990                | USD 400                       | 2                                       |
-| 1245              |                                 |                      | Parking               | N                    | REG                             | EMPLOYEE                     | COMPANY                      | USD -10                  | CR                     | 1009990                | USD 400                       | 2                                       |
-| 1246              |                                 |                      | Cash Advance Return   | N                    | REG                             | EMPLOYEE                     | COMPANY                      | USD -78                  | CR                     | 1009990                | USD 400                       | 2                                       |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1240|-|AVIS|Rental Car|N|REG|COMPANY|EMPLOYEE|USD 245|DR|7271008|-|-
+1241|-|MORTONS|Business Meal|N|REG|COMPANY|EMPLOYEE|USD 67|DR|7271110|-|-
+1242|-|-|Parking|N|REG|COMPANY|EMPLOYEE|USD 10|DR|7271005|-|-
+1243|-|AVIS|Rental Car|N|REG|EMPLOYEE|COMPANY|USD -245|CR|1009990|USD 400|2
+1244|-|MORTONS|Business Meal|N|REG|EMPLOYEE|COMPANY|USD -67|CR|1009990|USD 400|2
+1245|-|-|Parking|N|REG|EMPLOYEE|COMPANY|USD -10|CR|1009990|USD 400|2
+1246|-|-|Cash Advance Return|N|REG|EMPLOYEE|COMPANY|USD -78|CR|1009990|USD 400|2
 
 ## <a name="ecci"></a>Credit Card Items
 
 SAP Concur recognizes 3 different types of credit cards:
 
 * IBIP - Individual Bill - Individual Payment: Paid by employee
-
 * IBCP - Individual Bill - Company Payment: Split payment
-
 * CBCP - Company Bill - Company Payment: Paid by company
 
 ### <a name="epvccva"></a>Payment via Credit Card Vendor Account (Split Payment)
 
 The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1235              |                                 | HERTZ                | Rental Car            | N                    | REG                             | COMPANY                      | IBCP CORP                    | USD 10                   | DR                     | 7271008                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1235|-|HERTZ|Rental Car|N|REG|COMPANY|IBCP CORP|USD 10|DR|7271008|-|-
 
 ### <a name="ectvcc"></a>Credit Transaction via Credit Card Vendor Account (Split Payment)
 
 The Payer in this instance is the corporate card vendor; the Payee is the company. Since it is not an itemized expense the Entry Transaction Type is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment/credit will be made to the card vendor on behalf of the employee the employee will not receive reimbursement (or be required to pay the balance).
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1535              |                                 | JET BLUE             | Airfare               | N                    | REG                             | IBCP CORP                    | COMPANY                      | USD -349                 | CR                     | 7271101                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1535|-|JET BLUE|Airfare|N|REG|IBCP CORP|COMPANY|USD -349|CR|7271101|-|-
 
 ### <a name="esiccc"></a>Simple IBCP Corporate Card Charge With Itemization
 
 The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is an itemized expense the **Entry Transaction Type** is ‘CHD’. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1236              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1237              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1238              |                                 | MARRIOTT             | Dinner                | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 20                   | DR                     | 7271001                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1236|-|MARRIOTT|Hotel|N|CHD|COMPANY|IBCP CORP|USD 125|DR|7271001|-|-
+1237|-|MARRIOTT|Hotel|N|CHD|COMPANY|IBCP CORP|USD 125|DR|7271001|-|-
+1238|-|MARRIOTT|Dinner|N|CHD|COMPANY|IBCP CORP|USD 20|DR|7271001|-|-
 
 ### <a name="eiwpe"></a>IBCP With Personal Expense: No Out-of-Pocket
 
 The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is an itemized expense the **Entry Transaction Type** is ‘CHD’. Because the payment type is IBCP the personal (non-reimbursable) in-room movie expense is purged from the extract. The remaining expenses are legitimate business expenses, thus the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1236              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1237              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1238              |                                 | MARRIOTT             | Dinner                | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 20                   | DR                     | 7271001                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1236|-|MARRIOTT|Hotel|N|CHD|COMPANY|IBCP CORP|USD 125|DR|7271001|-|-
+1237|-|MARRIOTT|Hotel|N|CHD|COMPANY|IBCP CORP|USD 125|DR|7271001|-|-
+1238|-|MARRIOTT|Dinner|N|CHD|COMPANY|IBCP CORP|USD 20|DR|7271001|-|-
 
 ### <a name="eiwoegt"></a>IBCP (With Offsets) With Personal Expense: Out-of-Pocket Greater Than Personal Expense
 
 The Payer for both transactions is the company. The Payee is the corporate card vendor for the legitimate business expenses on the Hotel transaction (the Hotel expenses and the Dinner expense). Because the reimbursement method is IBCP with offsets, the card vendor will also be the payee for the personal expenses on the Hotel transaction up to the total amount of out-of-pocket cash expense submitted on this expense report. Since the non-reimbursable in-room movie expense (USD 14) is less than the total out-of-pocket cash expenses (USD 35) owed to the employee, the company will pay the USD 14 personal expense to the card vendor and offset that amount against the USD 35 owed to the employee. Thus the employee will only receive USD 21 of the USD 35 Taxi expense. In this case there were enough out-of-pocket cash expenses to offset the non-reimbursable expenses so there is a net due to the employee for this expense report.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1236              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1237              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1238              |                                 | MARRIOTT             | Dinner                | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 20                   | DR                     | 7271002                |                               |                                         |
-| 1240              |                                 | Taxi                 | Local Trans           | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 21                   | DR                     | 7271019                |                               |                                         |
-| 1240              |                                 | Taxi                 | Local Trans           | N                    | REG                             | COMPANY                      | IBCP CORP                    | USD 14                   | DR                     | 7271019                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1236|-|MARRIOTT|Hotel|N|CHD|COMPANY|IBCP CORP|USD 125|DR|7271001|-|-
+1237|-|MARRIOTT|Hotel|N|CHD|COMPANY|IBCP CORP|USD 125|DR|7271001|-|-
+1238|-|MARRIOTT|Dinner|N|CHD|COMPANY|IBCP CORP|USD 20|DR|7271002|-|-
+1240|-|Taxi|Local Trans|N|REG|COMPANY|EMPLOYEE|USD 21|DR|7271019|-|-
+1240|-|Taxi|Local Trans|N|REG|COMPANY|IBCP CORP|USD 14|DR|7271019|-|-
 
 ### <a name="eiwolt"></a>IBCP (With Offsets) With Personal Expense: Out-of-Pocket Less Than Personal Expense
 
 The Payer for both transactions is the company. The Payee is the corporate card vendor for the legitimate business expenses on the Hotel transaction (the Hotel expenses and the Dinner expense). Because the reimbursement method is IBCP w/offsets, the card vendor will also be the payee for the personal expenses on the Hotel transaction up to the total amount of out-of-pocket cash expense submitted on this expense report. Since the non-reimbursable in-room movie expense (USD 14) is greater than the total out-of-pocket cash expenses (USD 5) owed to the employee, the company will pay only USD 5 of the USD 14 personal expense to the card vendor and offset that amount against the USD 5 owed to the employee. Thus the employee will not receive any reimbursement and will personally owe the card vendor for the difference between the USD 5 paid by the company on his behalf and the USD 14 charge, or USD 9. In this case there were not enough out-of-pocket cash expenses to offset the non-reimbursable expenses so the employee is responsible to make up the difference with the card vendor.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1236              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1237              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1238              |                                 | MARRIOTT             | Dinner                | N                    | CHD                             | COMPANY                      | IBCP CORP                    | USD 20                   | DR                     | 7271002                |                               |                                         |
-| 1240              |                                 | DIAMOND PK           | Parking               | N                    | REG                             | COMPANY                      | IBCP CORP                    | USD 5                    | DR                     | 7271018                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1236|-|MARRIOTT|Hotel|N|CHD|COMPANY|IBCP CORP|USD 125|DR|7271001|-|-
+1237|-|MARRIOTT|Hotel|N|CHD|COMPANY|IBCP CORP|USD 125|DR|7271001|-|-
+1238|-|MARRIOTT|Dinner|N|CHD|COMPANY|IBCP CORP|USD 20|DR|7271002|-|-
+1240|-|DIAMOND PK|Parking|N|REG|COMPANY|IBCP CORP|USD 5|DR|7271018|-|-
 
 ### <a name="ecvea"></a>Clearing via Expense Account
 
 The Payer in this instance is the company; the Payee is Company Paid. It is not an itemized expense thus the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this transaction has already been paid by the Company the employee will not receive reimbursement.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1239              |                                 | DELTA                | Airfare               | N                    | REG                             | COMPANY                      | COMPANY PAID                 | USD 450                  | DR                     | 7271101                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1239|-|DELTA|Airfare|N|REG|COMPANY|COMPANY PAID|USD 450|DR|7271101|-|-
 
 ### <a name="eccccep"></a>CBCP Corporate Card Charge for Entirely Personal Expense (Net Due Company With and Without Offsets)
 
 The extract produces two records for this single transaction. One record addresses payment that must be made to the card vendor by the company. The Payer is the company. The Payee is the corporate card vendor. The amount is a debit of USD 53 to the clearing account. Since there are no employee out-of-pocket expenses on this expense report there is nothing to offset the amount that the employee owes the company. Therefore, a separate record is created to address the net due company condition. In this record the Payer is the employee and the Payee is the company. The amount is a credit of USD 53 to the clearing account. The company’s financial system must have a process for dealing with this employee receivable condition. The CT&E system will not “carry over” this net due company amount to subsequent expense reports.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1288              |                                 | APPLEBEES            | Dinner                | Y                    | REG                             | EMPLOYEE                     | COMPANY                      | USD -53                  | CR                     | 9991001                |                               |                                         |
-| 1288              |                                 | APPLEBEES            | Dinner                | Y                    | REG                             | COMPANY                      | CBCP CORP                    | USD 53                   | DR                     | 9991001                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1288|-|APPLEBEES|Dinner|Y|REG|EMPLOYEE|COMPANY|USD -53|CR|9991001|-|-
+1288|-|APPLEBEES|Dinner|Y|REG|COMPANY|CBCP CORP|USD 53|DR|9991001|-|-
 
 ### <a name="eccccwi"></a>CBCP Corporate Card Charge with Itemization and Personal Expense (Net Due Employee With Offsets)
 
 The Payer for both transactions is the company. The Payee is the corporate card vendor for the full amount of the Hotel transaction (the company owes the card vendor for the entire amount of the transaction, including the non-reimbursable in-room movie) and the Employee for the balance of the Taxi expense after the offset is taken for the in-room movie portion of the corporate card transaction. The employee would normally be reimbursed for the full USD 35 out-of-pocket taxi expense but, because a portion of the company paid corporate card transaction was not a legitimate business expense, the system reduces the amount due to the employee by the amount of the non-reimbursable expense. In this case there was enough out-of-pocket cash expenses to offset the non-reimbursable expenses so there is a net due to the employee for this expense report.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1236              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | CBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1237              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | CBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1238              |                                 | MARRIOTT             | Dinner                | N                    | CHD                             | COMPANY                      | CBCP CORP                    | USD 20                   | DR                     | 7271002                |                               |                                         |
-| 1240              |                                 | Taxi                 | Local Trans           | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 21                   | DR                     | 7271019                |                               |                                         |
-| 1240              |                                 | Taxi                 | Local Trans           | N                    | REG                             | COMPANY                      | CBCP CORP                    | USD 14                   | DR                     | 7271019                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1236|-|MARRIOTT|Hotel|N|CHD|COMPANY|CBCP CORP|USD 125|DR|7271001|-|-
+1237|-|MARRIOTT|Hotel|N|CHD|COMPANY|CBCP CORP|USD 125|DR|7271001|-|-
+1238|-|MARRIOTT|Dinner|N|CHD|COMPANY|CBCP CORP|USD 20|DR|7271002|-|-
+1240|-|Taxi|Local Trans|N|REG|COMPANY|EMPLOYEE|USD 21|DR|7271019|-|-
+1240|-|Taxi|Local Trans|N|REG|COMPANY|CBCP CORP|USD 14|DR|7271019|-|-
 
 ### <a name="eccccip"></a>CBCP Corporate Card Charge With Itemization and Personal Expense (Net Due Employee Without Offsets)
 
 The records are slightly different from CBCP Corporate Card Charge with Itemization and Personal Expense (Net Due Employee With Offsets)where offsets are built into the extract. In this case, where there are no built-in offsets, each record is distinct and the offset will need to be calculated in the client’s bridge program. The Payer for both transactions is the company except for the personal portion of the Hotel expense. The personal amount of USD 14 is represented with two distinct records. One record addresses the amount due to the corporate card vendor to ensure that the full amount of the Hotel transaction (including the personal amount) is paid to the card vendor. A second offsetting record addresses the same personal amount that the employee owes back to the company. In the first record, the Company is the Payer and the Payee is the corporate card vendor for the USD 14 non-reimbursable in-room movie). In the second record the Employee is the Payer and the Payee is the Company for the credit amount of the USD 14 non-reimbursable in-room movie. The full USD 35 out-of-pocket taxi expense is handled as a normal out-of-pocket cash expense with the Company being the Payer and the Employee being the Payee. The client’s bridge program will need to summarize the two records (USD +35 taxi and USD -14 in-room movie) to arrive at the USD 21 due to the employee.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1236              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | CBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1237              |                                 | MARRIOTT             | Hotel                 | N                    | CHD                             | COMPANY                      | CBCP CORP                    | USD 125                  | DR                     | 7271001                |                               |                                         |
-| 1238              |                                 | MARRIOTT             | Dinner                | N                    | CHD                             | COMPANY                      | CBCP CORP                    | USD 20                   | DR                     | 7271002                |                               |                                         |
-| 1239              |                                 | MARRIOTT             | Other                 | Y                    | CHD                             | COMPANY                      | CBCP CORP                    | USD 14                   | DR                     | 9991001                |                               |                                         |
-| 1239              |                                 | MARRIOTT             | Other                 | Y                    | CHD                             | EMPLOYEE                     | COMPANY                      | USD -14                  | CR                     | 9991001                |                               |                                         |
-| 1240              |                                 | Taxi                 | Local Trans           | N                    | REG                             | COMPANY                      | EMPLOYEE                     | USD 35                   | DR                     | 7271019                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1236|-|MARRIOTT|Hotel|N|CHD|COMPANY|CBCP CORP|USD 125|DR|7271001|-|-
+1237|-|MARRIOTT|Hotel|N|CHD|COMPANY|CBCP CORP|USD 125|DR|7271001|-|-
+1238|-|MARRIOTT|Dinner|N|CHD|COMPANY|CBCP CORP|USD 20|DR|7271002|-|-
+1239|-|MARRIOTT|Other|Y|CHD|COMPANY|CBCP CORP|USD 14|DR|9991001|-|-
+1239|-|MARRIOTT|Other|Y|CHD|EMPLOYEE|COMPANY|USD -14|CR|9991001|-|-
+1240|-|Taxi|Local Trans|N|REG|COMPANY|EMPLOYEE|USD 35|DR|7271019|-|-
 
 ### <a name="eccccep"></a>CBCP Corporate Card Charge for Entirely Personal Expense (Net Due Company Without Offsets)
 
 The extract produces two records for this single transaction. One record addresses payment that must be made to the card vendor by the company. The Payer is the company. The Payee is the corporate card vendor. The amount is a debit of USD 53 to the clearing account. The second record is created to address the net due company condition. In this record the Payer is the employee and the Payee is the company. The amount is a credit of USD 53 to the clearing account. The company’s financial system must have a process for dealing with this employee receivable condition. The CT&E system will not “carry over” this net due company amount to subsequent expense reports.
 
-| **[61] entry_id** | **[64] Entry Transaction Date** | **[70] Vendor Name** | **[63] Expense Type** | **[68] Is Personal** | **[62] Entry Transaction Type** | **[163] Payer Payment Type** | **[165] Payee Payment Type** | **[169] Journal Amount** | **[168] Debit Credit** | **[167] Account Code** | **[177] Cash Advance Amount** | **[185] Cash Advance Transaction Type** |
-|-------------------|---------------------------------|----------------------|-----------------------|----------------------|---------------------------------|------------------------------|------------------------------|--------------------------|------------------------|------------------------|-------------------------------|-----------------------------------------|
-| 1288              |                                 | APPLEBEES            | Dinner                | Y                    | REG                             | EMPLOYEE                     | COMPANY                      | USD -53                  | CR                     | 9991001                |                               |                                         |
-| 1288              |                                 | APPLEBEES            | Dinner                | Y                    | REG                             | COMPANY                      | CBCP CORP                    | USD 53                   | DR                     | 9991001                |                               |                                         |
+[61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
+---|---|---|---|---|---|---|---|---|---|---|---|---
+1288|-|APPLEBEES|Dinner|Y|REG|EMPLOYEE|COMPANY|USD -53|CR|9991001|-|-
+1288|-|APPLEBEES|Dinner|Y|REG|COMPANY|CBCP CORP|USD 53|DR|9991001|-|-
