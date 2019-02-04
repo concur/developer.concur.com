@@ -1,11 +1,7 @@
 ---
 title: SAP Concur App Center - Go to Market
-layout: reference
+layout: marketing
 ---
-
-![Go To Market Door Image](./GTM1.jpg)
-
-Let us help you prepare for your SAP Concur App Center launch.
 
 [Get started now](/api-reference/index.html)
 
@@ -17,6 +13,9 @@ This page will provide you with the resources needed for your initial launch as 
 
 > If you’re not yet a SAP Concur App Center partner please [contact our Business Development team](mailto:bizdev@concur.com) to discuss an agreement.
 
+{% include marketing-one-page-open.html %}
+{% include marketing-blue-section-open.html %}
+
 ## App Certification
 
 As you scope and fine tune your app, you should also be preparing for your app certification and scheduling a demo with the SAP Concur Partner Enablement team to showcase your app. Below are key resource documents to help you through this process.
@@ -24,6 +23,10 @@ As you scope and fine tune your app, you should also be preparing for your app c
 **[Apps for Me Release Schedule](./go-market-docs/apps-for-me-release-schedule.html)**: Review to understand additional requirements within the Apps for Me category. Please plan accordingly based on key target dates and deadlines.
 
 ![Mobile Experience Example](./marketing-app.jpg)
+
+
+{% include marketing-blue-section-close.html %}
+{% include marketing-one-page-close.html %}
 
 ## Marketing Your App
 

@@ -189,6 +189,10 @@ JP|800122334
 * Mobile is validated against the `mobileCountryCode` or default country (as mentioned in point 1 above) if this field is blank. When a mobile number is provided there are no issues as long as it follows the appropriate format and is a valid mobile in the country where it is registered. For e.g If the `mobileCountryCode` provided in the JSON is 81 (JP - Japan) then the subsequent mobile number must be valid in JP. 
 * If the `mobileCountryCode` is not provided in the JSON and the client country is US then the mobile number provided must be valid in US because of the default behaviour mentioned above.
 
+A new field `partiallyProcessedTransactions` is introduced in the response to cater to the following invalid mobile scenarios.
+    * Mobile number is not valid for the country derived based on details provided for traveller 
+    * A well formed mobile number could not be derived using the mobile provided
+
 ### Request
 ###### Cancel request with location field
 ```shell
@@ -269,13 +273,14 @@ content-type: application/json
         "AAAAAA" : "Successfully Processed"
     },
     "unprocessedTransactions": {
-        "AWS4e-N1QaN-swer-456": "Transaction type not found"
+    },
+    "partiallyProcessedTransactions": {
     }
 } 
 ```
 
 ### Request
-###### Cancel request without location field
+###### Cancel request without location and user fields (minimal request)
 ```shell
 POST https://{baseURI}/locate/api/v1/user/locations
 Content-Type: application/json
@@ -288,24 +293,8 @@ Authorization: Bearer {token}
   "userLocations": [
     {
       "client": {
-        "id": "UL_CLI",
-        "firstSubLevel": "",
-        "secondSubLevel": ""
+        "id": "UL_CLI"
       },
-      "users": [
-        {
-          "userId": 22,
-          "firstName": "Test",
-          "lastName": "TEST3",
-          "email": "test.test3@abcd.com",
-          "employeeId": "abc333",
-          "mobileCountryCode": "",
-          "mobile": "+(27)7160981138",
-          "optedIn": true,
-          "concurLoginId": "",
-          "affiliation": "Student"
-        }
-      ],
       "sourcePartner": {
         "id": "SP",
         "name": "Source Partner",
@@ -336,7 +325,8 @@ content-type: application/json
         "AAAAAA" : "Successfully Processed"
     },
     "unprocessedTransactions": {
-        "AWS4e-N1QaN-swer-456": "Transaction type not found"
+    },
+    "partiallyProcessedTransactions": {
     }
 } 
 ```
@@ -434,7 +424,8 @@ content-type: application/json
         "ASDFGH" : "Successfully Processed"
     },
     "unprocessedTransactions": {
-        "AWS4e-N1QaN-swer-456": "Transaction type not found"
+    },
+    "partiallyProcessedTransactions": {
     }
 } 
 ```
@@ -532,7 +523,208 @@ content-type: application/json
         "ASDFGH" : "Successfully Processed"
     },
     "unprocessedTransactions": {
-        "AWS4e-N1QaN-swer-456": "Transaction type not found"
+    },
+    "partiallyProcessedTransactions": {
     }
 } 
 ```
+
+### Request
+###### Add request - invalid mobile phone variation
+
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
+      },
+      "users": [
+        {
+          "userId": 22,
+          "firstName": "Test",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "",
+          "mobile": "+(27)7160981138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        },
+        {
+          "userId": 23,
+          "firstName": "Test",
+          "lastName": "TEST4",
+          "email": "test.test4@abcd.com",
+          "employeeId": "abc334",
+          "mobileCountryCode": "US",
+          "mobile": "0005551138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        }
+      ],
+      "locations": [
+        {
+          "locationId": 0,
+          "locationAddress": "",
+          "locationName": "SomeLocation",
+          "locationDescription": "",
+          "locationLatitude": "",
+          "locationLongitude": "",
+          "locationIataCode": "LHR",
+          "startDate": "2018-09-01T12:07",
+          "endDate": "2018-09-02T12:07",
+          "timezoneId": "Europe/London",
+          "locationPhone": "",
+          "visitorId": [
+            22,23
+          ]
+        }
+      ],
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "ASDFGH",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Add"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+    },
+    "unprocessedTransactions": {
+    },
+    "partiallyProcessedTransactions": {
+        "ASDFGH": "Partially processed the transactions : [Incorrect mobile for [23] ]"
+    }
+} 
+```
+
+### Request
+###### Add request - unprocessed transaction
+
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
+      },
+      "users": [
+        {
+          "userId": 22,
+          "firstName": "Test",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "",
+          "mobile": "+(27)7160981138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        },
+        {
+          "userId": 23,
+          "firstName": "Test",
+          "lastName": "TEST4",
+          "email": "test.test4@abcd.com",
+          "employeeId": "abc334",
+          "mobileCountryCode": "US",
+          "mobile": "asdfrgh",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        }
+      ],
+      "locations": [
+        {
+          "locationId": 0,
+          "locationAddress": "",
+          "locationName": "SomeLocation",
+          "locationDescription": "",
+          "locationLatitude": "",
+          "locationLongitude": "",
+          "locationIataCode": "LHR",
+          "startDate": "2018-09-01T12:07",
+          "endDate": "2018-09-02T12:07",
+          "timezoneId": "Europe/London",
+          "locationPhone": "",
+          "visitorId": [
+            22,23
+          ]
+        }
+      ],
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "ASDFGH",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Add"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+    },
+    "unprocessedTransactions": {
+        "ASDFGH": "Invalid mobile details found for transaction [ASDFGH]. Skipping transaction "
+    },
+    "partiallyProcessedTransactions": {
+    }
+} 
+```
+
+
