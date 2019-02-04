@@ -9,7 +9,7 @@ Delete an event notification.
   * [Request Example](#req-example)
 * [Response](#response)
   * [Schema](#schema)
-  * [Request Example](#res-example)
+  * [Response Example](#res-example)
 
 ## URI
 `https://www.concursolutions.com/api/platform/notifications/v1.0/notification/`

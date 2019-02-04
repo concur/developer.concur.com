@@ -19,8 +19,8 @@ Triggers the Submit workflow action for the specified report.
 
 #### Path Parameters
 
-|Parameter|Required/Optional|Description|
-|---------|-------------|---------|-----------------------|
+| Parameter | Required/Optional | Description |
+|---------|-------------|---------|
 |{_reportKEY_}/submit | required | The identifier for the desired report and the submit keyword.|
 
 Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportKEY}/submit `

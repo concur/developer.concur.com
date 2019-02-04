@@ -16,7 +16,7 @@ GET list of reports can be found [here](/api-reference-deprecated/version-two/ex
     * [Itemization](#itemization)
     * [Attendee](#attendee)
     * [Allocation](#allocation)
-    * [Journal Entry](#jounral-entry)
+    * [Journal Entry](#journal-entry)
     * [VAT Data](#vat-data)
     * [Card Transaction](#card-transaction)
     * [Custom Fields](#custom-fields)
@@ -55,7 +55,7 @@ application/xml
 ### <a name="schema"></a>Schema
 This request will return a **ReportDetails** parent element.
 
-#### <a name="report-details"></a>eportDetails
+#### <a name="report-details"></a>ReportDetails
 
  Element |  Description
  -----| ----- |
