@@ -167,7 +167,7 @@ https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0
 
 ## <a name="post"></a>Create a new expense entry
 
-    POST  /api/v3.0/expense/entries/
+    POST  /api/v3.0/expense/entries
 
 
 ### Parameters

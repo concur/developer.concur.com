@@ -3,49 +3,59 @@ title: Itinerary Service
 layout: reference
 ---
 
-## Overview
+* [Overview](#itinerary-overview)
+* [Version](#itinver)
+* [Resources](#itinres)
+* [Concepts](#itin-concepts)
+* [Who Can Use This Web Service?](#itin-use)
+* [Authentication and Authorization](#itin-auth)
+* [Configuration](#itin-config)
+* [FAQs](#itin-faq)
+* [Best Practices](#itin-best-practices)
+* [Reference](#reference-topics)
 
-The Concur Itinerary service can be used to programmatically access travel data such as trips and bookings in the Concur travel system. The Concur Travel system uses this data to match and consolidate bookings it receives from disparate sources and put these into consolidated travelers’ itineraries, providing travelers a convenient way to view their trips in a single itinerary view. Travelers can view their itineraries through mobile applications or other services.
+## <a name="itinerary-overview"></a>Overview
 
+The Itinerary API can be used to programmatically access travel data such as trips and bookings in Concur Travel. Concur Travel uses this data to match and consolidate bookings it receives from disparate sources and put these into consolidated travelers’ itineraries, providing travelers a convenient way to view their trips in a single itinerary view. Travelers can view their itineraries through mobile applications or other services.
 
-## Version
+## <a name="itinver"></a>Version
 
 Version 1.0
 
-## Resources
+## <a name="itinres"></a>Resources
 
 [Trip](/api-reference/travel/itinerary/trip/trip-resource.html)
 
 [Booking](/api-reference/travel/itinerary/booking/booking-resource.html)
 
-## Concepts
+## <a name="itin-concepts"></a>Concepts
 
-### Itineraries and trips
+### Itineraries and Trips
 
-The terms itinerary and trip are synonyms. Trip is the name used for the Concur web service resource that represents an itinerary.
+The terms itinerary and trip are synonyms. Trip is the name used for the SAP Concur web service resource that represents an itinerary.
 
-### Itinerary, booking record, and segment
+### Itinerary, Booking Record, and Segment
 
 * An _itinerary_ is the container for all bookings in a trip. An itinerary can have more than one booking.
 * A _booking record_ is the container for all segments booked from a source with the same unique identifier (_record locator_ or _confirmation number_). A single booking can have multiple segments.
 * A _segment_ includes details about the travel booking.
 
-## Who can use this web service?
+## <a name="itin-use"></a>Who Can Use This Web Service?
 
-TripLink suppliers, travel management companies (TMCs), and Concur partners can use the Concur Itinerary web service. The level of access to the data in the Concur Travel system on who is accessing it and the Concur products that have been purchased.
+TripLink suppliers, travel management companies (TMCs), and SAP Concur partners can use the Itinerary API. The level of access to the data in the Concur Travel system depends on who is accessing it and the SAP Concur products that have been purchased.
 
-### Travel management companies (TMCs)
+### Travel Management Companies
 
 * Can view and post bookings for any travel type.
-* Send new reservations that users create on the supplier's site to Concur.
-* Send a notice of trip cancellations to Concur.
-* Get a list of current trips for a user from Concur.
-* Get the full details of user trips from Concur.
+* Send new reservations that users create on the supplier's site to SAP Concur.
+* Send a notice of trip cancellations to SAP Concur.
+* Get a list of current trips for a user from SAP Concur.
+* Get the full details of user trips from SAP Concur.
 * Can view the full set of fields for their customers' itineraries because TMCs have an existing relationship with their customers.
-* Can send proposed itineraries when the Agency Proposal feature of Travel Request is active.
+* Can send proposed itineraries when the Agency Proposal feature of Concur Request is active.
 * Can cancel bookings on behalf of a user.
 
-### TripLink travel suppliers
+### TripLink Travel Suppliers
 
 * Can post bookings for their travel type.
 * Get limited itinerary details.
@@ -53,71 +63,71 @@ TripLink suppliers, travel management companies (TMCs), and Concur partners can 
 * Modify bookings.
 * Cancel bookings for their travel type.
 
-### Third-party developers
+### Third-Party Developers
 
-* Request trip information for Concur users.
-* Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][4] if you have questions about the configuration settings.
+* Request trip information for SAP Concur users.
+* Partner developers must determine which configurations are required for their solution prior to the review process.
 
-If you are a TMC or a Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the Concur Connect Platform Team. Concur products are highly configurable, and not all clients will have access to all features.
+If you are a TMC or a SAP Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team. SAP Concur products are highly configurable, and not all clients will have access to all features.
 
-Some itinerary data may have come from Sabre. Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
+Some itinerary data may have come from Sabre. SAP Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
 
-## Authentication and authorization
+## <a name="itin-auth"></a>Authentication and Authorization
 
-The Itinerary web service uses OAuth 2.0 for authenticating users and authorizing access to travel data.
+The Itinerary API uses OAuth 2.0 for authenticating users and authorizing access to travel data.
 
 ### Authorization for TMCs
 
 TMCs can request or send travel bookings in two ways:
 
 * By using an OAuth token for the user the travel booking belongs to. This token allows access to the user's data.
-* By using an OAuth token for a user with an administrative role at the company, which allows access to company-wide information. The user who authenticates during this OAuth process must have a Concur account with one of the following user roles: **Web Services Administrator** for Professional, or **Can Administer** for Standard.
+* By using an OAuth token for a user with an administrative role at the company, which allows access to company-wide information. The user who authenticates during this OAuth process must have an SAP Concur account with one of the following user roles: **Web Services Administrator** for Professional, or **Can Administer** for Standard.
 
-### Authorization for TripLink suppliers
+### Authorization for TripLink Suppliers
 
 The travel supplier can request or send travel bookings by using an OAuth token for the user the travel booking belongs to, generated with the user's involvement.
 
-## Configuration
+## <a name="itin-config"></a>Configuration
 
-* If you are a TMC, third-party developer, or a TripLink supplier who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the Concur Connect Platform Team.
-* Concur products are highly configurable, and not all Concur clients will have access to all features.
-* Partner developers must determine which configurations are required for their solution prior to the review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">Developer Forum</a> if you have questions about the configuration settings.
+* If you are a TMC, third-party developer, or a TripLink supplier who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team.
+* SAP Concur products are highly configurable, and not all SAP Concur clients will have access to all features.
+* Partner developers must determine which configurations are required for their solution prior to the review process.
 
-## FAQs
+## <a name="itin-faq"></a>FAQs
 
-#### When do I send trips versus bookings?
+#### When Do I Send Trips Versus Bookings?
 
 * TMCs, OTA, or partners that own or manage the entire trip on behalf of the traveler should send trips.
 * Travel suppliers such as hotels, car vendors or airlines that own only parts of the trips should send bookings.
 * Posted bookings are merged with any existing trips if their dates overlap.
 * Posted trips are not merged even if a trip already exists with overlapping dates.
 
-#### Can other TripLink suppliers see all the booking details of my bookings?
+#### Can Other TripLink Suppliers See all the Booking Details of My Bookings?
 
-The Itinerary Web service returns the full booking details to the supplier who will provide the booked service. Suppliers that are not the service provider will receive a subset of the possible fields. These vary by the type of booking relative to the type of supplier. For example, Air booking suppliers that are not the supplier will not see the following fields:
+The Itinerary API returns the full booking details to the supplier who will provide the booked service. Suppliers that are not the service provider will receive a subset of the possible fields. These vary by the type of booking relative to the type of supplier. For example, Air booking suppliers that are not the supplier will not see the following fields:
 
 * Vendor
 * FlightNumber
 * StartDateLocal
 * StartDateUtc
 
-#### How can we save additional charges for hotel and car segments? What types of charges are supported?
+#### How Can We Save Additional Charges for Hotel and Car Segments? What Types of Charges Are Supported?
 
-The Charges element under Car and Hotel segments allow you to save additional charges using Semantics Codes. Refer to the Semantics and Vendor Codes document for more information.
+The `Charges` element under Car and Hotel segments allow you to save additional charges using Semantics Codes. Refer to the Semantics and Vendor Codes sections under [Reference](#reference-topics) for more information.
 
-#### What vendor codes can I use when sending hotel and car segments?
+#### What Vendor Codes Can I Use When Sending Hotel and Car Segments?
 
-Refer to the Semantics and Vendor Codes document for the full list.
+Refer to the Semantics and Vendor Codes sections for the full list.
 
-#### Can I view a trip posted through the Itinerary Web service in the Concur UI?
+#### Can I View a Trip Posted Through the Itinerary API in the SAP Concur UI?
 
-Yes. The user who owns the trip will see the trip on their My Concur page. If the trip is in the future, it will show under the upcoming trip list. Trips that are ready to expense will show in the expense report list.
+Yes. The user who owns the trip will see the trip on their home page. If the trip is in the future, it will show under the upcoming trip list. Trips that are ready to expense will show in the expense report list.
 
-#### When can a trip be expensed?
+#### When Can a Trip Be Expensed?
 
 Trips can be expensed after the trip is over under the following conditions:
 
-* The trip has a Car, Hotel or Ride segment.
+* The trip has a Car, Hotel, or Ride segment.
 * The trip has an Air segment with a ticket and the ticket has at least one valid ticket coupon, meaning the coupon is in one of the following statuses:
 * OPEN
 * USED
@@ -126,61 +136,69 @@ Trips can be expensed after the trip is over under the following conditions:
 
 Air segments can be expensed as soon as they have a ticket with a valid coupon, if the company uses the PreExpenseAir option.
 
-#### Why is my new booking not showing in the UI?
+#### Why is My New Booking Not Showing in the UI?
 
-The request returned successfully with HTTP status - 200 OK.
-Posted bookings are automatically merged with any existing trip with overlapping dates. Most likely, a trip exists with the same dates and the booking has been added to it.
+The request returned successfully with HTTP status - 200 OK. Posted bookings are automatically merged with any existing trip with overlapping dates. Most likely, a trip exists with the same dates and the booking has been added to it.
 
-#### Will posted bookings be overwritten by emailed or TripIt trips?
+#### Will Posted Bookings Be Overwritten by Emailed or TripIt Trips?
 
 No.
 
-#### Will posted bookings merge with existing Cliqbook or TripIt trips?
+#### Will Posted Bookings Merge with Existing Cliqbook or TripIt Trips?
 
 Yes.
 
-#### Will posted trips merge with existing trips?
+#### Will Posted Trips Merge with Existing Trips?
 
 No.
 
-## <a name="reference_topics" id="reference_topics">Reference</a>
+## <a name="itin-best-practices"></a>Best Practices
+
+*	When extracting past data:
+    * Extract a month of trip summaries to gauge volume. If hundreds are returned, then adjust extraction to weekly.
+    * Do not extract more than a year of data at any given time regardless of the volume. For longer look backs, extract 6 month segments maximum at a time.
+    * Do not multi-thread requests to retrieve multiple pages of data.  Concurrent requests will impact your application’s performance.
+*	Itineraries change frequently. Changes do not necessarily indicate that the traveler modified their trip. If your application works with upcoming or in progress trips, be aware that you must evaluate the individual segments to determine whether it is a material change for your application.
+*	This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites, and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API.
+
+## <a name="reference-topics" id="reference-topics">Reference</a>
 
 The Itinerary Reference documentation includes the following reference information that can be used in conjunction with the Trip Resource API and Booking Resource API documentation. It includes the following reference topics:
 
-* [Itinerary Data Model](#itinerary_data_model)
-* [Car Vendor Codes](#car_vendor_codes)
-* [Hotel Vendor Codes](#hotel_vendor_codes)
-* [Ride Vendor Codes](#ride_vendor_codes)
-* [Semantics Codes](#semantics_codes)
-* [Time Zone Formats](#time_zones)
+* [Itinerary Data Model](#itinerary-data-model)
+* [Car Vendor Codes](#car-vendor-codes)
+* [Hotel Vendor Codes](#hotel-vendor-codes)
+* [Ride Vendor Codes](#ride-vendor-codes)
+* [Semantics Codes](#semantics-codes)
+* [Time Zone Formats](#time-zones)
 
-###  <a name="itinerary_data_model" id="itinerary_data_model">Itinerary data model</a>
-[Return to Reference topics](#reference_topics)
+###  <a name="itinerary-data-model" id="itinerary-data-model">Itinerary Data Model</a>
 
 The Itinerary data model defines data elements  that are returned or sent when getting, creating, updating, or deleting trips and bookings with the /api/travel/trip/v1.1 and /api/travel/booking/v1.1 resources respectively.
-Trips include all bookings in an itinerary whereas a booking includes only a specific segment of an itinerary.  It includes the following elements:
 
-* [Root elements](#root_elements)
-* [Booking elements](#booking_elements)
-* [AirfareQuotes elements](#airfarequotes_elements)
-* [Passengers elements](#passengers_elements)
-* [AirlineTickets elements](#airlinetickets_elements)
-* [Fixed elements](#fixed_elements)
-* [AirBooking elements](#airbooking_elements)
-* [CarBooking elements](#carbooking_elements)
-* [Hotel Booking elements](#hotel_booking_elements)
-* [Dining Booking elements](#dining_booking_elements)
-* [Ride Booking elements](#ride_booking_elements)
-* [Rail Booking elements](#rail_booking_elements)
-* [Parking Booking elements](#parking_booking_elements)
-* [Travel Booking elements](#travel_booking_elements)
+Trips include all bookings in an itinerary whereas a booking includes only a specific segment of an itinerary. It includes the following elements:
 
-#### <a name="root_elements" id="root_elements">Root elements</a>
+* [Root Elements](#root-elements)
+* [Booking Elements](#booking-elements)
+* [AirfareQuotes Elements](#airfarequotes-elements)
+* [Passengers Elements](#passengers-elements)
+* [AirlineTickets Elements](#airlinetickets-elements)
+* [Fixed Elements](#fixed-elements)
+* [AirBooking Elements](#airbooking-elements)
+* [CarBooking Elements](#carbooking-elements)
+* [Hotel Booking Elements](#hotel-booking-elements)
+* [Dining Booking Elements](#dining-booking-elements)
+* [Ride Booking Elements](#ride-booking-elements)
+* [Rail Booking Elements](#rail-booking-elements)
+* [Parking Booking Elements](#parking-booking-elements)
+* [Travel Booking Elements](#travel-booking-elements)
+
+#### <a name="root-elements" id="root-elements">Root Elements</a>
 
 | Element Name          | Data Type    | TripLink | Description |
 |----------------------|-------------|---------|---------------------------------------------------------------------|
-| id                    | String       | Y        | The unique identifier for the trip URI with encrypted ID. Format:    |
-| ItineraryInfo         |              | Y        | Parent element with the information about an itinerary for the specified user. Format: (NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Get List of Itineraries response example)                                                                                                                 |
+| id                    | String       | Y        | The unique identifier for the trip URI with encrypted ID.    |
+| ItineraryInfo         |              | Y        | Parent element with the information about an itinerary for the specified user.                                                                                                                 |
 | TripId                | String       | Y        | Encrypted trip identifier value.                                     |
 | ItinLocator           | String       | Y        | This element is obsolete and is supported only for backward compatibility.|
 | BookedVia             | String       |          | The booking method for the trip.|
@@ -204,19 +222,19 @@ Trips include all bookings in an itinerary whereas a booking includes only a spe
 | StartDateUtc          | DateTime     | Y        | The date when this trip started in UTC format. Format: YYYY-MM-DDThh:mm:ss. |
 | TripName              | String       | Y        | Name of the trip. Maximum length 255 characters.  |
 | TripStatus            | unsignedByte | Y        | The status of the trip. This element only appears if the includeCanceledTrips query parameter is used in the request.|
-| UserLoginId           |              | Y        | The user's login to Concur. This element appears only when the OAuth token is associated with a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. (NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Get List of Itineraries response example)|
+| UserLoginId           |              | Y        | The user's login to SAP Concur. This element appears only when the OAuth token is associated with a SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. |
 | Bookings              | Array        | Y        | An array of bookings that contains a Booking child element for each included booking.|
 | Custom Attributes     | Array        |          |    |
 | RuleViolations        | Array        | N        | The list of rule violations associated with the itinerary. This parent element contains a RuleViolation child element for each associated rule violation.|
 
-#### <a name="booking_elements" id="booking_elements">Booking elements</a>
+#### <a name="booking-elements" id="booking-elements">Booking Elements</a>
 The Bookings parent element contains a Booking child element for each included booking. TripLink suppliers have access only to a subset of the Booking elements. The TripLink column indicates with a Y if a specific element is available for a TripLink supplier. Each booking element contains the following child elements:
 
 | Element  | Data Type | TripLink | Description |
 |-----------------------------|-----------|----------|------------------------------------------|
 | BookingOwner | String | Y | Specifies the tool that supplied the booking to Concur Travel. The possible values are: ConcurTravel, OpenBookingEmail, AmadeusETravel, ConcurConnectAPI, OpenBookingSupplier and TripIt |
-| BookingSource | String | Y | For TMCs: The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. <br/>For TripLink suppliers: The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. This could be a GDS, OTA, Vendor Code for Supplier website or Supplier Direct Connect API <br/>(NOTE TO TECH REVIEWERS: Is the definition for this element different for a TMC vs. a TripLink supplier?) |
-| Source |   | Y | This element is obsolete and is supported only for backward compatibility. (NOTE TO TECH REVIEWERS: This element is not in the XSD because it is obsolete. Should we continue to keep this in the documentation? If yes, should we create a separate topic titled "Obsolete Elements" and document it there?) |
+| BookingSource | String | Y | For TMCs: The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. <br/>For TripLink suppliers: The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. This could be a GDS, OTA, Vendor Code for Supplier website or Supplier Direct Connect API <br/> |
+| Source |   | Y | This element is obsolete and is supported only for backward compatibility. |
 | DateBookedLocal | DateTime | Y | The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | DateTime | Y | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | DateTime | Y | The date the booking was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -230,24 +248,24 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketMailingAddress |   |  | The mailing address for the booked ticket, if available. |
 | TicketPickupLocation |   |  | The pickup location for the booked ticket, if available |
 | TicketPickupNumber |   |  | The confirmation number to pick up the booked ticket, if available. |
-| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardType | String |  | The type of credit card (for example, Visa/Mastercard/etc.). |
 | CreditCardLastFour | String |  | The last four digits of credit card number. |
-| AirfareQuotes | Array |  | List of stored airfare quotes for this booking. For more information, see the **AirFareQuotes elements** table. |
-| ItinSourceName | String |  | The itinerary source. Format: TravelSupplier (NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Post booking details request for TMCs example) |
-| AirlineTickets | Array |  | List of airline tickets for this booking. For more information, see the **AirLine Tickets elements** table. |
-| Charges | Array |  | The charges for this booking. For more information, see the **Charges elements** table later on this page.  |
-| MiscChargeOrders | Array |  | An array of miscellaneous charge orders for this booking. This parent element has a **MiscellaneousChargeOrders** child element for each miscellaneous charge order associated with this booking. For information about the child elements, see the **MiscellaneousChargeOrders elements** table later on this page. |
-| Passengers | Array | Y | This parent element contains a **Passenger** child element for each booked passenger. See the **Passengers elements** table for more information about the child elements. |
-| PassPrograms |   |  | List of Pass Programs for this booking. This parent element has a **PassProgram** child element for each pass program associated with the booking. For information about the child elements, see the **PassProgram elements** table later on this page. |
-| PhoneNumbers |   |  | List of Phone numbers associated with this booking.  This parent element has a **PhoneNumberData** child element for each phone number associated with the booking. For information about the child elements, see the **PhoneNumberData elements** table later on this page.  |
-| RailPayments | Array |  | List of Rail payments associated with rail segments in this booking. For information about the child elements in the array, see the **RailPayments elements** table later on this page. |
-| Segments |   | Y | List of Segments in this booking. This parent element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements for the booking. The segments are described in the tables below, see **Air Booking elements**, **Car Booking elements**, **Hotel Booking elements**, **Dining Booking elements**, **Ride Booking elements**, **Parking Booking elements**, and **Travel Booking elements**. |
+| AirfareQuotes | Array |  | List of stored airfare quotes for this booking. For more information, see the **AirFareQuotes Elements** table. |
+| ItinSourceName | String |  | The itinerary source. Format: TravelSupplier |
+| AirlineTickets | Array |  | List of airline tickets for this booking. For more information, see the **AirLine Tickets Elements** table. |
+| Charges | Array |  | The charges for this booking. For more information, see the **Charges Elements** table later on this page.  |
+| MiscChargeOrders | Array |  | An array of miscellaneous charge orders for this booking. This parent element has a **MiscellaneousChargeOrders** child element for each miscellaneous charge order associated with this booking. For information about the child elements, see the **MiscellaneousChargeOrders Elements** table later on this page. |
+| Passengers | Array | Y | This parent element contains a **Passenger** child element for each booked passenger. See the **Passengers Elements** table for more information about the child elements. |
+| PassPrograms |   |  | List of Pass Programs for this booking. This parent element has a **PassProgram** child element for each pass program associated with the booking. For information about the child elements, see the **PassProgram Elements** table later on this page. |
+| PhoneNumbers |   |  | List of Phone numbers associated with this booking.  This parent element has a **PhoneNumberData** child element for each phone number associated with the booking. For information about the child elements, see the **PhoneNumberData Elements** table later on this page.  |
+| RailPayments | Array |  | List of Rail payments associated with rail segments in this booking. For information about the child elements in the array, see the **RailPayments Elements** table later on this page. |
+| Segments |   | Y | List of Segments in this booking. This parent element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements for the booking. The segments are described in the tables below, see **Air Booking Elements**, **Car Booking Elements**, **Hotel Booking Elements**, **Dining Booking Elements**, **Ride Booking Elements**, **Parking Booking Elements**, and **Travel Booking Elements**. |
 | Delivery | String |  | The method this booking was delivered.  |
 | WaitListSegments |   |  | The segments that the traveler is waitlisted for this booking. |
 | Warnings |   |  | The warnings associated with the booking. |
 | WebAddresses |   |  | List of web addresses such as emails and pickup URLs associated with this booking. |
 
-##### MiscellaneousChargeOrder elements
+##### MiscellaneousChargeOrder Elements
 
 | Element Name | Data Type | TripLink | Description |
 |---------------------------|-----------|----------|------------------|
@@ -259,7 +277,7 @@ The Bookings parent element contains a Booking child element for each included b
 | TotalAmount | decimal |  | The total amount of charge orders for the ticket. |  
 | TotalAmountCurrency | string |  | The [3-letter ISO 4217 currency code][1] for the total charge order amount. |  
 
-##### PassProgram elements
+##### PassProgram Elements
 
 | Element Name | Data Type | TripLink | Description |
 |---------------------|-----------|----------|----------------------------------|
@@ -269,7 +287,7 @@ The Bookings parent element contains a Booking child element for each included b
 | UserFirstName    | string |  | The first name of the passenger. |
 | UserLastName    | string |  | The last name of the passenger. |
 
-##### PhoneNumberData elements
+##### PhoneNumberData Elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------------|-----------|----------|--------------------------------------------|
@@ -278,14 +296,14 @@ The Bookings parent element contains a Booking child element for each included b
 | Type   | string |  | The type of phone number. |
 | Description     | string |  | The description for the phone number. |
 
-##### RailPayments elements
+##### RailPayments Elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------|-----------|----------|-------------------------------------------|
-| RailAdjustment | Type |  |  The amount adjusted for a rail booking. For information about the RailAdjustment child elements, see the **RailAdjustment elements** table later on this page. |
-| RailPayment | Type |  |  The payment information for a rail booking. For information about the RailPayment child elements, see the **RailPayment elements** table later on this page. |
+| RailAdjustment | Type |  |  The amount adjusted for a rail booking. For information about the RailAdjustment child elements, see the **RailAdjustment Elements** table later on this page. |
+| RailPayment | Type |  |  The payment information for a rail booking. For information about the RailPayment child elements, see the **RailPayment Elements** table later on this page. |
 
-##### RailAdjustment elements
+##### RailAdjustment Elements
 
 | Element Name | Data Type | TripLink | Description |
 |-------------------|-----------|----------|------------------------------|
@@ -297,9 +315,9 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketDocumentIdentifier   | string |  |   |
 | TotalAdjustment    | decimal |  |   |
 | TotalAdjustmentCurrency  | string |  |   |
-| Taxes         | Array |  | This parent element contains a **Tax** child element for each rail adjustment tax. For more information, see the **Tax elements** table later on this page. |
+| Taxes         | Array |  | This parent element contains a **Tax** child element for each rail adjustment tax. For more information, see the **Tax Elements** table later on this page. |
 
-##### RailPayment elements
+##### RailPayment Elements
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|-----------|----------|-------------------------|
@@ -314,9 +332,9 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketType   | string |  |   |
 | TotalFare  | decimal |  | The total price of the booking. |
 | TotalFareCurrency   | string |  | The [3-letter ISO 4217 currency code][1] for the total fare. |
-| RailCharges      | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. See the **Fixed elements** table and the **Tax elements** table. |
+| RailCharges      | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. See the **Fixed Elements** table and the **Tax Elements** table. |
 
-#### <a name="airfarequotes_elements" id="airfarequotes_elements">AirfareQuotes elements</a>
+#### <a name="airfarequotes-elements" id="airfarequotes-elements">AirfareQuotes Elements</a>
 
 The AirfareQuotes parent element is an array that contains a Quote child element that contains the following child elements.
 
@@ -332,9 +350,9 @@ The AirfareQuotes parent element is an array that contains a Quote child element
 | IssueByDate | DateTime |  |   |
 | TotalFare | Decimal |  |   |
 | TotalFareCurrency | String |  |   |
-| AirlineCharges | Array |  | This parent element contains a **Fixed** and a **Percent** child element for each fixed charge and percent of fixed charge associated with this airfare quote. For information about these child elements, see the **Fixed elements** table and the **Percent elements** table later on this page. |
+| AirlineCharges | Array |  | This parent element contains a **Fixed** and a **Percent** child element for each fixed charge and percent of fixed charge associated with this airfare quote. For information about these child elements, see the **Fixed Elements** table and the **Percent Elements** table later on this page. |
 
-#### <a name="passengers_elements" id="passengers_elements">Passengers elements</a>
+#### <a name="passengers-elements" id="passengers-elements">Passengers Elements</a>
 
 The passenger parent element is the Passengers Element in Booking Elements. This parent element contains a Passenger child element for each booked passenger.
 
@@ -350,17 +368,17 @@ The passenger parent element is the Passengers Element in Booking Elements. This
 | TextName | String | optional | Y | The user's full name as entered in the booking tool if different from the name in the database. |
 | FrequentTravelerProgram | String | optional | Y | Passenger's loyalty programs |
 
-#### <a name="airlinetickets_elements" id="airlinetickets_elements">AirlineTickets elements</a>
+#### <a name="airlinetickets-elements" id="airlinetickets-elements">AirlineTickets Elements</a>
 
 The AirlineTickets parent element is an array that contains the following child elements.
 
 | Element Name | Data Type | TripLink | Description |
 |---------------------|-----------|----------|--------------------------------------------|
-| AirlineAdjustmentType | Type |  | Any adjustment made to the booking. For information about the child elements of AirlineAdjustmentType, see the **AirlineAdjustmentType elements** table later on this page. |
-| ManualAirlineTicket | Type |  | The manual airline ticket for the booking. For information about the child elements of ManualAirlineTicket, see the **ManualAirlineTicket elements** table later on this page. |
-| AirlineTicket | Type |  | The airline ticket for the booking. For information about the child elements of AirlineTicket, see the **AirlineTicket elements** table later on this page. |
+| AirlineAdjustmentType | Type |  | Any adjustment made to the booking. For information about the child elements of AirlineAdjustmentType, see the **AirlineAdjustmentType Elements** table later on this page. |
+| ManualAirlineTicket | Type |  | The manual airline ticket for the booking. For information about the child elements of ManualAirlineTicket, see the **ManualAirlineTicket Elements** table later on this page. |
+| AirlineTicket | Type |  | The airline ticket for the booking. For information about the child elements of AirlineTicket, see the **AirlineTicket Elements** table later on this page. |
 
-##### AirlineAdjustmentType elements
+##### AirlineAdjustmentType Elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------------|-----------|----------|-------------|
@@ -378,7 +396,7 @@ The AirlineTickets parent element is an array that contains the following child 
 | TotalAdjustmentCurrency    | string |  |   |
 | Taxes | Array |  |   |
 
-##### ManualAirlineTicket elements
+##### ManualAirlineTicket Elements
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|-----------|----------|------------------------|
@@ -387,9 +405,9 @@ The AirlineTickets parent element is an array that contains the following child 
 | DateCreatedUtc  | dateTime |  |   |
 | DateModifiedUtc  | dateTime |  |   |
 | TotalFareTotalFareCurrency   | decimal |  |   |
-| AirlineCharges  | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. For information about these child elements, see the **Fixed elements** table and the **Tax elements** table later on this page. |
+| AirlineCharges  | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. For information about these child elements, see the **Fixed Elements** table and the **Tax Elements** table later on this page. |
 
-##### AirlineTicket elements
+##### AirlineTicket Elements
 
 | Element Name | Data Type | TripLink | Description |
 |-----------------------|-----------|----------|----------------------|
@@ -424,12 +442,12 @@ The AirlineTickets parent element is an array that contains the following child 
 | TotalFare    | decimal |  |   |
 | TotalFareCurrency    | string |  |   |
 | TourIdentifier     | string |  |   |
-| AirlineCharges    | array |  | A list of airline charges for this ticket. This parent element contains a **Fixed** child element for each fixed charge from the airline. For information about these child elements, see the **Fixed elements** table later on this page. |
-| AirlineTicketCoupons  | array |  | A list of coupons for this ticket. This parent element has an **AirlineTicketCoupon** child element for each coupon associated with this airline ticket. For information about these child elements, see the **AirlineTicketCoupon elements** table later on this page. |
-| AirlineTicketExchanges  | array |  | A list of exchanges for this ticket. This parent element has an **AirlineTicketExchange** child element for each exchange associated with this airline ticket. For information about these child elements, see the **AirlineTicketExchange elements** table later on this page.|
-| AirlineTicketFareBreakups  | array |  | A list of fare breakups for this ticket. This parent element has an **AirlineTicketFareBreakup** child element for each fare breakup associated with this airline ticket. For information about these child elements, see the **AirlineTicketFareBreakup elements** table later on this page. |
+| AirlineCharges    | array |  | A list of airline charges for this ticket. This parent element contains a **Fixed** child element for each fixed charge from the airline. For information about these child elements, see the **Fixed Elements** table later on this page. |
+| AirlineTicketCoupons  | array |  | A list of coupons for this ticket. This parent element has an **AirlineTicketCoupon** child element for each coupon associated with this airline ticket. For information about these child elements, see the **AirlineTicketCoupon Elements** table later on this page. |
+| AirlineTicketExchanges  | array |  | A list of exchanges for this ticket. This parent element has an **AirlineTicketExchange** child element for each exchange associated with this airline ticket. For information about these child elements, see the **AirlineTicketExchange Elements** table later on this page.|
+| AirlineTicketFareBreakups  | array |  | A list of fare breakups for this ticket. This parent element has an **AirlineTicketFareBreakup** child element for each fare breakup associated with this airline ticket. For information about these child elements, see the **AirlineTicketFareBreakup Elements** table later on this page. |
 
-###### AirlineTicketCoupons elements
+###### AirlineTicketCoupons Elements
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|--------------|----------|-------------|
@@ -447,7 +465,7 @@ The AirlineTickets parent element is an array that contains the following child 
 | TicketDesignator   | string |  |  |
 | Vendor    | string |  |   |
 
-###### AirlineTicketExchanges elements
+###### AirlineTicketExchanges Elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------|--------------|----------|-----------------|
@@ -468,7 +486,7 @@ The AirlineTickets parent element is an array that contains the following child 
 | PlatingCarrierNumericCode  | string |   |   |
 | PlatingControlNumber   | string |   |   |
 
-###### AirlineTicketFareBreakups elements
+###### AirlineTicketFareBreakups Elements
 
 | Element Name | Data Type | TripLink | Description |
 |-----------------|-----------|----------|------------------------------|
@@ -483,9 +501,9 @@ The AirlineTickets parent element is an array that contains the following child 
 | TicketType   | string |  |   |
 | TotalFare  | decimal |  |   |
 | TotalFareCurrency   | string |  |   |
-| Taxes   | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. For more information, see the **Fixed elements** table and the **Tax elements** table later on this page. |
+| Taxes   | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. For more information, see the **Fixed Elements** table and the **Tax Elements** table later on this page. |
 
-##### <a name="fixed_elements" id="fixed_elements">Fixed elements</a>
+##### <a name="fixed-elements" id="fixed-elements">Fixed Elements</a>
 
 The Fixed element contains the following child elements.
 
@@ -502,7 +520,7 @@ The Fixed element contains the following child elements.
 | Vendor | String |  |  The vendor for the booking charge. |
 | VendorChargeCode | String |  | The vendor's code for the charge |
 
-##### Tax elements
+##### Tax Elements
 
 This Tax element contains the following child elements.
 
@@ -511,7 +529,7 @@ This Tax element contains the following child elements.
 | TaxAmount | Decimal |  | The amount of the tax. |
 | TaxType | String |  | The type of the tax. |
 
-##### Percent elements
+##### Percent Elements
 
 The percent of fixed charges. This parent element contains the following child elements:
 
@@ -528,7 +546,7 @@ The percent of fixed charges. This parent element contains the following child e
 | Vendor | string |  |  The vendor for the booking charge. |
 | VendorChargeCode | string |  | The vendor's code for the charge |
 
-##### CustomAttributes elements
+##### CustomAttributes Elements
 
 The CustomAttributes parent element contains a CustomAttribute child element with the following child elements.
 
@@ -542,7 +560,7 @@ The CustomAttributes parent element contains a CustomAttribute child element wit
 | DisplayOnItinerary | Boolean |  |   |
 | ExternalId | Int |  |   |
 
-##### RuleViolations elements
+##### RuleViolations Elements
 
 The RuleViolations element contains a list of rule violations associated with the itinerary. This parent element contains a RuleViolation child element for each associated rule violation. The RuleViolation element has the following child elements:
 
@@ -572,7 +590,7 @@ The RuleViolations element contains a list of rule violations associated with th
 | VendorCode | String |  |   |
 | VendorName | String |  |   |
 
-#### <a name="airbooking_elements" id="airbooking_elements">AirBooking elements</a>
+#### <a name="airbooking-elements" id="airbooking-elements">AirBooking Elements</a>
 
 The Air Booking parent element is the Air Element in the Segments Array in Booking Elements. This parent element contains an Air Booking child element for each booked flight.
 
@@ -588,7 +606,7 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | Vendor | string | Y |   |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor.  |
-| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table later on this page. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges Elements** table later on this page. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -596,12 +614,12 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | EndGate | string | Y | The arrival gate for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | EndTerminal | string | Y | The arrival terminal for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | LegId | string |  | The leg ID of the booking. Leg IDs do not change on a connection. For each  unique leg ID in the trip, all flights subsequent to the first segment with the  same leg ID are connections. |
-| Seats | Parent Element |  | The seats for the booking. This parent element contains an AirSeat element for each included seat. For more information, see the **AirSeat elements** table later on this page. |
+| Seats | Parent Element |  | The seats for the booking. This parent element contains an AirSeat element for each included seat. For more information, see the **AirSeat Elements** table later on this page. |
 | StartDateUtc | dateTime | Y | The booking starting time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss. <br/>For  TripLink suppliers:The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | StartGate | string | Y | The departure gate for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | StartTerminal | string | Y | The departure terminal for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | Status | string |  | The  GDS based booking status for the segment such as HK, HL, BK, etc. |
-| TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows Time Zones. (need link; may need to create a separate page to store the time zone formats.)  |
+| TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows Time Zones. |
 | AircraftCode | string |  | The code for the aircraft type. |
 | Bags | string |  | The number of bags included in the booking.  |
 | Cabin | string |  | The section of the airplane for the booking.  |
@@ -612,7 +630,7 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | ETicket | string |  | Whether the booking has an  e-ticket. Format: Y/N  |
 | IsOpenSegment | boolean |  | Whether the segment is open. Format: True/False  |
 | IsPreferredVendor | integer |  | If the airline is marked as a preferred property by the company. Format: True/False  |
-| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardType | String |  | The type of credit card (for example, Visa/Mastercard/etc.). |
 | CreditCardLastFour | String |  | The last four digits of credit card number. |
 | IsUpgradeAllowed | boolean |  | Whether the booking can be upgraded. Format: True/False  |
 | Meals | string |  | The meals included in the booking.  |
@@ -626,14 +644,14 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | SpecialInstructions | string |  | Additional instructions regarding the booking.  Max Length: 256 |
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 
-##### AirSeat elements
+##### AirSeat Elements
 
 | Element | Data Type | Description |
 |--------------|-----------|---------------------------|
 | PassengerRph | integer | The passenger assigned to the seat. |
 | SeatNumber | string | The number of the seat. |
 
-#### <a name="carbooking_elements" id="carbooking_elements">CarBooking elements</a>
+#### <a name="carbooking-elements" id="carbooking-elements">CarBooking Elements</a>
 
 The Car Booking parent element is the Car Element in the Segments Array in Booking Elements. This parent element contains a Car Booking child element for each booked car.
 
@@ -645,7 +663,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | Vendor | string |  | The two letter GDS vendor code. See the [Car Vendor Codes][5] table for  car vendor codes.|
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor. |
-| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges Elements** table. |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DailyRate | decimal |  | The daily rate for the booking.  |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -668,9 +686,9 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 | AirCondition | string |  | The character code that indicates if car has air conditioner. R for AC, N for No AC |
 | Body | string |  | The character code to indicate how many passengers the car can seat. B for 2-door, D for 4-door, F for Four-wheel drive, J for All Terrain, K for truck, L for Limo, P for pick-up, R for recreation, S for Sport, T for Convertible, V for Van, W for Wagon/Estate, X for special. |
-| Class | string |  | Character code to indicate the class of the car e.g. if it is economy, full size, compact, etc. Varies by Vendor. C for compact, E for economy, F for full size, I for Intermediate, L for Luxury, M for Mini, P for Premium, S for Standard, X for special. |
+| Class | string |  | Character code to indicate the class of the car (for example, if it is economy, full size, compact, etc.). Varies by Vendor. C for compact, E for economy, F for full size, I for Intermediate, L for Luxury, M for Mini, P for Premium, S for Standard, X for special. |
 | DiscountCode | string |  | The discount code used by the company/TMC to get a discounted rate. |
-| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardType | String |  | The type of credit card (for example, Visa/Mastercard/etc.). |
 | CreditCardLastFour | String |  | The last four digits of credit card number. |
 | DropoffCollectionAddress1 | string |  | The AddressLine1 for the dropoff address when the rental service offers dropoff. |
 | DropoffCollectionAddressType | string |  |   |
@@ -725,7 +743,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | Transmission | string |  | The character code that indicates if the car has auto-transmission. A for Auto, M for Manual |
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 
-#### <a name="hotel_booking_elements" id="hotel_booking_elements">Hotel Booking elements</a>
+#### <a name="hotel-booking-elements" id="hotel-booking-elements">Hotel Booking Elements</a>
 
 The Hotel Booking parent element is the Hotel Element in the Segments Array in Booking Elements. This parent element contains a Hotel Booking child element for each booked hotel.
 
@@ -737,14 +755,14 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | StartCityCode | string | Y | The [IATA airport code][2] for the starting address for the booking.  |
 | StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Status | string | Y | The booking  status.  |
-| Vendor | string |  | The two letter GDS vendor code. See the Hotel Codes table for  hotel vendor codes. (need link)|
+| Vendor | string |  | The two letter GDS vendor code. See the **Hotel Codes** table for  hotel vendor codes. |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor. |
-| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges Elements** table. |
 | CheckinTime | string |  | The check in time for the hotel booking.  |
 | CheckoutTime | string |  | The check out time for the hotel booking.  |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
-| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc.). |
+| CreditCardType | String |  | The type of credit card (for example, Visa/Mastercard/etc.). |
 | CreditCardLastFour | String |  | The last four digits of credit card number. |
 | DailyRate | decimal |  | Average per day rate for the hotel. If the rate varies over the duration, it can be specified using the charges model. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -782,10 +800,10 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | RateAccess | string |  | The rate access for the booking.  |
 | RateType | string |  | The rate type for the booking.  |
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
-| VendorFlags | string |  | Semi-colon-delimited list of flags for free hotel service flags. E.g. free breakfast (FB), internet (FI), Parking (FP), etc. If they were all present they can be concatenated as - FB;FI;FP;  |
+| VendorFlags | string |  | Semi-colon-delimited list of flags for free hotel service flags. For example, free breakfast (FB), internet (FI), Parking (FP), etc. If they were all present they can be concatenated as - FB;FI;FP;  |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 
-#### <a name="dining_booking_elements" id="dining_booking_elements">Dining Booking elements</a>
+#### <a name="dining-booking-elements" id="dining-booking-elements">Dining Booking Elements</a>
 
 The Dining Booking parent element is the Dining Element in the Segments Array in Booking Elements. This parent element contains a Dining Booking child element for each booked meal.
 
@@ -793,7 +811,7 @@ The Dining Booking parent element is the Dining Element in the Segments Array in
 |--------------------|----------------|----------|---------------------------------|
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
-| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table later on this page.  |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges Elements** table later on this page.  |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -822,7 +840,7 @@ The Dining Booking parent element is the Dining Element in the Segments Array in
 | Vendor | string |  | The two letter GDS vendor code. |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 
-#### <a name="ride_booking_elements" id="ride_booking_elements">Ride Booking elements</a>
+#### <a name="ride-booking-elements" id="ride-booking-elements">Ride Booking Elements</a>
 
 The Ride Booking parent element is the Ride Element in the Segments Array in Booking Elements. This parent element contains a Ride Booking child element for each booked ride.
 
@@ -831,7 +849,7 @@ The Ride Booking parent element is the Ride Element in the Segments Array in Boo
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
 | EndCityCode | string |  | The ending [IATA airport code][2] of the booking. |
 | StartCityCode | string |  | The starting [IATA airport code][2] of the booking. |
-| Vendor | string |  | The two letter GDS vendor code. See the Ride Codes table (need link; can we insert the "two-letter GDS vendor code" table from the Booking Object Elements - TMCs and Third-party Developers page?) for  ride vendor codes. For an unknown vendor, use the code value $$. |
+| Vendor | string |  | The two letter GDS vendor code. See the [Ride Codes][6] table for  ride vendor codes. For an unknown vendor, use the code value $$. |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor.  |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
@@ -888,9 +906,9 @@ The Ride Booking parent element is the Ride Element in the Segments Array in Boo
 | TimeZone | string |  | The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.  |
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
-| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table.  |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges Elements** table.  |
 
-#### <a name="rail_booking_elements" id="rail_booking_elements">Rail Booking elements</a>
+#### <a name="rail-booking-elements" id="rail-booking-elements">Rail Booking Elements</a>
 
 The Rail Booking parent element is the Rail Element in the Segments Array in Booking Elements. This parent element contains a Rail Booking child element for each booked rail segment.
 
@@ -904,7 +922,7 @@ The Rail Booking parent element is the Rail Element in the Segments Array in Boo
 | CarbonEmissionLbs | decimal |  | The pounds of carbon emission for this booking.  |
 | CarbonModel | integer |  | The model used to calculate the carbon emissions.  |
 | ClassOfService | string |  | The class of the booking. |
-| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardType | String |  | The type of credit card (for example, Visa/Mastercard/etc.). |
 | CreditCardLastFour | String |  | The last four digits of credit card number. |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -957,10 +975,10 @@ The Rail Booking parent element is the Rail Element in the Segments Array in Boo
 | Vendor | string |  | The two letter GDS vendor code. |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 | WagonNumber | string |  | The wagon number of the train car. |
-| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
-| Seats | Parent Element |  | The booked seats. This parent element contains a RailSeat element for each included seat. For more information, see the **RailSeat elements** table later on this page.  |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges Elements** table. |
+| Seats | Parent Element |  | The booked seats. This parent element contains a RailSeat element for each included seat. For more information, see the **RailSeat Elements** table later on this page.  |
 
-##### RailSeat elements
+##### RailSeat Elements
 
 | Element | Data Type | TripLink | Description |
 |------------------|-----------|---|--------------------------------|
@@ -977,7 +995,7 @@ The Rail Booking parent element is the Rail Element in the Segments Array in Boo
 | WagonNumber | string |  | The number of the wagon the seat is on. |
 | WagonType | string |  | The type of wagon the seat is on. |
 
-#### <a name="parking_booking_elements" id="parking_booking_elements">Parking Booking elements</a>
+#### <a name="parking-booking-elements" id="parking-booking-elements">Parking Booking Elements</a>
 
 The Parking Booking parent element is the Parking Element in the Segments Array in Booking Elements. This parent element contains a Parking Booking child element for each booked parking.
 
@@ -1016,9 +1034,9 @@ The Parking Booking parent element is the Parking Element in the Segments Array 
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | string |  | The two letter GDS vendor code. |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
-| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table later on this page. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges Elements** table later on this page. |
 
-#### <a name="travel_booking_elements" id="travel_booking_elements">Travel Booking elements</a>
+#### <a name="travel-booking-elements" id="travel-booking-elements">Travel Booking Elements</a>
 
 The Travel Booking parent element is the Travel Element in the Segments Array in Booking Elements. This parent element contains a Travel Booking child element for each booked travel request.
 
@@ -1026,11 +1044,9 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 
 | Element  | Data Type | TripLink | Description |
 |--------------------|--------------|----------|--------------------------------------|
-
-
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | ConfirmationNumber | sring |  | The confirmation number from the vendor.  |
-| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardType | String |  | The type of credit card (for example, Visa/Mastercard/etc.). |
 | CreditCardLastFour | String |  | The last four digits of credit card number. |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DailyRate | decimal |  | Average per day rate for the booking. If the rate varies over the duration, it can be specified using the charges model. |
@@ -1070,18 +1086,18 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | TotalRate | decimal |  | The total rate amount of the booking.  |
 | Vendor | string |  | The two letter GDS vendor code. |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
-| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges Elements** table. |
 
-##### Charges elements
+##### Charges Elements
 
 | Element  | Data Type | TripLink | Description |
 |-------------------|----------------|----------|--------------------------------------|
-| Percent | Parent Element |  | The percent of fixed charges. For more information about the child elements of this parent element, see the **Percent elements** table.  |
-| Fixed | Parent Element |  | The fixed charges. For more information about the child elements of this parent element, see the **Fixed elements** table.  |
-| Rate | Parent Element |  | The rate for the booking.  For more information about the child elements of this parent element, see the **Rate elements** table. |
-| RateWithAllowance | Parent Element |  | The rate for the booking, including any travel allowances. For more information about the child elements of this parent element, see the **RateWithAllowance elements** table.  |
+| Percent | Parent Element |  | The percent of fixed charges. For more information about the child elements of this parent element, see the **Percent Elements** table.  |
+| Fixed | Parent Element |  | The fixed charges. For more information about the child elements of this parent element, see the **Fixed Elements** table.  |
+| Rate | Parent Element |  | The rate for the booking.  For more information about the child elements of this parent element, see the **Rate Elements** table. |
+| RateWithAllowance | Parent Element |  | The rate for the booking, including any travel allowances. For more information about the child elements of this parent element, see the **RateWithAllowance Elements** table.  |
 
-###### Rate elements
+###### Rate Elements
 
 | Element  | Data Type | Description |  |
 |---------------------|-----------|--------------|-------------------|
@@ -1098,7 +1114,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | Vendor | string |  |  The vendor for the booking charge. |  
 | VendorChargeCode | string |  |  The vendor's code for the charge. |  
 
-###### RateWithAllowance elements
+###### RateWithAllowance Elements
 
 | Element  | Data Type | TripLink | Description |
 |----------------------|-----------|----------|----------------------------|
@@ -1113,14 +1129,14 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | IsPrimary | boolean |  |  Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge in a set should be primary. Format: true/false. |
 | NumUnits | decimal |  | The  number of units expected for the charge. For instance, 3 days. |
 | PerUnit | string |  | The  unit of measure for the charge. Values represent rates like per DAY, WEEK, or MONTH |
-| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics_codes) table for more information. |
+| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics-codes) table for more information. |
 | SemanticsVendorType | string |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
 | StartDateLocal | dateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | string |  |  The vendor for the booking charge. |
 | VendorChargeCode | string |  | The vendor's code for the charge. |
 
-###  <a name="car_vendor_codes" id="car_vendor_codes">Car vendor codes</a>
-[Return to Reference topics](#reference_topics)
+###  <a name="car-vendor-codes" id="car-vendor-codes">Car Vendor Codes</a>
+[Return to Reference topics](#reference-topics)
 
 The following car vendor codes are used in the Car Booking Elements.
 
@@ -1195,8 +1211,8 @@ The following car vendor codes are used in the Car Booking Elements.
 |  NW |  New Frontier |
 
 
-###  <a name="hotel_vendor_codes" id="hotel_vendor_codes">Hotel vendor codes</a>
-[Return to Reference topics](#reference_topics)
+###  <a name="hotel-vendor-codes" id="hotel-vendor-codes">Hotel Vendor Codes</a>
+[Return to Reference topics](#reference-topics)
 
 |  Vendor Code |  Vendor Name |
 |--------------|--------------|
@@ -1631,8 +1647,8 @@ The following car vendor codes are used in the Car Booking Elements.
 | WV | TravelCLICK |
 
 
-###  <a name="ride_vendor_codes" id="ride_vendor_codes">Ride vendor Codes</a>
-[Return to Reference topics](#reference_topics)
+###  <a name="ride-vendor-codes" id="ride-vendor-codes">Ride Vendor Codes</a>
+[Return to Reference topics](#reference-topics)
 
 |  Vendor Code |  Vendor Name |
 |--------------|--------------|
@@ -1648,8 +1664,8 @@ The following car vendor codes are used in the Car Booking Elements.
 |  TV |  Transvip |
 
 
-### <a name="semantics_codes" id="semantics_codes">Semantics codes</a>
-[Return to Reference topics](#reference_topics)
+### <a name="semantics-codes" id="semantics-codes">Semantics Codes</a>
+[Return to Reference topics](#reference-topics)
 
 The semantics codes are used in the Charges child elements in Bookings.
 
@@ -1745,15 +1761,15 @@ The semantics codes are used in the Charges child elements in Bookings.
 |  Rail |  SEAT |  Price of seat |
 
 
-### <a name="time_zones" id="time_zones">Time zones</a>
-[Return to Reference topics](#reference_topics)
+### <a name="time-zones" id="time-zones">Time Zones</a>
+[Return to Reference topics](#reference-topics)
 
-Concur converts local date/time to UTC.  In order to do that we need to be able to determine where the local time is.
+SAP Concur converts local date/time to UTC.  In order to do that we need to be able to determine where the local time is.
 
-####  Olson time zones
+####  Olson Time Zones
 
 * Best practice is providing **TimeZone** (Olson or Windows time zone format) in addition to the required **StartDateLocal** and **EndDateLocal**.
-* If you cannot provide **TimeZone** (Olson or Windows time zone format), Concur recommends **StartDateUtc** and **EndDateUtc** in addition to the required **StartDateLocal** and **EndDateLocal**.
+* If you cannot provide **TimeZone** (Olson or Windows time zone format), SAP Concur recommends **StartDateUtc** and **EndDateUtc** in addition to the required **StartDateLocal** and **EndDateLocal**.
 * Least preferable is providing **StartCityCode** in addition to the required **StartDateLocal** and **EndDateLocal**, if you cannot provide **TimeZone** or **StartDateUtc** and **EndDateUtc**.
 
 | | | | |
@@ -1785,8 +1801,8 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 |  Pacific/Guadalcanal |  Pacific/Guam |  Pacific/Honolulu |  Pacific/Tongatapu |
 |  UTC | | | |
 
-####  Windows time zones
-[Return to Reference topics](#reference_topics)
+####  Windows Time Zones
+[Return to Reference topics](#reference-topics)
 
 | | | | |
 |--------------|--------------|--------------|--------------|
@@ -1823,6 +1839,6 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 [1]: https://en.wikipedia.org/wiki/ISO_4217
 [2]: https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A
 [3]: https://www.concur.com/en-us/connect-platform/suppliers
-[4]: https://forum.developer.concur.com/
 [5]: https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#car_vendor_codes
+[6]: https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/#objects
 [9]: Itinerarywebserviceoverview.png

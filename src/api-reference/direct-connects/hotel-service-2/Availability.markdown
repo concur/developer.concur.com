@@ -1,5 +1,5 @@
 ---
-title: Availability 
+title: Availability
 layout: reference
 ---
 
@@ -7,7 +7,7 @@ layout: reference
 
 Message to retrieved the availability of hotels
 
-| SOAPAction   | OTA name   | Message structure | 
+| SOAPAction   | OTA name   | Message structure |
 |--------------|------------|-------------------|
 | availability | HotelAvail | OTA_HotelAvailRQ  |
 
@@ -16,6 +16,43 @@ Message to retrieved the availability of hotels
 ## Request
 
 **OTA_HotelAvailRQ**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+ <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+    <userid>user</userid>
+    <password>password</password>
+    </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5" PrimaryLangID="de" AltLangID="de">
+    <POS>
+      <Source ISOCurrency="USD"></Source>
+      <RequestorID Type="1" ID="1234567"></RequestorID>
+    </POS>
+    <AvailRequestSegments>
+     <AvailRequestSegment>
+      <HotelSearchCriteria>
+       <Criterion>
+        <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
+       </Criterion>
+      </HotelSearchCriteria>
+      <StayDateRange Start="2018-10-26" End="2018-10-27"></StayDateRange>
+      <RoomStayCandidates>
+       <RoomStayCandidate>
+        <GuestCounts>
+         <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
+        </GuestCounts>
+       </RoomStayCandidate>
+      </RoomStayCandidates>
+     </AvailRequestSegment>
+    </AvailRequestSegments>
+   </OTA_HotelAvailRQ>
+  </Body>
+ </Envelope>
+```
 
 | Element              | Required | Data Type |  Description |
 |----------------------|----------|-----------|--------------|
@@ -33,17 +70,31 @@ Message to retrieved the availability of hotels
 
 | Element             | Required | Data Type | Description |
 |---------------------|----------|-----------|-------------|
-| HotelSearchCriteria | Y        | Complex   | Specified hotel search criteria. Concur will ever only ever send one HotelSearchCriteria. |
-| StayDateRange       | N        | Complex   | Refer to StayDateRange in Search. |
-| RoomStayCandidates  | N        | Complex   | List of available room products. |
+| HotelSearchCriteria | Y        | Complex   | Specified hotel search criteria. Concur will send only one HotelSearchCriteria. |
+| StayDateRange       | N        | Complex   | Range of dates using ISO 8601. |
 
 
 **HotelSearchCriteria**
 
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
-| Criterion | Y        | Complex   | Refer to Criterion in Search.  Note that for Availability the Criterion will only have the HotelRef element. Other elements will not be sent. HotelSearchCriteria can contain multiple Criterion elements.  Each will have a unique HotelCode per Availability request. **to be removed** |
+| Criterion | Y        | Complex   | Refer to Criterion in Search.  Note that for Availability the Criterion will only have the HotelRef element. Other elements will not be sent. HotelSearchCriteria can contain multiple Criterion elements.  Each will have a unique HotelCode per Availability request.|
 
+
+**Criterion**
+
+| Element | Required | Data Type                | Description |
+|---------|----------|-------------------       |-------------|
+| *HotelCode* | N        | StringLength1to16 | The code that uniquely identifies a single hotel property. The hotel code is decided by vendors. |
+| *ChainCode*   | N        | StringLength1to8 | The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the HotelCode attribute. |
+
+
+**StayDateRange**
+
+| Element | Required | Data Type                | Description |
+|---------|----------|-------------------       |-------------|
+| *Start* | Y        | DateOrTimeOrDateTimeType | The starting value of the time span. |
+| *End*   | Y        | DateOrTimeOrDateTimeType | The ending value of the time span. |
 
 **RoomStayCandidates**
 
@@ -56,42 +107,109 @@ Message to retrieved the availability of hotels
 
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| *Quantity*  | Y        | Int	     | something **to be removed** |
-| GuestCounts | Y        | Complex   | A collection of Guest Counts associated with Room Stay. **to be removed**|
+| GuestCounts | Y        | Complex   | **Please note: this field is currently being discussed with our partners as the plan to remove GuestCounts from OTA_HotelAvailRQ**. A collection of Guest Counts associated with Room Stay. |
 
 
 **GuestCounts**
 
 | Element    | Required | Data Type | Description |
 |------------|----------|-----------|-------------|
-| GuestCount | Y        | Complex   | A recurring element that identifies the number of guests and ages of the guests. |
+| GuestCount | Y        | Complex   | **Please note: this element is planned to be removed** A recurring element that identifies the number of guests and ages of the guests. |
 
 
 **GuestCount**
 
 | Element             | Required | Data Type | Description |
 |---------------------|----------|-----------|-------------|
-| *Count*             | Y        | Int	     | Concur only supports one Guest. |
-| *AgeQualifyingCode* | Y        | Int       | AgeQualifyingCode="10" **to be removed**|
-
-
+| *Count*             | Y        | Int	     | Concur only supports one Guest thus the value is currently hard-coded to '1'. |
+| *AgeQualifyingCode* | Y        | Int       | The value is currently hard-coded to '10': AgeQualifyingCode="10" |
 ---
 
 
 ## Response
 
+The maximum allowed size of OTA_HotelAvailRS is 5 MB. Any response that exceeds this limit shall be dropped.
+
+```xml
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <soap:Body>
+    <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Version="5">
+      <Success/>
+      <RoomStays>
+        <RoomStay>
+          <RoomTypes>
+            <RoomType RoomID="1">
+              <RoomDescription>
+                <Text>Test room description.</Text>
+              </RoomDescription>
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan RatePlanID="XNFYP4I" AvailabilityStatus="AvailableForSale">
+              <Guarantee>
+                <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
+              </Guarantee>
+              <CancelPenalties>
+                <CancelPenalty>
+                  <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
+                  <PenaltyDescription>
+                    <Text>REFUNDABLE</Text>
+                    <Text>test cancel description</Text>
+                  </PenaltyDescription>
+                </CancelPenalty>
+              </CancelPenalties>
+              <MealsIncluded Breakfast="true"/>
+              <RatePlanDescription>
+                <Text>Test rate plan description.</Text>
+              </RatePlanDescription>
+            </RatePlan>
+          </RatePlans>
+          <RoomRates>
+            <RoomRate RoomID="1" RatePlanID="XNFYP4I">
+              <Rates>
+                <Rate>
+                  <PaymentPolicies>
+                    <GuaranteePayment>
+                      <AcceptedPayments>
+                        <AcceptedPayment>
+                          <PaymentCard CardCode="VI"/>
+                        </AcceptedPayment>
+                      </AcceptedPayments>
+                    </GuaranteePayment>
+                  </PaymentPolicies>
+                <Total AmountAfterTax="199.00" AmountBeforeTax="99.00" CurrencyCode="EUR" DecimalPlaces="2"/>
+                <RateDescription>
+                  <Text>Test rate description. Both before and after tax.</Text>
+                </RateDescription>
+                <TPA_Extensions>
+							  <RequireSeriesCode>true</RequireSeriesCode>
+						  </TPA_Extensions>
+              </Rate>
+            </Rates>
+          </RoomRate>
+          <TimeSpan End="2018-10-27" Start="2018-10-26"/>
+          <BasicPropertyInfo ChainCode="ZZ" HotelCode="419430"/>
+        </RoomStay>
+      </RoomStays>
+    </OTA_HotelAvailRS>
+  </soap:Body>
+</soap:Envelope>
+```
+
+
 **OTA_HotelAvailRS**
 
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
-| RoomStays | Y        | Complex   | A collection of details on the Room Stay including Guest Counts, Time Span of this Room Stay, and financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. |
+| RoomStays | Y        | Complex   | A collection of details on the Room Stay including Time Span of this Room Stay, and financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. |
 
 
 **RoomStays**
 
 | Element  | Required | Data Type | Description |
 |----------|----------|-----------|-------------|
-| RoomStay | Y        | Complex   | Details on the Room Stay including Guest Counts, Time Span of this Room Stay, and financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. A Room stay represents exactly one hotel. |
+| RoomStay | Y        | Complex   | Details on the Room Stay including Time Span of this Room Stay, and financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. A Room stay represents exactly one hotel. |
 
 
 **RoomStay**
@@ -120,7 +238,6 @@ For a description of the relationship between the RoomID and RatePlanID refer to
 |-----------------|-----------|-------------------|-------------|
 | *RoomID*        | Y         | StringLength1to16 | A string value representing the unique identification of a room if the request is looking for a specific room type. |
 | RoomDescription | N         | Complex	          | Textual information regarding the room. |
-| Amenities       | N         | Complex           | Currently not implemented. |
 
 
 **RoomDescription**
@@ -142,8 +259,7 @@ For a description of the relationship between the RoomID and RatePlanID refer to
 | Element              | Required | Data Type         | Description |
 |----------------------|----------|-------------------|-------------|
 | *RatePlanID*         | Y        | StringLength1to64 | A text field used to indicate a special  ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples are Corporate ID. |
-| *AvailabilityStatus* | Y        | StringLength1to32 | If hotel is sold out, the Hotel supplier must return an Availability status of ClosedOut. **Statuses to be decided** |
-| *PrepaidIndicator*   | Y        | Boolean           | When true, indicates if the rate is a pre-paid rate. **to be decided**|
+| *AvailabilityStatus* | Y        | StringLength1to32 | Used to specify an availability status for the rate plan. Currently Concur supports "AvailableForSale" and "ChangeDuringStay" |
 | Guarantee            | Y        | Complex           | Guarantee information that applies to the rate plan. Concur only expects 1 Guarantee element per RatePlan |
 | CancelPenalties      | Y        | Complex           | Collection of cancellation penalties. If the Cancel Penalties are not provided Concur will display "Cancellation policy not provided by vendor" |
 | MealsIncluded        | Y        | Complex           | Defines which meals are included with this rate program. Concur expects this to be set. |
@@ -153,8 +269,6 @@ For a description of the relationship between the RoomID and RatePlanID refer to
 
 | Element         | Required | Data Type | Description |
 |-----------------|----------|-----------|-------------|
-| *NonRefundable* | Y        | Boolean   | Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **to be decided**|
-| *HoldTime*      | N        | Time      | The room will held up until this time without a guarantee. **to be decided**|
 | *GuaranteeType* | Y        | String    | The guarantee information to hold a reservation. |
 | Deadline        | Y        | Complex   | Guarantee deadline, absolute or relative. |
 
@@ -164,34 +278,36 @@ Supported GuranteeTypes:
 |-------------------|-------------|  
 | Deposit           | In Concur this value is seen as RequiredDeposit. |
 | DepositRequired   | In Concur this value is seen as RequiredDeposit .|
-| CCDCVoucher       | In Concur this value is seen as RequiredGuarantee. |
+| CC/DC/Voucher       | In Concur this value is seen as RequiredGuarantee. |
 | PrePay            | In Concur this value is seen as RequiredPrepay. |
 | None              | In Concur this value is seen as Never. No guarantee is required if user books a room with this type. |
 | GuaranteeRequired | RequiredGuarantee. If the Guarantee type cannot be mapped to any accepted type, it will be set to RequiredGuarantee, hence this value is the default. |
- 
-  
+
+Supported GuaranteeRequired:
+
+GuaranteeRequired     | Description |
+|-------------------|-------------|  
+| always           | Guarantee is required all the time independently on deposit account setting. |
+|never| Guarantee is never required. |
+| default | Guarantee is required if no deposit account is set up. |
+
 **Deadline**
 
 | Element                | Required | Data Type          | Description |
 |------------------------|----------|--------------------|-------------|
 | *AbsoluteDeadline*     | Y        | TimeOrDateTimeType | Defines the absolute deadline. Either this or the offset attributes may be used. |
-| *OffsetDropTime*       | Y        | String             | An enumerated type indicating when the deadline drop time goes into effect. Possible values include: "BeforeArrival", "AfterBooking", "AfterConfirmation" **to be removed**|
-| *OffsetTimeUnit*       | Y        | TimeUnitType       | he units of time, e.g.: days, hours, etc., that apply to the deadline. **to be removed**|
-| *OffsetUnitMultiplier* | Y        | Numeric0to999      | The number of units of DeadlineTimeUnit. **to be removed**|
-
 
 **CancelPenalties**
 
 | Element       | Required | Data Type | Description |
 |---------------|----------|-----------|-------------|
-| CancelPenalty | Y        | Complex   | The Cancellation penalty. |
+| CancelPenalty | Y        | Complex   | Defines the cancellation penalty of the hotel facility. |
 
 
 **CancelPenalty**
 
 | Element            | Required | Data Type | Description |
 |--------------------|----------|-----------|-------------|
-| *NonRefundable*    | N        | Boolean   | Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **to be removed**|
 | PenaltyDescription | N        | Complex   | Text description of the Penalty in a given language. This element may contain a maximum of 9 children Text fields.  Any excess Text elements are dropped. |
 | Deadline           | Y        | Complex   | Cancellation deadline, absolute or relative. See Deadline above |
 
@@ -200,17 +316,14 @@ Supported GuranteeTypes:
 
 | Element | Required | Data Type             | Description |
 |---------|----------|-----------------------|-------------|
-| Text    | Y        | FormattedTextTextType | Formatted text content |
+| Text    | Y        | FormattedTextTextType | Formatted text content in a given language. |
 
 
 **MealsIncluded**
 
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| *Breakfast* | Y        | Boolean   | When true, indicates breakfast is included. |
-| *Dinner*    | Y        | Boolean   | When true, indicates dinner is included. |
-| *Lunch*     | Y        | Boolean   | When true, indicates lunch is included. |
-
+| *Breakfast* | Y        | Boolean   | When true, indicates breakfast is included, when false, indicates it is excluded. In both cases this information is showed to a customer in the rate description. |
 
 **RoomRates**
 
@@ -239,12 +352,6 @@ Supported GuranteeTypes:
 
 | Element           | Required | Data Type | Description |
 |-------------------|----------|-----------|-------------|
-| *ChargeType*      | N        | Complex   | **to be removed** |
-| *GuaranteedInd*   | N        | Complex   | **to be removed** |
-| *NumberOfUnits*   | N        | Complex   | **to be removed** |
-| *RateTimeUnit*    | N        | Complex   | **to be removed** |
-| *RoomPricingType* | N        | Complex   | **to be removed** |
-| *UnitMultiplier*  | N        | Complex   | **to be removed** |
 | PaymentPolicies   | N        | Complex   | Payment Policies for this rate. |
 | Total             | Y        | Complex   | A description of the rate. |
 | RateDescription   | N        | Complex   | A textual description of a rate. At most, only one Rate Description element is expected. |
@@ -328,7 +435,7 @@ Supported GuranteeTypes:
 
 
 
-# Relationship between RoomID and RatePlanID 
+# Relationship between RoomID and RatePlanID
 
 The combination of these IDs must be unique per RoomStay.  IDs with the same values can be redefinined in multiple RoomStays
 
@@ -374,5 +481,3 @@ The combination of these IDs must be unique per RoomStay.  IDs with the same val
 …
 </OTA_HotelAvailRS>
 ```
-
-

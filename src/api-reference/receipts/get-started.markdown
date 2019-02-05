@@ -1,19 +1,17 @@
 ---
-title: Get Started
+title: Receipts v4 - Get Started
 layout: reference
+redirect_from:
+  - /api-reference/expense/receipts/
 ---
 
-# Receipts
-
-## Get Started
-
-- [Overview](#overview)
-- [Version](#version)
-- [Regional Availability](#regional-availability)
-- [Explore the API](#explore-the-api)
-  - [Prerequisites](#prerequisites)
-  - [Acquire an Access Token](#retrieve-a-user-access-token)
-  - [Explore the API in JavaScript](#explore-the-api-in-javascript)
+* [Overview](#overview)
+* [Version](#version)
+* [Regional Availability](#regional-availability)
+* [Explore the API](#explore-the-api)
+  * [Prerequisites](#prerequisites)
+  * [Acquire an Access Token](#retrieve-a-user-access-token)
+  * [Explore the API in JavaScript](#explore-the-api-in-javascript)
 
 ### Overview
 
@@ -25,18 +23,17 @@ The Receipts V4 API accepts three different formulae for posting a receipt:
 
 All of the above are receipt resources, but the service draws a distinction between resources with data versus resources that are standalone images.
 
-Resources with data are schema-enforced and are referred to as eReceipts.
+Resources with data are schema-enforced and are referred to as e-receipts.
 
 Resources of standalone images are referred to as as Image-Only Receipts.
 
 These two different resources are sent/fetched from the Receipts V4 API via different endpoints:
-- eReceipts (Receipts With Data) - Use eReceipt Endpoints
-- Image-Only Receipts (Standalone Images Without Data) - Use Image-Only Receipt Endpoints
+* E-Receipts (Receipts With Data) - Use E-Receipt Endpoints
+* Image-Only Receipts (Standalone Images Without Data) - Use Image-Only Receipt Endpoints
 
 ### Version
 
-- 4.0
-- [3.0](/api-reference-deprecated/version-three/receipts.html) [Deprecation Notice](/changelog/2016/11/07/receipts-version-three-deprecation.html).
+* 4.0
 
 #### Overview of Version 4.0
 

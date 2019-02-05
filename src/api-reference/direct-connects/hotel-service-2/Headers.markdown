@@ -1,5 +1,5 @@
 ---
-title: Headers 
+title: Headers
 layout: reference
 ---
 
@@ -24,10 +24,10 @@ Supported Soapactions:
 |--------------|---------------|
 | search       | Used to perform Search  |
 | availability | Used to perform Availability |
-| detail       | Used to perform Hotel Description | 
-| book         | Used to perform Reservation | 
-| read         | Used to perform Read Itinerary | 
-| cancel       | Used to perform Cancel | 
+| detail       | Used to perform Hotel Description |
+| book         | Used to perform Reservation |
+| read         | Used to perform Read Itinerary |
+| cancel       | Used to perform Cancel |
 
 Example HTTP Header from network capture:
 
@@ -77,7 +77,7 @@ Login and password are provided by the Hotel supplier for Concur as API consumer
 
 # OTA Message Headers
 
-Every message must contain the following required attributes and elements.  On top of these each message may specify extra attributes and elements. Refer to a specific messages' page for details. 
+Every message must contain the following required attributes and elements.  On top of these each message may specify extra attributes and elements. Refer to a specific messages' page for details.
 
 ## Request Message Headers
 
@@ -100,11 +100,10 @@ Every message must contain the following required attributes and elements.  On t
 
 **Source**
 
-Concur will always send the ISOCountry and ISO Currency
+Concur will always send the ISO Currency
 
 | Element       | Required | Data Type    | Description |
 |---------------|----------|--------------|-------------|
-| *ISOCountry*  | Y        | ISO3166      | Country code |
 | *ISOCurrency* | Y        | AlphaLength3 | Currency Code |
 | RequestorID   | N        | Complex      | An identifier of the entity making the request (e.g. ATA/IATA/ID number, Electronic Reservation Service Provider (ERSP), Association of British Travel Agents.(ABTA)) |
 

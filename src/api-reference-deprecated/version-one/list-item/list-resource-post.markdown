@@ -337,7 +337,7 @@ Authorization: OAuth {access token}
 Content-Type: application/xml
 ...
 
-<list-item-batch xmlns="http://www.concursolutions.com/api/list/2010/02">
+<list-item-batch xmlns="http://www.concursolutions.com/api/expense/list/2010/02">
     <list-item>
         <level1code>BU</level1code>
     </list-item>

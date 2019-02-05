@@ -3,6 +3,8 @@ title: Technical Overview
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 # Technical Overview
 
 The Travel Receipts service currently offers one endpoint for retrieving receipt requests. See below for information on the optional parameters, results pagination, and response schema.
@@ -54,7 +56,7 @@ Name | Type | Format | Description
 `RequestID`	|	`uuid`	|	-	|	ID for the receipt request
 `SegmentEndDate`	|	`date-time`	|	ISO 8601	|	End date for the receipt request segment
 `SegmentStartDate`	|	`date-time`	|	ISO 8601	|	Start date for the receipt request segment
-
+`Vendor`	|	`string`	|	-	|	Vendor code for the receipt request
 
 
 

@@ -15,17 +15,6 @@
         url: /api-reference/authentication/oauth2-migration-best-practices.html
       - title: Scopes
         url: /api-reference/authentication/scopes.html
-#- title: Budget
-#  url: ''
-#  children:
-#      - title: Budget Category
-#        url: /api-reference/budget/budget-category.html
-#      - title: Budget Header
-#        url: /api-reference/budget/budget-header.html
-#      - title: Cost Object Field
-#        url: /api-reference/budget/cost-object-field.html
-#      - title: Fiscal Year
-#        url: /api-reference/budget/fiscal-year.html
 - title: Callouts
   url: ''
   children:
@@ -58,10 +47,10 @@
   children:
       - title: Connection Requests
         url: /api-reference/common/connection-requests/connection-requests-resource.html
-      - title: Extracts
-        url: /api-reference/common/extracts/extracts.html
-      - title: List Item
-        url: /api-reference/common/list-item/
+      - title: Extracts v1
+        url: /api-reference/common/extracts/v1.extracts.html
+      - title: List Item v3
+        url: /api-reference/common/list-item/v3.list-item.html
       - title: Locations
         url: /api-reference/common/locations/locations-resource.html
       - title: Suppliers
@@ -99,44 +88,44 @@
         url: /api-reference/direct-connects/hotel/post-reservation-query.html
       - title: Post a reservation update
         url: /api-reference/direct-connects/hotel/post-reservation-update.html
-      - title: Hotel Direct Connect 2.0
-        url: /api-reference/direct-connects/hotel-service.html
 - title: "Direct Connect: Hotel Service 2"
   url: ''
-  children:       
+  children:
       - title: Introduction
         url: /api-reference/direct-connects/hotel-service-2/Introduction.html
       - title: Use-cases
         url: /api-reference/direct-connects/hotel-service-2/Use-cases.html
       - title: Headers
-        url: /api-reference/direct-connects/hotel-service-2/Headers.html   
+        url: /api-reference/direct-connects/hotel-service-2/Headers.html
       - title: Error Handling
-        url: /api-reference/direct-connects/hotel-service-2/Error-handling.html    
+        url: /api-reference/direct-connects/hotel-service-2/Error-handling.html
       - title: Search
         url: /api-reference/direct-connects/hotel-service-2/Search.html
       - title: Availability
-        url: /api-reference/direct-connects/hotel-service-2/Availability.html  
+        url: /api-reference/direct-connects/hotel-service-2/Availability.html
       - title: Descriptive Information
-        url: /api-reference/direct-connects/hotel-service-2/Descriptive-info.html    
+        url: /api-reference/direct-connects/hotel-service-2/Descriptive-info.html
       - title: Reservation
-        url: /api-reference/direct-connects/hotel-service-2/Reservation.html    
+        url: /api-reference/direct-connects/hotel-service-2/Reservation.html
       - title: Read Itinerary
-        url: /api-reference/direct-connects/hotel-service-2/Read-Itinerary.html    
+        url: /api-reference/direct-connects/hotel-service-2/Read-Itinerary.html
       - title: Cancel
         url: /api-reference/direct-connects/hotel-service-2/Cancel.html
       - title: FAQ
         url: /api-reference/direct-connects/hotel-service-2/FAQ.html
       - title: Appendix
         url: /api-reference/direct-connects/hotel-service-2/Appendix.html
+      - title: XSD-schema
+        url: /api-reference/direct-connects/hotel-service-2/xsd-schema.html
 - title: Expense
   url: ''
   children:
       - title: Allocations
         url: /api-reference/expense/allocations/expense-allocations.html
-      - title: Attendee Type
-        url: /api-reference/expense/attendee-types/attendee-type-resource.html
-      - title: Attendees
-        url: /api-reference/expense/attendees/
+      - title: Attendee Types v3
+        url: /api-reference/expense/attendee-types/v3.attendee-types.html
+      - title: Attendees v3
+        url: /api-reference/expense/attendees/v3.attendees.html
       - title: Digital Tax Invoices
         url: /api-reference/expense/digital-tax-invoices/digital-tax-invoice.html
       - title: Company Card Transactions
@@ -167,10 +156,10 @@
         url: /api-reference/expense/expense-report/reports.html
       - title: Report Details
         url: /api-reference/expense/expense-report/expense-report-get.html
-      - title: Payment Batches
-        url: /api-reference/expense/payment-batch/payment-batches.html
+      - title: Payment Batches v1.1
+        url: /api-reference/expense/payment-batch/v1.payment-batches.html
       - title: Quick Expense
-        url: /api-reference/expense/quick-expense/
+        url: /api-reference/expense/quick-expense/index.html
 - title: Receipt Image
   url: /api-reference/image/
 - title: Insights
@@ -183,16 +172,22 @@
 - title: Invoice
   url: ''
   children:
-      - title: Retrieve Payment Request Digests
-        url: /api-reference/invoice/payment-request-digest.html
-      - title: Payment Request
-        url: /api-reference/invoice/payment-request.html
-      - title: Purchase Orders
-        url: /api-reference/invoice/purchase-order.html
-      - title: Sales Tax Validation
-        url: /api-reference/invoice/sales-tax-validation.html
-      - title: Vendors
-        url: /api-reference/invoice/vendor.html
+      - title: Retrieve Payment Request Digests v3
+        url: /api-reference/invoice/v3.payment-request-digest.html
+      - title: Payment Request v3
+        url: /api-reference/invoice/v3.payment-request.html
+      - title: Purchase Orders v3
+        url: /api-reference/invoice/v3.purchase-order.html
+      - title: Purchase Request v4 - Get Started
+        url: /api-reference/invoice/v4.purchase-request-get-started.html
+      - title: Purchase Request v4 - Endpoints
+        url: /api-reference/invoice/v4.purchase-request-endpoints.html
+      - title: Purchase Orders Receipt v3
+        url: /api-reference/invoice/v3.purchase-order-receipt.html
+      - title: Sales Tax Validation v3
+        url: /api-reference/invoice/v3.sales-tax-validation.html
+      - title: Vendor v3
+        url: /api-reference/invoice/v3.vendor.html
 - title: Receipts
   url: ''
   children:
@@ -207,7 +202,10 @@
       - title: Response Codes
         url: /api-reference/receipts/response-codes.html
 - title: Request
-  url: /api-reference/request/request.html
+  url: ''
+  children:
+      - title: Endpoints
+        url: /api-reference/request/v3.request.html
 - title: Travel Profile
   url: ''
   children:
@@ -223,29 +221,20 @@
         url: /api-reference/travel-profile/04-notification-company-resource.html
       - title: User Notification
         url: /api-reference/travel-profile/05-notification-user-resource.html
-- title: Travel Receipts
-  url: ''
-  children:
-      - title: Getting Started
-        url: /api-reference/travel-receipts/getting-started.html
-      - title: Technical Overview
-        url: /api-reference/travel-receipts/overview.html
-      - title: Example Response
-        url: /api-reference/travel-receipts/sample.html
 - title: Travel
   url: ''
   children:
-      - title: Itinerary Web Service (TMC/Third-Party)
-        url: /api-reference/travel/itinerary-tmc-thirdparty/
-      - title: Booking
-        url: /api-reference/travel/itinerary/booking/booking-resource.html
-      - title: Itinerary Service
-        url: /api-reference/travel/itinerary/itinerary.html
-      - title: Trips
-        url: /api-reference/travel/itinerary/trip/trip-resource.html
       - title: Travel Services
         url: /api-reference/travel/travel.html
-      - title: Trip Approval
-        url: /api-reference/travel/trip-approval/trip-approval-resource.html
+      - title: Itinerary API – Overview & Getting Started
+        url: /api-reference/travel/itinerary/itinerary.html
+      - title: Itinerary API Usage
+        url: /api-reference/travel/itinerary-tmc-thirdparty/index.html
+      - title: Trip Endpoint
+        url: /api-reference/travel/itinerary/trip/trip-resource.html
+      - title: Booking Endpoint
+        url: /api-reference/travel/itinerary/booking/booking-resource.html
 - title: User
-  url: /api-reference/user/
+  url: /api-reference/user/index.html
+- title: Deprecated
+  url: /api-reference/deprecated.html

@@ -7,7 +7,7 @@ layout: reference
 ##  Description
 
 
-The Travel Profile resource represents a Concur travel profile which contains travel-related information about a user.
+The Travel Profile resource represents a Concur Travel profile that contains travel-related information about a user.
 
 ##  Version
 
@@ -80,7 +80,7 @@ Where access_token is the OAuth 2.0 access token of the user whose travel profil
 
 #### Data model
 The complete schema definition is available here: [Travel Profile XSD][3].
-_Concur reserves the right to change the XSD.  Reading/writing strictly to the XSD will result in breakage as new XML elements are added._
+_SAP Concur reserves the right to change the XSD.  Reading/writing strictly to the XSD will result in breakage as new XML elements are added._
 
 ####  Profile root element
 
@@ -129,14 +129,14 @@ The General parent element contains the following child elements.
 |  `PreferredName` |  `string` |  The user's preferred name. Format: nvarchar(60) | |  | |
 |  `JobTitle` |  `string` |  The user's job title. Format: nvarchar(255) | | | |
 |  `CostCenter` | `string` | The user’s cost center. Format: nvarchar(25) | | | Requires Company Details scope. |
-|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) | | | Requires Company Details Scope.  Must be unique in the company. |
+|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) | | | Requires Company Details scope.  Must be unique in the company. |
 |  `Division` | `string` | The user's division. Format: nvarchar(60) | || Requires Company Details scope.  Must already be setup in the company configuration. |
 |  `PreferredLanguage` |  `string` |  The user's preferred language locale. Example: United States English is en-US. Format: varchar(20) | |  | |
 |  `EReceiptOptIn` |  `boolean` |  Whether the user has opted in to receive e-receipts. Format: **true**\|**false** | |  |
 |  `HasOpenBooking` |  `boolean` |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** | Cannot Update | | |
 |  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) | Cannot Update | | |
 |  `CompanyName` |  `string` |  The user's company name. Format: nvarchar(255) | Cannot Update | | |
-|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) | Cannot Update | | |
+|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) | Cannot Update | | Requires Company Details scope. |
 |  `RuleClass` |  `string` |  The user's rule class. Format: nvarchar(60) | | | Must already be setup in the company. |
 |  `TravelConfigID` | `string` | The user's TravelConfig. Format: varchar(255) | | Required | |
 |  `MedicalAlerts` | `string` |  The user's medical alerts. Format: nvarchar(255) | | | Requires Medical Alerts Scope. |
@@ -220,8 +220,8 @@ The Addresses parent element contains an Address child element for each included
 | `Type attribute` | `string` | Address type. Values are: Home or Work | required | required | If multiple values are provided for either address type, the last one will be the one saved in the creation/update. |
 |  `Street` |  `string` |  Street Address. Format: nvarchar(max) | | | |
 |  `City` |  `string` |  The city name. Format: nvarchar(30) | | | |
-|  `StateProvince` |  `string` |  The state or province. Format: nvarchar(30) | | | ISO Validation Coming Soon |
-|  `CountryCode` |  `string` |  The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2)| | | |
+|  `StateProvince` |  `string` |  The state or province. Format: nvarchar(30) | | |  |
+|  `CountryCode` |  `string` |  The country code in from the [ISO 3166-1 alpha-2 country code][8] specification. Format: char(2)| | | |
 |  `PostalCode` |  `string` |  The postal code. Format: nvarchar(20) | | | |
 |  `Longitude` |  `string` |  Longitude value of Work Address. | Cannot Update | | |
 |  `Latitude` |  `string` |  Latitude value of Work Address. | Cannot Update | | |
@@ -285,7 +285,7 @@ A list of passports in the user's profile:
 | `PassportExpiration`  | `date` |  The date the user’s passport expires. Format: YYYY-MM-DD | | | Min - 01/01/1900, Max - 06/06/2079 |
 | `PassportDateIssued` | `date`  | The date the user’s passport was issued. Format: YYYY-MM-DD | | | Min - 01/01/1900, Max - 06/06/2079|
 | `PassportCityIssued` | `string` |The city the user’s passport was issued in. Format: nvarchar(60) | | | |
-| `PassportCountryIssued` |  `string`  |The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2) | | | |
+| `PassportCountryIssued` |  `string`  |The country code in from the [ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) | | | |
 
 * **NOTE**: there can only be 2 passports associated to a user.  If more than two passports are provided, W016 warning message is returned.
 
@@ -305,7 +305,7 @@ A list of visas in the user's profile.
 | `VisaDateIssued` | `date` |  The date the user’s visa was issued. Format: YYYY-MM-DD | | | Min - 01/01/1900 Max - 06/06/2079 |
 | `VisaExpiration` | `date`  | The date the user’s visa expires. Format: YYYY-MM-DD | | | Min -01/01/1900 Max - 06/06/2079 |
 | `VisaCityIssued` | `string` | The city the user’s visa was issued in. Format: nvarchar(60) | | | |
-| `VisaCountryIssued` |  `string` | The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2) | | | |
+| `VisaCountryIssued` |  `string` | The country code in from the [ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) | | | |
 
 * **NOTE**:  Visas will sync with existing visas.  Any existing Visas not provided in the list will be deleted.
 
@@ -356,7 +356,7 @@ The Air parent element contains the user's air travel preferences and contains t
 | ----- | ----- | ----- | ----- | ----- | ----- |
 |  `AirMemberships` |    | The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains [AirMembership child elements](#airmember). | | | |
 |  `Seat` |   | This element contains [air seat child elements](#airseat). | | | |
-|  `Meals` | `string`   | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: <br> Regular Meal (DEFAULT VALUE) <br> BBML = Baby Meal  <br> BLML = Bland Meal  <br> CHML = Child Meal  <br> DBML = Diabetic Meal  <br> FPML = Fruit Platter  <br> GFML = Gluten Intolerant Meal  <br> HNML = Hindu Meal  <br> KSML = Kosher Meal  <br> LCML = Low Calorie Meal  <br> LSML = Low Salt Meal  <br> MOML = Muslim Meal  <br> NLML = Low Lactose Meal  <br> NSML = No Salt Meal  <br> PFML = Peanut Free Meal  <br> SFML = Seafood Meal  <br>  VGML = Vegetarian  <br> RVML = Vegetarian Raw Vegan Meal  <br> KVML = Vegetarian Kosher <br> VLML = Vegetarian Lacto-Ovo  <br> | | | |
+|  `Meals` | `string`   | This parent element contains the MealCode child element that indicates the meal preference of the traveler. [See Reference][2] for possible values.  | | | Defaults to Regular Meal |
 |  `HomeAirport` |  `string` |  The user's home airport. varchar(3) | | | Must be an existing IATA code. |
 |  `AirOther` |  `string` |  Other Air related description | | | |
 
@@ -364,7 +364,7 @@ The Air parent element contains the user's air travel preferences and contains t
 
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. varchar(2)| Required | Required | Must be a valid VendorCode for the membership type. |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. varchar(2)| Required | Required | Must be a valid VendorCode for the membership type. This list can be made available upon request. |
 |  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. varchar(60) | Required | Required | |
 |  `Status` |  `string` |  Name of the user's current level in the loyalty program. varchar (100) | | | |
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. | | | |
@@ -409,7 +409,7 @@ The Rail parent element contains the user's rail travel preferences and contains
 
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. varchar(2)| Required | Required | Must be a Valid Vendor Code for the Membership Type. |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. varchar(2)| Required | Required | Must be a Valid Vendor Code for the Membership Type. This list can be made available upon request. |
 |  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. varchar(60) | Required | Required | See Below. |
 |  `Status` |  `string` |  Name of the user's current level in the loyalty program. varchar (100) | | | |
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. | | | |
@@ -444,7 +444,7 @@ The Car parent element contains the user's car travel preferences. It contains t
 
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. varchar(2)| Required | Required | Must be a Valid Vendor Code for the Membership Type. |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. varchar(2)| Required | Required | Must be a Valid Vendor Code for the Membership Type. This list can be made available upon request. |
 |  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. varchar(60) | Required | Required | See Below. |
 |  `Status` |  `string` |  Name of the user's current level in the loyalty program. varchar (100) | | | |
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. | | | |
@@ -483,7 +483,7 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. varchar(2)| Required | Required | Must be a Valid Vendor Code for the Membership Type. |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. varchar(2)| Required | Required | Must be a Valid Vendor Code for the Membership Type. This list can be made available upon request. |
 |  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. varchar(60) | Required | Required | See Below. |
 |  `Status` |  `string` |  Name of the user's current level in the loyalty program. varchar (100) | | | |
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. | | | |
@@ -615,6 +615,7 @@ A list of advantage memberships associated to a user:
 | `ProgramName` | `string` | The program name. Format: Varchar(20) | Cannot Update | | |
 
 * **NOTES**:
+ * For List of Available Advantage Memberships [See Reference][1]
  * Multiple memberships for the same VendorType, VendorCode, ProgramCode, and CardNumber are identified and a warning is thrown.
  * OriginStationCode and DestinationStationCode fields are deprecated and should no longer be used. Use OriginCode and DestinationCode instead.
 
@@ -786,7 +787,7 @@ application/xml
 
 <samp>Authorization: OAuth {access_token}</samp>
 
-Where _access_token_ is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+Where _access_token_ is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 ###  Data model
 
@@ -849,7 +850,7 @@ The ProfileSummary element contains the profile information for the response and
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- | :----- |
 |  Status |  `string` |  Current status of the user: Active or Inactive. |
-|  LoginID |  `string` |  The Concur user login ID. |
+|  LoginID |  `string` |  The SAP Concur user login ID. |
 |  XMLProfileSyncID |  `string` |  The user's XML Profile Sync ID, if available. |
 |  ProfileLastModifiedUTC |  `string` |  The date, in UTC, when the travel profile was last modified. Format: YYYY-MM-DDThh:mm:ss. |
 
@@ -900,7 +901,8 @@ Content-Type: application/xml
 
 
 
-
+[1]: /api-reference/travel-profile/99-reference-resource.html#advantage-membership-programs
+[2]: /api-reference/travel-profile/99-reference-resource.html#air-meal-types
 [3]: https://www.concursolutions.com/ns/TravelUserProfile.xsd
 [4]: https://www.concursolutions.com/ns/TravelProfileSummaryV2.xsd
 [8]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2

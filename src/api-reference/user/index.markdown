@@ -97,6 +97,8 @@ Name | Type | Format | Description
 
 ## <a name="createUser"></a>Create or update a user's account information
 
+**NOTE: The User API cannot add User profiles completely for *all* customers. The developer or customer should expect to do follow-up work to the user profiles in order for the User profiles to be 100% ready for use. This variability is due to the customer's configuration choices that may not be supported by this API. Manual edits or updates via a file import are likely required to complete the User profiles started with this API. Future releases will address these topics.**
+
 Updates one or more users. The batch can contain up to 500 users. (Creating Users is not fully supported at this time)
 
     POST api/user/v1.0/users
@@ -117,7 +119,7 @@ Name | Type | Format | Description
 `LastName`|`string` | | The user's last name. Maximum 32 characters.
 `Mi`|`string` | | The user's middle initial. Maximum 1 character.
 `EmailAddress`|`string` | | The user's email address. Maximum 255 characters.
-`LedgerKey`|`string` | | The user's assigned account code ledger. Maximum 20 characters. Example: Default.
+`LedgerKey`|`string` | | Required for new users. The user's assigned account code ledger. Maximum 20 characters. Example: Default.
 `OrgUnit1 through OrgUnit6`|`string` | | The custom organizational unit fields on the Employee form. Varies depending on configuration. Use the Employee Form Field resource to get the list of configured fields. Maximum 48 characters for each field.
 `Custom1 through Custom21`|`string` | | The custom fields on the Employee form. Varies depending on configuration. Use the Employee Form Field resource to get the list of configured fields. Maximum 48 characters.
 `CtryCode`|`string` | | The ISO 3166-1 alpha-2 country code. Maximum 2 characters. Example: United States is US.
@@ -209,9 +211,9 @@ Name | Type | Format | Description
 
 ```xml
 <UserBatch xmlns="http://www.concursolutions.com/api/user/2011/02">
-    <UserProfile>
-        <loginid>loginID</loginid>
-        <password>password</password>
-    </UserProfile>
+    <User>
+        <LoginID>loginID</LoginID>
+        <Password>password</Password>
+    </User>
 </UserBatch>
 ```
