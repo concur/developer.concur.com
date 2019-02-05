@@ -3,45 +3,46 @@ title: Ground Transportation Direct Connect
 layout: reference
 ---
 
-
-## Description
-
 The Ground Transportation Direct Connect from Concur Connect provides a method for Travel users to access the inventory of ground transportation service providers. This direct connect was originally designed for use by limo service providers, but can be used with all forms of ground transportation.
 
-Once the ground transportation supplier has developed their interface with with Concur, their inventory will begin appearing in ground transportation searches by opted-in Travel users.
+Once the ground transportation supplier has developed their interface with SAP Concur, their inventory will begin appearing in ground transportation searches by opted-in Travel users.
 
-This callout differs from the inbound Concur web services in the following ways:
+This callout differs from the inbound SAP Concur web services in the following ways:
 
 * It uses an **outbound** **message** where Travel calls a public facing API endpoint provided by the ground transportation supplier.
-* The supplier configures and maintains the public web service interface. This guide specifies the request and response format required by Concur.
+* The supplier configures and maintains the public web service interface. This guide specifies the request and response format required by SAP Concur.
 
 **NOTE**: This direct connect was originally designed to work with Limo providers, but can support all types of ground transportation.
 
+* [Products and Editions](#products-editions)
+* [Product Restrictions](#product-restrictions)
+* [Configuration Process](#config-process)
+* [Authentication](#authentication)
+* [Operations](#operations)
+* [GDS Sell Formats](#gds-sell-formats)
 
-## Configuration
+### <a name="products-editions"></a>Products and Editions
+* Concur Travel Professional Edition
+* Concur Travel Standard Edition
 
-### Works With These Concur Products
-* **Travel** for Concur Professional/Premium
-* **Travel** for Concur Standard
+### <a name="product-restrictions"></a>Product Restrictions
 
-### Product restrictions
+This direct connect is only available to Travel Suppliers with Ground Transportation inventory. This direct connect is not supported in the SAP Concur mobile application.
 
-This direct connect is only available to Travel Suppliers with Ground Transportation inventory. This direct connect is not supported in the Concur mobile application.
-
-Concur products are highly configurable, and not all clients will have access to all features.
+SAP Concur products are highly configurable, and not all clients will have access to all features.
 
 Partner developers must determine which configurations are required for their solution prior to the review process.
 
-### Configuration process
+## <a name="config-process"></a>Configuration Process
 
 The configuration process has the following steps:
 
-1. The Travel Supplier creates the application on their system that will accept the requests from Concur and return the appropriate responses.
-2. The Travel Supplier creates the endpoint on their system that Concur uses to access their inventory.
-3. Concur creates a production company for the travel supplier.
-4. The Travel Supplier registers their application with Concur by logging in to their production company.
-5. Concur configures Travel to send requests to the endpoint.
-6. The Travel client opts in to the Ground Transportation callout using the Travel Configuration UI to allow their users to view and book the available inventory. Clients must contact Concur to have this setting activated
+1. The Travel Supplier creates the application on their system that will accept the requests from SAP Concur and return the appropriate responses.
+2. The Travel Supplier creates the endpoint on their system that SAP Concur uses to access their inventory.
+3. SAP Concur creates a production company for the travel supplier.
+4. The Travel Supplier registers their application with SAP Concur by logging in to their production company.
+5. SAP Concur configures Travel to send requests to the endpoint.
+6. The Travel client opts in to the Ground Transportation callout using the Travel Configuration UI to allow their users to view and book the available inventory. Clients must contact SAP Concur to have this setting activated
 
 Once the configuration is complete, the callout uses the following process:
 
@@ -58,10 +59,10 @@ This callout can also be used to perform the following operations:
 * Update the Ground Transportation Reservation with the Supplier
 * Update the Ground Transportation Reservation with Travel
 
-## Authentication
-Authentication between Concur and the application connector is performed using OAuth.
+## <a name="authentication"></a>Authentication
+Authentication between SAP Concur and the application connector is performed using OAuth.
 
-## Operations
+## <a name="operations"></a>Operations
 
 [Cancel Reservation][4]
 
@@ -76,7 +77,7 @@ Authentication between Concur and the application connector is performed using O
 [Update Reservation with Travel][9]
 
 
-##  GDS Sell Formats
+##  <a name="gds-sell-formats"></a>GDS Sell Formats
 
 **Sabre:**  
 1 OTH LM 14MAY M GK1 DCA/PCI QA TEST/TEL 201 555 1212/RATE-$0.00/CONF-/PICKUP-209 MADISON ST SUITE 400 ALEXANDRIAVA 22314 AT 0900/DROPOFF-DCA AIRPORT AT 0915/203121365/RESERVATION L1

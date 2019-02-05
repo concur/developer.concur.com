@@ -3,14 +3,27 @@ title: Post a transportation search
 layout: reference
 ---
 
-
-
-
-##  Description
-
 A post transportation search request is sent when the Travel user searches for ground transportation.
 
-## Request
+* [Request](#request)
+  * [Request Schema](#req-schema)
+    * [Pickup Location](#pickup-location)
+    * [Dropoff Location](#dropoff-location)
+    * [Discount Code](#discount-code)
+    * [Airport](#airport)
+    * [Flight](#flight)
+    * [Train Station](#train-station)
+    * [Train](#train)
+* [Response](#response)
+  * [Response Schema](#res-schema)
+    * [Error](#error)
+    * [Limo](#limo)
+    * [Vendor](#vendor)
+    * [Form of Payment](#form-payment)
+    * [Rate Information](#rate-info)
+* [Examples](#examples)
+
+## <a name="request"></a>Request
 
 ### URI                                                                                
 
@@ -22,13 +35,13 @@ The URI is configured by the supplier when registering the partner application.
 
 ### Headers
 
-#### Accept header
+#### Accept Header
 application/xml
 
-#### Authorization header
+#### Authorization Header
 Authorization header with OAuth credentials.
 
-### Request Body
+### <a name="req-schema"></a>Request Body
 The request will contain a **CC_LimoSearchRequest** parent element, containing the following child elements.
 
 **ServiceType**: The type of service requested. Will contain one of the following values:
@@ -51,7 +64,7 @@ If this value is not provided by the user, it will default to 100.
 
 **PickupLocation**: The pick up location. This parent element contains the following child elements:
 
-#### PickupLocation elements
+#### <a name="pickup-location"></a>PickupLocation Elements
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -67,7 +80,7 @@ If this value is not provided by the user, it will default to 100.
 
 **DropoffLocation**: The drop off location. This parent element contains the following child elements:
 
-#### DropoffLocation elements
+#### <a name="dropoff-location"></a>DropoffLocation Elements
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -111,7 +124,7 @@ sv: Swedish
 zh-cn: Chinese  
 zh-tw: Traditional Chinese
 
-**Currency**: The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">3-letter ISO 4217 currency code</a> for the reservation amount.
+**Currency**: The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="blank">3-letter ISO 4217 currency code</a> for the reservation amount.
 
 **NumPassengers**: The number of passengers.
 
@@ -134,7 +147,7 @@ zh-tw: Traditional Chinese
 
 **DiscountCode**: The discount code information. This parent element contains the following child elements:
 
-#### DiscountCode elements
+#### <a name="discount-code"></a>DiscountCode Elements
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -142,13 +155,13 @@ zh-tw: Traditional Chinese
 |  VendorCode |  The user's vendor code. |
 |  DiscountNumber |  The user's discount number. |
 
-#### Airport Elements
+#### <a name="airport"></a>Airport Elements
 
-**AirportCode**: The <a href="http://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code" target="_blank">IATA Code</a> for the airport.
+**AirportCode**: The <a href="http://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code" target="blank">IATA Code</a> for the airport.
 
 **Flight**: The flight information. This parent element contains the following child elements:
 
-#### Flight elements
+#### <a name="flight"></a>Flight Elements
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -157,7 +170,7 @@ zh-tw: Traditional Chinese
 |  ArrivalDateTime |  The flight arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
 |  DepartureDateTime |  The flight departure time. Only provided for the DropoffLocation element. **Format**: 2015-05-19T18:00:00 |
 
-#### Train Station elements
+#### <a name="train-station"></a>Train Station Elements
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -167,7 +180,7 @@ zh-tw: Traditional Chinese
 |  State |  The state the station is located in. Preferably 2 characters, max 10 characters. |
 |  Train |  The train information. This parent element contains the following child elements.
 
-#### Train elements
+#### <a name="train"></a>Train Elements
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -177,19 +190,19 @@ zh-tw: Traditional Chinese
 |  ArrivalDateTime |  The train arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
 |  DepartureDateTime |  The train departure time. Only provided for the DropoffLocation element. **Format**: 2015-05-19T18:00:00 |
 
-##  Response
+##  <a name="response"></a>Response
 
 The supplier responds to the Limo Search request by returning the details of an available reservation that matches the search criteria.
 
 ### Content Types
 application/xml
 
-### Content Body                                                                                              
+### <a name="res-schema"></a>Content Body                                                                                              
 The response will include a **CC_LimoSearchReply** parent element, with the following child elements:  
 
 **Error**: The error information, if an error occurred. Required. This parent element contains the following child elements:
 
-#### Error elements
+#### <a name="error"></a>Error Elements
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -201,7 +214,7 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 
 **Limos**: This parent element contains a **Limo** child element with the available reservation information. Refer to the Limo Elements table for the details of the child elements of the **Limo** element.
 
-#### Limo elements
+#### <a name="limo"></a>Limo Elements
 
 **RateInfo**: The rate information for the limo. Refer to the Rate Information Elements table for more information. Required.
 
@@ -230,7 +243,7 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 
 **Vendor**: The reservation vendor. Required. This parent element contains the following child elements:
 
-#### Vendor elements
+#### <a name="vendor"></a>Vendor Elements
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -240,7 +253,7 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 
 **AcceptedFops**: The accepted forms of payment. Required. This parent element contains the **FormOfPayment** child element. The **FormOfPayment** element contains the allowed forms of payment. The possible child elements are:
 
-#### FormOfPayment elements
+#### <a name="form-payment"></a>FormOfPayment Elements
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -249,7 +262,7 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 |  Check |  This element will appear if the Check form of payment is accepted. |
 |  DirectBilling |  This element will appear if the Direct Billing form of payment is accepted. |
 
-#### Rate Information Elements
+#### <a name="rate-info"></a>Rate Information Elements
 
 |  Element |  Required? |  Description |
 |----------|------------|--------------|
@@ -270,7 +283,7 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 |  OptionalExtraStopCharge |  N |  The charge for any additional stops. |
 |  OptionalExtraTimeCharge |  N |  The charge for each additional hour. |
 
-## Examples
+## <a name="examples"></a>Examples
 
 ###  XML Example Request
 

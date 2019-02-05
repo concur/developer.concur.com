@@ -3,13 +3,28 @@ title: Update reservation with Travel
 layout: reference
 ---
 
-
-
-
-## Description
 This request is sent when the ground transportation service provider needs to send an update to the reservation to Travel.
 
-## Request
+* [Request](#request)
+  * [Request Schema](#req-schema)
+    * [Error](#error)
+    * [Primary Passenger](#primary-passenger)
+    * [Pickup Location](#pickup-location)
+    * [Dropoff Location](#dropoff-location)
+    * [Vehicle](#vehicle)
+    * [Vendor](#vendor)
+    * [Form of Payment](#form-payment)
+    * [Airport](#airport)
+    * [Flight](#flight)
+    * [Train Station](#train-station)
+    * [Rate Information](#rate-info)
+    * [Train](#train)
+    * [Credit Card](#credit-card)
+  * [Request Example](#req-example)
+* [Response](#response)
+  * [Response Example](#res-example)
+
+## <a name="request"></a>Request
 
 ### URI
 
@@ -17,16 +32,16 @@ This request is sent when the ground transportation service provider needs to se
 
 ### Headers
 
-#### Accept header
+#### Accept Header
 application/xml
 
-#### Authorization header
+#### Authorization Header
 
 Authorization header with OAuth credentials. Required. Refer to the OAuth documentation for more information.
 
 Authorization: OAuth {OAuth access token associated with the account making the call with Web Services Administrator role}
 
-### Request body
+### <a name="req-schema"></a>Request Body
 
 The request will contain a **CC_LimoPostBackRequest** parent element, containing the following child elements:
 
@@ -63,7 +78,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  ProviderFeedback |  N |  Any additional feedback from the supplier. |
 |  AccountingInfo |  N |  The accounting information for the reservation. This parent element contains one or more **AccountingField** elements: **AccountingField1** through **AccountingField5**. These fields contain detailed accounting information. |
 
-#### Error elements
+#### <a name="error"></a>Error Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -71,7 +86,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  ErrorSource |  The source of the error. |   
 |  ErrorDescription |  The additional error information. |
 
-#### PrimaryPassenger elements
+#### <a name="primary-passenger"></a>PrimaryPassenger Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -82,7 +97,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  CellPhone |  The contact's cell phone number. |
 |  EmailAddress |  The contact's email address. |
 
-#### PickupLocation elements
+#### <a name="pickup-location"></a>PickupLocation Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -96,7 +111,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  PostalCode |  The location postal code. |
 |  ExtraNotes |  Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
 
-#### DropoffLocation elements
+#### <a name="dropoff-location"></a>DropoffLocation Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -110,7 +125,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  PostalCode |  The location postal code. |
 |  ExtraNotes |  Additional notes about the location. Example: Apartment Building, gravel driveway, etc. |
 
-#### Vehicle elements
+#### <a name="vehicle"></a>Vehicle Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -119,7 +134,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  MaxPassengers |  The maximum number of passengers for the car. Must be greater than zero. |
 |  VehicleID |  Information to identify the specific vehicle. |
 
-#### Vendor elements
+#### <a name="vendor"></a>Vendor Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -127,7 +142,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  VendorName |  The vendor's name. |   
 |  PhoneNumber |  The vendor's phone number. |
 
-#### FormOfPayment elements
+#### <a name="form-payment"></a>FormOfPayment Elements
 
 |  Element |  Description |
 |-------------|----------------------|
@@ -136,14 +151,14 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  Check |  If present, the passenger will pay with a check. |
 |  DirectBilling |  If present, the passenger will pay through direct billing. |
 
-#### Airport elements
+#### <a name="airport"></a>Airport Elements
 
 |Element Name|Description|
 |------------|--------------------|
 |AirportCode	 |The IATA code for the airport.|
 |Flight	 |The flight information. For information about the child elements of this parent element, see the **Flight elements** table below.|
 
-#### Flight elements
+#### <a name="flight"></a>Flight Elements
 
 |Element Name|Description|
 |------------|----------------|
@@ -152,7 +167,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |ArrivalDateTime| The flight arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 |DepartureDateTime| The flight departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
 
-#### Train Station elements
+#### <a name="train-station"></a>Train Station Elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -162,7 +177,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |State|	| |The state the station is located in. Preferably 2 characters, max 10 characters.|
 |Train|	| |The train information. For information about the child elements of this parent element, see the **Train elements** table below. |
 
-#### Train Child Elements
+#### <a name="train"></a>Train Child Elements
 
 |Element Name|Description|
 |------------|--------------------------|
@@ -172,7 +187,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |ArrivalDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 |DepartureDateTime |The train departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
 
-#### Rate Information elements
+#### <a name="rate-info"></a>Rate Information Elements
 
 |Element Name|Required?|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -193,7 +208,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |OptionalExtraStopCharge	|N|	|The charge for any additional stops.|
 |OptionalExtraTimeCharge	|N|	|The charge for each additional hour.|
 
-#### Credit Card elements
+#### <a name="credit-card"></a>Credit Card Elements
 
 |Element Name|Required?|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -201,7 +216,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |Number|Y|The card number.|
 |Expiration|Y|The card expiration date. Format: 2013-02-19|
 
-### XML example request
+### <a name="req-example"></a>XML Example Request
 
 ```http
 POST /api/tws/v1.0/Limo/PostBack HTTPS/1.1
@@ -352,14 +367,14 @@ Content-Length: {length of content body}
 </CC_LimoPostBackRequest>
 ```
 
-## Response
+## <a name="response"></a>Response
 
-Concur responds to the supplier request with a result message.
+SAP Concur responds to the supplier request with a result message.
 
 ### Content Types
 application/xml
 
-### Response body
+### Response Body
 
 The response will include a **CC_LimoPostBackResponse** parent element, with the following child elements:
 
@@ -376,7 +391,7 @@ The response will include a **CC_LimoPostBackResponse** parent element, with the
 |Version|The API version, currently 1.0.|
 |Error|This element contains the error text.|
 
-### XML example of successful response
+### <a name="res-example"></a>XML Example of Successful Response
 
 ```http
 HTTPS/1.1 200 OK
@@ -387,12 +402,12 @@ Content-Type: application/xml
 </CC_LimoPostBackResponse>
 ```
 
-### XML example of response with error
+### XML Example of Response with Rrror
 
 ```xml
 <CC_LimoPostBackResponse>
     <Version>1.0</Version>
-    <Error>This reservation does not exist in the Concur database.</Error>
+    <Error>This reservation does not exist in the SAP Concur database.</Error>
 </CC_LimoPostBackResponse>
 ```
 

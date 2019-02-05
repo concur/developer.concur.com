@@ -3,14 +3,17 @@ title: Get notifications by status
 layout: reference
 ---
 
-
-
-## Description
 Retrieves the list of event notifications that are in the supplied status.
 
-## Request
+* [Request](#request)
+  * [Request Example](#req-example)
+* [Response](#response)
+  * [Schema](#schema)
+  * [Response Examples](#res-examples)
 
-### Request parameters
+## <a name="request"></a>Request
+
+### Request Parameters
 
 **status={_status_}**  
 The desired status for the notification. Required. Currently supports **failed**.
@@ -20,22 +23,22 @@ Example:
 
 ### Headers
 
-#### Authorization header
+#### Authorization Header
 
-Authorization header with OAuth token for valid Concur user. Required.
+Authorization header with OAuth token for valid SAP Concur user. Required.
 
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+The OAuth consumer must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
-#### Accept header
+#### Accept Header
 
 * application/xml
 * application/json
 
-#### Content-Type header
+#### Content-Type Header
 
 application/xml
 
-####  XML Example Request
+####  <a name="req-example"></a>XML Example Request
 
 ```http
 GET https://www.concursolutions.com/api/platform/notifications/v1.0/notification?status=FAILED HTTP/1.1
@@ -43,17 +46,17 @@ Authorization: OAuth {access token}
 Accept: application/xml
 ```
 
-##  Response
+##  <a name="response"></a>Response
 
 ### Supported Content Types
 
 * application/xml
 * application/json
 
-### Response Body
+### <a name="schema"></a>Schema
 This request will return a **NotificationsList** parent element with a **Notification** child element for each failed notification. The **Notification** elements will have a **Failure** child element if the notification is failed.
 
-#### Failure elements
+#### Failure Elements
 
 |  Element |  Description |
 | --------| ------------- |
@@ -65,7 +68,7 @@ This request will return a **NotificationsList** parent element with a **Notific
 |  ObjectURI |  The URI for the object. The developer can use the appropriate GET function for the Object Type. |
 
 
-####  XML Example of Successful Response
+####  <a name="res-examples"></a>XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK
