@@ -3,59 +3,60 @@ title: Expense Form
 layout: reference
 ---
 
-# Expense Form
+The configured expense forms in SAP Concur. Clients can have multiple forms configured for each form type.
 
-## Description
-The configured expense forms in Concur. Clients can have multiple forms configured for each form type.
+* [Get Form Types](#get-form-types)
+  * [Request](#types-req)
+  * [Response](#types-res)
+    * [Get Form Types Schema](#types-schema)
+  * [Examples](#types-examples)
+* [Get Form Data](#get-form-data)
+  * [Request](#data-req)
+  * [Response](#data-res)
+    * [Get Form Data Schema](#data-schema)
+  * [Examples](#data-examples)
 
-## Version
+### Version
 1.1
 
-## URI
+### URI
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/ `
 
-## Operations
+### Operations
 [GET](#get)
 
-## <a name="get"></a>Get form types or form data
-This resource supports the following GET actions:
+## <a name="get-form-types"></a>Get Form Types
 
-* Get Form Types
-* Get Form Data
-
-### Get Form Types
-
-#### Description
 Retrieves the list of configured form types.
 
-#### Get Form Types Request
+### <a name="types-req"></a>Request
 
-#### Request parameters
+#### Request Parameters
 None.
 
 #### Headers
 
-##### Authorization header
-Authorization header with OAuth token for valid Concur user. Required.
+##### Authorization Header
+Authorization header with OAuth token for valid SAP Concur user. Required.
 
-##### Accept header
+##### Accept Header
 application/xml
 
-### Get Form Types Response
+### <a name="types-res"></a>Response
 
-#### Content body
+#### <a name="types-schema"></a>Get Form Types Schema
 This request will return a **FormTypesList** parent element with a **FormType** parent element for each configured form.
 
-##### FormType elements
+##### FormType Elements
 
 |  Element |  Description |
 | -------- | ------------ |
 |  Name |  The form type name. |
 |  FormCode |  The form type code. |
 
-### Get Form Types Examples
+### <a name="types-examples"></a>Examples
 
-#### XML example request
+#### XML Example Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms HTTP/1.1
@@ -63,7 +64,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-#### XML example of successful response
+#### XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK
@@ -111,20 +112,17 @@ Content-Type: application/xml
 </FormTypesList>
 ```
 
-## Get Form Data
+## <a name="get-form-data"></a>Get Form Data
 
-### Description
 Retrieves the list of configured forms for the specified form type.
 
-### Get Form Data Request
+### <a name="data-req"></a>Request
 
-### Request parameters
-
-#### Path parameters
+### Request Parameters
 
 | Parameter |Required/Optional| Description |
 |-----------------|--------|-----------------------------|
-_FormCode_ | required | The identifier for the desired form. |
+FormCode | required | The identifier for the desired form. |
 
 Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/{FormCode}`
 
@@ -132,27 +130,27 @@ Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/
 
 #### Headers
 
-##### Authorization header
-Authorization header with OAuth token for valid Concur user.
+##### Authorization Header
+Authorization header with OAuth token for valid SAP Concur user.
 
-##### Accept header
+##### Accept Header
 application/xml
 
-### Get Form Data Response
+### <a name="data-res"></a>Response
 
-#### Content body
+#### <a name="data-schema"></a>Get Form Data Schema
 This request will return a **FormDataList** parent element with a **FormData** parent element for each configured form.
 
-##### FormData elements
+##### FormData Elements
 
 |  Element |  Description |
 | -------- | ------------ |
 |  Name |  The form name. |
 |  FormId |  The form identifier. |
 
-### Get Form Data Examples
+### <a name="data-examples"></a>Examples
 
-#### XML example request
+#### XML Example Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/RPTINFO HTTP/1.1
@@ -160,7 +158,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-#### XML example of successful response
+#### XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK
