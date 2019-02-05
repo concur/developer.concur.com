@@ -3,20 +3,27 @@ title: Headers
 layout: reference
 ---
 
-Concur will send the user-name and password in both the HTTP header and the SOAP header.  IF the user-name and password generates an authentication error, then Concur expects an HTTP 403 response.
+{% include prerelease.html %}
 
+SAP Concur will send the user-name and password in both the HTTP header and the SOAP header.  IF the user-name and password generates an authentication error, then SAP Concur expects an HTTP 403 response.
 
-# HTTP Headers
+* [HTTP Headers](#http)
+* [Soap Header](#soap)
+* [OTA Message Headers](#ota-message)
+  * [Request Message Headers](#request-message)
+  * [Response Message Headers](#response-message)
 
-Concur will send the following HTTP headers in every request.  The contents of the Authentication header will be repeated in the SOAP pay-load. Please note that some libraries used to handle the requests may be case sensitive.
+# <a name="http"></a>HTTP Headers
+
+SAP Concur will send the following HTTP headers in every request.  The contents of the Authentication header will be repeated in the SOAP pay-load. Please note that some libraries used to handle the requests may be case sensitive.
 
 | Header name    | Data Type | Description |
 |----------------|-----------|-------------|
 | Authorization  | String    | A Base64 encoded string in the form of 'Basic <username:password>' |
 | Soapaction     | String    | The message type e.g search.  The action will always be sent in lower-case |
 | Content-Type   | String    | All communication with the HS2 API is by way of a "application/xml" content type |
-| Accept         | String    | Concur will always set the Accept header to "application/xml". |
-| Accept-Charset | String    | Concur will always set the Accept-Charset header to "utf-8". |
+| Accept         | String    | SAP Concur will always set the Accept header to "application/xml". |
+| Accept-Charset | String    | SAP Concur will always set the Accept-Charset header to "utf-8". |
 
 Supported Soapactions:
 
@@ -51,7 +58,7 @@ Header: (http.Header) (len=4) {
 }
 ```
 
-# Soap Header
+# <a name="soap"></a>Soap Header
 
 The Soap header nested in the Envelope will contain an authentication element.
 
@@ -72,14 +79,14 @@ Sample:
         </authentication>
     </Header>
 ```
-Login and password are provided by the Hotel supplier for Concur as API consumer, not per customer.
+Login and password are provided by the Hotel supplier for SAP Concur as API consumer, not per customer.
 
 
-# OTA Message Headers
+# <a name="ota-message"></a>OTA Message Headers
 
 Every message must contain the following required attributes and elements.  On top of these each message may specify extra attributes and elements. Refer to a specific messages' page for details.
 
-## Request Message Headers
+## <a name="request-message"></a>Request Message Headers
 
 | Element         | Required | Data Type          | Description |
 |-----------------|----------|--------------------|-------------|
@@ -100,7 +107,7 @@ Every message must contain the following required attributes and elements.  On t
 
 **Source**
 
-Concur will always send the ISO Currency
+SAP Concur will always send the ISO Currency
 
 | Element       | Required | Data Type    | Description |
 |---------------|----------|--------------|-------------|
@@ -112,13 +119,13 @@ Concur will always send the ISO Currency
 
 | Element | Required | Data Type         | Description |
 |---------|----------|-------------------|-------------|
-| *Type*  | Y        | StringLength1to32 | Concur will always send a Requestor ID type of 1 |
+| *Type*  | Y        | StringLength1to32 | SAP Concur will always send a Requestor ID type of 1 |
 | *ID*    | Y        | StringLength1to32 | The Requestor ID |
 
 ---
 
 
-## Response Message Headers
+## <a name="response-message"></a>Response Message Headers
 
 The supplier is required to respond with the following attributes and elements in the root of any message.  On top of these each message may specify extra attributes and elements. Refer to a specific messages' page for details.
 

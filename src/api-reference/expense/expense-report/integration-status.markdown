@@ -3,32 +3,26 @@ title: Integration Status
 layout: reference
 ---
 
-
-# Integration Status
-
-
-## Description
 The integration status of the supplied object. Currently supports expense reports.
 
-
-## URI
-`https://www.concursolutions.com/api/expense/expensereport/v2.0/integrationstatus/`
-
-## Operations
-[POST](#post)
-
-
-## <a name="post"></a>Post an integration status for a report
-
-
-### Description
 This resource allows developers to ensure that the necessary transactions to account for expenses and arrange payment for the expenses in a specified report were created in the financial system prior to committing the expense report in Concur Expense. If they were, the developer uses this function to indicate the report was successfully integrated and move the report forward in the workflow to the Paid step. In Concur Expense, when a report arrives at the Paid workflow step the report is committed, meaning its data can't be changed and it can't be sent back in the workflow.
 
-### Request
+* [Request](#request)
+* [Response](#response)
+  * [Schema](#res-schema)
+* [Examples](#examples)
 
-### Request parameters
+### URI
+`https://www.concursolutions.com/api/expense/expensereport/v2.0/integrationstatus/`
 
-#### Path parameters
+### Operations
+[POST](#post)
+
+## <a name="request"></a>Request
+
+### Request Parameters
+
+#### Path Parameters
 
 | Parameter |Required/Optional| Description |
 |-----------------|--------|-----------------------------|
@@ -36,21 +30,21 @@ This resource allows developers to ensure that the necessary transactions to acc
 
 ### Headers
 
-#### Authorization header
-Authorization header with OAuth token for valid Concur user. Required. The OAuth consumer must have the following user role: Web Services Administrator
+#### Authorization Header
+Authorization header with OAuth token for valid SAP Concur user. Required. The OAuth consumer must have the following user role: Web Services Administrator
 
-#### Content-Type header
+#### Content-Type Header
 * application/json
 * application/xml
 
-### Response
+## <a name="response"></a>Response
 
-### Content types
+### Content Types
 
 * application/xml
 * application/json
 
-### Response body
+### <a name="res-schema"></a>Schema
 
 The response will include an **ActionStatus** parent element (XML), or an object (JSON) with the following child elements (XML) or name/value pairs (JSON).
 
@@ -61,9 +55,9 @@ The response will include an **ActionStatus** parent element (XML), or an object
 | Status | Whether the request was successful. Possible values: SUCCESS, FAILURE. |
 | Message | Provides further details for errors. |
 
-###  Examples
+##  <a name="examples"></a>Examples
 
-### XML example request
+### XML Example Request
 
 ```http
 POST https://www.concursolutions.com/api/expense/expensereport/v2.0/integrationstatus/report/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a454QitqQ HTTP/1.1
@@ -72,7 +66,7 @@ Accept: application/xml
 ...
 ```
 
-### XML example of successful response
+### XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK
@@ -84,7 +78,7 @@ Content-Type: application/xml
 </ActionStatus>
 ```
 
-###  JSON example of successful response
+###  JSON Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK
@@ -96,7 +90,7 @@ Content-Type: application/json
 }
 ```
 
-###  JSON example of response With error
+###  JSON Example of Response with Error
 
 ```http
 HTTP/1.1 200 OK
