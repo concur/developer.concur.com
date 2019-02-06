@@ -264,9 +264,6 @@
     "NewQuickExpenseResponse": {
       "type": "object",
       "properties": {
-        "mobileEntryKeyUri": {
-          "type": "string"
-        },
         "quickExpenseIdUri": {
           "type": "string"
         }
