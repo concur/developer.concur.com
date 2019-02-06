@@ -152,7 +152,7 @@ The **Attendee** child element must contain all of the elements described below.
 * When implementing the search logic, the search criteria should use logical AND between the fields, not logical OR. For example, if in the search dialog the user specifies Doe in the last name field and Acme in the company field, the connector must return only records where the Acme company has contacts with the last name of Doe. It must not return records for contacts with the last name Doe who belong to another company such as Apex.
 * If the application connector does not respond or returns an error, the user is notified in a popup window within Expense. SAP Concur will not resend the request unless the user manually initiates the search again.
 
-####  <a name="res-schema"></a>XML Example of Successful Response
+####  <a name="res-example"></a>XML Example of Successful Response
 
 ```http
 HTTPS/1.1 200 OK
