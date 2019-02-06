@@ -3,10 +3,19 @@ title: Post an expense report workflow action
 layout: reference
 ---
 
-## Description
 Posts a workflow action for the supplied expense report. The workflow action moves the expense report through the workflow process.
 
-### Workflow actions
+* [Workflow Actions](#workflow-actions)
+* [Workflow Roles](#workflow-roles)
+  * [System Role](#system-role)
+  * [Approver Role](#approver-role)
+* [Request](#request)
+  * [Request Schema](#req-schema)
+* [Response](#response)
+  * [Response Schema](#res-schema)
+* [Examples](#examples)
+
+## <a name="workflow-actions"></a>Workflow Actions
 
 The available actions are:
 
@@ -19,10 +28,10 @@ The available actions are:
 
 **WARNING:** Prior to calling this endpoint the Caller _must_ check the Approval Status found in the **ApprovalStatusName** element in the response for [Get Report Details][1] to ensure the report is at the workflow step the Caller expects.  Under no circumstance should a Caller make a call to this endpoint without being certain the report is at the workflow step the Caller expects.
 
-### Workflow roles
-Each workflow step in a workflow is associated with a workflow role. Professional clients can configure workflow steps and roles in the Workflows area of Expense Admin. The OAuth consumer is evaluated to determine which role(s) the consumer has in Concur. There are two different types of workflow roles as described in the following sections.
+## <a name="workflow-roles"></a>Workflow Roles
+Each workflow step in a workflow is associated with a workflow role. Professional clients can configure workflow steps and roles in the Workflows area of Expense Admin. The OAuth consumer is evaluated to determine which role(s) the consumer has in SAP Concur. There are two different types of workflow roles as described in the following sections.
 
-#### System role
+### <a name="system-role"></a>System Role
 The System role is used when the workflow actions can be completed programatically. Any workflow action can be completed this way, depending on the client's business process. The workflow role can be configured while adding the report workflow step. Some steps may require the System role. When using this role, the OAuth consumer must have the following user role:
 
 * Standard/Developer Sandbox: Can Administer
@@ -30,15 +39,15 @@ The System role is used when the workflow actions can be completed programatical
 
 The expense report owner must have an approver or processor assigned to them before the System role can make changes to their reports.
 
-#### Approver role
+### <a name="approver-role"></a>Approver Role
 
-The Approver role is used when the workflow action should be completed by a particular user. Developers who want to present a list of reports to approve and send the workflow action when the reports have been evaluated by the approver use the Approver role. This role requires that a user with the correct Concur role (Expense Approver, Authorized Approver, Cost Object Approver, or Expense Processor for Professional, or the Can Administer or Can Approve Reports roles for Standard) authenticates using Standard OAuth before supplying the workflow action. The user must also have access (be a valid approver or processor) for the supplied report ID.
+The Approver role is used when the workflow action should be completed by a particular user. Developers who want to present a list of reports to approve and send the workflow action when the reports have been evaluated by the approver use the Approver role. This role requires that a user with the correct SAP Concur role (Expense Approver, Authorized Approver, Cost Object Approver, or Expense Processor for Professional, or the Can Administer or Can Approve Reports roles for Standard) authenticates using Standard OAuth before supplying the workflow action. The user must also have access (be a valid approver or processor) for the supplied report ID.
 
-## Request
+## <a name="request"></a>Request
 
-### Request parameters
+### Request Parameters
 
-#### Path parameters
+#### Path Parameters
 
 | Parameter |Required/Optional| Description |
 |-----------------|--------|-----------------------------|
@@ -50,43 +59,43 @@ Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/
 
 ### Headers
 
-#### Authorization header
+#### Authorization Header
 
-Authorization header with OAuth token for valid Concur user. Required.
+Authorization header with OAuth token for valid SAP Concur user. Required.
 
-### Content-Type header
+### Content-Type Header
 
 application/xml
 
-### Request body
+### Request Body
 
-#### Root elements
+#### <a name="req-schema"></a>Request Schema
 
 This request should contain a **WorkflowAction** parent element with the following child elements.
 
-#### WorkflowAction child elements
+#### WorkflowAction Child Elements
 
 |  Element |  Required/optional |  Description |
 |----------|--------------------|--------------|
 |  Action |  required |  The name of the workflow action. Possible values are: **Approve**, **Send Back to Employee**, or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Expense Admin > Workflow to learn details. |
 |  Comment |  required, for Send Back to Employee |  Must be used with the **Send Back to Employee** workflow action. This comment is visible wherever report comments are available to the employee, approver, authorization request administrator, and/or processor. Max length: 2000 |
 
-### Response
+### <a name="response"></a>Response
 
-#### Response body
+#### <a name="res-schema"></a>Response Schema
 
 This request will return an **ActionStatus** parent element with the following child elements.
 
-#### ActionStatus elements
+#### ActionStatus Elements
 
 |  Element | Description |
 |----------|-------------|
 |  Message |  The error message. Only appears if a workflow action error was generated. |
 |  Status | The status of the report workflow action. |
 
-## Examples
+## <a name="examples"></a>Examples
 
-###  XML example request
+###  XML Example Request
 
 ```http
 POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a454QitqQ/workflowaction HTTP/1.1
@@ -99,7 +108,7 @@ Authorization: OAuth {access token}
 </WorkflowAction>
 ```
 
-###  XML example of successful response
+###  XML Example of Successful Response
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -109,7 +118,7 @@ Authorization: OAuth {access token}
 </ActionStatus>
 ```
 
-###  XML example of response With error
+###  XML Example of Response with Error
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

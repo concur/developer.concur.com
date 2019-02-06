@@ -3,12 +3,18 @@ title: Post an event notification request
 layout: reference
 ---
 
-##  Post Event Notification Request
+* [Request](#request)
+  * [Request Schema](#req-schema)
+  * [Request Example](#req-example)
+* [Response](#response)
+  * [Response Example](#res-example)
+
+## <a name="request"></a>Request
 
 ### Supported Accept Types
 * application/xml
 
-### Request URI
+### URI
 The Event Notification callout sends the notification to a URI for the application connector, which can be in a custom location for each client. The standard location is:
 
     https://{servername}/concur/v1.0/notify
@@ -22,7 +28,7 @@ Authorization header with Basic authorization for endpoint. Refer to [Authentica
 ### Request Headers - Optional
 None
 
-### Request Body
+### <a name="req-schema"></a>Request Schema
 The request will include a **Notification** parent element, with the following child elements:
 
 |Element |Description |
@@ -33,7 +39,7 @@ The request will include a **Notification** parent element, with the following c
 | EventDateTime | When the event happened. Format: YYYY-MM-DD |
 | Context | Message that the callout can use to provide the developer some context for the callout. |
 
-###  XML Example Request
+###  <a name="req-example"></a>XML Example Request
 
 ```http
 POST /concur/v1.0/notify HTTPS/1.1
@@ -51,7 +57,7 @@ Authorization: Basic Y29uY3VyOmNvbmN1cg==
 </Notification>
 ```
 
-##  Post Event Notification Response
+## <a name="response"></a>Response
 
 ### Supported Content Types
 * application/txt
@@ -59,7 +65,7 @@ Authorization: Basic Y29uY3VyOmNvbmN1cg==
 ### Content Body
 The application connector responds with an HTTP 200 code when it successfully receives the notification.
 
-###  Example of Successful Response
+###  <a name="res-example"></a>Example of Successful Response
 
     HTTPS 200 Success
 

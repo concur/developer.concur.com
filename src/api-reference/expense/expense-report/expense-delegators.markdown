@@ -3,51 +3,47 @@ title: Expense Delegators
 layout: reference
 ---
 
-# Expense delegators
-
-## Description
 Users that have granted delegate permissions to the another Expense user.
 
-## Version
-1.1
-
-## URI
-`https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators`
-
-## Operations
-[GET](#get)  
-
-
-
-## <a name="get"></a>Get expense delegators
-
-
-### Description
 Retrieves the list of users that have granted delegate permissions to the user specified in the OAuth access token.
 
-### Request
+* [Request](#request)
+* [Response](#response)
+  * [Schema](#schema)
+* [Examples](#examples)
 
-#### Request parameters
+### Version
+1.1
+
+### URI
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators`
+
+### Operations
+[GET](#get)  
+
+## <a name="request"></a>Request
+
+#### Request Parameters
 None.
 
 ### Headers
 
-#### Authorization header
-Authorization header with OAuth token for valid Concur user. Required.
+#### Authorization Header
+Authorization header with OAuth token for valid SAP Concur user. Required.
 
-### Accept header
+### Accept Header
 application/xml
 
-### Response
+## <a name="response"></a>Response
 
 #### Content Types
 application/xml
 
-#### Content body
+#### <a name="schema"></a>Schema
 
 This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer.
 
-#### Delegator elements
+#### Delegator Elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -57,10 +53,10 @@ This request will return a **DelegatorsList** parent element with a **Delegator*
 |  CanTemporaryApprove |  Whether the delegate is granted the same temporary approval rights as the delegator. |
 |  CanViewReceipts |  Whether the delegate is granted the right to view receipts on behalf of the delegator. |
 |  ReceiveApprovalEmails |  Whether the delegate also receives the approval emails sent to the delegator. |
-|  ReceivesEmails |  Whether the delegate also receives the Concur emails sent to the delegator. |
+|  ReceivesEmails |  Whether the delegate also receives the SAP Concur emails sent to the delegator. |
 |  DelegatorXUserID |  The user ID of the delegator. |
 
-### Examples
+## <a name="examples"></a>Examples
 
 #### XML Example Request
 
@@ -70,7 +66,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-### XML example of successful response
+#### XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK
