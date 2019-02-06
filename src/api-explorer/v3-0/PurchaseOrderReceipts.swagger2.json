@@ -30,8 +30,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Updates purchase order receipts which is already in the system.",
-        "description": "Updates purchase order receipts and associate if to purchase order line item and returns status of updation.",
+        "summary": "Updates purchase order receipts that are already in the system.",
+        "description": "Updates purchase order receipts that are already in the system and returns status of the update.",
         "parameters": [
           {
             "name": "purchaseOrderReceipt",
@@ -47,7 +47,7 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/PurchaseOrderResult"
+              "$ref": "#/definitions/PurchaseOrderReceiptResult"
             }
           }
         }
@@ -73,7 +73,7 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/PurchaseOrderResult"
+              "$ref": "#/definitions/PurchaseOrderReceiptResult"
             }
           }
         }
@@ -82,14 +82,28 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Gets an existing purchase order receipts information.",
-        "description": "Gets an existing purchase order receipts.",
+        "summary": "Gets existing purchase order receipts information.",
+        "description": "Gets existing purchase order receipts using below parameters.",
         "parameters": [
           {
             "name": "goodsReceiptNumber",
             "in": "query",
-            "description": "Gets an existing purchase order receipts.",
+            "description": "Goods receipt number for a purchase order line item receipt. This parameter can be used alone or in combination with the other two parameters.",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "purchaseOrderNumber",
+            "in": "query",
+            "description": "The purchase order number. This parameter can be used alone or in combination with the other two parameters.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lineItemExternalID",
+            "in": "query",
+            "description": "A value that uniquely identifies the line item within the purchase order. This parameter cannot be used alone. It must be used in combination with one or more of the other available parameters.",
+            "required": false,
             "type": "string"
           }
         ],
@@ -106,14 +120,28 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Deletes a new purchase order line item receipt.",
-        "description": "Deletes a new purchase order line item receipt given a Goods Receipts Number.",
+        "summary": "Deletes a purchase order line item receipt.",
+        "description": "Deletes a existing purchase order line item receipt using the available parameters below. The delete will only be executed if a unique record is found and not associated to a payment request.",
         "parameters": [
           {
             "name": "goodsReceiptNumber",
             "in": "query",
-            "description": "Unique number for the purchase order line item receipt.",
+            "description": "Goods receipt number for a purchase order line item receipt. This parameter can be used alone or in combination with the other two parameters.",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "purchaseOrderNumber",
+            "in": "query",
+            "description": "The purchase order number. This parameter can be used alone or in combination with the other two parameters.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lineItemExternalID",
+            "in": "query",
+            "description": "A value that uniquely identifies the line item within the purchase order. This parameter cannot be used alone. It must be used in combination with one or more of the other available parameters.",
+            "required": false,
             "type": "string"
           }
         ],
@@ -130,6 +158,7 @@
   },
   "definitions": {
     "PurchaseOrderReceipt": {
+      "required":["LineItemExternalID","PurchaseOrderNumber"],
       "properties": {
         "Custom1": {
           "type": "string",
@@ -181,15 +210,11 @@
         },
         "GoodsReceiptNumber": {
           "type": "string",
-          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version"
+          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version when using Concur Receiving."
         },
         "ID": {
           "type": "string",
           "description": "The unique identifier of the resource."
-        },
-        "IsReceived": {
-          "type": "string",
-          "description": "Indicates whether the line item was received. Optional for V2 Version."
         },
         "LineItemExternalID": {
           "type": "string",
@@ -217,15 +242,15 @@
         },
         "Version": {
           "type": "string",
-          "description": "The URI to the resource."
+          "description": "The version of purchase order line item receipt. Use Version 2.0 here unless doing receipt confirmation only."
         }
       }
     },
-    "PurchaseOrderResult": {
+    "PurchaseOrderReceiptResult": {
       "properties": {
         "ErrorCode": {
           "type": "string",
-          "description": "A code that indicates why the purchase order was not processed successfully."
+          "description": "A code that indicates why the purchase order receipt was not processed successfully."
         },
         "ErrorMessage": {
           "type": "string",
@@ -233,15 +258,15 @@
         },
         "FieldCode": {
           "type": "string",
-          "description": "A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
+          "description": "A code that indicates which field caused an issue."
         },
         "LineItemExternalID": {
           "type": "string",
-          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
+          "description": "The external ID of a line item that caused an error."
         },
         "Message": {
           "type": "string",
-          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
+          "description": "Message of request result."
         },
         "PurchaseOrderNumber": {
           "type": "string",
@@ -249,7 +274,7 @@
         },
         "Status": {
           "type": "string",
-          "description": "The result of processing the purchase order. Format: SUCCESS or FAILURE"
+          "description": "The result of processing the purchase order receipt. Format: SUCCESS or FAILURE"
         }
       }
     },
@@ -260,12 +285,16 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The URI of the next page of results, if any"
         },
         "TotalCount": {
           "description": "Total number of receipts",
           "type": "integer",
           "format": "int32"
+        },
+        "Info": {
+          "description": "Any additional information messages",
+          "type": "string"
         }
       }
     },

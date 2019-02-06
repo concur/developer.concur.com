@@ -280,7 +280,7 @@ Name |  Description
 `Delivery` |  The method used to deliver this booking. Refer to the [Delivery Method Child Elements](#delivery)
 `WaitListSegments` |  Information will appear in this element if the segment is on a waiting list. |
 `Warnings` |  The warnings associated with the booking.
-`WebAddresses` |  List of web addresses. This parent element includes [**Web Address Data** child elements](#Web) for each associated web address
+`WebAddresses` |  List of web addresses. This parent element includes [**Web Address Data** child elements](#web) for each associated web address.
 `BookingReferrer` |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with Concur, Supplier Mobile, Supplier Web
 
 
@@ -2051,6 +2051,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 
 ####  Core Elements - Optional
+
 |  Element |  Description |
 |----------|--------------|
 |  CancellationNumber |  The cancellation number from the vendor. This field should be set when you cancel a segment. |
@@ -2512,7 +2513,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 [1]: https://www.iata.org/publications/Pages/code-search.aspx
 [2]: https://en.wikipedia.org/wiki/ISO_4217
-[3]: https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#semantics_codes
+[3]: https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#semantics-codes
 [4]: https://www.tripit.com/developer
 [5]: https://en.wikipedia.org/wiki/ISO_4217
 [6]: https://en.wikipedia.org/wiki/Neutral_unit_of_construction_(airlines)

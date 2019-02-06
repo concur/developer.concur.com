@@ -20,7 +20,7 @@ Company is a top-level principal within Concur and you would be able to obtain a
 
 To begin the authentication flow for a company, one must first obtain a temporary auth token through AppCenter's interface. AppCenter will request for a temporary auth token and hand it off to the partner, who will then in turn use [Password grant](/api-reference/authentication/apidoc.html#password_grant) to exchange the temporary auth token for a full access token and refresh token for the company.
 
-Auth tokens have a One Day expiry, multi-use policy. Partners have 24 hours to exchange the auth token for a refresh and access token. Partners can also use this auth token multiple times within the 24 hours in case of network failure.
+Auth tokens are valid only for 12 hours.  Partners have 12 hours to exchange the auth token for a refresh and access token, and can use this auth token multiple times within the 12 hours in case of network failure.
 
 This auth flow diagram describes this handshake:
 
@@ -54,7 +54,7 @@ successful call, responds with
 ```http
 301 Redirect https://client.app.url?id=$company_uuid&requestToken=$request_token&userID=$user_uuid
 ```
-At this point, the user should be prompted to sign in to your application. If the user doesn't not have account, the user should have the ability to create one. For applications that have user read scope, the User UUID can be used to pre-populate the account creation forms. Please see the [App Center User Experience guidelines](/manage-apps/go-market-docs/app_center_ux_guidelines.pdf) for more information. 
+At this point, the user should be prompted to sign in to your application. If the user doesn't not have account, the user should have the ability to create one. For applications that have user read scope, the User UUID can be used to pre-populate the account creation forms. Please see the [App Center User Experience guidelines](/manage-apps/go-market-docs/app-center-ux-guidelines-enterprise.html) for more information. 
 
 **Client app calls Oauth2 password grant to get an access token for the company**
 
@@ -73,7 +73,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 175
@@ -90,7 +90,7 @@ client_id=your-client_id
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close

@@ -1,0 +1,1609 @@
+---
+title: Travel Request v4 - Examples
+layout: reference
+---
+
+{% include prerelease.html %}
+
+If a new or existing project please use version [3.0](./v3.request.html) of this API.
+
+Below we have sample request data and the corresponding request answers:
+
+* [Request resources](#request-resource)
+  * [Create a new Request - POST](#request-resource-create)
+  * [Get the list of existing Requests - GET](#request-resource-get-list)
+  * [Get the content of an existing Request - GET](#request-resource-get)
+  * [Update the content of an existing Request - PUT](#request-resource-update)
+  * [Delete an existing Request - DELETE](#request-resource-delete)
+  * [Create an expense report linked to an approved Request - POST](#request-resource-create-expense-linked)
+* [Workflow resource](#workflow-resource)
+  * [Move an existing Request in the approval workflow - POST](#move-existing-request-in-approval-workflow)
+* [Expense resource](#expense-resource)
+  * [Create a new expected expense - POST](#create-new-expected-expense-resource)
+  * [Get expected Expenses attached to a Request - GET](#get-expected-expense-attached-request-resource)
+  * [Get the content an existing expected Expense - GET](#get-existing-expense-expense-resource)
+  * [Update the content of an existing expected Expense - PUT](#update-content-existing-expected-expense-resource)
+  * [Delete an expected Expense from the Request](#delete-expected-expense-request-resource)
+* [Travel Agency resource](#travel-agency-resource)
+  * [Get the description of a travel agency office - GET](#get-travel-agency-description-resource)
+
+## <a name="request-resource">Request resources</a>
+
+Manage documents used for pre-spend authorizations within Concur Request
+
+### <a name="request-resource-create"></a>Create a new Request
+
+#### HTTP Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "businessPurpose": "Trip to Lyon for company training",
+  "comment": "Company training requires to go to Lyon",
+  "custom1": {
+    "value": "Training part of IT Service"
+  },
+  "custom2": {
+    "value": "8422A66A9B0142458020D9BCD4351D38"
+  },
+  "custom3": {
+    "value": "5A0F9AF6B92E34468698040C915688BF"
+  },
+  "custom4": {
+    "value": "3F54AE68BA66EF49A5984E5197202A4D"
+  },
+  "endDate": "2018-07-03",
+  "endTime": "22:00",
+  "startDate": "2018-07-01",
+  "startTime": "07:15",
+  "name": "Company Training - JULY 2018",
+  "mainDestination": {
+    "city": "Lyon, FRANCE",
+    "countryCode": "FR",
+    "countrySubDivisionCode": "FR-69",
+    "name": "Lyon, FRANCE"
+  },
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "travelAgency": {
+    "id": "2EC038D7C3CBBE4ABA0914425064D34F"
+  }
+}
+```
+
+#### HTTP Response
+
+```shell
+201 Created
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/requests/CED5E9CD8FC1424488F9331ACF956E73",
+  "id": "CED5E9CD8FC1424488F9331ACF956E73",
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "approved": false,
+  "businessPurpose": "Trip to Lyon for company training",
+  "canceledPostApproval": false,
+  "closed": false,
+  "comment": "Company training requires to go to Lyon",
+  "creationDate": "2018-05-25T08:08:59.000Z",
+  "custom1": {
+    "value": "Training part of IT Service"
+  },
+  "custom2": {
+    "code": "CEN3",
+    "listItemId": "8422A66A9B0142458020D9BCD4351D38",
+    "href": "https://us.api.concursolutions.com/list/v1/items/8422A66A9B0142458020D9BCD4351D38"
+  },
+  "custom3": {
+    "code": "CEN3PRO1",
+    "listItemId": "5A0F9AF6B92E34468698040C915688BF",
+    "href": "https://us.api.concursolutions.com/list/v1/items/5A0F9AF6B92E34468698040C915688BF"
+  },
+  "custom4": {
+    "code": "TRAINING",
+    "listItemId": "3F54AE68BA66EF49A5984E5197202A4D",
+    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+  },
+  "endDate": "2018-07-03",
+  "endTime": "22:00",
+  "everSentBack": false,
+  "expenses": [],
+  "lastModified": "2018-05-25T08:08:59.000Z",
+  "mainDestination": {
+    "countryCode": "FR",
+    "countrySubDivisionCode": "FR-69",
+    "city": "Lyon, FRANCE",
+    "name": "Lyon, FRANCE"
+  },
+  "name": "Company Training - JULY 2018",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": false,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "333U",
+  "startDate": "2018-07-01",
+  "startTime": "07:15",
+  "totalApprovedAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "travelAgency": {
+    "href": "https://us.api.concursolutions.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
+    "id": "2EC038D7C3CBBE4ABA0914425064D34F",
+    "template": "https://us.api.concursolutions.com/v4/travelagencies/{id}"
+  },
+  "operations": [
+    {
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/v4/requests/CED5E9CD8FC1424488F9331ACF956E73/submit"
+    }
+  ]
+}
+```
+
+### <a name="request-resource-get-list"></a>Get the list of existing Requests
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests?view=ALL&limit=10&start=0
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "data": [{
+      "href": "https://us.api.concursolutions.com/v4/requests/2B19A2438CD6664A9C44E0F4D39E870A",
+      "id": "2B19A2438CD6664A9C44E0F4D39E870A",
+      "approvalStatus": {
+        "code": "SENTBACK",
+        "name": "Sent Back to Employee"
+      },
+      "approved": false,
+      "businessPurpose": "PMP Training in Nantes",
+      "canceledPostApproval": false,
+      "closed": false,
+      "comment": "Plane too early in the morning, if possible book Hotel and arrive the day before\n",
+      "creationDate": "2018-09-03T11:53:02.000Z",
+      "endDate": "2018-10-08",
+      "everSentBack": true,
+      "expenses": [],
+      "name": "PMP Training - OCTOBER",
+      "pendingApproval": false,
+      "requestId": "3AT7",
+      "startDate": "2018-10-08",
+      "startTime": "05:00",
+      "submitDate": "2018-09-03T11:55:00.000Z",
+      "totalApprovedAmount": {
+        "value": 213.06,
+        "currency": "USD"
+      },
+      "totalPostedAmount": {
+        "value": 213.06,
+        "currency": "USD"
+      },
+      "totalRemainingAmount": {
+        "value": 213.06,
+        "currency": "USD"
+      }
+    },
+    {
+      "href": "https://us.api.concursolutions.com/v4/requests/4CCBAE73F3E14346AE93253480F5C409",
+      "id": "4CCBAE73F3E14346AE93253480F5C409",
+      "approvalStatus": {
+        "code": "SUBMITTED",
+        "name": "Submitted & Pending Approval"
+      },
+      "approved": false,
+      "businessPurpose": "Client meeting for project KIWI",
+      "canceledPostApproval": false,
+      "closed": false,
+      "comment": "Need to arrive the day before as meeting is in Company office early in the morning\n",
+      "creationDate": "2018-09-03T11:44:10.000Z",
+      "endDate": "2018-09-20",
+      "everSentBack": false,
+      "expenses": [],
+      "name": "Client meeting in Berlin",
+      "pendingApproval": true,
+      "requestId": "3AT6",
+      "startDate": "2018-09-18",
+      "startTime": "17:30",
+      "submitDate": "2018-09-03T11:49:32.000Z",
+      "totalApprovedAmount": {
+        "value": 478.56,
+        "currency": "USD"
+      },
+      "totalPostedAmount": {
+        "value": 478.56,
+        "currency": "USD"
+      },
+      "totalRemainingAmount": {
+        "value": 478.56,
+        "currency": "USD"
+      }
+    }
+  ],
+  "operations": [{
+      "rel": "next",
+      "href": "https://us.api.concursolutions.com/v4/requests?view=ALL&limit=3&start=3"
+    },
+    {
+      "rel": "first",
+      "href": "https://us.api.concursolutions.com/v4/requests?view=ALL&limit=3&start=0"
+    },
+    {
+      "rel": "last",
+      "href": "https://us.api.concursolutions.com/v4/requests?view=ALL&limit=3&start=135"
+    }
+  ]
+}
+```
+
+### <a name="request-resource-get"></a>Get the content of an existing Request
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2",
+  "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "approved": false,
+  "businessPurpose": "Client meeting for project KIWI",
+  "canceledPostApproval": false,
+  "closed": false,
+  "comment": "Need to arrive the day before for meeting in Company Office",
+  "creationDate": "2018-05-25T07:31:33.000Z",
+  "custom1": {
+    "value": "Kick-off meeting for project KIWI"
+  },
+  "custom2": {
+    "code": "CEN1",
+    "value": "54F0CBD8833CB348BD45A6C7C621C951",
+    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+  },
+  "custom3": {
+    "code": "CEN1PRO2",
+    "value": "441D6FC50766A044ACC07FF780F1BAD9",
+    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+  },
+  "custom4": {
+    "code": "CLIENTPROJECT",
+    "value": "050BE16A7BF72948810AFDBC9069BD8E",
+    "href": "https://us.api.concursolutions.com/list/v1/items/050BE16A7BF72948810AFDBC9069BD8E"
+  },
+  "endDate": "2018-07-17",
+  "endTime": "19:30",
+  "everSentBack": false,
+  "expenses": [
+    {
+      "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+      "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+      "template": "https://us.api.concursolutions.com/v4/expenses/{id}"
+    },
+    {
+      "href": "https://us.api.concursolutions.comm/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0",
+      "id": "D65BDBD5D980F6498D67A92B06A457B0",
+      "template": "https://us.api.concursolutions.com/v4/expenses/{id}"
+    },
+    {
+      "href": "https://us.api.concursolutions.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
+      "id": "C286A46A2DDF984EA28E41CEA278667D",
+      "template": "https://rqa3-raas.concurasp.com/v4/expenses/{id}"
+    }
+  ],
+  "lastModified": "2018-05-25T07:34:01.000Z",
+  "mainDestination": {
+    "countryCode": "DE",
+    "countrySubDivisionCode": "DE-BE",
+    "city": "Berlin, GERMANY",
+    "name": "Berlin, GERMANY"
+  },
+  "name": "Client meeting in Berlin - JULY",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": false,
+  "policy": {
+    "id": "00497B95D8055849A1B217C8D05FFB86"
+  },
+  "requestId": "333T",
+  "startDate": "2018-07-15",
+  "startTime": "06:00",
+  "totalApprovedAmount": {
+    "value": 494.56,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 494.56,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 494.56,
+    "currency": "USD"
+  },
+  "travelAgency": {
+    "href": "https://us.api.concursolutions.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
+    "id": "2EC038D7C3CBBE4ABA0914425064D34F",
+    "template": "https://us.api.concursolutions.com/v4/travelagencies/{id}"
+  },
+  "operations": [
+    {
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/submit"
+    }
+  ]
+}
+```
+
+### <a name="request-resource-update"></a> Update the content of an existing Request
+
+#### HTTP Request
+
+```shell
+PUT https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```json
+{
+  "businessPurpose": "Trip to Lyon for company training - Modification of dates and Cost center + Custom Field",
+  "comment": "Company training requires to go to Lyon - Dates and service changed",
+  "custom1": {
+    "value": "Training part of IT Service"
+  },
+  "custom2": {
+    "value": "54F0CBD8833CB348BD45A6C7C621C951"
+  },
+  "custom3": {
+    "value": "441D6FC50766A044ACC07FF780F1BAD9"
+  },
+  "custom4": {
+    "value": "3F54AE68BA66EF49A5984E5197202A4D"
+  },
+  "endDate": "2018-07-09",
+  "endTime": "19:00",
+  "id": "053A479B3C9DD847B02A203C657AE26B",
+  "startDate": "2018-07-07",
+  "startTime": "06:15",
+  "name": "Company Training - JULY 2018",
+  "mainDestination": {
+    "city": "Lyon, FRANCE",
+    "countryCode": "FR",
+    "countrySubDivisionCode": "FR-69",
+    "name": "Lyon, FRANCE"
+  },
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "travelAgency": {
+    "id": "2EC038D7C3CBBE4ABA0914425064D34F"
+  }
+}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B",
+  "id": "053A479B3C9DD847B02A203C657AE26B",
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "approved": false,
+  "businessPurpose": "Trip to Lyon for company training - Modification of dates and Cost center + Custom Field",
+  "canceledPostApproval": false,
+  "closed": false,
+  "comment": "Company training requires to go to Lyon - Dates and service changed",
+  "creationDate": "2018-05-25T09:17:25.000Z",
+  "custom1": {
+    "value": "Training part of IT Service"
+  },
+  "custom2": {
+    "code": "CEN1",
+    "listItemId": "54F0CBD8833CB348BD45A6C7C621C951",
+    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+  },
+  "custom3": {
+    "code": "CEN1PRO2",
+    "listItemId": "441D6FC50766A044ACC07FF780F1BAD9",
+    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+  },
+  "custom4": {
+    "code": "TRAINING",
+    "listItemId": "3F54AE68BA66EF49A5984E5197202A4D",
+    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+  },
+  "endDate": "2018-07-09",
+  "endTime": "19:00",
+  "everSentBack": false,
+  "expenses": [],
+  "lastModified": "2018-05-25T09:24:34.000Z",
+  "mainDestination": {
+    "countryCode": "FR",
+    "countrySubDivisionCode": "FR-69",
+    "city": "Lyon, FRANCE",
+    "name": "Lyon, FRANCE"
+  },
+  "name": "Company Training - JULY 2018",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": false,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "333X",
+  "startDate": "2018-07-07",
+  "startTime": "06:15",
+  "totalApprovedAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "travelAgency": {
+    "href": "https://us.api.concursolutions.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
+    "id": "2EC038D7C3CBBE4ABA0914425064D34F",
+    "template": "https://us.api.concursolutions.com/v4/travelagencies/{id}"
+  },
+  "operations": [
+    {
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit"
+    }
+  ]
+}
+```
+
+### <a name="request-resource-delete"></a>Delete an existing Request
+
+#### HTTP Request
+
+```shell
+DELETE https://us.api.concursolutions.com/travelrequest/v4/requests/0D4DC4589D33AC4B9AF2E8B548C7AD2C
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+true
+```
+
+### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
+
+#### HTTP Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+201 Created
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/expensereports/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/reports/C5EDBE0E507C46FFB132",
+  "id": "C5EDBE0E507C46FFB132",
+  "template": "https://us.api.concursolutions.com/expensereports/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/reports/{id}"
+}
+```
+
+## <a name="workflow-resource">Workflow resources</a>
+
+Manage workflow transitions for a Request document
+
+### <a name="move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
+
+#### HTTP Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B",
+  "id": "053A479B3C9DD847B02A203C657AE26B",
+  "approvalStatus": {
+    "code": "SUBMITTED",
+    "name": "Submitted & Pending Approval"
+  },
+  "approved": false,
+  "businessPurpose": "Trip to Lyon for company training - Modification of dates and Cost center + Custom Field",
+  "canceledPostApproval": false,
+  "closed": false,
+  "creationDate": "2018-05-25T09:17:25.000Z",
+  "custom1": {
+    "value": "Training part of IT Service"
+  },
+  "custom2": {
+    "code": "CEN1",
+    "listItemId": "54F0CBD8833CB348BD45A6C7C621C951",
+    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+  },
+  "custom3": {
+    "code": "CEN1PRO2",
+    "listItemId": "441D6FC50766A044ACC07FF780F1BAD9",
+    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+  },
+  "custom4": {
+    "code": "TRAINING",
+    "listItemId": "3F54AE68BA66EF49A5984E5197202A4D",
+    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+  },
+  "endDate": "2018-07-09",
+  "endTime": "19:00",
+  "everSentBack": false,
+  "expenses": [
+    {
+      "href": "https://us.api.concursolutions.com/v4/expenses/47C8AD9E382B5143BB54DC3090577C60",
+      "id": "47C8AD9E382B5143BB54DC3090577C60",
+      "template": "https://us.api.concursolutions.com/v4/expenses/{id}"
+    }
+  ],
+  "lastModified": "2018-05-25T09:38:02.000Z",
+  "mainDestination": {
+    "countryCode": "FR",
+    "countrySubDivisionCode": "FR-69",
+    "city": "Lyon, FRANCE",
+    "name": "Lyon, FRANCE"
+  },
+  "name": "Company Training - JULY 2018",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": true,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "333X",
+  "startDate": "2018-07-07",
+  "startTime": "06:15",
+  "submitDate": "2018-05-25T09:38:02.000Z",
+  "totalApprovedAmount": {
+    "value": 123.56,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 123.56,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 123.56,
+    "currency": "USD"
+  },
+  "travelAgency": {
+    "href": "https://us.api.concursolutions.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
+    "id": "2EC038D7C3CBBE4ABA0914425064D34F",
+    "template": "https://us.api.concursolutions.com/v4/travelagencies/{id}"
+  },
+  "operations": [
+    {
+      "rel": "recall",
+      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/recall"
+    },
+    {
+      "rel": "cancel",
+      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/cancel"
+    }
+  ]
+}
+```
+
+## <a name="expense-resource">Expense resources</a>
+
+Manage expected Expense entries attached to a Request document
+
+### <a name="create-new-expected-expense-resource"></a>Create a new expected expense
+
+#### HTTP Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "allocations": [
+    {
+      "allocationAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "approvedAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "percentEdited": false,
+      "percentage": 0,
+      "postedAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "systemAllocation": false
+    }
+  ],
+  "approvedAmount": {
+    "currency": "USD",
+    "value": 122.38
+  },
+  "businessPurpose": "additional punctual trip to South of France",
+  "exchangeRate": {
+    "operation": "MULTIPLY",
+    "value": 1
+  },
+  "expenseType": {
+    "id": "RAILF",
+    "name": "Train"
+  },
+  "lastComment": "",
+  "location": {
+    "id": "A168CDBA58AE42868961BC00278A91B3",
+    "countryCode": "FR",
+    "countrySubDivisionCode": "FR-75",
+    "city": "Paris",
+    "name": "Charles De Gaulle Intl",
+    "lnKey": 83745
+  },
+  "postedAmount": {
+    "currency": "USD",
+    "value": 122.38
+  },
+  "remainingAmount": {
+    "currency": "USD",
+    "value": 122.38
+  },
+  "transactionAmount": {
+    "currency": "USD",
+    "value": 122.38
+  },
+  "transactionDate": "2018-07-18T00:00:00Z",
+  "tripData": {
+    "agencyBooked": false,
+    "legs": [
+      {
+        "endLocation": {
+          "id": "CE4A6DCAC4A14D08803C28F6D5CB20F0",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-06",
+          "city": "Nice",
+          "name": "Cote D Azur",
+          "lnKey": 84228
+        },
+        "returnLeg": false,
+        "startDate": "2018-07-18",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "startTime": "21:00",
+        "startLocationDetail": "none"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_RAILF",
+      "code": "RAILF"
+    },
+    "selfBooked": false,
+    "tripType": "ONE_WAY"
+  }
+}
+```
+
+#### HTTP Response
+
+```shell
+201 Created
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/expenses/0465224E14C23D4F8C2BC79A9D694BDD",
+  "id": "0465224E14C23D4F8C2BC79A9D694BDD",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 122.38,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 122.38,
+        "currency": "USD"
+      },
+      "allocationId": "28E1B1F50253CD47BE002DA7B2C218EE",
+      "postedAmount": {
+        "value": 122.38,
+        "currency": "USD"
+      },
+      "expenseId": "0465224E14C23D4F8C2BC79A9D694BDD",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 122.38,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "TRAIN",
+    "name": "Train",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/TRAIN"
+  },
+  "postedAmount": {
+    "value": 122.38,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 122.38,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 122.38,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-18T00:00:00.000Z",
+  "tripData": {
+    "agencyBooked": false,
+    "selfBooked": false,
+    "tripType": "ONE_WAY",
+    "legs": [
+      {
+        "endLocation": {
+          "id": "CE4A6DCAC4A14D08803C28F6D5CB20F0",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-06",
+          "name": "Nice",
+          "lnKey": 84228,
+          "locationCode": "IATA_NCE",
+          "locationType": "STD"
+        },
+        "id": "59508E1F979B4346AC6B38677ABE6404",
+        "returnLeg": false,
+        "startDate": "2018-07-18",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "name": "Paris",
+          "lnKey": 83745,
+          "locationCode": "IATA_CDG",
+          "locationType": "STD"
+        },
+        "startLocationDetail": "none",
+        "startTime": "21:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_RAILF",
+      "code": "RAILF"
+    }
+  }
+}
+```
+
+### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+[
+  {
+    "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+    "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+    "allocations": [
+      {
+        "allocationAmount": {
+          "value": 324.56,
+          "currency": "USD"
+        },
+        "approvedAmount": {
+          "value": 324.56,
+          "currency": "USD"
+        },
+        "allocationId": "79249903DC18464AAAD61062EA383BD4",
+        "postedAmount": {
+          "value": 324.56,
+          "currency": "USD"
+        },
+        "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
+        "percentEdited": false,
+        "systemAllocation": true,
+        "percentage": 100
+      }
+    ],
+    "approvedAmount": {
+      "value": 324.56,
+      "currency": "USD"
+    },
+    "exchangeRate": {
+      "value": 1,
+      "operation": "MULTIPLY"
+    },
+    "expenseType": {
+      "id": "AIRFR",
+      "name": "Airfare",
+      "href": "https://us.api.concursolutions.comm/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+    },
+    "postedAmount": {
+      "value": 324.56,
+      "currency": "USD"
+    },
+    "remainingAmount": {
+      "value": 324.56,
+      "currency": "USD"
+    },
+    "transactionAmount": {
+      "value": 324.56,
+      "currency": "USD"
+    },
+    "transactionDate": "2018-07-15T00:00:00.000Z",
+    "tripData": {
+      "agencyBooked": true,
+      "selfBooked": false,
+      "tripType": "ROUND_TRIP",
+      "legs": [
+        {
+          "endLocation": {
+            "id": "4A33695120254EEC9261B24993DD413B",
+            "countryCode": "DE",
+            "countrySubDivisionCode": "DE-BE",
+            "city": "Berlin",
+            "iataCode": "BER",
+            "name": "Berlin(Alls)",
+            "lnKey": 86727
+          },
+          "id": "B0F356643B38BC419AFE60E050BB79A4",
+          "returnLeg": false,
+          "startDate": "2018-07-15",
+          "startLocation": {
+            "id": "A168CDBA58AE42868961BC00278A91B3",
+            "countryCode": "FR",
+            "countrySubDivisionCode": "FR-75",
+            "city": "Paris",
+            "iataCode": "CDG",
+            "name": "Charles De Gaulle Intl",
+            "lnKey": 83745
+          },
+          "startTime": "08:00"
+        },
+        {
+          "endLocation": {
+            "id": "A168CDBA58AE42868961BC00278A91B3",
+            "countryCode": "FR",
+            "countrySubDivisionCode": "FR-75",
+            "city": "Paris",
+            "iataCode": "CDG",
+            "name": "Charles De Gaulle Intl",
+            "lnKey": 83745
+          },
+          "id": "345475D42A53D948A6D60181759683E8",
+          "returnLeg": true,
+          "startDate": "2018-07-17",
+          "startLocation": {
+            "id": "4A33695120254EEC9261B24993DD413B",
+            "countryCode": "DE",
+            "countrySubDivisionCode": "DE-BE",
+            "city": "Berlin",
+            "iataCode": "BER",
+            "name": "Berlin(Alls)",
+            "lnKey": 86727
+          },
+          "startTime": "17:00"
+        }
+      ],
+      "segmentType": {
+        "category": "REQ_SEG_AIRFR",
+        "code": "AIRFR"
+      }
+    }
+  },
+  {
+    "href": "https://us.api.concursolutions.com/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0",
+    "id": "D65BDBD5D980F6498D67A92B06A457B0",
+    "allocations": [
+      {
+        "allocationAmount": {
+          "value": 90,
+          "currency": "USD"
+        },
+        "approvedAmount": {
+          "value": 90,
+          "currency": "USD"
+        },
+        "allocationId": "FCAA998834A24949B01AC3C1D56AF4E3",
+        "postedAmount": {
+          "value": 90,
+          "currency": "USD"
+        },
+        "expenseId": "D65BDBD5D980F6498D67A92B06A457B0",
+        "percentEdited": false,
+        "systemAllocation": true,
+        "percentage": 100
+      }
+    ],
+    "approvedAmount": {
+      "value": 90,
+      "currency": "USD"
+    },
+    "businessPurpose": "Airport to Office after arrival and before departure",
+    "exchangeRate": {
+      "value": 1,
+      "operation": "MULTIPLY"
+    },
+    "expenseType": {
+      "id": "TAXIX",
+      "name": "Taxi",
+      "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/TAXIX"
+    },
+    "postedAmount": {
+      "value": 90,
+      "currency": "USD"
+    },
+    "remainingAmount": {
+      "value": 90,
+      "currency": "USD"
+    },
+    "transactionAmount": {
+      "value": 90,
+      "currency": "USD"
+    },
+    "transactionDate": "2018-07-17T00:00:00.000Z"
+  },
+  {
+    "href": "https://us.api.concursolutions.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
+    "id": "C286A46A2DDF984EA28E41CEA278667D",
+    "allocations": [
+      {
+        "allocationAmount": {
+          "value": 80,
+          "currency": "USD"
+        },
+        "approvedAmount": {
+          "value": 80,
+          "currency": "USD"
+        },
+        "allocationId": "780B3FA5B83EC24F922EBE7B5D4AED63",
+        "postedAmount": {
+          "value": 80,
+          "currency": "USD"
+        },
+        "expenseId": "C286A46A2DDF984EA28E41CEA278667D",
+        "percentEdited": false,
+        "systemAllocation": true,
+        "percentage": 100
+      }
+    ],
+    "approvedAmount": {
+      "value": 80,
+      "currency": "USD"
+    },
+    "businessPurpose": "Estimated costs for 2 dinners in Berlin",
+    "exchangeRate": {
+      "value": 1,
+      "operation": "MULTIPLY"
+    },
+    "expenseType": {
+      "id": "DINNR",
+      "name": "Dinner",
+      "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/DINNR"
+    },
+    "postedAmount": {
+      "value": 80,
+      "currency": "USD"
+    },
+    "remainingAmount": {
+      "value": 80,
+      "currency": "USD"
+    },
+    "transactionAmount": {
+      "value": 80,
+      "currency": "USD"
+    },
+    "transactionDate": "2018-07-17T00:00:00.000Z"
+  }
+]
+```
+
+### <a name="get-existing-expense-expense-resource"></a>Get the content of an existing expected Expense
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+  "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 324.56,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 324.56,
+        "currency": "USD"
+      },
+      "allocationId": "79249903DC18464AAAD61062EA383BD4",
+      "postedAmount": {
+        "value": 324.56,
+        "currency": "USD"
+      },
+      "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 324.56,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "AIRFR",
+    "name": "Airfare",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+  },
+  "postedAmount": {
+    "value": 324.56,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 324.56,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 324.56,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-15T00:00:00.000Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ROUND_TRIP",
+    "legs": [
+      {
+        "endLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)",
+          "lnKey": 86727
+        },
+        "id": "B0F356643B38BC419AFE60E050BB79A4",
+        "returnLeg": false,
+        "startDate": "2018-07-15",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "startTime": "08:00"
+      },
+      {
+        "endLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "id": "345475D42A53D948A6D60181759683E8",
+        "returnLeg": true,
+        "startDate": "2018-07-17",
+        "startLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)",
+          "lnKey": 86727
+        },
+        "startTime": "17:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_AIRFR",
+      "code": "AIRFR"
+    }
+  }
+}
+```
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
+  "id": "C286A46A2DDF984EA28E41CEA278667D",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 80,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 80,
+        "currency": "USD"
+      },
+      "allocationId": "780B3FA5B83EC24F922EBE7B5D4AED63",
+      "postedAmount": {
+        "value": 80,
+        "currency": "USD"
+      },
+      "expenseId": "C286A46A2DDF984EA28E41CEA278667D",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 80,
+    "currency": "USD"
+  },
+  "businessPurpose": "Estimated costs for 2 dinners in Berlin",
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "DINNR",
+    "name": "Dinner",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/DINNR"
+  },
+  "postedAmount": {
+    "value": 80,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 80,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 80,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-17T00:00:00.000Z"
+}
+```
+
+### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
+
+#### HTTP Request
+
+```shell
+PUT https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "allocationId": "79249903DC18464AAAD61062EA383BD4",
+      "postedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "AIRFR",
+    "name": "Airfare",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+  },
+  "postedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-16T00:00:00.000Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ROUND_TRIP",
+    "legs": [
+      {
+        "endLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)",
+          "lnKey": 86727
+        },
+        "id": "B0F356643B38BC419AFE60E050BB79A4",
+        "returnLeg": false,
+        "startDate": "2018-07-16",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "startTime": "07:00"
+      },
+      {
+        "endLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "id": "345475D42A53D948A6D60181759683E8",
+        "returnLeg": true,
+        "startDate": "2018-07-18",
+        "startLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)",
+          "lnKey": 86727
+        },
+        "startTime": "18:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_AIRFR",
+      "code": "AIRFR"
+    }
+  }
+}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+  "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "allocationId": "79249903DC18464AAAD61062EA383BD4",
+      "postedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "AIRFR",
+    "name": "Airfare",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+  },
+  "postedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-16T00:00:00.000Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ROUND_TRIP",
+    "legs": [
+      {
+        "endLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)",
+          "lnKey": 86727
+        },
+        "id": "B0F356643B38BC419AFE60E050BB79A4",
+        "returnLeg": false,
+        "startDate": "2018-07-16",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "startTime": "07:00"
+      },
+      {
+        "endLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "id": "345475D42A53D948A6D60181759683E8",
+        "returnLeg": true,
+        "startDate": "2018-07-18",
+        "startLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)",
+          "lnKey": 86727
+        },
+        "startTime": "18:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_AIRFR",
+      "code": "AIRFR"
+    }
+  }
+}
+```
+
+### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
+
+#### HTTP Request
+
+```shell
+DELETE https://us.api.concursolutions.com/travelrequest/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+true
+```
+
+## <a name="travel-agency-resource"></a>Travel Agency resource
+
+Manage the configuration for travel agencies integrated with Concur Request
+
+### <a name="get-travel-agency-description-resource"></a>Get the description of a travel agency office
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B",
+  "id": "2EC038D7C3CBBE4ABA0914425064D34F",
+  "emailAddress": "agency-email@agencyname.com",
+  "name": "myCompanyAgency"
+}
+```

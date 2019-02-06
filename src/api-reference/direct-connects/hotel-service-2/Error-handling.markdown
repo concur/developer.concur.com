@@ -28,7 +28,11 @@ Errors should always be returned in a response. For example:
 </soap:Envelope>
 ```
 
-If an error is present in any message, then the content of that message is discarded and only the error element is processed. Any text from the supplier will be logged and a Concur message will be displayed to the user.  Currently Concur does not support displaying of supplier generated errors directly in the UI.  Concur only uses the very first Error that is returned, therefore any excess Error elements are dropped.  Any Errors without a Type attribute will automatically be treated as '1' meaning Unknown.  See the Error Types table below.
+If an error is present in any message, then the content of that message is discarded and only the error element is processed. Any text from the supplier will be logged and a Concur message will be displayed to the user.  
+
+Currently Concur does not support displaying of supplier generated errors directly in the UI.  
+
+Concur only uses the very first Error that is returned, therefore any excess Error elements are dropped.  Any Errors without a Type attribute will automatically be treated as '1' meaning Unknown.  See the Error Types table below.
 
 | Element | Required | Data Type | Description |
 |---------|----------|-----------|-------------|
@@ -60,7 +64,7 @@ Concur supports the following Error Type Codes in any of the responses:
 | 2    | No implementation | Indicates that the target business system has no implementation for the intended request. |
 | 13   | Application error | Indicates that an involved back-end application returned an error which is passed back in the response message. |
 
-**Note:** The OTA Error-Type code of 4 - Authentication (Indicates the message lacks adequate security credentials.) is not expected by Concur.  For all authentication errors Concur expects an HTTP 403.
+**Note:** The OTA Error-Type code of 4 - Authentication (indicates the message lacks adequate security credentials) is not expected by Concur.  For all authentication errors Concur expects an HTTP 403.
 
 Concur expects the following Errors under the given Error Types:
 
@@ -81,11 +85,11 @@ Concur expects the following Errors under the given Error Types:
 | Error Code | Description                                 | Example |
 |------------|---------------------------------------------|---------|
 | 242        | Credit card number is invalid or missing    | Missing Credit Card number |
-| 320        | Invalid value                               | Comma separated node or attribute and sent value should be provided in ShortText. Example: "StayDateRange:2019-11-33" |
-| 322        | No availability                             | Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555"|  
-| 424        | No hotels found which match this input      | Search parameters - geo-code and radius should be provided in ShortText as tokenized list: Latitude,Longitude,Radius, Unit of Measure code. Example: "50.111,40.222,5,2" |
+| 320        | Invalid value                               | Comma separated node or attribute and sent value should be provided in the content of the error element. Example: ```<Error Code="320" ShortText="Invalid value" Type="13">StayDateRange:2019-11-33</Error> ``` |
+| 322        | No availability                             | Hotel Codes should be provided in content of the element. Example: ```<Error Code="322" ShortText="No availability" Type="13">HTL4444,HTL5555</Error>``` |  
+| 424        | No hotels found which match this input      | Search parameters - geo-code and radius should be provided in content of the element and formatted as tokenized list: Latitude, Longitude, Radius, Unit of Measure code. Example: ```<Error Code="322" ShortText="No availability" Type="13">50.111,40.222,5,2</Error>``` |
 | 95         | Booking already cancelled                   | Booking already cancelled |
-| 438        | Requested rate not available                | List of comma separated RatePlanID's should be provided in ShortText. Example: "111,222" |
-| 748        | Invalid corporate ID                        | Requestor ID should be provided in ShortText. |
-| 400        | Invalid property code                       | List of comma separated Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555" |
-| 385        | Invalid confirmation or cancellation number | Reservation ID should be provided in ShortText. |
+| 438        | Requested rate not available                | List of comma separated RatePlanID's should be provided in content of the element. Example: ```<Error Code="322" ShortText="No availability" Type="13">111,222</Error>``` |
+| 748        | Invalid corporate ID                        | Requestor ID should be provided in the content of the element. |
+| 400        | Invalid property code                       | List of comma separated Hotel Codes should be provided in content of the element. Example: ```<Error Code="322" ShortText="No availability" Type="13">HTL4444,HTL5555</Error>``` |
+| 385        | Invalid confirmation or cancellation number | Reservation ID should be provided in content of the element. |
