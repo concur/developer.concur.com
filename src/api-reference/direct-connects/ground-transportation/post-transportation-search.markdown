@@ -147,7 +147,7 @@ zh-tw: Traditional Chinese
 
 **DiscountCode**: The discount code information. This parent element contains the following child elements:
 
-#### <a name="discount-code></a>DiscountCode Elements
+#### <a name="discount-code"></a>DiscountCode Elements
 
 |  Element    |  Description |
 |-----------|-----------|

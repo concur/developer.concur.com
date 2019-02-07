@@ -3,38 +3,45 @@ title: Submit an expense report
 layout: reference
 ---
 
-## Description
-Triggers the Submit workflow action for the specified report. <br> **Important note**: This endpoint submits the expense report as if the original report owner had submitted it. Consult your company's Expense administrator to confirm that the web service should be allowed to submit reports on behalf of users. If you wish to enforce the expense report delegate functionality, use the [Get Expense Delegators][1] function to determine if the user in question has the correct permissions to submit on behalf of the report owner.
+Triggers the Submit workflow action for the specified report.
 
-## Request
+**Important Note**: This endpoint submits the expense report as if the original report owner had submitted it. Consult your company's Expense administrator to confirm that the web service should be allowed to submit reports on behalf of users. If you wish to enforce the expense report delegate functionality, use the [Get Expense Delegators][1] function to determine if the user in question has the correct permissions to submit on behalf of the report owner.
 
-### Request parameters
+* [Request](#request)
+* [Response](#response)
+  * [Schema](#schema)
+    * [Report Exception Schema](#report-exception)
+* [Examples](#examples)
 
-#### Path parameters
+## <a name="request"></a>Request
 
-|Parameter|Required/Optional|Description|
-|---------|-------------|---------|-----------------------|
+### Request Parameters
+
+#### Path Parameters
+
+| Parameter | Required/Optional | Description |
+|---------|-------------|---------|
 |{_reportKEY_}/submit | required | The identifier for the desired report and the submit keyword.|
 
 Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportKEY}/submit `
 
 **URI Source**: The reportId value is returned by the [Get List of Reports][2] and [Get Report Details][3] functions, and as part of the **Report-Details-Url** element of the [Post Expense Report Header][4] function.
 
-### Content types
+### Content Types
 application/xml
 
-### Authorization header
-**Authorization**: This request requires an Authorization header with an OAuth token for a valid Concur user.
+### Authorization Header
+**Authorization**: This request requires an Authorization header with an OAuth token for a valid SAP Concur user.
 
-**X_UserID**: This request requires an additional field in the authorization header, identifying the report owner. This identifier is the Concur login for the user, and is often also the email address of the user. The field format is:  
+**X_UserID**: This request requires an additional field in the authorization header, identifying the report owner. This identifier is the SAP Concur login for the user, and is often also the email address of the user. The field format is:  
 X_UserID: expenseuser@example.com
 
-## Response
+## <a name="response"></a>Response
 
-### Response body
+### <a name="schema"></a>Schema
 This request will return a **ReportStatus** parent element with the following child elements.
 
-#### ReportStatus elements
+#### Report Status Elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -43,7 +50,7 @@ This request will return a **ReportStatus** parent element with the following ch
 
 If the report submission triggered an exception, a **ReportExceptions** parent element will be provided, with a **ReportException** parent element for each exception. The **ReportException** element contains the following elements.
 
-#### ReportException elements
+#### <a name="report-exception"></a>Report Exception Schema
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -60,9 +67,9 @@ If the report submission triggered an exception, a **ReportExceptions** parent e
 |  TransactionDate |  The date of the entry. |
 |  Type |  The exception type. |
 
-## Examples
+## <a name="examples"></a>Examples
 
-### XML example request
+### XML Example Request
 
 ```http
 POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/submit HTTP/1.1
@@ -71,7 +78,7 @@ X-UserID: cmiller@example.com
 ...
 ```
 
-### XML example of successful response
+### XML example of Successful Response
 
 ```xml
 <ReportStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">

@@ -9,7 +9,6 @@ This resource can be used to retrieve information about the allocations that are
 * [Retrieve All Allocations Per Entry or Report](#get)
 * [Retrieve a Single Allocation by ID](#getID)
 * [Schema](#schema)
-* [Try It Out](#try-it-out)
 
 ### Version
 3.0
@@ -128,14 +127,14 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 
 ## <a name="schema"></a>Schema
 
-### <a name="vendors"></a>Allocations
+### <a name="allocations"></a>Allocations
 
 |Name | Type | Format | Description|
 |-----|------|--------|------------|
 |`Items`|`array`|[`Allocation`](#allocations)|The result collection.
 |`NextPage`|`string`|-|The URI of the next page of results, if any.|
 
-### <a name="allocations"></a>Allocations
+### <a name="allocation"></a>Allocation
 
 |Name | Type | Format | Description|
 |-----|------|--------|------------ |
@@ -149,8 +148,6 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 |`Percentage`|`string`|-|The percentage of the expense that is included in this allocation.
 |`URI`|`string`|-|The URI to the resource.|
 
-
-
 ### <a name="status"></a>Custom Field
 
 |Name | Type | Format | Description|
@@ -161,7 +158,6 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 |`Sequence`|`integer`|-|The sequence value for this custom field i.e. the order in which this field appears on the form.
 |`Type`|`string`|-|The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
 |`Value`|`string`|-|The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters|
-
 
 ### Request URL
 
@@ -204,7 +200,3 @@ https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py%2
   "URI": "https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py$p7cwkclNQvGC1JQPyw"
 }
 ```
-
-## <a name="try-it-out"></a> Try It Out
-
-{% swagger /api-explorer/v3-0/Allocations.swagger2.json %}

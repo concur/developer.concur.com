@@ -12,7 +12,6 @@ This request is sent when the ground transportation service provider needs to se
     * [Pickup Location](#pickup-location)
     * [Dropoff Location](#dropoff-location)
     * [Vehicle](#vehicle)
-    * [Rate Information](#rate-info)
     * [Vendor](#vendor)
     * [Form of Payment](#form-payment)
     * [Airport](#airport)

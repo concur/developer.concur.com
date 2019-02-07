@@ -5,10 +5,12 @@ layout: reference
 
 * [Retrieve All Expense Entries](#get)
 * [Create a New Expense Entry](#post)
-* [Updates an Expense Entry](#put)
+* [Update an Expense Entry](#put)
 * [Delete an Expense Entry](#delete)
 * [Schema](#schema)
-
+  * [Entry](#entry)
+  * [Custom Field](#custom-field)
+  * [Journey](#journey)
 
 1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
 
@@ -303,7 +305,7 @@ Name | Type | Format | Description
 `VendorListItemName`	|	`string`	|	-	|	The name of an item from a vendor list.
 
 
-### <a name="customfield"></a>CustomField
+### <a name="custom-field"></a>CustomField
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -327,4 +329,4 @@ Name | Type | Format | Description
 `UnitOfMeasure`	|	`string`	|	-	|	**Required** The unit of measure for distance and odometer values. Possible values: M - miles, K - kilometers
 
 
-NOTE: Clients that have Car Configurations that include variable rates are not currently supported.  We only support Car Configurations that include Personal Car One-Rate definitions where Google Maps is not set as mandatory.
+**NOTE:** Clients that have Car Configurations that include variable rates are not currently supported.  We only support Car Configurations that include Personal Car One-Rate definitions where Google Maps is not set as mandatory.

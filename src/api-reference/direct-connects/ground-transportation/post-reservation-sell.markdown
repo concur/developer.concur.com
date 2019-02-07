@@ -16,8 +16,8 @@ A post reservation sell request is sent when a Travel user attempts to book a gr
     * [Error](#error)
 	* [Primary Passenger](#primary-passenger)
 	* [Rate Information](#rate-info)
-	* [Vehicle](#vehicle)
-	* [Vendor](#vendor)
+	* [Vehicle](#vehicle-schema)
+	* [Vendor](#vendor-schema)
 	* [Form of Payment](#form-payment)
 	* [Reply Credit Card](#reply-credit-card)
   * [Response Example](#res-example)
@@ -445,14 +445,14 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 |OptionalExtraStopCharge	|N|	|The charge for any additional stops.|
 |OptionalExtraTimeCharge	|N|	|The charge for each additional hour.|
 
-#### <a name="vehicle"></a>Vehicle Elements
+#### <a name="vehicle-schema"></a>Vehicle Elements
 
 |  Element |  Description |
 |-------------|----------------------|
 |  VehicleType |  One of the following values:  <br/>100: Sedan  <br/>200: Limo  <br/>250: Stretch Limo  <br/>300: SUV  <br/>350: Stretch SUV  <br/>400: Van  <br/>450: Mini-Bus  <br/>500: Motor Coach  <br/>600: Shuttle  <br/>700: Trolley  <br/>800: Carriage  <br/>900: Any |
 |  VehicleID |  Information to identify the specific vehicle. |
 
-#### <a name="vendor"></a>Vendor Elements
+#### <a name="vendor-schema"></a>Vendor Elements
 
 |  Element |  Description |
 |-------------|----------------------|

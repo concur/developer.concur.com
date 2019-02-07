@@ -14,7 +14,7 @@ This callout differs from the inbound SAP Concur web services in the following w
 ## Contents
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
-* [Fetch List Process Details](#fetch-list-process-details)
+* [Fetch List Process Overview](#fetch-list-process-overview)
 * [Security](#security)
 * [Authentication](#authentication)
 * [Functions](#functions)

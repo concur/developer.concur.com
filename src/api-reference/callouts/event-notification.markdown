@@ -56,7 +56,7 @@ The configuration process has the following steps:
 1. Third-party developer, client or SAP Concur downloads, installs, configures, and customizes the application connector. The application connector may make requests to the inbound web services.  
 
 2. The developer or the SAP Concur clients registers the application connector.  
-  Refer to **Installation \> Process **for the detailed steps.
+  Refer to **Installation \> Process** for the detailed steps.
 
 Once the configuration is complete, the callout uses the following process:
 

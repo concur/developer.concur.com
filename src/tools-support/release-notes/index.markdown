@@ -29,6 +29,7 @@ layout: reference
 
 # App Center Release Notes
 
+* [2019 Consolidated Release Notes](./app-center-2019.html)
 * [October 2018](./app-center-2018-10-19.html)
 * [September 2018](./app-center-2018-09-04.html)
 * [August 2018](./app-center-2018-08-18.html)
