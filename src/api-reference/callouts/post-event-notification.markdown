@@ -5,7 +5,7 @@ layout: reference
 
 * [Request](#request)
   * [Request Schema](#req-schema)
-  * [Request Example](#request)
+  * [Request Example](#req-example)
 * [Response](#response)
   * [Response Example](#res-example)
 
