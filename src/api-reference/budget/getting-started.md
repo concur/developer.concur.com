@@ -42,17 +42,25 @@ approver and budget viewer permissions have to be assigned to users prior to con
 
 ## <a name="scope-usage"></a>Scope Usage
 
-Name|Description|Endpoint?
+This API requires one or more of the following scopes:
+
+Name|Description|Endpoint
 ---|---|---
+`budgetitem.read`|Grants read access to the budget resources.|GET Budget Category, GET Budget Item, GET Budget Tracking Fields, GET Fiscal Year, GET Valid Expense Types
+`budgetitem.write`|Grants read and write access to the budget resources.|GET Budget Category, GET Budget Item, GET Budget Tracking Fields, GET Fiscal Year, GET Valid Expense Types, POST Budget Adjustment, POST Budget Category, POST Budget Item, POST Fiscal Year, DELETE Budget Category, DELETE Budget Item, DELETE Fiscal Year
 `fiscalcalendar.read`|Grants read access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year
 `fiscalcalendar.write`|Grants read and write access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year, POST a Fiscal Year, DELETE a Fiscal Year
-`budgetitem.read`|Grants read access to the budget resources.|GET Budget Category, GET Valid Expense Types, GET Budget Item, GET Budget Tracking Fields
-`budgetitem.write`|Grants read and write access to the budget resources.|GET Budget Category, GET Budget Item, GET Budget Tracking Fields, GET Valid Expense Types, POST Budget Adjustment, POST Budget Category, POST Budget Item, DELETE Budget Category, DELETE Budget Item
+This API uses this optional scope:
+
+Name|Description|Endpoint
+---|---|---
+`LIST` |GET List Items, necessary for budget tracking value `listKey` if using list fields for budget tracking. |POST Budget Item
 
 ## <a name="dependencies"></a>Dependencies
 
-N/A
+SAP Concur clients must purchase Budget in order to use this API. The developer may use the following SAP Concur API to get optional information:
+* List Item v3.0, to retrieve the budget tracking value ‘listKey’
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
-The user needs to have the Budget Administrator role in order to access the API.  Company-level access which does not require a user role is also available.  See the [Authentication Documentation](#https://developer.concur.com/api-reference/authentication/getting-started.html) for more information.
+This API supports both company level and user level access tokens. The user needs to have the Budget Administrator role in order to access the API.
