@@ -3,20 +3,19 @@ title: Entries
 layout: reference
 ---
 
-
-# Entries
-
-* [Retrieve all expense entries](#get)
-* [Create a new expense entry](#post)
-* [Updates an expense entry](#put)
-* [Delete an expense entry](#delete)
+* [Retrieve All Expense Entries](#get)
+* [Create a New Expense Entry](#post)
+* [Update an Expense Entry](#put)
+* [Delete an Expense Entry](#delete)
 * [Schema](#schema)
-
+  * [Entry](#entry)
+  * [Custom Field](#custom-field)
+  * [Journey](#journey)
 
 1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
 
 
-## <a name="get"></a>Retrieve all expense entries
+## <a name="get"></a>Retrieve All Expense Entries
 
 In order to retrieve all expense entries, you must use [version 2.0.](/api-reference/expense/expense-report/expense-report-get.html)
 
@@ -165,7 +164,7 @@ https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0
 
 -->
 
-## <a name="post"></a>Create a new expense entry
+## <a name="post"></a>Create a New Expense Entry
 
     POST  /api/v3.0/expense/entries
 
@@ -183,7 +182,7 @@ Name | Type | Format | Description
 https://www.concursolutions.com/api/v3.0/expense/entries
 ```
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
@@ -193,7 +192,7 @@ https://www.concursolutions.com/api/v3.0/expense/entries
 ```
 
 
-## <a name="put"></a>Updates an expense entry
+## <a name="put"></a>Updates an Expense Entry
 
     PUT  /api/v3.0/expense/entries/{id}
 
@@ -211,12 +210,12 @@ Name | Type | Format | Description
 https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
 ```
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 ```
 no content
 ```
 
-## <a name="delete"></a>Delete an expense entry
+## <a name="delete"></a>Delete an Expense Entry
 
     DELETE  /api/v3.0/expense/entries/{id}
 
@@ -235,7 +234,7 @@ https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0
 ```
 
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```
 no content
@@ -306,7 +305,7 @@ Name | Type | Format | Description
 `VendorListItemName`	|	`string`	|	-	|	The name of an item from a vendor list.
 
 
-### <a name="customfield"></a>CustomField
+### <a name="custom-field"></a>CustomField
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -330,4 +329,4 @@ Name | Type | Format | Description
 `UnitOfMeasure`	|	`string`	|	-	|	**Required** The unit of measure for distance and odometer values. Possible values: M - miles, K - kilometers
 
 
-NOTE: Clients that have Car Configurations that include variable rates are not currently supported.  We only support Car Configurations that include Personal Car One-Rate definitions where Google Maps is not set as mandatory.
+**NOTE:** Clients that have Car Configurations that include variable rates are not currently supported.  We only support Car Configurations that include Personal Car One-Rate definitions where Google Maps is not set as mandatory.
