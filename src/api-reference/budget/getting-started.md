@@ -50,6 +50,7 @@ Name|Description|Endpoint
 `budgetitem.write`|Grants read and write access to the budget resources.|GET Budget Category, GET Budget Item, GET Budget Tracking Fields, GET Fiscal Year, GET Valid Expense Types, POST Budget Adjustment, POST Budget Category, POST Budget Item, POST Fiscal Year, DELETE Budget Category, DELETE Budget Item, DELETE Fiscal Year
 `fiscalcalendar.read`|Grants read access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year
 `fiscalcalendar.write`|Grants read and write access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year, POST a Fiscal Year, DELETE a Fiscal Year
+
 This API uses this optional scope:
 
 Name|Description|Endpoint
@@ -59,7 +60,7 @@ Name|Description|Endpoint
 ## <a name="dependencies"></a>Dependencies
 
 SAP Concur clients must purchase Budget in order to use this API. The developer may use the following SAP Concur API to get optional information:
-* List Item v3.0, to retrieve the budget tracking value ‘listKey’
+* List Item v3.0, to retrieve the budget tracking value `listKey`
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
