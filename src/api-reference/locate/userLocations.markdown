@@ -190,7 +190,7 @@ JP|800122334
 * If the `mobileCountryCode` is not provided in the JSON and the client country is US then the mobile number provided must be valid in US because of the default behaviour mentioned above.
 * `mobileCountryCode` can be of the following two variants
     * A 2-letter ISO code (e.g US, JP, IT)
-    * A 4 digit Internationl Calling Code.
+    * A 4 digit International Calling Code.
     Please ensure that there are no special characters and spaces in the `mobile` or `mobileCountryCode` fields. Also ensure that the above limits and datatypes are strictly followed to prevent unwanted behaviour of the system. 
 
 A new field `partiallyProcessedTransactions` is introduced in the response to cater to the following invalid mobile scenarios.
