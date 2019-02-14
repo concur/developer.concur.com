@@ -7,7 +7,7 @@ Custom list fields are included in many of the web services calls throughout Con
 
 ##  Value
 
-When posting a list item, the list item **code** should be sent as the value, not the list item **name**. The code is returned in the **levelxcode** element of the [Get List Items](./api-reference/common/list-item/v3.list-item.html#get) function.
+When posting a list item, the list item **code** should be sent as the value, not the list item **name**. The code is returned in the **levelxcode** element of the [Get List Items](https://developer.concur.com/api-reference/common/list-item/v3.list-item.html#get) function.
 
 ##  Posting Connected List Items
 
