@@ -1,6 +1,8 @@
 ---
 title: SAP Concur App Center - Release Notes 2019
 layout: reference
+redirect_from:
+  - /tools-support/release-notes/app-center-2019.html
 ---
 
 * [January](#january)
@@ -17,7 +19,7 @@ layout: reference
 
 #### <a href="chauffeur-prive"></a>Chauffeur Privé
 
-![Chauffeur Privé Logo](./app-center-2019-01-01-chauffeur-logo.png)
+![Chauffeur Privé Logo](./2019-chauffeur-logo.png)
 
 Make ordering transportation and processing expenses painless: connect Concur Expense and Chauffeur Privé. Ride comfortably with the professional, quality service lauded by BFM as “the French leader in ride-hailing” and trusted by over 2 million loyal customers.
 
@@ -75,7 +77,7 @@ Chauffeur Privé works with Expense for Concur Standard and Expense for Concur P
 
 ### <a name="parken+"></a>Parken+
 
-![Parken+ Logo](./app-center-2019-01-01-parken-logo.png)
+![Parken+ Logo](./2019-parken-logo.png)
 
 With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
 
