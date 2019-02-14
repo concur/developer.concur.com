@@ -3,23 +3,21 @@ title: Digital Tax Invoices
 layout: reference
 ---
 
-# Digital Tax Invoices
-
 The Digital Tax Invoice web service allows digital tax invoice validators to view tax invoices and update them with a validation status. This web service currently supports the Comprobante Fiscal Digital (CFD) digital tax invoice format used in Mexico. Other countries may be supported in future releases.
 
-* [Retrieve all digital tax invoices that can be validated by the user based on the search criteria](#get)
-* [Retrieve a single digital tax invoice by ID](#getID)
-* [Update a specified digital tax invoice](#put)
+* [Retrieve All Digital Tax Invoices That Can Be Validated by the User Based On the Search Criteria](#get)
+* [Retrieve a Single Digital Tax Invoice by ID](#getID)
+* [Update a Specified Digital Tax Invoice](#put)
 * [Schema](#schema)
 
 ### Version
 3.0
 
-## <a name="get"></a>Retrieve all digital tax invoices that can be validated by the user based on the search criteria
+## <a name="get"></a>Retrieve All Digital Tax Invoices That Can Be Validated by the User Based On the Search Criteria
 
     GET  /api/v3.0/expense/digitaltaxinvoices
 
-        
+
 ### Parameters
 
 |Name | Type | Format | Description
@@ -36,7 +34,7 @@ https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices?limit=5
 ```
 
 
-## <a name="getID"></a>Retrieve a single digital tax invoice by ID
+## <a name="getID"></a>Retrieve a Single Digital Tax Invoice by ID
 
     GET  /api/v3.0/expense/digitaltaxinvoices/{id}
 
@@ -55,7 +53,7 @@ https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices/gWj3IHRYiHZG
 ```
 
 
-## <a name="put"></a>Update a specified digital tax invoice
+## <a name="put"></a>Update a Specified Digital Tax Invoice
 
     PUT  /api/v3.0/expense/digitaltaxinvoices/{id}
 
@@ -86,7 +84,7 @@ https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices/gWj3IHRYiHZG
 |`ConcurReceiptID`	|	`string`|	-	|	**Required** The ID of the digital tax invoice in plain text.
 |`ID`	|	`string`|	-	|	The unique identifier of the resource.
 |`URI`	|	`string`|	-	|	The URI to the resource.
-|`AccountID`	|	`string`|	-	|	**Required** The unique identifier assigned by the validation partner to the Concur client company that owns the digital tax invoices.
+|`AccountID`	|	`string`|	-	|	**Required** The unique identifier assigned by the validation partner to the SAP Concur client company that owns the digital tax invoices.
 |`DocumentID`	|	`string`	|-	|	**Required** The ID of the report in plain text.
 |`ReceiptData`	|	`string`|	-	|	**Required** The digital tax invoice data.
 

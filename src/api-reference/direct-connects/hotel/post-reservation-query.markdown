@@ -3,6 +3,8 @@ title: Post a reservation query
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 
 This request is sent when the Travel user requests the reservation details for the supplied reservation ID. The response includes the reservation details, and is identical to the [Post New Reservation](/api-reference/direct-connects/hotel/post-new-reservation.html) response.

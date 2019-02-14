@@ -3,43 +3,50 @@ title: Travel Request Validation
 layout: reference
 ---
 
-
-
-
-Requests in Concur can be validated in an external system by using a combination of Concur's callouts and web services.  
+Requests in SAP Concur can be validated in an external system by using a combination of SAP Concur's callouts and web services.  
 
 This guide provides a step by step overview of how to set up and use the external validation functionality for Requests. This guide does not provide instruction on the process of programming the application connector, but provides an overview of the required functionality.
 
-##  Step 1 - Create an Application Connector
+* [Create an Application Connector](#create-app-connector)
+* [Configure Event Notification and Request in SAP Concur](#configure-event-notification)
+  * [Create the Event Notification Application Connector](#create-event-notification)
+  * [Create the Request Partner Application](#create-request-partner-app)
+* [Gather the Request Details](#gather-request-details)
+  * [Get OAuth Access Token](#get-oauth-token)
+  * [Get Request Details](#get-request-details)
+* [Validate the Request Information](#validate-request-info)
+* [Update the Request Workflow](#update-request-workflow)
 
-The application connector is a custom web application that is installed on your company's web server. This application needs to be accessible from outside your company's network, so that Concur can send information to it, and it needs to have access to the system that you are using for validation. The application connector must be configured to accept the event notification requests from Concur. In later steps, you will expand the functionality of the application connector to perform additional tasks. The required connector configuration for this step is:
+##  <a name="create-app-connector"></a>Step 1 - Create an Application Connector
+
+The application connector is a custom web application that is installed on your company's web server. This application needs to be accessible from outside your company's network, so that SAP Concur can send information to it, and it needs to have access to the system that you are using for validation. The application connector must be configured to accept the event notification requests from SAP Concur. In later steps, you will expand the functionality of the application connector to perform additional tasks. The required connector configuration for this step is:
 
 * You must have a current security certificate installed on the server that hosts the application connector.
-* You must expose an endpoint on your web server that Concur can connect to. This endpoint can have any name or location. The default endpoint is: /concur/v1.0/notify
-* You must be able to accept an HTTP POST from Concur with the event notification data. Refer to the [Event Notification][3] information for details of the information format. You just need to store the data that Concur sends for this step.
-* You must have a username and password configured for the host web server, which Concur will use when sending the HTTP POST request. This username and password is sent using HTTP Basic Auth.
+* You must expose an endpoint on your web server that SAP Concur can connect to. This endpoint can have any name or location. The default endpoint is: /concur/v1.0/notify
+* You must be able to accept an HTTP POST from SAP Concur with the event notification data. Refer to the [Event Notification][3] information for details of the information format. You just need to store the data that SAP Concur sends for this step.
+* You must have a username and password configured for the host web server, which SAP Concur will use when sending the HTTP POST request. This username and password is sent using HTTP Basic Auth.
 
 Once you have the basic application connector functionality set up, you're ready to move to the next step.
 
-##  Step 2 - Configure Event Notification and Request in Concur
+##  <a name="configure-event-notification"></a>Step 2 - Configure Event Notification and Request in SAP Concur
 
-In this step, you will enable the Event Notification functionality in your Concur company in order to receive information about submitted Requests. Then, you will enable the Request API in order to request Request details from Concur.
+In this step, you will enable the Event Notification functionality in your SAP Concur company in order to receive information about submitted Requests. Then, you will enable the Request API in order to request Request details from SAP Concur.
 
 **Before you begin**: 
 
-* You must have a user login with administrative privileges in Concur.
+* You must have a user login with administrative privileges in SAP Concur.
 * You must know which Request workflows require the Event Notification functionality.
 
-###  Procedure: Create the Event Notification Application Connector
+###  <a name="create-event-notification"></a>Procedure: Create the Event Notification Application Connector
 
-1. Log in to Concur as an administrative user.
+1. Log in to SAP Concur as an administrative user.
 2. Select **Administration** > **Web Services**.
 3. Click **Manage Application Connectors**.
 4. Click **New**.
 5. Fill out the fields:  
 
-   |  Field |  Description |
-   | ----- |------|
+   |Field|Description|
+   |-----|------|
    |  Name |  Enter the name that should appear in the list of connectors. |
    |  Description |  Enter the description of the function of the connector, such as what back-end system it connects to. |
    |  Host Name |  Enter the hostname for the connector. Example: `https://{servername}` |
@@ -47,14 +54,14 @@ In this step, you will enable the Event Notification functionality in your Concu
    |  Password |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |  
 6. In the **Services** section, select **External Report Validation**.
 7. Click **Configure**. The **Configure Service** window appears.  
-8. Enter the endpoint that the Concur will connect to on your server. Example: /concur/v1.0/notify
+8. Enter the endpoint that the SAP Concur will connect to on your server. Example: /concur/v1.0/notify
 9. Select the **Enabled** check box.
 10. In the Workflows section, select the **Submit** check box for each Request workflow that requires notifications.
 11. Click **OK**.
-12. Click **Test Connection**. Concur will attempt to access the configured endpoint with the provided user credentials.
-13. Click **Save**. The application connector is now registered with Concur and enabled.
+12. Click **Test Connection**. SAP Concur will attempt to access the configured endpoint with the provided user credentials.
+13. Click **Save**. The application connector is now registered with SAP Concur and enabled.
 
-###  Procedure: Create the Request Partner Application
+###  <a name="create-request-partner-app"></a>Procedure: Create the Request Partner Application
 
 1. On the **Web Services** page, click **Register Partner Application**. The **Application Registration** page appears.  
 2. Click **New**. The **New Partner Application** page appears.  
@@ -64,29 +71,29 @@ In this step, you will enable the Event Notification functionality in your Concu
    |--------|-------|
    |  Name |  Enter the name that should appear in the list of applications. |
    |  Description |  Enter the description of the function of the application. |
-   |  Visibility |  This field is only editable by Concur Internal users. |
+   |  Visibility |  This field is only editable by SAP Concur Internal users. |
    |  Active |  Select Active. |
    |  APIs Used |  Select the Request API. |
 
-4. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application.<br/>**NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security.**
+4. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application.<br/>**NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the SAP Concur Legal Agreement) to maintain security.**
 5. Record the key and secret to use later.
 6. Click **OK**. The application will automatically be enabled for your company.
 
-You should now begin receiving notifications from Concur when your users submit Requests. In the next step, you'll use the notification data that Concur sends to get the Request information.
+You should now begin receiving notifications from SAP Concur when your users submit Requests. In the next step, you'll use the notification data that SAP Concur sends to get the Request information.
 
-##  Step 3 - Gather the Request Details
+##  <a name="gather-request-details"></a>Step 3 - Gather the Request Details
 
-In this step, you will expand the application connector functionality to use the data sent by Concur in the event notification to get details about the Request. You'll use the Request details to validate the Request in a later step. The application connector must be updated to perform the following steps, using the Concur web services:
+In this step, you will expand the application connector functionality to use the data sent by SAP Concur in the event notification to get details about the Request. You'll use the Request details to validate the Request in a later step. The application connector must be updated to perform the following steps, using the SAP Concur web services:
 
-###  Get OAuth Access Token
+###  <a name="get-oauth-token"></a>Get OAuth Access Token
 
-All requests to Concur web services must be authenticated using OAuth 2.0.
+All requests to SAP Concur web services must be authenticated using OAuth 2.0.
 
-After receiving an event notification, the application connector should send an HTTP GET request to the [Get Access Token using Native Flow][10] function. This function requires the login credentials of an administrative Concur user and the Consumer Key that was generated when you created the partner application in the previous step. Refer to the [Get Access Token using Native Flow][10] documentation for the format of the request. Concur will respond to the request with the access token required for the next web service request.
+After receiving an event notification, the application connector should send an HTTP GET request to the [Get Access Token using Native Flow][10] function. This function requires the login credentials of an administrative SAP Concur user and the Consumer Key that was generated when you created the partner application in the previous step. Refer to the [Get Access Token using Native Flow][10] documentation for the format of the request. SAP Concur will respond to the request with the access token required for the next web service request.
 
-###  Get Request Details
+###  <a name="get-request-details"></a>Get Request Details
 
-After you receive the OAuth access token, you are ready to request the Request data. The event notification information that Concur sends includes an element named **ObjectURI**. The connector can send a GET request to the URI specified in this element, supplying the OAuth access token in the request header in the following format:
+After you receive the OAuth access token, you are ready to request the Request data. The event notification information that SAP Concur sends includes an element named **ObjectURI**. The connector can send a GET request to the URI specified in this element, supplying the OAuth access token in the request header in the following format:
 
 ```http
 GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs HTTPS/1.1
@@ -96,7 +103,7 @@ Authorization: OAuth {access token}
 ```
 
 
-##  Step 4 - Validate the Request Information
+##  <a name="validate-request-info"></a>Step 4 - Validate the Request Information
 
 In this step, the connector will perform the required validation on the Request information. This step will vary by client. The application connector must be able to access the system(s) used in the validation.
 
@@ -107,15 +114,15 @@ The Request data is validated by the application connector. The validation can p
 
 In the next step, the application connector will update the Request with the validation results.
 
-##  Step 5 - Update the Request Workflow
+##  <a name="update-request-workflow"></a>Step 5 - Update the Request Workflow
 
 Once the Request has been validated, the application connector is ready to update its workflow. If the Request passed validation, it should be approved, and will then travel forward in its workflow. If the Request did not pass validation, it should be sent back to the employee, which moves it to the beginning of the workflow.
 
 The full Request details include an element named **WorkflowStepURL**. The application connector posts the workflow action (Approve or Send Back to Employee) to this url, using the same OAuth access token in the header.
 
-Concur responds with a success or failure status, and provides additional information for failures.
+SAP Concur responds with a success or failure status, and provides additional information for failures.
 
-The application connector has now completed the process of validating a Request, from the initial notification that a Request was submitted, to the request updating the Request workflow in Concur with the validation results.
+The application connector has now completed the process of validating a Request, from the initial notification that a Request was submitted, to the request updating the Request workflow in SAP Concur with the validation results.
 
 
 
