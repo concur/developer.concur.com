@@ -4,7 +4,7 @@ layout: reference
 redirect_from: /docs-and-resources/support/
 ---
 
-[Service Status (North America and EMEA)](https://open.concur.com)
+[Service Status](https://open.concur.com)
 
 ## Support Portals
 
@@ -15,7 +15,7 @@ redirect_from: /docs-and-resources/support/
 
 ## Maintenance Schedule
 
-The SAP Concur platform undergoes routine maintenance each weekend, and releases updates monthly. During these periods, the service may be unavailable. Unplanned maintenance is performed rarely, and limited to high priority fixes. During downtime, any request to the SAP Concur Platform will receive an HTTP 503 error code. To check the current status see: http://open.concur.com/, a message will be posted regarding planned maintenance.
+The SAP Concur platform undergoes routine maintenance each weekend, and releases updates monthly. During these periods, the service may be unavailable. Unplanned maintenance is performed rarely, and limited to high priority fixes. During downtime, any request to the SAP Concur Platform will receive an HTTP 503 error code. To check the current status see: http://open.concur.com/, a message will be posted during planned maintenance.
 
 #### Monthly Release Schedule
 
