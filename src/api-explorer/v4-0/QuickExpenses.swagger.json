@@ -139,14 +139,14 @@
           {
             "name": "quickExpenseRequest",
             "in": "formData",
-            "description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is comment attached to quick expense. ,<br><b>entryDetails</b> (string, optional): Quick expense Entry Details ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of quick expense. ,<br><b>location</b> (Location): It represents a location of the quick expense. It contains Location Id, Name, City, Country Sub Division Code</b> (or State) and Country ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of quick expense. = ['CASHX', 'CPAID', 'PENDC'],<br><b>transactionAmount</b> (Amount): This identifies the currency and value of the transaction ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): Name of the vendor<br><b>Location</b> {<br><b>city</b> (string, optional): The location city ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code (https://en.wikipedia.org/wiki/ISO_3166-1) ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code (https://en.wikipedia.org/wiki/ISO_3166-2) ,<br><b>id</b> (string, optional): The unique identifier of the location ,<br><b>name</b> (string, optional): The location name<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code (https://en.wikipedia.org/wiki/ISO_4217) for the amount ,<br><b>value</b> (number): The amount value<br>}",
+            "description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is comment attached to quick expense. ,<br><b>entryDetails</b> (string, optional): Quick expense Entry Details ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of quick expense. ,<br><b>location</b> (Location): It represents a location of the quick expense. It contains Location Id, Name, City, Country Sub Division Code</b> (or State) and Country ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of quick expense. = ['CASHX','CPAID','PENDC'], <br><b>transactionAmount</b> (Amount): This identifies the currency and value of the transaction ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): Name of the vendor<br><b>Location</b> {<br><b>city</b> (string, optional): The location city ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code (https://en.wikipedia.org/wiki/ISO_3166-1) ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code (https://en.wikipedia.org/wiki/ISO_3166-2) ,<br><b>id</b> (string, optional): The unique identifier of the location ,<br><b>name</b> (string, optional): The location name<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code (https://en.wikipedia.org/wiki/ISO_4217) for the amount ,<br><b>value</b> (number): The amount value<br>}",
             "required": false,
             "type": "string"
           },
           {
             "name": "fileContent",
             "in": "formData",
-            "description": "fileContent",
+            "description": "Image file. <br>Supported image file type ['PNG','GIF','PDF','TIFF','JPEG']. Max image size supported - 5MB",
             "required": true,
             "type": "file"
           },
@@ -264,9 +264,6 @@
     "NewQuickExpenseResponse": {
       "type": "object",
       "properties": {
-        "mobileEntryKeyUri": {
-          "type": "string"
-        },
         "quickExpenseIdUri": {
           "type": "string"
         }
