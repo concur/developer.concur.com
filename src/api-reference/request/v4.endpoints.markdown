@@ -53,6 +53,9 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 ## <a name="request-resource-create"></a>Create a new Request
 
+Since this endpoint is performing a Request creation specifying an "id" field is not allowed.<br>
+A newly allocated "id" value will be returned upon successful Request creation
+
 ### HTTP Request
 
 #### Parameters
@@ -60,6 +63,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 Name|Parameter Type|Data Type|Description
 ---|-------|--------|------
 userId|path|string|The unique identifier of the Request owner for whom the Request will be created. <br> The corresponding user name will be displayed in the audit trail of the Request <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+
 
 ##### URI Template
 
@@ -150,6 +154,12 @@ None
 
 ## <a name="request-resource-update"></a>Update the content of an existing Request
 
+Update of the the following fields is supported : policy, comment, startDate, startTime, endDate, endTime, expensePolicy, name, businessPurpose, mainDestination, travelAgency, custom fields.<br>
+Other fields will be ignored.<br>
+If providing an "id" field, as returned by GET requests, the value must match the requestUuid parameter.<br>
+This endpoint supports partial update. You may submit only the fields to update in the body, fields not present in the body will remain unchanged.<br>
+To clear a field use the value *null* (without quotes)
+
 ### HTTP Request
 
 #### Parameters
@@ -159,7 +169,9 @@ Name|Parameter Type|Data Type|Description
 requestUuid|path|string|**Required** The unique identifier of the Request
 userId|path|string|The unique identifier of the user performing the update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
-Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update.
+
+
+the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update.
 
 ##### URI Template
 
@@ -512,7 +524,7 @@ everSentBack|boolean|-|Indicates whether the Request has ever been sent back to 
 expenses|array|[ResourceLink](#schema-resourcelink)|Expected Expenses attached to this Request
 extensionOf|object|[RequestLink](#schema-requestlink)|The Request that this Request is an extension of, or addendum to
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for this Request
-id|string|-|The unique identifier of the Request. <br>In case of an UPDATE, this data must be present in the Request Body.
+id|string|-|The unique identifier of the Request
 lastModified|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|The date the Request was last modified (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 mainDestination|object|[Location](#location)|The main destination of the Request
 name|string|-|The name of the Request
