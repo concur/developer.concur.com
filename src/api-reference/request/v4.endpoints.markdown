@@ -38,6 +38,7 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
   * [Allocation](#schema-allocation)
   * [Exchange Rate](#schema-exchangerate)
   * [Expense Type](#schema-expensetype)
+  * [Request Type](#schema-requesttype)
   * [Travel Allowance](#schema-travelallowance)
   * [Trip Data](#schema-tripdata)
   * [Vendor](#schema-vendor)
@@ -88,12 +89,14 @@ POST /v4/requests
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-view|path|string|Name of the perimeter defining the requests to get.<br> Possible values : `ALL`, `ACTIVE`, `UNSUBMITTED`, `PENDING`, `VALIDATED`, `APPROVED`, `CANCELED`, `CLOSED`, `SUBMITTED`, `TOAPPROVE`, `PENDINGEBOOKING`. When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`. <br> If no view value is sent, the default view `ALL` will be used
+view|path|string|Name of the perimeter defining the requests to get.<br> Possible values: `ALL`, `ACTIVE`, `UNSUBMITTED`, `PENDING`, `VALIDATED`, `APPROVED`, `CANCELED`, `CLOSED`, `SUBMITTED`, `TOAPPROVE`, `PENDINGEBOOKING`. When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`. <br> If no view value is sent, the default view `ALL` will be used
 userId|path|string|The unique identifier of the Request owner to use when searching for Requests
 start|path|Integer|Pagination: index of the first record (default 0)
 limit|path|Integer|Number of records to return per page (default 10) - maximum limit is 100, if higher value or digit value is set, a 400 error code will be displayed
 modifiedBefore|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
 modifiedAfter|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
+sortField|path|string|The name of the field on which to sort.<br> Possible values: `startDate`, `approvalStatus`, `requestId`.<br> If no view value is sent, the default sortField `startDate` will be used
+sortOrder|path|string|Sort order.<br> Possible values: `ASC`, `DESC`.<br> If no view value is sent, the default sortOrder `DESC` will be used
 
 ##### URI Template
 
@@ -525,6 +528,7 @@ totalPostedAmount|object|[Amount](#amount)|The total amount of the Request, expr
 totalRemainingAmount|object|[Amount](#amount)|The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the Request
 travelAgency|object|[ResourceLink](#schema-resourcelink)|The travel agency office that is managing the trip associated to this Request
 operations|array|[Link](#schema-link)|Links to operations available for the Request, depends on the current approval status
+type|[RequestType](#schema-requesttype)|The type of the Request, inherited from the Request Policy Type
 
 ### <a name="schema-approvalstatus"></a>Approval Status
 
@@ -641,6 +645,13 @@ Name|Type|Format|Description
 id|string|-|**Required** Unique identifier of the Expense type
 name|string|-|Name of the Expense type
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for the Expense type definition
+
+### <a name="schema-requesttype"></a>Request Type
+
+Name|Type|Format|Description
+---|---|---|---
+code|string|-|The code of the type inherited from the Request Policy type
+label|string|-|The label of the type inherited from the Request Policy Type
 
 ### <a name="schema-travelallowance"></a>Travel Allowance
 
