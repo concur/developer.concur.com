@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference-deprecated/version-one/list-item/index.html
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 
 The Concur List Item web service provides an automated solution to clients who would like to add, update or delete list items. This web service solves several business problems:

@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference-deprecated/version-one/list-item/list-resource.html
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 The configured lists in Concur. Can be single or multiple level lists.
 
