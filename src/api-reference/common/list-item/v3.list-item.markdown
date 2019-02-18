@@ -18,7 +18,7 @@ Use of the API is contingent on the volume of List data. Due to capacity limitat
 
 3.0
 
-1.0 documentation is available [here](/api-reference-deprecated/version-one/list-item/index.html)
+1.0 documentation is available [here](/api-reference/common/list-item/v1.list-item.html)
 
 ## <a name="get"></a>Retrieve all list items based on the search criteria.
 

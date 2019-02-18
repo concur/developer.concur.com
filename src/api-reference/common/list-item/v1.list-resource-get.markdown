@@ -1,6 +1,9 @@
 ---
 title: Get a list of lists
 layout: reference
+
+redirect_from:
+  - /api-reference-deprecated/version-one/list-item/list-resource-get.html
 ---
 
 

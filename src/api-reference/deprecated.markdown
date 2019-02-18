@@ -34,10 +34,10 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [GET List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html)
 * [Imaging v1](/api-reference/image/v1.image.html)
 * List Item Web Service v1
-  * [List Item Web Service](/api-reference-deprecated/version-one/list-item/)
-  * [List Resource](/api-reference-deprecated/version-one/list-item/list-resource.html)
-  * [Get a list of lists](/api-reference-deprecated/version-one/list-item/list-resource-get.html)
-  * [Post new list items](/api-reference-deprecated/version-one/list-item/list-resource-post.html)
+  * [List Item Web Service](/api-reference/common/list-item/v1.list-item.html)
+  * [List Resource](/api-reference/common/list-item/v1.list-resource.html)
+  * [Get a list of lists](/api-reference/common/list-item/v1.list-resource-get.html)
+  * [Post new list items](/api-reference/common/list-item/v1.list-resource-post.html)
 * Quick Expense Web Service v1
   * [Quick Expense Web Service](/api-reference-deprecated/version-one/quick-expense/)
   * [Quick Expense Resource](/api-reference-deprecated/version-one/quick-expense/quick-expense-resource.html)

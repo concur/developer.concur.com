@@ -1,6 +1,9 @@
 ---
-title: List Resource 
+title: List Resource
 layout: reference
+
+redirect_from:
+  - /api-reference-deprecated/version-one/list-item/list-resource.html
 ---
 
 ## Description
@@ -34,5 +37,5 @@ application/xml
 * [POST][2]
 
 
-[1]: /api-reference-deprecated/version-one/list-item/list-resource-get.html
-[2]: /api-reference-deprecated/version-one/list-item/list-resource-post.html
+[1]: /api-reference/common/list-item/v1.list-resource-get.html
+[2]: /api-reference/common/list-item/v1.list-resource-post.html
