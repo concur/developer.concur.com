@@ -38,6 +38,7 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
   * [Allocation](#schema-allocation)
   * [Exchange Rate](#schema-exchangerate)
   * [Expense Type](#schema-expensetype)
+  * [Request Type](#schema-requesttype)
   * [Travel Allowance](#schema-travelallowance)
   * [Trip Data](#schema-tripdata)
   * [Vendor](#schema-vendor)
@@ -60,6 +61,7 @@ Name|Parameter Type|Data Type|Description
 ---|-------|--------|------
 userId|path|string|The unique identifier of the Request owner for whom the Request will be created. <br> The corresponding user name will be displayed in the audit trail of the Request <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
+
 ##### URI Template
 
 ```
@@ -80,6 +82,11 @@ POST /v4/requests
 
 [Example](./v4.examples.html#request-resource-create)
 
+### Additional information
+
+Since this endpoint is performing a Request creation, specifying an "id" field in the payload is not allowed.<br>
+A newly allocated "id" value will be returned upon successful Request creation
+
 ## <a name="request-resource-getlist"></a>Get the list of existing Requests
 
 ### HTTP Request
@@ -88,12 +95,14 @@ POST /v4/requests
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-view|path|string|Name of the perimeter defining the requests to get.<br> Possible values : `ALL`, `ACTIVE`, `UNSUBMITTED`, `PENDING`, `VALIDATED`, `APPROVED`, `CANCELED`, `CLOSED`, `SUBMITTED`, `TOAPPROVE`, `PENDINGEBOOKING`. When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`. <br> If no view value is sent, the default view `ALL` will be used
+view|path|string|Name of the perimeter defining the requests to get.<br> Possible values: `ALL`, `ACTIVE`, `UNSUBMITTED`, `PENDING`, `VALIDATED`, `APPROVED`, `CANCELED`, `CLOSED`, `SUBMITTED`, `TOAPPROVE`, `PENDINGEBOOKING`. When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`. <br> If no view value is sent, the default view `ALL` will be used
 userId|path|string|The unique identifier of the Request owner to use when searching for Requests
 start|path|Integer|Pagination: index of the first record (default 0)
 limit|path|Integer|Number of records to return per page (default 10) - maximum limit is 100, if higher value or digit value is set, a 400 error code will be displayed
 modifiedBefore|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
 modifiedAfter|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
+sortField|path|string|The name of the field on which to sort.<br> Possible values: `startDate`, `approvalStatus`, `requestId`.<br> If no view value is sent, the default sortField `startDate` will be used
+sortOrder|path|string|Sort order.<br> Possible values: `ASC`, `DESC`.<br> If no view value is sent, the default sortOrder `DESC` will be used
 
 ##### URI Template
 
@@ -156,7 +165,7 @@ Name|Parameter Type|Data Type|Description
 requestUuid|path|string|**Required** The unique identifier of the Request
 userId|path|string|The unique identifier of the user performing the update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
-Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update.
+
 
 ##### URI Template
 
@@ -168,6 +177,7 @@ PUT /v4/requests/{requestUuid}
 
 [Request](#schema-request)
 
+
 ### HTTP Response
 
 #### Payload
@@ -177,6 +187,13 @@ PUT /v4/requests/{requestUuid}
 ### Example
 
 [Example](./v4.examples.html#request-resource-update)
+
+### Additional information
+
+Update of the following fields is supported : policy, comment, startDate, startTime, endDate, endTime, expensePolicy, name, businessPurpose, mainDestination, travelAgency, custom fields. Other fields will be ignored.<br>
+This endpoint supports partial update. You may submit only the fields to update in the body, fields not present in the body will remain unchanged.<br>
+To clear a field use the value *null* (without quotes)<br>
+"id" field is not mandatory in the payload, if provided the value must match the requestUuid parameter.<br>
 
 ## <a name="request-resource-delete"></a>Delete an existing Request
 
@@ -509,7 +526,7 @@ everSentBack|boolean|-|Indicates whether the Request has ever been sent back to 
 expenses|array|[ResourceLink](#schema-resourcelink)|Expected Expenses attached to this Request
 extensionOf|object|[RequestLink](#schema-requestlink)|The Request that this Request is an extension of, or addendum to
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for this Request
-id|string|-|The unique identifier of the Request. <br>In case of an UPDATE, this data must be present in the Request Body.
+id|string|-|The unique identifier of the Request
 lastModified|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|The date the Request was last modified (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 mainDestination|object|[Location](#location)|The main destination of the Request
 name|string|-|The name of the Request
@@ -525,6 +542,7 @@ totalPostedAmount|object|[Amount](#amount)|The total amount of the Request, expr
 totalRemainingAmount|object|[Amount](#amount)|The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the Request
 travelAgency|object|[ResourceLink](#schema-resourcelink)|The travel agency office that is managing the trip associated to this Request
 operations|array|[Link](#schema-link)|Links to operations available for the Request, depends on the current approval status
+type|object|[RequestType](#schema-requesttype)|The type of the Request, inherited from the Request Policy Type
 
 ### <a name="schema-approvalstatus"></a>Approval Status
 
@@ -641,6 +659,13 @@ Name|Type|Format|Description
 id|string|-|**Required** Unique identifier of the Expense type
 name|string|-|Name of the Expense type
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for the Expense type definition
+
+### <a name="schema-requesttype"></a>Request Type
+
+Name|Type|Format|Description
+---|---|---|---
+code|string|-|The code of the type inherited from the Request Policy type
+label|string|-|The label of the type inherited from the Request Policy Type
 
 ### <a name="schema-travelallowance"></a>Travel Allowance
 
