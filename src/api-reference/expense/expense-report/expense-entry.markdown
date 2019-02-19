@@ -329,4 +329,4 @@ Name | Type | Format | Description
 `UnitOfMeasure`	|	`string`	|	-	|	**Required** The unit of measure for distance and odometer values. Possible values: M - miles, K - kilometers
 
 
-**NOTE:** Clients that have Car Configurations that include variable rates are not currently supported.  We only support Car Configurations that include Personal Car One-Rate definitions where Google Maps is not set as mandatory.
+**NOTE:** Clients that have Car Configurations that include variable rates or custom mileage expense type codes are not supported. We only support Car Configurations that include Personal Car One-Rate definitions, using the default mileage expense type code (MILEG) where Google Maps is not set as mandatory.
