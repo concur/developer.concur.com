@@ -5,7 +5,6 @@ redirect_from:
   - /api-reference/invoice/sales-tax-validation.html
 ---
 
-# Sales Tax Validation
 * [Get invoices for calculating tax](#get)
 * [Update invoices with the calcuated tax amount and tax rate](#put)
 * [Schema](#schema)
@@ -15,7 +14,7 @@ redirect_from:
 
 3.0  
 
-## <a name="get"></a>Get invoices for calculating tax
+## <a name="get"></a>Get Invoices for Calculating Tax
 
     GET  /api/v3.0/invoice/salestaxvalidationrequest
 
@@ -35,7 +34,7 @@ None.
 
 [Schema](#schema)
 
-## <a name="put"></a>Update invoices with a calculated tax amount and tax rate  
+## <a name="put"></a>Update Invoices with a Calculated Tax Amount and Tax Rate  
 
     PUT  /api/v3.0/invoice/salestaxvalidationrequest
 
@@ -53,7 +52,7 @@ None.
 
 [Status schema](#schema-status)
 
-## <a name="schema"></a>Invoices schema
+## <a name="schema"></a>Invoices Schema
 
 ### Invoices
 
@@ -81,9 +80,9 @@ None.
 |`ShippingAmount`|`string`|-|The shipping amount for the invoice.
 |`ShipToAddress`|`object`|[`ShipToAddress`](#ShipToAddress)|
 |`Status`|`string`|-|The status of the invoice.
-|`StatusCode`|`string`|-|The status code for the invoice.
+|`StatusCode`|`string`|-| **Required** The status code for the invoice. Supported values: `ERROR`, `CMPLT`
 |`Tax`|`string`|-|The tax as shown on the invoice. This is the tax applied by the vendor.
-|`TaxReferenceID`|`string`|-|The tax reference ID of the invoice.
+|`TaxReferenceID`|`string`|-|**Required** The tax reference ID of the invoice.
 |`Title`|`string`|-|The title of the invoice.
 |`Total`|`string`|-|The total amount of the request.
 |`URI`|`string`|-|The URI to the resource.
@@ -113,7 +112,7 @@ None.
 |`CommodityCode`|`string`|-|The commodity code that is tied to the expense type associated with the line item.
 |`CountryCode`|`string`|-|The country code for the line item.
 |`CurrencyCode`|`string`|-|The currency code for the individual line item.
-|`LineItemKey`|`string`|-|A value that uniquely identifies the line item.
+|`LineItemKey`|`string`|-|**Required** A value that uniquely identifies the line item.
 |`Quantity`|`string`|-|The quantity for the line item.
 |`Total`|`string`|-|The total amount for the line item.
 |`UnitPrice`|`string`|-|The unit price for the line item.
@@ -148,7 +147,7 @@ None.
 |`State`|`string`|-|**Required** The state or province of the shipping or billing address.
 |`StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-## <a name="schema-status"></a>Status schema  
+## <a name="schema-status"></a>Status Schema  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
