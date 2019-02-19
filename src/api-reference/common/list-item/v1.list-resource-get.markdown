@@ -1,5 +1,5 @@
 ---
-title: Get a list of lists
+title: List Item Web Service v1 - Get a list of lists
 layout: reference
 
 redirect_from:

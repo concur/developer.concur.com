@@ -1,5 +1,5 @@
 ---
-title: List Resource
+title: List Item Web Service v1 - List Resource
 layout: reference
 
 redirect_from:
