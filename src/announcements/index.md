@@ -3,14 +3,12 @@ title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
 
-2018-11-08 :: **New Purchase Request v4 API**
+2019-02-19 :: **Updated SSL Certificate for concursolutions.com**
 
-The [Purchase Request v4](/api-reference/invoice/v4.purchase-request-get-started.html) API gives SAP Concur clients the ability to leverage external data to create purchase requests for pre-authorization of purchase orders.
+In an effort to ensure the ongoing security of our products and services, SAP Concur has issued a new concursolutions.com SSL certificate. The current certificate will expire on March 16, 2019.
+Any customer who has pinned this expiring certificate will need to update to the new certificate prior to March 16, 2019. If the pinned certificate is not updated prior to March 16, 2019, your organization and users will experience disruption to SAP Concur products and services.
+Customers who have not pinned the certificate do not need to take any action as the certificate is updated automatically. Most customers do not pin the certificate.
 
-2018-10-08 :: **Trip Approval v1 API Is Retired**
+**Please be aware**: As an enhancement to our Security and Compliance program, this certificate will be updated on an annual basis.
 
-Concur has retired the Trip Approval API. This API provided 3rd parties with the ability to manage Concur Travel trip approvals (as required by Concur Travel rules and policy) in systems outside of Concur Travel. This API is inactive and is no longer supported. All trip approval functions within Concur Travel and Concur Request will continue to function as usual.  Only the external API endpoint is being retired. More details can be found in the [Trip Approval v1](/api-reference/travel/trip-approval/v1.trip-approval-resource.html) documentation.
-
-2018-10-02 :: **Maintenance Scheduled October 7, 2018**
-
-The SAP Concur EMEA Data Center will be undergoing maintenance from 20:00 CEST on Saturday, October 6, through 06:00 CEST on Sunday, October 7, 2018. During this time, there will be no access to the data center services.
+The new SSL certificate can be downloaded here:  http://assets.concur.com/concurtraining/cte/en-us/concursolutions.cert.pem
