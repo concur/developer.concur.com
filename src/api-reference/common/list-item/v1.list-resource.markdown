@@ -9,8 +9,8 @@ redirect_from:
 {% include deprecation-alert.html %}
 
 ## Description
-The configured lists in Concur. Can be single or multiple level lists.
 
+The configured lists in Concur. Can be single or multiple level lists.
 
 ## Works With These Concur Products
 
@@ -21,23 +21,24 @@ The configured lists in Concur. Can be single or multiple level lists.
 * **Travel Request** for Concur Professional/Premium
 
 ## Version
+
 1.0
 
 ## URI
+
 `https://www.concursolutions.com/api/expense/list/v1.0/ `
 
 ## Headers
 
 ### Content-Type header
+
 application/xml
 
 ### Accept header
+
 application/xml
 
 ## Operations
-* [GET][1]
-* [POST][2]
 
-
-[1]: /api-reference/common/list-item/v1.list-resource-get.html
-[2]: /api-reference/common/list-item/v1.list-resource-post.html
+* [GET](./v1.list-resource-get.html)
+* [POST](./v1.list-resource-post.html)
