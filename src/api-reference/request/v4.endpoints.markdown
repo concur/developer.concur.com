@@ -190,7 +190,7 @@ PUT /v4/requests/{requestUuid}
 
 ### Additional information
 
-Update of the the following fields is supported : policy, comment, startDate, startTime, endDate, endTime, expensePolicy, name, businessPurpose, mainDestination, travelAgency, custom fields. Other fields will be ignored.<br>
+Update of the following fields is supported : policy, comment, startDate, startTime, endDate, endTime, expensePolicy, name, businessPurpose, mainDestination, travelAgency, custom fields. Other fields will be ignored.<br>
 This endpoint supports partial update. You may submit only the fields to update in the body, fields not present in the body will remain unchanged.<br>
 To clear a field use the value *null* (without quotes)<br>
 "id" field is not mandatory in the payload, if provided the value must match the requestUuid parameter.<br>
