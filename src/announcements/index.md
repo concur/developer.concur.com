@@ -11,4 +11,4 @@ Customers who have not pinned the certificate do not need to take any action as 
 
 **Please be aware**: As an enhancement to our Security and Compliance program, this certificate will be updated on an annual basis.
 
-The new SSL certificate can be downloaded here:  http://assets.concur.com/concurtraining/cte/en-us/concursolutions.cert.pem
+The new SSL certificate can be downloaded here:  [http://assets.concur.com/concurtraining/cte/en-us/concursolutions.cert.pem](http://assets.concur.com/concurtraining/cte/en-us/concursolutions.cert.pem)
