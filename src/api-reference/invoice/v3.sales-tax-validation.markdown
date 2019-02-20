@@ -5,10 +5,16 @@ redirect_from:
   - /api-reference/invoice/sales-tax-validation.html
 ---
 
-* [Get invoices for calculating tax](#get)
-* [Update invoices with the calcuated tax amount and tax rate](#put)
+* [Get Invoices for Calculating Tax](#get)
+* [Update Invoices with the Calcuated Tax Amount and Tax Rate](#put)
 * [Schema](#schema)
-* [Status schema](#schema-status)
+  * [Invoice](#invoice)
+  * [Bill To Address](#billToAddress)
+  * [Line Item](#lineItem)
+  * [Allocation](#allocation)
+  * [Vendor](#vendor)
+  * [Ship To Address](#shipToAddress)
+* [Status Schema](#schema-status)
 
 ## Version
 
@@ -76,6 +82,18 @@ None.
 |`InvoiceAmount`|`string`|-|The invoice amount (the cost of the purchased items).
 |`InvoiceDate`|`string`|-|The invoice date.
 |`LineItem`|`array`|[`LineItem`](#LineItem)|The line items associated with the invoice.
+|`OrgUnit1`|`string`|-|The code that is applied to the first custom field if the custom field is in a list.
+|`OrgUnit1Value`|`string`|-|The value of the first custom field.
+|`OrgUnit2`|`string`|-|The code that is applied to the second custom field if the custom field is in a list.
+|`OrgUnit2Value`|`string`|-|The value of the second custom field.
+|`OrgUnit3`|`string`|-|The code that is applied to the third custom field if the custom field is in a list.
+|`OrgUnit3Value`|`string`|-|The value of the third custom field.
+|`OrgUnit4`|`string`|-|The code that is applied to a the fourth custom field if the custom field is in a list.
+|`OrgUnit4Value`|`string`|-|The value of the fourth custom field.
+|`OrgUnit5`|`string`|-|The code that is applied to the fifth custom field if the custom field is in a list.
+|`OrgUnit5Value`|`string`|-|The value of the fifth custom field.
+|`OrgUnit6`|`string`|-|The code that is applied to the sixth custom field if the custom field is in a list.
+|`OrgUnit6Value`|`string`|-|The value of the sixth custom field.
 |`PurchaseOrderNumber`|`string`|-|The Purchase Order number (if available) associated to the Payment Request.
 |`ShippingAmount`|`string`|-|The shipping amount for the invoice.
 |`ShipToAddress`|`object`|[`ShipToAddress`](#ShipToAddress)|
@@ -103,10 +121,11 @@ None.
 |`State`|`string`|-|**Required** The state or province of the shipping or billing address.
 |`StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-### <a name="LineItem"></a>LineItem  
+### <a name="lineItem"></a>LineItem  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
+|`Allocations`|[`Allocation`](#allocation)|-|The allocations associated with a line item.
 |`CalculatedTaxAmount`|`string`|-|The calculated tax amount for the individual line item.
 |`CalculatedTaxRate`|`string`|-|The calculated tax rate for the individual line item.
 |`CommodityCode`|`string`|-|The commodity code that is tied to the expense type associated with the line item.
@@ -118,7 +137,53 @@ None.
 |`UnitPrice`|`string`|-|The unit price for the line item.
 |`Vendor`|`object`|[`InvoiceVendor`](#Vendor)|Details about the vendor for each line item.
 
-### <a name="Vendor"></a>Vendor  
+### <a name="allocation"></a>Allocation  
+
+|Name | Type | Format | Description
+|-----|------|--------|------------
+|`AllocationAmount`|`string`|-|The allocation amount associated with the line item.
+|`Custom1`|`string`|-|The code that is applied to custom field 1 if the custom field is in a list.
+|`Custom10`|`string`|-|The code that is applied to custom field 10 if the custom field is in a list.
+|`Custom10Value`|`string`|-|The value that is applied to custom field 10.
+|`Custom11`|`string`|-|The code that is applied to custom field 11 if the custom field is in a list.
+|`Custom11Value`|`string`|-|The value that is applied to custom field 11.
+|`Custom12`|`string`|-|The code that is applied to custom field 12 if the custom field is in a list.
+|`Custom12Value`|`string`|-|The value that is applied to custom field 12.
+|`Custom13`|`string`|-|The code that is applied to custom field 13 if the custom field is in a list.
+|`Custom13Value`|`string`|-|The value that is applied to custom field 13.
+|`Custom14`|`string`|-|The code that is applied to custom field 14 if the custom field is in a list.
+|`Custom14Value`|`string`|-|The value that is applied to custom field 14.
+|`Custom15`|`string`|-|The code that is applied to custom field 15 if the custom field is in a list.
+|`Custom15Value`|`string`|-|The value that is applied to custom field 15.
+|`Custom16`|`string`|-|The code that is applied to custom field 16 if the custom field is in a list.
+|`Custom16Value`|`string`|-|The value that is applied to custom field 16.
+|`Custom17`|`string`|-|The code that is applied to custom field 17 if the custom field is in a list.
+|`Custom17Value`|`string`|-|The value that is applied to custom field 17.
+|`Custom18`|`string`|-|The code that is applied to custom field 18 if the custom field is in a list.
+|`Custom18Value`|`string`|-|The value that is applied to custom field 18.
+|`Custom19`|`string`|-|The code that is applied to custom field 19 if the custom field is in a list.
+|`Custom19Value`|`string`|-|The value that is applied to custom field 19.
+|`Custom1Value`|`string`|-|The value that is applied to custom field 1.
+|`Custom2`|`string`|-|The code that is applied to custom field 2 if the custom field is in a list.
+|`Custom20`|`string`|-|The code that is applied to custom field 20 if the custom field is in a list.
+|`Custom20Value`|`string`|-|The value that is applied to custom field 20.
+|`Custom2Value`|`string`|-|The value that is applied to custom field 2.
+|`Custom3`|`string`|-|The code that is applied to custom field 3 if the custom field is in a list.
+|`Custom3Value`|`string`|-|The value that is applied to custom field 3.
+|`Custom4`|`string`|-|The code that is applied to custom field 4 if the custom field is in a list.
+|`Custom4Value`|`string`|-|The value that is applied to custom field 4.
+|`Custom5`|`string`|-|The code that is applied to custom field 5 if the custom field is in a list.
+|`Custom5Value`|`string`|-|The value that is applied to custom field 5.
+|`Custom6`|`string`|-|The code that is applied to custom field 6 if the custom field is in a list.
+|`Custom6Value`|`string`|-|The value that is applied to custom field 6.
+|`Custom7`|`string`|-|The code that is applied to custom field 7 if the custom field is in a list.
+|`Custom7Value`|`string`|-|The value that is applied to custom field 7.
+|`Custom8`|`string`|-|The code that is applied to custom field 8 if the custom field is in a list.
+|`Custom8Value`|`string`|-|The value that is applied to custom field 8.
+|`Custom9`|`string`|-|The code that is applied to custom field 9 if the custom field is in a list.
+|`Custom9Value`|`string`|-|The value that is applied to custom field 9.
+
+### <a name="vendor"></a>Vendor  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -132,7 +197,7 @@ None.
 |`VendorAddressName`|`string`|-|**Required** Name for Vendor Address.
 |`VendorName`|`string`|-|**Required** The name of the vendor.
 
-### <a name="ShipToAddress"></a>ShipToAddress  
+### <a name="shipToAddress"></a>ShipToAddress  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
