@@ -12,13 +12,13 @@
   url: ''
   children:
       - title: List Item Web Service
-        url: /api-reference-deprecated/version-one/list-item/
+        url: /api-reference/common/list-item/v1.list-item.html
       - title: List Resource
-        url: /api-reference-deprecated/version-one/list-item/list-resource.html
+        url: /api-reference/common/list-item/v1.list-resource.html
       - title: Get a list of lists
-        url: /api-reference-deprecated/version-one/list-item/list-resource-get.html
+        url: /api-reference/common/list-item/v1.list-resource-get.html
       - title: Post new list items
-        url: /api-reference-deprecated/version-one/list-item/list-resource-post.html
+        url: /api-reference/common/list-item/v1.list-resource-post.html
 - title: v1.0 - Quick Expense Web Service
   url: ''
   children:
