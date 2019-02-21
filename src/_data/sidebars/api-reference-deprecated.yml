@@ -23,13 +23,13 @@
   url: ''
   children:
       - title: Quick Expense Web Service
-        url: /api-reference-deprecated/version-one/quick-expense/
+        url: /api-reference/expense/quick-expense/v1.quick-expense.html
       - title: Quick Expense Resource
-        url: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource.html
+        url: /api-reference/expense/quick-expense/v1.quick-expense-resource.html
       - title: Get quick expenses
-        url: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-get.html
+        url: /api-reference/expense/quick-expense/v1.quick-expense-resource-get.html
       - title: Post a quick expense
-        url: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-post.html
+        url: /api-reference/expense/quick-expense/v1.quick-expense-resource-post.html
 - title: v1.0 - Travel Web Service
   url: ''
   children:
