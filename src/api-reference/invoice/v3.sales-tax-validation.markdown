@@ -115,7 +115,7 @@ None.
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
-|`Allocations`|[`Allocation`](#allocation)|-|The allocations associated with a line item.
+|`Allocations`|`object`|[`Allocation`](#allocation)|The allocations associated with a line item.
 |`CalculatedTaxAmount`|`string`|-|The calculated tax amount for the individual line item.
 |`CalculatedTaxRate`|`string`|-|The calculated tax rate for the individual line item.
 |`CommodityCode`|`string`|-|The commodity code that is tied to the expense type associated with the line item.
