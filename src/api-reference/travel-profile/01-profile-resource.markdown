@@ -12,7 +12,7 @@ The Travel Profile resource represents a Concur Travel profile that contains tra
 ##  Version
 
 2.0
-[Version 1.0](/api-reference-deprecated/version-one/Travel/profile-resource.html) has been **deprecated**
+[Version 1.0](/api-reference/travel-profile/v1.profile-resource.html) has been **deprecated**
 
 ##  Operations
 
@@ -636,7 +636,7 @@ This error message occurs, when the XML is not formatted in such a way that it c
 ```
 
  The best way to find the cause of the error is by taking the body of your message and comparing it against the [Travel Profile XSD][3]. You can use free online sites to validate such as <https://www.freeformatter.com/xml-validator-xsd.html>
- 
+
 ### Standard Error Codes
 
 The codes and types of messages that can be returned on updates and creates:
