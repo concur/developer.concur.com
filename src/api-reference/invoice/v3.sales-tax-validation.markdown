@@ -82,8 +82,8 @@ None.
 |`InvoiceAmount`|`string`|-|The invoice amount (the cost of the purchased items).
 |`InvoiceDate`|`string`|-|The invoice date.
 |`LineItem`|`array`|[`LineItem`](#LineItem)|The line items associated with the invoice.
-|`OrgUnit1 through OrgUnit6`|`string`|-|The code from the Custom fields. These fields may not have data, depending on the configuration.
-|`OrgUnit1Value though OrgUnit6Value`|`string`|-|The value from the Custom fields. These fields may not have data, depending on the configuration.
+|`OrgUnit1 through OrgUnit6`|`string`|-|The code from the OrgUnit fields. These fields may not have data, depending on the configuration.
+|`OrgUnit1Value though OrgUnit6Value`|`string`|-|The value from the OrgUnit fields. These fields may not have data, depending on the configuration.
 |`PurchaseOrderNumber`|`string`|-|The Purchase Order number (if available) associated to the Payment Request.
 |`ShippingAmount`|`string`|-|The shipping amount for the invoice.
 |`ShipToAddress`|`object`|[`ShipToAddress`](#ShipToAddress)|
