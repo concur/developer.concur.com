@@ -1,8 +1,10 @@
 ---
-title: Quick Expense
+title: Quick Expense v3
 layout: reference
----
 
+redirect_from:
+  - /api-reference/expense/quick-expense/index.html
+---
 
 # Quick Expenses
 
@@ -13,20 +15,18 @@ layout: reference
 * [Delete a quick expense](#delete)
 * [Schema](#schema)
 
-### Version
-3.0
-
-1.0 documentation is available [here](/api-reference-deprecated/version-one/quick-expense/index.html)
+1.0 documentation is available [here](./v1.quick-expense.html)
 
 ## <a name="get"></a>Retrieve quick expenses
 
-    GET  /api/v3.0/expense/quickexpenses
-
+```
+GET /api/v3.0/expense/quickexpenses
+```
 
 ### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------			
+Name|Type|Format|Description
+---|---|---|---
 `offset`	|	`string`	|	`query`	|	The start of the page offset.
 `limit`	|	`Int32`	|	`query`	|	The number of records to return (default 25).
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
@@ -71,8 +71,8 @@ https://www.concursolutions.com/api/v3.0/expense/quickexpenses?limit=15&user=ALL
 
 ### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense.
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
@@ -112,8 +112,8 @@ https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsF
 
 ### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `content`	|	-	|	`body`	|	**Required** The quick expense object to be created
 `Comment`	|	`string`	|		|	A comment that describes the expense. Max Length: 2000
 `CurrencyCode`	|	`string`	|		|	**Required** The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD
@@ -153,8 +153,8 @@ https://www.concursolutions.com/api/v3.0/expense/quickexpenses
 
 ### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense
 `content`	|	-	|	`body`	|	**Required** Partial or complete QuickExpense object to update
 `Comment`	|	`string`	|		|	A comment that describes the expense. Max Length: 2000
@@ -190,8 +190,8 @@ no content
 
 ### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense to be deleted
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
@@ -213,16 +213,16 @@ no content
 
 ### Quick Expenses
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `Items`	|	`Array`	|	[Quick Expense](#quickexpense)	|	The result collection.
 `NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
 
 
 ### <a name="quickexpense"></a>Quick Expense
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `Comment`	|	`string`	|	-	|	A comment that describes the expense. Max Length: 2000
 `CurrencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD
 `ExpenseTypeCode`	|	`string`	|	-	|	The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the Get Expense Group Configuration function response.

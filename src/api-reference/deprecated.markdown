@@ -39,10 +39,10 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [Get a list of lists](/api-reference/common/list-item/v1.list-resource-get.html)
   * [Post new list items](/api-reference/common/list-item/v1.list-resource-post.html)
 * Quick Expense Web Service v1
-  * [Quick Expense Web Service](/api-reference-deprecated/version-one/quick-expense/)
-  * [Quick Expense Resource](/api-reference-deprecated/version-one/quick-expense/quick-expense-resource.html)
-  * [Get quick expenses](/api-reference-deprecated/version-one/quick-expense/quick-expense-resource-get.html)
-  * [Post a quick expense](/api-reference-deprecated/version-one/quick-expense/quick-expense-resource-post.html)
+  * [Quick Expense Web Service](/api-reference/expense/quick-expense/v1.quick-expense.html)
+  * [Quick Expense Resource](/api-reference/expense/quick-expense/v1.quick-expense-resource.html)
+  * [Get quick expenses](/api-reference/expense/quick-expense/v1.quick-expense-resource-get.html)
+  * [Post a quick expense](/api-reference/expense/quick-expense/v1.quick-expense-resource-post.html)
 * [Receipts v3](/api-reference/receipts/v3.receipts.html)
 * Travel Web Service v1
   * [Form of Payment Resource](/api-reference-deprecated/version-one/Travel/form-payment-resource.html)
