@@ -5,17 +5,22 @@ redirect_from:
   - /api-reference/invoice/sales-tax-validation.html
 ---
 
-# Sales Tax Validation
-* [Get invoices for calculating tax](#get)
-* [Update invoices with the calcuated tax amount and tax rate](#put)
+* [Get Invoices for Calculating Tax](#get)
+* [Update Invoices with the Calcuated Tax Amount and Tax Rate](#put)
 * [Schema](#schema)
-* [Status schema](#schema-status)
+  * [Invoice](#invoice)
+  * [Bill To Address](#billToAddress)
+  * [Line Item](#lineItem)
+  * [Allocation](#allocation)
+  * [Vendor](#vendor)
+  * [Ship To Address](#shipToAddress)
+* [Status Schema](#schema-status)
 
 ## Version
 
 3.0  
 
-## <a name="get"></a>Get invoices for calculating tax
+## <a name="get"></a>Get Invoices for Calculating Tax
 
     GET  /api/v3.0/invoice/salestaxvalidationrequest
 
@@ -35,7 +40,7 @@ None.
 
 [Schema](#schema)
 
-## <a name="put"></a>Update invoices with a calculated tax amount and tax rate  
+## <a name="put"></a>Update Invoices with a Calculated Tax Amount and Tax Rate  
 
     PUT  /api/v3.0/invoice/salestaxvalidationrequest
 
@@ -53,7 +58,7 @@ None.
 
 [Status schema](#schema-status)
 
-## <a name="schema"></a>Invoices schema
+## <a name="schema"></a>Invoices Schema
 
 ### Invoices
 
@@ -77,13 +82,15 @@ None.
 |`InvoiceAmount`|`string`|-|The invoice amount (the cost of the purchased items).
 |`InvoiceDate`|`string`|-|The invoice date.
 |`LineItem`|`array`|[`LineItem`](#LineItem)|The line items associated with the invoice.
+|`OrgUnit1 through OrgUnit6`|`string`|-|The code from the OrgUnit fields. These fields may not have data, depending on the configuration.
+|`OrgUnit1Value though OrgUnit6Value`|`string`|-|The value from the OrgUnit fields. These fields may not have data, depending on the configuration.
 |`PurchaseOrderNumber`|`string`|-|The Purchase Order number (if available) associated to the Payment Request.
 |`ShippingAmount`|`string`|-|The shipping amount for the invoice.
 |`ShipToAddress`|`object`|[`ShipToAddress`](#ShipToAddress)|
 |`Status`|`string`|-|The status of the invoice.
-|`StatusCode`|`string`|-|The status code for the invoice.
+|`StatusCode`|`string`|-| **Required** The status code for the invoice. Supported values: `ERROR`, `CMPLT`
 |`Tax`|`string`|-|The tax as shown on the invoice. This is the tax applied by the vendor.
-|`TaxReferenceID`|`string`|-|The tax reference ID of the invoice.
+|`TaxReferenceID`|`string`|-|**Required** The tax reference ID of the invoice.
 |`Title`|`string`|-|The title of the invoice.
 |`Total`|`string`|-|The total amount of the request.
 |`URI`|`string`|-|The URI to the resource.
@@ -104,22 +111,31 @@ None.
 |`State`|`string`|-|**Required** The state or province of the shipping or billing address.
 |`StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-### <a name="LineItem"></a>LineItem  
+### <a name="lineItem"></a>LineItem  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
+|`Allocations`|`object`|[`Allocation`](#allocation)|The allocations associated with a line item.
 |`CalculatedTaxAmount`|`string`|-|The calculated tax amount for the individual line item.
 |`CalculatedTaxRate`|`string`|-|The calculated tax rate for the individual line item.
 |`CommodityCode`|`string`|-|The commodity code that is tied to the expense type associated with the line item.
 |`CountryCode`|`string`|-|The country code for the line item.
 |`CurrencyCode`|`string`|-|The currency code for the individual line item.
-|`LineItemKey`|`string`|-|A value that uniquely identifies the line item.
+|`LineItemKey`|`string`|-|**Required** A value that uniquely identifies the line item.
 |`Quantity`|`string`|-|The quantity for the line item.
 |`Total`|`string`|-|The total amount for the line item.
 |`UnitPrice`|`string`|-|The unit price for the line item.
 |`Vendor`|`object`|[`InvoiceVendor`](#Vendor)|Details about the vendor for each line item.
 
-### <a name="Vendor"></a>Vendor  
+### <a name="allocation"></a>Allocation  
+
+|Name | Type | Format | Description
+|-----|------|--------|------------
+|`AllocationAmount`|`string`|-|The allocation amount associated with the line item.
+|`Custom1 through Custom20`|`string`|-|The code from the Custom fields. These fields may not have data, depending on the configuration.
+|`Custom1Value through Custom20Value`|`string`|-|The value from the Custom fields. These fields may not have data, depending on the configuration.
+
+### <a name="vendor"></a>Vendor  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -133,7 +149,7 @@ None.
 |`VendorAddressName`|`string`|-|**Required** Name for Vendor Address.
 |`VendorName`|`string`|-|**Required** The name of the vendor.
 
-### <a name="ShipToAddress"></a>ShipToAddress  
+### <a name="shipToAddress"></a>ShipToAddress  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -148,7 +164,7 @@ None.
 |`State`|`string`|-|**Required** The state or province of the shipping or billing address.
 |`StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-## <a name="schema-status"></a>Status schema  
+## <a name="schema-status"></a>Status Schema  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
