@@ -23,7 +23,7 @@
           "Resources"
         ],
         "summary": "This API is used to create a quick expense. This API does not support image creation.",
-        "description": "This API creates basic a expense with minimal fields. Can be added to expense reports from within SAP Concur.",
+        "description": "This API creates a basic expense with minimal fields. Can be added to expense reports from within SAP Concur.",
         "operationId": "createQuickExpenseUsingPOST_1",
         "consumes": [
           "application/json"
@@ -113,7 +113,7 @@
           "Resources"
         ],
         "summary": "This API is used to create a quick expense with image. An image is required. This API accepts multipart/form-data request.",
-        "description": "This API creates a new quick expense and attaches and image to it, which is provided with multipart/form-data request.",
+        "description": "This API creates a new quick expense and attaches an image to it, which is provided with multipart/form-data request.",
         "operationId": "createQuickExpenseUsingPOST",
         "consumes": [
           "multipart/form-data"
