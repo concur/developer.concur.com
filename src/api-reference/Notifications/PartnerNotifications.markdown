@@ -29,9 +29,9 @@ The purpose of this API is to provide SAP Concur's partners the ability to messa
 
 ## <a name="scope-usage"></a>Scope Usage
 
-Name|Description|Endpoint
----|---|---
-`notifications.messages.writeonly`|Write messages to the notifications platform|https://us.api.concursolutions.com/notifications/v1/messages/:user_id/session
+Name|Description|
+---|---
+`notifications.messages.writeonly`|Write messages to the notifications platform|
 
 ## <a name="dependencies"></a>Dependencies
 
@@ -56,7 +56,7 @@ The endpoint provides a way for SAP Concur partners to message users and notify 
 ##### Template
 
 ```shell
-https://us.api.concursolutions.com/notifications/v1/messages/:user_id/session
+https://us.api.concursolutions.com/notifications/v1/messages/{user_id}/session
 ```
 
 ##### Parameters
@@ -72,7 +72,7 @@ https://us.api.concursolutions.com/notifications/v1/messages/:user_id/session
 ```json
 {
     "sessionId": "D5B80C53-A4D2-4949-8462-D41655F246E2",
-    "message": "template-name",
+    "templateId": "template-name",
     "context": {
       "url": "https://www.example.com/foo"
     }
@@ -80,10 +80,6 @@ https://us.api.concursolutions.com/notifications/v1/messages/:user_id/session
 ```
 
 * [Request Payload](#request-schema)
-
-### Response
-
-`OK`
 
 #### Status Codes
 
@@ -127,7 +123,7 @@ concur-correlationid: D5B80C53-A4D2-4949-8462-D41655F246E2
 ```json
 {
    "sessionId": "D5B80C53-A4D2-4949-8462-D41655F246E2",
-   "message": "template-name",
+   "templateId": "template-name",
    "context": {
      "url": "https://www.example.com/foo"
    }
@@ -138,24 +134,9 @@ concur-correlationid: D5B80C53-A4D2-4949-8462-D41655F246E2
 
 ```shell
 HTTP/1.1 200 OK
-access-control-allow-credentials: true
-access-control-allow-headers: accept,access-control-allow-origin,authorization,cache-control,content-type,dnt,if-match,if-modified-since,keep-alive,origin,user-agent,x-mx-reqtoken,x-requested-with,concur-correlationid,concur-debug,x-csrf-token,appid,userid,x-token
-access-control-allow-methods: GET, POST, PUT, DELETE, PATCH, OPTIONS
-Access-Control-Allow-Origin: *
-access-control-expose-headers: content-length,concur-correlationid,concur-debug,etag
-Cache-Control: no-cache, no-store, must-revalidate
 concur-correlationid: 848618e7-5747-4970-bda7-fc7baf251f88
-Connection: keep-alive
-Content-Length: 794
 Content-Type: application/json; charset=utf-8
 Date: Thu, 24 Jan 2019 01:31:47 GMT
-ETag: W/"31a-jN1nuHJQV/Csk6EGPrZumg"
-sap-server: 33
-Server: cnqr-Discovery-One
-```
-
-```json
-OK
 ```
 
 ## <a name="schema"></a>Schema
@@ -165,8 +146,13 @@ OK
 Name|Type|Description
 ---|---|---
 `sessionId`|`string`|**Required** The unique ID of the session
-`message`|`string`|**Required** The template identifier of the message
-`context.url`|`string`|The context URL to apply to the template
+`templateId`|`string`|**Required** The template identifier of the message
+`context`|`object`| Contains additional information required for the template
+
+
+Name|Type|Description
+---|---|---
+`url`|`string`|The context URL to apply to the template
 
 ### <a name="schema-error"></a>Error
 
