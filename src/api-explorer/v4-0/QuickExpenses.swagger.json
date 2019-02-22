@@ -265,7 +265,7 @@
       "type": "object",
       "properties": {
         "quickExpenseIdUri": {
-          "type": "string"
+          "type": "string",
           "description": "The quick expense created resource url."
         }
       }
