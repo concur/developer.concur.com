@@ -471,7 +471,7 @@
         },
         "paymentTypeId": {
           "type": "string",
-          "description": "This is the payment type id of the quick expense. Supported values: `CASHX`, `CPAID`, `PENDC`.",
+          "description": "This is the payment type id of the quick expense.",
           "enum": [
             "CASHX",
             "CPAID",
