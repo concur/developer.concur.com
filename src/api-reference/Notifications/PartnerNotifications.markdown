@@ -36,6 +36,7 @@ Name|Description|
 ## <a name="dependencies"></a>Dependencies
 
 User Profile Service - Get user information by JWT
+Events Service - Get JWT and sessionId to call the Partner Notifications API
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -56,7 +57,7 @@ The endpoint provides a way for SAP Concur partners to message users and notify 
 ##### Template
 
 ```shell
-https://us.api.concursolutions.com/notifications/v1/messages/{user_id}/session
+https://us.api.concursolutions.com/notifications/v4/messages/{user_id}/session
 ```
 
 ##### Parameters
