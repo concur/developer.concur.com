@@ -23,7 +23,7 @@
           "Resources"
         ],
         "summary": "This API is used to create a quick expense. This API does not support image creation.",
-        "description": "This API creates basic expense with minimal fields. Can be added to expense reports from within SAP Concur.",
+        "description": "This API creates basic a expense with minimal fields. Can be added to expense reports from within SAP Concur.",
         "operationId": "createQuickExpenseUsingPOST_1",
         "consumes": [
           "application/json"
@@ -113,7 +113,7 @@
           "Resources"
         ],
         "summary": "This API is used to create a quick expense with image. An image is required. This API accepts multipart/form-data request.",
-        "description": "This API creates a new quick expense and attaches it with a new image, which is provided with multipart/form-data request.",
+        "description": "This API creates a new quick expense and attaches and image to it, which is provided with multipart/form-data request.",
         "operationId": "createQuickExpenseUsingPOST",
         "consumes": [
           "multipart/form-data"
@@ -139,7 +139,7 @@
           {
             "name": "quickExpenseRequest",
             "in": "formData",
-            "description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. Supported values: `CASHX`, `CPAID`, `PENDC`. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
+            "description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
             "required": false,
             "type": "string"
           },
@@ -266,6 +266,7 @@
       "properties": {
         "quickExpenseIdUri": {
           "type": "string"
+          "description": "The quick expense created resource url."
         }
       }
     },
