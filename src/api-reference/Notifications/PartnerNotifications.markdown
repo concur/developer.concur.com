@@ -113,7 +113,7 @@ In this example, the value for the header `concur-correlationid` is the `session
 #### Request
 
 ```shell
-POST https://us.api.concursolutions.com/notifications/v1/messages/0E6BD8D8-A020-43C6-BBEC-B67A7021FF1C
+POST https://us.api.concursolutions.com/notifications/v4/messages/0E6BD8D8-A020-43C6-BBEC-B67A7021FF1C
 /session
 Accept: application/json
 Authorization: Bearer {JWT}
