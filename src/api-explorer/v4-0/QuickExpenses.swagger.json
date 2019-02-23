@@ -22,8 +22,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "This Rest API is used to create a quick expense. This API does not support image creation.",
-        "description": "This API will create quick expense.",
+        "summary": "This API is used to create a quick expense. This API does not support image creation.",
+        "description": "This API creates a basic expense with minimal fields. Can be added to expense reports from within SAP Concur.",
         "operationId": "createQuickExpenseUsingPOST_1",
         "consumes": [
           "application/json"
@@ -35,14 +35,14 @@
           {
             "name": "concur-correlationid",
             "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "description": "A SAP Concur specific custom header used for technical support.",
             "required": false,
             "type": "string"
           },
           {
             "name": "accept-language",
             "in": "header",
-            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
             "required": false,
             "type": "string"
           },
@@ -58,14 +58,14 @@
           {
             "name": "userId",
             "in": "path",
-            "description": "The unique identifier of the Concur user",
+            "description": "The unique identifier of the SAP Concur user.",
             "required": true,
             "type": "string"
           },
           {
             "name": "contextType",
             "in": "path",
-            "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+            "description": "The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: TRAVELER.",
             "required": true,
             "type": "string",
             "enum": [
@@ -112,8 +112,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "This Rest API is used to create a quick expense with image. Image is required. This API accepts Multipart/form-data request.",
-        "description": "This API creates new quick expense and attach it with a new image which is provided with Multi-part/form-data request.",
+        "summary": "This API is used to create a quick expense with image. An image is required. This API accepts multipart/form-data request.",
+        "description": "This API creates a new quick expense and attaches an image to it, which is provided with multipart/form-data request.",
         "operationId": "createQuickExpenseUsingPOST",
         "consumes": [
           "multipart/form-data"
@@ -125,21 +125,21 @@
           {
             "name": "concur-correlationid",
             "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "description": "A SAP Concur specific custom header used for technical support.",
             "required": false,
             "type": "string"
           },
           {
             "name": "accept-language",
             "in": "header",
-            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
             "required": false,
             "type": "string"
           },
           {
             "name": "quickExpenseRequest",
             "in": "formData",
-            "description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is comment attached to quick expense. ,<br><b>entryDetails</b> (string, optional): Quick expense Entry Details ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of quick expense. ,<br><b>location</b> (Location): It represents a location of the quick expense. It contains Location Id, Name, City, Country Sub Division Code</b> (or State) and Country ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of quick expense. = ['CASHX','CPAID','PENDC'], <br><b>transactionAmount</b> (Amount): This identifies the currency and value of the transaction ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): Name of the vendor<br><b>Location</b> {<br><b>city</b> (string, optional): The location city ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code (https://en.wikipedia.org/wiki/ISO_3166-1) ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code (https://en.wikipedia.org/wiki/ISO_3166-2) ,<br><b>id</b> (string, optional): The unique identifier of the location ,<br><b>name</b> (string, optional): The location name<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code (https://en.wikipedia.org/wiki/ISO_4217) for the amount ,<br><b>value</b> (number): The amount value<br>}",
+            "description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
             "required": false,
             "type": "string"
           },
@@ -153,14 +153,14 @@
           {
             "name": "userId",
             "in": "path",
-            "description": "The unique identifier of the Concur user",
+            "description": "The unique identifier of the SAP Concur user.",
             "required": true,
             "type": "string"
           },
           {
             "name": "contextType",
             "in": "path",
-            "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+            "description": "The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: TRAVELER.",
             "required": true,
             "type": "string",
             "enum": [
@@ -265,7 +265,8 @@
       "type": "object",
       "properties": {
         "quickExpenseIdUri": {
-          "type": "string"
+          "type": "string",
+          "description": "The quick expense created resource url."
         }
       }
     },
@@ -360,15 +361,15 @@
       "properties": {
         "code": {
           "type": "string",
-          "description": "The code of the payment type"
+          "description": "The payment type code."
         },
         "id": {
           "type": "string",
-          "description": "The unique identifier of the Payment type"
+          "description": "The unique identifier of the payment type."
         },
         "name": {
           "type": "string",
-          "description": "The name of the payment type, localized to the user's language"
+          "description": "The name of the payment type, localized to the user's language."
         }
       }
     },
@@ -384,12 +385,12 @@
       "properties": {
         "currencyCode": {
           "type": "string",
-          "description": "The 3-letter ISO 4217 currency code (https://en.wikipedia.org/wiki/ISO_4217) for the amount"
+          "description": "The 3-letter ISO 4217 currency code for the amount."
         },
         "value": {
           "type": "number",
           "format": "double",
-          "description": "The amount value"
+          "description": "The amount value."
         }
       }
     },
@@ -432,15 +433,15 @@
       "properties": {
         "code": {
           "type": "string",
-          "description": "The code of the expense type"
+          "description": "The expense type code."
         },
         "id": {
           "type": "string",
-          "description": "The unique identifier of the expense type"
+          "description": "The unique identifier of the expense type."
         },
         "name": {
           "type": "string",
-          "description": "The name of the expense type, localized to the user's language"
+          "description": "The name of the expense type, localized to the user's language."
         }
       }
     },
@@ -454,23 +455,23 @@
       "properties": {
         "comment": {
           "type": "string",
-          "description": "This is comment attached to quick expense."
+          "description": "This is a comment attached to the quick expense."
         },
         "entryDetails": {
           "type": "string",
-          "description": "Quick expense Entry Details"
+          "description": "The quick expense entry details."
         },
         "expenseTypeId": {
           "type": "string",
-          "description": "This is the expense type id of quick expense."
+          "description": "This is the expense type id of the quick expense."
         },
         "location": {
-          "description": "It represents a location of the quick expense. It contains Location Id, Name, City, Country Sub Division Code (or State) and Country",
+          "description": "The location where the quick expense occurred.",
           "$ref": "#/definitions/Location"
         },
         "paymentTypeId": {
           "type": "string",
-          "description": "This is the payment type id of quick expense.",
+          "description": "This is the payment type id of the quick expense.",
           "enum": [
             "CASHX",
             "CPAID",
@@ -478,7 +479,7 @@
           ]
         },
         "transactionAmount": {
-          "description": "This identifies the currency and value of the transaction",
+          "description": "The amount of the quick expense.",
           "$ref": "#/definitions/Amount"
         },
         "transactionDate": {
@@ -488,7 +489,7 @@
         },
         "vendor": {
           "type": "string",
-          "description": "Name of the vendor"
+          "description": "The name of the vendor."
         }
       }
     },
@@ -503,7 +504,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "description": "Uri of the created resource"
+          "description": "URI of the created resource."
         }
       }
     },
@@ -562,29 +563,29 @@
       "properties": {
         "errorId": {
           "type": "string",
-          "description": "The unique identifier of the error associated with the response or is it error response itself"
+          "description": "The unique identifier of the error."
         },
         "errorMessage": {
           "type": "string",
-          "description": "The detailed error message"
+          "description": "Message associated with the error."
         },
         "httpStatus": {
           "type": "string",
-          "description": "The http response code and phrase for the response"
+          "description": "The HTTP status associated with the error."
         },
         "path": {
           "type": "string",
-          "description": "The URI of the attempted request"
+          "description": "The path to the resource."
         },
         "timestamp": {
           "type": "string",
           "format": "date-time",
           "example": "2016-10-04T00:53:25.931+0000",
-          "description": "The time when the error was captured"
+          "description": "The timestamp for the error."
         },
         "validationErrors": {
           "type": "array",
-          "description": "The validation error messages",
+          "description": "An array of validation errors.",
           "items": {
             "$ref": "#/definitions/ValidationError"
           }
@@ -682,26 +683,26 @@
       "properties": {
         "city": {
           "type": "string",
-          "description": "The location city"
+          "description": "The location city."
         },
         "countryCode": {
           "type": "string",
-          "description": "The location country ISO 3166-1 code (https://en.wikipedia.org/wiki/ISO_3166-1)"
+          "description": "The location country ISO 3166-1 code."
         },
         "countrySubDivisionCode": {
           "type": "string",
-          "description": "The location country sub division ISO 3166-2 code (https://en.wikipedia.org/wiki/ISO_3166-2)"
+          "description": "The location country sub division ISO 3166-2 code."
         },
         "id": {
           "type": "string",
-          "description": "The unique identifier of the location"
+          "description": "The unique identifier of the location."
         },
         "name": {
           "type": "string",
-          "description": "The location name"
+          "description": "The location name."
         }
       },
-      "description": "It represents location."
+      "description": "This represents the location."
     }
   }
 }
