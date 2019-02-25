@@ -2,6 +2,7 @@
 title: Notification Platform - Partner Notifications API
 layout: reference
 ---
+
 {% include prerelease.html %}
 
 The purpose of this API is to provide SAP Concur's partners the ability to message users, through the web and mobile product.
@@ -36,6 +37,7 @@ Name|Description|
 ## <a name="dependencies"></a>Dependencies
 
 User Profile Service - Get user information by JWT
+
 Events Service - Get JWT and sessionId to call the Partner Notifications API
 
 ## <a name="access-token-usage"></a>Access Token Usage
@@ -144,16 +146,16 @@ Date: Thu, 24 Jan 2019 01:31:47 GMT
 
 ### <a name="notification"></a>Request
 
-Name|Type|Description
----|---|---
-`sessionId`|`string`|**Required** The unique ID of the session
-`templateId`|`string`|**Required** The template identifier of the message
-`context`|`object`| Contains additional information required for the template
+Name|Type|Format|Description
+---|---|---|---
+`sessionId`|`string`|-|**Required** The unique ID of the session
+`templateId`|`string`|-|**Required** The template identifier of the message
+`context`|`object`|-|Contains additional information required for the template
 
 
-Name|Type|Description
----|---|---
-`url`|`string`|The context URL to apply to the template
+Name|Type|Format|Description
+---|---|---|---
+`url`|`string`|-|The context URL to apply to the template. Please contact SAP Concur to whitelist the domains of the URLs.
 
 ### <a name="schema-error"></a>Error
 
