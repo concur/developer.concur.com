@@ -355,7 +355,7 @@ Value|Description|Status available in the Payment Confirmation Extract
 `PROCESSING`|Payment is being processed by the payment provider|Not available
 `REJECTED`|Payment was rejected by the payment provider|Not available
 `RETURNED`|Payment was returned by the bank|Not available
-`CANCELED`|Payment was canceled|`CANCEL`
+`CANCELED`|Payment was canceled|`FAILED`
 `CHECK_PRINTED`|Check was printed|Not available
 `CHECK_MAILED`|Check was mailed|Not available
 `CHECK_PROCESSED`|Check was processed|`PAID`
