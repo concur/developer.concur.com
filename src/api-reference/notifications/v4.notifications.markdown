@@ -41,7 +41,7 @@ Name|Description|Endpoint
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
-A User or Company access token (JWT) is required for this endpoint.
+A Company access token (JWT) is required for this endpoint.
 
 ## <a name="send-message"></a>Send a message
 
