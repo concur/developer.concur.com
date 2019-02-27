@@ -10,10 +10,42 @@ The Travel Profile resource represents a Concur Travel profile that contains tra
 ## Operations
 
 * [Get a travel profile](#get-a-travel-profile)
-* [Create/Update a travel profile](#create-or-update-a-travel-profile)
-* [Travel Profile Elements](#a3)
-* [Possible Warning and Error Messages](#a4)
-* [Get a list of travel profile summaries](#a5)
+* [Create / Update a travel profile](#create-or-update-a-travel-profile)
+* [Schema](#schema)
+  * [General](#schema-general)
+  * [EmergencyContact](#schema-emergency-contact)
+  * [Address](#schema-address)
+  * [Phone List](#schema-phone-list)
+  * [Telephones](#schema-telephones)
+  * [Addresses](#schema-addresses)
+  * [NationalIDs](#schema-NationalIDs)
+  * [DriversLicenses](#schema-DriversLicenses)
+  * [HasNoPassport](#schema-HasNoPassport)
+  * [Passports](#schema-passports)
+  * [Visas](#schema-visas)
+  * [EmailAddresses](#schema-email-addresses)
+  * [RatePreferences](#schema-rate-preferences)
+  * [DiscountCodes](#schema-discount-codes)
+  * [Air](#schema-air)
+  * [Air Memberships](#schema-airmember)
+  * [Seat](#schema-airseat)
+  * [Rail](#schema-rail)
+  * [Rail Membership](#schema-rail-membership)
+  * [Car](#schema-car)
+  * [Car Memberships](#schema-car-memberships)
+  * [Hotel](#schema-hotel)
+  * [Hotel Memberships](#schema-hotel-memberships)
+  * [CustomFields](#schema-custom-fields)
+  * [Roles](#schema-roles)
+  * [Sponsors](#schema-sponsors)
+  * [TSAInfo](#schema-tsa-info)
+  * [UnusedTickets](#schema-unused-tickets)
+  * [SouthwestUnusedTickets](#schema-southwest-unused-tickets)
+  * [AdvantageMemberships](#schema-advantage-memberships)
+* [Possible Warning and Error Messages](#possible-warnings-and-error-messages)
+  * [Error in XML Document](#error-in-document)
+  * [Standard Error Codes](#standard-error-codes)
+* [Get a list of travel profile summaries](#get-a-list-of-travel-profile-summaries)
 
 Detailed descriptions of requests and responses are available in the documentation for each HTTP method.
 
@@ -48,7 +80,7 @@ Authorization: OAuth {access_token}
 
 Where access_token is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve.
 
-## <a name="create-or-update-a-travel-profile">Create/Update Travel Profile
+## <a name="create-or-update-a-travel-profile">Create / Update Travel Profile
 
 Creating/Updating a Profile uses the same model as what is retrieved.
 
