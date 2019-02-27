@@ -1,5 +1,5 @@
 ---
-title: Notification Platform - Partner Notifications API
+title: Partner Notifications v4
 layout: reference
 ---
 
@@ -7,7 +7,7 @@ layout: reference
 
 The purpose of this API is to provide SAP Concur's partners the ability to message users through the web and mobile product.
 
->**Sample use case:** A business traveller starts a travel booking. That user is notified that a visa is required for their trip.
+**Sample use case:** A business traveller starts a travel booking. That user is notified that a visa is required for their trip.
 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
@@ -21,7 +21,7 @@ The purpose of this API is to provide SAP Concur's partners the ability to messa
 
 ## <a name="process-flow"></a>Process Flow
 
-![Process flow for notifications](./v4.ey.png)
+![Process flow for notifications](./v4.notifications-process-flow.png)
 
 ## <a name="products-editions"></a>Products and Editions
 
@@ -30,19 +30,18 @@ The purpose of this API is to provide SAP Concur's partners the ability to messa
 
 ## <a name="scope-usage"></a>Scope Usage
 
-Name|Description|
----|---
-`notifications.messages.writeonly`|Write messages to the notifications platform
+Name|Description|Endpoint
+---|---|---
+`notifications.messages.writeonly`|Write messages to the notifications platform|POST
 
 ## <a name="dependencies"></a>Dependencies
 
-User Profile Service - Get user information using access token (JWT)
-
-Events Service - Use access token (JWT) and `sessionId` to call the Partner Notifications API
+* User Profile Service - Get user information using access token (JWT)
+* Events Service - Use access token (JWT) and `sessionId` to call the Partner Notifications API
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
-A user or company access token (JWT) is required for this endpoint.
+A User or Company access token (JWT) is required for this endpoint.
 
 ## <a name="send-message"></a>Send a message
 
@@ -76,7 +75,7 @@ Name|Type|Format|Description
 
 #### Payload
 
-* [Payload](#request-schema)
+* [Payload](#schema)
 
 ### Response
 
@@ -156,4 +155,4 @@ Name|Type|Format|Description
 `errorId`|`string`|-|The unique ID of the error
 `errorCode`|`string`|-|The error code
 `errorMessage`|`string`|-|A message describing the error
-`errors`|`array`|[`error`](#schema-error)|An array of errors
+`errors`|`array`|[`error`](#schema-error)|An array of errors. Note: this points to this schema as errors can nest.
