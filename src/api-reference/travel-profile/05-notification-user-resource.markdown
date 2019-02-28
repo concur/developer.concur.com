@@ -156,7 +156,7 @@ Subscribes or unsubscribes the travel supplier from notifications when the user'
 #### Headers
 
 ##### Authorization header
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/apidoc.html).
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authorization-pre-2017.html).
 
 ###  Request
 
