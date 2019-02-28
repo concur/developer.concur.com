@@ -1296,7 +1296,7 @@ Credit Card Vendor|-|USD 275
 #### Description
 
 The company receives a periodic (for example, monthly) credit card invoice to
-pay the company paid expense items. This invoice **does not** include enough information to distribute the items to the correct expense accounts and VAT. For that reason the expense item gross amounts are posted to a clearing account CC Statement posting is not triggered by Concur but by a direct import into ERP.
+pay the company paid expense items. This invoice **does not** include enough information to distribute the items to the correct expense accounts and VAT. For that reason the expense item gross amounts are posted to a clearing account Credit Card Statement posting is not triggered by Concur but by a direct import into ERP.
 
 #### Posting Example
 
@@ -1318,13 +1318,13 @@ Expense Report EUR 7|-
 
 Debit|Credit
 ---|---
-CC Statement EUR 107|ER 10 EUR 107
+Credit Card Statement EUR 107|ER 10 EUR 107
 
 **Credit Card Vendor Account**
 
 Debit|Credit
 ---|---
--|CC Statement EUR 107
+-|Credit Card Statement EUR 107
 
 **Posting Record - Expense Report**
 
@@ -1332,14 +1332,14 @@ Account|Debit|Credit
 ---|---|---
 Expense|EUR 100|-
 VAT|EUR 7|-
-CC Clearing Account|-|EUR 107
+Credit Card Clearing Account|-|EUR 107
 
 **Posting Record - Credit Card Statement**
 
 Account|Debit|Credit
 ---|---|---
-CC Clearing Account|EUR 107|-
-CC Vendor Account|-|EUR 107
+Credit Card Clearing Account|EUR 107|-
+Credit Card Vendor Account|-|EUR 107
 
 ### <a name="ucvea"></a>Clearing via Expense Account
 
@@ -1347,7 +1347,7 @@ CC Vendor Account|-|EUR 107
 
 The company receives a periodic (for example, monthly) credit card invoice to pay the company paid expense items. This invoice **does include** enough information to distribute the items to the correct expense accounts and VAT. For that reason the expense account and VAT can already be posted with the statement.
 
-CC Statement posting is not triggered by Concur Expense but by a direct import into ERP.
+Credit Card Statement posting is not triggered by Concur Expense but by a direct import into ERP.
 
 #### Posting Example
 
@@ -1359,7 +1359,7 @@ Debit|Credit
 ---|---
 Expense Report EUR 100|-
 -|Expense Report EUR 100
-CC Statement EUR 100|-
+Credit Card Statement EUR 100|-
 
 **VAT**
 
@@ -1367,13 +1367,13 @@ Debit|Credit
 ---|---
 Expense Report EUR 7|-
 -|Expense Report EUR 7
-CC Statement EUR 7|-
+Credit Card Statement EUR 7|-
 
 **Credit Card Vendor Account**
 
 Debit|Credit
 ---|---
--|CC Statement EUR 107
+-|Credit Card Statement EUR 107
 
 **Posting Record - Expense Report**
 
@@ -1390,7 +1390,7 @@ Account|Debit|Credit
 ---|---|---
 Expense|EUR 100|-
 VAT|EUR 7|-
-CC Vendor Account|-|EUR 107
+Credit Card Vendor Account|-|EUR 107
 
 [Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#ecvea)
 
