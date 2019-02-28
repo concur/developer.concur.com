@@ -80,14 +80,14 @@ The criterion is used to define the search criteria.  Currently we support only 
 
 **TPA_Extensions**
 
-|   ELEMENT    | REQUIRED |       TYPE       |       DESCRIPTION        |
+|   Element    | Required |      Data Type      |      Description        |
 |--------------|----------|------------------|--------------------------|
 | CustomFields | N        | Complex | This adds ORG unit name. |
 
 
 **CustomFields**
 
-|   ELEMENT   | REQUIRED |   TYPE    | DESCRIPTION |
+|  Element   | Required |   Data Type    | Description |
 |-------------|----------|-----------|-------------|
 | CustomField | N        |           |             |
 | *Name*      |          | xs:string |             |
