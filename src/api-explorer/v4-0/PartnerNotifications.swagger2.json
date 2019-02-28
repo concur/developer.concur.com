@@ -23,20 +23,13 @@
     }
   ],
   "paths": {
-    "/messages/{user_id}/session": {
+    "/messages/{userId}/session": {
       "post": {
         "tags": [
           "Resources"
         ],
         "description": "This endpoint provides a way for SAP Concur partners to message users and notify them. Partners will provide details about the message they want to send, along with data to apply to the message.",
         "parameters": [
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "A SAP Concur specific custom header used for technical support.",
-            "required": false,
-            "type": "string"
-          },
           {
             "name": "Authorization",
             "in": "header",
@@ -45,7 +38,7 @@
             "type": "string"
           },
           {
-            "name": "user_id",
+            "name": "userId",
             "in": "path",
             "description": "The unique identifier of the SAP Concur user.",
             "required": true,
@@ -130,7 +123,12 @@
         },
         "context": {
           "type": "object",
-          "description": "Contains additional information required for the template."
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The context URL to apply to the template. Please contact SAP Concur to add domains to the approved list."
+            }
+          }
         }
       }
     },
