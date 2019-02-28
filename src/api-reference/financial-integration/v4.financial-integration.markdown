@@ -494,10 +494,8 @@ Name|Type|Format|Description
 `companyId`|`string`|-|**Required** External system organizational Unit ID
 `documentNumber`|`string`|-|External system document identifier
 `fiscalYear`|`int32`|-|External system fiscal year
-`paymentRelevantLineItems`|`array`|[Payment Relevant Line Items](#schema-paymentli)|Line items details, if any
+`paymentRelevantLineItems`|`array`|-|Payment Relevant line items. This array is usually empty.
 `postingDate`|`string`|YYYY-MM-DD|External system posting date
-
-### <a name="schema-paymentli"></a>Payment Relevant Line Items
 
 ### <a name="schema-systemmsg"></a>System Messages
 
