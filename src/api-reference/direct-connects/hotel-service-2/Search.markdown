@@ -38,6 +38,11 @@ Message to perform the initial search for hotels.
       <StayDateRange Start="2018-09-26" End="2018-09-27"></StayDateRange>
      </Criterion>
     </Criteria>
+    <TPA_Extensions>
+       <CustomFields>
+        <CustomField Name="OrgUnit" Value="Travel Agents"></CustomField>
+       </CustomFields>
+    </TPA_Extensions>
    </OTA_HotelSearchRQ>
   </Body>
  </Envelope>
@@ -50,6 +55,7 @@ Message to perform the initial search for hotels.
 |----------------|----------|-----------|-------------|
 | *MaxResponses* | Y        | Int       | Concur currently supports 100 search results in one message. If more than 100 results are returned Concur drops all results after the 100th entry.|
 | Criteria       | Y        | Complex   | Specified hotel search criteria. |
+| TPA_Extensions|  N        | Complex   | This adds Org Unit name to the Search RQ |
 
 
 **Criteria**
@@ -71,6 +77,21 @@ The criterion is used to define the search criteria.  Currently we support only 
 | Radius        | N        | Complex   | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location. |
 | StayDateRange | Y        | Complex   | Range of dates using ISO 8601. |
 
+
+**TPA_Extensions**
+
+|   ELEMENT    | REQUIRED |       TYPE       |       DESCRIPTION        |
+|--------------|----------|------------------|--------------------------|
+| CustomFields | N        | Complex | This adds ORG unit name. |
+
+
+**CustomFields**
+
+|   ELEMENT   | REQUIRED |   TYPE    | DESCRIPTION |
+|-------------|----------|-----------|-------------|
+| CustomField | N        |           |             |
+| *Name*      |          | xs:string |             |
+| *Value*     |          | xs:string |             |
 
 **Position**
 
@@ -192,7 +213,7 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 
 | Element   | Required | Data Type        | Description |
 |-----------|----------|------------------|-------------|
-| StateCode | N        | StringLength1to8 | The standard code or abbreviation for the state, province, or region (note the code may not be available for all states). |
+| StateCode | N        | StringLength0to64 | The standard code or abbreviation for the state, province, or region (note the code may not be available for all states). |
 
 
 **CountryName**
