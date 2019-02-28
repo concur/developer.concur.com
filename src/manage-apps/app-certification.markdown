@@ -9,14 +9,22 @@ Handling data with care and delivering a positive experience for our customers i
 
 #### **Get Started on Your API Review**
 
-1. Start with an overview of the whole process: [API documentation]({{ site.baseurl }}/api-reference/).
-[Sandbox access:](/manage-apps/register.html) - During the Business Development phase, you were provided access to a Professional Edition Sandbox. You will continue to use this sandbox during your development and certification. Once a Certification Project Manager is assigned to your team, you will be provided access to another Standard Edition sandbox that will be used to validate token management across different data centers and, if necessary, differences between Professional Edition and Standard Edition.
-2. As you develop your app, your Certification Project Manager will record the exact APIs (including the version and verbs) that you will use for your application. See the requirements to pass certification in these Overview docs (including Support requirements expected of the Partner):
+Start with an overview of the whole process: [API documentation]({{ site.baseurl }}/api-reference/). During the Business Development phase, you will be provided access to a Professional Edition Sandbox. Sandboxes are required for partners or customers looking to use SAP Concur APIs to read and write data from SAP Concur. It is important that you contact your assigned technical resource at SAP Concur to gain access to a sandbox that best fits your scenario. If you are unsure of your technical contact, consider these 3 scenarios:
 
-Enterprise apps: <https://prezi.com/p/lw0qqy51zcmd/> (this does not pertain to a Triplink app integration)
-eReceipt apps: <https://prezi.com/p/ur2i1m8thynz/> (this does not pertain to a Triplink app integration)
+* Develop an application for the SAP Concur App Center. This requires a signed Partner Agreement, [contact us](mail to:concur_bizdev@sap.com).
+* Develop an application as a SAP Concur client (or for a client). The client must purchase the Client Web Services SKU and their administrative support contact would open a case through our [support portal](https://www.concur.com/en-us/support).
+* Develop an application as a TMC/reseller, [contact us](mailto:supplierservices@sap.com).
 
-3. Once you complete the walkthrough demonstration(s) of your integration, you may be asked for additional information or be requested to make changes to your app integration depending on the outcome of the review.  
+You will continue to use this sandbox during your development and certification. Once a Certification Project Manager is assigned to your team, you will be provided access to another Standard Edition sandbox that will be used to validate token management across different data centers and, if necessary, differences between Professional Edition and Standard Edition.
+
+As you develop your app, your Certification Project Manager will record the exact APIs (including the version and verbs) that you will use for your application. See the requirements to pass certification in these Overview docs (including Support requirements expected of the Partner):
+
+* [Enterprise apps](https://prezi.com/p/lw0qqy51zcmd/)
+* [eReceipt apps](https://prezi.com/p/ur2i1m8thynz/)
+
+> Note: These do not apply a Triplink app integration.
+
+Once you complete the walkthrough demonstration(s) of your integration, you may be asked for additional information or be requested to make changes to your app integration depending on the outcome of the review.  
 
 After your app is approved, your SAP Concur App Center Listing will be reviewed before publishing in the [SAP Concur App Center](https://www.concur.com/en-us/app-center).  
 
