@@ -66,13 +66,13 @@ Expense Report with one expense item: Bus - USD 10.
 
 Debit|Credit
 ---|---
-ER USD 10|-
+Expense Report USD 10|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER USD 10
+-|Expense Report USD 10
 
 **Posting Record**
 
@@ -153,13 +153,13 @@ The user receives a USD 50 cash rebate for a hotel stay that was fully reimburse
 
 Debit|Credit
 ---|---
--|ER USD 50
+-|Expense Report USD 50
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
-ER USD 50|-
+Expense Report USD 50|-
 
 **Posting Record**
 
@@ -209,13 +209,13 @@ The user enters a single personal car mileage transaction for a round trip to th
 
 Debit|Credit
 ---|---
-ER USD 21.70|-
+Expense Report USD 21.70|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER USD 21.70
+-|Expense Report USD 21.70
 
 **Posting Record**
 
@@ -267,13 +267,13 @@ A German traveler receives meal per diems that are higher the legal rates. In th
 
 Debit|Credit
 ---|---
-ER EUR 50|-
+Expense Report EUR 50|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER EUR 50
+-|Expense Report EUR 50
 
 **Posting Record**
 
@@ -298,19 +298,19 @@ Expense Report with one expense item: Bus - EUR 11.90 (including 19% - EUR 1.90 
 
 Debit|Credit
 ---|---
-ER EUR 10|-
+Expense Report EUR 10|-
 
 **VAT Account**
 
 Debit|Credit
 ---|---
-ER EUR 1.90|-
+Expense Report EUR 1.90|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER EUR 11.90
+-|Expense Report EUR 11.90
 
 **Posting Record**
 
@@ -346,19 +346,19 @@ Expense report with a hotel receipt that does not include the company address.
 
 Debit|Credit
 ---|---
-ER EUR 10.00|-
+Expense Report EUR 10.00|-
 
 **Non-deductible VAT Expense Account**
 
 Debit|Credit
 ---|---
-ER EUR 1.90|-
+Expense Report EUR 1.90|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER EUR 11.90
+-|Expense Report EUR 11.90
 
 **Posting Record**
 
@@ -374,13 +374,13 @@ Employee Vendor|-|EUR 11.90
 
 Debit|Credit
 ---|---
-ER EUR 11.90|-
+Expense Report EUR 11.90|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER EUR 11.90
+-|Expense Report EUR 11.90
 
 **Posting Record**
 
@@ -400,13 +400,13 @@ Employee Vendor|-|EUR 11.90
 
 Debit|Credit
 ---|---
-ER EUR 11.90|-
+Expense Report EUR 11.90|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER EUR 11.90
+-|Expense Report EUR 11.90
 
 **Posting Record**
 
@@ -436,25 +436,25 @@ For a hotel receipt of EUR 230 (including 15% - EUR 30 VAT) the VAT is only dedu
 
 Debit|Credit
 ---|---
-ER EUR 200.00|-
+Expense Report EUR 200.00|-
 
 **VAT Account**
 
 Debit|Credit
 ---|---
-ER EUR 15.00|-
+Expense Report EUR 15.00|-
 
 **Non-deductible VAT Account**
 
 Debit|Credit
 ---|---
-ER EUR 15|-
+Expense Report EUR 15|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER EUR 230
+-|Expense Report EUR 230
 
 **Posting Record**
 
@@ -471,19 +471,19 @@ Employee Vendor|-|EUR 230
 
 Debit|Credit
 ---|---
-ER EUR 215|-
+Expense Report EUR 215|-
 
 **VAT Account**
 
 Debit|Credit
 ---|---
-ER EUR 15|-
+Expense Report EUR 15|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER EUR 230
+-|Expense Report EUR 230
 
 **Posting Record**
 
@@ -507,13 +507,13 @@ German employee enters a receipt for US-based training. In this case, independen
 
 Debit|Credit
 ---|---
-ER EUR 100|-
+Expense Report EUR 100|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER EUR 100
+-|Expense Report EUR 100
 
 **Posting Record**
 
@@ -540,21 +540,21 @@ For a hotel receipt of EUR 214 (including 7% - EUR 14 VAT) the costs per night s
 
 Debit|Credit
 ---|---
-ER EUR 100|-
-ER EUR 100|-
+Expense Report EUR 100|-
+Expense Report EUR 100|-
 
 **VAT Account**
 
 Debit|Credit
 ---|---
-ER EUR 7|-
-ER EUR 7|-
+Expense Report EUR 7|-
+Expense Report EUR 7|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER EUR 214
+-|Expense Report EUR 214
 
 **Posting Record**
 
@@ -596,13 +596,13 @@ Employee requests a cash advance of USD 300.
 
 Debit|Credit
 ---|---
-CA USD 300|-
+Cash Advance USD 300|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|CA USD 300
+-|Cash Advance USD 300
 
 **Posting Record**
 
@@ -627,13 +627,13 @@ Employee gets USD 300 from an ATM using a company paid credit card.
 
 Debit|Credit
 ---|---
-CA USD 300|-
+Cash Advance USD 300|-
 
 **Credit Card Clearing Account**
 
 Debit|Credit
 ---|---
--|CA USD 300
+-|Cash Advance USD 300
 
 **Posting Record**
 
@@ -660,21 +660,21 @@ The user has gone to an ATM and withdrawn USD 300 in cash on the corporate card.
 
 Debit|Credit
 ---|---
--|ER USD 300
+-|Expense Report USD 300
 
 **Expense Account**
 
 Debit|Credit
 ---|---
-ER (Rental Car) USD 245|-
-ER (Meal) USD 60|-
-ER (Parking) USD 10|-
+Expense Report (Rental Car) USD 245|-
+Expense Report (Meal) USD 60|-
+Expense Report (Parking) USD 10|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|CA USD 15
+-|Cash Advance USD 15
 
 **Posting Record**
 
@@ -869,21 +869,21 @@ The user has requested and received a USD 400 cash advance and in the course of 
 
 Debit|Credit
 ---|---
--|ER USD 400
+-|Expense Report USD 400
 
 **Expense Account**
 
 Debit|Credit
 ---|---
-ER (Rental Car) USD 245|-
-ER (Meal) USD 60|-
-ER (Parking) USD 10|-
+Expense Report (Rental Car) USD 245|-
+Expense Report (Meal) USD 60|-
+Expense Report (Parking) USD 10|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
-ER USD 85|-
+Expense Report USD 85|-
 
 **Posting Record**
 
@@ -971,13 +971,13 @@ Expense Report with one employee paid credit card item: Bus - USD 10.
 
 Debit|Credit
 ---|---
-ER 10 USD 10|-
+Expense Report USD 10|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 10
+-|Expense Report USD 10
 
 **Posting Record**
 
@@ -1000,13 +1000,13 @@ Rental car paid with IBIP card for USD 10.
 
 Debit|Credit
 ---|---
-ER 10 USD 10|-
+Expense Report USD 10|-
 
 **Credit Card Vendor Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 10
+-|Expense Report USD 10
 
 **Posting Record**
 
@@ -1057,13 +1057,13 @@ The user receives a USD 349 credit on the corporate card for an unused airline t
 
 Debit|Credit
 ---|---
--|ER 10 USD 349
+-|Expense Report USD 349
 
 **Credit Card Vendor Account**
 
 Debit|Credit
 ---|---
-ER 10 USD 349|-
+Expense Report USD 349|-
 
 **Posting Record**
 
@@ -1114,15 +1114,15 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 Debit|Credit
 ---|---
-ER 10 USD 125|-
-ER 10 USD 125|-
-ER 10 USD 20|-
+Expense Report USD 125|-
+Expense Report USD 125|-
+Expense Report USD 20|-
 
 **Credit Card Vendor Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 270
+-|Expense Report USD 270
 
 **Posting Record**
 
@@ -1221,23 +1221,23 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 Debit|Credit
 ---|---
-ER 10 (Hotel) USD 125|-
-ER 10 (Hotel  USD 125|-
-ER 10 (Dinner) USD 20|-
-ER 10 (Taxi) USD 14|-
-ER 10 (Taxi) USD 21|-
+Expense Report (Hotel) USD 125|-
+Expense Report (Hotel  USD 125|-
+Expense Report (Dinner) USD 20|-
+Expense Report (Taxi) USD 14|-
+Expense Report (Taxi) USD 21|-
 
 **Credit Card Vendor Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 284
+-|Expense Report USD 284
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 21
+-|Expense Report USD 21
 
 **Posting Record**
 
@@ -1265,16 +1265,16 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 Debit|Credit
 ---|---
-ER 10 (Hotel) USD 125|-
-ER 10 (Hotel) USD 125|-
-ER 10 (Dinner) USD 20|-
-ER 10 (Parking) USD 5|-
+Expense Report (Hotel) USD 125|-
+Expense Report (Hotel) USD 125|-
+Expense Report (Dinner) USD 20|-
+Expense Report (Parking) USD 5|-
 
 **Credit Card Vendor Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 275
+-|Expense Report USD 275
 
 **Posting Record**
 
@@ -1296,7 +1296,7 @@ Credit Card Vendor|-|USD 275
 #### Description
 
 The company receives a periodic (for example, monthly) credit card invoice to
-pay the company paid expense items. This invoice **does not** include enough information to distribute the items to the correct expense accounts and VAT. For that reason the expense item gross amounts are posted to a clearing account CC Statement posting is not triggered by Concur but by a direct import into ERP.
+pay the company paid expense items. This invoice **does not** include enough information to distribute the items to the correct expense accounts and VAT. For that reason the expense item gross amounts are posted to a clearing account Credit Card Statement posting is not triggered by Concur but by a direct import into ERP.
 
 #### Posting Example
 
@@ -1306,25 +1306,25 @@ Hotel costs (EUR 107) are paid via company paid credit card (including EUR 7 VAT
 
 Debit|Credit
 ---|---
-ER 10 EUR 100|-
+Expense Report EUR 100|-
 
 **VAT**
 
 Debit|Credit
 ---|---
-ER 10 EUR 7|-
+Expense Report EUR 7|-
 
 **Credit Card Clearing Account**
 
 Debit|Credit
 ---|---
-CC Statement EUR 107|ER 10 EUR 107
+Credit Card Statement EUR 107|ER 10 EUR 107
 
 **Credit Card Vendor Account**
 
 Debit|Credit
 ---|---
--|CC Statement EUR 107
+-|Credit Card Statement EUR 107
 
 **Posting Record - Expense Report**
 
@@ -1332,14 +1332,14 @@ Account|Debit|Credit
 ---|---|---
 Expense|EUR 100|-
 VAT|EUR 7|-
-CC Clearing Account|-|EUR 107
+Credit Card Clearing Account|-|EUR 107
 
 **Posting Record - Credit Card Statement**
 
 Account|Debit|Credit
 ---|---|---
-CC Clearing Account|EUR 107|-
-CC Vendor Account|-|EUR 107
+Credit Card Clearing Account|EUR 107|-
+Credit Card Vendor Account|-|EUR 107
 
 ### <a name="ucvea"></a>Clearing via Expense Account
 
@@ -1347,7 +1347,7 @@ CC Vendor Account|-|EUR 107
 
 The company receives a periodic (for example, monthly) credit card invoice to pay the company paid expense items. This invoice **does include** enough information to distribute the items to the correct expense accounts and VAT. For that reason the expense account and VAT can already be posted with the statement.
 
-CC Statement posting is not triggered by Concur Expense but by a direct import into ERP.
+Credit Card Statement posting is not triggered by Concur Expense but by a direct import into ERP.
 
 #### Posting Example
 
@@ -1357,23 +1357,23 @@ Hotel costs (EUR 107) are paid via company paid credit card (including EUR 7 VAT
 
 Debit|Credit
 ---|---
-ER 10 EUR 100|-
--|ER 10 EUR 100
-CC Statement EUR 100|-
+Expense Report EUR 100|-
+-|Expense Report EUR 100
+Credit Card Statement EUR 100|-
 
 **VAT**
 
 Debit|Credit
 ---|---
-ER 10 EUR 7|-
--|ER 10 EUR 7
-CC Statement EUR 7|-
+Expense Report EUR 7|-
+-|Expense Report EUR 7
+Credit Card Statement EUR 7|-
 
 **Credit Card Vendor Account**
 
 Debit|Credit
 ---|---
--|CC Statement EUR 107
+-|Credit Card Statement EUR 107
 
 **Posting Record - Expense Report**
 
@@ -1388,9 +1388,9 @@ VAT|-|EUR 7
 
 Account|Debit|Credit
 ---|---|---
-Expense*EUR 100*|-
-|VAT|EUR 7|-
-|CC Vendor Account|-|EUR 107
+Expense|EUR 100|-
+VAT|EUR 7|-
+Credit Card Vendor Account|-|EUR 107
 
 [Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#ecvea)
 
@@ -1434,13 +1434,13 @@ The employee mistakenly uses the corporate card to pay for a personal dinner exp
 
 Debit|Credit
 ---|---
-ER 10 USD 53|-
+Expense Report USD 53|-
 
 **Credit Card Clearing Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 53
+-|Expense Report USD 53
 
 **Posting Record - Expense Report**
 
@@ -1463,22 +1463,22 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 Debit|Credit
 ---|---
-ER 10 (Hotel) USD 125|-
-ER 10 (Hotel) USD 125|-
-ER 10 (Dinner) USD 20|-
-ER 10 (Taxi)  USD 35|-
+Expense Report (Hotel) USD 125|-
+Expense Report (Hotel) USD 125|-
+Expense Report (Dinner) USD 20|-
+Expense Report (Taxi)  USD 35|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 21
+-|Expense Report USD 21
 
 **Credit Card Clearing Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 284
+-|Expense Report USD 284
 
 **Posting Record - Expense Report**
 
@@ -1505,23 +1505,23 @@ The user assigns a prepopulated corporate card transaction to the expense report
 
 Debit|Credit
 ---|---
-ER 10 (Hotel) USD 125|-
-ER 10 (Hotel) USD 125|-
-ER 10 (Dinner) USD 20|-
-ER 10 (Taxi)  USD 35|-
+Expense Report (Hotel) USD 125|-
+Expense Report (Hotel) USD 125|-
+Expense Report(Dinner) USD 20|-
+Expense Report (Taxi)  USD 35|-
 
 **Employee Vendor Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 35
-ER 10 USD 14|-
+-|Expense Report USD 35
+Expense Report USD 14|-
 
 **Credit Card Clearing Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 284
+-|Expense Report USD 284
 
 **Posting Record - Expense Report**
 
@@ -1549,13 +1549,13 @@ The employee mistakenly uses the corporate card to pay for a personal dinner exp
 
 Debit|Credit
 ---|---
-ER 10 USD 53|-
+Expense Report USD 53|-
 
 **Credit Card Clearing Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 53
+-|Expense Report USD 53
 
 **Posting Record - Expense Report**
 
@@ -1585,25 +1585,25 @@ We will only support the SAP standard I/Co posting process that can be set up in
 
 Debit|Credit
 ---|---
--|ER 10 USD 100
+-|Expense Report USD 100
 
 **ICO Clearing Account**
 
 Debit|Credit
 ---|---
-ER 10 USD 100|-
+Expense Report USD 100|-
 
 **ICO Clearing Account**
 
 Debit|Credit
 ---|---
--|ER 10 USD 100
+-|Expense Report USD 100
 
 **Expense Account**
 
 Debit|Credit
 ---|---
-ER 10 USD 100|-
+Expense Report USD 100|-
 
 **Posting Record - Employee Company Code**
 
@@ -1633,25 +1633,25 @@ For a coding example you can look at the CfTE method CL_DCFL_FIN_PREPROC_INIT_TV
 
 Debit|Credit
 ---|---
--|ER 10 USD 100
+-|Expense Report USD 100
 
 **Expense Account - Posting 1**
 
 Debit|Credit
 ---|---
-ER 10 USD 100|-
+Expense Report USD 100|-
 
 **Credit Card Clearing Account - Posting 2**
 
 Debit|Credit
 ---|---
--|ER 10 USD 50
+-|Expense Report USD 50
 
 **Expense Account - Posting 2**
 
 Debit|Credit
 ---|---
-ER 10 USD 50|-
+Expense Report USD 50|-
 
 **Posting Record - Posting 1**
 
