@@ -2,7 +2,7 @@
 title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
-### 2019-02-19 :: New SSL Certificate for concursolutions.com – Updated Date
+### 2019-03-01 :: New SSL Certificate for concursolutions.com – Updated Date
 
 #### Overview
 In an effort to ensure the ongoing security of our products and services, SAP Concur has issued a new concursolutions.com SSL certificate. ***The current certificate will be replaced on March 8, 2019.***
