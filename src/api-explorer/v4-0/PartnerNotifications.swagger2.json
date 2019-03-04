@@ -1,0 +1,158 @@
+{
+  "swagger": "2.0",
+  "host": "us.api.concursolutions.com",
+  "basePath": "/notifications/v4",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "info": {
+    "title": "Notifications",
+    "description": "The purpose of this API is to provide SAP Concur's partners the ability to message users, through the web and mobile product.",
+    "version": "4.0.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/messages/{userId}/session": {
+      "post": {
+        "tags": [
+          "Resources"
+        ],
+        "description": "This endpoint provides a way for SAP Concur partners to message users and notify them. Partners will provide details about the message they want to send, along with data to apply to the message.",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token that identifies the caller. This is the Company or User access token.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of the SAP Concur user.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "notificationsPartnerRequestBody",
+            "in": "body",
+            "description": "The payload request body.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NotificationsPartnerRequestBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "NotificationsPartnerRequestBody": {
+      "type": "object",
+      "required": [
+        "sessionId",
+        "templateId",
+        "context"
+      ],
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "description": "The unique ID of the session."
+        },
+        "templateId": {
+          "type": "string",
+          "description": "The template identifier of the message."
+        },
+        "context": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The context URL to apply to the template. Please contact SAP Concur to add domains to the approved list."
+            }
+          }
+        }
+      }
+    },
+    "ErrorMessage": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "errorId": {
+                "type": "string"
+              },
+              "errorCode": {
+                "type": "string"
+              },
+              "errorMessage": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
