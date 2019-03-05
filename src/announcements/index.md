@@ -2,12 +2,12 @@
 title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
-### 2019-03-01 :: New SSL Certificate for concursolutions.com – Updated Date
+### 2019-03-05 :: New SSL Certificate for concursolutions.com
 
 #### Overview
-In an effort to ensure the ongoing security of our products and services, SAP Concur has issued a new concursolutions.com SSL certificate. ***The current certificate will be replaced on March 9, 2019.***
+In an effort to ensure the ongoing security of our products and services, SAP Concur has issued a new concursolutions.com SSL certificate. ***The current certificate will expire on March 16, 2019.***
 
-Any customer who has pinned this expiring certificate will need to update to the new certificate prior to March 9, 2019. If the pinned certificate is not updated prior to March 9, 2019, your organization and users will experience disruption to SAP Concur products and services.
+Any customer who has pinned this expiring certificate will need to update to the new certificate prior to March 16, 2019. If the pinned certificate is not updated prior to March 16, 2019, your organization and users will experience disruption to SAP Concur products and services.
 
 Customers who have not pinned the certificate do not need to take any action as the new certificate is updated automatically. Most customers do not pin the certificate.
 

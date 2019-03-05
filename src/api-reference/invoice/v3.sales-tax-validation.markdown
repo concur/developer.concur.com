@@ -9,11 +9,11 @@ redirect_from:
 * [Update Invoices with the Calcuated Tax Amount and Tax Rate](#put)
 * [Schema](#schema)
   * [Invoice](#invoice)
-  * [Bill To Address](#billToAddress)
-  * [Line Item](#lineItem)
+  * [Bill To Address](#bill-to-address)
+  * [Line Item](#line-item)
   * [Allocation](#allocation)
   * [Vendor](#vendor)
-  * [Ship To Address](#shipToAddress)
+  * [Ship To Address](#ship-to-address)
 * [Status Schema](#schema-status)
 
 ## Version
@@ -56,7 +56,7 @@ None.
 
 ### Response
 
-[Status schema](#schema-status)
+[Status Schema](#schema-status)
 
 ## <a name="schema"></a>Invoices Schema
 
@@ -66,7 +66,7 @@ None.
 |-----|------|--------|------------|
 | `Items`|`array`|`Invoice`|The result collection.|
 | `NextPage`|`string`|-|The URI of the next page of results, if any.|
-| `TotalCount`|`Int32`|-|
+| `TotalCount`|`Int32`|-|The amount of items returned.
 
 ### <a name="invoice"></a>Invoice
 
@@ -84,6 +84,8 @@ None.
 |`LineItem`|`array`|[`LineItem`](#LineItem)|The line items associated with the invoice.
 |`OrgUnit1 through OrgUnit6`|`string`|-|The code from the OrgUnit fields. These fields may not have data, depending on the configuration.
 |`OrgUnit1Value though OrgUnit6Value`|`string`|-|The value from the OrgUnit fields. These fields may not have data, depending on the configuration.
+|`Custom1 through Custom24`|`string`|-|The code from the Custom fields. These fields may not have data, depending on the configuration.
+|`Custom1Value through Custom24Value`|`string`|-|The value from the Custom fields. These fields may not have data, depending on the configuration.
 |`PurchaseOrderNumber`|`string`|-|The Purchase Order number (if available) associated to the Payment Request.
 |`ShippingAmount`|`string`|-|The shipping amount for the invoice.
 |`ShipToAddress`|`object`|[`ShipToAddress`](#ShipToAddress)|
@@ -95,8 +97,9 @@ None.
 |`Total`|`string`|-|The total amount of the request.
 |`URI`|`string`|-|The URI to the resource.
 |`VendorInvoiceNumber`|`string`|-|The vendor invoice number that is associated with the invoice.
+|`RequestID`|`string`|-|The ID of the payment request.
 
-### <a name="billToAddress"></a>BillToAddress  
+### <a name="bill-to-address"></a>BillToAddress  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -111,7 +114,7 @@ None.
 |`State`|`string`|-|**Required** The state or province of the shipping or billing address.
 |`StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-### <a name="lineItem"></a>LineItem  
+### <a name="line-item"></a>LineItem  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -149,7 +152,7 @@ None.
 |`VendorAddressName`|`string`|-|**Required** Name for Vendor Address.
 |`VendorName`|`string`|-|**Required** The name of the vendor.
 
-### <a name="shipToAddress"></a>ShipToAddress  
+### <a name="ship-to-address"></a>ShipToAddress  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
