@@ -11,7 +11,7 @@ Handling data with care and delivering a positive experience for our customers i
 
 Start with an overview of the whole process: [API documentation]({{ site.baseurl }}/api-reference/). During the Business Development phase, you will be provided access to a Professional Edition Sandbox. Sandboxes are required for partners or customers looking to use SAP Concur APIs to read and write data from SAP Concur. It is important that you contact your assigned technical resource at SAP Concur to gain access to a sandbox that best fits your scenario. If you are unsure of your technical contact, consider these 3 scenarios:
 
-* Develop an application for the SAP Concur App Center. This requires a signed Partner Agreement, [contact us](mail to:concur_bizdev@sap.com).
+* Develop an application for the SAP Concur App Center. This requires a signed Partner Agreement, [contact us](mailto:concur_bizdev@sap.com).
 * Develop an application as a SAP Concur client (or for a client). The client must purchase the Client Web Services SKU and their administrative support contact would open a case through our [support portal](https://www.concur.com/en-us/support).
 * Develop an application as a TMC/reseller, [contact us](mailto:supplierservices@sap.com).
 
