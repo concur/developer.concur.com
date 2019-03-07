@@ -1,63 +1,173 @@
 ---
-title: Technical Overview
+title: Travel Receipts v1
 layout: reference
 ---
 
 {% include prerelease.html %}
 
-# Technical Overview
 
-The Travel Receipts service currently offers one endpoint for retrieving receipt requests. See below for information on the optional parameters, results pagination, and response schema.
+The Travel Receipts service offers one endpoint for retrieving receipt requests.
 
-* [Endpoint](#endpoint)
+The Travel Receipts service exposes receipt requests to inform E-Receipt partners which E-Receipts to send to SAP Concur and for which user. A partner can call the API and receive paged responses of receipt requests (a maximum of 25 receipt requests per page). When the `next` field is empty/null, the partner has reached the last page of receipt requests.
+
+If the partner supplies a timestamp as a parameter, it is used as the start time for results. If not, the API retrieves the results from the last 24 hours.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. This API is not available in Implementation environments. This API is only available in the US and EMEA data centers.
+
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Retrieve a Travel Receipt](#retrieve-travel-receipt)
 * [Pagination](#pagination)
 * [Schema](#schema)
 
-## <a name="endpoint"></a>Endpoint
-						
-	GET  /travelreceipts/v1/receiptrequests/{ts}/{key}
+## <a name="products-editions"></a>Products and Editions
 
-### Parameters
+* Concur Travel Professional Edition
+* Concur Travel Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Name|Description|Endpoint
+---|---|---
+`travel.receipts.read`|Retrieves a travel receipt.|GET
+
+## <a name="dependencies"></a>Dependencies
+
+None.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports company level access tokens.
+
+## <a name="retrieve-travel-receipt"></a>Retrieve a Travel Receipt
+
+Retrieves a travel receipt request.
+
+### Scopes
+
+`travel.receipts.read` - Refer to [Scope Usage](#scope-usage) for full details.
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/travelreceipts/v1/receiptrequests/{ts}/{key}
+```
+
+##### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`ts`	|	`integer`	|	`int64`	|	Optional parameter for the timestamp to specify a start time (if blank, defaults to last 24 hours)
-`key`	|	`string`	|	`uuid`	|	Optional parameter for the current item key, populated from the previous response (from the `next` field in the response)
+`ts`	|	`integer`	|	`int64`	|	Timestamp to specify a start time (if blank, defaults to last 24 hours)
+`key`	|	`string`	|	`uuid`	|	Current item key, populated from the previous response (from the `next` field in the response)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+#### Payload
+TBA
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)
+* [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
+
+
+#### Payload
+* [Travel Receipts Response](#schema)
 
 ### Example
-_cURL:_
 
 ```shell
 curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/travelreceipts/v1/receiptrequests
 ```
 
+```json
+{
+  "items":[
+  {
+    "requestId":"12e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
+    "vendor":"ZE",
+    "confirmationNumber":"H1234567A1",
+    "firstName":"DOE",
+    "lastName":"JANE",
+    "segmentStartDate":"2019-03-14T00:30:00Z",
+    "segmentEndDate":"2019-03-14T18:00:00Z",
+    "requestDate":"2019-03-05T23:58:09.540514416Z"
+  },
+  {
+    "requestId":"34e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
+    "vendor":"ZE",
+    "confirmationNumber":" H1234567A2",
+    "firstName":"PETER",
+    "lastName":"PARKER",
+    "segmentStartDate":"2019-03-14T20:30:00Z",
+    "segmentEndDate":"2019-03-15T23:45:00Z",
+    "requestDate":"2019-03-05T23:58:09.540515177Z"
+  },
+  {
+    "requestId":"56e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
+    "vendor":"ZE",
+    "confirmationNumber":" H1234567A3",
+    "firstName":"GUMP",
+    "lastName":"FORREST",
+    "segmentStartDate":"2019-03-19T17:35:00Z",
+    "segmentEndDate":"2019-03-21T00:40:00Z",
+    "requestDate":"2019-03-05T23:58:09.540515833Z"
+  },
+  {
+    "requestId":"78e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
+    "vendor":"ZE",
+    "confirmationNumber":" H1234567A4",
+    "firstName":"JANE",
+    "lastName":"DOE",
+    "segmentStartDate":"2019-03-06T05:53:00Z",
+    "segmentEndDate":"2019-03-07T21:45:00Z",
+    "requestDate":"2019-03-05T23:58:09.540520756Z"
+    }
+  ],
+  "next":"/v1/receiptrequests/1551744000/12e1234e-3fa2-11e9-b37e-6a1234b3ceb0"
+}
+```
 ## <a name="pagination"></a>Pagination
 
 The results of the API call are limited to a maximum of 25 receipt requests per page. The partner can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The partner reached the last page of results when `next` is null/empty.
 
-## <a name="schema"></a>Schema							
+## <a name="schema"></a>Schema
 
 ### Response
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`Items`	|	`Array`	|	[Receipt Request](#receiptrequest)	|	An array of Receipt Request items
-`Next`	|	`string`	|	-	|	Key for the next page of results
+`items`	|	`Array`	|	[Receipt Request](#receipt-request)	|	An array of Receipt Request items
+`next`	|	`string`	|	-	|	Key for the next page of results
 
 
-### <a name="receiptrequest"></a>Receipt Request
-		
+### <a name="receipt-request"></a>Receipt Request
+
 Name | Type | Format | Description
 -----|------|--------|------------
-`ConfirmationNumber`	|	`string`	|	-	|	Confirmation number for the receipt request
-`FirstName`	|	`string`	|	-	|	First name of the guest for the receipt request
-`LastName`	|	`string`	|	-	|	Last name of the guest for the receipt request
-`RequestDate`	|	`date-time`	|	ISO 8601	|	Date of the receipt request
-`RequestID`	|	`uuid`	|	-	|	ID for the receipt request
-`SegmentEndDate`	|	`date-time`	|	ISO 8601	|	End date for the receipt request segment
-`SegmentStartDate`	|	`date-time`	|	ISO 8601	|	Start date for the receipt request segment
-`Vendor`	|	`string`	|	-	|	Vendor code for the receipt request
-
-
-
-
+`confirmationNumber`	|	`string`	|	-	|	Confirmation number for the receipt request
+`firstName`	|	`string`	|	-	|	First name of the guest for the receipt request
+`lastName`	|	`string`	|	-	|	Last name of the guest for the receipt request
+`requestDate`	|	`date-time`	|	ISO 8601	|	Date of the receipt request
+`requestId`	|	`uuid`	|	-	|	ID for the receipt request
+`segmentEndDate`	|	`date-time`	|	ISO 8601	|	End date for the receipt request segment
+`segmentStartDate`	|	`date-time`	|	ISO 8601	|	Start date for the receipt request segment
+`vendor`	|	`string`	|	-	|	Vendor code for the receipt request
