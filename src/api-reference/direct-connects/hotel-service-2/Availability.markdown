@@ -408,7 +408,7 @@ GuaranteeRequired     | Description |
 
 | Element  | Required | Data Type | Description |
 |----------|----------|-----------|-------------|
-| CardType | Y        | String    | String representation of a Card Type eg Visa, Master Card, etc. |
+| CardType | Y        | String    | String representation of a Card Type eg Visa, MasterCard, etc. |
 
 #### Total
 

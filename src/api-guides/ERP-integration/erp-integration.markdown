@@ -64,7 +64,7 @@ The integration is slightly different depending on Expense or Invoice.
 
 The integration is different depending on Expense or Invoice:
 
-* **Invoice**: **Required** Use of the List API is required for the Invoice integration (e.g. for the custom list values that are part of the Vendor Master records).
+* **Invoice**: **Required** Use of the List API is required for the Invoice integration (e.g. for the custom list values that are part of the Vendor Primary records).
 
 * **Expense**: _Optional_ Use of the List API is not required for the Expense integration at this time.
 

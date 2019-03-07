@@ -207,7 +207,7 @@ Message to reserve a hotel.
 |----------------|----------|-------------------|-------------|
 | *CardCode* | N | UpperCaseAlphaLength1to2 | Issuer code. Example: MC, VI, AX |
 | *ExpireDate* | N | MMYYDate | Indicates the ending date. |
-| CardType       | Y        | StringLength1to32 | Payment card type. Example: Mastercard |
+| CardType       | Y        | StringLength1to32 | Payment card type. Example: MasterCard |
 | CardHolderName | Y        | StringLength1to32 | Card holder name. |
 | CardNumber     | Y        | Complex           | The Card Number |
 | Address        | Y        | Complex           | Refer to Address in Search |
@@ -453,7 +453,7 @@ The maximum allowed size of OTA_HotelResRS is 150 KB. Any response that exceeds 
                         <AcceptedPayments>
                           <AcceptedPayment>
                           <PaymentCard CardCode="MC">
-                            <CardType>Mastercard</CardType>
+                            <CardType>MasterCard</CardType>
                           </PaymentCard>
                           </AcceptedPayment>
                         </AcceptedPayments>

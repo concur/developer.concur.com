@@ -257,7 +257,7 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 
 |  Element    |  Description |
 |-----------|-----------|
-|  CreditCard |  This element will appear if the Credit Card form of payment is accepted. Contains the **Type** child element with one of the following values: AX - American Express, CA - Master Card, VI - Visa, DS - Discover Card, DC - Diners Club |
+|  CreditCard |  This element will appear if the Credit Card form of payment is accepted. Contains the **Type** child element with one of the following values: AX - American Express, CA - MasterCard, VI - Visa, DS - Discover Card, DC - Diners Club |
 |  Cash |  This element will appear if the Cash form of payment is accepted. |
 |  Check |  This element will appear if the Check form of payment is accepted. |
 |  DirectBilling |  This element will appear if the Direct Billing form of payment is accepted. |

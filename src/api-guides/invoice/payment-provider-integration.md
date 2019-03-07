@@ -41,7 +41,7 @@ Option|Technique|Owner responsible for update
 ---|---|---
 Option 1|File import-On-Demand Import via an Excel template within the SAP-Concur Invoice product|Customer completes
 Option 2|File import-Scheduled Import via a csv file|Customer completes
-Option 3|App integration|Customer and Partner need to coordinate since Vendor master data most likely resides in their ERP
+Option 3|App integration|Customer and Partner need to coordinate since Vendor primary data most likely resides in their ERP
 
 ### <a name="Update-Vendor-Payment-Method-field"></a>Update Vendor Payment Method field
 

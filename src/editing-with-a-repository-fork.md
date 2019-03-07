@@ -27,7 +27,7 @@ Note: You go through these steps exactly once to get everything setup. This set 
   1. Choose the method you wish to use, HTTPS or SSH.
   1. Copy the URI path for the method.
 1. Open a command line interface.
-1. Navigate to the path where you want to store source code. If you need a guide on how to do this via the command prompt here is one for [MacOS](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html) and [Windows](https://www.digitalcitixzen.life/command-prompt-how-use-basic-commands). Typically it is `cd {path}` on both.
+1. Navigate to the path where you want to store source code. Typically it is `cd {path}` on both MacOS and Windows operating systems.
 1. Issue: `git clone {uri}` where `uri` is the path copied earlier. Example: `git clone https://github.com/retrosight/developer.concur.com.git`. A typical result of cloning is as follows.
 
 ```shell

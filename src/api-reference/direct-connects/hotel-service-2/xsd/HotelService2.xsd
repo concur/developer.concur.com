@@ -1904,7 +1904,7 @@
 			<xs:element minOccurs="0" name="CardType" type="List_PaymentCardIssuer">
 				<xs:annotation>
 					<xs:documentation source="Description" xml:lang="en">Payment card type.</xs:documentation>
-					<xs:documentation source="Example" xml:lang="en">Example: Mastercard</xs:documentation>
+					<xs:documentation source="Example" xml:lang="en">Example: MasterCard</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="CardHolderName" type="StringLength1to64">
@@ -3034,7 +3034,7 @@
 					</xs:enumeration>
 					<xs:enumeration value="MC">
 						<xs:annotation>
-							<xs:documentation xml:lang="en">Master Card</xs:documentation>
+							<xs:documentation xml:lang="en">MasterCard</xs:documentation>
 						</xs:annotation>
 					</xs:enumeration>
 					<xs:enumeration value="TP">

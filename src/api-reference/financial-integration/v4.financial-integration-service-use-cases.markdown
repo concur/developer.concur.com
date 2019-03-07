@@ -576,7 +576,7 @@ Entering a cost allocation is not mandatory in Concur Expense. The cost allocati
 
 In that case it is necessary to check first if a cost object assignment is available on expense entry level. This could be available within the Org  fields or in the Custom fields.
 
-If there is no information available then it is necessary to check the corresponding fields on expense report header level and as last instance the employee master data.
+If there is no information available then it is necessary to check the corresponding fields on expense report header level and as last instance the employee primary data.
 
 ## <a name="ucasha"></a>Cash Advances
 
