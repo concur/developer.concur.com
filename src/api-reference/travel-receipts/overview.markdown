@@ -62,8 +62,8 @@ https://{datacenterURI}/travelreceipts/v1/receiptrequests/{ts}/{key}
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`ts`	|	`integer`	|	`int64`	|	Timestamp to specify a start time (if blank, defaults to last 24 hours)
-`key`	|	`string`	|	`uuid`	|	Current item key, populated from the previous response (from the `next` field in the response)
+`ts`	|	`integer`	|	`int64`	|	Timestamp to specify a start time (if blank, defaults to last 24 hours).
+`key`	|	`string`	|	`uuid`	|	Current item key, populated from the previous response (from the `next` field in the response).
 
 #### Headers
 
@@ -151,19 +151,19 @@ The results of the API call are limited to a maximum of 25 receipt requests per 
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`items`	|	`Array`	|	[Receipt Request](#receipt-request)	|	An array of Receipt Request items
-`next`	|	`string`	|	-	|	Key for the next page of results
+`items`	|	`Array`	|	[Receipt Request](#receipt-request)	|	An array of Receipt Request items.
+`next`	|	`string`	|	-	|	Key for the next page of results.
 
 
 ### <a name="receipt-request"></a>Receipt Request
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`confirmationNumber`	|	`string`	|	-	|	Confirmation number for the receipt request
-`firstName`	|	`string`	|	-	|	First name of the guest for the receipt request
-`lastName`	|	`string`	|	-	|	Last name of the guest for the receipt request
-`requestDate`	|	`date-time`	|	ISO 8601	|	Date of the receipt request
-`requestId`	|	`uuid`	|	-	|	ID for the receipt request
-`segmentEndDate`	|	`date-time`	|	ISO 8601	|	End date for the receipt request segment
-`segmentStartDate`	|	`date-time`	|	ISO 8601	|	Start date for the receipt request segment
-`vendor`	|	`string`	|	-	|	Vendor code for the receipt request
+`confirmationNumber`	|	`string`	|	-	|	Confirmation number for the receipt request.
+`firstName`	|	`string`	|	-	|	First name of the guest for the receipt request.
+`lastName`	|	`string`	|	-	|	Last name of the guest for the receipt request.
+`requestDate`	|	`date-time`	|	ISO 8601	|	Date of the receipt request.
+`requestId`	|	`uuid`	|	-	|	ID for the receipt request.
+`segmentEndDate`	|	`date-time`	|	ISO 8601	|	End date for the receipt request segment.
+`segmentStartDate`	|	`date-time`	|	ISO 8601	|	Start date for the receipt request segment.
+`vendor`	|	`string`	|	-	|	Vendor code for the receipt request.
