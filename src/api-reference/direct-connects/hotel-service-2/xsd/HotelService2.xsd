@@ -2956,7 +2956,7 @@
 			<xs:enumeration value="Hilton"/>
 			<xs:enumeration value="Hyatt"/>
 			<xs:enumeration value="Mariott"/>
-			<xs:enumeration value="Mastercard"/>
+			<xs:enumeration value="MasterCard"/>
 			<xs:enumeration value="RitzCarlton"/>
 			<xs:enumeration value="SouthwestAirlines"/>
 			<xs:enumeration value="StarwoodHotels"/>
