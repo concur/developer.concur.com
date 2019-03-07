@@ -10,7 +10,7 @@ The Travel Receipts service offers one endpoint for retrieving receipt requests.
 
 The Travel Receipts service exposes receipt requests to inform E-Receipt partners which E-Receipts to send to SAP Concur and for which user. A partner can call the API and receive paged responses of receipt requests (a maximum of 25 receipt requests per page). When the `next` field is empty/null, the partner has reached the last page of receipt requests.
 
-If the partner supplies a timestamp as a parameter, it is used as the start time for results. If not, the API retrieves the results from the last 24 hours.
+If the partner supplies a timestamp, it is used as the start time for results. If not, the API retrieves the results from the last 24 hours.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. This API is not available in Implementation environments. This API is only available in the US and EMEA data centers.
 
@@ -71,7 +71,7 @@ Name | Type | Format | Description
 * [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
 
 #### Payload
-TBA
+None.
 
 ### Response
 
@@ -90,13 +90,9 @@ TBA
 
 
 #### Payload
-* [Travel Receipts Response](#schema)
+* [Schema](#schema)
 
 ### Example
-
-```shell
-curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/travelreceipts/v1/receiptrequests
-```
 
 ```json
 {
