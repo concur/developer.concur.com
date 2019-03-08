@@ -1,0 +1,379 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "SAP Concur partners with external payment providers for processing invoice payments. These payment providers are listed on the App Center and can integrate with the Invoice product by using the Invoice Pay APIs. Payment providers can get a list of all the payments authorized to be processed by them, and send back status of those payments.",
+    "title": "Invoice Payment Service API Documentation"
+  },
+  "host": "www.concursolutions.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "GET Payments API",
+      "description": "Gets the payment details"
+    },
+    {
+      "name": "POST Payments API",
+      "description": "Updates the payment status"
+    }
+  ],
+  "paths": {
+    "/gateway/v4/payments": {
+      "get": {
+        "tags": [
+          "GET Payments API"
+        ],
+        "summary": "Payment Providers can use this API to get details of payments marked to be paid by them",
+        "operationId": "manyUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/readPaymentResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/gateway/v4/payments/{PaymentID}": {
+      "post": {
+        "tags": [
+          "POST Payments API"
+        ],
+        "summary": "Payment Providers can use this API to update the status of payments made by them",
+        "operationId": "oneUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Payment",
+            "description": "Payment",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updatePayment"
+            }
+          },
+          {
+            "name": "PaymentID",
+            "in": "path",
+            "description": "PaymentID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/updatePaymentResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "amount": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 3
+        }
+      },
+      "title": "amount"
+    },
+    "invoice": {
+      "type": "object",
+      "properties": {
+        "invoiceAmount": {
+          "$ref": "#/definitions/amount"
+        },
+        "invoiceId": {
+          "type": "string"
+        },
+        "invoiceNumber": {
+          "type": "string"
+        },
+        "notesToSupplier": {
+          "type": "string"
+        },
+        "paymentAmount": {
+          "$ref": "#/definitions/amount"
+        }
+      },
+      "title": "invoice"
+    },
+    "payment": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "invoices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/invoice"
+          }
+        },
+        "paymentDueDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "paymentId": {
+          "type": "string"
+        },
+        "paymentMethod": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "$ref": "#/definitions/amount"
+        },
+        "vendor": {
+          "$ref": "#/definitions/vendor"
+        }
+      },
+      "title": "payment"
+    },
+    "readPaymentResult": {
+      "type": "object",
+      "properties": {
+        "payments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/payment"
+          }
+        }
+      },
+      "title": "readPaymentResult"
+    },
+    "updatePayment": {
+      "type": "object",
+      "properties": {
+        "paidAmount": {
+          "$ref": "#/definitions/amount"
+        },
+        "paymentAdjustmentNotes": {
+          "type": "string"
+        },
+        "paymentInitiationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "paymentMethod": {
+          "type": "string",
+          "enum": [
+            "ACH",
+            "CHECK",
+            "WIRE",
+            "CARD",
+            "OTHER"
+          ]
+        },
+        "paymentSettlementDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "providerReference": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 100
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PAID",
+            "CANCELED",
+            "CARD_AUTHORIZED",
+            "CARD_EMAIL_SENT",
+            "CARD_SETTLED",
+            "CHECK_MAILED",
+            "CHECK_PRINTED",
+            "CHECK_PROCESSED",
+            "CHECK_VOIDED",
+            "PENDING_RETRIEVAL",
+            "PROCESSING",
+            "REJECTED",
+            "RETRIEVED",
+            "RETURNED"
+          ]
+        },
+        "statusDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "statusMessage": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "thirdPartyPaymentIdentifier": {
+          "type": "string"
+        }
+      },
+      "title": "updatePayment"
+    },
+    "updatePaymentResult": {
+      "type": "object",
+      "properties": {
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastModifiedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "paidAmount": {
+          "$ref": "#/definitions/amount"
+        },
+        "paymentAdjustmentNotes": {
+          "type": "string"
+        },
+        "paymentInitiationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "paymentMethod": {
+          "type": "string",
+          "enum": [
+            "ACH",
+            "CHECK",
+            "WIRE",
+            "CARD",
+            "OTHER"
+          ]
+        },
+        "paymentSettlementDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "providerReference": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 100
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PAID",
+            "CANCELED",
+            "CARD_AUTHORIZED",
+            "CARD_EMAIL_SENT",
+            "CARD_SETTLED",
+            "CHECK_MAILED",
+            "CHECK_PRINTED",
+            "CHECK_PROCESSED",
+            "CHECK_VOIDED",
+            "PENDING_RETRIEVAL",
+            "PROCESSING",
+            "REJECTED",
+            "RETRIEVED",
+            "RETURNED"
+          ]
+        },
+        "statusDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "statusMessage": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "thirdPartyPaymentIdentifier": {
+          "type": "string"
+        }
+      },
+      "title": "updatePaymentResult"
+    },
+    "vendor": {
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "buyerAccountNumber": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "countryName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "vendorAddrCode": {
+          "type": "string"
+        },
+        "vendorCode": {
+          "type": "string"
+        },
+        "vendorName": {
+          "type": "string"
+        }
+      },
+      "title": "vendor"
+    }
+  }
+}
