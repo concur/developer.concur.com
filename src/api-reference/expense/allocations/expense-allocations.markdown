@@ -3,8 +3,7 @@ title: Allocations
 layout: reference
 ---
 
-The SAP Concur Allocations API allows for the retrieval of allocation information as it relates to a Report ID, Entry ID, or Itemization ID. Using this API allows for an in-depth review of Expense Report Data and how that data has been allocated in SAP Concur. The Allocations Web Service allows for the programmatic gathering of details on how the Expense Report data was allocated by the report owner, making it ideal for Data Gathering, Expense Reporting, and Validations. This resource can be used to retrieve information about the allocations that are associated with an entry in an expense report. v3.0
-
+This resource can be used to retrieve information about the allocations that are associated with an entry in an expense report. v3.0
 
 * [Retrieve All Allocations Per Entry or Report](#get)
 * [Retrieve a Single Allocation by ID](#getID)
