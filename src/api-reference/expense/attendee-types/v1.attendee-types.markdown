@@ -9,8 +9,8 @@ redirect_from:
 {% include deprecation-alert.html %}
 
 ## Description
-
-The Attendee Type resource represents the type of attendee as configured in SAP Concur. Retrieves the list of attendee types for the company. The Attendee Types Web Service allows for the complete administration of the Attendees and Attendee Types. This service allows for the programmatic management of your Attendees Types via an Application Connector ensuring only the most relative and up to date information is available to your users for Expenses.
+ 
+The Attendee Type resource represents the type of attendee as configured in Concur. Retrieves the list of attendee types for the company.
 
 ## Version
 
