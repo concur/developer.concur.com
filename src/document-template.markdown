@@ -7,7 +7,7 @@ layout: reference
 
 Description of API, including business purpose and most common use case.
 
-> **Limitations**: This section is optional. Which limitations the user may encounter, can include feature gaps from previous versions, limitations on access tokens, or support limitations for certain scenarios. If API only works in certain data centers, mention that here.
+> **Limitations**: This section is optional. Which limitations the user may encounter, can include feature gaps from previous versions, limitations on access tokens, any rate limits or rate throttling, or support limitations for certain scenarios. If API only works in certain data centers, mention that here.
 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)

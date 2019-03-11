@@ -158,8 +158,8 @@
         url: /api-reference/expense/expense-report/expense-report-get.html
       - title: Payment Batches v1.1
         url: /api-reference/expense/payment-batch/v1.payment-batches.html
-      - title: Quick Expense
-        url: /api-reference/expense/quick-expense/index.html
+      - title: Quick Expense v3
+        url: /api-reference/expense/quick-expense/v3.quick-expense.html
 - title: Receipt Image
   url: /api-reference/image/
 - title: Insights
