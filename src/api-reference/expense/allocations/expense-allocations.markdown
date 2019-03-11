@@ -32,7 +32,7 @@ Note: userId is not a supported query string parameter for this API.
 ### Request URL
 
 ```
-https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
+https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10
 ```
 
 
