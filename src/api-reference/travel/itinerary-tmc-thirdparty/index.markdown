@@ -279,8 +279,7 @@ Name |  Description
 `BaseFareNucCurrency` |  The [3-letter ISO 4217 currency code][5] for the base fare in NUC. |
 `DateCreatedUtc` |  The date the quote was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 `DateModifiedUtc` |  The date the quote was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
-`Endorsements` |  
-s from the airline if it endorses the ticket as acceptable on a different airline. |
+`Endorsements` |  Notes from the airline if it endorses the ticket as acceptable on a different airline. |
 `IssueByDate` |  The date the quote must be issued by. Format: YYYY-MM-DDThh:mm:ss |
 `TotalFare` |  The total price of the booking. |
 `TotalFareCurrency` |  The [3-letter ISO 4217 currency code][5] for the total fare. |
