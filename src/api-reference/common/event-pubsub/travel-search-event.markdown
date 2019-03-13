@@ -46,7 +46,7 @@ Name|Type|Format|Description
 `segments`|`array`|[Air Search Segment](#schema-air-search-segment)|List of segments for search.
 `numberOfTravelers`|`integer`|-|Number of travelers.
 `classOfTrip`|`string`|-| Selected cabin class. Supported values: `F` = First Class , `C` = Business Class, `W` = Premium Economy, `Y` - Economy Class
-`airCarriers`|`array`|E.g. AA, VA, LH|If the user filters for individual carriers, this list will be populated with the IATA airline carrier codes.
+`airCarriers`|`array`|-|If the user filters for individual carriers, this list will be populated with the IATA airline carrier codes. Example: AA, VA, LH
 
 ### <a name="schema-air-search-segment"></a>Air Search Segment
 
@@ -114,7 +114,7 @@ Name|Type|Format|Description
 `userId`|`string`|`GUID`|Uniquely identifies the user performing the search. Note: In the event travel is booked by an arranger, this will be the traveler’s ID. In cases where a profiled user is booking on behalf of a non-profiled guest, this will be the user performing the search.
 `pickupIata`|`string`|-|The IATA code of the airport for pickup.
 `pickupLocationStreet`|`string`|-|Included only if pickup location is not an airport.
-`pickupLocationCity`|`string`|-|-
+`pickupLocationCity`|`string`|-|
 `pickupLocationZip`|`string`|-|-
 `pickupLocationState`|`string`|-|-
 `pickupLocationCountry`|`string`|-|-
@@ -124,12 +124,12 @@ Name|Type|Format|Description
 `dropoffLocationZip`|`string`|-|-
 `dropoffLocationState`|`string`|-|-
 `dropoffLocationCountry`|`string`|-|-
-`categories`|`array`|-|List of selected car categories.
+`categories`|`string`|-|List of selected car categories. Supported values: `M*`, `E*`, `C*`, `I*`, `S*`, `F*`, `P*`, `L*`, `Z*`, `IF*`, `MV`, `SF`, `FF`, `FP`
 `startDate`|`string`|`YYYY-MM-DD`|-
 `startTime`|`string`|`HH:MM AM/PM`|-
 `endDate`|`string`|`YYYY-MM-DD`|-
 `endTime`|`string`|`HH:MM AM/PM`|-
-`vendors`|`array`|-|List of selected car vendors.
+`vendors`|`string`|-|If the user filters for individual vendors, this list will be populated with the vendors. Example: Enterprise, Hertz
 
 ### <a name="schema-rail-request"></a>Rail
 
@@ -151,22 +151,22 @@ Name|Type|Format|Description
 `userId`|`string`|`GUID`|Uniquely identifies the user performing the search. Note: In the event travel is booked by an arranger, this will be the traveler’s ID. In cases where a profiled user is booking on behalf of a non-profiled guest, this will be the user performing the search.
 `searchLegs`|`string`|-|Type of rail search. Supported values: `RoundTrip`, `MultiSeg`, `OneWay`
 `segments`|`object`|[Rail Search Segment](#schema-rail-search-segment)|List of segments for search.
-`numberOfTravelers`|`integer`|-|-
+`numberOfTravelers`|`integer`|-|Number of travelers.
 `classOfTrip`|`string`|-|Selected cabin class. Supported values: `F` = First Class , `C` = Business Class, `W` = Premium Economy, `Y` - Economy Class
-`vendors`|`string`|-|-
+`vendors`|`string`|-|If the user filters for individual vendors, this list will be populated with the vendor codes. Example: SNCF
 
 ### <a name="schema-rail-search-segment"></a>Rail Search Segment
 
 Name|Type|Format|Description
 ---|---|---|---
-`departureStation`|`string`|-|-
-`departureCity`|`string`|-|-
-`departureState`|`string`|-|-
-`departureCountry`|`string`|-|-
-`arrivalStation`|`string`|-|-
-`arrivalCity`|`string`|-|-
-`arrivalState`|`string`|-|-
-`arrivalCountry`|`string`|-|-
+`departureStation`|`string`|-|Name of the rail departure station.
+`departureCity`|`string`|-|City of the rail departure.
+`departureState`|`string`|-|State of the rail departure.
+`departureCountry`|`string`|-|Country of the rail departure.
+`arrivalStation`|`string`|-|Name of the rail arrival station.
+`arrivalCity`|`string`|-|City of the rail arrival.
+`arrivalState`|`string`|-|State of the rail arrival.
+`arrivalCountry`|`string`|-|Country of the rail arrival.
 `departureDate`|`string`|`YYYY-MM-DD`|Date traveler will depart from the point of departure, local time. Either the departure date/time OR the arrival date/time will be populated.
 `departureTime`|`string`|`HH:MM AM/PM`|Departure time, local time.  Either the departure date/time OR the arrival date/time will be populated.
 `departureTimeWindow`|`integer`|-|Time window (+/-) around selected departure time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
@@ -180,7 +180,7 @@ Name|Type|Format|Description
 
 Sample roundtrip air search
 
-```
+```json
 {
   "id": "00e4aeb3-d181-4881-89b1-0d0b5418968f",
   "correlationId": "51AB4E74-1287-4B20-87FB-98A93CE4CEEB",
