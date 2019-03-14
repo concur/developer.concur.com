@@ -8,17 +8,17 @@ layout: reference
 
 The Travel Receipts service offers one endpoint for retrieving receipt requests.
 
-The Travel Receipts service exposes receipt requests to inform E-Receipt partners which E-Receipts to send to SAP Concur and for which user. The results of the API call are limited to a maximum of 25 receipt requests per page. The partner can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The partner reached the last page of results when `next` is null/empty.
+The Travel Receipts service exposes receipt requests to inform e-receipt partners which e-receipts to send to SAP Concur and for which user.
 
 If the partner supplies a timestamp, it is used as the start time for results. If not, the API retrieves the results from the last 24 hours.
 
-> **Limitations**: This API is not available in Implementation environments. This API is only available in the North American and EMEA Data Centers.
+> **Limitations**: This API is not available in Implementation environments. This API is only available in the North American and EMEA Data Centers. This API is only available to SAP Concur e-receipt partners.
 
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
-* [Retrieve a Travel Receipt](#retrieve-travel-receipt)
+* [Retrieve a Travel Receipt](#retrieve-travel-receipt-requests)
 * [Schema](#schema)
 
 ## <a name="products-editions"></a>Products and Editions
@@ -40,9 +40,11 @@ None.
 
 This API supports company level access tokens.
 
-## <a name="retrieve-travel-receipt"></a>Retrieve a Travel Receipt
+## <a name="retrieve-travel-receipt-requests"></a>Retrieve Travel Receipt Requests
 
-Retrieves a travel receipt request.
+Retrieves all travel receipt requests for the partner.  
+
+The results of the API call are limited to a maximum of 25 receipt requests per page. The partner can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The partner has reached the last page of results when `next` is null/empty.
 
 ### Scopes
 
