@@ -8,18 +8,19 @@ layout: reference
 
 The Travel Receipts service offers one endpoint for retrieving receipt requests.
 
+The results of the API call are limited to a maximum of 25 receipt requests per page. The partner can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The partner reached the last page of results when `next` is null/empty.
+
 The Travel Receipts service exposes receipt requests to inform E-Receipt partners which E-Receipts to send to SAP Concur and for which user. A partner can call the API and receive paged responses of receipt requests (a maximum of 25 receipt requests per page). When the `next` field is empty/null, the partner has reached the last page of receipt requests.
 
 If the partner supplies a timestamp, it is used as the start time for results. If not, the API retrieves the results from the last 24 hours.
 
-> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. This API is not available in Implementation environments. This API is only available in the US and EMEA data centers.
+> **Limitations**: This API is not available in Implementation environments. This API is only available in the North American and EMEA Data Centers.
 
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
 * [Retrieve a Travel Receipt](#retrieve-travel-receipt)
-* [Pagination](#pagination)
 * [Schema](#schema)
 
 ## <a name="products-editions"></a>Products and Editions
@@ -101,8 +102,8 @@ None.
     "requestId":"12e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
     "vendor":"ZE",
     "confirmationNumber":"H1234567A1",
-    "firstName":"DOE",
-    "lastName":"JANE",
+    "firstName":"PAT",
+    "lastName":"DAVIS",
     "segmentStartDate":"2019-03-14T00:30:00Z",
     "segmentEndDate":"2019-03-14T18:00:00Z",
     "requestDate":"2019-03-05T23:58:09.540514416Z"
@@ -111,7 +112,7 @@ None.
     "requestId":"34e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
     "vendor":"ZE",
     "confirmationNumber":" H1234567A2",
-    "firstName":"PETER",
+    "firstName":"MIKE",
     "lastName":"PARKER",
     "segmentStartDate":"2019-03-14T20:30:00Z",
     "segmentEndDate":"2019-03-15T23:45:00Z",
@@ -121,8 +122,8 @@ None.
     "requestId":"56e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
     "vendor":"ZE",
     "confirmationNumber":" H1234567A3",
-    "firstName":"GUMP",
-    "lastName":"FORREST",
+    "firstName":"CHRIS",
+    "lastName":"MILLER",
     "segmentStartDate":"2019-03-19T17:35:00Z",
     "segmentEndDate":"2019-03-21T00:40:00Z",
     "requestDate":"2019-03-05T23:58:09.540515833Z"
@@ -141,10 +142,6 @@ None.
   "next":"/v1/receiptrequests/1551744000/12e1234e-3fa2-11e9-b37e-6a1234b3ceb0"
 }
 ```
-## <a name="pagination"></a>Pagination
-
-The results of the API call are limited to a maximum of 25 receipt requests per page. The partner can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The partner reached the last page of results when `next` is null/empty.
-
 ## <a name="schema"></a>Schema
 
 ### Response
