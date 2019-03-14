@@ -166,11 +166,6 @@ Name|Type|Format|Description
 https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP%24sC8fZmg
 ```
 
-### JSON Example of a Successful Response
-```
-no content
-```
-
 ## <a name="delete"></a>Delete a Quick Expense
 
     DELETE  /api/v3.0/expense/quickexpenses/{id}
