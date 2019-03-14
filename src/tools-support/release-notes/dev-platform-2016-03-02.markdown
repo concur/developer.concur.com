@@ -3,8 +3,8 @@ title: SAP Concur Developer Platform Release Notes - March 2016 - 2
 layout: reference
 ---
 
-* [Quick Expenses v3](/api-reference-deprecated/version-one/quick-expense/quick-expense-resource-post.html)
-* [Quick Expense POST v1](/api-reference-deprecated/version-one/quick-expense/quick-expense-resource-post.html)
+* [Quick Expenses v3](/api-reference/expense/quick-expense/v3.quick-expense.html)
+* [Quick Expense POST v1](/api-reference/expense/quick-expense/v1.quick-expense-resource-post.html)
 
 Concur has updated the Quick Expense API to correct the behavior of the PaymentTypeCode element. Prior to this release, the payment type code of a new quick expense would default to Cash, regardless of the value sent. In the March 2016 release, the Quick Expense API now applies the value sent in the PaymentTypeCode element, if the company’s configuration supports it.  
 

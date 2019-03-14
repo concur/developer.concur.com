@@ -42,7 +42,7 @@ The terms itinerary and trip are synonyms. Trip is the name used for the SAP Con
 
 ## <a name="itin-use"></a>Who Can Use This Web Service?
 
-TripLink suppliers, travel management companies (TMCs), and SAP Concur partners can use the Itinerary API. The level of access to the data in the Concur Travel system depends on who is accessing it and the SAP Concur products that have been purchased.
+TripLink suppliers, travel management companies (TMCs), and SAP Concur clients and third-party developers can use the Itinerary API. The level of access to the data in the Concur Travel system depends on who is accessing it and the SAP Concur products that have been purchased.
 
 ### Travel Management Companies
 
@@ -63,12 +63,11 @@ TripLink suppliers, travel management companies (TMCs), and SAP Concur partners 
 * Modify bookings.
 * Cancel bookings for their travel type.
 
-### Third-Party Developers
+### SAP Concur Clients and Third-Party Developers
+* Get trip information for SAP Concur users. SAP Concur clients who purchase Web Services have access to their own trip data, while third party developers have access to the SAP Concur trip data of the clients who authorize them.
+* Third-party partner developers must determine which configurations are required for their solution prior to the review process.
 
-* Request trip information for SAP Concur users.
-* Partner developers must determine which configurations are required for their solution prior to the review process.
-
-If you are a TMC or a SAP Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team. SAP Concur products are highly configurable, and not all clients will have access to all features.
+If you would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team. SAP Concur products are highly configurable, and not all clients will have access to all features.
 
 Some itinerary data may have come from Sabre. SAP Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
 
