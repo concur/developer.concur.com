@@ -12,7 +12,7 @@ The Quick Expense API can be used to create an expense with basic information su
 * [Retrieve quick expense by ID](#getID)
 * [Create a quick expense](#post)
 * [Update a quick expense](#put)
-* [a quick expense](#delete)
+* [Delete a quick expense](#delete)
 * [Schema](#schema)
 
 1.0 documentation is available [here](./v1.quick-expense.html)
