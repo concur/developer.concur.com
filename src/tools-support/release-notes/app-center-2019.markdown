@@ -110,7 +110,7 @@ Kapten is a ride-hailing service that allows you to order a car in just a few cl
 
 OUR INTEGRATION WITH CONCUR EXPENSE
 
-To end the hell of expense reports, connect Concur Expense to Kapten!
+To end the headache of expense reports, connect Concur Expense to Kapten!
 * Create your Kapten account or connect to your existing account
 * When ordering, switch to your business account
 * You'll be able to consult all invoices in your Concur Expense account
