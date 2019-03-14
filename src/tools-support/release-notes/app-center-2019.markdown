@@ -42,7 +42,7 @@ THOUSANDS OF REVIEWS
 * “Great ride hailing app, I can’t live without it!”
 * “Amazing! Finally drivers who care.”
 * “Fast, efficient and very user friendly.”
-* “Great app, great service... Forget Paris taxis!""
+* “Great app, great service... Forget Paris taxis!”
 * “Since I heard about it, I only use Chauffeur Privé.”
 * “Five-star customer service.”
 
@@ -78,7 +78,7 @@ Chauffeur Privé works with Expense for Concur Standard and Expense for Concur P
 
 ![Parken+ Logo](./app-center-2019-01-01-parken-logo.png)
 
-With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
+With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying for parking spots across major cities nationwide.
 
 * See all the available parking spots near you with the click of a button.
 * In-app navigation will guide you to any parking spot you desire.
@@ -106,15 +106,15 @@ Parken+ works with Expense for Concur Standard and Expense for Concur Profession
 
 Make ordering transportation and processing expenses painless: connect Concur Expense and Kapten. Ride comfortably with the professional, quality service lauded by BFM as “The French leader in ride-hailing” and trusted by over 2 million loyal customers.
 
-Kapten is a ride-hailing service that allows you to order a car in just a few clicks. It is available in Paris, Lyon, the French Riviera and Lisbon.
+Kapten is a ride-hailing service that allows you to order a car in just a few clicks. It is available in Paris, Lyon, the French Riviera, and Lisbon.
 
 OUR INTEGRATION WITH CONCUR EXPENSE
-To end the hell of expense reports, connect Concur to Kapten!
+To end the hell of expense reports, connect SAP Concur to Kapten!
 * Click on the link below to start
 * Create your Kapten account or connect to your existing account
 * When ordering, switch to your business account
-* You'll be able to consult all invoices in your Concur account
-* You'll be saving time: invoices are also attached!"
+* You'll be able to consult all invoices in your SAP Concur account
+* You'll be saving time: invoices are also attached!
 
 CORE FEATURES
 * Fixed prices - starting at €8 only!
@@ -130,7 +130,7 @@ THOUSANDS OF REVIEWS
 * “Great ride hailing app, I can’t live without it!”
 * “Amazing! Finally drivers who care.”
 * “Fast, efficient and very user friendly.”
-* “Great app, great service... Forget Paris taxis!""
+* “Great app, great service... Forget Paris taxis!”
 * “Since I heard about it, I only use Kapten.”
 
 3 SERVICES
@@ -149,7 +149,7 @@ AND MUCH MORE
 * Customer service available seven days a week
 
 AVAILABLE CITIES
-* Paris and Ile-de-France:
+* Paris and Ile-de-France
 * Greater Lyon
 * French Riviera
 * Lisbon
@@ -177,7 +177,7 @@ Contact us any time with questions or to get advice on your prayer letters.  You
 
 ![Parken+ Logo](./app-center-2019-01-01-parken-logo.png)
 
-With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
+With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying for parking spots across major cities nationwide.
 
 * See all the available parking spots near you with the click of a button.
 * In-app navigation will guide you to any parking spot you desire.
