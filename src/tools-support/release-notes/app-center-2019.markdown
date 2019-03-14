@@ -109,15 +109,15 @@ Make ordering transportation and processing expenses painless: connect Concur Ex
 Kapten is a ride-hailing service that allows you to order a car in just a few clicks. It is available in Paris, Lyon, the French Riviera, and Lisbon.
 
 OUR INTEGRATION WITH CONCUR EXPENSE
-To end the hell of expense reports, connect SAP Concur to Kapten!
-* Click on the link below to start
+
+To end the hell of expense reports, connect Concur Expense to Kapten!
 * Create your Kapten account or connect to your existing account
 * When ordering, switch to your business account
-* You'll be able to consult all invoices in your SAP Concur account
-* You'll be saving time: invoices are also attached!
+* You'll be able to consult all invoices in your Concur Expense account
+* You'll be saving time: invoices are also attached
 
 CORE FEATURES
-* Fixed prices - starting at €8 only!
+* Fixed prices - starting at €8 only
 * Seamless in-app payment
 * Available 24/7
 * 4 min average ETA
