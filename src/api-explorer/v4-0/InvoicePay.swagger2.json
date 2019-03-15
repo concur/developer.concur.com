@@ -399,7 +399,7 @@
         },
         "postalCode": {
           "type": "string",
-          "description": ""
+          "description": "Vendor Address Postal Code. Maximum 20 characters."
         },
         "state": {
           "type": "string",
