@@ -289,7 +289,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `invoiceAmount`|`object`|[Amount](#schema-amount)|Amount on the invoice.
 `invoiceNumber`|`string`|-|Invoice Number. Maximum 50 characters.
-`invoiceID`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as `paymentRequestID` in other Invoice APIs. Maximum 20 characters.
+`invoiceId`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as `paymentRequestID` in other Invoice APIs. Maximum 20 characters.
 `notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier. Maximum 500 characters.
 `paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice.
 
