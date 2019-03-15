@@ -68,7 +68,6 @@ https://{datacenterURI}/api/v3.0/invoice/salestaxvalidationrequest
 #### Payload
 
 * [Schema](#schema)
-* [Status Schema](#status-schema)
 
 ### Example
 
@@ -377,7 +376,7 @@ https://{datacenterURI}//api/v3.0/invoice/salestaxvalidationrequest
 
 #### Payload
 
-* TBA
+[Status Schema](#schema-status)
 
 ### Example
 

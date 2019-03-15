@@ -75,7 +75,7 @@ Name|Type|Format|Description
 `id`|`string`|`GUID`|Uniquely identifies the event.
 `correlationId`|`string`|`GUID`|Uniquely identifies the hotel search request.
 `eventType`|`string`|-|Identifies the search event type. Supported  values: `travelSearchHotel`
-`topic`|`string`|-|Identifies the topic for PubSub subscription.
+`topic`|`string`|-|Topic for subscription. Supported values: `concur.travel.search`
 `subTopic`|`string`|-|Identifies sub-topic. Supported values: `hotelshop.v1.price`
 `timeStamp`|`string`|`date/time`|Search event time in UTC.
 `facts`|`object`|[Hotel Search Facts](#schema-hotel-search-facts)|Facts for hotel search
@@ -101,7 +101,7 @@ Name|Type|Format|Description
 `id`|`string`|`GUID`|Uniquely identifies the event.
 `correlationId`|`string`|`GUID`|Uniquely identifies the car search request.
 `eventType`|`string`|-|Identifies the search event type. Supported  values: `travelSearchCar`
-`topic`|`string`|-|Identifies the topic for PubSub subscription.
+`topic`|`string`|-|Topic for subscription. Supported values: `concur.travel.search`
 `subTopic`|`string`|-|Identifies sub-topic. Supported values: `carshop.v1.price`
 `timeStamp`|`string`|`date/time`|Search event time in UTC.
 `facts`|`object`|[Car Search Facts](#schema-car-search-facts)|Facts for car search
@@ -138,7 +138,7 @@ Name|Type|Format|Description
 `id`|`string`|`GUID`|Uniquely identifies the event.
 `correlationId`|`string`|`GUID`|Uniquely identifies the rail search request.
 `eventType`|`string`|-|Identifies the search event type. Supported  values: `travelSearchRail`
-`topic`|`string`|-|Identifies the topic for PubSub subscription.
+`topic`|`string`|-|Topic for subscription. Supported values: `concur.travel.search`
 `subTopic`|`string`|-|Identifies sub-topic. Supported values: `railshop.v1.price`
 `timeStamp`|`string`|`date/time`|Search event time in UTC.
 `facts`|`object`|[Rail Search Facts](#schema-rail-search-facts)|Facts for rail search
