@@ -383,7 +383,7 @@
         },
         "email": {
           "type": "string",
-          "description": "	Email Address. Maximum 255 characters."
+          "description": "Email Address. Maximum 255 characters."
         },
         "firstName": {
           "type": "string",

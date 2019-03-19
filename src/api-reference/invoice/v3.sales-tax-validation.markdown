@@ -428,8 +428,8 @@ https://{datacenterURI}//api/v3.0/invoice/salestaxvalidationrequest
 
 | Name | Type | Format | Description|
 |-----|------|--------|------------|
-| `Items`|`array`|[`Invoice`](#invoice)|The result collection.|
-| `NextPage`|`string`|-|The URI of the next page of results, if any.|
+| `Items`|`array`|[`Invoice`](#invoice)|The result collection.
+| `NextPage`|`string`|-|The URI of the next page of results, if any.
 | `TotalCount`|`Int32`|-|The amount of items returned.
 
 ### <a name="invoice"></a>Invoice
@@ -441,7 +441,7 @@ https://{datacenterURI}//api/v3.0/invoice/salestaxvalidationrequest
 |`CalculatedTaxRate`|`string`|-|The calculated tax rate for the invoice.
 |`Comments`|`string`|-|Comments for the invoice.
 |`CountryCode`|`string`|-|The country code for the line item.
-|`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the invoice currency. For example, `USD` or `CAD`.
+|`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the invoice currency. Example: `USD`, `CAD`
 |`ID`|`string`|-|The unique identifier of the resource.
 |`InvoiceAmount`|`string`|-|The invoice amount (the cost of the purchased items).
 |`InvoiceDate`|`string`|-|The date of the invoice.

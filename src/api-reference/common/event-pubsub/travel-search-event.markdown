@@ -17,7 +17,7 @@ layout: reference
 
 The topic 'concur.travel.search' provides travel search information.  Subscribers to this event will receive search criteria for travel searches performed within SAP Concur's online booking tool.
 
-This event is relevant for applications that are interacting with travelers before they book their trip; such as applications that context to the traveler regarding company policy, preferences or general compliance requirements for booking travel.
+This event is relevant for applications that are interacting with travelers before they book their trip such as applications that context to the traveler regarding company policy, preferences, or general compliance requirements for booking travel.
 
 ## <a name="schema"></a>Schema
 
@@ -31,7 +31,7 @@ Name|Type|Format|Description
 `topic`|`string`|-|Topic for subscription. Supported values: `concur.travel.search`
 `subTopic`|`string`| -|Identifies a sub topic. Supported values: `airshop.v1.schedule`, `airshop.v1.price`
 `timeStamp`|`string`|`date/time`|Search event time in UTC.
-`facts`|`object`|[Air Search Facts](#schema-air-search-facts)| Facts for air search.
+`facts`|`object`|[Air Search Facts](#schema-air-search-facts)|Facts for air search.
 
 ### <a name="schema-air-search-facts"></a>Air Search Facts
 
@@ -40,12 +40,12 @@ Name|Type|Format|Description
 `companyId`|`string`|`GUID`|Uniquely identifies the company of the traveler.
 `userId`|`string`|`GUID`|Uniquely identifies the user performing the search. Note: In the event travel is booked by an arranger, this will be the traveler's ID. In cases where a profiled user is booking on behalf of a non profiled guest, this will be the user performing the search.
 `arrangerUserId`|`string`|`GUID`|If the user is also the traveler, this value will be the same as the userID above. If an arranger is booking on behalf of the traveler, this will uniquely identify the user arranging the trip.
-`searchLegs`|`string`|-| Type of air search. Supported values: `RoundTrip`, `MultiSeg`, `OneWay`
+`searchLegs`|`string`|-|Type of air search. Supported values: `RoundTrip`, `MultiSeg`, `OneWay`
 `isGuestBooking`|`boolean`|-|Identifies if the booking is a guest.
 `isFlexFaring`|`boolean`|-|Identifies if search is for flex faring.
 `segments`|`array`|[Air Search Segment](#schema-air-search-segment)|List of segments for search.
 `numberOfTravelers`|`integer`|-|Number of travelers.
-`classOfTrip`|`string`|-| Selected cabin class. Supported values: `F` = First Class , `C` = Business Class, `W` = Premium Economy, `Y` - Economy Class
+`classOfTrip`|`string`|-|Selected cabin class. Supported values: `F` = First Class, `C` = Business Class, `W` = Premium Economy, `Y` - Economy Class
 `airCarriers`|`array`|-|If the user filters for individual carriers, this list will be populated with the IATA airline carrier codes. Example: AA, VA, LH
 
 ### <a name="schema-air-search-segment"></a>Air Search Segment
@@ -54,12 +54,12 @@ Name|Type|Format|Description
 ---|---|---|---
 `departures`|`array`|[City](#schema-city)|List of departure airports selected by the user. A user can select a city area/hub as point of departure, which will result in an array of multiple airports.
 `arrivals`|`array`|[City](#schema-city)|List of arrival airports selected by the user. A user can select a city area/hub as point of arrival, which will result in an array of multiple airports.
-`departureDate`|`string`|`YYYY-MM-DD`|Date traveler will depart from the point of departure, local time. Either the departure date/time OR the arrival date/time will be populated.
-`departureTime`|`string`|`HH:MM AM/PM`|Departure time, local time.  Either the departure date/time OR the arrival date/time will be populated.
-`departureTimeWindow`|`integer`|-|Time window (+/-) around selected departure time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
-`arrivalDate`|`string`|`YYYY-MM-DD`|Date on which the traveler will arrive at the destination, local time. Either the departure date/time OR the arrival date/time will be populated.
-`arrivalTime`|`string`|`HH:MM AM/PM`|Time at which the traveler will arrive at the destination, local time.  Either the departure date/time OR the arrival date/time will be populated.
-`arrivalTimeWindow`|`integer`|-|Time window (+/-) around selected arrival time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
+`departureDate`|`string`|`YYYY-MM-DD`|Date traveler will depart from the point of departure, local time. Either the departure date/time, or the arrival date/time will be populated.
+`departureTime`|`string`|`HH:MM AM/PM`|Departure time, in local time.  Either the departure date/time, or the arrival date/time will be populated.
+`departureTimeWindow`|`integer`|-|Time window (+/-) around selected departure time, in hours. Either the departure date/time, or the arrival date/time will be populated.
+`arrivalDate`|`string`|`YYYY-MM-DD`|Date on which the traveler will arrive at the destination, in local time. Either the departure date/time, or the arrival date/time will be populated.
+`arrivalTime`|`string`|`HH:MM AM/PM`|Time at which the traveler will arrive at the destination, in local time.  Either the departure date/time, or the arrival date/time will be populated.
+`arrivalTimeWindow`|`integer`|-|Time window (+/-) around selected arrival time, in hours. Either the departure date/time, or the arrival date/time will be populated.
 
 ### <a name="schema-city"></a>City
 
@@ -78,7 +78,7 @@ Name|Type|Format|Description
 `topic`|`string`|-|Topic for subscription. Supported values: `concur.travel.search`
 `subTopic`|`string`|-|Identifies sub-topic. Supported values: `hotelshop.v1.price`
 `timeStamp`|`string`|`date/time`|Search event time in UTC.
-`facts`|`object`|[Hotel Search Facts](#schema-hotel-search-facts)|Facts for hotel search
+`facts`|`object`|[Hotel Search Facts](#schema-hotel-search-facts)|Facts for hotel search.
 
 ### <a name="schema-hotel-search-facts"></a>Hotel Search Facts
 
@@ -86,13 +86,13 @@ Name|Type|Format|Description
 ---|---|---|---
 `companyId`|`string`|`GUID`|Uniquely identifies the company of the traveler.
 `userId`|`string`|`GUID`|Uniquely identifies the user performing the search. Note: In the event travel is booked by an arranger, this will be the traveler’s ID. In cases where a profiled user is booking on behalf of a non-profiled guest, this will be the user performing the search.
-`refPointLatitude`|`number`|`double`| Reference point for the search latitude.
+`refPointLatitude`|`number`|`double`|Reference point for the search latitude.
 `refPointLongitude`|`number`|`double`|Reference point for the search longitude.
 `refPointName`|`string`|-|Reference point for the search name.
 `radiusDistance`|`integer`|-|Distance around the reference point as selected by the user.
 `distanceUnit`|`string`|-|Unit for radius distance. Supported values: `Mile`, `Kilometer`
-`checkInDate`|`string`|`YYYY-MM-DD`|Check in date, local time.
-`checkOutDate`|`string`|`YYYY-MM-DD`|Check out date, local time.
+`checkInDate`|`string`|`YYYY-MM-DD`|Check in date, in local time.
+`checkOutDate`|`string`|`YYYY-MM-DD`|Check out date, in local time.
 
 ### <a name="schema-car-request"></a>Car
 
@@ -104,7 +104,7 @@ Name|Type|Format|Description
 `topic`|`string`|-|Topic for subscription. Supported values: `concur.travel.search`
 `subTopic`|`string`|-|Identifies sub-topic. Supported values: `carshop.v1.price`
 `timeStamp`|`string`|`date/time`|Search event time in UTC.
-`facts`|`object`|[Car Search Facts](#schema-car-search-facts)|Facts for car search
+`facts`|`object`|[Car Search Facts](#schema-car-search-facts)|Facts for car search.
 
 ### <a name="schema-car-search-facts"></a>Car Search Facts
 
@@ -113,13 +113,13 @@ Name|Type|Format|Description
 `companyId`|`string`|`GUID`|Uniquely identifies the company of the traveler.
 `userId`|`string`|`GUID`|Uniquely identifies the user performing the search. Note: In the event travel is booked by an arranger, this will be the traveler’s ID. In cases where a profiled user is booking on behalf of a non-profiled guest, this will be the user performing the search.
 `pickupIata`|`string`|-|The IATA code of the airport for pickup.
-`pickupLocationStreet`|`string`|-|Included only if pickup location is not an airport.
-`pickupLocationCity`|`string`|-|
+`pickupLocationStreet`|`string`|-|The pickup location street address, included only if pickup location is not an airport.
+`pickupLocationCity`|`string`|-|-
 `pickupLocationZip`|`string`|-|-
 `pickupLocationState`|`string`|-|-
 `pickupLocationCountry`|`string`|-|-
 `dropoffIata`|`string`|-|The IATA code of the airport for dropoff.
-`dropoffLocationStreet`|`string`|-|Included only if pickup location is not an airport.
+`dropoffLocationStreet`|`string`|-|The dropoff location street address, included only if dropoff location is not an airport.
 `dropoffLocationCity`|`string`|-|-
 `dropoffLocationZip`|`string`|-|-
 `dropoffLocationState`|`string`|-|-
@@ -141,7 +141,7 @@ Name|Type|Format|Description
 `topic`|`string`|-|Topic for subscription. Supported values: `concur.travel.search`
 `subTopic`|`string`|-|Identifies sub-topic. Supported values: `railshop.v1.price`
 `timeStamp`|`string`|`date/time`|Search event time in UTC.
-`facts`|`object`|[Rail Search Facts](#schema-rail-search-facts)|Facts for rail search
+`facts`|`object`|[Rail Search Facts](#schema-rail-search-facts)|Facts for rail search.
 
 ### <a name="schema-rail-search-facts"></a>Rail Search Facts
 
@@ -152,7 +152,7 @@ Name|Type|Format|Description
 `searchLegs`|`string`|-|Type of rail search. Supported values: `RoundTrip`, `MultiSeg`, `OneWay`
 `segments`|`object`|[Rail Search Segment](#schema-rail-search-segment)|List of segments for search.
 `numberOfTravelers`|`integer`|-|Number of travelers.
-`classOfTrip`|`string`|-|Selected cabin class. Supported values: `F` = First Class , `C` = Business Class, `W` = Premium Economy, `Y` - Economy Class
+`classOfTrip`|`string`|-|Selected cabin class. Supported values: `F` = First Class, `C` = Business Class, `W` = Premium Economy, `Y` - Economy Class
 `vendors`|`string`|-|If the user filters for individual vendors, this list will be populated with the vendor codes. Example: SNCF
 
 ### <a name="schema-rail-search-segment"></a>Rail Search Segment
@@ -167,12 +167,12 @@ Name|Type|Format|Description
 `arrivalCity`|`string`|-|City of the rail arrival.
 `arrivalState`|`string`|-|State of the rail arrival.
 `arrivalCountry`|`string`|-|Country of the rail arrival.
-`departureDate`|`string`|`YYYY-MM-DD`|Date traveler will depart from the point of departure, local time. Either the departure date/time OR the arrival date/time will be populated.
-`departureTime`|`string`|`HH:MM AM/PM`|Departure time, local time.  Either the departure date/time OR the arrival date/time will be populated.
-`departureTimeWindow`|`integer`|-|Time window (+/-) around selected departure time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
-`arrivalDate`|`string`|`YYYY-MM-DD`|Date on which the traveler will arrive at the destination, local time. Either the departure date/time OR the arrival date/time will be populated.
-`arrivalTime`|`string`|`HH:MM AM/PM`|Time at which the traveler will arrive at the destination, local time.  Either the departure date/time OR the arrival date/time will be populated.
-`arrivalTimeWindow`|`integer`|-|Time window (+/-) around selected arrival time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
+`departureDate`|`string`|`YYYY-MM-DD`|Date traveler will depart from the point of departure, in local time. Either the departure date/time, or the arrival date/time will be populated.
+`departureTime`|`string`|`HH:MM AM/PM`|Departure time, local time.  Either the departure date/time, or the arrival date/time will be populated.
+`departureTimeWindow`|`integer`|-|Time window (+/-) around selected departure time, in hours. Either the departure date/time, or the arrival date/time will be populated.
+`arrivalDate`|`string`|`YYYY-MM-DD`|Date on which the traveler will arrive at the destination, in local time. Either the departure date/time, or the arrival date/time will be populated.
+`arrivalTime`|`string`|`HH:MM AM/PM`|Time at which the traveler will arrive at the destination, in local time. Either the departure date/time, or the arrival date/time will be populated.
+`arrivalTimeWindow`|`integer`|-|Time window (+/-) around selected arrival time, in hours.  Either the departure date/time, or the arrival date/time will be populated.
 
 ## <a name="sample-events"></a>Sample Events
 
