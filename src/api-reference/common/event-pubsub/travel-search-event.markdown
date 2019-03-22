@@ -45,7 +45,7 @@ Name|Type|Format|Description
 `isFlexFaring`|`boolean`|-|Identifies if search is for flex faring.
 `segments`|`array`|[Air Search Segment](#schema-air-search-segment)|List of segments for search.
 `numberOfTravelers`|`integer`|-|Number of travelers.
-`classOfTrip`|`string`|-|Selected cabin class. Supported values: `F` = First Class, `C` = Business Class, `W` = Premium Economy, `Y` - Economy Class
+`classOfTrip`|`string`|-|Selected cabin class. Supported values: `F` = First Class, `C` = Business Class, `W` = Premium Economy, `Y` = Economy Class
 `airCarriers`|`array`|-|If the user filters for individual carriers, this list will be populated with the IATA airline carrier codes. Example: AA, VA, LH
 
 ### <a name="schema-air-search-segment"></a>Air Search Segment
@@ -152,7 +152,7 @@ Name|Type|Format|Description
 `searchLegs`|`string`|-|Type of rail search. Supported values: `RoundTrip`, `MultiSeg`, `OneWay`
 `segments`|`object`|[Rail Search Segment](#schema-rail-search-segment)|List of segments for search.
 `numberOfTravelers`|`integer`|-|Number of travelers.
-`classOfTrip`|`string`|-|Selected cabin class. Supported values: `F` = First Class, `C` = Business Class, `W` = Premium Economy, `Y` - Economy Class
+`classOfTrip`|`string`|-|Selected cabin class. Supported values: `F` = First Class, `C` = Business Class, `W` = Premium Economy, `Y` = Economy Class
 `vendors`|`string`|-|If the user filters for individual vendors, this list will be populated with the vendor codes. Example: SNCF
 
 ### <a name="schema-rail-search-segment"></a>Rail Search Segment
