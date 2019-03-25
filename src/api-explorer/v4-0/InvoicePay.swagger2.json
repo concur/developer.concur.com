@@ -48,7 +48,7 @@
         "deprecated": false
       }
     },
-    "invoice/provider-payment/v4/payments/{PaymentID}": {
+    "/invoice/provider-payment/v4/payments/{PaymentID}": {
       "post": {
         "tags": [
           "Resources"
