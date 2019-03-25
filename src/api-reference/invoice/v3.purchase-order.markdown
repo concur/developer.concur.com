@@ -5,6 +5,8 @@ redirect_from:
   - /api-reference/invoice/purchase-order.html
 ---
 
+The SAP Concur Purchase Order API allows you to create and update purchase orders. It also allows you to manage PO-related data for the purposes of identifying and resolving match exceptions on invoices.
+
 * [Create a new purchase order](#post)
 * [Update purchase order line item with receipt information](#put-receipts)
 * [Update an existing purchase order](#put)
@@ -18,7 +20,7 @@ redirect_from:
 
 3.0
 
-## <a name="post"></a>Create a new purchase order
+## <a name="post"></a>Create a New Purchase Order
 
 ```
 POST /api/v3.0/invoice/purchaseorders
@@ -93,7 +95,7 @@ Create or update a Purchase Order. Batch processing is not available using the P
 
 * [Response schema](#schema-response)
 
-## <a name="put-receipts"></a>Update purchase order line item with receipt information
+## <a name="put-receipts"></a>Update Purchase Order Line Item With Receipt Information
 
 ```
 PUT /api/v3.0/invoice/purchaseorderreceipts
@@ -107,7 +109,7 @@ PUT /api/v3.0/invoice/purchaseorderreceipts
 
 * [Response schema](#schema-response)
 
-## <a name="put"></a>Update an existing purchase order
+## <a name="put"></a>Update an Existing Purchase Order
 
 ```
 PUT /api/v3.0/invoice/purchaseorders
@@ -121,7 +123,7 @@ PUT /api/v3.0/invoice/purchaseorders
 
 * [Response schema](#schema-response)
 
-## <a name="get"></a>Get an existing purchase order
+## <a name="get"></a>Get an Existing Purchase Order
 
 ```
 GET /api/v3.0/invoice/purchaseorders/{id}
@@ -249,7 +251,7 @@ Name|Type|Format|Description
 `PostalCode`|`string`|-|**Required** The postal code of the shipping or billing address.
 `StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-## <a name="schema-response"></a>Response schema
+## <a name="schema-response"></a>Response Schema
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -261,7 +263,7 @@ Name|Type|Format|Description
 `PurchaseOrderNumber`|`string`|-|The purchase order number.
 `Status`|`string`|-|The result of processing the purchase order. Format: SUCCESS or FAILURE
 
-## <a name="schema-receipt"></a>Receipt schema
+## <a name="schema-receipt"></a>Receipt Schema
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -271,7 +273,7 @@ Name|Type|Format|Description
 `ReceivedDate`|`string`|-|The date the line item was received. Format: YYYY-MM-DD
 `ReceivedQuantity`|`string`|-|The number of items that were received.
 
-## <a name="error-codes"></a>Error codes
+## <a name="error-codes"></a>Error Codes
 
 The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created, updated or deleted. The client must inspect the response to look for warnings or errors with individual batch items.
 
