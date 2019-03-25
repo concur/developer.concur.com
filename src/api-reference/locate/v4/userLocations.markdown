@@ -54,15 +54,15 @@ This API supports POST only.
 ## Regional Availability
 
 ```
-https://us.api.concursolutions.com/locate/api/v1/user/locations
+https://us.api.concursolutions.com/locate/api/v4/user/locations
 ```
 ```
-https://emea.api.concursolutions.com/locate/api/v1/user/locations
+https://emea.api.concursolutions.com/locate/api/v4/user/locations
 ```
 
 ## Schema
 
-_POST /locate/api/v1/user/locations_
+_POST /locate/api/v4/user/locations_
 
 See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema.
 
@@ -196,92 +196,6 @@ JP|800122334
 A new field `partiallyProcessedTransactions` is introduced in the response to cater to the following invalid mobile scenarios.
     * Mobile number is not valid for the country derived based on details provided for traveller 
     * A well formed mobile number could not be derived using the mobile provided
-
-### Request
-###### Cancel request with location field
-```shell
-POST https://{baseURI}/locate/api/v1/user/locations
-Content-Type: application/json
-Accept: application/json
-Authorization: Bearer {token}
-```
-
-```json
-{
-  "userLocations": [
-    {
-      "client": {
-        "id": "UL_CLI",
-        "firstSubLevel": "",
-        "secondSubLevel": ""
-      },
-      "users": [
-        {
-          "userId": 22,
-          "firstName": "Test",
-          "lastName": "TEST3",
-          "email": "test.test3@abcd.com",
-          "employeeId": "abc333",
-          "mobileCountryCode": "",
-          "mobile": "+(27)7160981138",
-          "optedIn": true,
-          "concurLoginId": "",
-          "affiliation": "Student"
-        }
-      ],
-      "locations": [
-        {
-          "locationId": 0,
-          "locationAddress": "",
-          "locationName": "SomeLocation",
-          "locationDescription": "",
-          "locationLatitude": "",
-          "locationLongitude": "",
-          "locationIataCode": "LHR",
-          "startDate": "2018-09-01T12:07",
-          "endDate": "2018-09-02T12:07",
-          "timezoneId": "Europe/London",
-          "locationPhone": "",
-          "visitorId": [
-            22
-          ]
-        }
-      ],
-      "sourcePartner": {
-        "id": "SP",
-        "name": "Source Partner",
-        "description": "Source Partner"
-      },
-      "transaction": {
-        "transactionId": "AAAAAA",
-        "createdDate": "2018-08-06T12:05",
-        "transactionType": "Cancel"
-      }
-    }
-  ]
-}
-```
-
-### Response
-
-```shell
-200 OK
-date: Mon, 15 May 2018 14:28:07 GMT
-content-length: 20
-content-type: application/json
-```
-
-```json
-{
-    "processedTransactions": {
-        "AAAAAA" : "Successfully Processed"
-    },
-    "unprocessedTransactions": {
-    },
-    "partiallyProcessedTransactions": {
-    }
-} 
-```
 
 ### Request
 ###### Cancel request without location and user fields (minimal request)
