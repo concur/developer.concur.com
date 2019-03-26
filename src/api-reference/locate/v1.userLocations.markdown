@@ -1,5 +1,5 @@
 ---
-title: User Locations
+title: User Locations V1 (Depricating soon)
 layout: reference
 ---
 
@@ -54,15 +54,15 @@ This API supports POST only.
 ## Regional Availability
 
 ```
-https://us.api.concursolutions.com/locate/api/v4/user/locations
+https://us.api.concursolutions.com/locate/api/v1/user/locations
 ```
 ```
-https://emea.api.concursolutions.com/locate/api/v4/user/locations
+https://emea.api.concursolutions.com/locate/api/v1/user/locations
 ```
 
 ## Schema
 
-_POST /locate/api/v4/user/locations_
+_POST /locate/api/v1/user/locations_
 
 See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema.
 

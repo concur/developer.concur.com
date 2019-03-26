@@ -1,5 +1,5 @@
 ---
-title: User Locations
+title: User Locations V4
 layout: reference
 ---
 
@@ -54,15 +54,15 @@ This API supports POST only.
 ## Regional Availability
 
 ```
-https://us.api.concursolutions.com/locate/api/v1/user/locations
+https://us.api.concursolutions.com/locate/api/v4/user/locations
 ```
 ```
-https://emea.api.concursolutions.com/locate/api/v1/user/locations
+https://emea.api.concursolutions.com/locate/api/v4/user/locations
 ```
 
 ## Schema
 
-_POST /locate/api/v1/user/locations_
+_POST /locate/api/v4/user/locations_
 
 See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema.
 
@@ -200,7 +200,7 @@ A new field `partiallyProcessedTransactions` is introduced in the response to ca
 ### Request
 ###### Cancel request without location and user fields (minimal request)
 ```shell
-POST https://{baseURI}/locate/api/v1/user/locations
+POST https://{baseURI}/locate/api/v4/user/locations
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {token}
@@ -253,7 +253,7 @@ content-type: application/json
 ###### Add request
 
 ```shell
-POST https://{baseURI}/locate/api/v1/user/locations
+POST https://{baseURI}/locate/api/v4/user/locations
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {token}
@@ -352,7 +352,7 @@ content-type: application/json
 ###### Add request - mobile phone variation
 
 ```shell
-POST https://{baseURI}/locate/api/v1/user/locations
+POST https://{baseURI}/locate/api/v4/user/locations
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {token}
@@ -451,7 +451,7 @@ content-type: application/json
 ###### Add request - invalid mobile phone variation
 
 ```shell
-POST https://{baseURI}/locate/api/v1/user/locations
+POST https://{baseURI}/locate/api/v4/user/locations
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {token}
@@ -550,7 +550,7 @@ content-type: application/json
 ###### Add request - unprocessed transaction
 
 ```shell
-POST https://{baseURI}/locate/api/v1/user/locations
+POST https://{baseURI}/locate/api/v4/user/locations
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {token}
