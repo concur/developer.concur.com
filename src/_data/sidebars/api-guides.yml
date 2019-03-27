@@ -1,26 +1,21 @@
-- title: API Guides
+- title: Integration Guides
   url: /api-guides/
 - title: ERP Integration
-  url: ''
-  children:
-      - title: Expense and Invoice - Professional Edition & Standard Edition
-        url: /api-guides/ERP-integration/erp-integration.html
+  url: /api-guides/ERP-integration/erp-integration.html
 - title: Attendees
   url: ''
   children:
       - title: Expense - Associating External Attendees to Expense Entries
         url: /api-guides/attendees/external-attendees-to-expense-entries.html
-- title: eReceipts Recipe
+- title: eReceipts Integration
   url: /api-guides/e-receipts.html
-- title: Expense
+- title: Invoice
   url: ''
   children:
-      - title: 1. READ First
-        url: /api-guides/expense/1create-a-user.html
-      - title: 2. How To Provision A Basic User Record Into Concur
-        url: /api-guides/expense/2how-to-provision-a-basic-user-record-into-Concur.html
-      - title: 3. How To Identify Group Codes for Standard Edition Clients
-        url: /api-guides/expense/3how-to-identify-group-codes-for-standard-edition-clients.html
+      - title: Payment Provider Integration - paying customers' invoices
+        url: /api-guides/invoice/payment-provider-integration.html
+- title: Testing App Center Partner Applications
+  url: /api-guides/preproduction-testing.html
 - title: Travel
   url: ''
   children:
@@ -28,3 +23,5 @@
         url: /api-guides/travel/get-itinerary.html
       - title: Itinerary - Add a New Itinerary Manually
         url: /api-guides/travel/new-itinerary-manual.html
+- title: VAT Reclaim Integration
+  url: /api-guides/vat-reclaim/vat-reclaim-guide.html

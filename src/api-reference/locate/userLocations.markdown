@@ -3,10 +3,13 @@ title: User Locations
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 # User Locations
 
 * [Overview](#overview)
 * [Prerequisites](#prerequisites)
+* [Service Details](#serviceDetails)
 * [Regional Availability](#regionalAvailability)
 * [Schema](#schema)
   * [Client](#client)
@@ -21,19 +24,32 @@ layout: reference
 
 ## Overview
 
-
 The goal of this API is to allow customers and 3rd party vendors to add their traveler's location data to Concur Locate so it can be utilized locate and contact travelers to address their duty of care requirements.
 
 This API supports POST only.
 
-
 ## Prerequisites
-
 
 1. [Obtain a client ID, secret and sandbox environment](/manage-apps/partner-applications.html) if you don't already have one.
 2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
-3. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
-This API supports [Client Credentials Grant](/api-reference/authentication/apidoc.html#client_credentials) only. Your sandbox will be configured to accept posts from your application.
+3. This API supports all valid authorization tokens, specifically those with the client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
+
+
+## Service Details
+ The service is a POST call adhering to the following steps:
+ 
+* Vendor onboarding has been completed prior to invoking the API. All the authentication and authorization credentials have been set up at this point.
+* Third party vendors invoke the User Location API using the client credentials (JWT)
+* Since the new service is registered with API gateway, the call is intercepted by the API Gateway and basic authentication and authorization for the given client credentials (JWT) is done
+* If the checks fail, then the appropriate error response is returned to the caller.
+* If the checks pass, then the request is forwarded to the load balancer which routes the request to the appropriate node for processing
+* The selected node processes the request which is in JSON format. Validations are performed the data conversion takes place. If any of the validations fail, then the appropriate error response is returned to the client (HTTP 400 Bad Request / HTTP 403 Unauthorized)
+* If the validations pass, then the request is processed, and the data is persisted to the backend (DB) in the following ways:
+    * Direct persistence
+    * Persistence via queues
+* If the persistence is successful, then an HTTP 200 OK is returned to the caller
+* If there are any issues with the persistence, then the appropriate codes are returned to the caller (HTTP 500 Application exception)
+* Note that the error messages are intentionally ambiguous to prevent exploitation
 
 ## Regional Availability
 
@@ -44,83 +60,88 @@ https://us.api.concursolutions.com/locate/api/v1/user/locations
 https://emea.api.concursolutions.com/locate/api/v1/user/locations
 ```
 
-
-
 ## Schema
+
 _POST /locate/api/v1/user/locations_
 
-See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema. Property names mentioned in __*bold italics*__ are required fields.
+See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema.
 
 The user locations API includes users and itineraries (locations) in addition to information about the company and post type (add or cancel).
 
-  | Property Name  | Type    | Format | Description
-  | ---------------| --------| -------| -----------
-  | __*UserLocations*__ | Object | JSON | Contains the Client, Users, Locations, Source Partner and Transaction.
-  | __*Client*__  |  Object |  JSON  |  This indicates which entity within the organization the traveler belongs to.
-  | __*Users*__ | Object | JSON | This is the users' information. This will be used to either create a new traveler or to match with an existing traveler.
-  | __*Locations*__ |Object | JSON | This is the users' location information. Multiple locations can be passed for a single user.
-  | __*SourcePartner*__ | Object | JSON | This is used to identify your application. This information will be provided to you in advance.
-  | __*Transaction*__ | Object | JSON | Whether this transaction adds or cancels itineraries/locations.
+Property Name|Type|Format|Description
+---|---|---|---
+UserLocations|Object|JSON|**Required** Contains the Client, Users, Locations, Source Partner and Transaction.
+Client|Object|JSON|**Required** This indicates which entity within the organization the traveler belongs to.
+Users|Object|JSON|**Required** This is the users' information. This will be used to either create a new traveler or to match with an existing traveler.
+Locations|Object|JSON|**Required** This is the users' location information. Multiple locations can be passed for a single user.
+SourcePartner|Object|JSON|**Required** This is used to identify your application. This information will be provided to you in advance.
+Transaction|Object|JSON|**Required** Whether this transaction adds or cancels itineraries/locations.
 
 ### Client
+
 This indicates which entity within the organization the traveler belongs to. This will vary by client. You will be provided with a list of the applicable agencies for each customer.
 
-| Property Name | Values / Length | Type | Description
-| ---------------| -------------| -----| -----------
-| __*Id*__ | 36 | String| Id: This maps to the top-level agency (corporation).
-| firstSubLevel | 36 | String | This is the child corporation one level below the top level corporation.
-| secondSubLevel | 36 | String | This is the sub level of the child corporation (firstsublevel).
+Property Name|Values/Length|Type|Description
+---|---|---|---
+Id|36|String|**Required**  Id: This maps to the top-level corporation
+firstSubLevel|36|String|This is the child corporation i.e one level below the top level corporation.
+secondSubLevel|36|String|This is the sub level of the child corporation (firstsublevel).
 
 ### Users
-This information will be used to match or create a new user. Either login ID or email address must be provided. If an existing user is not found for the login ID or email, one will be created.                            
 
-| Property Name | Values / Length | Type | Description
-| ------------- | ----------------| ---- | -----------
-| __*userID*__ | | This is a unique identifier for the user generated by your application.
-| firstName | 100 | String |
-| lastName | 100 | String |
-| email | 255 | String | Either email or concurLoginId must be provided
-| employeeId | 19 | String | 
-| mobileCountryCode | 3 | String |
-| mobile | 10 | String |
-| optedIn | 'True' / 'False' | String |
-| concurLoginId | 128 | String | Either email or concurLoginId must be provided.
-| affiliation | 255 | String | Used to indicate the type of traveler (e.g. employee, student, faculty)  
+This information will be used to match or create a new user. Either login ID or email address must be provided. If an existing user is not found for the login ID or email, one will be created.                 
 
+Property Name|Values/Length|Type|Description
+---|---|---|---
+userID|10|Long|**Required** This is a unique identifier for the user generated by your application.
+firstName|100|String| **Required** The first name of the user.
+lastName|100|String|**Required** The last name of the user.
+email|255|String|**Either email or concurLoginId must be provided**
+employeeId|19|String|Optional field to indicate the employee id of the user
+mobileCountryCode|4|String|Either ISO Alpha-2 code or International Calling Codes (4 digits). As a reference the full set can be found at [Country Codes](http://www.mcc-mnc.com/). 
+mobile|10|String|The contact number of the user
+optedIn|'True' / 'False'|String|Indicates if the user has chosen to receive messages via SMS or Text
+concurLoginId|128|String|**Either email or concurLoginId must be provided**
+affiliation|255|String|Used to indicate the type of traveler (e.g. employee, student, faculty)  
 
 ### Locations
+
 This section includes information about the traveler's future or current location. Either the location latitude and longitude OR the IATA (airport) code must be present. If both are present, the latitude and longitude take precedence.
 
-| Property Name | Values / Length | Type | Description
-| ------------- | --------------- | ---- | -----------
-| locationId | | String |
-| locationAddress | 512 | String |
-| locationName | 100 | String |
-| locationDescription | 100 | String |
-| locationPhone | 50 | String |
-| locationLatitude | | String | Either the airport or latitude/longitude must be provided.
-| locationLongitude | | String | Either the airport or latitude/longitude must be provided.
-| locationIATACode | 3 | String | [IATA Airport Codes](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A) Either the airport or latitude/longitude must be provided.
-| startDate | 16 | String (format YYYY-MM-DDTHH:MM) | traveler's arrival date
-| endDate | 16 | String (format YYYY-MM-DDTHH:MM) | traveler's departure date
-| timezoneId | 60 | String | As a reference the full set of timezones can be found at <http://joda-time.sourceforge.net/timezones.html>
-| visitorID | 5 | This corresponds to the user ID provided in the [Users](#users) schema
+Property Name|Values/Length|Type|Description
+---|---|---|---
+locationId|-|String|Identifier of the travel location
+locationAddress|512|String|Address of the travel location
+locationName|100|String|Name of the travel location
+locationDescription|100|String|A short description of the travel location
+locationPhone|50|String|Contact details of the travel location
+locationLatitude|-|String|**Either the airport or latitude/longitude must be provided**
+locationLongitude|-|String|**Either the airport or latitude/longitude must be provided**
+locationIATACode|3|String|[IATA Airport Codes](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A) Either the airport or latitude/longitude must be provided.
+startDate|16|String (format YYYY-MM-DDTHH:MM)|**Required** Traveler's arrival date
+endDate|16|String (format YYYY-MM-DDTHH:MM)|**Required** Traveler's departure date
+timezoneId|60|String|**Required** As a reference the full set of timezones can be found at <http://joda-time.sourceforge.net/timezones.html>
+visitorID|10|-|This corresponds to the user ID provided in the [Users](#users) schema.Ids present in this array must be present in the [Users](#users) schema.
 
 ### Source partner
+
 This information will be provided to you along with your client ID and secret.
 
-| Property Name | Values / Length | Type | Description
-| ------------- | --------------- | ---- | -----------
-| __*Id*__ | 5 | String |
-| name | 100 | String |
-| description | 100 | String |
+Property Name|Values/Length|Type|Description
+---|---|---|---
+Id|2|String|**Required** This will provide to clients similar to the Client ID
+name|100|String|The name of the source provider e.g Source Provider1
+description|100|String|A short description of the source provider
 
 ### Transaction
+
 Itineraries can be added or cancelled. This section allows you to indicate whether this is an addition of a new itinerary or cancellation of an existing itinerary. A cancellation request is for canceling the itinerary completely in our system and if there are any updates to the existing itineraries then it needs to be resent using the same booking or transaction id.
 
-| __*transactionId*__ | 5 | String | This is a unique identifier generated by your application for the request.
-| __*createdDate*__  | 16 | String (format YYYY-MM-DDTHH:MM) |
-| __*transactionType*__ | 10 | 'Add' or 'Cancel' |
+Property Name|Values/Length|Type|Description
+---|---|---|---
+transactionId|5|String|**Required** This is a unique identifier generated by your application for the request.
+createdDate|16|String (format YYYY-MM-DDTHH:MM)|**Required**
+transactionType|10|**Required** 'Add' or 'Cancel'| Add is indicative of creating a new itinerary or updating an existing itinerary. Cancel means removing the itinerary. Cancel works only on future dated itineraries
 
 ## Request Headers
 
@@ -134,115 +155,580 @@ Itineraries can be added or cancelled. This section allows you to indicate wheth
 
 ## Response Headers
 
-RFC7231 Content-Encoding
-
-RFC7231 Content-Type: application/json
-
-Date
-
-RFC7230 Transfer-Encoding
-
-RFC7231 Vary
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7230 Transfer-Encoding](https://tools.ietf.org/html/rfc7230#section-3.3.1)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)
 
 ## Status Codes
 
-
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
-* 204 No Content / Empty Response
-* 400 Bad Request
-* 401 Unauthorised / 403 Forbidden
-* 500 Internal Server Error
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
 
 Exceptions from the service will be mapped to one of the aforementioned
 error codes.
 
-
 ## Example
 
 
-### Request URL
+### Mobile and Mobile Country Code valid combinations
+Example with Country code for South Africa (Country Code:ZA)
 
-  ```
-  https://{baseURI}/locate/api/v1/user/locations
-  ```
+Country Code|Mobile Number
+---|---
+Empty|7160986233
+JP|800122334
+81|800122334
+
+* When `mobileCountryCode` is non-blank it will validate the mobile number against that country’s market. It will accept the country letters (in this case JP) or the country code (in this case 81)
+* When `mobileCountryCode` is blank, it will default to the client country (client id defined in the client section of the JSON)
+* Mobile is validated against the `mobileCountryCode` or default country (as mentioned in point 1 above) if this field is blank. When a mobile number is provided there are no issues as long as it follows the appropriate format and is a valid mobile in the country where it is registered. For e.g If the `mobileCountryCode` provided in the JSON is 81 (JP - Japan) then the subsequent mobile number must be valid in JP. 
+* If the `mobileCountryCode` is not provided in the JSON and the client country is US then the mobile number provided must be valid in US because of the default behaviour mentioned above.
+* `mobileCountryCode` can be of the following two variants
+    * A 2-letter ISO code (e.g US, JP, IT)
+    * A 4 digit International Calling Code.
+    Please ensure that there are no special characters and spaces in the `mobile` or `mobileCountryCode` fields. Also ensure that the above limits and datatypes are strictly followed to prevent unwanted behaviour of the system. 
+
+A new field `partiallyProcessedTransactions` is introduced in the response to cater to the following invalid mobile scenarios.
+    * Mobile number is not valid for the country derived based on details provided for traveller 
+    * A well formed mobile number could not be derived using the mobile provided
 
 ### Request
-
+###### Cancel request with location field
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
- curl -X POST \--header \'Content-Type: application/json\' \--header   
- \'Accept: application/json\' \--header \'Authorization: Bearer        
- \<JWT\> -d \'{
+
+```json
+{
   "userLocations": [
     {
-       "client": {
-        "id": "CTG",
-        "firstSubLevel": "Test_SL1_Demo",
-        "secondSubLevel": "Test_SL2_Demo"
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
       },
       "users": [
         {
-           "userId": 0,
+          "userId": 22,
           "firstName": "Test",
-          "lastName": "User",
-          "email": "clientOneXML@tuser.com",
-          "employeeId": "Cli123",
-          "mobileCountryCode": "string",
-          "mobile": "442345623456",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "",
+          "mobile": "+(27)7160981138",
           "optedIn": true,
           "concurLoginId": "",
-"affiliation": "Student"
+          "affiliation": "Student"
         }
       ],
       "locations": [
         {
           "locationId": 0,
-          "locationAddress": "Off Fox Street, Landstown AZ 45456",
-          "locationName": "Youth Hostel",
-          "locationDescription": "Travel Stuff",
-          "locationLatitude": "57.2019",
-          "locationLongitude": "-3.19778",
-          "locationIataCode": "",
-          "startDate": "2017-11-02T12:07",
-          "endDate": "2017-11-02T12:07",
+          "locationAddress": "",
+          "locationName": "SomeLocation",
+          "locationDescription": "",
+          "locationLatitude": "",
+          "locationLongitude": "",
+          "locationIataCode": "LHR",
+          "startDate": "2018-09-01T12:07",
+          "endDate": "2018-09-02T12:07",
           "timezoneId": "Europe/London",
-          "locationPhone": "string",
+          "locationPhone": "",
           "visitorId": [
-            0
+            22
           ]
         }
       ],
       "sourcePartner": {
-         "id": "TD",
-        "name": "Terra Dotta",
-        "description": "Universities stuff"
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
       },
       "transaction": {
-        "transactionId": "Nui-API",
-        "createdDate": "2017-11-02T12:05",
+        "transactionId": "AAAAAA",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Cancel"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+        "AAAAAA" : "Successfully Processed"
+    },
+    "unprocessedTransactions": {
+    },
+    "partiallyProcessedTransactions": {
+    }
+} 
+```
+
+### Request
+###### Cancel request without location and user fields (minimal request)
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI"
+      },
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "AAAAAA",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Cancel"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+        "AAAAAA" : "Successfully Processed"
+    },
+    "unprocessedTransactions": {
+    },
+    "partiallyProcessedTransactions": {
+    }
+} 
+```
+
+### Request
+###### Add request
+
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
+      },
+      "users": [
+        {
+          "userId": 22,
+          "firstName": "Test",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "27",
+          "mobile": "7160981138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        },
+        {
+          "userId": 23,
+          "firstName": "Test",
+          "lastName": "TEST4",
+          "email": "test.test4@abcd.com",
+          "employeeId": "abc334",
+          "mobileCountryCode": "US",
+          "mobile": "2125551138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        }
+      ],
+      "locations": [
+        {
+          "locationId": 0,
+          "locationAddress": "",
+          "locationName": "SomeLocation",
+          "locationDescription": "",
+          "locationLatitude": "",
+          "locationLongitude": "",
+          "locationIataCode": "LHR",
+          "startDate": "2018-09-01T12:07",
+          "endDate": "2018-09-02T12:07",
+          "timezoneId": "Europe/London",
+          "locationPhone": "",
+          "visitorId": [
+            22,23
+          ]
+        }
+      ],
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "ASDFGH",
+        "createdDate": "2018-08-06T12:05",
         "transactionType": "Add"
       }
     }
   ]
 }
-
-```
-### Response Header
-
-```
-{                                                                                                  
- "access-control-allow-origin": "*",                                                         
- "date": "Mon, 15 May 2018 14:28:07 GMT",                                                     
- "access-control-allow-credentials": "false",                                                 
- "server": "Apache-Coyote/1.1",                                                                 
- "content-length": "20",                                                                        
- "content-type\": "application/json"                                                           
- }                                                
 ```
 
-### Response Body
+### Response
 
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
 ```
-{                       
-"messageText": "OK"                          
- }                       
+
+```json
+{
+    "processedTransactions": {
+        "ASDFGH" : "Successfully Processed"
+    },
+    "unprocessedTransactions": {
+    },
+    "partiallyProcessedTransactions": {
+    }
+} 
 ```
+
+### Request
+###### Add request - mobile phone variation
+
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
+      },
+      "users": [
+        {
+          "userId": 22,
+          "firstName": "Test",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "",
+          "mobile": "+(27)7160981138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        },
+        {
+          "userId": 23,
+          "firstName": "Test",
+          "lastName": "TEST4",
+          "email": "test.test4@abcd.com",
+          "employeeId": "abc334",
+          "mobileCountryCode": "US",
+          "mobile": "2125551138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        }
+      ],
+      "locations": [
+        {
+          "locationId": 0,
+          "locationAddress": "",
+          "locationName": "SomeLocation",
+          "locationDescription": "",
+          "locationLatitude": "",
+          "locationLongitude": "",
+          "locationIataCode": "LHR",
+          "startDate": "2018-09-01T12:07",
+          "endDate": "2018-09-02T12:07",
+          "timezoneId": "Europe/London",
+          "locationPhone": "",
+          "visitorId": [
+            22,23
+          ]
+        }
+      ],
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "ASDFGH",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Add"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+        "ASDFGH" : "Successfully Processed"
+    },
+    "unprocessedTransactions": {
+    },
+    "partiallyProcessedTransactions": {
+    }
+} 
+```
+
+### Request
+###### Add request - invalid mobile phone variation
+
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
+      },
+      "users": [
+        {
+          "userId": 22,
+          "firstName": "Test",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "",
+          "mobile": "+(27)7160981138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        },
+        {
+          "userId": 23,
+          "firstName": "Test",
+          "lastName": "TEST4",
+          "email": "test.test4@abcd.com",
+          "employeeId": "abc334",
+          "mobileCountryCode": "US",
+          "mobile": "0005551138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        }
+      ],
+      "locations": [
+        {
+          "locationId": 0,
+          "locationAddress": "",
+          "locationName": "SomeLocation",
+          "locationDescription": "",
+          "locationLatitude": "",
+          "locationLongitude": "",
+          "locationIataCode": "LHR",
+          "startDate": "2018-09-01T12:07",
+          "endDate": "2018-09-02T12:07",
+          "timezoneId": "Europe/London",
+          "locationPhone": "",
+          "visitorId": [
+            22,23
+          ]
+        }
+      ],
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "ASDFGH",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Add"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+    },
+    "unprocessedTransactions": {
+    },
+    "partiallyProcessedTransactions": {
+        "ASDFGH": "Partially processed the transactions : [Incorrect mobile for [23] ]"
+    }
+} 
+```
+
+### Request
+###### Add request - unprocessed transaction
+
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
+      },
+      "users": [
+        {
+          "userId": 22,
+          "firstName": "Test",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "",
+          "mobile": "+(27)7160981138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        },
+        {
+          "userId": 23,
+          "firstName": "Test",
+          "lastName": "TEST4",
+          "email": "test.test4@abcd.com",
+          "employeeId": "abc334",
+          "mobileCountryCode": "US",
+          "mobile": "asdfrgh",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        }
+      ],
+      "locations": [
+        {
+          "locationId": 0,
+          "locationAddress": "",
+          "locationName": "SomeLocation",
+          "locationDescription": "",
+          "locationLatitude": "",
+          "locationLongitude": "",
+          "locationIataCode": "LHR",
+          "startDate": "2018-09-01T12:07",
+          "endDate": "2018-09-02T12:07",
+          "timezoneId": "Europe/London",
+          "locationPhone": "",
+          "visitorId": [
+            22,23
+          ]
+        }
+      ],
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "ASDFGH",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Add"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+    },
+    "unprocessedTransactions": {
+        "ASDFGH": "Invalid mobile details found for transaction [ASDFGH]. Skipping transaction "
+    },
+    "partiallyProcessedTransactions": {
+    }
+} 
+```
+
+

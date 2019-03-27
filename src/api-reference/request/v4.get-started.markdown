@@ -1,11 +1,9 @@
 ---
-title: Get Started
+title: Travel Request v4 - Get Started
 layout: reference
 ---
 
-# Request
-
-** Pre-release Version 4.0**
+{% include prerelease.html %}
 
 If a new or existing project please use version [3.0](./v3.request.html) of this API.
 
@@ -32,7 +30,7 @@ The Request V4 API exposes four different resources:
 
 Resource|Description
 ---|---
-Request|You can read, create, update or delete a Request and get the list of an existing Request.
+Request|You can read, create, update or delete a Request and get the list of existing Requests.
 Workflow|You can perform action in the approval workflow of a Request (submit, approve, cancel...)
 Expense|You can read, create, update or delete an Expense, and get the list of expected Expenses for a specific Request.
 Travel Agency|You can get the description of a Travel Agency office.
@@ -42,37 +40,25 @@ These resources are used to manage documents used for pre-spend authorizations w
 ## <a name="version"></a>Version
 
 * 4.0
-* [3.0](/api-reference/request/v3.request.html)
-* [1.0](/api-reference/request/v1.request.html)
+  * [Travel Request v4 - Endpoints](./v4.endpoints.html)
+  * [Travel Request v4 - Examples](./v4.examples.html)
+  * [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
+* [3.0](./v3.request.html)
+* [1.0](./v1.request.html)
 
 ## <a name="regionalavailability"></a>Regional Availability
 
-### <a name="curl"></a>With curl
-
-For US production
-
 ```
-curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json' --header "Authorization: Bearer {YOUR ACCESS TOKEN}" -d { "name": "Your action name" } https://us.api.concursolutions.com/travelrequest/v4/...
-```
-
-For EMEA production
-
-```
-curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json' --header "Authorization: Bearer {YOUR ACCESS TOKEN}" -d { "name": "Your action name" } https://emea.api.concursolutions.com/travelrequest/v4/...
-```
-
-For China production
-
-```
-curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json' --header "Authorization: Bearer {YOUR ACCESS TOKEN}" -d { "name": "Your action name" } https://cn.api.concurdc.cn/travelrequest/v4/...
+US Production:    https://us.api.concursolutions.com/travelrequest/v4/
+EMEA Production:  https://emea.api.concursolutions.com/travelrequest/v4/
+China Production: https://cn.api.concurdc.cn/travelrequest/v4/
 ```
 
 ## <a name="explore-api"></a>Explore the API
 
 ### <a name="prerequisites"></a>Prerequisites
 
-1. [Create a sandbox](/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
+Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
 
 Once you have registered your application, read about the [API endpoints](/api-reference/request/v4.endpoints.html), or click the button to download a request collection for Postman.
 
@@ -150,7 +136,7 @@ const req = https.request(options, (res) => {
   });
 });
 
-req.write(receipt);
+req.write(request);
 req.end();
 
 req.on('error', (e) => {

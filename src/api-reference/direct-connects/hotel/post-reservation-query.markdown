@@ -3,6 +3,8 @@ title: Post a reservation query
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 
 This request is sent when the Travel user requests the reservation details for the supplied reservation ID. The response includes the reservation details, and is identical to the [Post New Reservation](/api-reference/direct-connects/hotel/post-new-reservation.html) response.
@@ -18,7 +20,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
 `https://{servername}/concur/hotel/v1/`
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications](/docs/overviews/partner-applications.html) for more information.
+The supplier determines the URI and provides it to SAP Concur to use when registering the partner application.
 
 ### Headers
 

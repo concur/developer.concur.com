@@ -1,86 +1,72 @@
 ---
-title: Getting Started
+title: Budget v4 - Getting Started
 layout: reference
 ---
 
-# Budget - Beta
+{% include prerelease.html %}
 
-# Menu
-* [Getting Started](#overview)
-* [Fiscal Year](#overview)
-* [Budget Category](#overview)
-* [Budget Item](#overview)
+## Menu
 
+* [Getting Started](./getting-started.html)
+* [Fiscal Year](/api-reference/budget/v4.fiscal-year.html)
+* [Budget Category](/api-reference/budget/v4.budget-category.html)
+* [Budget Item](/api-reference/budget/v4.budget-header.html)
+* [Budget Tracking Field](/api-reference/budget/v4.budget-trackingfield.html)
+* [Budget Adjustments](/api-reference/budget/v4.budget-adjustments.html)
 
 ## Getting Started
 
-- [Overview](#overview)
-- [Version](#version)
-- [Regional Availability](#regional-availability)
-- [Explore the API](#explore-the-api)
-  - [Prerequisites](#prerequisites)
-  - [Acquire an Access Token](#retrieve-a-user-access-token)
-  - [Roles & Scopes](#roles-and-scopes)
+* [Overview](#overview)
+* [Process Flow](#process-flow)
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
 
-### Overview
+## <a name="overview"></a>Overview
 
-The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
-
-The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, and budget matching configuration.
+The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration.
 Summary and detailed balance amounts are also available to read, but may not be altered via the API.
 
 The sequence to configure budgets is to first setup the fiscal year and then the budget categories (if applicable) before creating budget items.
-Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application. Also budget owner,
-manager and budget viewer permissions have to be assigned to users prior to configuring budgets.
+Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application UI. Also budget owner,
+approver and budget viewer permissions have to be assigned to users prior to configuring budgets.
 
-### Version
-4.0  
+## Process Flow
 
-### Regional Availability
+![A process flow diagram of getting started with Budget APIs](./v4-budget-getting-started-process-flow.png)
 
-```
-https://us.api.concursolutions.com/budget/v4/
-```
+## <a name="products-editions"></a>Products and Editions
 
-```
-https://emea.api.concursolutions.com/budget/v4/
-```
+* Concur Request Professional Edition
+* Concur Request Standard Edition
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+* Concur Invoice Professional Edition
+* Concur Invoice Standard Edition
 
-### Explore the API
+## <a name="scope-usage"></a>Scope Usage
 
-#### Prerequisites
+This API requires one or more of the following scopes:
 
-1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
+Name|Description|Endpoint
+---|---|---
+`budgetitem.read`|Grants read access to the budget resources.|GET Budget Category, GET Budget Item, GET Budget Tracking Fields, GET Fiscal Year, GET Valid Expense Types
+`budgetitem.write`|Grants read and write access to the budget resources.|GET Budget Category, GET Budget Item, GET Budget Tracking Fields, GET Fiscal Year, GET Valid Expense Types, POST Budget Adjustment, POST Budget Category, POST Budget Item, POST Fiscal Year, DELETE Budget Category, DELETE Budget Item, DELETE Fiscal Year
+`fiscalcalendar.read`|Grants read access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year
+`fiscalcalendar.write`|Grants read and write access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year, POST a Fiscal Year, DELETE a Fiscal Year
 
-Once you have registered your application, read about the [Budget Category](/api-reference/budget/budget-category.html), [Fiscal Year](/api-reference/budget/fiscal-year.html), [Budget Tracking Field](/api-reference/budget/cost-object.html), and [Budget Item Header](/api-reference/budget/budget-header.html) endpoints.
+This API uses this optional scope:
 
-#### Retrieve a User Access Token:
+Name|Description|Endpoint
+---|---|---
+`LIST` |GET List Items, necessary for budget tracking value `listKey` if using list fields for budget tracking. |POST Budget Item
 
-Before making requests to the Budget API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
+## <a name="dependencies"></a>Dependencies
 
-The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to access the Budget endpoints.
+SAP Concur clients must purchase Budget in order to use this API. The developer may use the following SAP Concur API to get optional information:
+* List Item v3.0, to retrieve the budget tracking value `listKey`
 
-Examples:
+## <a name="access-token-usage"></a>Access Token Usage
 
-#### Request
-```http
-POST https://us.api.concursolutions.com/oauth2/v0/token
-client_secret:{YOUR SECRET}
-client_id:{YOUR CLIENT ID}
-grant_type:password
-username:{YOUR USERNAME}
-password:{YOUR PASSWORD}
-```
-
-#### Roles and Scopes:
-
-The user needs to have the Budget Administrator role in order to access the api. 
-
-The GET api endpoints for fiscal year require fiscalcalendar.read or budgetitem.read scope.
-
-POST and DELETE endpoints require fiscalcalendar.write or budgetitem.write scope.
-
-Budget Item Header, Budget Item Category GET end points require budgetitem.read.
- 
-Budget Item Header, Budget Item Category POST and DELETE end points require budgetitem.write. 
+This API supports both company level and user level access tokens. The user needs to have the Budget Administrator role in order to access the API.

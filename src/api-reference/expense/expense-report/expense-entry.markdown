@@ -3,172 +3,26 @@ title: Entries
 layout: reference
 ---
 
-
-# Entries
-
-* [Retrieve all expense entries](#get)
-* [Create a new expense entry](#post)
-* [Updates an expense entry](#put)
-* [Delete an expense entry](#delete)
+* [Retrieve All Expense Entries](#get)
+* [Create a New Expense Entry](#post)
+* [Update an Expense Entry](#put)
+* [Delete an Expense Entry](#delete)
 * [Schema](#schema)
+  * [Entry](#entry)
+  * [Custom Field](#custom-field)
+  * [Journey](#journey)
 
+The SAP Concur Expense Entries API is used to manage expense reports and their entries in SAP Concur. It allows for the synchronizing and reconciliation of expense related information with your internal systems and reporting modules.
 
 1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
 
-
-## <a name="get"></a>Retrieve all expense entries
+## <a name="get"></a>Retrieve All Expense Entries
 
 In order to retrieve all expense entries, you must use [version 2.0.](/api-reference/expense/expense-report/expense-report-get.html)
 
-<!--- 3.0 NOT READY
-    GET /expense/entries/
-
-
-### Parameters
-
-Name | Type | Format | Description
------|------|--------|------------			
-`reportID`	|	`query`	|	`string`	|	The report ID of the entries to be retrieved. Use the GET /expense/reportdigests function to find the report ID. Format: An alpha-numeric GUID string.
-`paymentTypeID`	|	`query`	|	`string` |	The ID of the payment type of the entries to be retrieved. Use the GET /expense/expensegroupconfigurations function to learn the payment type ID for the desired payment type.
-`batchID`	|	`query`	|	`string`	|	The batch ID for the entries to be retrieved. The batch ID identifies the batch that contains the report payee associated with the entries. Use the GET Payment Batch function to learn the Payment Type ID for the desired Payment Type.
-`isBillable`	|	`query`	|	`boolean`	|	Determines whether the operation retrieves entries that are billable. Format: true or false
-`attendeeTypeCode`	|	`query`	|	`string`	|	The ID of the attendee type for the entries to be retrieved.
-`hasAttendees`	|	`query`	|	`boolean`	|	Determines whether the operation retrieves entries that have attendees. Format: true or false
-`hasVAT`	|	`query`	|	`boolean`	|	Determines whether the operation retrieves entries that have VAT details. Format: true or false
-`expenseTypeCode`	|	`query`	|	`string`	|	The code for the expense type for the entries to be retrieved.
-`attendeeID`	|	`query`	|	`string`	|	The attendee associated with the entries to be retrieved.
-`offset`	|	`query`	|	`string`	|	The starting point of the next set of results, after the limit specified in the limit field has been reached.
-`limit`	|	`query`	|	`Int32`	|	The number of records to return. Default value: 25
-`user`	|	`query`	|	`string`	|	The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.
-
--->
-
-<!--- 3.0 NOT READY
-
-## <a name="getID"></a>Retrieve a single expense entry by ID
-
-    GET  /api/v3.0/expense/entries/{id}
-
-
-### Parameters
-
-Name | Type | Format | Description
------|------|--------|------------
-`id`	|	`string`	|	`path`	|	**Required** The expense entry ID.
-`user`	|	`string`	|	`query`	|	The login ID of the user who owns the entries.
-
-
-### Request URL
-
-```
-https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
-```
-
-### JSON example of a successful response
-
-```json
-{
-  "ReportID": "39BD9F7C5C3F4986A6A5",
-  "ReportOwnerID": "jimadmin@concurconnect2.com",
-  "ExpenseTypeCode": "GASXX",
-  "ExpenseTypeName": "Fuel",
-  "SpendCategoryCode": "GASXX",
-  "SpendCategoryName": "Gas",
-  "PaymentTypeID": "gWurF7TC$pQAT4cqT0JokiYMobzQdz",
-  "PaymentTypeName": "Cash",
-  "TransactionDate": "2016-04-04T00:00:00",
-  "TransactionCurrencyCode": "USD",
-  "TransactionAmount": 100,
-  "ExchangeRate": 1,
-  "PostedAmount": 100,
-  "ApprovedAmount": 100,
-  "VendorDescription": "Chevron",
-  "VendorListItemID": "gWuY7jnXPYIMMTdjsoL547QqQ6pDvuDytvw",
-  "VendorListItemName": "Chevron",
-  "LocationID": null,
-  "LocationName": "",
-  "LocationSubdivision": null,
-  "LocationCountry": null,
-  "Description": null,
-  "IsPersonal": false,
-  "IsBillable": false,
-  "IsPersonalCardCharge": false,
-  "HasImage": false,
-  "IsImageRequired": true,
-  "ReceiptReceived": false,
-  "TaxReceiptType": "N",
-  "ElectronicReceiptID": null,
-  "CompanyCardTransactionID": null,
-  "TripID": null,
-  "HasItemizations": false,
-  "AllocationType": "N",
-  "HasAttendees": false,
-  "HasVAT": false,
-  "HasAppliedCashAdvance": false,
-  "HasComments": false,
-  "HasExceptions": false,
-  "IsPaidByExpensePay": false,
-  "EmployeeBankAccountID": null,
-  "Journey": null,
-  "LastModified": "2016-04-22T21:50:46.893",
-  "FormID": "gWvidmKNPVE38CEiyWu7DFvcS7OvCjV3Zvg",
-  "OrgUnit1": null,
-  "OrgUnit2": null,
-  "OrgUnit3": null,
-  "OrgUnit4": null,
-  "OrgUnit5": null,
-  "OrgUnit6": null,
-  "Custom1": null,
-  "Custom2": null,
-  "Custom3": null,
-  "Custom4": null,
-  "Custom5": null,
-  "Custom6": null,
-  "Custom7": null,
-  "Custom8": null,
-  "Custom9": null,
-  "Custom10": null,
-  "Custom11": null,
-  "Custom12": null,
-  "Custom13": null,
-  "Custom14": null,
-  "Custom15": null,
-  "Custom16": null,
-  "Custom17": null,
-  "Custom18": null,
-  "Custom19": null,
-  "Custom20": null,
-  "Custom21": null,
-  "Custom22": null,
-  "Custom23": null,
-  "Custom24": null,
-  "Custom25": null,
-  "Custom26": null,
-  "Custom27": null,
-  "Custom28": null,
-  "Custom29": null,
-  "Custom30": null,
-  "Custom31": null,
-  "Custom32": null,
-  "Custom33": null,
-  "Custom34": null,
-  "Custom35": null,
-  "Custom36": null,
-  "Custom37": null,
-  "Custom38": null,
-  "Custom39": null,
-  "Custom40": null,
-  "ID": "gWidFO7ikXV66iSvqtG6Yd0wZ$s4ftzvzTCg",
-  "URI": "https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ$s4ftzvzTCg"
-}
-```
-
--->
-
-## <a name="post"></a>Create a new expense entry
+## <a name="post"></a>Create a New Expense Entry
 
     POST  /api/v3.0/expense/entries
-
 
 ### Parameters
 
@@ -176,14 +30,13 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `content`|````body````|-|**Required** The expense entry object to create.
 
-
 ### Request URL
 
 ```
 https://www.concursolutions.com/api/v3.0/expense/entries
 ```
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
@@ -192,11 +45,9 @@ https://www.concursolutions.com/api/v3.0/expense/entries
 }
 ```
 
-
-## <a name="put"></a>Updates an expense entry
+## <a name="put"></a>Updates an Expense Entry
 
     PUT  /api/v3.0/expense/entries/{id}
-
 
 ### Parameters
 
@@ -205,21 +56,14 @@ Name | Type | Format | Description
 `id`|````string````|`path`|**Required** The expense entry ID.
 `content`|````body````|-|**Required** The partial or complete expense entry object to update.
 
-
 ### Request URL
 ```
 https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
 ```
 
-### JSON example of a successful response
-```
-no content
-```
-
-## <a name="delete"></a>Delete an expense entry
+## <a name="delete"></a>Delete an Expense Entry
 
     DELETE  /api/v3.0/expense/entries/{id}
-
 
 ### Parameters
 
@@ -228,21 +72,12 @@ Name | Type | Format | Description
 `id`|````string````|`path`|**Required** The ID of the expense entry to delete.
 `user`|````string````|`query`|The login ID of the user who owns the entries.
 
-
 ### Request URL
 ```
 https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
 ```
 
-
-### JSON example of a successful response
-
-```
-no content
-```
-
 ## <a name="schema"></a>Schema
-
 
 ### <a name="entries"></a>Entries
 
@@ -250,7 +85,6 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `Items`	|	Array	|	[Entry](#entry)	|	The result collection.
 `NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
-
 
 ### <a name="entry"></a>Entry
 
@@ -305,8 +139,7 @@ Name | Type | Format | Description
 `VendorListItemID`	|	`string`	|	-	|	The unique identifier for a vendor list item. Use the GET /common/lists function to get information about this list item.
 `VendorListItemName`	|	`string`	|	-	|	The name of an item from a vendor list.
 
-
-### <a name="customfield"></a>CustomField
+### <a name="custom-field"></a>CustomField
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -314,7 +147,6 @@ Name | Type | Format | Description
 `ListItemID`	|	`string`	|	-	|	For list fields, this is the list item ID.
 `Type`	|	`string`	|	-	|	The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
 `Value`	|	`string`	|	-	|	The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters
-
 
 ### <a name="journey"></a>Journey
 
@@ -329,5 +161,4 @@ Name | Type | Format | Description
 `StartLocation`	|	`string`	|	-	|	**Required** Indicates where the journey started. This is also known as the "From Location". Maximum length: 100 characters
 `UnitOfMeasure`	|	`string`	|	-	|	**Required** The unit of measure for distance and odometer values. Possible values: M - miles, K - kilometers
 
-
-NOTE: Clients that have Car Configurations that include variable rates are not currently supported.  We only support Car Configurations that include Personal Car One-Rate definitions where Google Maps is not set as mandatory.
+**NOTE:** Clients that have Car Configurations that include variable rates or custom mileage expense type codes are not supported. We only support Car Configurations that include Personal Car One-Rate definitions, using the default mileage expense type code (MILEG) where Google Maps is not set as mandatory.

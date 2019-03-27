@@ -1,25 +1,27 @@
 ---
-title: Getting Started
+title: OAuth2 - Getting Started
 layout: reference
 ---
 
-# Getting Started
+SAP Concur's new Oauth2 framework is a very simple way to implement a Unified Token Authentication mechanism within your application. Here is a four step guide to helping you get up to speed and making calls to SAP Concur's API.  
 
-Concur's new Oauth2 framework is a very simple way to implement a Unified Token Authentication mechanism within your application. Here is a four step guide to helping you get up to speed and making calls to Concur's API.  
+**Note:** The Pre-2017 Authorization (Deprecated) documentation can be found [here](/api-reference/authentication/authorization-pre-2017.html)
 
-**Note:** The old authentication documentation can be found [here](/api-reference-deprecated/old-auth/old-auth.html)
+* [Obtain Your Application clientID and clientSecret](#obtain-clientID)
+* [Obtaining an Access Token](#obtain-accessToken)
+* [Calling an API with the Access Token](#calling-API)
+* [Access Token Expiry and Obtaining a Fresh One](#access-token-expiry)
 
+## <a name="obtain-clientID"></a>1. Obtain Your Application clientID and clientSecret
+Before you can obtain an `accessToken`, you need to register an application with SAP Concur. You can do this by contacting your Partner Enablement Manager or Partner Account Manager. Once you have registered an application, you will receive a `clientId`, `clientSecret` and `geolocation`. The `clientId` is a unique UUID4 identifier for your application, and the `clientSecret` is your application's password. You will be using this credential to obtain tokens either for the application itself, or on behalf of a user. The `geolocation` is your default base URI for initiating all new connections.
 
-## 1. Obtain your Application clientID and clientSecret
-Before you can obtain an `accessToken`, you need to register an application with Concur. You can do this by contacting your Partner Enablement Manager or Partner Account Manager. Once you have registered an application, you will receive a `clientId`, `clientSecret` and `geolocation`. The `clientId` is a unique UUID4 identifier for your application, and the `clientSecret` is your application's password. You will be using this credential to obtain tokens either for the application itself, or on behalf of a user. The `geolocation` is your default base URI for initiating all new connections.
-
-## 2. Obtaining an Access Token
-In order for an application to call a Concur API, you need to obtain an `accessToken` on behalf of either a User, Company or Application. There are multiple ways of obtaining an `accessToken` through the various grants ([Password](/api-reference/authentication/apidoc.html#password_grant), [Authorization](/api-reference/authentication/apidoc.html#auth_grant), [Client Credentials](/api-reference/authentication/apidoc.html#client_credentials), [One-time Password](/api-reference/authentication/apidoc.html#otp_grant)) . 
+## <a name="obtain-accessToken"></a>2. Obtaining an Access Token
+In order for an application to call a SAP Concur API, you need to obtain an `accessToken` on behalf of either a User, Company or Application. There are multiple ways of obtaining an `accessToken` through the various grants ([Password](/api-reference/authentication/apidoc.html#password_grant), [Authorization](/api-reference/authentication/apidoc.html#auth_grant), [Client Credentials](/api-reference/authentication/apidoc.html#client_credentials), [One-time Password](/api-reference/authentication/apidoc.html#otp_grant)) .
 
 
 This section provides a quick start guide for generating an access token. If you are developing an application to be certified for the App Center or as a TripLink supplier, please refer to the [certification documentation](/manage-apps/app-certification.html) for the grant types your application must support.
 
-For simplicity, we will use the Password grant flow as an example.  The Password grant flow is used when you need to authenticate a user, using its `username` and `password`. This is typically reserved from Concur applications (i.e. where the user's credentials will be captured and stored) but is used here for demonstration purposes.
+For simplicity, we will use the Password grant flow as an example.  The Password grant flow is used when you need to authenticate a user, using its `username` and `password`. This is typically reserved from SAP Concur applications (i.e. where the user's credentials will be captured and stored) but is used here for demonstration purposes.
 
 When making the call, you will use your app's `geolocation` as the base URI followed by the endpoint. For example, if your geolocation is https://us.api.concursolutions.com, you will call https://us.api.concursolutions.com/oauth2/v0/token.
 
@@ -40,7 +42,7 @@ Full docs: <https://developer.concur.com/api-reference/authentication/apidoc.htm
 
 Store the token and geolocation.
 
-## 3. Calling an API with the Access Token
+## <a name="calling-API">3. Calling an API with the Access Token
 Once you have the `accessToken`, you need to supply this in an Authorization header in the form of `Authorization: Bearer <accessToken>` when making a HTTPS call. The `accessToken` is a large string that looks something like this:
 
 ```
@@ -49,7 +51,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJhdWQiOiIqIiwic
 
 When you receive the `accessToken`, store it with the token's `geolocation`. That `geolocation` will be the base URI for all subsequent calls.
 
-Armed with the `accessToken` you can start making calls to Concur's API. Here's an example to retrieve profile information for a User in the Production environment using cURL (utilize the appropriate base URI geolocation for the token). [Base URIs Reference](/api-reference/authentication/apidoc.html#base_uri):
+Armed with the `accessToken` you can start making calls to SAP Concur's API. Here's an example to retrieve profile information for a User in the Production environment using cURL (utilize the appropriate base URI geolocation for the token). [Base URIs Reference](/api-reference/authentication/apidoc.html#base_uri):
 
 ```shell
 curl -k -v -H "Accept: application/json" \
@@ -92,11 +94,11 @@ and the response will look like:
     "lastModified": "2016-08-22T14:32:00.000",
     "resourceType": "EnterpriseUser"
   },
-  "displayName": "Taso",
+  "displayName": "Brown",
   "name": {
-    "formatted": "Lyristis, Taso ",
-    "familyName": "Lyristis",
-    "givenName": "Taso",
+    "formatted": "Brown, Terry ",
+    "familyName": "Brown",
+    "givenName": "Terry",
     "middleName": "",
     "honorificPrefix": "",
     "honorificSuffix": ""
@@ -120,7 +122,7 @@ and the response will look like:
     }
   ],
   "com:concur:Employee:1.0": {
-    "employeeId": "taso@taso-sandbox.com",
+    "employeeId": "brown@brown-sandbox.com",
     "jobTitle": "",
     "managerId": null,
     "orgUnitId": null
@@ -180,7 +182,7 @@ and the response will look like:
   "gender": null,
   "emails": [
     {
-      "value": "taso@taso-sandbox.com",
+      "value": "brown@brown-sandbox.com",
       "type": "Business",
       "notifications": true
     }
@@ -191,7 +193,7 @@ and the response will look like:
 
 Full docs: <https://developer.concur.com/api-reference/user/>
 
-### 4. Access Token expiry and obtaining a fresh one
+### <a name="access-token-expiry"></a>4. Access Token Expiry and Obtaining a Fresh One
 Access Tokens have a default __One hour__ lifetime. In order to obtain a fresh `accessToken` you need to call the auth endpoint using the Refresh Grant. This will return a brand new `accessToken` and a `refreshToken`. Refresh Tokens have a default __6 month__ lifetime. Clients will typically store the `refreshToken` together with the other user metadata like login information and unique identifiers.
 
 Utilizing the `geolocation` for the token, here's an example of a cURL call to obtain a new `accessToken`
@@ -202,6 +204,6 @@ curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' --data "client
 
 Full docs: <https://developer.concur.com/api-reference/authentication/apidoc.html#refresh_token>
 
-Now that you've made your first call, read up more about Concur's wide ranging APIs and how they can enhance your application or solve your business needs.
+Now that you've made your first call, read up more about SAP Concur's wide ranging APIs and how they can enhance your application or solve your business needs.
 
 ref: <https://developer.concur.com/api-reference/index.html>

@@ -1,0 +1,70 @@
+---
+title: Purchase Request v4 - Get Started
+layout: reference
+redirect_from:
+  - /api-reference/invoice/purchase-request.html
+---
+
+The Purchase Request API gives SAP Concur clients the ability to leverage external data to create purchase requests for pre-authorization of purchase orders. Clients can build a direct connection to the Purchase Request API which will create new purchase requests and automatically submit them into the pre-authorization workflow. Once approved, the purchase request results in a purchase order that can be transmitted to a vendor from SAP Concur.
+
+#### Use Case
+
+Many Concur Invoice clients have external systems that have part or service lists with pricing. If they use SAP Concur pre-authorization using purchase request, the data from the external systems must be entered manually into the purchase request cart and submitted for approval by the requesting employee. Using this API and a client-built integration, the requestor can browse and select the items from the external system with quantities and other details needed, and then send the data to SAP Concur. A purchase request will be created and submitted into the workflow. The API returns a response message with a record identifier (URI), which can be used with the Get Purchase Request Details method to get the basic details of the created purchase request: Concur Purchase Request number, workflow status, exceptions, and once approved, the resulting SAP Concur purchase order number. 
+
+#### Limitations
+
+This API is not available in the China Data center. This API is only available for direct integrations with an existing SAP Concur client. If you are a Partner looking to build an App Center App using this API, please reach out to your SAP Concur Representative. This API can only be used to create new purchase requests and get the details of the created purchase request. This API cannot update, edit, or delete purchase requests. All edits or processing of the purchase request after it is sent to SAP Concur and created must be done in SAP Concur.
+
+- [Regional Availability](#regional-availability)
+- [Products and Editions](#products-and-editions)
+- [Scope Usage](#scope-usage)
+- [Dependencies](#dependencies)
+- [Access Token  Usage](#access-token-usage)
+    - [Retrieve a Company Access Token](#retrieve-a-company-access-token)
+    - [Retrieve a User Access Token](#retrieve-a-user-access-token)
+- [Purchase Request API Endpoints](./v4.purchase-request-endpoints.html)
+
+
+### Regional Availability
+
+```
+https://us.api.concursolutions.com/purchaserequest/v4/
+```
+
+```
+https://emea.api.concursolutions.com/purchaserequest/v4/
+```
+
+### Products and Editions
+
+* Concur Invoice Professional Edition
+* Concur Invoice Standard Edition
+
+### Scope Usage
+
+Name|Description|Endpoint
+---|---|---
+purchaserequest.write|Allows you to create new purchase requests|POST
+purchaserequest.read|Allows you to retrieve  purchase requests|GET
+
+### Dependencies
+
+SAP Concur clients must purchase Concur Invoice, Concur Purchasing, and Concur Web Services in order to use this API. Concur Invoice with Concur Purchasing must be configured before using this API.   
+
+To create purchase requests, you need to supply a Vendor Code and Vendor Address Code. You can access **Vendor Manager** in Concur Invoice to see these values. If you need to get this data from SAP Concur using web services, you can use the [Vendor v3](/api-reference/invoice/v3.vendor.html) API.
+
+If your purchase request form in SAP Concur has required custom fields that are tied to lists, you will need to supply the Item Code for the list items, or configure them to copy down from another source such as Employee. You can access  **List Management** in SAP Concur to see your list items and list item codes. If you need to get this data from SAP Concur using web services, you can use the [List Item v3](/api-reference/common/list-item/v3.list-item.html) API to retrieve the `Level1Code` value for the list items. 
+
+### Access Token Usage
+
+This API will work with both Company or User access tokens, however a Company access token is required if the integration will create purchase requests for multiple requestors. Using a User access token to create purchase requests results in the purchase request being assigned to the user that generated the User access token, not the user set in the payload. A User access token can be used for testing purposes. 
+
+#### Retrieve a Company Access Token
+
+Clients connecting to this API to build a custom integration will receive client credentials and information on how to generate your Company access token or Company refresh token from your Concur Technical Enablement resource.
+
+#### Retrieve a User Access Token
+
+This API supports User access tokens, however any purchase requests created using a User access token will only create/assign these requests to the user that generated the User access token. Before making requests to the Purchase Request API, you must [obtain an access token from the Authentication](/api-reference/authentication/getting-started.html) API.
+
+The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to post Purchase Requests.

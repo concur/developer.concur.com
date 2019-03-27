@@ -3,20 +3,16 @@ title: Allocations
 layout: reference
 ---
 
-# Allocations
+The SAP Concur Allocations API allows for the retrieval of allocation information as it relates to a Report ID, Entry ID, or Itemization ID. Using this API allows for an in-depth review of Expense Report Data and how that data has been allocated in SAP Concur. The Allocations API allows for the programmatic gathering of details on how the expense report data was allocated by the report owner, making it ideal for Data Gathering, Expense Reporting, and Validations. 
 
-This resource can be used to retrieve information about the allocations that are associated with an entry in an expense report. v3.0
-
-
-* [Retrieve all allocations per entry or report](#get)
-* [Retrieve a single allocation by ID](#getID)
+* [Retrieve All Allocations Per Entry or Report](#get)
+* [Retrieve a Single Allocation by ID](#getID)
 * [Schema](#schema)
-* [Try it out](#try-it-out)
 
 ### Version
 3.0
 
-## <a name="get"></a>Retrieve all allocations per entry or report
+## <a name="get"></a>Retrieve All Allocations Per Entry or Report
 
     GET  /api/v3.0/expense/allocations
 
@@ -36,11 +32,11 @@ Note: userId is not a supported query string parameter for this API.
 ### Request URL
 
 ```
-https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
+https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10
 ```
 
 
-### JSON Example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
@@ -114,7 +110,7 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 [Allocations Schema](#schema)
 
 
-## <a name="getID"></a>Retrieve a single allocation by ID
+## <a name="getID"></a>Retrieve a Single Allocation by ID
 
     GET  /api/v3.0/expense/allocations/{id}
 
@@ -130,14 +126,14 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 
 ## <a name="schema"></a>Schema
 
-### <a name="vendors"></a>Allocations
+### <a name="allocations"></a>Allocations
 
 |Name | Type | Format | Description|
 |-----|------|--------|------------|
 |`Items`|`array`|[`Allocation`](#allocations)|The result collection.
 |`NextPage`|`string`|-|The URI of the next page of results, if any.|
 
-### <a name="allocations"></a>Allocations
+### <a name="allocation"></a>Allocation
 
 |Name | Type | Format | Description|
 |-----|------|--------|------------ |
@@ -151,8 +147,6 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 |`Percentage`|`string`|-|The percentage of the expense that is included in this allocation.
 |`URI`|`string`|-|The URI to the resource.|
 
-
-
 ### <a name="status"></a>Custom Field
 
 |Name | Type | Format | Description|
@@ -164,7 +158,6 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 |`Type`|`string`|-|The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
 |`Value`|`string`|-|The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters|
 
-
 ### Request URL
 
 ```
@@ -172,7 +165,7 @@ https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py%2
 ```
 
 
-### JSON example of a successful response
+### JSON Example of a Successful Response
 
 ```json
 {
@@ -206,7 +199,3 @@ https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py%2
   "URI": "https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py$p7cwkclNQvGC1JQPyw"
 }
 ```
-
-## <a name="try-it-out"></a> Try It Out
-
-{% swagger /api-explorer/v3-0/Allocations.swagger2.json %}

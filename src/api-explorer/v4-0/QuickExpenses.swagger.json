@@ -1,0 +1,708 @@
+{
+  "swagger": "2.0",
+  "host": "us.api.concursolutions.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "info": {
+    "title": "Quick Expenses",
+    "description": "",
+    "version": "4.0.3"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/quickexpense/v4/users/{userID}/context/{contextType}/quickexpenses": {
+      "post": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "This API is used to create a quick expense. This API does not support image creation.",
+        "description": "This API creates a basic expense with minimal fields. Can be added to expense reports from within SAP Concur.",
+        "operationId": "createQuickExpenseUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "A SAP Concur specific custom header used for technical support.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accept-language",
+            "in": "header",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "quickExpenseRequest",
+            "description": "quickExpenseRequest",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/QuickExpenseRequest"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of the SAP Concur user.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contextType",
+            "in": "path",
+            "description": "The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: TRAVELER.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "TRAVELER"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NewQuickExpenseResponse"
+            }
+          },
+          "201": {
+            "description": "Sucessfully created new quick expense",
+            "schema": {
+              "$ref": "#/definitions/NewQuickExpenseResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "User doesn't have appropriate roles to create quick expense",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      }
+    },
+    "/quickexpense/v4/users/{userID}/context/{contextType}/quickexpenses/image": {
+      "post": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "This API is used to create a quick expense with image. An image is required. This API accepts multipart/form-data request.",
+        "description": "This API creates a new quick expense and attaches an image to it, which is provided with multipart/form-data request.",
+        "operationId": "createQuickExpenseUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "A SAP Concur specific custom header used for technical support.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accept-language",
+            "in": "header",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "quickExpenseRequest",
+            "in": "formData",
+            "description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fileContent",
+            "in": "formData",
+            "description": "Image file. <br>Supported image file type ['PNG','GIF','PDF','TIFF','JPEG']. Max image size supported - 5MB",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of the SAP Concur user.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contextType",
+            "in": "path",
+            "description": "The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: TRAVELER.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "TRAVELER"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NewQuickExpenseResponse"
+            }
+          },
+          "201": {
+            "description": "Sucessfully created new quick expense",
+            "schema": {
+              "$ref": "#/definitions/NewQuickExpenseResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "User doesn't have appropriate roles to create quick expense",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "URI": {
+      "type": "object",
+      "properties": {
+        "absolute": {
+          "type": "boolean"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "fragment": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "opaque": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "query": {
+          "type": "string"
+        },
+        "rawAuthority": {
+          "type": "string"
+        },
+        "rawFragment": {
+          "type": "string"
+        },
+        "rawPath": {
+          "type": "string"
+        },
+        "rawQuery": {
+          "type": "string"
+        },
+        "rawSchemeSpecificPart": {
+          "type": "string"
+        },
+        "rawUserInfo": {
+          "type": "string"
+        },
+        "scheme": {
+          "type": "string"
+        },
+        "schemeSpecificPart": {
+          "type": "string"
+        },
+        "userInfo": {
+          "type": "string"
+        }
+      }
+    },
+    "NewQuickExpenseResponse": {
+      "type": "object",
+      "properties": {
+        "quickExpenseIdUri": {
+          "type": "string",
+          "description": "The quick expense created resource url."
+        }
+      }
+    },
+    "URL": {
+      "type": "object",
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "content": {
+          "type": "object"
+        },
+        "defaultPort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deserializedFields": {
+          "$ref": "#/definitions/URLStreamHandler"
+        },
+        "file": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "serializedHashCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userInfo": {
+          "type": "string"
+        }
+      }
+    },
+    "MultipartFile": {
+      "type": "object",
+      "properties": {
+        "bytes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "byte"
+          }
+        },
+        "contentType": {
+          "type": "string"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "inputStream": {
+          "$ref": "#/definitions/InputStream"
+        },
+        "name": {
+          "type": "string"
+        },
+        "originalFilename": {
+          "type": "string"
+        },
+        "resource": {
+          "$ref": "#/definitions/Resource"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "PaymentType": {
+      "type": "object",
+      "required": [
+        "code",
+        "id",
+        "name"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The payment type code."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the payment type."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the payment type, localized to the user's language."
+        }
+      }
+    },
+    "InputStream": {
+      "type": "object"
+    },
+    "Amount": {
+      "type": "object",
+      "required": [
+        "currencyCode",
+        "value"
+      ],
+      "properties": {
+        "currencyCode": {
+          "type": "string",
+          "description": "The 3-letter ISO 4217 currency code for the amount."
+        },
+        "value": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount value."
+        }
+      }
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "file": {
+          "type": "file"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "inputStream": {
+          "$ref": "#/definitions/InputStream"
+        },
+        "open": {
+          "type": "boolean"
+        },
+        "readable": {
+          "type": "boolean"
+        },
+        "uri": {
+          "$ref": "#/definitions/URI"
+        },
+        "url": {
+          "$ref": "#/definitions/URL"
+        }
+      }
+    },
+    "ExpenseType": {
+      "type": "object",
+      "required": [
+        "code",
+        "id",
+        "name"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The expense type code."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the expense type."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the expense type, localized to the user's language."
+        }
+      }
+    },
+    "QuickExpenseRequest": {
+      "type": "object",
+      "required": [
+        "location",
+        "transactionAmount",
+        "transactionDate"
+      ],
+      "properties": {
+        "comment": {
+          "type": "string",
+          "description": "This is a comment attached to the quick expense."
+        },
+        "entryDetails": {
+          "type": "string",
+          "description": "The quick expense entry details."
+        },
+        "expenseTypeId": {
+          "type": "string",
+          "description": "This is the expense type id of the quick expense."
+        },
+        "location": {
+          "description": "The location where the quick expense occurred.",
+          "$ref": "#/definitions/Location"
+        },
+        "paymentTypeId": {
+          "type": "string",
+          "description": "This is the payment type id of the quick expense.",
+          "enum": [
+            "CASHX",
+            "CPAID",
+            "PENDC"
+          ]
+        },
+        "transactionAmount": {
+          "description": "The amount of the quick expense.",
+          "$ref": "#/definitions/Amount"
+        },
+        "transactionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "This is the transaction date of the quick expense. Format: YYYY-MM-DD"
+        },
+        "vendor": {
+          "type": "string",
+          "description": "The name of the vendor."
+        }
+      }
+    },
+    "Collection«object»": {
+      "type": "object"
+    },
+    "UriResponse": {
+      "type": "object",
+      "required": [
+        "uri"
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "URI of the created resource."
+        }
+      }
+    },
+    "Date": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "day": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hours": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minutes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "month": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "seconds": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timezoneOffset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "URLStreamHandler": {
+      "type": "object"
+    },
+    "ErrorMessage": {
+      "type": "object",
+      "required": [
+        "errorMessage",
+        "httpStatus",
+        "path",
+        "timestamp"
+      ],
+      "properties": {
+        "errorId": {
+          "type": "string",
+          "description": "The unique identifier of the error."
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Message associated with the error."
+        },
+        "httpStatus": {
+          "type": "string",
+          "description": "The HTTP status associated with the error."
+        },
+        "path": {
+          "type": "string",
+          "description": "The path to the resource."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2016-10-04T00:53:25.931+0000",
+          "description": "The timestamp for the error."
+        },
+        "validationErrors": {
+          "type": "array",
+          "description": "An array of validation errors.",
+          "items": {
+            "$ref": "#/definitions/ValidationError"
+          }
+        }
+      }
+    },
+    "File": {
+      "type": "object",
+      "properties": {
+        "absolute": {
+          "type": "boolean"
+        },
+        "absolutePath": {
+          "type": "string"
+        },
+        "canonicalPath": {
+          "type": "string"
+        },
+        "directory": {
+          "type": "boolean"
+        },
+        "executable": {
+          "type": "boolean"
+        },
+        "file": {
+          "type": "boolean"
+        },
+        "freeSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "lastModified": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "readable": {
+          "type": "boolean"
+        },
+        "totalSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "usableSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "writable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "deprecation": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "hreflang": {
+          "type": "string"
+        },
+        "media": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "templated": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The location city."
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "The location country ISO 3166-1 code."
+        },
+        "countrySubDivisionCode": {
+          "type": "string",
+          "description": "The location country sub division ISO 3166-2 code."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The location name."
+        }
+      },
+      "description": "This represents the location."
+    }
+  }
+}

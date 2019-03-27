@@ -3,6 +3,8 @@ title: Post an availability search
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 The following request is sent when the Travel user selects a hotel and searches for availability for a date range. The response includes the list of available rooms for the supplied date range.
 
@@ -19,7 +21,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
     https://{servername}/concur/hotel/v1/
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts > [Partner Applications](/docs/overviews/partner-applications.html)** for more information.
+The supplier determines the URI and provides it to SAP Concur to use when registering the partner application. 
 
 ### Authorization header
 Authorization header with Basic credentials.

@@ -3,18 +3,32 @@ title: Get report details
 layout: reference
 ---
 
-# Get report details
 Retrieves the full set of information for the report. Includes the Report Header, Entry, Attendee, Itemization and Allocation details.  
 
-Some elements will appear only if the OAuth consumer has the Web Services Admin role. These include: The **ReportKey** element, the employee's credit card information, and the employee's bank account information, VAT information, Journal entries. Connectors that utilize this information go through a review process with Concur that includes verification of secure data handling.
+Some elements will appear only if the OAuth consumer has the Web Services Admin role. These include: The **ReportKey** element, the employee's credit card information, and the employee's bank account information, VAT information, Journal entries. Connectors that utilize this information go through a review process with SAP Concur that includes verification of secure data handling.
 
 GET list of reports can be found [here](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html)
 
-## Request
+* [Request](#request)
+* [Response](#response)
+  * [Schema](#schema)
+    * [Expense Entry](#expense-entry)
+    * [Itemization](#itemization)
+    * [Attendee](#attendee)
+    * [Allocation](#allocation)
+    * [Journal Entry](#journal-entry)
+    * [VAT Data](#vat-data)
+    * [Card Transaction](#card-transaction)
+    * [Custom Fields](#custom-fields)
+    * [Report Owner](#report-owner)
+    * [Employee Bank Account](#employee-bank-account)
+* [Examples](#examples)
 
-### Request parameters
+## <a name="request"></a>Request
 
-#### Path parameters
+### Request Parameters
+
+#### Path Parameters
 
 | Parameter |Required/Optional| Description |
 |-----------------|--------|-----------------------------|
@@ -26,29 +40,29 @@ Example: `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/
 
 ### Headers
 
-#### Authorization header
-Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+#### Authorization Header
+Authorization header with OAuth token for valid SAP Concur user. The OAuth consumer must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 These roles allow the user to manage data for the entire company.
 
-#### Accept header
+#### Accept Header
 application/xml
 
-## Response
+## <a name="response"></a>Response
 
-### Content types
+### Content Types
 application/xml
 
-### Content body
+### <a name="schema"></a>Schema
 This request will return a **ReportDetails** parent element.
 
-#### ReportDetails elements
+#### <a name="report-details"></a>ReportDetails
 
  Element |  Description
  -----| ----- |
   UserLoginID |  The user ID of the report owner. Maximum 128 characters.
   EmployeeName |  The name of the employee who created the report. Maximum 66 characters. |
  ReportID |  The unique identifier for the report, which appears in the Concur Expense UI. Maximum 32 character varchar. |
-  ReportKey |  The unencrypted unique identifier for the report, that appears on the report header. The element appears only if the OAuth consumer has the Web Services Admin role in Concur. Maximum 48 characters. |
+  ReportKey |  The unencrypted unique identifier for the report, that appears on the report header. The element appears only if the OAuth consumer has the Web Services Admin role in SAP Concur. Maximum 48 characters. |
   ReportName |  The name of the report. Maximum 40 characters. |
   Purpose |  The information from the Business Purpose field. |
   ReportDate |  The date from the report header. Format: YYYY-MM-DDThh:mm:ss |
@@ -82,7 +96,7 @@ This request will return a **ReportDetails** parent element.
   ReportOwner |  This parent element includes details about the employee who is the report owner. It saves the caller from calling the Get User Information function to get employee information commonly used in accounting integration. The **ReportOwner** element includes the most recent information about the report owner, at the time the report is requested. |
   EmployeeBankAccount |  This parent element includes the bank account data found on the **Bank Information** page in Profile. This data is used in **Payment System** integrations where the payment system reimburses the employee via this bank account.
 
-### ExpenseEntry elements
+### <a name="expense-entry"></a>ExpenseEntry
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -128,7 +142,7 @@ This request will return a **ReportDetails** parent element.
 |  CardTransaction |  This parent element includes the card transaction data found in the card transaction associated to this expense entry. This data is used in **Payment System** integrations where the payment system reimburses the card issuer for the indicated card account. Refer to the **CardTransaction elements** table. |
 |  ExpensePay |  Whether the entry was paid using the Expense Pay service. This element has a value if the report has reached the Processing Payment workflow step. Format: Yes/No |
 
-### Itemization elements
+### <a name="itemization"></a>Itemization
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -152,7 +166,7 @@ This request will return a **ReportDetails** parent element.
 |  AttendeesList |  This parent element contains one **Attendee** element for each associated attendee. Refer to the **Attendee elements** table for more information. |  
 |  AllocationsList |  This parent element contains at least one **Allocation** element. It will contain multiple **Allocation** elements if there are multiple allocations for the itemization. Refer to the **Allocation elements** table. |
 
-### Attendee elements
+### <a name="attendee"></a>Attendee
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -161,7 +175,7 @@ This request will return a **ReportDetails** parent element.
 |  LastName |  The attendee's last name. Maximum 132 characters. |
 |  Company |  The attendee's company name. Maximum 150 characters. |
 |  Title |  The attendee's title. Maximum 32 characters. |
-|  ExternalID |  The unique identifier for the attendee, managed outside Concur. Maximum 48 characters. |
+|  ExternalID |  The unique identifier for the attendee, managed outside SAP Concur. Maximum 48 characters. |
 |  Custom1 through Custom20 |  The details from the custom fields. These may not have data, depending on configuration. Refer to the **Custom Fields elements** table for more information. |
 |  HasExceptionsPrevYear |  Whether the attendee has exceptions in the previous year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
 |  HasExceptionsYTD |  Whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
@@ -170,12 +184,12 @@ This request will return a **ReportDetails** parent element.
 |  TotalAmountPrevYear |  The total amount spent on the attendee in the previous calendar year. |
 |  TotalAmountYTD |  The total amount spent on the attendee in the current calendar year. |
 |  VersionNumber |  The attendee's version number. |
-|  AttendeeID |  Attendee unique identifier within Concur. |
+|  AttendeeID |  Attendee unique identifier within SAP Concur. |
 |  AttendeeTypeCode |  The unique identifier for the attendee type. |
 |  AttendeeOwnerID |  The unique identifier for the person or system that owns the attendee. |
 |  CurrencyCode |  The [3-letter ISO 4217 currency code][1] for attendee related amounts. |
 
-### Allocation elements
+### <a name="allocation"></a>Allocation
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -187,7 +201,7 @@ This request will return a **ReportDetails** parent element.
 |  JournalEntriesList |  This parent element contains at least one **JournalEntry** child element. It contains multiple **JournalEntry** elements if the allocation has multiple journal entries. Refer to the **JournalEntry elements** table for more information. |
 |  VATDataList |  This parent element contains one **VATData** element for each VAT line item. This element will be empty if there are no VAT line items. Refer to the **VATData elements** table for more information. |
 
-### JournalEntry elements
+### <a name="journal-entry"></a>JournalEntry
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -201,7 +215,7 @@ This request will return a **ReportDetails** parent element.
 |  Amount |  Value, as credit or debit, of the amount to be exchanged between the payer and payee for this expense account code (not an absolute value) Maximum 23 characters. EXAMPLES: Value of zero, credit, or debit, as the following:  <br> 0 (Zero) "0"  <br> \+ (Plus / Debit) "+50.00"  <br> \- (Minus / Credit) "-50.00" |
 |  JobRunKey |  Either the unique identifier for job run for the accounting extract that processed this journal, or a static value indicating the journal was processed by Manual Pay, Expense Pay, or some other system. |
 
-## VATData elements
+## <a name="vat-data"></a>VATData
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -213,7 +227,7 @@ This request will return a **ReportDetails** parent element.
 |  TaxReclaimTransactionAmount |  Calculated amount of tax eligible for reclaim in the spend currency. Maximum 23 characters. |
 |  TaxReclaimPostedAmount |  Calculated amount of tax eligible for reclaim in the reimbursement currency. Maximum 23 characters. |
 
-###  CardTransaction elements
+###  <a name="card-transaction"></a>CardTransaction
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -241,7 +255,7 @@ This request will return a **ReportDetails** parent element.
 |  BillingAmount |  Amount due to the company card from the employee or company (depending on who is responsible for the bill) for this detail row. Maximum 23 characters. |
 |  AccountNumberLastSegment  |  The last 4 digits of the Card Account.  |
 
-### Custom fields elements  
+### <a name="custom-fields"></a>Custom Fields  
 
 |  Element |  Description |
 | ----- | ----- |
@@ -249,7 +263,7 @@ This request will return a **ReportDetails** parent element.
 |  Value |  The value in the custom field. Maximum 48 characters. |
 |  Code |  Custom list fields will include the list item code in this element. |
 
-### ReportOwner elements
+### <a name="report-owner"></a>ReportOwner
 
 |  Element |  Description |
 | ----- | ----- |
@@ -261,7 +275,7 @@ This request will return a **ReportDetails** parent element.
 |  MiddleInitial |  The report owner's middle initial. Maximum 1 character. |
 |  ReimbursementMethodCode |  The report owner's reimbursement method code, as defined in the employee's Profile. |
 
-### EmployeeBankAccount elements
+### <a name="employee-bank-account"></a>EmployeeBankAccount
 
 |  Element |  Description |
 | ----- | ----- |
@@ -277,9 +291,9 @@ This request will return a **ReportDetails** parent element.
 |  PostalAddressCode |  The postal address code entered on the Bank Information page. Maximum 20 characters. |
 |  PostalAddressCountry |  The postal address country entered on the Bank Information page. Maximum 2 characters. Format: The [ISO 3166-1 alpha-2 country code][3]. Example: United States is US. |
 
-## Examples
+## <a name="examples"></a>Examples
 
-### XML example request
+### XML Example Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTP/1.1
@@ -287,7 +301,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-### XML example of successful response
+### XML Example of Successful Response
 
 ```http
 HTTP/1.1 200 OK

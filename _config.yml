@@ -1,5 +1,5 @@
 # Site settings
-title: Concur Developer Portal
+title: SAP Concur Developer Center
 email: devx@concur.com
 description: Concur docs provides comprehensive information on working with the Concur platform
 baseurl: "" # the subpath of your site, /developer.concur.com

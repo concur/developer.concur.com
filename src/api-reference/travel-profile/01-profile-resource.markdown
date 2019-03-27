@@ -7,7 +7,7 @@ layout: reference
 ##  Description
 
 
-The Travel Profile resource represents a Concur travel profile which contains travel-related information about a user.
+The Travel Profile resource represents a Concur Travel profile that contains travel-related information about a user.
 
 ##  Version
 
@@ -80,7 +80,7 @@ Where access_token is the OAuth 2.0 access token of the user whose travel profil
 
 #### Data model
 The complete schema definition is available here: [Travel Profile XSD][3].
-_Concur reserves the right to change the XSD.  Reading/writing strictly to the XSD will result in breakage as new XML elements are added._
+_SAP Concur reserves the right to change the XSD.  Reading/writing strictly to the XSD will result in breakage as new XML elements are added._
 
 ####  Profile root element
 
@@ -129,14 +129,14 @@ The General parent element contains the following child elements.
 |  `PreferredName` |  `string` |  The user's preferred name. Format: nvarchar(60) | |  | |
 |  `JobTitle` |  `string` |  The user's job title. Format: nvarchar(255) | | | |
 |  `CostCenter` | `string` | The user’s cost center. Format: nvarchar(25) | | | Requires Company Details scope. |
-|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) | | | Requires Company Details Scope.  Must be unique in the company. |
+|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) | | | Requires Company Details scope.  Must be unique in the company. |
 |  `Division` | `string` | The user's division. Format: nvarchar(60) | || Requires Company Details scope.  Must already be setup in the company configuration. |
 |  `PreferredLanguage` |  `string` |  The user's preferred language locale. Example: United States English is en-US. Format: varchar(20) | |  | |
 |  `EReceiptOptIn` |  `boolean` |  Whether the user has opted in to receive e-receipts. Format: **true**\|**false** | |  |
 |  `HasOpenBooking` |  `boolean` |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** | Cannot Update | | |
 |  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) | Cannot Update | | |
 |  `CompanyName` |  `string` |  The user's company name. Format: nvarchar(255) | Cannot Update | | |
-|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) | Cannot Update | | |
+|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) | Cannot Update | | Requires Company Details scope. |
 |  `RuleClass` |  `string` |  The user's rule class. Format: nvarchar(60) | | | Must already be setup in the company. |
 |  `TravelConfigID` | `string` | The user's TravelConfig. Format: varchar(255) | | Required | |
 |  `MedicalAlerts` | `string` |  The user's medical alerts. Format: nvarchar(255) | | | Requires Medical Alerts Scope. |
@@ -220,8 +220,8 @@ The Addresses parent element contains an Address child element for each included
 | `Type attribute` | `string` | Address type. Values are: Home or Work | required | required | If multiple values are provided for either address type, the last one will be the one saved in the creation/update. |
 |  `Street` |  `string` |  Street Address. Format: nvarchar(max) | | | |
 |  `City` |  `string` |  The city name. Format: nvarchar(30) | | | |
-|  `StateProvince` |  `string` |  The state or province. Format: nvarchar(30) | | | ISO Validation Coming Soon |
-|  `CountryCode` |  `string` |  The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2)| | | |
+|  `StateProvince` |  `string` |  The state or province. Format: nvarchar(30) | | |  |
+|  `CountryCode` |  `string` |  The country code in from the [ISO 3166-1 alpha-2 country code][8] specification. Format: char(2)| | | |
 |  `PostalCode` |  `string` |  The postal code. Format: nvarchar(20) | | | |
 |  `Longitude` |  `string` |  Longitude value of Work Address. | Cannot Update | | |
 |  `Latitude` |  `string` |  Latitude value of Work Address. | Cannot Update | | |
@@ -285,7 +285,7 @@ A list of passports in the user's profile:
 | `PassportExpiration`  | `date` |  The date the user’s passport expires. Format: YYYY-MM-DD | | | Min - 01/01/1900, Max - 06/06/2079 |
 | `PassportDateIssued` | `date`  | The date the user’s passport was issued. Format: YYYY-MM-DD | | | Min - 01/01/1900, Max - 06/06/2079|
 | `PassportCityIssued` | `string` |The city the user’s passport was issued in. Format: nvarchar(60) | | | |
-| `PassportCountryIssued` |  `string`  |The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2) | | | |
+| `PassportCountryIssued` |  `string`  |The country code in from the [ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) | | | |
 
 * **NOTE**: there can only be 2 passports associated to a user.  If more than two passports are provided, W016 warning message is returned.
 
@@ -305,7 +305,7 @@ A list of visas in the user's profile.
 | `VisaDateIssued` | `date` |  The date the user’s visa was issued. Format: YYYY-MM-DD | | | Min - 01/01/1900 Max - 06/06/2079 |
 | `VisaExpiration` | `date`  | The date the user’s visa expires. Format: YYYY-MM-DD | | | Min -01/01/1900 Max - 06/06/2079 |
 | `VisaCityIssued` | `string` | The city the user’s visa was issued in. Format: nvarchar(60) | | | |
-| `VisaCountryIssued` |  `string` | The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2) | | | |
+| `VisaCountryIssued` |  `string` | The country code in from the [ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) | | | |
 
 * **NOTE**:  Visas will sync with existing visas.  Any existing Visas not provided in the list will be deleted.
 
@@ -787,7 +787,7 @@ application/xml
 
 <samp>Authorization: OAuth {access_token}</samp>
 
-Where _access_token_ is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+Where _access_token_ is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 ###  Data model
 
@@ -850,7 +850,7 @@ The ProfileSummary element contains the profile information for the response and
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- | :----- |
 |  Status |  `string` |  Current status of the user: Active or Inactive. |
-|  LoginID |  `string` |  The Concur user login ID. |
+|  LoginID |  `string` |  The SAP Concur user login ID. |
 |  XMLProfileSyncID |  `string` |  The user's XML Profile Sync ID, if available. |
 |  ProfileLastModifiedUTC |  `string` |  The date, in UTC, when the travel profile was last modified. Format: YYYY-MM-DDThh:mm:ss. |
 
