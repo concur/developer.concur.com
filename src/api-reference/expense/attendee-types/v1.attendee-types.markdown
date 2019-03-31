@@ -9,7 +9,7 @@ redirect_from:
 {% include deprecation-alert.html %}
 
 ## Description
-
+ 
 The Attendee Type resource represents the type of attendee as configured in Concur. Retrieves the list of attendee types for the company.
 
 ## Version

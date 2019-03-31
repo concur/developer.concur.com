@@ -58,8 +58,7 @@ China Production: https://cn.api.concurdc.cn/travelrequest/v4/
 
 ### <a name="prerequisites"></a>Prerequisites
 
-1. [Create a sandbox](/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
+Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
 
 Once you have registered your application, read about the [API endpoints](/api-reference/request/v4.endpoints.html), or click the button to download a request collection for Postman.
 
