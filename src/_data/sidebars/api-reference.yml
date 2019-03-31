@@ -211,15 +211,15 @@
   children:
       - title: Travel Profile v2
         url: /api-reference/travel-profile/v2.profile-service.html
-      - title: Travel Profile v2 Resource
+      - title: Travel Profile v2 - Resource
         url: /api-reference/travel-profile/v2.profile-resource.html
-      - title: Form of Payment v2
+      - title: Travel Profile v2 - Form of Payment
         url: /api-reference/travel-profile/v2.form-payment-resource.html
-      - title: Loyalty Program v1
+      - title: Travel Profile v1 - Loyalty Program
         url: /api-reference/travel-profile/v1.loyalty-program-resource.html
-      - title: Company Notification v1
+      - title: Travel Profile v1 - Company Notification
         url: /api-reference/travel-profile/v1.notification-company-resource.html
-      - title: User Notification v1
+      - title: Travel Profile v1 - User Notification
         url: /api-reference/travel-profile/v1.notification-user-resource.html
 - title: Travel
   url: ''
