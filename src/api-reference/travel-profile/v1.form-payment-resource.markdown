@@ -8,7 +8,7 @@ redirect_from:
 
 {% include deprecation-alert.html deprecation_date="04/01/2016" %}
 
-Current version: [Form of Payment v2](/api-reference/travel-profile/02-form-payment-resource.html)
+Current version: [Form of Payment v2](/api-reference/travel-profile/v2.form-payment-resource.html)
 
 ## Description
 

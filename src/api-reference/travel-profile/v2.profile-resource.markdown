@@ -1,9 +1,10 @@
 ---
-title: Travel Profile v2
+title: Travel Profile v2 - Resource
 layout: reference
----
 
-## Description
+redirect_from:
+  - /api-reference/travel-profile/01-profile-resource.html
+---
 
 The Travel Profile resource represents a Concur Travel profile that contains travel-related information about a user.
 
@@ -357,7 +358,7 @@ Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
 `AirMemberships`|-|The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains [AirMembership child elements](#airmember).|-|-|-
 `Seat`|-|This element contains [air seat child elements](#airseat).|-|-|-|
-`Meals`|`string` |This parent element contains the MealCode child element that indicates the meal preference of the traveler. [See Reference](./99-reference-resource.html#air-meal-types) for possible values.|-|-|Defaults to Regular Meal
+`Meals`|`string` |This parent element contains the MealCode child element that indicates the meal preference of the traveler. [See Reference](./v2.reference-resource.html#air-meal-types) for possible values.|-|-|Defaults to Regular Meal
 `HomeAirport`|`string`|The user's home airport. varchar(3)|-|-|Must be an existing IATA code.
 `AirOther`|`string`|Other Air related description|-|-|-
 
@@ -601,7 +602,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 **NOTES**:
 
-* For List of Available Advantage Memberships [See Reference](./99-reference-resource.html#advantage-membership-programs)
+* For List of Available Advantage Memberships [See Reference](./v2.reference-resource.html#advantage-membership-programs)
 * Multiple memberships for the same `VendorType`, `VendorCode`, `ProgramCode`, and `CardNumber` are identified and a warning is thrown.
 * `OriginStationCode` and `DestinationStationCode` fields are deprecated and should no longer be used. Use `OriginCode` and `DestinationCode` instead.
 

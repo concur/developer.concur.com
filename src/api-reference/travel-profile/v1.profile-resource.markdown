@@ -8,7 +8,7 @@ redirect_from:
 
 {% include deprecation-alert.html deprecation_date="04/01/2016" %}
 
-Current version: [Travel Profile Version 2.0](./01-profile-resource.html)
+Current version: [Travel Profile v2](./v2.profile-resource.html)
 
 ## Description
 
