@@ -11,11 +11,8 @@ The following application programming interfaces (APIs) have been deprecated acc
 * [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html)
 * [Authorization (Pre-2017)](/api-reference/authentication/authorization-pre-2017.html)
 * Expense Entry v1.1
-  * [POST Expense Entry Itemization](/api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource-post.html)
-  * [Expense Entry Itemization](/api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource.html)
-  * [Expense Entry Resource](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)
-  * [GET Expense Entry](/api-reference-deprecated/version-one-one/expense-entry/get-expense-entry.html)
-  * [POST Expense Entry](/api-reference-deprecated/version-one-one/expense-entry/post-expense-entry.html)
+  * [Expense Entry Itemization](/api-reference/expense/expense-report/v1dot1.expense-itemization.html)
+  * [Expense Entry](/api-reference/expense/expense-report/v1dot1.expense-entry.html)
 * Expense Entry Attendee v2
   * [GET Expense Entry Attendees](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html)
   * [PUT Expense Entry Attendees](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-put.html)

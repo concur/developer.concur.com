@@ -43,15 +43,15 @@
       - title: POST Expense Entry Attendees
         url: /api-reference/expense/attendees/v1dot1.attendees.html
       - title: POST Expense Entry Itemization
-        url: /api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource-post.html
+        url: /api-reference/expense/expense-report/v1dot1.expense-itemization.html
       - title: Expense Entry Itemization
-        url: /api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource.html
+        url: /api-reference/expense/expense-report/v1dot1.expense-itemization.html
       - title: Expense Entry Resource
-        url: /api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html
+        url: /api-reference/expense/expense-report/v1dot1.expense-entry.html
       - title: GET Expense Entry
-        url: /api-reference-deprecated/version-one-one/expense-entry/get-expense-entry.html
+        url: /api-reference/expense/expense-report/v1dot1.expense-entry.html
       - title: POST Expense Entry
-        url: /api-reference-deprecated/version-one-one/expense-entry/post-expense-entry.html
+        url: /api-reference/expense/expense-report/v1dot1.expense-entry.html
 - title: v1.1 - Expense Group Configuration
   url: ''
   children:
