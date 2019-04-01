@@ -34,8 +34,8 @@ Learn best practices for marketing your app and interact directly with the App C
 
  * **Date:** Office hours take place the first Tuesday of each month.
  * **Time:** 8:30-9:00 AM PST
- * **Toll-free:** +1-866-668-0721, PIN: 360-851-6019
- * **WebEx Link:** [https://concur.webex.com/concur/j.php?MTID=md483b0c3f9b64a03b1e4676b40ef69c5](https://concur.webex.com/concur/j.php?MTID=md483b0c3f9b64a03b1e4676b40ef69c5)
+ * **Toll-free:** +1-866-668-0721, PIN: 841-399-7618
+ * **WebEx Link:** [https://concur.webex.com/meet/concur_AppCenter](https://concur.webex.com/meet/concur_AppCenter)
 
 Or email us at [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com).
 
