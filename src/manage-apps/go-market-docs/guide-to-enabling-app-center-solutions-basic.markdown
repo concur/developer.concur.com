@@ -47,13 +47,18 @@ A user at your company with the appropriate permissions is required to activate 
 
 #### How to Assign the WSAdmin User Permission in Concur Standard Edition
 
-* Click **Administration**, and then **Setup**.
-* Select **Users** from the menu on the left, and click select the user to provide access.
-* Permissions: Select the **Can Administer** check box.
+* Click **Administration**, and then **Expense Settings**, or **Expense & Invoice Settings**, or **Invoice Settings**.
+* In the Access to Concur section, click **User Accounts**.
+* Double-click the user.
+* In the User Permissions section, select the **Can Administer** check box.
 
-![Standard Enabling WS Admin Image](./guide-to-enabling-app-center-solutions-basic-enable-ws-admin-standard.png)
+![Standard Enabling WS Admin Image](./guide-to-enabling-app-center-solutions-standard-wsadmin-userpermissions.png)
 
 #### How to Assign the WSAdmin User Profile in Concur Professional Edition
+
+* Click **Administration**, then **Company**, then **Company Admin**.
+* Click **User Permissions** (left menu).
+* Find the user who will activate the application, and select **Add** to grant Web Services Administrator Permission.
 
 * Click the **Administration** tab, then click the **Company Admin** menu.
 * Within the **Administration** area, click **User Permissions**.
@@ -75,10 +80,11 @@ A user at your company with the appropriate permissions is required to activate 
 
 #### How to Create a WSAdmin User Profile in Concur Standard Edition
 
-* Click **Administration**, and then **Setup**.
-* Select **Users** from the menu on the left, and click **Create/Edit User**.
+* Click **Administration**, and then **Expense Settings**, or **Expense & Invoice Settings**, or **Invoice Settings**.
+* In the Access to Concur section, click **User Accounts**.
+* Click **Create/Edit User**.
 
-![Creating a WS Admin user in standard image](./guide-to-enabling-app-center-solutions-basic-create-ws-admin-user-standard.png)
+![Creating a WS Admin user in standard image](./guide-to-enabling-app-center-solutions-standard-wsadmin-full.png)
 
 The new WSAdmin User Profile in Concur Standard Edition should have the following attributes:
 
@@ -87,7 +93,7 @@ The new WSAdmin User Profile in Concur Standard Edition should have the followin
 * **Last Name**: Insert the last name of the authorized administrator who will enable the application.
 * **Password**: Create a unique and secure password for the user.
 * **Permissions**:
-  * Select the **Travel and Expense Administrator** check box.
+  * Select the **Can Administer** check box.
   * Select check boxes based on what type of data is needed for the application. The system will grant the relevant data access based on the roles that are assigned to this user. For example, if the app needs to access Travel data and the WSAdmin User Profile does not have access to travel, the app will not access travel data. Options include:
     * **Can Submit Expense Reports**
     * **Can Book Travel**
@@ -96,8 +102,8 @@ The new WSAdmin User Profile in Concur Standard Edition should have the followin
 
 #### How to Create a WSAdmin User Profile in Concur Professional Edition:
 
-* Click the **Administration** tab, then click the **Company Admin** menu.
-* Click **Add New User**.
+* Click **Administration**, then **Company**, then **Company Admin**.
+* Click **Add User**.
 
 ![Creating a WS Admin user in professional image](./guide-to-enabling-app-center-solutions-basic-create-ws-admin-user-professional.png)
 
