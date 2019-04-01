@@ -65,10 +65,8 @@
         url: /api-reference-deprecated/version-one-one/expense-report/get-list-of-reports.html
       - title: Report Full Details v1.1
         url: /api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html
-      - title: Location Resource
-        url: /api-reference-deprecated/version-one-one/expense-report/location-resource.html
-      - title: Get a list of locations
-        url: /api-reference-deprecated/version-one-one/expense-report/location-resource-get.html
+      - title: Locations
+        url: /api-reference/common/locations/v1dot1.locations.html
 - title: Attendees v2
   url: /api-reference/expense/attendees/v2.attendees.html
 - title: v2.0 - Expense Entry Attendee

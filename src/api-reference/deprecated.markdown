@@ -22,8 +22,7 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [Post an expense report header](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-post.html)
   * [Get List of Reports](/api-reference-deprecated/version-one-one/expense-report/get-list-of-reports.html)
   * [Report Full Details](/api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html)
-  * [Location Resource](/api-reference-deprecated/version-one-one/expense-report/location-resource.html)
-  * [Get a list of locations](/api-reference-deprecated/version-one-one/expense-report/location-resource-get.html)
+  * [Locations](/api-reference/common/locations/v1dot1.locations.html)
 * Expense Report v2
   * [Expense Report Resource](/api-reference-deprecated/version-two/expense-reports/expense-report-resource.html)
   * [GET List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html)
