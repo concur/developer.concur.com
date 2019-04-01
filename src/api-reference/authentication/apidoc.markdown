@@ -90,7 +90,7 @@ The refresh grant is used to refresh an access_token that has expired. This gran
 
 **Token Lifetime**
 
-A refresh token has a **six month** lifetime. If the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response. The new refresh token returned may be the same but it is recommended that the application should always save the new refresh token returned.
+A refresh token has a **six month** lifetime. If the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response. This token can change even if most of the time, this value is the same. Client applications should treat all returned refresh tokens as new tokens and overwrite the stored tokens with the new token from the response.
 
 It is recommended that the client application use the refresh grant to request a new access token as the initial step of accessing protected resources of SAP Concur services.
 
