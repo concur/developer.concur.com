@@ -1,0 +1,166 @@
+---
+title: Travel Receipts v1
+layout: reference
+---
+
+{% include prerelease.html %}
+
+
+The Travel Receipts service offers one endpoint for retrieving receipt requests.
+
+The Travel Receipts service exposes receipt requests to inform e-receipt partners which e-receipts to send to SAP Concur and for which user.
+
+If the partner supplies a timestamp, it is used as the start time for results. If not, the API retrieves the results from the last 24 hours.
+
+> **Limitations**: This API is not available in Implementation environments. This API is only available in the North American and EMEA Data Centers. This API is only available to SAP Concur e-receipt partners.
+
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Retrieve a Travel Receipt](#retrieve-travel-receipt-requests)
+* [Schema](#schema)
+
+## <a name="products-editions"></a>Products and Editions
+
+* Concur Travel Professional Edition
+* Concur Travel Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Name|Description|Endpoint
+---|---|---
+`travel.receipts.read`|Retrieves a travel receipt.|GET
+
+## <a name="dependencies"></a>Dependencies
+
+None.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports company level access tokens.
+
+## <a name="retrieve-travel-receipt-requests"></a>Retrieve Travel Receipt Requests
+
+Retrieves all travel receipt requests for the partner.  
+
+The results of the API call are limited to a maximum of 25 receipt requests per page. The partner can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The partner has reached the last page of results when `next` is null/empty.
+
+### Scopes
+
+`travel.receipts.read` - Refer to [Scope Usage](#scope-usage) for full details.
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/travelreceipts/v1/receiptrequests/{ts}/{key}
+```
+
+##### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`ts`|`integer`|`int64`|Timestamp to specify a start time (if blank, defaults to last 24 hours).
+`key`|`string`|`uuid`|Current item key, populated from the previous response (from the `next` field in the response).
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+#### Payload
+None.
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)
+* [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
+
+
+#### Payload
+* [Schema](#schema)
+
+### Example
+
+```json
+{
+  "items":[
+  {
+    "requestId":"12e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
+    "vendor":"ZE",
+    "confirmationNumber":"H1234567A1",
+    "firstName":"PAT",
+    "lastName":"DAVIS",
+    "segmentStartDate":"2019-03-14T00:30:00Z",
+    "segmentEndDate":"2019-03-14T18:00:00Z",
+    "requestDate":"2019-03-05T23:58:09.540514416Z"
+  },
+  {
+    "requestId":"34e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
+    "vendor":"ZE",
+    "confirmationNumber":" H1234567A2",
+    "firstName":"MIKE",
+    "lastName":"PARKER",
+    "segmentStartDate":"2019-03-14T20:30:00Z",
+    "segmentEndDate":"2019-03-15T23:45:00Z",
+    "requestDate":"2019-03-05T23:58:09.540515177Z"
+  },
+  {
+    "requestId":"56e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
+    "vendor":"ZE",
+    "confirmationNumber":" H1234567A3",
+    "firstName":"CHRIS",
+    "lastName":"MILLER",
+    "segmentStartDate":"2019-03-19T17:35:00Z",
+    "segmentEndDate":"2019-03-21T00:40:00Z",
+    "requestDate":"2019-03-05T23:58:09.540515833Z"
+  },
+  {
+    "requestId":"78e1234e-3fa2-11e9-b37e-6a1234b3ceb0",
+    "vendor":"ZE",
+    "confirmationNumber":" H1234567A4",
+    "firstName":"JANE",
+    "lastName":"DOE",
+    "segmentStartDate":"2019-03-06T05:53:00Z",
+    "segmentEndDate":"2019-03-07T21:45:00Z",
+    "requestDate":"2019-03-05T23:58:09.540520756Z"
+    }
+  ],
+  "next":"/v1/receiptrequests/1551744000/12e1234e-3fa2-11e9-b37e-6a1234b3ceb0"
+}
+```
+## <a name="schema"></a>Schema
+
+### Response
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`items`|`Array`|[Receipt Request](#receipt-request)|An array of Receipt Request items.
+`next`|`string`|-|Key for the next page of results.
+
+
+### <a name="receipt-request"></a>Receipt Request
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`confirmationNumber`|`string`|-|Confirmation number for the receipt request.
+`firstName`|`string`|-|	First name of the guest for the receipt request.
+`lastName`|`string`|-|Last name of the guest for the receipt request.
+`requestDate`|`date-time`|ISO 8601|Date of the receipt request.
+`requestId`|`uuid`|-|ID for the receipt request.
+`segmentEndDate`|`date-time`|ISO 8601|End date for the receipt request segment.
+`segmentStartDate`|`date-time`|ISO 8601|Start date for the receipt request segment.
+`vendor`|`string`|-|Vendor code for the receipt request.
