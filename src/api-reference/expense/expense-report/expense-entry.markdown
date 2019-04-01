@@ -14,7 +14,7 @@ layout: reference
 
 The SAP Concur Expense Entries API is used to manage expense reports and their entries in SAP Concur. It allows for the synchronizing and reconciliation of expense related information with your internal systems and reporting modules.
 
-1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
+1.1 documentation is available [here.](/api-reference/expense/expense-report/v1dot1.expense-entry.html)  
 
 ## <a name="get"></a>Retrieve All Expense Entries
 

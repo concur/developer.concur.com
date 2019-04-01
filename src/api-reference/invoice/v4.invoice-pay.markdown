@@ -20,6 +20,7 @@ layout: reference
   * [Vendor](#schema-vendor)
   * [Amount](#schema-amount)
   * [Payment Update](#schema-payment-update)
+  * [Payment Update Result](#schema-payment-update-result)
   * [Errors](#schema-errors)
 * [Definitions](#definitions)
   * [Payment Update Status](#schema-payment-update-status)
@@ -186,7 +187,7 @@ Name|Type|Format|Description
 #### Headers
 
 * [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
-* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5))
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 
 #### Payload
 
@@ -209,7 +210,7 @@ Name|Type|Format|Description
 
 #### Payload
 
-[Payment Update](#schema-payment-update)
+[Payment Update Result](#schema-payment-update-result)
 
 ### Example
 
@@ -248,7 +249,8 @@ Content-Type: application/json
 
 ```json
 {
-  "providerReference" : "hdoesofdl",
+  "createdDate" : "2018-05-09",
+  "lastModifiedDate" : "2018-05-09",
   "status" : "PAID",
   "statusMessage" : "Payment was successful",
   "paymentAdjustmentNotes" : null,
@@ -289,7 +291,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `invoiceAmount`|`object`|[Amount](#schema-amount)|Amount on the invoice.
 `invoiceNumber`|`string`|-|Invoice Number. Maximum 50 characters.
-`invoiceID`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as `paymentRequestID` in other Invoice APIs. Maximum 20 characters.
+`invoiceId`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as `paymentRequestID` in other Invoice APIs. Maximum 20 characters.
 `notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier. Maximum 500 characters.
 `paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice.
 
@@ -325,6 +327,23 @@ Name | Type | Format | Description
 
 Name|Type|Format|Description
 ---|---|---|---
+`providerReference`|`string`|-|Unique identifier of the payment in the payment provider's system. Maximum 100 characters.
+`status`|`string`|[Payment Update Status](#schema-payment-update-status)|**Required** Used to depict success, error or any other intermediate state, defined by SAP Concur.
+`statusMessage`|`string`|-|Payment provider description of the status. Providers can supply any message. Maximum 255 characters.
+`paymentAdjustmentNotes`|`string`|-|Payment adjustment notes sent by the payment provider. Maximum 255 characters.
+`statusDate`|`string`|YYYY-MM-DD|**Required** The date that the payment provider recorded this status change.
+`paymentInitiationDate`|`string`|YYYY-MM-DD|The date the payment was initiated.
+`paymentSettlementDate`|`string`|YYYY-MM-DD|The date the payment will be in the payees account.
+`thirdPartyPaymentIdentifier`|`string`|-|Check number if the payment was done via check or trace number for ACH payments. Maximum 255 characters.
+`paymentMethod`|`string`|[Payment Provider Method](#schema-payment-provider-method)|**Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED** Payment method used by the payment provider.
+`paidAmount`|`object`|[Amount](#schema-amount)|**Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED** Amount paid by the payment provider.
+
+### <a name="schema-payment-update-result"></a>Payment Update Result
+
+Name|Type|Format|Description
+---|---|---|---
+`createdDate`|`string`|YYYY-MM-DD|The date the payment was created.
+`lastModifiedDate`|`string`|YYYY-MM-DD|The date the payment was last modified.
 `providerReference`|`string`|-|Unique identifier of the payment in the payment provider's system. Maximum 100 characters.
 `status`|`string`|[Payment Update Status](#schema-payment-update-status)|**Required** Used to depict success, error or any other intermediate state, defined by SAP Concur.
 `statusMessage`|`string`|-|Payment provider description of the status. Providers can supply any message. Maximum 255 characters.

@@ -1,0 +1,138 @@
+---
+title: Travel Profile v2 - References
+layout: reference
+
+redirect_from:
+  - /api-reference/travel-profile/99-reference-resource.html
+---
+
+Various References needed for Travel Profile Services
+
+## Tables
+
+* [Account Number Validation](#a1)
+* [Advantage Membership Programs](#a2)
+
+## <a name="a1">Account Number Validation</a>
+
+When submitting credit cards, the following checks are performed on the submitted card numbers.
+
+Vendor|Luhn Required|Length(s)|Prefix(s)
+---|---|---|---
+Unknown|-|-|N/A
+AmericanExpress|Yes|15|34, 37
+DinersClub|Yes|14|36, 38, 39, 300, 301, 302, 303, 304, 305, 309
+Discover|Yes|16, 19|65, 644-649, 6011, 622126-622925
+MasterCard|Yes|16|51, 52, 53, 54, 55, 2221-2720
+Visa|Yes|13, 16, 19|4
+CarteBlanche|Yes|14|300, 301, 302, 303, 304, 305
+Enroute|Yes|15|2014, 2049
+UniversalAirTravel|Yes|15|1
+JCB|Yes|16|3528-3589
+AmericanAirlines|-|-|N/A
+DeltaEquity|-|-|N/A
+NorthwestAirlines|-|-|N/A
+TWAGetaway|-|-|N/A
+UnitedTravelCard|-|-|N/A
+UnitedCreditCard|-|-|N/A
+EuroCard|-|-|N/A
+CanadianAirlines|-|-|N/A
+AlaskaAirBarter|-|-|N/A
+PurchaseOrder|-|-|N/A
+AwardCredit|-|-|N/A
+Debit|-|-|N/A
+ChinaUnionPay|Yes|16-19|62
+Cash|-|-|N/A
+CompanyPaid|-|-|N/A
+CreditCard|-|-|N/A
+
+## <a name="a2">Advantage Membership Programs</a>
+
+Type|Company Name|Vendor Code|Program Code|Program Name
+---|---|---|---|---
+Air|Air France|AF|AFABT|Carte d'abonnement
+Rail|Amtrak|2V|AAA|AAA
+Rail|Amtrak|2V|VETADV|Veterans Advantage
+Rail|Renfe|1A|CARNET_GO_25_ISTC|Carné GO 25 ISTC
+Rail|Renfe|1A|CARNET_JOVEN|Carné Joven Euro
+Rail|Renfe|1A|TARJETA_DORADA|Tarjeta Dorada
+Rail|Renfe|1A|TARJETA_JOVEN_RENFE|Tarjeta Joven
+Rail|Renfe|1A|TARJETA_RAIL_PLUS_JUNIOR|Tarjeta Rail Plus Junior
+Rail|SNCF|2C|ESCA|'Escapades' card
+Rail|SNCF|2C|FAM30|Family card 30%
+Rail|SNCF|2C|FAM40|Family card 40%
+Rail|SNCF|2C|FAM50|Family card 50%
+Rail|SNCF|2C|FAM75|Family card 75%
+Rail|SNCF|2C|FF1ST|'Forfait' 1st Class subscription
+Rail|SNCF|2C|FF2ND|'Forfait' 2nd Class subscription
+Rail|SNCF|2C|FQ1ST|'Frequence' 1st Class subscription
+Rail|SNCF|2C|FQ2ND|'Frequence' 2nd Class subscription
+Rail|SNCF|2C|FQI1ST|'Frequence 30' 1st Class subscription
+Rail|SNCF|2C|FQI2ND|'Frequence 25' 2nd Class subscription
+Rail|SNCF|2C|MI1ST|French Military 1st
+Rail|SNCF|2C|MI2ND|French Military 2nd
+Rail|SNCF|2C|RPLUSS|Rail Plus Senior
+Rail|SNCF|2C|RPLUSY|Rail Plus Junior
+Rail|SNCF|2C|SENIO|Senior card
+Rail|SNCF|2C|YOUNG|'12-25' card
+Rail|Swedish Rail|1B|ARSKORT_GULD|SJ Årskort Guld
+Rail|Swedish Rail|1B|ARSKORT_GULD_RESPLUS|SJ Årskort Guld Resplus suppl.
+Rail|Swedish Rail|1B|ARSKORT_SILVER|SJ Årskort Silver
+Rail|Swedish Rail|1B|ARSKORT_SILVER_PLUS|SJ Årskort Silver Plus
+Rail|Swedish Rail|1B|ARSKORT_SILVER_PLUS_RESPLUS|SJ Årskort Silver Plus Resplus suppl.
+Rail|Swedish Rail|1B|ARSKORT_SILVER_RESPLUS|SJ Årskort Silver Resplus suppl.
+Rail|Swiss Federal Railways|0Z|CFFQ1|CFF 50% card + 'Fréquence' 1st class
+Rail|Swiss Federal Railways|0Z|CFFQ2|CFF 50% card + 'Fréquence' 2nd class
+Rail|Thalys|2H|LYSUB|Carte LYS
+Rail|Thalys|2H|THBIZ|ThePass Business
+Rail|Thalys|2H|THPREM|ThePass Premium
+Rail|Thalys|2H|THWE|ThePass Weekend
+Rail|UK Rail|Z0|2TR|TWO TOGETHER RAILCARD
+Rail|UK Rail|Z0|CRC|CAMBRIAN RAILCARD
+Rail|UK Rail|Z0|CTD|COTSWOLD LINE RAILCARD
+Rail|UK Rail|Z0|DCR|DEVON & CORNWALL RAILCARD
+Rail|UK Rail|Z0|DIC|DISABLED CHILD RAILCARD
+Rail|UK Rail|Z0|DIS|DISABLED ADULT RAILCARD
+Rail|UK Rail|Z0|DRD|DALES RAILCARD
+Rail|UK Rail|Z0|EVC|ESK VALLEY RAILCARD
+Rail|UK Rail|Z0|FAM|FAMILY AND FRIENDS RAILCARD
+Rail|UK Rail|Z0|GS3|GROUPSAVE
+Rail|UK Rail|Z0|HMF|HM FORCES RAILCARD
+Rail|UK Rail|Z0|HOW|HEART OF WALES RAILCARD
+Rail|UK Rail|Z0|HRC|HIGHLAND RAILCARD
+Rail|UK Rail|Z0|JCP|JOBCENTREPLUS DISCOUNT CARD
+Rail|UK Rail|Z0|NDC|NEW DEAL PHOTOCARD
+Rail|UK Rail|Z0|NEW|NETWORK RAILCARD
+Rail|UK Rail|Z0|NGC|ANNUAL GOLD CARD
+Rail|UK Rail|Z0|OC5|ONLINE CLUB 50
+Rail|UK Rail|Z0|PBR|PEMBROKE RAILCARD
+Rail|UK Rail|Z0|SRN|SENIOR RAILCARD
+Rail|UK Rail|Z0|SRY|SCOTTISH YOUTH RAILCARD
+Rail|UK Rail|Z0|VLC|VALLEY STUDENT RAILCARD
+Rail|UK Rail|Z0|VLS|VALLEY LINES SENIOR RAILCARD
+Rail|UK Rail|Z0|YNG|16-25 RAILCARD
+
+## <a name="a2">Air Meal Types</a>
+
+Code|Meal Name
+---|---
+BBML|Baby Meal
+BLML|Bland Meal
+CHML|Child Meal
+DBML|Diabetic Meal
+FPML|Fruit Platter
+GFML|Gluten Intolerant Meal
+HNML|Hindu Meal
+KSML|Kosher Meal
+LCML|Low Calorie Meal
+LSML|Low Salt Meal
+MOML|Muslim Meal
+NLML|Low Lactose Meal
+NSML|No Salt Meal
+PFML|Peanut Free Meal
+SFML|Seafood Meal
+VGML|Vegetarian
+RVML|Vegetarian Raw Vegan Meal
+KVML|Vegetarian Kosher
+VLML|Vegetarian Lacto-Ovo
+AVML|Asian Vegetarian Meal
