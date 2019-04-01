@@ -7,7 +7,7 @@
 - title: v1.0 - Attendee Types
   url: /api-reference/expense/attendee-types/v1.attendee-types.html
 - title: v1.0 - Imaging Web Service
-  url: '/api-reference/image/v1.image.html'
+  url: /api-reference/image/v1.image.html
 - title: v1.0 - List Item Web Service
   url: ''
   children:
@@ -53,12 +53,7 @@
       - title: POST Expense Entry
         url: /api-reference/expense/expense-report/v1dot1.expense-entry.html
 - title: v1.1 - Expense Group Configuration
-  url: ''
-  children:
-      - title: Expense Group Configuration Resource
-        url: /api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource.html
-      - title: Get expense group configuration details
-        url: /api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource-get.html
+  url: /api-reference/expense/expense-report/v1dot1.expense-group-configurations.html
 - title: v1.1 - Expense Report
   url: ''
   children:

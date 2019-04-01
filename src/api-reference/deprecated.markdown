@@ -16,9 +16,7 @@ The following application programming interfaces (APIs) have been deprecated acc
 * Expense Entry Attendee v2
   * [GET Expense Entry Attendees](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html)
   * [PUT Expense Entry Attendees](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-put.html)
-* Expense Group Configuration v1.1
-  * [Expense Group Configuration Resource](/api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource.html)
-  * [Get expense group configuration details](/api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource-get.html)
+* [Expense Group Configuration v1.1](/api-reference/expense/expense-report/v1dot1.expense-group-configurations.html)
 * Expense Report v1.1
   * [Expense Report Header Resource](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html)
   * [Post an expense report header](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-post.html)

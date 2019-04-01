@@ -73,7 +73,7 @@ This request will return a  <ReportDetails  parent element with an xmlns version
 |  `Custom1` through `Custom40`  | The details from the Custom fields. These may not have data, depending on configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: <Custom1>(1234) Project 1234</Custom1 |
 |  `RpeKey`  | The ID of the report entry. |
 |  `RptKey`  | The encrypted database key of the report. |
-|  `ExpKey`  | The expense type key for the expense entry. Expense Type Keys are returned in the ExpKey element by the [Get Expense Group Configuration](/api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource-get.html) endpoint. |
+|  `ExpKey`  | The expense type key for the expense entry. Expense Type Keys are returned in the ExpKey element by the [Expense Group Configuration](/api-reference/expense/expense-report/v1dot1.expense-group-configurations.html) endpoint. |
 | `FormKey`  | The key for the expense entry form. |
 | `ReceiptImageId`  | The unique identifier for the image associated with the entry. |
 | `ExpName`  | The expense type name. |
