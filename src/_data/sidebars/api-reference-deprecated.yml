@@ -59,10 +59,10 @@
   children:
       - title: Expense Report Header v1.1
         url: /api-reference/expense/expense-report/v1dot1.reports.html
-      - title: Get List of Reports v1.1
-        url: /api-reference-deprecated/version-one-one/expense-report/get-list-of-reports.html
-      - title: Report Full Details v1.1
-        url: /api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html
+      - title: Expense Reports List v1.1
+        url: /api-reference/expense/expense-report/v1dot1.reports-list.html
+      - title: Expense Report Full Details v1.1
+        url: /api-reference/expense/expense-report/v1dot1.report-full-details.html
       - title: Locations
         url: /api-reference/common/locations/v1dot1.locations.html
 - title: Attendees v2

@@ -197,7 +197,7 @@ application/xml
 Query Parameters - Required|Query Parameters - Optional
 -----|------
 `{_reportId_}/entry`|**Required** The unique identifier for the expense report and the entry keyword. Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_/entry`. <br><br>URI Source: The reportId value is returned in the **ReportID** element by the Get List of Reports function, and as part of the **Report-Details-Url** element of the Post Expense Report Header function.
-`{_entryId_}`|The unique identifier for the expense entry. Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_/entry/{_entryId_}`. <br><br>URI Source: The entryId value is returned in the **RpeKey** element of the [Get Full Report Details v1.1](/api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html) function, and as part of the **Report-Entry-Details-Url** value returned by this function.
+`{_entryId_}`|The unique identifier for the expense entry. Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_/entry/{_entryId_}`. <br><br>URI Source: The entryId value is returned in the **RpeKey** element of the [Expense Report Full Details v1.1](/api-reference/expense/expense-report/v1dot1.report-full-details.html) function, and as part of the **Report-Entry-Details-Url** value returned by this function.
 
 ### Request Headers
 

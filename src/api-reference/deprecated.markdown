@@ -19,8 +19,8 @@ The following application programming interfaces (APIs) have been deprecated acc
 * [Expense Group Configuration v1.1](/api-reference/expense/expense-report/v1dot1.expense-group-configurations.html)
 * Expense Report v1.1
   * [Expense Report Header v1.1](/api-reference/expense/expense-report/v1dot1.reports.html)
-  * [Get List of Reports](/api-reference-deprecated/version-one-one/expense-report/get-list-of-reports.html)
-  * [Report Full Details](/api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html)
+  * [Expense Reports List v1.1](/api-reference/expense/expense-report/v1dot1.reports-list.html)
+  * [Expense Report Full Details v1.1](/api-reference/expense/expense-report/v1dot1.report-full-details.html)
   * [Locations](/api-reference/common/locations/v1dot1.locations.html)
 * Expense Report v2
   * [Expense Report Resource](/api-reference-deprecated/version-two/expense-reports/expense-report-resource.html)
