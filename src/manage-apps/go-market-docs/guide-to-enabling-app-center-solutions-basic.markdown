@@ -14,11 +14,11 @@ This guide will provide the steps to enable an enterprise application, which doe
 
 Depending on the application, there are two methods of enabling the integration:
 
-* [Connect from the App Center](./manage-apps/go-market-docs/guide-to-enabling-app-center-solutions-basic.html#connect-app). Note: Apps eligible for this type of connection utilize [OAuth 2.0 Company-Level Authorization](/api-reference/authentication/company-auth.html) and will have a Connect button displayed within the app listing.
+* [Connect from the App Center](#connect-app). Note: Apps eligible for this type of connection utilize [OAuth 2.0 Company-Level Authorization](/api-reference/authentication/company-auth.html) and will have a Connect button displayed within the app listing.
 
 ![Connect from SAP Concur App Center Image](./guide-to-enabling-app-center-solutions-basic-connect-from-app-center.png)
 
-* [Username and password](./manage-apps/go-market-docs/guide-to-enabling-app-center-solutions-basic.html#name-password). If you do not see the Connect button, you will use this method.
+* [Username and password](#name-password). If you do not see the Connect button, you will use this method.
 
 ## <a name="connect-app"></a>Connecting from the App Center
 
