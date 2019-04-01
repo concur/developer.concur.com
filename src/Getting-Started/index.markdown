@@ -235,7 +235,7 @@ This section provides a quick start guide for generating an access token. If you
 
       **Hack tip 2**: You need to generate a report header to be able to submit an expense entry.  A collection of entries is a report.
 
-      *Click [here](/api-reference/expense/expense-report/reports.html) to view the relationship of an Expense Report Header to an Expense Report Entry and search for **Expense Report Processes**.*
+      *Click [here](/api-reference/expense/expense-report/v3.reports.html) to view the relationship of an Expense Report Header to an Expense Report Entry and search for **Expense Report Processes**.*
 
       GET Expense Report Details:
 
