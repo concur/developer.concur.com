@@ -2,19 +2,23 @@
   "swagger": "2.0",
   "info": {
     "description": "SAP Concur partners with external payment providers for processing invoice payments. These payment providers are listed on the App Center and can integrate with the Invoice product by using the Invoice Pay APIs. Payment providers can get a list of all the payments authorized to be processed by them, and send back status of those payments.",
-    "version": "4.0",
-    "title": "Invoice Payment Service API Documentation"
+    "title": "Invoice Payment Service API Documentation",
+    "version": "4.0"
   },
   "host": "www.concursolutions.com",
   "basePath": "/",
   "tags": [
     {
-      "name": "Resources",
-      "description": " "
+      "name": "GET Payments API",
+      "description": "Gets the payment details"
+    },
+    {
+      "name": "POST Payments API",
+      "description": "Updates the payment status"
     }
   ],
   "paths": {
-    "/provider-payment/v4/payments": {
+    "/invoice/provider-payment/v4/payments": {
       "get": {
         "tags": [
           "Resources"
@@ -44,7 +48,7 @@
         "deprecated": false
       }
     },
-    "/provider-payment/v4/payments/{paymentId}": {
+    "/invoice/provider-payment/v4/payments/{PaymentId}": {
       "post": {
         "tags": [
           "Resources"
@@ -68,9 +72,9 @@
             }
           },
           {
-            "name": "paymentId",
+            "name": "PaymentId",
             "in": "path",
-            "description": "paymentId",
+            "description": "PaymentId",
             "required": true,
             "type": "string"
           }
@@ -104,10 +108,12 @@
       "type": "object",
       "properties": {
         "amount": {
-          "type": "string"
+          "type": "string",
+          "description": "Amount. Maximum 20 characters."
         },
         "currency": {
           "type": "string",
+          "description": "Currency Code. Maximum 3 characters.",
           "minLength": 3,
           "maxLength": 3
         }
@@ -121,13 +127,16 @@
           "$ref": "#/definitions/amount"
         },
         "invoiceId": {
-          "type": "string"
+          "type": "string",
+          "description": "Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs. Maximum 20 characters."
         },
         "invoiceNumber": {
-          "type": "string"
+          "type": "string",
+          "description": "Invoice Number. Maximum 50 characters."
         },
         "notesToSupplier": {
-          "type": "string"
+          "type": "string",
+          "description": "Notes to the supplier contain remittance information that the buyer wants to provide to the supplier. Maximum 500 characters."
         },
         "paymentAmount": {
           "$ref": "#/definitions/amount"
@@ -149,13 +158,16 @@
         },
         "paymentDueDate": {
           "type": "string",
-          "format": "date"
+          "format": "date",
+          "description": "The date by which the payment should be made."
         },
         "paymentId": {
-          "type": "string"
+          "type": "string",
+          "description": "	Unique identifier of the payment in Concur. Maximum 36 characters."
         },
         "paymentMethod": {
-          "type": "string"
+          "type": "string",
+          "description": "The value is always PAYPVD which means that the client wants to pay using a payment provider. Maximum 15 characters."
         },
         "totalAmount": {
           "$ref": "#/definitions/amount"
@@ -185,14 +197,17 @@
           "$ref": "#/definitions/amount"
         },
         "paymentAdjustmentNotes": {
-          "type": "string"
+          "type": "string",
+          "description": "Payment adjustment notes sent by the payment provider. Maximum 255 characters."
         },
         "paymentInitiationDate": {
           "type": "string",
-          "format": "date"
+          "format": "date",
+          "description": "The date the payment was initiated."
         },
         "paymentMethod": {
           "type": "string",
+          "description": "Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED Payment method used by the payment provider.",
           "enum": [
             "ACH",
             "CHECK",
@@ -203,15 +218,18 @@
         },
         "paymentSettlementDate": {
           "type": "string",
-          "format": "date"
+          "format": "date",
+          "description": "The date the payment will be in the payees account."
         },
         "providerReference": {
           "type": "string",
+          "description": "Unique identifier of the payment in the payment provider's system. Maximum 100 characters.",
           "minLength": 0,
           "maxLength": 100
         },
         "status": {
           "type": "string",
+          "description": "Used to depict success, error or any other intermediate state, defined by SAP Concur.",
           "enum": [
             "PAID",
             "CANCELED",
@@ -231,15 +249,18 @@
         },
         "statusDate": {
           "type": "string",
-          "format": "date"
+          "format": "date",
+          "description": "The date that the payment provider recorded this status change."
         },
         "statusMessage": {
           "type": "string",
+          "description": "Payment provider description of the status. Providers can supply any message. Maximum 255 characters.",
           "minLength": 0,
           "maxLength": 255
         },
         "thirdPartyPaymentIdentifier": {
-          "type": "string"
+          "type": "string",
+          "description": "Check number if the payment was done via check or trace number for ACH payments. Maximum 255 characters."
         }
       },
       "title": "updatePayment"
@@ -249,24 +270,29 @@
       "properties": {
         "createdDate": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "The date the payment was created."
         },
         "lastModifiedDate": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "The date the payment was last modified."
         },
         "paidAmount": {
           "$ref": "#/definitions/amount"
         },
         "paymentAdjustmentNotes": {
-          "type": "string"
+          "type": "string",
+          "description": "Payment adjustment notes sent by the payment provider. Maximum 255 characters."
         },
         "paymentInitiationDate": {
           "type": "string",
-          "format": "date"
+          "format": "date",
+          "description": "The date the payment was initiated."
         },
         "paymentMethod": {
           "type": "string",
+          "description": "Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED Payment method used by the payment provider.",
           "enum": [
             "ACH",
             "CHECK",
@@ -277,15 +303,19 @@
         },
         "paymentSettlementDate": {
           "type": "string",
-          "format": "date"
+          "format": "date",
+          "description": "The date the payment will be in the payees account."
         },
         "providerReference": {
           "type": "string",
+          "description": "	Unique identifier of the payment in the payment provider's system. Maximum 100 characters.",
           "minLength": 0,
           "maxLength": 100
         },
         "status": {
           "type": "string",
+          "required": true,
+          "description": "Used to depict success, error or any other intermediate state, defined by SAP Concur.",
           "enum": [
             "PAID",
             "CANCELED",
@@ -305,15 +335,19 @@
         },
         "statusDate": {
           "type": "string",
-          "format": "date"
+          "format": "date",
+          "required": true,
+          "description": "The date that the payment provider recorded this status change."
         },
         "statusMessage": {
           "type": "string",
+          "description": "Payment provider description of the status. Providers can supply any message. Maximum 255 characters.",
           "minLength": 0,
           "maxLength": 255
         },
         "thirdPartyPaymentIdentifier": {
-          "type": "string"
+          "type": "string",
+          "description": "Check number if the payment was done via check or trace number for ACH payments. Maximum 255 characters."
         }
       },
       "title": "updatePaymentResult"
@@ -322,52 +356,68 @@
       "type": "object",
       "properties": {
         "addressLine1": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Address line 1. Maximum 255 characters."
         },
         "addressLine2": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Address line 2. Maximum 255 characters."
         },
         "addressLine3": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Address line 3. Maximum 255 characters."
         },
         "buyerAccountNumber": {
-          "type": "string"
+          "type": "string",
+          "description": "Buyer Account Number. Maximum 50 characters."
         },
         "city": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Address City. Maximum 255 characters."
         },
         "countryCode": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Address Country Code. Maximum 2 characters."
         },
         "countryName": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Address Country Name. Maximum 64 characters."
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "description": "Email Address. Maximum 255 characters."
         },
         "firstName": {
-          "type": "string"
+          "type": "string",
+          "description": "First Name. Maximum 255 characters."
         },
         "lastName": {
-          "type": "string"
+          "type": "string",
+          "description": "Last Name. Maximum 255 characters."
         },
         "phoneNumber": {
-          "type": "string"
+          "type": "string",
+          "description": "Phone Number. Maximum 25 characters."
         },
         "postalCode": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Address Postal Code. Maximum 20 characters."
         },
         "state": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Address State. Maximum 10 characters."
         },
         "vendorAddrCode": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Address Code. Maximum 64 characters."
         },
         "vendorCode": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Code. Maximum 32 characters."
         },
         "vendorName": {
-          "type": "string"
+          "type": "string",
+          "description": "Vendor Name. Maximum 255 characters."
         }
       },
       "title": "vendor"

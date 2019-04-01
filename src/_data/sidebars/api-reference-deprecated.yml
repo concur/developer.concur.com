@@ -33,10 +33,10 @@
 - title: v1.0 - Travel Web Service
   url: ''
   children:
-      - title: Form of Payment Resource
-        url: /api-reference-deprecated/version-one/Travel/form-payment-resource.html
+      - title: Form of Payment Resource v1
+        url: /api-reference/travel-profile/v1.form-payment-resource.html
       - title: Profile Resource
-        url: /api-reference-deprecated/version-one/Travel/profile-resource.html
+        url: /api-reference/travel-profile/v1.profile-resource.html
 - title: v1.1 - Expense Entry
   url: ''
   children:

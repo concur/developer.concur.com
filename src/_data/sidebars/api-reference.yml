@@ -209,18 +209,18 @@
 - title: Travel Profile
   url: ''
   children:
-      - title: Travel Profile Services
-        url: /api-reference/travel-profile/00-profile-services.html
-      - title: Travel Profile
-        url: /api-reference/travel-profile/01-profile-resource.html
-      - title: Form of Payment
-        url: /api-reference/travel-profile/02-form-payment-resource.html
-      - title: Loyalty Program
-        url: /api-reference/travel-profile/03-loyalty-program-resource.html
-      - title: Company Notification
-        url: /api-reference/travel-profile/04-notification-company-resource.html
-      - title: User Notification
-        url: /api-reference/travel-profile/05-notification-user-resource.html
+      - title: Travel Profile v2
+        url: /api-reference/travel-profile/v2.profile-service.html
+      - title: Travel Profile v2 - Resource
+        url: /api-reference/travel-profile/v2.profile-resource.html
+      - title: Travel Profile v2 - Form of Payment
+        url: /api-reference/travel-profile/v2.form-payment-resource.html
+      - title: Travel Profile v1 - Loyalty Program
+        url: /api-reference/travel-profile/v1.loyalty-program-resource.html
+      - title: Travel Profile v1 - Company Notification
+        url: /api-reference/travel-profile/v1.notification-company-resource.html
+      - title: Travel Profile v1 - User Notification
+        url: /api-reference/travel-profile/v1.notification-user-resource.html
 - title: Travel
   url: ''
   children:

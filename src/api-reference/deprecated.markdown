@@ -38,6 +38,6 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [Post a quick expense](/api-reference/expense/quick-expense/v1.quick-expense-resource-post.html)
 * [Receipts v3](/api-reference/receipts/v3.receipts.html)
 * Travel Web Service v1
-  * [Form of Payment Resource](/api-reference-deprecated/version-one/Travel/form-payment-resource.html)
-  * [Profile Resource](/api-reference-deprecated/version-one/Travel/profile-resource.html)
+  * [Form of Payment Resource](/api-reference/travel-profile/v1.form-payment-resource.html)
+  * [Profile Resource](/api-reference/travel-profile/v1.profile-resource.html)
 * [Trip Approval v1](/api-reference/travel/trip-approval/v1.trip-approval-resource.html)
