@@ -57,10 +57,8 @@
 - title: v1.1 - Expense Report
   url: ''
   children:
-      - title: Expense Report Header Resource
-        url: /api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html
-      - title: Post an expense report header
-        url: /api-reference-deprecated/version-one-one/expense-report/expense-report-header-post.html
+      - title: Expense Report Header v1.1
+        url: /api-reference/expense/expense-report/v1dot1.reports.html
       - title: Get List of Reports v1.1
         url: /api-reference-deprecated/version-one-one/expense-report/get-list-of-reports.html
       - title: Report Full Details v1.1

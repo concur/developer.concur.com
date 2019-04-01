@@ -54,12 +54,13 @@ The following sections provide the details for each API call.
 ### 1.	Identify the Expense Entry
 
 The method for identifying an expense entry depends on whether the expense entry needs to be created or it already exists. Regardless of whether you create a new expense entry or you search for an existing one, you can use the GET Reports API followed by the GET Report Details API to obtain the unique identifier for the expense entry.  
-* https://developer.concur.com/api-reference/expense/expense-report/reports.html
+
+* [Expense Reports v3](/api-reference/expense/expense-report/v3.reports.html)
 * https://developer.concur.com/api-reference/expense/expense-report/expense-report-get.html
 
 #### New Expense Entries
 
-When creating a new expense entry, the SAP Concur Platform returns to the developer the unique identifier for the expense entry. In some cases a developer needs to create an expense entry. For example, in a CRM application there is an object called Sales Call that allows sales professionals to record expenses and contacts involved in a sales call they make for a prospective opportunity. In this case the developer creates an expense entry in Concur Expense to record the expense in the sales call. For details on how to create a new expense entry in Concur Expense, see these APIs: 
+When creating a new expense entry, the SAP Concur Platform returns to the developer the unique identifier for the expense entry. In some cases a developer needs to create an expense entry. For example, in a CRM application there is an object called Sales Call that allows sales professionals to record expenses and contacts involved in a sales call they make for a prospective opportunity. In this case the developer creates an expense entry in Concur Expense to record the expense in the sales call. For details on how to create a new expense entry in Concur Expense, see these APIs:
  1. [User to identify the Group value](https://developer.concur.com/api-reference/user/#getUser)
  2. [Group Configuration to identify Policy IDs, Payment Type IDs, Expense Type code](https://developer.concur.com/api-reference/expense/expense-report/expense-group-configurations.html)
  3. [Expense Form to identify the Form Name and Form Code](https://developer.concur.com/api-reference/expense/expense-report/expense-form.html#get)

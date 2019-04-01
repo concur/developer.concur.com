@@ -47,7 +47,7 @@ Concur is addressing this issue in our next generation of APIs.  At that time, t
 
 #### Step 1: GET a list of Expense Reports.
 
-[Expense Report v3 API](/api-reference/expense/expense-report/reports.html)
+[Expense Report v3](/api-reference/expense/expense-report/v3.reports.html)
 
 The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the         following search parameters:
 
