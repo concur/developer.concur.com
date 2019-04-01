@@ -51,7 +51,7 @@
         url: /api-reference/common/extracts/v1.extracts.html
       - title: List Item v3
         url: /api-reference/common/list-item/v3.list-item.html
-      - title: Locations
+      - title: Locations v3
         url: /api-reference/common/locations/v3.locations.html
       - title: Suppliers
         url: /api-reference/common/suppliers/suppliers-resource.html
