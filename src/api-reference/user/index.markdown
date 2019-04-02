@@ -3,10 +3,8 @@ title: User
 layout: reference
 ---
 
-
 # User
-The Users resource represents a set of Concur users. It is always managed as a batch of users, even if the batch contains only one user.
-
+The Users resource represents a set of SAP Concur users. It is always managed as a batch of users, even if the batch contains only one user.
 
 * [Retrieve a user's information](#getUser)
 * [Retrieve all users based on search criteria](#getall)
@@ -17,7 +15,7 @@ The Users resource represents a set of Concur users. It is always managed as a b
 ### Version
 1.0
 
-## <a name="getUser"></a>Retrieve a user's information
+## <a name="getUser"></a>Retrieve a User's Information
 
 This resource allows you to get profile information for a given user. If a request URL does not include a `?loginID` parameter then the response will be for the logged in user (and you must pass authentication information with your request).
 
@@ -27,8 +25,7 @@ This resource allows you to get profile information for a given user. If a reque
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
-`loginID`|`string` | | The URL-encoded Concur login of the user. Optional.
-
+`loginID`|`string` | | The URL-encoded SAP Concur login of the user. Optional.
 
 ### Response
 
@@ -57,15 +54,13 @@ Name | Type | Format | Description
 `ExpenseApproverEmployeeID`|`string` | | The employee ID of the user's Expense approver. If you are importing both a user and their approver, the approver should be listed before the user in the batch.
 `IsTestEmp`|`string` | | Whether the user is a test user. Format: Y/N.
 
-
-## <a name="getall"></a>Retrieve all users based on search criteria
+## <a name="getall"></a>Retrieve All Users Based on Search Criteria
 
 Note that this is a version 3.0 API and can be found [here](/api-explorer/v3-0/Users.html).
 
+## <a name="requiredFields"></a>Retrieve the List of Required Fields for Creating a User
 
-## <a name="requiredFields"></a>Retrieve the list of required fields for creating a user
-
-Retrieves a list of configured fields on the Global employee form in Concur.
+Retrieves a list of configured fields on the Global employee form in SAP Concur.
 
     GET api/user/v1.0/FormFields
 
@@ -95,15 +90,15 @@ Name | Type | Format | Description
 `ListName`|`string` | | The name of the list associated with the field.
 `HierLevel`|`string` | | The list level of the field. If it is the second level field in a two-level list, the value would be 2.
 
-## <a name="createUser"></a>Create or update a user's account information
+## <a name="createUser"></a>Update a User's Account Information
 
-**NOTE: The User API cannot add User profiles completely for *all* customers. The developer or customer should expect to do follow-up work to the user profiles in order for the User profiles to be 100% ready for use. This variability is due to the customer's configuration choices that may not be supported by this API. Manual edits or updates via a file import are likely required to complete the User profiles started with this API. Future releases will address these topics.**
+Updates one or more users. The batch can contain up to 500 users.
 
-Updates one or more users. The batch can contain up to 500 users. (Creating Users is not fully supported at this time)
+>**NOTE**: The User API can be used to add new users, however the user accounts will not be fully configured and ready for use. Additional work to the user profiles must be completed, either with manual edits or updates via the user import, in order to complete the user profiles. There is a high degree of variability in customer configuration that is not all supported by this API. Manual edits or updates via a file import are most likely required to complete the User profiles started with this API.
 
     POST api/user/v1.0/users
 
-This API requires as its arguments a `batch` element containing a `UserProfile` child element for each user to be added (in the future) or updated. The UserProfile child elements will vary depending on the form configuration, and may contain the following elements.
+This API requires as its arguments a `batch` element containing a `UserProfile` child element for each user to be added (in the future) or updated. The `UserProfile` child elements will vary depending on the form configuration, and may contain the following elements.
 
 ### Request
 
@@ -144,7 +139,7 @@ Name | Type | Format | Description
 
 When any users are successfully updated:
 
-The request will return the UserDetails parent element with a UserInfo element for each successfully added or updated user. The UserInfo elements will contain the following child elements:
+The request will return the `UserDetails` parent element with a `UserInfo` element for each successfully added or updated user. The `UserInfo` elements will contain the following child elements:
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
@@ -174,7 +169,6 @@ Name | Type | Format | Description
 </batch>
 ```
 
-
 ## <a name="updatePwd"></a>Update a user's password
 
      POST api/user/v1.0/Users/password
@@ -182,7 +176,8 @@ Name | Type | Format | Description
 Updates passwords for up to 500 users.
 
 ### Request
-This function requires as its arguments a UserBatch element containing a User child element for each user. The User element must have the following elements:
+
+This function requires as its arguments a `UserBatch` element containing a User child element for each user. The `User` element must have the following elements:
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
@@ -190,16 +185,15 @@ Name | Type | Format | Description
 `Password`|`string` | | The user's new password.
 
 ### Response
-This request will return a BatchResult parent element with the following child elements:
+This request will return a `BatchResult` parent element with the following child elements:
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
 `RecordsSucceeded`|`string` | | The number of records processed that were successfully updated.
 `RecordsFailed`|`string` | | The number of records processed that were not successfully updated.
-`UserPasswordStatusList`|`string` | | This parent element will contains a UserPasswordStatus element for each user.
+`UserPasswordStatusList`|`string` | | This parent element will contains a `UserPasswordStatus` element for each user.
 
-
-The UserPasswordStatus element contains the following child elements:
+The `UserPasswordStatus` element contains the following child elements:
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
