@@ -18,9 +18,7 @@ layout: reference
 
 3.0 Note that some methods are deprecated  
 
-1.1 documentation is available [here](/api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource.html)  
-
-
+1.1 documentation is available [here](/api-reference/expense/expense-report/v1dot1.expense-itemization.html)  
 
 ## <a name="get"></a>Retrieve all expense itemizations owned by the user
 

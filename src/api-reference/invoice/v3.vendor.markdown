@@ -5,6 +5,8 @@ redirect_from:
   - /api-reference/invoice/vendor.html
 ---
 
+The Vendor API allows you to develop processes that can be used to manage your Vendor collection for invoicing, adding new Vendors, updating, getting, or deleting information for existing Vendors.
+
 * [Retrieve an existing vendor](#get)
 * [Create vendors](#post)
 * [Update existing vendors](#put)
@@ -18,7 +20,7 @@ redirect_from:
 
 3.0  
 
-## <a name="get"></a>Retrieve an existing vendor
+## <a name="get"></a>Retrieve an Existing Vendor
 
 > Note: If authenticating with a Company JWT the API will return all vendors associated with a specific entity.
 
@@ -78,7 +80,7 @@ None.
 
 [Vendors Schema](#schema)
 
-## <a name="post"></a>Create vendors  
+## <a name="post"></a>Create Vendors  
 
     POST  /api/v3.0/invoice/vendors
     Note: If authenticating with a Company JWT, the API will create the requested Vendors.
@@ -91,14 +93,13 @@ Name | Type | Format | Description
 
 ### Input  
 
-
 [Vendors Schema](#schema)
 
 ### Response  
 
 [Vendors Schema](#schema)
 
-## <a name="put"></a>Update existing vendors  
+## <a name="put"></a>Update Existing Vendors  
 
     PUT  /api/v3.0/invoice/vendors
     Note: If authenticating with a Company JWT, the API will update the requested Vendors.
@@ -117,7 +118,7 @@ Name | Type | Format | Description
 
 [Vendors Schema](#schema)
 
-## <a name="delete"></a>Delete vendor  
+## <a name="delete"></a>Delete Vendor  
 
     DELETE  /api/v3.0/invoice/vendors
     Note: If authenticating with a Company JWT, the API will delete the requested Vendor.
@@ -136,7 +137,6 @@ None.
 ### Response  
 
 [Vendors Schema](#schema)
-
 
 ## <a name="vendorBankPut"></a>Add/Update Vendor Banking
 
@@ -183,7 +183,6 @@ Name | Type | Format | Description
     DELETE /api/v3.0/invoice/vendor/groups
     Note: If authenticating with a Company JWT, the API will delete the requested Vendor group.
 
-
 ### Parameters
 
 Name | Type | Format | Description
@@ -199,7 +198,6 @@ None.
 ### Response
 
 [Vendor Group Schema](#vendorgroups)
-
 
 ## <a name="schema"></a>Schema
 
@@ -290,7 +288,6 @@ Name | Type | Format | Description
 `TotalCount`|`Int`|-|-|
 `VendorBank`|`array`|[`VendorBank`](#VendorBank)|**Required** Vendor Banking Info
 
-
 ### <a name="VendorBank"></a>VendorBank
 
 Name | Type | Format | Description
@@ -331,7 +328,6 @@ Name | Type | Format | Description
 `Name`|`string`|-|**Required** The vendor group name.
 `StatusList`|`array`|[`status`](#status)|Status results.
 `URI`|string|-|The URI to the resource.
-
 
 ### <a name="status"></a>Status  
 
