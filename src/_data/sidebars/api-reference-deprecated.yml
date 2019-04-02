@@ -1,5 +1,3 @@
-- title: API Reference (Deprecated)
-  url: /api-reference-deprecated/
 - title: Pre-2017 Authorization
   url: /api-reference/authentication/authorization-pre-2017.html
 - title: Attendees v1
@@ -68,20 +66,8 @@
 - title: Attendees v2
   url: /api-reference/expense/attendees/v2.attendees.html
 - title: v2.0 - Expense Entry Attendee
-  url: ''
-  children:
-      - title: Expense Entry Attendee Resource
-        url: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html
-      - title: GET Expense Entry Attendees
-        url: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html
-      - title: PUT Expense Entry Attendees
-        url: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-put.html
+  url: /api-reference/expense/expense-report/v2.expense-entry-attendee.html
 - title: v2.0 - Expense Report
-  url: ''
-  children:
-      - title: Expense Report Resource
-        url: /api-reference-deprecated/version-two/expense-reports/expense-report-resource.html
-      - title: GET List of Reports
-        url: /api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html
+  url: /api-reference/expense/expense-report/v2.reports.html
 - title: v3.0 - Receipts
   url: /api-reference/receipts/v3.receipts.html

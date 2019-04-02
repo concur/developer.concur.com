@@ -15,7 +15,7 @@ redirect_from:
 
 ## Prior Versions
 
-2.0 documentation is available [here.](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html)
+2.0 documentation is available [here.](/api-reference/expense/expense-report/v2.expense-entry-attendee.html)
 
 ## <a name="get"></a>Retrieve All Entry-Attendee Associations Owned by the User
 
