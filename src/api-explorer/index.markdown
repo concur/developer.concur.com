@@ -5,7 +5,7 @@ layout: reference
 
 Browse [Swagger](https://swagger.io/) documents, such as what APIs are available, and their resource and method details.
 
-## Base URLs
+## Base URIs
 
 For APIs using the new OAuth2 framework:
 
