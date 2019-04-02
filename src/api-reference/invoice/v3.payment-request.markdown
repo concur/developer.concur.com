@@ -5,16 +5,16 @@ redirect_from:
   - /api-reference/invoice/payment-request.html
 ---
 
-* [Retrieve a Payment Request](#get)
-* [Create a New Payment Request](#post)
-* [Update a Payment Request](#put)
+* [Retrieve an Invoice](#get)
+* [Create a New Invoice](#post)
+* [Update an Invoice](#put)
 * [Schema](#schema)
 
 ## Version
 
 3.0
 
-## <a name="get"></a>Retrieve a Payment Request
+## <a name="get"></a>Retrieve an Invoice
 
 ```
 GET /api/v3.0/invoice/paymentrequest/{id}
@@ -24,9 +24,9 @@ GET /api/v3.0/invoice/paymentrequest/{id}
 
 Name|Type|Format|Description
 ---|---|---|---
-id|`string`|path|**Required** Payment Request ID.
+id|`string`|path|**Required** Invoice ID.
 
-## <a name="post"></a>Create a new Payment Request
+## <a name="post"></a>Create a New Invoice
 
 ```
 POST /api/v3.0/invoice/paymentrequest
@@ -36,7 +36,7 @@ POST /api/v3.0/invoice/paymentrequest
 
 * [paymentrequest](#schema-paymentRequest)
 
-## <a name="put"></a>Update a Payment Request
+## <a name="put"></a>Update an Invoice
 
 ```
 PUT /api/v3.0/invoice/paymentrequest
@@ -53,34 +53,34 @@ PUT /api/v3.0/invoice/paymentrequest
 Name|Type|Format|Description
 ---|---|---|---
 `AmountWithoutVat`|`string`|-|The net amount of the invoice (excluding VAT).
-`BuyerCostCenter`|`string`|-|The company defined center responsible for the Payment Request.
+`BuyerCostCenter`|`string`|-|The company defined center responsible for the Invoice.
 `CheckNumber`|`string`|-|Check number of the payment made to the vendor.
 `CompanyBillToAddressCode`|`string`|-|The code which identifies the company location to which the vendor billed the invoice.
 `CompanyShipToAddressCode`|`string`|-|The code which identifies the company location to which the vendor shipped items listed in the invoice.
 `CountryCode`|`string`|-|**Required** The country code.
 `CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.
 `Custom1` through `Custom9`|`string`|-|The details from the Custom fields. These may not have data, depending on configuration.
-`DataSource`|`string`|-|A code which indicates the method used to created the Payment Request. Use GET /invoice/localizeddata to translate the code into text.
+`DataSource`|`string`|-|A code which indicates the method used to created the Invoice. Use GET /invoice/localizeddata to translate the code into text.
 `DeliverySlipNumber`|`string`|-|The delivery slip number associated with receiving receipt.
-`Description`|`string`|-|User entered description of the Payment Request.
+`Description`|`string`|-|User entered description of the Invoice.
 `DiscountPercentage`|`string`|-|The discount from the supplier if the discount terms are met.
 `DiscountTerms`|`string`|-|The NET discount terms with a supplier when discounts apply.
-`EmployeeEmailAddress`|`string`|-|The email address of the employee to whom the request should be assigned. Not evaluated if EmployeeLoginId or EmployeeId match an employee. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; PurchaseOrderNumber; ExternalPolicyId.
-`EmployeeId`|`string`|-|The company ID of the employee to whom the request should be assigned. Has precedence over EmployeeEmail; not evaluated if EmployeeLoginId matches an employee. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
-`EmployeeLoginId`|`string`|-|The login ID of the employee to whom the request should be assigned. Has precedence over EmployeeId and EmployeeEmail. This value is required if none of the following are provided: LedgerCode, EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
-`ExternalPolicyId`|`string`|-|The external policy ID of the Payment Request. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; EmployeeEmail; PurchaseOrderNumber.
+`EmployeeEmailAddress`|`string`|-|The email address of the employee to whom the invoice should be assigned. Not evaluated if EmployeeLoginId or EmployeeId match an employee. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; PurchaseOrderNumber; ExternalPolicyId.
+`EmployeeId`|`string`|-|The company ID of the employee to whom the invoice should be assigned. Has precedence over EmployeeEmail; not evaluated if EmployeeLoginId matches an employee. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
+`EmployeeLoginId`|`string`|-|The login ID of the employee to whom the invoice should be assigned. Has precedence over EmployeeId and EmployeeEmail. This value is required if none of the following are provided: LedgerCode, EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
+`ExternalPolicyId`|`string`|-|The external policy ID of the Invoice. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; EmployeeEmail; PurchaseOrderNumber.
 `InvoiceAmount`|`string`|-|**Required** User-entered value representing the total invoice amount, used to calculate amount remaining on the line item page.
 `InvoiceDate`|`string`|-|The date the Vendor issued the Invoice.
-`InvoiceNumber`|`string`|-|The Invoice Number from the vendor for the Payment Request.
+`InvoiceNumber`|`string`|-|The Invoice Number from the vendor for the Invoice.
 `InvoiceReceivedDate`|`string`|-|The date on which the invoice was received.
 `IsEmergencyCheckRun`|`string`|-|Is an emergency check run required (Y/N).
-`IsInvoiceConfirmed`|`string`|-|Indicates if the Payment Request Invoice is confirmed or in a different status (true/false).
-`LedgerCode`|`string`|-|A code which indicates which company journal the Payment Request is assigned to. Use GET /invoice/localizeddata to obtain valid codes. This value is required if none of the following are provided: EmployeeLoginId; EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
+`IsInvoiceConfirmed`|`string`|-|Indicates if the Invoice is confirmed or in a different status (true/false).
+`LedgerCode`|`string`|-|A code which indicates which company journal the Invoice is assigned to. Use GET /invoice/localizeddata to obtain valid codes. This value is required if none of the following are provided: EmployeeLoginId; EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
 `LineItems`|`array`|[`LineItem`](#line-item)|The details of the Core Payment Request Line Item Identity Fields.
-`Name`|`string`|-|**Required** The Payment Request Name.
+`Name`|`string`|-|**Required** The Invoice Name.
 `NotesToVendor`|`string`|-|Information from the customer to the vendor for special requests or handling for the ordered good or service.
 `OB10BuyerId`|`string`|-|A unique buyer account on the OB10 network.
-`OB10TransactionId`|`string`|-|Unique Identifier for the PR transaction (generated by OB10).
+`OB10TransactionId`|`string`|-|Unique Identifier for the Invoice transaction (generated by OB10).
 `OrgUnit1`|`string`|-|The details from the Organization Unit fields. These may not have data, depending on configuration.
 `OrgUnit2`|`string`|-|The details from the Organization Unit fields. These may not have data, depending on configuration.
 `OrgUnit3`|`string`|-|The details from the Organization Unit fields. These may not have data, depending on configuration.
@@ -92,15 +92,15 @@ Name|Type|Format|Description
 `PaymentDueDate`|`string`|-|The date the vendor needs to be paid by.
 `PaymentTermsDays`|`string`|-|This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid.
 `ProvincialTaxId`|`string`|-|The Vendor Provincial Tax ID.
-`PurchaseOrderId`|`string`|-|The ID of the Purchase Order to which the Payment Request should be matched. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId, EmployeeEmail, ExternalPolicyId.
-`ReceiptConfirmationType`|`string`|-|A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text.
+`PurchaseOrderId`|`string`|-|The ID of the Purchase Order to which the Invoice should be matched. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId, EmployeeEmail, ExternalPolicyId.
+`ReceiptConfirmationType`|`string`|-|A code which indicates the receipt confirmation type for this Invoice (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text.
 `ShippingAmount`|`string`|-|The value for the Shipping Amount header field.
 `TaxAmount`|`string`|-|The value for the Tax Amount header field.
 `VatAmountOne`|`string`|-|The amount of VAT included in the invoice total (first of two VAT amount fields available).
 `VatAmountTwo`|`string`|-|The amount of VAT included in the invoice total (second of two VAT amount fields available).
 `VatRateOne`|`string`|-|The VAT rate applied to the net invoice total (should relate to the first VAT amount field).
 `VatRateTwo`|`string`|-|The VAT rate applied to the net invoice total (should relate to the second VAT amount field).
-`VendorRemitToIdentifier`|`object`|[`VendorRemitToIdentifier`](#vendor-remit-to-identifier)|**Required** Used to identify the vendor location for payment remittance. At a minimum, the VendorCode or the combination of (VendorName, Address1 and PostalCode) are required. Use of as many fields as possible is encouraged to ensure a single vendor can be identified. If more than one vendor matches the information provided, the Payment Request creation attempt will fail.
+`VendorRemitToIdentifier`|`object`|[`VendorRemitToIdentifier`](#vendor-remit-to-identifier)|**Required** Used to identify the vendor location for payment remittance. At a minimum, the VendorCode or the combination of (VendorName, Address1 and PostalCode) are required. Use of as many fields as possible is encouraged to ensure a single vendor can be identified. If more than one vendor matches the information provided, the Invoice creation attempt will fail.
 `VendorShipFromAddressCode`|`string`|-|The code which identifies the location from which the vendor shipped items listed in the invoice.
 `VendorTaxId`|`string`|-|The Vendor Tax ID.
 

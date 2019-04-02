@@ -450,8 +450,8 @@ https://{datacenterURI}//api/v3.0/invoice/salestaxvalidationrequest
 |`OrgUnit1Value though OrgUnit6Value`|`string`|-|The value from the OrgUnit fields. These fields may not have data, depending on the configuration.
 |`Custom1 through Custom24`|`string`|-|The code from the Custom fields. These fields may not have data, depending on the configuration.
 |`Custom1Value through Custom24Value`|`string`|-|The value from the Custom fields. These fields may not have data, depending on the configuration.
-|`PurchaseOrderNumber`|`string`|-|The purchase order number associated to the payment request.
-|`RequestID`|`string`|-|The ID of the payment request.
+|`PurchaseOrderNumber`|`string`|-|The purchase order number associated to the invoice.
+|`RequestID`|`string`|-|The ID of the invoice.
 |`ShippingAmount`|`string`|-|The shipping amount for the invoice.
 |`ShipToAddress`|`object`|[`ShipToAddress`](#ship-to-address)|The shipping address associated with the invoice.
 |`Status`|`string`|-|The status of the invoice.
