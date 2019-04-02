@@ -60,10 +60,6 @@ A user at your company with the appropriate permissions is required to activate 
 * Click **User Permissions** (left menu).
 * Find the user who will activate the application, and select **Add** to grant Web Services Administrator Permission.
 
-* Click the **Administration** tab, then click the **Company Admin** menu.
-* Within the **Administration** area, click **User Permissions**.
-* Find the user who will activate the application, and select **Add** to grant Web Services Administrator Permission.
-
 ![Professional Enabling WS Admin Image](./guide-to-enabling-app-center-solutions-basic-enable-ws-admin-professional.png)
 
 ### Step 3: Enable the App
