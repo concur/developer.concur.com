@@ -118,7 +118,7 @@ Refer to the [HTTP Codes][16] page for details of the common responses and error
  
 
 
-[2]:  /api-reference/expense/expense-report/reports.html
+[2]:  /api-reference/expense/expense-report/v3.reports.html
 [3]:  /api-reference/expense/expense-report/post-report-exceptions.html
 [7]:  https://developer.concur.com/api-documentation/core-concepts
 [9]:  /api-reference/callouts/delete-notification.html
