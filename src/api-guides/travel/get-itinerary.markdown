@@ -191,7 +191,7 @@ Amadeus e-Travel Management (AeTM) is an online self-booking tool integrated wit
 
 #### Subscribe and Unsubscribe
 
-Concur Travel Suppliers and Travel Management Companies may need to know how to post a company notification subscription for itinerary changes. Use the information which follows to guide you. More information on these topics can be found in the SAP Concur Developer Center in the resource: [Subscribe or unsubscribe from notifications]( /api-reference/travel-profile/04-notification-company-resource.html).
+Concur Travel Suppliers and Travel Management Companies may need to know how to post a company notification subscription for itinerary changes. Use the information which follows to guide you. More information on these topics can be found in the SAP Concur Developer Center in the resource: [Subscribe or unsubscribe from notifications]( /api-reference/travel-profile/v1.notification-company-resource.html).
 
 To subscribe to notifications to be alerted whenever employees who have booked travel through Concur change their travel plans by adding, modifying or canceling an itinerary is referred to as a **POST Company Notification Subscription for Itinerary Changes request**.
 
@@ -228,4 +228,4 @@ XML Example request to unsubscribe from Itinerary Changes:
 https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=itinerary
 ```
 
-Refer to the sample [Post Company Notification Subscription for Itinerary Changes Response](/api-reference/travel-profile/04-notification-company-resource.html#a1) for guidance.
+Refer to the sample [Post Company Notification Subscription for Itinerary Changes Response](/api-reference/travel-profile/v1.notification-company-resource.html#a1) for guidance.
