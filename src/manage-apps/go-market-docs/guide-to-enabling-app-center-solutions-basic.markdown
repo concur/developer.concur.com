@@ -50,7 +50,7 @@ A user at your company with the appropriate permissions is required to activate 
 * Click **Administration**, and then **Expense Settings**, or **Expense & Invoice Settings**, or **Invoice Settings**.
 * In the Access to Concur section, click **User Accounts**.
 * Double-click the user.
-* In the User Permissions section, select the **Can Administer** check box.
+* In the User Permissions section, select the **Can Administer or Travel and Expense Administrator** (depending on configuration) check box.
 
 ![Standard Enabling WS Admin Image](./guide-to-enabling-app-center-solutions-standard-wsadmin-userpermissions.png)
 
@@ -93,7 +93,7 @@ The new WSAdmin User Profile in Concur Standard Edition should have the followin
 * **Last Name**: Insert the last name of the authorized administrator who will enable the application.
 * **Password**: Create a unique and secure password for the user.
 * **Permissions**:
-  * Select the **Can Administer** check box.
+  * Select the **Can Administer or Travel and Expense Administrator** (depending on configuration) check box.
   * Select check boxes based on what type of data is needed for the application. The system will grant the relevant data access based on the roles that are assigned to this user. For example, if the app needs to access Travel data and the WSAdmin User Profile does not have access to travel, the app will not access travel data. Options include:
     * **Can Submit Expense Reports**
     * **Can Book Travel**
