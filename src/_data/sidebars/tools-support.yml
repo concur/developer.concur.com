@@ -24,10 +24,3 @@
   url: /tools-support/release-notes/
 - title: Videos
   url: /tools-support/videos/
-- title: Tools
-  url: ''
-  children:
-      - title: acconnect Utility
-        url: /tools-support/tools/acconnect-utility.html
-      - title: Web Test Tool
-        url: /tools-support/tools/webtest.html
