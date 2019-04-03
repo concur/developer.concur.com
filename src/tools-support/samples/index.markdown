@@ -9,7 +9,7 @@ The following links are to ZIP archive downloads:
 
 * [01 - OAuth 2](./01-oauth2.zip)
 * [02 - Employee Form Fields](./02-emp-form-fields.zip)
-* [03 -Create user](./03-create-user.zip)
+* [03 - Create user](./03-create-user.zip)
 * [04 - Create report](./04-create-report.zip)
 * [05 - Create report and entry](./05-create-report-and-entry.zip)
 * [06 - Extract definition and job](./06-extract-def-and-job.zip)
