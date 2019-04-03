@@ -1,6 +1,9 @@
 ---
 title: API Lifecycle & Deprecation Policy
 layout: reference
+
+redirect_from:
+  - /tools-support/reference/deprecation-policy.html
 ---
 
 # API Lifecycle & Deprecation Policy

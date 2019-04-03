@@ -1,10 +1,10 @@
 ---
-title: HTTP Codes 
+title: HTTP Codes
 layout: reference
+
+redirect_from:
+  - /tools-support/reference/http-codes.html
 ---
-
-
-
 
 ##  Successful Requests
 
@@ -32,7 +32,7 @@ The web service returns a 4xx or 5xx HTTP response code when there are any error
 |  Element |  Description |
 | ----- |----|
 |  Message |  The error message. |
-|  Server-Time |  The time the error was generated, based on Concur's server's time zone. | 
+|  Server-Time |  The time the error was generated, based on Concur's server's time zone. |
 |  Id |  The ID of the error within Concur. |
 
 Refer to the individual function documentation for function-specific error formats.

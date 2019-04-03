@@ -120,4 +120,4 @@ The SAP Concur administrator can select which attendee types use the connector w
 
 ### <a name="responses-errors"></a>Responses and Errors
 
-Refer to the [HTTP Codes page](/tools-support/reference/http-codes.html) for details of the common responses and errors.
+Refer to the [HTTP Status Codes](/api-reference/http-status-codes.html) for details of the common responses and errors.

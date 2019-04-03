@@ -1,6 +1,9 @@
 ---
 title: Custom List Items
 layout: reference
+
+redirect_from:
+  - /tools-support/reference/custom-list-items.html
 ---
 
 Custom list fields are included in many of the web services calls throughout Concur Connect, and they require some special consideration.

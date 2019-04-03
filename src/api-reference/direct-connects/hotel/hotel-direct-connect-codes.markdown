@@ -1,6 +1,9 @@
 ---
 title: Hotel Direct Connect Codes
 layout: reference
+
+redirect_from:
+  - /tools-support/reference/hotel-direct-connect-codes.html
 ---
 
 # Hotel Direct Connect Codes
@@ -17,8 +20,8 @@ layout: reference
 
 ## <a name="method1"></a>OTA Error Codes
 
-Code | Description 
------|------	
+Code | Description
+-----|------
 15 | Invalid date
 61 | Invalid currency code
 69 | Minimum stay criteria not fulfilled
@@ -60,7 +63,7 @@ Code | Description
 370 | Frequent guest points cannot be redeemed at this time
 371 | Full payment or deposit required
 372 | Guarantee code not accepted at this hotel
-373 | Guarantee required immediately 
+373 | Guarantee required immediately
 374 | Guaranteed room type is not offered by this brand
 375 | Hotel not active
 376 | Hotel full check alternated
@@ -301,13 +304,13 @@ Code | Description
 859 | Invalid commission value
 860 | Passenger details error
 861 | No exact match for reference point name - use reference point list message
-864 | Special rate is required/missing 
+864 | Special rate is required/missing
 
 
 ## <a name="method2"></a>FOP Codes
 
-Code | Description 
------|------	
+Code | Description
+-----|------
 AX | American Express
 DC | Diner's Club
 DS | Discover
@@ -334,8 +337,8 @@ PP | This code indicates that the payment is through a deposit account/prepaid a
 
 ## <a name="method3"></a>Hotel Chain Codes
 
-Code | Description 
------|------	
+Code | Description
+-----|------
 6C | Intercontinental Hotels Group
 CW | Carlson Brands (All)
 EC | Choice Brands
@@ -351,8 +354,8 @@ ZZ | Other/Unknown
 
 ## <a name="method4"></a>AQC Codes
 
-Code | Description 
------|------	
+Code | Description
+-----|------
 1 | Over 21
 2 | Over 65
 3 | Under 2
@@ -363,7 +366,7 @@ Code | Description
 8 | Child
 9 | Teenager
 10 | Adult
-11 | Senior 
+11 | Senior
 12 | Additional occupant with adult
 13 | Additional occupant without adult
 14 | Free child
@@ -375,8 +378,8 @@ Code | Description
 
 ## <a name="method5"></a>Supported Languages
 
-Code | Description 
------|------	
+Code | Description
+-----|------
 en-us | English - American
 en-au | English - Australian
 en-gb | English - British
@@ -402,8 +405,8 @@ tr | Turkish
 
 ## <a name="method6"></a>ID Type Codes
 
-Code | Description 
------|------	
+Code | Description
+-----|------
 1 | Customer
 2 | CRO (Customer Reservations Office)
 3 | Corporation representative
@@ -456,4 +459,4 @@ Value | Text Value
 3 |company_most_preferred
 4 |less_preferred
 5 |preferred
-10| most_preferred |Three golden diamonds 
+10| most_preferred |Three golden diamonds

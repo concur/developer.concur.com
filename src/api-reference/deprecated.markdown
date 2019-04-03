@@ -3,7 +3,7 @@ title: SAP Concur Deprecated API List
 layout: reference
 ---
 
-The following application programming interfaces (APIs) have been deprecated according to the [API Lifecycle & Deprecation Policy](/tools-support/reference/deprecation-policy.html).
+The following application programming interfaces (APIs) have been deprecated according to the [API Lifecycle & Deprecation Policy](/tools-support/deprecation-policy.html).
 
 * [Attendees v1](/api-reference/expense/attendees/v1.attendees.html)
 * [Attendees v1.1](/api-reference/expense/attendees/v1dot1.attendees.html)
