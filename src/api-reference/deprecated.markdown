@@ -13,18 +13,14 @@ The following application programming interfaces (APIs) have been deprecated acc
 * Expense Entry v1.1
   * [Expense Entry Itemization](/api-reference/expense/expense-report/v1dot1.expense-itemization.html)
   * [Expense Entry](/api-reference/expense/expense-report/v1dot1.expense-entry.html)
-* Expense Entry Attendee v2
-  * [GET Expense Entry Attendees](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html)
-  * [PUT Expense Entry Attendees](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-put.html)
+* [Expense Entry Attendee v2](/api-reference/expense/expense-report/v2.expense-entry-attendee.html)
 * [Expense Group Configuration v1.1](/api-reference/expense/expense-report/v1dot1.expense-group-configurations.html)
 * Expense Report v1.1
   * [Expense Report Header](/api-reference/expense/expense-report/v1dot1.reports.html)
   * [Expense Reports List](/api-reference/expense/expense-report/v1dot1.reports-list.html)
   * [Expense Report Full Details](/api-reference/expense/expense-report/v1dot1.report-full-details.html)
   * [Locations](/api-reference/common/locations/v1dot1.locations.html)
-* Expense Report v2
-  * [Expense Report Resource](/api-reference-deprecated/version-two/expense-reports/expense-report-resource.html)
-  * [GET List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html)
+* [Expense Report v2](/api-reference/expense/expense-report/v2.reports.html)
 * [Imaging v1](/api-reference/image/v1.image.html)
 * List Item Web Service v1
   * [List Item Web Service](/api-reference/common/list-item/v1.list-item.html)
