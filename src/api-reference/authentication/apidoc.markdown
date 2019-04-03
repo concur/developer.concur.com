@@ -110,7 +110,7 @@ Name | Type | Format | Description
 `client_secret`|`string` | `UUID` | **Required** The client applications client_secret supplied by App Management
 `refresh_token`|`string` | `UUID` | **Required** An existing valid refresh token to be used to request a new access token
 `scope`|`string` |-| **Optional** The client applications list of scopes
-`grant_type`|`string` | | **Required** The grant type instructs the Oauth2 service how to process the request. For refresh token, the value must be `refresh_token`
+`grant_type`|`string` |-| **Required** The grant type instructs the Oauth2 service how to process the request. For refresh token, the value must be `refresh_token`
 
 **Request**
 
@@ -336,10 +336,10 @@ Name | Type | Format | Description
 -----|------| ------ | --------------
   `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
   `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
-  `grant_type`|`string` | | Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
-  `username`|`string` | | specify the username or userId
-  `password`|`string` | | specify the user's password
-  `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. There are two supported values: `authtoken` and `password`. For connections from the App Center, use `authtoken`. if omitted, oauth2 will assume the type is `password`.
+  `grant_type`|`string` |-| Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
+  `username`|`string` |-| specify the username or userId
+  `password`|`string` |-| specify the user's password
+  `credtype`|`string` |-| The credtype signifies to oauth2 which credential set is being submitted in the request. There are two supported values: `authtoken` and `password`. For connections from the App Center, use `authtoken`. if omitted, oauth2 will assume the type is `password`.
 
 **Request**
 
@@ -403,7 +403,7 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `client_id`|`string` | `UUID` | **Required** Applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | **Required** Applications client_secret supplied by App Management
-`grant_type`|`string` | | **Required** Specify which grant type you expect the oauth2 service to process. For client_credentials grant, the value is `client_credentials`
+`grant_type`|`string` |-| **Required** Specify which grant type you expect the oauth2 service to process. For client_credentials grant, the value is `client_credentials`
 
 **Request**
 
