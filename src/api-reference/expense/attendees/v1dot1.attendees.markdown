@@ -43,7 +43,7 @@ reportId|**Required** The unique identifier for the expense report
 entryId/Attendees|**Required** The unique identifier for the expense entry and the Attendees keyword
 attendeeId|The unique identifier for the attendee. Only used in certain situations when updating an existing attendee. If the developer does not know the External ID for the Attendee, they should use this query parameter
 
-* The `reportId` value is returned by the [Get List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html) function, and as part of the **Report-Details-Url** element of the [Expense Report Header v1.1](/api-reference/expense/expense-report/v1dot1.reports.html) function. The entryId value is returned in the **ReportKey** element of the [Get  Report Details](/api-reference/expense/expense-report/expense-report-get.html) function.
+* The `reportId` value is returned by the [Get List of Reports](/api-reference/expense/expense-report/v2.reports.html) function, and as part of the **Report-Details-Url** element of the [Expense Report Header v1.1](/api-reference/expense/expense-report/v1dot1.reports.html) function. The entryId value is returned in the **ReportKey** element of the [Get  Report Details](/api-reference/expense/expense-report/expense-report-get.html) function.
 * The `attendeeId` value is returned in the **AttendeeKey** element of the [Get Report Details](/api-reference/expense/expense-report/expense-report-get.html) function, and as part of the **Attendee-Details-Url** value returned by this function.
 
 ##### URI Template

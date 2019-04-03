@@ -3,8 +3,7 @@ require 'html-proofer'
 SITE_DIRECTORY = './_site'
 
 files_to_ignore = [
-  './_site/akamai-sureroute-test-object.html',
-  './_site/api-reference-deprecated/v3.html'
+  './_site/akamai-sureroute-test-object.html'
 ]
 
 urls_to_ignore = [
