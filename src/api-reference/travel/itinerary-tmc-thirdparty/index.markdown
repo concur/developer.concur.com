@@ -1027,7 +1027,7 @@ Content-Type: application/xml
 
 | HTTP Responses | Supported Content Types |
 | -------------- | ----------------------- |
-| [HTTP Status Codes](/tools-support/reference/http-codes.html) | application/xml |
+| [HTTP Status Codes](/api-reference/http-status-codes.html) | application/xml |
 
 ### Content Body
 When the trip is created successfully, the request will return the full posted trip details with the following additional elements inside the **Itinerary** parent element:
@@ -1364,7 +1364,7 @@ Authorization: OAuth {access token}
 
 | HTTP Responses | Supported Content Types |
 | -------------- | ----------------------- |
-| [HTTP Status Codes](/tools-support/reference/http-codes.html) | application/xml |
+| [HTTP Status Codes](/api-reference/http-status-codes.html) | application/xml |
 
 ### Content Body
 The request will return the full trip details for the cancelled trip. The trip will contain no segments, as those are all cancelled. The response includes the following additional elements inside the **Itinerary** parent element:

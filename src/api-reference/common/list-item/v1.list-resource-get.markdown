@@ -47,7 +47,7 @@ application/xml
 
 #### HTTP Responses
 
-* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [HTTP Status Codes](/api-reference/http-status-codes.html)
 * [List Item Error Codes](./v1.list-item.html#error-codes)
 
 #### Root elements
@@ -136,7 +136,7 @@ application/xml
 
 #### HTTP Responses
 
-* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [HTTP Status Codes](/api-reference/http-status-codes.html)
 * [List Item Error Codes](./v1.list-item.html#error-codes)
 
 #### Content types
@@ -226,7 +226,7 @@ Content-Type: application/xml
 
 #### HTTP Responses
 
-* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [HTTP Status Codes](/api-reference/http-status-codes.html)
 * [List Item Error Codes](./v1.list-item.html#error-codes)
 
 #### Response body root elements
