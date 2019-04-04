@@ -1,5 +1,5 @@
 ---
-title: Post a reservation update
+title: Direct Connect - Hotel v1 - Post a reservation update
 layout: reference
 ---
 

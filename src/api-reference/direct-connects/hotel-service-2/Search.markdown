@@ -1,5 +1,5 @@
 ---
-title: Search
+title: Direct Connect - Hotel v2 - Search
 layout: reference
 ---
 

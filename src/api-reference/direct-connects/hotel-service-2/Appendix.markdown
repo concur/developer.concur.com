@@ -1,9 +1,7 @@
 ---
-title: Appendix
+title: Direct Connect - Hotel v2 - Appendix
 layout: reference
 ---
-
-
 
 # Search
 
@@ -20,8 +18,8 @@ layout: reference
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
-                      EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2" 
+   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                      EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
                       Version="4" PrimaryLangID="en" AltLangID="en" MaxResponses="100">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -38,14 +36,14 @@ layout: reference
   </Body>
  </Envelope>
  ```
- 
+
 ### Response
 ```xml
 <search response goes here> add a complete samples folder so store the huge search response
 ```
 
 
-The initial Search request is followed up by an multi-property Availability request.  In the example request below Concur requests the availability for 13 properties.  This could because the initial search only yielded 13 properties or the configuration per vendor is set to request availability for a maximum of 13 properties. 
+The initial Search request is followed up by an multi-property Availability request.  In the example request below Concur requests the availability for 13 properties.  This could because the initial search only yielded 13 properties or the configuration per vendor is set to request availability for a maximum of 13 properties.
 
 ### Request
 
@@ -59,7 +57,7 @@ The initial Search request is followed up by an multi-property Availability requ
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
+   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05"
                      EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
                      Version="5" PrimaryLangID="en" AltLangID="en">
     <POS>
@@ -178,8 +176,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
-                               EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9" 
+   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                               EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9"
                                Version="3" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -198,7 +196,7 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" 
+    <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05"
                                 xmlns:ns2="http://www.concur.com/webservice/auth">
       <Success/>
       <HotelDescriptiveContents>
@@ -270,8 +268,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
-                   EchoToken="6C85DDBD-EB62-444D-B2C3-F59BDF65BE98" 
+   <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                   EchoToken="6C85DDBD-EB62-444D-B2C3-F59BDF65BE98"
                    Version="6" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -347,7 +345,7 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" 
+    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05"
                     xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
       <Success/>
       <HotelReservations>
@@ -482,8 +480,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
-               EchoToken="4E1B8BF4-ACBD-4709-9FCC-B59EB2550086" 
+   <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+               EchoToken="4E1B8BF4-ACBD-4709-9FCC-B59EB2550086"
                Version="5.002" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -501,8 +499,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" 
-                    xmlns:ns2="http://www.concur.com/webservice/auth" 
+    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05"
+                    xmlns:ns2="http://www.concur.com/webservice/auth"
                     ResResponseType="Reserved">
       <Success/>
       <HotelReservations>
@@ -648,7 +646,7 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
    <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" CancelType="Cancel"
-                 EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228" 
+                 EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228"
                  Version="3" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -666,8 +664,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" 
-                  xmlns:ns2="http://www.concur.com/webservice/auth" 
+    <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05"
+                  xmlns:ns2="http://www.concur.com/webservice/auth"
                   Status="Cancelled">
       <Success/>
       <UniqueID ID="88618333" Type="14"/>
@@ -679,4 +677,3 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 
 ![./media/image1.png](./images/examples/15.png)
 ![./media/image1.png](./images/examples/16.png)
-

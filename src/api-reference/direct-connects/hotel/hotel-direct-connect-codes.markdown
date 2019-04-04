@@ -1,10 +1,12 @@
 ---
-title: Hotel Direct Connect Codes
+title: Direct Connect - Hotel v1 - Codes
 layout: reference
 
 redirect_from:
   - /tools-support/reference/hotel-direct-connect-codes.html
 ---
+
+{% include deprecation-alert.html %}
 
 # Hotel Direct Connect Codes
 
@@ -16,7 +18,6 @@ redirect_from:
 * [ID Type Codes](#method6)
 * [Reservation Status Types](#method7)
 * [Preference Levels](#method8)
-
 
 ## <a name="method1"></a>OTA Error Codes
 

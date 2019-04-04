@@ -1,5 +1,5 @@
 ---
-title: Post a hotel search
+title: Direct Connect - Hotel v1 - Post a hotel search
 layout: reference
 ---
 
