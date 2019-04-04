@@ -1,5 +1,5 @@
 ---
-title: XSD schema
+title: Direct Connect - Hotel v2 - XSD schema
 layout: reference
 ---
 

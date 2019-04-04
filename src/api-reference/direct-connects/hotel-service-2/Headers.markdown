@@ -1,5 +1,5 @@
 ---
-title: Headers
+title: Direct Connect - Hotel v2 - Headers
 layout: reference
 ---
 

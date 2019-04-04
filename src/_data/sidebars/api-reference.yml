@@ -104,29 +104,29 @@
 - title: Expense
   url: ''
   children:
-      - title: Allocations
+      - title: Allocations v3
         url: /api-reference/expense/allocations/expense-allocations.html
       - title: Attendee Types v3
         url: /api-reference/expense/attendee-types/v3.attendee-types.html
       - title: Attendees v3
         url: /api-reference/expense/attendees/v3.attendees.html
-      - title: Digital Tax Invoices
+      - title: Digital Tax Invoices v3
         url: /api-reference/expense/digital-tax-invoices/digital-tax-invoice.html
-      - title: Company Card Transactions
+      - title: Company Card Transactions v1.1
         url: /api-reference/expense/expense-report/company-card-transaction-resource.html
-      - title: Expense Delegators
+      - title: Expense Delegators v1.1
         url: /api-reference/expense/expense-report/expense-delegators.html
-      - title: Entry Attendee Associations
-        url: /api-reference/expense/expense-report/expense-entry-attendee.html
-      - title: Entries
+      - title: Entry Attendee Associations v3
+        url: /api-reference/expense/expense-report/v3.expense-entry-attendee.html
+      - title: Entries v3
         url: /api-reference/expense/expense-report/expense-entry.html
-      - title: Expense Form Field
+      - title: Expense Form Field v1.1
         url: /api-reference/expense/expense-report/expense-form-field.html
-      - title: Expense Form
+      - title: Expense Form v1.1
         url: /api-reference/expense/expense-report/expense-form.html
-      - title: Expense Group Configurations
+      - title: Expense Group Configurations v3
         url: /api-reference/expense/expense-report/expense-group-configurations.html
-      - title: Itemizations
+      - title: Itemizations v3
         url: /api-reference/expense/expense-report/expense-itemization.html
       - title: Integration Status
         url: /api-reference/expense/expense-report/integration-status.html
