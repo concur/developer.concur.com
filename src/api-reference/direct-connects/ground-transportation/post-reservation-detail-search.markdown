@@ -1,5 +1,5 @@
 ---
-title: Post a reservation detail search
+title: Direct Connect - Ground Transportation - Post a reservation detail search
 layout: reference
 ---
 
@@ -20,21 +20,29 @@ layout: reference
 * [Example](#example)
 
 ## Request
+
 The following request is sent to the supplier when the Travel user selects a ground transportation reservation to get additional details.
 
 ### URI
+
 The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
-`https://{servername}/concur/groundtransportation`
+
+```
+https://{servername}/concur/groundtransportation
+```
 
 The URI is configured by the supplier when registering the partner application.
 
 ### Request Headers - Required
+
 Authorization header with OAuth credentials. Refer to the OAuth documentation for more information.
 
 ### Request Headers - Optional
+
 None
 
 ### Request Body
+
 The request will contain a CC_LimoReservationDetailRequest parent element, containing the following child element:
 
 |Element Name|Required/Optional|Data Type|Description|
@@ -44,25 +52,30 @@ The request will contain a CC_LimoReservationDetailRequest parent element, conta
 
 #### XML Example Request
 
-```http
+```shell
 POST /concur/groundtransportation HTTPS/1.1
 Host: example.com
 Authorization: Basic ...
 Content-Type: application/xml
 Content-Length: {length of content body}
+```
 
+```xml
 <CC_LimoReservationDetailRequest>
  <ReservationID>1234</ReservationID>
 </CC_LimoReservationDetailRequest>
 ```
 
 ## Response
+
 The supplier responds to the request by supplying the full reservation details.
 
 ### Content Type
+
 application/xml
 
 ### <a name="res-schema"></a>Response Schema
+
 The response will include a CC_LimoReservationDetailReply parent element, with the following child elements:
 
 |Element Name|Required/Optional|Data Type|Description|
@@ -97,7 +110,6 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | RateDisclaimer |  N |  |Disclaimer text about the rate. |
 | ProviderFeedback |  N |  |Any additional feedback from the supplier. |
 |  AccountingInfo |  N |  |The accounting information for the reservation. This parent element contains the following child elements: AccountingField1  through AccountingField5|
-
 
 #### Error Child Elements <a name="error"></a>
 
@@ -155,7 +167,6 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | MaxPassengers |  | |The maximum number of passengers for the vehicle. Must be greater than zero. |
 | VehicleID |  | |Information to identify the specific vehicle.|
 
-
 #### Vendor Child Elements <a name="vendor-child"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
@@ -163,7 +174,6 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | VendorCode |  | |The vendor code for the vendor. |
 | VendorName |  | |The vendor's name. |
 | PhoneNumber |  | |The vendor's phone number. |
-
 
 ### FormOfPayment Child Elements <a name="form-payment-child"></a>
 
@@ -241,151 +251,153 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 
 ## <a name="example"></a>XML Example of Successful Response
 
-```http
+```shell
 HTTPS/1.1 200 OK
 Content-Type: application/xml
 Content-Length: {length of content body}
+```
 
+```xml
 <CC_LimoReservationDetailReply>
-    <Error>
-        <ErrorCode />
-        <ErrorSource />
-        <ErrorDescription />
-    </Error>
-    <ReservationID>1234</ReservationID>
-    <Status>RB</Status>
-    <ConfNum>4444</ConfNum>
-    <CancelPolicy />
-    <CancelNum>55555</CancelNum>
-    <PrimaryPassenger>
-        <FirstName>Chris</FirstName>
-        <LastName>Miller</LastName>
-        <Phone>5551234567</Phone>
-        <Phone2>5551234568</Phone2>
-        <CellPhone>5551234569</CellPhone>
-        <EmailAddress>cmiller@example.com</EmailAddress>
-    </PrimaryPassenger>
-    <ServiceType>110</ServiceType>
-    <ClassOfService />
-    <PickupLocation>
-        <LocationType>100</LocationType>
-        <Airport>
-            <AirportCode />
-            <Flight>
-                <CarrierCode />
-                <FlightNumber />
-                <ArrivalDateTime />
-            </Flight>
-        </Airport>
-        <TrainStation>
-            <StationCode />
-            <StationName />
-            <City />
-            <State />
-            <Train>
-                <CarrierCode />
-                <CarrierName />
-                <TrainNumber />
-                <ArrivalDateTime />
-            </Train>
-        </TrainStation>
-        <Address>209 Madison St</Address>
-        <City>Alexandria</City>
-        <State>VA</State>
-        <Country>US</Country>
-        <PostalCode>22314</PostalCode>
-        <ExtraNotes />
-    </PickupLocation>
-    <DropoffLocation>
-        <LocationType>200</LocationType>
-        <Airport>
-            <AirportCode>DCA</AirportCode>
-            <Flight>
-                <CarrierCode>UA</CarrierCode>
-                <FlightNumber>333</FlightNumber>
-                <DepartureDateTime>2012-02-19T11:29:00</DepartureDateTime>
-            </Flight>
-        </Airport>
-        <TrainStation>
-            <StationCode />
-            <StationName />
-            <City />
-            <State />
-            <Train>
-                <CarrierCode />
-                <CarrierName />
-                <TrainNumber />
-                <DepartureDateTime />
-            </Train>
-        </TrainStation>
-        <Address />
-        <City />
-        <State />
-        <Country />
-        <PostalCode />
-        <ExtraNotes />
-    </DropoffLocation>
-    <StartDateTime>2012-02-19T09:00:00</StartDateTime>
-    <EndDateTime />
-    <PickupInstructions>pick me up</PickupInstructions>
-    <DropoffInstructions>None</DropoffInstructions>
-    <LanguageCode>en-us</LanguageCode>
+  <Error>
+    <ErrorCode />
+    <ErrorSource />
+    <ErrorDescription />
+  </Error>
+  <ReservationID>1234</ReservationID>
+  <Status>RB</Status>
+  <ConfNum>4444</ConfNum>
+  <CancelPolicy />
+  <CancelNum>55555</CancelNum>
+  <PrimaryPassenger>
+    <FirstName>Chris</FirstName>
+    <LastName>Miller</LastName>
+    <Phone>5551234567</Phone>
+    <Phone2>5551234568</Phone2>
+    <CellPhone>5551234569</CellPhone>
+    <EmailAddress>cmiller@example.com</EmailAddress>
+  </PrimaryPassenger>
+  <ServiceType>110</ServiceType>
+  <ClassOfService />
+  <PickupLocation>
+    <LocationType>100</LocationType>
+    <Airport>
+      <AirportCode />
+      <Flight>
+        <CarrierCode />
+        <FlightNumber />
+        <ArrivalDateTime />
+      </Flight>
+    </Airport>
+    <TrainStation>
+      <StationCode />
+      <StationName />
+      <City />
+      <State />
+      <Train>
+        <CarrierCode />
+        <CarrierName />
+        <TrainNumber />
+        <ArrivalDateTime />
+      </Train>
+    </TrainStation>
+    <Address>209 Madison St</Address>
+    <City>Alexandria</City>
+    <State>VA</State>
+    <Country>US</Country>
+    <PostalCode>22314</PostalCode>
+    <ExtraNotes />
+  </PickupLocation>
+  <DropoffLocation>
+    <LocationType>200</LocationType>
+    <Airport>
+      <AirportCode>DCA</AirportCode>
+      <Flight>
+        <CarrierCode>UA</CarrierCode>
+        <FlightNumber>333</FlightNumber>
+        <DepartureDateTime>2012-02-19T11:29:00</DepartureDateTime>
+      </Flight>
+    </Airport>
+    <TrainStation>
+      <StationCode />
+      <StationName />
+      <City />
+      <State />
+      <Train>
+        <CarrierCode />
+        <CarrierName />
+        <TrainNumber />
+        <DepartureDateTime />
+      </Train>
+    </TrainStation>
+    <Address />
+    <City />
+    <State />
+    <Country />
+    <PostalCode />
+    <ExtraNotes />
+  </DropoffLocation>
+  <StartDateTime>2012-02-19T09:00:00</StartDateTime>
+  <EndDateTime />
+  <PickupInstructions>pick me up</PickupInstructions>
+  <DropoffInstructions>None</DropoffInstructions>
+  <LanguageCode>en-us</LanguageCode>
+  <Currency>USD</Currency>
+  <NumPassengers>1</NumPassengers>
+  <RequestedDriver />
+  <SpecialServiceRequest />
+  <PickupServiceArrangement />
+  <DropoffServiceArrangement />
+  <ExtraStopArrangement />
+  <RateInfo>
+    <RateID>5</RateID>
+    <Rate>42.50</Rate>
+    <RateTypeCode>E</RateTypeCode>
+    <CategoryCode />
+    <MinHours />
     <Currency>USD</Currency>
-    <NumPassengers>1</NumPassengers>
-    <RequestedDriver />
-    <SpecialServiceRequest />
-    <PickupServiceArrangement />
-    <DropoffServiceArrangement />
-    <ExtraStopArrangement />
-    <RateInfo>
-        <RateID>5</RateID>
-        <Rate>42.50</Rate>
-        <RateTypeCode>E</RateTypeCode>
-        <CategoryCode />
-        <MinHours />
-        <Currency>USD</Currency>
-        <NoRateText />
-        <DiscountType />
-        <BasePrice>35.00</BasePrice>
-        <ServiceCharge>5.00</ServiceCharge>
-        <SurCharge desc="fuel">1.00</SurCharge>
-        <Tax>1.50</Tax>
-        <ExtraPickupCharge />
-        <ExtraDropoffCharge />
-        <OptionalExtraStopCharge />
-        <OptionalExtraTimeCharge />
-        <Message />
-    </RateInfo>
-    <RateDisclaimer />
-    <Vehicle>
-        <VehicleType>100</VehicleType>
-        <Description>This is a Sedan.</Description>
-        <MaxPassengers>1</MaxPassengers>
-        <VehicleID>12</VehicleID>
-    </Vehicle>
-    <Vendor>
-        <VendorCode>LML</VendorCode>
-        <VendorName>LimoVendor</VendorName>
-        <PhoneNumber>4354654654</PhoneNumber>
-    </Vendor>
-    <ProviderFeedback />
-    <FormOfPayment>
-        <Cash />
-        <Check />
-        <DirectBilling />
-        <CreditCard>
-            <Type>VI</Type>
-            <Number>XXXXXXXXXXXX1111</Number>
-            <Expiration>2013-02-19</Expiration>
-        </CreditCard>
-    </FormOfPayment>
-    <AccountingInfo>
-        <AccountingField1>715</AccountingField1>
-        <AccountingField2>temp@outtask.com</AccountingField2>
-        <AccountingField3>11</AccountingField3>
-        <AccountingField4>Development</AccountingField4>
-        <AccountingField5/>
-    </AccountingInfo>
+    <NoRateText />
+    <DiscountType />
+    <BasePrice>35.00</BasePrice>
+    <ServiceCharge>5.00</ServiceCharge>
+    <SurCharge desc="fuel">1.00</SurCharge>
+    <Tax>1.50</Tax>
+    <ExtraPickupCharge />
+    <ExtraDropoffCharge />
+    <OptionalExtraStopCharge />
+    <OptionalExtraTimeCharge />
+    <Message />
+  </RateInfo>
+  <RateDisclaimer />
+  <Vehicle>
+    <VehicleType>100</VehicleType>
+    <Description>This is a Sedan.</Description>
+    <MaxPassengers>1</MaxPassengers>
+    <VehicleID>12</VehicleID>
+  </Vehicle>
+  <Vendor>
+    <VendorCode>LML</VendorCode>
+    <VendorName>LimoVendor</VendorName>
+    <PhoneNumber>4354654654</PhoneNumber>
+  </Vendor>
+  <ProviderFeedback />
+  <FormOfPayment>
+    <Cash />
+    <Check />
+    <DirectBilling />
+    <CreditCard>
+      <Type>VI</Type>
+      <Number>XXXXXXXXXXXX1111</Number>
+      <Expiration>2013-02-19</Expiration>
+    </CreditCard>
+  </FormOfPayment>
+  <AccountingInfo>
+    <AccountingField1>715</AccountingField1>
+    <AccountingField2>temp@outtask.com</AccountingField2>
+    <AccountingField3>11</AccountingField3>
+    <AccountingField4>Development</AccountingField4>
+    <AccountingField5/>
+  </AccountingInfo>
 </CC_LimoReservationDetailReply>
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Hotel Direct Connect
+title: Direct Connect - Hotel v1
 layout: reference
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: Direct Connect - Hotel v2 - FAQ
 layout: reference
 ---
 

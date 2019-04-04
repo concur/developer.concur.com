@@ -1,5 +1,5 @@
 ---
-title: Use Cases
+title: Direct Connect - Hotel v2 - Use Cases
 layout: reference
 ---
 

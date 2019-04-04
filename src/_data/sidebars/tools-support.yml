@@ -1,13 +1,12 @@
-- title: Support
-  url: ''
-  children:
-      - title: Request Support
-        url: /tools-support/support.html
-      - title: Partners
-        url: /tools-support/requesting-partner-support.html
+- title: Support Options
+  url: /tools-support/support.html
+- title: Request Support (Partners)
+  url: /tools-support/requesting-partner-support.html
 - title: API Lifecycle & Deprecation Policy
   url: /tools-support/deprecation-policy.html
 - title: Release Notes
   url: /tools-support/release-notes/index.html
 - title: Videos
   url: /tools-support/videos/index.html
+- title: Samples
+  url: /tools-support/samples/index.html

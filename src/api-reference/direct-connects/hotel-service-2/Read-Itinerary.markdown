@@ -1,5 +1,5 @@
 ---
-title: Read Itinerary
+title: Direct Connect - Hotel v2 - Read Itinerary
 layout: reference
 ---
 
