@@ -76,7 +76,7 @@ UpdateExisting|N|Whether the request should update an attendee with a matching E
 
 #### Status Codes
 
-See [HTTP Status Codes](/tools-support/reference/http-codes.html)
+See [HTTP Status Codes](/api-reference/http-status-codes.html)
 
 ### Payload
 
