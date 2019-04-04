@@ -94,9 +94,8 @@ An Expense text form field must be configured as the Launch URL control type and
 
 ###  <a name="responses-errors"></a>Responses and Errors
 
-Refer to the [HTTP Codes][5] page for details of the common responses and errors.
+Refer to the [HTTP Codes](/api-reference/http-status-codes.html) page for details of the common responses and errors.
  
 
 
 [4]: /api-reference/callouts/launch-external-url-request.html
-[5]: /tools-support/reference/http-codes.html
