@@ -15,6 +15,21 @@
         url: /api-reference/authentication/oauth2-migration-best-practices.html
       - title: Scopes
         url: /api-reference/authentication/scopes.html
+- title: Budgets
+  url: ''
+  children:
+      - title: Getting Started
+        url: /api-reference/budget/getting-started.html
+      - title: Budget Adjustments
+        url: /api-reference/budget/v4.budget-adjustments.html
+      - title: Budget Categories
+        url: /api-reference/budget/v4.budget-category.html
+      - title: Budget Items
+        url: /api-reference/budget/v4.budget-header.html
+      - title: Budget Tracking Fields
+        url: /api-reference/budget/v4.budget-trackingfield.html
+      - title: Fiscal Years
+        url: /api-reference/budget/v4.fiscal-year.html
 - title: Callouts
   url: ''
   children:
