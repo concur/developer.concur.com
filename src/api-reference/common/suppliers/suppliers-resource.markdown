@@ -1,5 +1,5 @@
 ---
-title: Suppliers
+title: Suppliers v3
 layout: reference
 ---
 
@@ -11,14 +11,11 @@ Supplier companies provide travel services to users. The Suppliers resource can 
 * [Retrieve a single supplier by ID](#getID)
 * [Schema](#schema)
 
-### Version
-3.0
-
 ## <a name="get"></a>Retrieve all suppliers based on search criteria
 
     GET  /api/v3.0/common/suppliers/
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -101,5 +98,3 @@ Name | Type | Format | Description
 `URI`	|	`string`	|	-	|	The URI to the resource.
 `WebUrl`	|	`string`	|	-	|	Web Address
 `WorldspanId`	|	`string`	|	-	|	Worldspan Id
-
-

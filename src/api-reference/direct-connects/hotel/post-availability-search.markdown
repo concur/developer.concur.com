@@ -1,5 +1,5 @@
 ---
-title: Post an availability search
+title: Direct Connect - Hotel v1 - Post an availability search
 layout: reference
 ---
 

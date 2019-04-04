@@ -1,5 +1,5 @@
 ---
-title: Post a reservation cancellation
+title: Direct Connect - Hotel v1 - Post a reservation cancellation
 layout: reference
 ---
 

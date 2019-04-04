@@ -1,5 +1,5 @@
 ---
-title: Post a booking rule search
+title: Direct Connect - Hotel v1 - Post a booking rule search
 layout: reference
 ---
 

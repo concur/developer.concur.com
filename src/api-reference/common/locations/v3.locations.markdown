@@ -6,19 +6,13 @@ redirect_from:
   - /api-reference/common/locations/locations-resource.html
 ---
 
-# Locations
-
 Gets details of locations that are used by Concur and that are valid at the user's company.
 
 * [Retrieve details of locations that are used by Concur and that are valid at the user's company](#get)
 * [Retrieve details of a specified location](#getID)
 * [Schema](#schema)
 
-### Version
-
-3.0  
-
-1.1 has been deprecated and can be found [here](./v1dot1.locations.html).
+Location v1.1 has been deprecated and can be found [here](./v1dot1.locations.html).
 
 ## <a name="get"></a>Retrieve details of locations that are used by Concur and that are valid at the user's company
 

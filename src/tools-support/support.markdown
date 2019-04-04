@@ -1,5 +1,5 @@
 ---
-title: Support
+title: Support Options
 layout: reference
 
 redirect_from:
@@ -8,12 +8,12 @@ redirect_from:
 
 [Service Status](https://open.concur.com)
 
-## Support Portals
+## Support Options
 
-* [Partners](/tools-support/requesting-partner-support.html)
+* [Request Support (Partners)](/tools-support/requesting-partner-support.html)
 * [Developers (Developer Forum)](https://forum.developer.concur.com)
 * [Company Administrators](https://www.concur.com/en-us/contact)
-* **Individual Users** should request assistance from their company's internal help desk or their company's SAP Concur administrator
+* **Individual Users** of SAP Concur products should request assistance from their company's internal help desk or their company's SAP Concur administrator
 
 ## Maintenance Schedule
 

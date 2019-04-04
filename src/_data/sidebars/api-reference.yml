@@ -45,7 +45,7 @@
 - title: Common
   url: ''
   children:
-      - title: Connection Requests
+      - title: Connection Requests v3.2
         url: /api-reference/common/connection-requests/connection-requests-resource.html
       - title: Extracts v1
         url: /api-reference/common/extracts/v1.extracts.html
@@ -53,9 +53,9 @@
         url: /api-reference/common/list-item/v3.list-item.html
       - title: Locations v3
         url: /api-reference/common/locations/v3.locations.html
-      - title: Suppliers
+      - title: Suppliers v3
         url: /api-reference/common/suppliers/suppliers-resource.html
-- title: Direct Connects
+- title: Direct Connect - Ground Transportation
   url: ''
   children:
       - title: Ground Transportation Direct Connect
@@ -72,23 +72,7 @@
         url: /api-reference/direct-connects/ground-transportation/update-reservation-supplier.html
       - title: Update reservation with Travel
         url: /api-reference/direct-connects/ground-transportation/update-reservation-travel.html
-      - title: Hotel Direct Connect
-        url: /api-reference/direct-connects/hotel.html
-      - title: Post an availability search
-        url: /api-reference/direct-connects/hotel/post-availability-search.html
-      - title: Post a booking rule search
-        url: /api-reference/direct-connects/hotel/post-booking-rule-search.html
-      - title: Post a hotel search
-        url: /api-reference/direct-connects/hotel/post-hotel-search.html
-      - title: Post a new reservation
-        url: /api-reference/direct-connects/hotel/post-new-reservation.html
-      - title: Post a reservation cancellation
-        url: /api-reference/direct-connects/hotel/post-reservation-cancellation.html
-      - title: Post a reservation query
-        url: /api-reference/direct-connects/hotel/post-reservation-query.html
-      - title: Post a reservation update
-        url: /api-reference/direct-connects/hotel/post-reservation-update.html
-- title: "Direct Connect: Hotel Service 2"
+- title: Direct Connect - Hotel
   url: ''
   children:
       - title: Introduction
