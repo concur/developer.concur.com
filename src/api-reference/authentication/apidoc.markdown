@@ -90,7 +90,7 @@ The refresh grant is used to refresh an access_token that has expired. This gran
 
 **Token Lifetime**
 
-A refresh token has a **six month** lifetime. If the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response.
+A refresh token has a **six month** lifetime. If the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response. This token can change even if most of the time, this value is the same. Client applications should treat all returned refresh tokens as new tokens and overwrite the stored tokens with the new token from the response.
 
 It is recommended that the client application use the refresh grant to request a new access token as the initial step of accessing protected resources of SAP Concur services.
 
@@ -109,8 +109,8 @@ Name | Type | Format | Description
 `client_id`|`string` | `UUID` | **Required** The client applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | **Required** The client applications client_secret supplied by App Management
 `refresh_token`|`string` | `UUID` | **Required** An existing valid refresh token to be used to request a new access token
-`scope`|`string` | | The client applications list of scopes
-`grant_type`|`string` | | **Required** The grant type instructs the Oauth2 service how to process the request. For refresh token, the value must be `refresh_token`
+`scope`|`string` |-| **Optional** The client applications list of scopes
+`grant_type`|`string` |-| **Required** The grant type instructs the Oauth2 service how to process the request. For refresh token, the value must be `refresh_token`
 
 **Request**
 
@@ -291,10 +291,10 @@ The users *must be* able to authenticate themselves via an SAP Concur username &
 Name | Type | Format | Description
 -----|------| ------ | -----------
   `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
-  `redirect_uri`|`string` | | The redirect URI for your application to continue with the Oauth2 flow
-  `scope`|`string` | | List of scopes that application is asking for
-  `response_type`|`string` | | `code`
-  `state`|`string` | |
+  `redirect_uri`|`string` |-| The redirect URI for your application to continue with the Oauth2 flow
+  `scope`|`string` |-| List of scopes that application is asking for
+  `response_type`|`string` |-| `code`
+  `state`|`string` |-|
 
 With this grant, the user has two authentication options:
 1. Username and password
@@ -314,9 +314,9 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
-`redirect_uri`|`string` | | The redirect_uri that is registered for the application
-`code`|`string`| `UUID`  | The authorization code provided by Auth
-`grant_type`|`string` | | `authorization_code`
+`redirect_uri`|`string` |-| The redirect_uri that is registered for the application
+`code`|`string`| `UUID` | The authorization code provided by Auth
+`grant_type`|`string` |-| `authorization_code`
 
 
 **NOTE**
@@ -336,10 +336,10 @@ Name | Type | Format | Description
 -----|------| ------ | --------------
   `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
   `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
-  `grant_type`|`string` | | Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
-  `username`|`string` | | specify the username or userId
-  `password`|`string` | | specify the user's password
-  `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. There are two supported values: `authtoken` and `password`. For connections from the App Center, use `authtoken`. if omitted, oauth2 will assume the type is `password`.
+  `grant_type`|`string` |-| Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
+  `username`|`string` |-| specify the username or userId
+  `password`|`string` |-| specify the user's password
+  `credtype`|`string` |-| The credtype signifies to oauth2 which credential set is being submitted in the request. There are two supported values: `authtoken` and `password`. For connections from the App Center, use `authtoken`. if omitted, oauth2 will assume the type is `password`.
 
 **Request**
 
@@ -403,7 +403,7 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `client_id`|`string` | `UUID` | **Required** Applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | **Required** Applications client_secret supplied by App Management
-`grant_type`|`string` | | **Required** Specify which grant type you expect the oauth2 service to process. For client_credentials grant, the value is `client_credentials`
+`grant_type`|`string` |-| **Required** Specify which grant type you expect the oauth2 service to process. For client_credentials grant, the value is `client_credentials`
 
 **Request**
 
