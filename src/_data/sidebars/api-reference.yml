@@ -55,7 +55,7 @@
         url: /api-reference/common/locations/v3.locations.html
       - title: Suppliers v3
         url: /api-reference/common/suppliers/suppliers-resource.html
-- title: Direct Connect - Ground Transportation
+- title: Direct Connect - Ground Transportation v1
   url: ''
   children:
       - title: Ground Transportation Direct Connect
@@ -72,7 +72,7 @@
         url: /api-reference/direct-connects/ground-transportation/update-reservation-supplier.html
       - title: Update reservation with Travel
         url: /api-reference/direct-connects/ground-transportation/update-reservation-travel.html
-- title: Direct Connect - Hotel
+- title: Direct Connect - Hotel v2
   url: ''
   children:
       - title: Introduction
