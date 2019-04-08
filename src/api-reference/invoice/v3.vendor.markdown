@@ -36,7 +36,7 @@ Name | Type | Format | Description
 `offset`|`string`|`query`|Specifies the starting point for the next query when iterating through the collection response. Use with paged collections of resources.
 `sortDirection`|`string`|`query`|Ascending or descending, The default value will be ascending.
 `sortBy`|`string`|`query`|Field you need the results to be sorted by. Vendor Name will be made default if no value is sent. Only fields that are added to the vendor form can be used here. Fields have to be specified by name as specified in Doc.
-`searchType`|`string`|`query`|Valid Options - exact, begins, contains and ends - Applies for the entire given search parameters. The default value if not sent is exact.
+`searchType`|`string`|`query`|Applies for the entire given search parameters. The default value is `exact`. Supported values: `exact`, `begins`, `contains`, `ends`
 `vendorCode`|`string`|`query`|Vendor Code to be searched
 `vendorName`|`string`|`query`|Vendor Name to be searched
 `taxID`|`string`|`query`|Tax ID to be searched
