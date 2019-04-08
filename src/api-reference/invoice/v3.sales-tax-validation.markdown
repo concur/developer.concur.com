@@ -459,7 +459,7 @@ https://{datacenterURI}//api/v3.0/invoice/salestaxvalidationrequest
 |`Tax`|`string`|-|The tax, as shown on the invoice. This is the tax applied by the vendor.
 |`TaxReferenceID`|`string`|-|**Required** The tax reference ID of the invoice.
 |`Title`|`string`|-|The title of the invoice.
-|`Total`|`string`|-|The total amount of the request.
+|`Total`|`string`|-|The total amount of the invoice.
 |`URI`|`string`|-|The URI to the resource.
 |`VendorInvoiceNumber`|`string`|-|The vendor invoice number that is associated with the invoice.
 

@@ -108,7 +108,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`Allocations`|`array`|[`Allocation`](#allocation)|The details of the Payment Request Allocation Core Identity Fields.
+`Allocations`|`array`|[`Allocation`](#allocation)|The details of the Invoice allocation fields.
 `AmountWithoutVat`|`string`|-|The net amount of the line item (excluding VAT).
 `Custom1` through `Custom20`|`string`|-|The details from the Custom fields. These may not have data, depending on configuration.
 `Description`|`string`|-|Brief overview of the good or service ordered.

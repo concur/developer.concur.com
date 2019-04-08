@@ -22,7 +22,7 @@ The Vendor API allows you to develop processes that can be used to manage your V
 
 ## <a name="get"></a>Retrieve an Existing Vendor
 
-> Note: If authenticating with a Company JWT the API will return all vendors associated with a specific entity.
+> Note: If authenticating with a Company access token the API will return all vendors associated with a specific entity.
 
 ```
 GET /api/v3.0/invoice/vendors
@@ -83,7 +83,7 @@ None.
 ## <a name="post"></a>Create Vendors  
 
     POST  /api/v3.0/invoice/vendors
-    Note: If authenticating with a Company JWT, the API will create the requested Vendors.
+    Note: If authenticating with a Company access token, the API will create the requested Vendors.
 
 ### Parameters  
 
@@ -102,7 +102,7 @@ Name | Type | Format | Description
 ## <a name="put"></a>Update Existing Vendors  
 
     PUT  /api/v3.0/invoice/vendors
-    Note: If authenticating with a Company JWT, the API will update the requested Vendors.
+    Note: If authenticating with a Company access token, the API will update the requested Vendors.
 
 ### Parameters  
 
@@ -121,7 +121,7 @@ Name | Type | Format | Description
 ## <a name="delete"></a>Delete Vendor  
 
     DELETE  /api/v3.0/invoice/vendors
-    Note: If authenticating with a Company JWT, the API will delete the requested Vendor.
+    Note: If authenticating with a Company access token, the API will delete the requested Vendor.
 
 ### Parameters  
 
@@ -141,7 +141,7 @@ None.
 ## <a name="vendorBankPut"></a>Add/Update Vendor Banking
 
     PUT /api/v3.0/invoice/vendor/banks
-    Note: If authenticating with a Company JWT, the API will create / update the requested Vendor Banking info.
+    Note: If authenticating with a Company access token, the API will create / update the requested Vendor Banking info.
 
 ### Parameters
 
@@ -160,7 +160,7 @@ Name | Type | Format | Description
 ## <a name="vendorGroupPut"></a>Add Vendor Group
 
     PUT /api/v3.0/invoice/vendor/groups
-    Note: If authenticating with a Company JWT, the API will create the requested Vendor groups.
+    Note: If authenticating with a Company access token, the API will create the requested Vendor groups.
 
 ### Parameters
 
@@ -181,7 +181,7 @@ Name | Type | Format | Description
 ## <a name="vendorGroupDelete"></a>Delete Vendor Group
 
     DELETE /api/v3.0/invoice/vendor/groups
-    Note: If authenticating with a Company JWT, the API will delete the requested Vendor group.
+    Note: If authenticating with a Company access token, the API will delete the requested Vendor group.
 
 ### Parameters
 
