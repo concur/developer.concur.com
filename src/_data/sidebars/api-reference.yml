@@ -45,17 +45,17 @@
 - title: Common
   url: ''
   children:
-      - title: Connection Requests
+      - title: Connection Requests v3.2
         url: /api-reference/common/connection-requests/connection-requests-resource.html
       - title: Extracts v1
         url: /api-reference/common/extracts/v1.extracts.html
       - title: List Item v3
         url: /api-reference/common/list-item/v3.list-item.html
-      - title: Locations
-        url: /api-reference/common/locations/locations-resource.html
-      - title: Suppliers
+      - title: Locations v3
+        url: /api-reference/common/locations/v3.locations.html
+      - title: Suppliers v3
         url: /api-reference/common/suppliers/suppliers-resource.html
-- title: Direct Connects
+- title: Direct Connect - Ground Transportation v1
   url: ''
   children:
       - title: Ground Transportation Direct Connect
@@ -72,23 +72,7 @@
         url: /api-reference/direct-connects/ground-transportation/update-reservation-supplier.html
       - title: Update reservation with Travel
         url: /api-reference/direct-connects/ground-transportation/update-reservation-travel.html
-      - title: Hotel Direct Connect
-        url: /api-reference/direct-connects/hotel.html
-      - title: Post an availability search
-        url: /api-reference/direct-connects/hotel/post-availability-search.html
-      - title: Post a booking rule search
-        url: /api-reference/direct-connects/hotel/post-booking-rule-search.html
-      - title: Post a hotel search
-        url: /api-reference/direct-connects/hotel/post-hotel-search.html
-      - title: Post a new reservation
-        url: /api-reference/direct-connects/hotel/post-new-reservation.html
-      - title: Post a reservation cancellation
-        url: /api-reference/direct-connects/hotel/post-reservation-cancellation.html
-      - title: Post a reservation query
-        url: /api-reference/direct-connects/hotel/post-reservation-query.html
-      - title: Post a reservation update
-        url: /api-reference/direct-connects/hotel/post-reservation-update.html
-- title: "Direct Connect: Hotel Service 2"
+- title: Direct Connect - Hotel v2
   url: ''
   children:
       - title: Introduction
@@ -120,29 +104,29 @@
 - title: Expense
   url: ''
   children:
-      - title: Allocations
+      - title: Allocations v3
         url: /api-reference/expense/allocations/expense-allocations.html
       - title: Attendee Types v3
         url: /api-reference/expense/attendee-types/v3.attendee-types.html
       - title: Attendees v3
         url: /api-reference/expense/attendees/v3.attendees.html
-      - title: Digital Tax Invoices
+      - title: Digital Tax Invoices v3
         url: /api-reference/expense/digital-tax-invoices/digital-tax-invoice.html
-      - title: Company Card Transactions
+      - title: Company Card Transactions v1.1
         url: /api-reference/expense/expense-report/company-card-transaction-resource.html
-      - title: Expense Delegators
+      - title: Expense Delegators v1.1
         url: /api-reference/expense/expense-report/expense-delegators.html
-      - title: Entry Attendee Associations
-        url: /api-reference/expense/expense-report/expense-entry-attendee.html
-      - title: Entries
+      - title: Entry Attendee Associations v3
+        url: /api-reference/expense/expense-report/v3.expense-entry-attendee.html
+      - title: Entries v3
         url: /api-reference/expense/expense-report/expense-entry.html
-      - title: Expense Form Field
+      - title: Expense Form Field v1.1
         url: /api-reference/expense/expense-report/expense-form-field.html
-      - title: Expense Form
+      - title: Expense Form v1.1
         url: /api-reference/expense/expense-report/expense-form.html
-      - title: Expense Group Configurations
+      - title: Expense Group Configurations v3
         url: /api-reference/expense/expense-report/expense-group-configurations.html
-      - title: Itemizations
+      - title: Itemizations v3
         url: /api-reference/expense/expense-report/expense-itemization.html
       - title: Integration Status
         url: /api-reference/expense/expense-report/integration-status.html
@@ -152,16 +136,14 @@
         url: /api-reference/expense/expense-report/post-report-submission.html
       - title: Post an expense report workflow action
         url: /api-reference/expense/expense-report/post-report-workflow-action.html
-      - title: Reports
-        url: /api-reference/expense/expense-report/reports.html
+      - title: Reports v3
+        url: /api-reference/expense/expense-report/v3.reports.html
       - title: Report Details
         url: /api-reference/expense/expense-report/expense-report-get.html
       - title: Payment Batches v1.1
         url: /api-reference/expense/payment-batch/v1.payment-batches.html
       - title: Quick Expense v3
         url: /api-reference/expense/quick-expense/v3.quick-expense.html
-- title: Receipt Image
-  url: /api-reference/image/
 - title: Insights
   url: ''
   children:
@@ -201,26 +183,25 @@
         url: /api-reference/receipts/sample-receipts.html
       - title: Response Codes
         url: /api-reference/receipts/response-codes.html
-- title: Request
-  url: ''
-  children:
-      - title: Endpoints
-        url: /api-reference/request/v3.request.html
+- title: Receipt Image
+  url: /api-reference/image/v3.image.html
+- title: Request v3
+  url: /api-reference/request/v3.request.html
 - title: Travel Profile
   url: ''
   children:
-      - title: Travel Profile Services
-        url: /api-reference/travel-profile/00-profile-services.html
-      - title: Travel Profile
-        url: /api-reference/travel-profile/01-profile-resource.html
-      - title: Form of Payment
-        url: /api-reference/travel-profile/02-form-payment-resource.html
-      - title: Loyalty Program
-        url: /api-reference/travel-profile/03-loyalty-program-resource.html
-      - title: Company Notification
-        url: /api-reference/travel-profile/04-notification-company-resource.html
-      - title: User Notification
-        url: /api-reference/travel-profile/05-notification-user-resource.html
+      - title: Travel Profile v2
+        url: /api-reference/travel-profile/v2.profile-service.html
+      - title: Travel Profile v2 - Resource
+        url: /api-reference/travel-profile/v2.profile-resource.html
+      - title: Travel Profile v2 - Form of Payment
+        url: /api-reference/travel-profile/v2.form-payment-resource.html
+      - title: Travel Profile v1 - Loyalty Program
+        url: /api-reference/travel-profile/v1.loyalty-program-resource.html
+      - title: Travel Profile v1 - Company Notification
+        url: /api-reference/travel-profile/v1.notification-company-resource.html
+      - title: Travel Profile v1 - User Notification
+        url: /api-reference/travel-profile/v1.notification-user-resource.html
 - title: Travel
   url: ''
   children:
@@ -236,5 +217,14 @@
         url: /api-reference/travel/itinerary/booking/booking-resource.html
 - title: User
   url: /api-reference/user/index.html
-- title: Deprecated
-  url: /api-reference/deprecated.html
+- title: General
+  url: ''
+  children:
+      - title: HTTP Status Codes
+        url: /api-reference/http-status-codes.html
+      - title: Locale Codes
+        url: /api-reference/locale-codes.html
+      - title: Spend Category Codes
+        url: /api-reference/spend-category-codes.html
+      - title: Deprecated
+        url: /api-reference/deprecated.html

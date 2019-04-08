@@ -1,5 +1,5 @@
 ---
-title: Availability
+title: Direct Connect - Hotel v2 - Availability
 layout: reference
 ---
 

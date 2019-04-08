@@ -24,6 +24,7 @@ This callout differs from the standard SAP Concur web services in the following 
   * [Response and Errors](#response-errors)
 
 ## <a name="products-editions"></a>Products and Editions
+
 * Concur Expense Professional Edition
 * Concur Request Professional Edition
 * The SAP Concur Mobile App
@@ -43,6 +44,7 @@ An example use of this callout is:
 This is one use case for the Event Notification callout, however it can be used for a wide variety of requirements.
 
 ## <a name="product-restrictions"></a>Product Restrictions
+
 SAP Concur products are highly configurable, and not all clients will have access to all features.
 
 Partner developers must determine which configurations are required for their solution prior to the review process.
@@ -64,6 +66,7 @@ Once the configuration is complete, the callout uses the following process:
 2. SAP Concur sends the request information to the specified endpoint for the application connector.
 
 ## Security
+
 SAP Concur will make calls to the application connector's endpoint using SSL. During configuration, SAP Concur will connect to the application connector to validate that its hostname and access credentials are valid.
 
 In the code SAP Concur provides for a sample application connector, credentials are stored in a web configuration file that varies by platform, such as web.xml or web.config. However, if you are hosting the connector, you can customize where and how the credentials are stored by customizing HTTPBasicAuth.java or Authentication.cs.
@@ -71,17 +74,18 @@ In the code SAP Concur provides for a sample application connector, credentials 
 Expense or Travel Request will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before SAP Concur can access the connector.
 
 ## Authentication
+
 Authentication between SAP Concur and the application connector is performed using HTTP Basic Auth. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. These credentials are entered in SAP Concur on the **Register Application Connector** page in **Web Services** under **Administration**.
 
 Refer to the **Callouts and Application Connectors** page for more information.
 
 ## <a name="functions"></a>Functions
+
 [Delete Notification][9]  
 
 [Get Notifications by Status][10]  
 
 [Post Event Notification Request ][11]  
-
 
 ### <a name="installation-process"></a>Installation Process
 The installation process includes installing the application connector, and registering it with SAP Concur.
@@ -113,12 +117,10 @@ The installation process includes installing the application connector, and regi
     13. Click **Save**. The application connector is now registered with SAP Concur and enabled.
 
 ### <a name="response-errors"></a>Responses and Errors
-Refer to the [HTTP Codes][16] page for details of the common responses and errors.
 
- 
+Refer to the [HTTP Status Codes](/api-reference/http-status-codes.html) page for details of the common responses and errors.
 
-
-[2]:  /api-reference/expense/expense-report/reports.html
+[2]:  /api-reference/expense/expense-report/v3.reports.html
 [3]:  /api-reference/expense/expense-report/post-report-exceptions.html
 [7]:  https://developer.concur.com/api-documentation/core-concepts
 [9]:  /api-reference/callouts/delete-notification.html
@@ -127,4 +129,3 @@ Refer to the [HTTP Codes][16] page for details of the common responses and error
 [12]: /callouts/event-notification#installproc
 [13]: /callouts/event-notification#responses
 [14]: https://github.com/concurtech
-[16]: /tools-support/reference/http-codes.html

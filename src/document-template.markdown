@@ -1,5 +1,5 @@
 ---
-title: Service Name v1
+title: Service Name v2
 layout: reference
 ---
 
@@ -22,11 +22,15 @@ Description of API, including business purpose and most common use case.
   * [Error](#schema-error)
 * [Definitions](#definitions)
 
+## Prior Versions
+
+* Service v1 (Deprecated) documentation is available [here](./index.html)
+
 ## <a name="process-flow"></a>Process Flow
 
 A process diagram that explains the API structure and the usage flow from the user perspective, for the most common use case. Required by SAP. We have resources to make this diagram align with corporate styles, so we need only the basic details without any specific styling.
 
->insert sample diagram here
+![Process Flow for Service V2](./document-template-process-diagram.png)
 
 ## <a name="products-editions"></a>Products and Editions
 
@@ -72,7 +76,7 @@ Description for the endpoint here.
 ##### Template
 
 ```shell
-https://{datacenterURI}/api/{storeIdentifier}?purchaseDate={purchaseDate}
+https://{region}.example.com/{service}/{version}/{storeIdentifier}?purchaseDate={purchaseDate}
 ```
 
 ##### Parameters

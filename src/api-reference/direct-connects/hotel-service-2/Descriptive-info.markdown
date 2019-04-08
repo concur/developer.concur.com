@@ -1,8 +1,7 @@
 ---
-title: Descriptive Information
+title: Direct Connect - Hotel v2 - Descriptive Information
 layout: reference
 ---
-
 
 # Descriptive Info
 

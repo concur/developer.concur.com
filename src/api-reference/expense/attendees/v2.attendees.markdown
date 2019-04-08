@@ -179,7 +179,7 @@ Content-Type: application/xml
 
 ## <a name="responses-and-errors"></a>Responses and Errors
 
-Refer to the [HTTP Codes](/tools-support/reference/http-codes.html) page for details of the common responses and errors.
+Refer to the [HTTP Codes](/api-reference/http-status-codes.html) page for details of the common responses and errors.
 
 #### Attendee List Errors
 

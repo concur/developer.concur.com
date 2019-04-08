@@ -164,7 +164,7 @@ https://www.concursolutions.com/api/image/v1.0/report/{imageId}
 Name|Type|Format|Description
 ---|---|---|---
 `receipt/{imageId}`|`string`|-|The {keyword}/{identifier} for the desired receipt.
-`expenseentry/{entryID}`|`string`|-|The {keyword}/{identifier} for the desired expense entry. The entryId is returned in the `RpeKey` within `ExpenseEntry` portion of the response from the [Get Report Details v1.1](/api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html) API.
+`expenseentry/{entryID}`|`string`|-|The {keyword}/{identifier} for the desired expense entry. The entryId is returned in the `RpeKey` within `ExpenseEntry` portion of the response from the [Expense Report Full Details v1.1](/api-reference/expense/expense-report/v1dot1.report-full-details.html) API.
 `invoice/{requestID}`|`string`|-|The {keyword}/{identifier} for the desired payment request. The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
 `report/{imageId}`|`string`|-|The {keyword}/{identifier} for the desired report.
 
