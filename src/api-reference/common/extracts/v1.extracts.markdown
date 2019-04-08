@@ -16,15 +16,21 @@ layout: reference
   * [Jobs](#schema-jobs)
   * [Job](#schema-job)
 
-The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the **“SAE Detailed Discussions”** section at the bottom of the page to review this important information: [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts). Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
-
 ## Capabilities
 
-The Extract Web Service allows for the development of a customized process that can be used to request and extract available data objects such as “Approved” Expense Reports, Invoices and Payment Requests.
+The Extract web service allows for the development of a customized process that can be used to request and extract available data objects such as “Approved” Expense Reports, Invoices, and Payment Requests.
 
-Through a series of Web Service calls a Application Connector can GET the Extract Definition List, use that list to perform a POST the Extract Job of their choosing. While the job runs they would periodically GET the Extract Job Status and once “Complete” the Connector can then perform a GET to get the Extract Job File data.
+Through a series of web service calls an Application Connector can GET the Extract Definition List, then use that list to perform a POST the Extract Job of their choosing. This POST will initiate the extract process. While the job runs another process can periodically GET the Extract Job Status and once “Complete” the Connector can then perform a GET to obtain the Extract Job File data.
 
-The series of calls that your connector will make will remain the same for each implementation of the Extract Web Service. 
+The series of calls that your connector will make will remain the same for each implementation of the Extract Web Service.
+
+Additionally, it provides:
+
+* Access to extract files using HTTP to move or manage the data as opposed to using a secure FTP site.
+* Clients with organizational units around the globe can create and receive extracts at times that work best for their time zones. To accomplish this, you can work with your SAP Concur support resource to create a unique Extract Definition for each organizational unit that requires a separate extract.
+* A way to receive extract files throughout the day including, but not limited to, outside the Overnight Processing Period (ONP).
+
+> Note: A client may elect to include additional functionality that could result in complex journal entries. For example, they may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from SAP Concur. Work with their functional experts on their specific use case, then watch the relevant videos in the [**SAE Detailed Discussions**](http://www.concurtraining.com/prdeployment/sts) section at the bottom of the page for detailed information on which fields to include.
 
 Resource URI
 
@@ -47,9 +53,9 @@ https://{InstanceURL}/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/file
 
 ## Authorization
 
-The `Authorization` header with OAuth token for valid Concur user must be included with all API calls. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+The `Authorization` header with OAuth token for a valid SAP Concur user must be included with all API calls. The OAuth consumer must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-## <a name="get-definitions"></a>Get an array of extract definitions
+## <a name="get-definitions"></a>Get an Array of Extract Definitions
 
 ### Request
 
@@ -63,8 +69,8 @@ None
 
 #### Payload
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `name`|`type`|JSON|**Required** Description.
 
 ### Response
@@ -264,7 +270,7 @@ Content-Type: application/zip
 { zip archive data}
 ```
 
-## <a name="get-job-array"></a>Get an array of extract jobs
+## <a name="get-job-array"></a>Get an Array of Extract Jobs
 
 Requests a list of the last 100 extract jobs ran for the specified Extract Definition.
 
@@ -349,7 +355,7 @@ Content-Type: application/xml
 </jobs>
 ```
 
-## <a name="getexjd"></a>Get a single extract job
+## <a name="getexjd"></a>Get a Single Extract Job
 
 Retrieves the details of the specified extract definition.
 
@@ -417,7 +423,7 @@ Content-Type: application/xml
 </job>
 ```
 
-## <a name="getexjs"></a>Get a single extract job status
+## <a name="getexjs"></a>Get a Single Extract Job Status
 
 Retrieves the details of the specified extract definition.
 
@@ -485,7 +491,7 @@ Content-Type: application/xml
 </job>
 ```
 
-## <a name="postexjr"></a>Post an extract job initiation request
+## <a name="postexjr"></a>Post an Extract Job Initiation Request
 
 Initiates a new extract job for the specified extract definition. The job will be scheduled to start as soon as possible. The value will be Queued until the job begins.
 
@@ -564,28 +570,28 @@ Content-Type: application/xml
 
 ### <a name="schema-definitions"></a>Definitions
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `definitions`|`array`|[definition](#schema-definition)|**Required**
 
 ### <a name="schema-definition"></a>Definition
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `id`|`string`|-|The extract definition ID URI with encrypted ID.
 `job-link`|`string`|-|The extract job URI with encrypted ID. The job-link value is used as the URI when creating the extract job data request.
 `name`|`string`|-|The extract definition name.
 
 ### <a name="schema-jobs"></a>Jobs
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `jobs`|`array`|[job](#schema-job)|**Required**
 
 ### <a name="schema-job"></a>Job
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `id`|`string`|-|The unique job identifier with encrypted ID.
 `status-link`|`string`|-|A URI for retrieving the current job status, with encrypted ID. The **status-link** value is used as the URI when requesting the job status.
 `start-time`|`string`|-|The time in UTC (GMT) the job is scheduled to start.
