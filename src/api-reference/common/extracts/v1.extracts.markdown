@@ -70,7 +70,7 @@ None
 #### Payload
 
 Name|Type|Format|Description
------|------|--------|------------
+---|---|---|---
 `name`|`type`|JSON|**Required** Description.
 
 ### Response
@@ -571,13 +571,13 @@ Content-Type: application/xml
 ### <a name="schema-definitions"></a>Definitions
 
 Name|Type|Format|Description
------|------|--------|------------
+---|---|---|---
 `definitions`|`array`|[definition](#schema-definition)|**Required**
 
 ### <a name="schema-definition"></a>Definition
 
 Name|Type|Format|Description
------|------|--------|------------
+---|---|---|---
 `id`|`string`|-|The extract definition ID URI with encrypted ID.
 `job-link`|`string`|-|The extract job URI with encrypted ID. The job-link value is used as the URI when creating the extract job data request.
 `name`|`string`|-|The extract definition name.
@@ -585,13 +585,13 @@ Name|Type|Format|Description
 ### <a name="schema-jobs"></a>Jobs
 
 Name|Type|Format|Description
------|------|--------|------------
+---|---|---|---
 `jobs`|`array`|[job](#schema-job)|**Required**
 
 ### <a name="schema-job"></a>Job
 
 Name|Type|Format|Description
------|------|--------|------------
+---|---|---|---
 `id`|`string`|-|The unique job identifier with encrypted ID.
 `status-link`|`string`|-|A URI for retrieving the current job status, with encrypted ID. The **status-link** value is used as the URI when requesting the job status.
 `start-time`|`string`|-|The time in UTC (GMT) the job is scheduled to start.
