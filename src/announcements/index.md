@@ -2,6 +2,15 @@
 title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
+
+### 2019-04-08 :: SAP Concur Developer Center Forum Retirement
+
+SAP Concur will be retiring the Developer Forum on the SAP Concur Developer Center on April 14, 2019. All developers building an integration with the SAP Concur platform should contact their assigned SAP Concur technical contacts with questions. 
+
+Clients who need assistance related to an App Center Partner app should first contact the Partner's Support team. The Partner will then contact the SAP Concur Support team if they need assistance. [Support Options](https://developer.concur.com/tools-support/support.html)
+
+Clients who need assistance related to their own external App should contact SAP Concur Support.
+
 ### 2019-03-05 :: New SSL Certificate for concursolutions.com
 
 #### Overview
