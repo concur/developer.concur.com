@@ -1,5 +1,5 @@
 ---
-title: Payment Request v3
+title: Invoice v3
 layout: reference
 redirect_from:
   - /api-reference/invoice/payment-request.html
@@ -58,7 +58,7 @@ Name|Type|Format|Description
 `CompanyBillToAddressCode`|`string`|-|The code which identifies the company location to which the vendor billed the invoice.
 `CompanyShipToAddressCode`|`string`|-|The code which identifies the company location to which the vendor shipped items listed in the invoice.
 `CountryCode`|`string`|-|**Required** The country code.
-`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the expense report currency. Examples: `USD` - US dollars; `BRL` - Brazilian real; `CAD` - Canadian dollar; `CHF` - Swiss franc; `EUR` - Euro; `GBO` - Pound sterling; `HKD` - Hong Kong dollar; `INR` - Indian rupee; `MXN` - Mexican peso; `NOK` - Norwegian krone; `SEK` - Swedish krona.
+`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the invoice currency. Examples: `USD` - US dollars; `BRL` - Brazilian real; `CAD` - Canadian dollar; `CHF` - Swiss franc; `EUR` - Euro; `GBO` - Pound sterling; `HKD` - Hong Kong dollar; `INR` - Indian rupee; `MXN` - Mexican peso; `NOK` - Norwegian krone; `SEK` - Swedish krona.
 `Custom1` through `Custom9`|`string`|-|The details from the Custom fields. These may not have data, depending on configuration.
 `DataSource`|`string`|-|A code which indicates the method used to created the Invoice. Use GET /invoice/localizeddata to translate the code into text.
 `DeliverySlipNumber`|`string`|-|The delivery slip number associated with receiving receipt.
