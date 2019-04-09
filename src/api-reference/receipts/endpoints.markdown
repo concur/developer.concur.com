@@ -6,6 +6,7 @@ layout: reference
 # Endpoints
 
 * [Definitions of Resources](#definitions-of-resources)
+  * [Supported Image Information](#supported-image-information)
 * [General](#general)
   * [GET Service Index](#endpoint-service-index)
   * [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
@@ -25,6 +26,19 @@ layout: reference
 
 * *__E-Receipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
 * *__Image-Only Receipt__* - A standalone image without data.
+
+#### <a name="supported-image-information"></a>Supported Image Information
+
+* Image size must not exceed 5MB.
+* Images with a dimension exceeding 2,200 pixels will be reduced.
+* Image must be one of the supported file types: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf. Images provided in image/tiff and image/tif will be converted to a PDF document with the image embedded within.
+
+Successful POST requests will receive a response of 202 Accepted. The Location header of the response contains a URL for your receipt image. Once the receipt has been processed, it can be retrieved at this URL. The Link header of the response contains a processing-status URL for your receipt image.
+
+If you are not providing an image with your receipt data, the body of the request should be your receipt JSON.
+
+Receipt images may be posted along with data. In this case, SAP Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`.
+
 
 ### General
 
@@ -328,7 +342,6 @@ Successful POST requests will receive a response of 201 Created. The `Location` 
 Helpful Notes:
 - Include link as a header and make its value: “<http://schema.concursolutions.com/{receipt type}.schema.json>;rel=describedBy”
 - Copy a sample receipt of that receipt type from the documentation (https://developer.concur.com/api-reference/receipts/sample-receipts.html) and post it into the body of this POST call → you can then edit this body to your specification
-
 
 If you are not providing an image with your receipt data, the body of the request should be your receipt JSON.
 
