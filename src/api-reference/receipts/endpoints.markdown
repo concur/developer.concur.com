@@ -326,7 +326,7 @@ _Example Response:_
 |---|---|---|
 |userId|required|The id of the user to whom the receipt belongs.|
 |receipt|required|The JSON receipt to be posted.|
-|image|optional|Image of the receipt. If an image isn't provided, one will be generated automatically from the JSON. Maximum image dimension: 2,200 pixels|
+|image|optional|Image of the receipt. If an image isn't provided, one will be generated automatically from the JSON. Maximum image dimension: 2,200 pixels. Refer to [Supported Image Information](#supported-image-information) for more information.|
 
 Creating a receipt requires JSON data about the transaction and, optionally, an image of the receipt. If an image is not supplied with the request, SAP Concur will automatically generate a receipt image based on the data provided. [JSON schemas](https://developer.concur.com/api-reference/receipts/get-started.html#endpoint-schemas) are used to validate the format of receipt data received in POST requests.
 
@@ -529,7 +529,7 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 |Parameter|Requirement|Value|
 |---|---|---|
 |userId|required|The id of the user to whom the receipt image belongs.|
-|image|required|Image of the receipt. Maximum image dimension: 2,200 pixels|
+|image|required|Image of the receipt. Maximum image dimension: 2,200 pixels. Refer to [Supported Image Information](#supported-image-information) for more information.|
 
 Successful POST requests will receive a response of 202 Accepted. The Location header of the response contains a URL for your receipt image. Once the receipt has been processed, it can be retrieved at this URL. The Link header of the response contains a processing-status URL for your receipt image.
 
