@@ -3,8 +3,6 @@ title: Direct Connect - Hotel v2 - Introduction
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 ## <a name="overview"></a>Overview
 The Hotel Services v2 Direct Connect from Concur Connect provides a method for Travel users to access hotel inventory.
 
