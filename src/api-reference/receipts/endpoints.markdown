@@ -30,15 +30,8 @@ layout: reference
 #### <a name="supported-image-information"></a>Supported Image Information
 
 * Image size must not exceed 5MB.
-* Images with a dimension exceeding 2,200 pixels will be reduced.
+* Images with any dimension exceeding 2,200 pixels will be reduced, with the longest dimension reduced to 2,200 pixels and the remaining dimensions scaled down using a fixed aspect ratio.
 * Image must be one of the supported file types: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf. Images provided in image/tiff and image/tif will be converted to a PDF document with the image embedded within.
-
-Successful POST requests will receive a response of 202 Accepted. The Location header of the response contains a URL for your receipt image. Once the receipt has been processed, it can be retrieved at this URL. The Link header of the response contains a processing-status URL for your receipt image.
-
-If you are not providing an image with your receipt data, the body of the request should be your receipt JSON.
-
-Receipt images may be posted along with data. In this case, SAP Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`.
-
 
 ### General
 
@@ -345,7 +338,7 @@ Helpful Notes:
 
 If you are not providing an image with your receipt data, the body of the request should be your receipt JSON.
 
-Receipt images may be posted along with data. In this case, SAP Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`. Image files are limited to a maximum size of 5MB. All images will be reduced to a maximum dimension of 2,200 pixels. Accepted file formats for image files are: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf. Images submitted to SAP Concur in image/tiff and image/tif will be converted to a PDF document with the image embedded within.
+Receipt images may be posted along with data. In this case, SAP Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`. For information regarding image size, dimension, and type, please refer to [Supported Image Information](#supported-image-information).
 
 _Example Requests:_
 
@@ -538,16 +531,13 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 |userId|required|The id of the user to whom the receipt image belongs.|
 |image|required|Image of the receipt. Maximum image dimension: 2,200 pixels|
 
-- Image constraints
-  - Image size must not exceed 5MB.
-  - Images with a dimension exceeding 2,200 pixels will be reduced.
-  - Image must be one of the supported file types: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf. Images provided in image/tiff and image/tif will be converted to a PDF document with the image embedded within.
-
 Successful POST requests will receive a response of 202 Accepted. The Location header of the response contains a URL for your receipt image. Once the receipt has been processed, it can be retrieved at this URL. The Link header of the response contains a processing-status URL for your receipt image.
 
-Helfpul Notes:
+Helpful Notes:
 - The header must include content-type with multipart/form-data as its value
 - In the body, add "image" as a key and select "file" from the dropdown since you will be linking an image file. Then, choose your saved image file as the value.
+
+For information regarding image size, dimension, and type, please refer to [Supported Image Information](#supported-image-information).
 
 _Example Requests:_
 
