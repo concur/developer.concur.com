@@ -3,8 +3,6 @@ title: Direct Connect - Hotel v2 - Headers
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 SAP Concur will send the user-name and password in both the HTTP header and the SOAP header.  IF the user-name and password generates an authentication error, then SAP Concur expects an HTTP 403 response.
 
 * [HTTP Headers](#http)
