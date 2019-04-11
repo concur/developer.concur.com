@@ -29,6 +29,7 @@ layout: reference
 ## <a name="overview"></a>Overview
 
 SAP Concur partners with external payment providers for processing invoice payments. These payment providers are listed on the App Center and can integrate with the Invoice product by using the Invoice Pay APIs. Payment providers can get a list of all the payments authorized to be processed by them, and send back status of those payments.
+
 > **Limitations**: This API is available only in the North America Data Center.
 
 ## <a name="process-flow"></a>Process Flow
@@ -92,7 +93,7 @@ None.
 #### Headers
 
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
-* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 
 #### Payload
 
@@ -205,7 +206,7 @@ Name|Type|Format|Description
 
 #### Headers
 
-* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 
 #### Payload
@@ -280,7 +281,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `invoices`|`array`|[Invoice](#schema-invoice)|Array of invoices that need to be batched in a payment.
 `paymentDueDate`|`string`|YYYY-MM-DD|The date by which the payment should be made.
-`paymentID`|`string`|-|Unique identifier of the payment in Concur. Maximum 36 characters.
+`paymentID`|`string`|-|Unique identifier of the payment in SAP Concur. Maximum 36 characters.
 `paymentMethod`|`string`|-|The value is always `PAYPVD` which means that the client wants to pay using a payment provider. Maximum 15 characters.
 `totalAmount`|`object`|[Amount](#schema-amount)|This amount needs to be paid to the vendor.
 `vendor`|`object`|[Vendor](#schema-vendor)|Vendor requesting the payment.
@@ -291,7 +292,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `invoiceAmount`|`object`|[Amount](#schema-amount)|Amount on the invoice.
 `invoiceNumber`|`string`|-|Invoice Number. Maximum 50 characters.
-`invoiceId`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as `paymentRequestID` in other Invoice APIs. Maximum 20 characters.
+`invoiceId`|`string`|-|Unique identifier of the invoice in SAP Concur. This can be used to get additional invoice information from other APIs. This is the same as `paymentRequestID` in other Invoice APIs. Maximum 20 characters.
 `notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier. Maximum 500 characters.
 `paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice.
 
