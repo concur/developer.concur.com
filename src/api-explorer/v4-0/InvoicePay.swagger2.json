@@ -128,7 +128,7 @@
         },
         "invoiceId": {
           "type": "string",
-          "description": "Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs. Maximum 20 characters."
+          "description": "Unique identifier of the invoice in SAP Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs. Maximum 20 characters."
         },
         "invoiceNumber": {
           "type": "string",
@@ -163,7 +163,7 @@
         },
         "paymentId": {
           "type": "string",
-          "description": "	Unique identifier of the payment in Concur. Maximum 36 characters."
+          "description": "	Unique identifier of the payment in SAP Concur. Maximum 36 characters."
         },
         "paymentMethod": {
           "type": "string",
@@ -207,7 +207,7 @@
         },
         "paymentMethod": {
           "type": "string",
-          "description": "Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED Payment method used by the payment provider.",
+          "description": "Payment method used by the payment provider. Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED.",
           "enum": [
             "ACH",
             "CHECK",
@@ -292,7 +292,7 @@
         },
         "paymentMethod": {
           "type": "string",
-          "description": "Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED Payment method used by the payment provider.",
+          "description": "Payment method used by the payment provider. Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED.",
           "enum": [
             "ACH",
             "CHECK",
