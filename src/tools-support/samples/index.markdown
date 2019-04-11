@@ -7,17 +7,17 @@ These sample projects demonstrate how to accomplish atomic tasks as you develop 
 
 The following links are to ZIP archive downloads:
 
-* [01 - OAuth 2](./01-oauth2.zip)
-* [02 - Employee Form Fields](./02-emp-form-fields.zip)
-* [03 - Create user](./03-create-user.zip)
-* [04 - Create report](./04-create-report.zip)
-* [05 - Create report and entry](./05-create-report-and-entry.zip)
-* [06 - Extract definition and job](./06-extract-def-and-job.zip)
-* [07 - On demand extraction](./07-on-demand-extraction.zip)
-* [08 - Image pull web service](./08-image-pull-web-service.zip)
-* [09 - Refresh token](./09-refresh-token-project.zip)
-* [10 - Payment batch file](./10-payment-batch-file-test.zip)
-* [11 - Authorization token (JWT)](./11-jwt-auth-project.zip)
+* [OAuth 2](./01-oauth2.zip)
+* [Employee Form Fields](./02-emp-form-fields.zip)
+* [Create user](./03-create-user.zip)
+* [Create report](./04-create-report.zip)
+* [Create report and entry](./05-create-report-and-entry.zip)
+* [Extract definition and job](./06-extract-def-and-job.zip)
+* [On demand extraction](./07-on-demand-extraction.zip)
+* [Image pull web service](./08-image-pull-web-service.zip)
+* [Refresh token](./09-refresh-token-project.zip)
+* [Payment batch file](./10-payment-batch-file-test.zip)
+* [Authorization token (JWT)](./11-jwt-auth-project.zip)
 
 ## Disclaimer
 
