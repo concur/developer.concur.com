@@ -6,6 +6,7 @@ layout: reference
 # Endpoints
 
 * [Definitions of Resources](#definitions-of-resources)
+  * [Supported Image Formats](#supported-image-formats)
 * [General](#general)
   * [GET Service Index](#endpoint-service-index)
   * [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
@@ -25,6 +26,12 @@ layout: reference
 
 * *__E-Receipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
 * *__Image-Only Receipt__* - A standalone image without data.
+
+#### <a name="supported-image-formats"></a>Supported Image Formats
+
+* Image size must not exceed 5MB.
+* Images with any dimension exceeding 2,200 pixels will be reduced, with the longest dimension reduced to 2,200 pixels and the remaining dimensions scaled down using a fixed aspect ratio.
+* Image must be one of the supported file types: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf. Images provided in image/tiff and image/tif will be converted to a PDF document with the image embedded within.
 
 ### General
 
@@ -319,20 +326,19 @@ _Example Response:_
 |---|---|---|
 |userId|required|The id of the user to whom the receipt belongs.|
 |receipt|required|The JSON receipt to be posted.|
-|image|optional|Image of the receipt. If an image isn't provided, one will be generated automatically from the JSON.|
+|image|optional|Image of the receipt. If an image isn't provided, one will be generated automatically from the JSON. Refer to [Supported Image Formats](#supported-image-formats) for more information.|
 
-Creating a receipt requires JSON data about the transaction and, optionally, an image of the receipt. If an image is not supplied with the request, Concur will automatically generate a receipt image based on the data provided. [JSON schemas](https://developer.concur.com/api-reference/receipts/get-started.html#endpoint-schemas) are used to validate the format of receipt data received in POST requests.
+Creating a receipt requires JSON data about the transaction and, optionally, an image of the receipt. If an image is not supplied with the request, SAP Concur will automatically generate a receipt image based on the data provided. [JSON schemas](https://developer.concur.com/api-reference/receipts/get-started.html#endpoint-schemas) are used to validate the format of receipt data received in POST requests.
 
 Successful POST requests will receive a response of 201 Created. The `Location` header of the response contains a URL for your receipt. Once the receipt has been processed, it can be retrieved at this URL. The `Link` header of the response contains a processing-status URL for your receipt. More information can be found [here](#endpoint-get-receipt-status).
 
 Helpful Notes:
-- Include link as a header and make its value: “<http://schema.concursolutions.com/{receipt type}.schema.json>;rel=describedBy” 
+- Include link as a header and make its value: “<http://schema.concursolutions.com/{receipt type}.schema.json>;rel=describedBy”
 - Copy a sample receipt of that receipt type from the documentation (https://developer.concur.com/api-reference/receipts/sample-receipts.html) and post it into the body of this POST call → you can then edit this body to your specification
-
 
 If you are not providing an image with your receipt data, the body of the request should be your receipt JSON.
 
-Receipt images may be posted along with data. In this case, Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`. Image files are limited to a maximum size of 5MB. Accepted file formats for image files are: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf.
+Receipt images may be posted along with data. In this case, SAP Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`. For information regarding image size, dimension, and type, please refer to [Supported Image Formats](#supported-image-formats).
 
 _Example Requests:_
 
@@ -523,17 +529,15 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 |Parameter|Requirement|Value|
 |---|---|---|
 |userId|required|The id of the user to whom the receipt image belongs.|
-|image|required|Image of the receipt.|
-
-- Image constraints
-  - Image size must not exceed 5MB
-  - Image must be one of the supported file types: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf
+|image|required|Image of the receipt. Refer to [Supported Image Formats](#supported-image-formats) for more information.|
 
 Successful POST requests will receive a response of 202 Accepted. The Location header of the response contains a URL for your receipt image. Once the receipt has been processed, it can be retrieved at this URL. The Link header of the response contains a processing-status URL for your receipt image.
 
-Helfpul Notes:
-- The header must include content-type with multipart/form-data as its value 
+Helpful Notes:
+- The header must include content-type with multipart/form-data as its value
 - In the body, add "image" as a key and select "file" from the dropdown since you will be linking an image file. Then, choose your saved image file as the value.
+
+For information regarding image size, dimension, and type, please refer to [Supported Image Formats](#supported-image-formats).
 
 _Example Requests:_
 
