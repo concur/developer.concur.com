@@ -11,7 +11,6 @@ redirect_from:
 ## Support Options
 
 * [Request Support (Partners)](/tools-support/requesting-partner-support.html)
-* [Developers (Developer Forum)](https://forum.developer.concur.com)
 * [Company Administrators](https://www.concur.com/en-us/contact)
 * **Individual Users** of SAP Concur products should request assistance from their company's internal help desk or their company's SAP Concur administrator
 
