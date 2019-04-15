@@ -14,12 +14,6 @@ These web services can be used to retrieve travel profile information for a spec
 
 Available to Developers, travel suppliers, and TMCs.
 
-### [Form of Payment v2](./v2.form-payment-resource.html)
-
-These web services can be used to view a user's methods of payment. The scope of information returned varies depending on who makes the request.
-
-Available to Developers, travel suppliers, and TMCs.
-
 ### [Loyalty Program v1](./v1.loyalty-program-resource.html)
 
 This web service can be used to update loyalty information for the user as entered in Concur.
