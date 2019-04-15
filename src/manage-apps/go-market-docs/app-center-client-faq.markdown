@@ -14,6 +14,7 @@ If you have SAP Concur App Center questions not covered in this document please,
 * [How do I access the SAP Concur App Center?](#access)
 * [Who can see the SAP Concur App Center tab?](#visibility)
 * [How does SAP Concur review App Center Partners and integrations?](#review)
+* [What should I do if I cannot find an application?](#filters)
 * [How do I know the app I’m connecting with is secure?](#secure)
 * [What is “OAuth 2.0”?](#oauth)
 * [There are two sections in the App Center, “user connections” and “enterprise applications”. What’s the difference?](#user-enterprise)
@@ -68,6 +69,10 @@ Each app appearing in the App Center is reviewed by Concur before clients or end
 * The app’s user interface generally conforms to the app provider’s documentation.
 
 SAP Concur ensures that the partner informs the user of the type of data they will be sharing with the partner if they connect. This provides complete transparency to the user on the data they are sharing with the partner.
+
+## <a name="filters"></a> What should I do if I cannot find an application?
+
+End users will only see applications that are available in their country. If an employee is searching for an application but unable to find it, it is possible the application does not support their region. You can refer to www.concur.com/appcenter and scroll down to the "regional availability" to find out where an application is avaiable.
 
 ## <a name="secure"></a>How do I know the app I’m connecting with is secure?
 
