@@ -5,7 +5,7 @@ layout: reference
 
 * [January](#january)
 * [March](#march)
-* [April - DRAFT](#april)
+* [April](#april)
 
 
 ## <a name="january"></a>January 2019
@@ -192,14 +192,15 @@ Parken+ works with Expense for Concur Standard and Expense for Concur Profession
 
 ## <a name="april"></a>April 2019
 
-* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-april)
+* [Apps for Me / User Connection Apps Now Available](#apps-for-me-connection-now-available-april)
   * [DiDi Enterprise Solutions](#didi-enterprise-solutions-april)
   * [prayerletters.com](#prayerletters.com-april)
+* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-april)
   * [Parken+](#parken+-april)
 
-## <a name="apps-for-me-connection-coming-soon-april"></a>Apps for Me / User Connection Apps Coming Soon
+### <a href="apps-for-me-connection-now-available-march"></a>Apps for Me / User Connection Apps Now Available
 
-### <a name="didi-enterprise-solutions-april"></a>DiDi Enterprise Solutions  - Updated EU and China Data Center Availability
+#### <a name="didi-enterprise-solutions-april"></a>DiDi Enterprise Solutions  - Updated EU and China Data Center Availability
 
 ![DiDi Enterprise Solutions Logo](./app-center-2019-04-09-didienterprisesolutions-logo.png)
 
@@ -217,23 +218,25 @@ DiDi Enterprise Solutions services more than 300,000 corporate customers and ove
 
 To automatically synchronize your ride expenses with Concur Expense and submit expenses for reimbursement, simply click the “Connect” button in the DiDi app and connect your SAP Concur account with your DiDi Enterprise Solutions account.
 
-DiDi Enterprise Solutions works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the DiDi ES integration, visit
+DiDi Enterprise Solutions works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the DiDi ES integration, visit
 [https://www.didiglobal.com/](https://www.didiglobal.com/).
 
-### <a name="prayerletters.com-april"></a>prayerletters.com
+#### <a name="prayerletters.com-april"></a>prayerletters.com
 
 ![prayerletters.com Logo](./app-center-2019-03-14-prayerlettersdotcom-logo.png)
 
-As a missionary, you need to send regular updates to people interested in your ministry so that they can effectively pray for you and send financial support.
+As a missionary, prayerletters.com helps you send regular updates to people interested in your ministry so that they can effectively pray for you and send financial support.
 
-At prayerletters.com, we make it easy for you to send high-quality printed prayer letters quickly and easily. You simply write your letter and send it to us with your mailing list. We take care of all the printing, folding, stuffing, and mailing, freeing up your time and energy to minister in the ways you've been gifted.
+prayerletters.com makes it easy for you to send high-quality printed prayer letters quickly and easily. You simply write your letter and upload it with your current mailing list.  prayerletters.com takes care of all the printing, folding, stuffing, and mailing, freeing up your time and energy to minister.
 
-Our online order system is designed specifically for missionaries. You can quickly create a mailing, make changes to your list, and resend returned letters, all from your computer, tablet, or phone. Include gift inserts, reply envelopes, and logos from your ministry with a few clicks. If we don't have your ministry's logo, let us know and we'll add it for free!
+The online order system is designed specifically for missionaries.  You can quickly create a mailing, make changes to your list, and resend returned letters, all from your computer, tablet, or phone.  Include gift inserts, reply envelopes, and logos from your ministry with a few clicks.  If your ministry's logo is not already in the system,  it can be added for free!
 
-Click “Connect” to link your SAP Concur account. Once linked, we'll send receipts for your orders directly into your account here, simplifying your expense reports.
+Click “Connect” to link your SAP Concur account. Once linked, you will receive receipts for your orders directly in your Concur Expense account, simplifying your expense reports.
 
-Prayerletters.com works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the prayerletters.com integration, visit
+Prayerletters.com works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the prayerletters.com integration, visit
 [https://www.prayerletters.com/](https://www.prayerletters.com/).
+
+## <a name="apps-for-me-connection-coming-soon-april"></a>Apps for Me / User Connection Apps Coming Soon
 
 ### <a name="parken+-april"></a>Parken+
 
