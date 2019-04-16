@@ -185,6 +185,7 @@
     },
     "updatePayment": {
       "type": "object",
+      "required" : ["status", "statusDate"],
       "properties": {
         "paidAmount": {
           "$ref": "#/definitions/amount"
