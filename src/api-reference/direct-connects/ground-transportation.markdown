@@ -1,5 +1,5 @@
 ---
-title: Ground Transportation Direct Connect
+title: Direct Connect - Ground Transportation
 layout: reference
 ---
 
@@ -102,4 +102,3 @@ TUR ZM AK1  SEA 15DEC-/FALCON DES-TEL 8666932526/RATE-50.00 HOURLY-2 HR MIN/CON
 [7]: /api-reference/direct-connects/ground-transportation/post-transportation-search.html
 [8]: /api-reference/direct-connects/ground-transportation/update-reservation-supplier.html
 [9]: /api-reference/direct-connects/ground-transportation/update-reservation-travel.html
-[10]: /tools-support/reference/http-codes.html

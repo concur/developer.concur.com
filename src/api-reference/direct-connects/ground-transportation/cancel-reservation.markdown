@@ -1,5 +1,5 @@
 ---
-title: Cancel a reservation
+title: Direct Connect - Ground Transportation - Cancel a reservation
 layout: reference
 ---
 
@@ -18,9 +18,11 @@ The Cancel Reservation operation is sent to the supplier to cancel a travel rese
 ### Headers
 
 #### Content-Type header (optional)
+
 * application/xml  
 
 #### Accept header (optional)
+
 * application/xml  
 
 #### Authorization header (required)
@@ -38,6 +40,7 @@ The request contains a `CC_LimoCancelRequest` parent element with the child elem
 | ReservationID | Required |The unique identifier for the reservation.
 
 #### Example Request
+
 ```http
 POST /concur/groundtransportation HTTPS/1.1
 Host: example.com

@@ -1,5 +1,5 @@
 ---
-title: Reservation
+title: Direct Connect - Hotel v2 - Reservation
 layout: reference
 ---
 

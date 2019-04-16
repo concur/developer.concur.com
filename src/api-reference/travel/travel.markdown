@@ -5,7 +5,7 @@ layout: reference
 
 ## Overview
 
-The Travel services consists of a set of APIs that provide programmatic access to travel data such as itineraries, travel profiles, travel form of payment information, travel requests, and travel loyalty program information. These APIs are categorized into three sets of web services:
+The Travel services consists of a set of APIs that provide programmatic access to travel data such as itineraries, travel profiles, travel requests, and travel loyalty program information. These APIs are categorized into three sets of web services:
 
 
 ### [Itinerary] [1]
@@ -14,7 +14,7 @@ The Concur Itinerary web service can be used to pro grammatically access travel 
 
 ### [Travel Profile Web Service] [2]
 
-The Travel Profile Web Service consists of a set of resources that provide travel profile functionality customized in specific ways for developers, travel suppliers, and travel management companies (TMCs). Depending on who is using this web service, it provides the ability to update travel loyalty information, subscribe and unsubscribe to travel profile changes, and subscribe and unsubscribe to form of payment information changes.
+The Travel Profile Web Service consists of a set of resources that provide travel profile functionality customized in specific ways for developers, travel suppliers, and travel management companies (TMCs). Depending on who is using this web service, it provides the ability to update travel loyalty information, and subscribe and unsubscribe to travel profile changes.
 
 ### [Travel requests] [3]
 

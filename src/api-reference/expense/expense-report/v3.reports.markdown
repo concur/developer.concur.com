@@ -14,8 +14,7 @@ redirect_from:
 
 ## Prior Versions
 
-* 2.0 Retrieve (GET) Report can be found [here](/api-reference-deprecated/version-two/expense-reports/expense-report-resource.html)  
-* 2.0 Retrieve (GET) List of Reports can be found [here](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html)
+* [Expense Reports v2](/api-reference/expense/expense-report/v2.reports.html)
 * [Expense Report Header 1.1](/api-reference/expense/expense-report/v1dot1.reports.html)
 
 ## <a name="get"></a>Retrieve reports owned by the user based on search criteria

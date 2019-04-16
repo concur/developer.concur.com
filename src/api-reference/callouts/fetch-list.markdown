@@ -70,7 +70,6 @@ Expense must have a list field configured to use an external source before this 
 
 ##  <a name="responses-errors"></a>Responses and Errors
 
-Refer to the [HTTP Codes][4] page for details of the common responses and errors.
+Refer to the [HTTP Status Codes](/api-reference/http-status-codes.html) page for details of the common responses and errors.
 
 [3]: /api-reference/callouts/post-list-search-request.html
-[4]: /tools-support/reference/http-codes.html

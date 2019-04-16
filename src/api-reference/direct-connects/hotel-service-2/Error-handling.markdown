@@ -1,5 +1,5 @@
 ---
-title: Error Handling
+title: Direct Connect - Hotel v2 - Error Handling
 layout: reference
 ---
 

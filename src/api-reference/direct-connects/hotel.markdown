@@ -1,5 +1,5 @@
 ---
-title: Hotel Direct Connect
+title: Direct Connect - Hotel v1
 layout: reference
 ---
 
@@ -17,6 +17,7 @@ This callout differs from the inbound Concur web services in the following ways:
 * The supplier configures and maintains the public web service interface. This guide specifies the request and response format required by Concur.
 
 ## Works With These Concur Products
+
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
 
@@ -29,6 +30,7 @@ Concur products are highly configurable, and not all clients will have access to
 Partner developers must determine which configurations are required for their solution prior to the application review process.
 
 ## Hotel Process Overview
+
 The configuration process has the following steps:
 
 1. The Hotel Supplier creates the application on their system that will accept the requests from Concur and return the appropriate responses.
@@ -62,7 +64,8 @@ This callout can also be used to perform the following functions:
 
 ## Hotel URL Structure
 
-The hotel direct connect sends the relevant information to a URL that the travel supplier maintains.  
+The hotel direct connect sends the relevant information to a URL that the travel supplier maintains.
+
 A recommended URL structure is: `https://{servername}/concur/hotel/v1/`
 
 The URL is provided by the supplier when registering the partner application.
@@ -71,20 +74,28 @@ You can use either one endpoint for all messages, or a dedicated one for each me
 
 The only allowed difference between the endpoint URLs can be the message name (without OTA_ and RQ/RS):  
 
-`https://{servername}/concur/hotel/v1/HotelSearch `<br/>
-`https://{servername}/concur/hotel/v1/HotelAvail`
+```
+https://{servername}/concur/hotel/v1/HotelSearch
+https://{servername}/concur/hotel/v1/HotelAvail
+```
 
 The variable part doesn't need to be at the end:  
 
-`https://{servername}/concur/hotel/HotelSearch/v1/ ` <br/>
-`https://{servername}/concur/hotel/HotelAvail/v1/`
+```
+https://{servername}/concur/hotel/HotelSearch/v1/
+https://{servername}/concur/hotel/HotelAvail/v1/
+```
 
 ## Security
-Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.  <br/>
-Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.  <br/>
+
+Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.
+
+Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.
+
 Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that Concur will send to the supplier's system for each message.
 
 ## Outbound Messages
+
 The Concur outbound message format is based upon a subset of the OTA2011B hotel standard. Please refer to the Function links below for the details of the request and response format.
 
 Please note the following general information about this format:
@@ -95,29 +106,22 @@ Please note the following general information about this format:
 * Gzip compression is supported in requests and responses. This is controlled through the normal http gzip protocols and is not required.
 * All responses will be limited to an uncompressed size of 5MB and must return within 30 seconds.
 * For Production systems, the current IP address ranges are (you need to enable all of them):  
-o 12.129.29.0/24 and 12.129.32.0/22 (US data center)  
-o 84.14.175.224/27 and 62.23.83.128/25 (EU data center)
+  * 12.129.29.0/24 and 12.129.32.0/22 (US data center)  
+  * 84.14.175.224/27 and 62.23.83.128/25 (EU data center)
 
 ## Functions
-[Post Availability Search][3]
 
-[Post Booking Rule Search][4]
-
-[Post Hotel Search][5]
-
-[Post New Reservation][6]
-
-[Post Reservation Cancellation][7]
-
-[Post Reservation Update ][8]
-
-[Post Reservation Query][9]
-
+* [Post Availability Search](/api-reference/direct-connects/hotel/post-availability-search.html)
+* [Post Booking Rule Search](/api-reference/direct-connects/hotel/post-booking-rule-search.html)
+* [Post Hotel Search](/api-reference/direct-connects/hotel/post-hotel-search.html)
+* [Post New Reservation](/api-reference/direct-connects/hotel/post-new-reservation.html)
+* [Post Reservation Cancellation](/api-reference/direct-connects/hotel/post-reservation-cancellation.html)
+* [Post Reservation Update](/api-reference/direct-connects/hotel/post-reservation-update.html)
+* [Post Reservation Query](/api-reference/direct-connects/hotel/post-reservation-query.html)
 
 ## Additional Information
 
-[Hotel Direct Connect Codes][10]
-
+* [Hotel Direct Connect Codes](/api-reference/direct-connects/hotel/hotel-direct-connect-codes.html)
 
 ###  Concur Travel Configuration
 
@@ -141,7 +145,7 @@ Information on format or value requirements that are used in multiple endpoints 
 
 **Codes**
 
-All the codes used by the Hotel Direct Connect are documented in the [Hotel Direct Connect Code PDF][10].
+All the codes used by the Hotel Direct Connect are documented in the [Hotel Direct Connect Codes](/api-reference/direct-connects/hotel/hotel-direct-connect-codes.html).
 
 **Corporate Identifier**
 
@@ -149,9 +153,9 @@ The corporate identifier will be passed as RequestorID node. The values will be 
 
 ```xml
 <POS>
-    <Source ISOCountry="US" ISOCurrency="USD">
-        <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
-    </Source>
+  <Source ISOCountry="US" ISOCurrency="USD">
+    <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
+  </Source>
 </POS>
 ```
 
@@ -159,10 +163,10 @@ If a vendor requires additional identification of the client system (all calls t
 
 ```xml
 <POS>
-    <Source ISOCountry="US" ISOCurrency="USD">
-        <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
-        <RequestorID Type="7" ID="8172927" ID_Context="WholeTravel" />
-    </Source>
+  <Source ISOCountry="US" ISOCurrency="USD">
+    <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
+    <RequestorID Type="7" ID="8172927" ID_Context="WholeTravel" />
+  </Source>
 </POS>
 ```
 
@@ -170,46 +174,34 @@ Please keep the Type compliant with  ID Type Codes. The supported codes for the 
 
 **ID Type Codes Table**
 
-|  Code |  Description |
-| ----- |-----|
-|  1 |  Customer |
-|  2 |  CRO (Customer Reservations Office) |
-|  3 |  Corporation representative |
-|  4 |  Company |
-|  5 |  Travel agency |
-|  6 |  Airline |
-|  7 |  Wholesaler |
-|  8 |  Car rental |
-|  9 |  Group |
-|  10 |  Hotel |
-|  11 |  Tour operator |
-|  12 |  Cruise line |
-|  13 |  Internet broker |
-|  14 |  Reservation |
-|  15 |  Cancellation |
-|  18 |  Other |
-|  21 |  Profile |
-|  25 |  Associated reservation |
-|  26 |  Associated itinerary reservation |
-|  27 |  Associated shared reservation |
-|  32 |  Merchant |
-|  33 |  Acquirer |
-|  34 |  Master reference |
-|  35 |  Purged master reference |
-|  36 |  Parent reference |
-|  37 |  Child reference |
-|  38 |  Linked reference |
-|  39 |  Contract |
-|  40 |  Confirmation number |
-
-
-
-
-[3]: /api-reference/direct-connects/hotel/post-availability-search.html
-[4]: /api-reference/direct-connects/hotel/post-booking-rule-search.html
-[5]: /api-reference/direct-connects/hotel/post-hotel-search.html
-[6]: /api-reference/direct-connects/hotel/post-new-reservation.html
-[7]: /api-reference/direct-connects/hotel/post-reservation-cancellation.html
-[8]: /api-reference/direct-connects/hotel/post-reservation-update.html
-[9]: /api-reference/direct-connects/hotel/post-reservation-query.html
-[10]: /tools-support/reference/hotel-direct-connect-codes.html
+Code|Description
+---|---
+1|Customer
+2|CRO (Customer Reservations Office)
+3|Corporation representative
+4|Company
+5|Travel agency
+6|Airline
+7|Wholesaler
+8|Car rental
+9|Group
+10|Hotel
+11|Tour operator
+12|Cruise line
+13|Internet broker
+14|Reservation
+15|Cancellation
+18|Other
+21|Profile
+25|Associated reservation
+26|Associated itinerary reservation
+27|Associated shared reservation
+32|Merchant
+33|Acquirer
+34|Master reference
+35|Purged master reference
+36|Parent reference
+37|Child reference
+38|Linked reference
+39|Contract
+40|Confirmation number
