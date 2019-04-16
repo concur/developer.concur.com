@@ -24,6 +24,8 @@ Below we have sample request data and the corresponding request answers:
   * [Get the content an existing expected Expense - GET](#get-existing-expense-expense-resource)
   * [Update the content of an existing expected Expense - PUT](#update-content-existing-expected-expense-resource)
   * [Delete an expected Expense from the Request](#delete-expected-expense-request-resource)
+* [Request Policy Resources](#request-policy-resource)
+  * [Get the list of existing Request policies for a given user - GET](#get-user-request-policy-resource)
 * [Travel Agency resource](#travel-agency-resource)
   * [Get the description of a travel agency office - GET](#get-travel-agency-description-resource)
 
@@ -129,8 +131,10 @@ Authorization: Bearer {token}
   },
   "name": "Company Training - JULY 2018",
   "owner": {
+    "firstName": "John",
     "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "lastName": "Doe",
     "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
   },
   "pendingApproval": false,
@@ -356,8 +360,10 @@ Authorization: Bearer {token}
   },
   "name": "Client meeting in Berlin - JULY",
   "owner": {
+    "firstName": "John",
     "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "lastName": "Doe",
     "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
   },
   "pendingApproval": false,
@@ -498,8 +504,10 @@ Authorization: Bearer {token}
   },
   "name": "Company Training - JULY 2018",
   "owner": {
+    "firstName": "John",
     "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "lastName": "Doe",
     "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
   },
   "pendingApproval": false,
@@ -651,8 +659,10 @@ Authorization: Bearer {token}
   },
   "name": "Company Training - JULY 2018",
   "owner": {
+    "firstName": "John",
     "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "lastName": "Doe",
     "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
   },
   "pendingApproval": true,
@@ -768,6 +778,11 @@ Authorization: Bearer {token}
     "agencyBooked": false,
     "legs": [
       {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
         "endLocation": {
           "id": "CE4A6DCAC4A14D08803C28F6D5CB20F0",
           "countryCode": "FR",
@@ -863,6 +878,11 @@ Authorization: Bearer {token}
     "tripType": "ONE_WAY",
     "legs": [
       {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
         "endLocation": {
           "id": "CE4A6DCAC4A14D08803C28F6D5CB20F0",
           "countryCode": "FR",
@@ -970,6 +990,11 @@ Authorization: Bearer {token}
       "tripType": "ROUND_TRIP",
       "legs": [
         {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
           "endLocation": {
             "id": "4A33695120254EEC9261B24993DD413B",
             "countryCode": "DE",
@@ -1204,6 +1229,11 @@ Authorization: Bearer {token}
     "tripType": "ROUND_TRIP",
     "legs": [
       {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
         "endLocation": {
           "id": "4A33695120254EEC9261B24993DD413B",
           "countryCode": "DE",
@@ -1396,6 +1426,11 @@ Authorization: Bearer {token}
     "tripType": "ROUND_TRIP",
     "legs": [
       {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
         "endLocation": {
           "id": "4A33695120254EEC9261B24993DD413B",
           "countryCode": "DE",
@@ -1515,6 +1550,11 @@ Authorization: Bearer {token}
     "tripType": "ROUND_TRIP",
     "legs": [
       {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
         "endLocation": {
           "id": "4A33695120254EEC9261B24993DD413B",
           "countryCode": "DE",
@@ -1589,6 +1629,37 @@ Authorization: Bearer {token}
 
 ```json
 true
+```
+## <a name="request-policy-resource"></a>Request Policy Resources
+
+### <a name="get-user-request-policy-resource"></a>Get the list of existing Request policies for a given user
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/userpolicies
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/userpolicies/F4C8BD31CA9D4D6292795BE687EB9B2A",
+  "id": "F4C8BD31CA9D4D6292795BE687EB9B2A",
+  "name": "Internal training Request policy"
+},
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/userpolicies/F10E6059B5A14A4C80327FE387491026",
+  "id": "F10E6059B5A14A4C80327FE387491026",
+  "name": "Client meeting Request policy"
+}
+
 ```
 
 ## <a name="travel-agency-resource"></a>Travel Agency resource
