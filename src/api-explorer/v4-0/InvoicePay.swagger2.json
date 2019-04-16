@@ -12,14 +12,6 @@
     "name": "Resources",
     "description": " "
     },
-    {
-      "name": "GET Payments API",
-      "description": "Gets the payment details"
-    },
-    {
-      "name": "POST Payments API",
-      "description": "Updates the payment status"
-    }
   ],
   "paths": {
     "/invoice/provider-payment/v4/payments": {
@@ -268,6 +260,7 @@
     },
     "updatePaymentResult": {
       "type": "object",
+      "required" : ["status", "statusresult"],
       "properties": {
         "createdDate": {
           "type": "string",
@@ -315,7 +308,6 @@
         },
         "status": {
           "type": "string",
-          "required": true,
           "description": "Used to depict success, error or any other intermediate state, defined by SAP Concur.",
           "enum": [
             "PAID",
@@ -337,7 +329,6 @@
         "statusDate": {
           "type": "string",
           "format": "date",
-          "required": true,
           "description": "The date that the payment provider recorded this status change."
         },
         "statusMessage": {
