@@ -154,9 +154,9 @@
 - title: Invoice
   url: ''
   children:
-      - title: Retrieve Payment Request Digests v3
+      - title: Retrieve Invoice Digests v3
         url: /api-reference/invoice/v3.payment-request-digest.html
-      - title: Payment Request v3
+      - title: Invoice v3
         url: /api-reference/invoice/v3.payment-request.html
       - title: Purchase Orders v3
         url: /api-reference/invoice/v3.purchase-order.html
@@ -194,8 +194,6 @@
         url: /api-reference/travel-profile/v2.profile-service.html
       - title: Travel Profile v2 - Resource
         url: /api-reference/travel-profile/v2.profile-resource.html
-      - title: Travel Profile v2 - Form of Payment
-        url: /api-reference/travel-profile/v2.form-payment-resource.html
       - title: Travel Profile v1 - Loyalty Program
         url: /api-reference/travel-profile/v1.loyalty-program-resource.html
       - title: Travel Profile v1 - Company Notification
