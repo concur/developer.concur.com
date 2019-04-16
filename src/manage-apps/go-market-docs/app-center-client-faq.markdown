@@ -114,7 +114,7 @@ The public website experience will not display which apps the user is connected 
 
 For both the “In-Product” and public website App Center, enterprise applications will only display the app listing and the option to “Request Information” with the partner.
 
-User applications in the “in-product” App Center are also filtered by the user’s region, the Concur products your company is using (Travel, Expense, and/or Invoice), and whether or not your company has purchased TripLink.
+User applications in the “in-product” App Center are also filtered by the user’s region, the SAP Concur products your company is using (Travel, Expense, and/or Invoice), and whether or not your company has purchased TripLink.
 
 ## <a name="download"></a>I’m an Administrator. What if I don’t want my users to download an app from the SAP Concur App Center?
 
@@ -160,11 +160,15 @@ User connection apps displayed are based on the client’s product configuration
 
 ## <a name="regions"></a>Is the App Center available to all countries and regions?
 
-Yes. Regional availability will be noted in the details page of each app listing in the App Center.
+Yes. The in-product App Center is available to all countries and regions; however, the user connection apps an employee sees will be filtered to show only those available in the employee's home location and the SAP Concur products your company utilizes.
+
+The public App Center found at [concur.com/app-center] (https://www.concur.com/app-center) contains all partner applications regardless of where or with which products the app is available.
+
+Regional availability is noted in the details page of each app listing in the App Center.
 
 ![Regions Available](./app-center-client-faq-regions-available.png)
 
-Additionally, Concur is adding regional public App Centers. So far, we have pages with specially-curated apps for Japan, the UK, and Australia, with more to come. <!-- ToDo Broken Link -->
+Additionally, SAP Concur is adding regional public App Centers. So far, we have pages with specially-curated apps for Japan, the UK, and Australia, with more to come. <!-- ToDo Broken Link -->
 
 ## <a name="look"></a>What does the App Center look like?
 
