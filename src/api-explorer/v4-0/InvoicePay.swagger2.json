@@ -2,12 +2,16 @@
   "swagger": "2.0",
   "info": {
     "description": "SAP Concur partners with external payment providers for processing invoice payments. These payment providers are listed on the App Center and can integrate with the Invoice product by using the Invoice Pay APIs. Payment providers can get a list of all the payments authorized to be processed by them, and send back status of those payments.",
-    "title": "Invoice Payment Service API Documentation",
-    "version": "4.0.0"
+    "version": "4.0",
+    "title": "Invoice Payment Service API Documentation"
   },
   "host": "www.concursolutions.com",
   "basePath": "/",
   "tags": [
+    {
+    "name": "Resources",
+    "description": " "
+    },
     {
       "name": "GET Payments API",
       "description": "Gets the payment details"
@@ -18,10 +22,10 @@
     }
   ],
   "paths": {
-    "/gateway/v4/payments": {
+    "/invoice/provider-payment/v4/payments": {
       "get": {
         "tags": [
-          "GET Payments API"
+          "Resources"
         ],
         "summary": "Payment Providers can use this API to get details of payments marked to be paid by them",
         "operationId": "manyUsingGET",
@@ -48,10 +52,10 @@
         "deprecated": false
       }
     },
-    "/gateway/v4/payments/{PaymentID}": {
+    "/invoice/provider-payment/v4/payments/{PaymentId}": {
       "post": {
         "tags": [
-          "POST Payments API"
+          "Resources"
         ],
         "summary": "Payment Providers can use this API to update the status of payments made by them",
         "operationId": "oneUsingPOST",
@@ -72,9 +76,9 @@
             }
           },
           {
-            "name": "PaymentID",
+            "name": "PaymentId",
             "in": "path",
-            "description": "PaymentID",
+            "description": "PaymentId",
             "required": true,
             "type": "string"
           }
@@ -128,7 +132,7 @@
         },
         "invoiceId": {
           "type": "string",
-          "description": "Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs. Maximum 20 characters."
+          "description": "Unique identifier of the invoice in SAP Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs. Maximum 20 characters."
         },
         "invoiceNumber": {
           "type": "string",
@@ -147,9 +151,6 @@
     "payment": {
       "type": "object",
       "properties": {
-        "currency": {
-          "type": "string"
-        },
         "invoices": {
           "type": "array",
           "items": {
@@ -163,7 +164,7 @@
         },
         "paymentId": {
           "type": "string",
-          "description": "	Unique identifier of the payment in Concur. Maximum 36 characters."
+          "description": "Unique identifier of the payment in SAP Concur. Maximum 36 characters."
         },
         "paymentMethod": {
           "type": "string",
@@ -207,7 +208,7 @@
         },
         "paymentMethod": {
           "type": "string",
-          "description": "Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED Payment method used by the payment provider.",
+          "description": "Payment method used by the payment provider. Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED.",
           "enum": [
             "ACH",
             "CHECK",
@@ -270,11 +271,13 @@
       "properties": {
         "createdDate": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "The date the payment was created."
         },
         "lastModifiedDate": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "The date the payment was last modified."
         },
         "paidAmount": {
           "$ref": "#/definitions/amount"
@@ -290,7 +293,7 @@
         },
         "paymentMethod": {
           "type": "string",
-          "description": "Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED Payment method used by the payment provider.",
+          "description": "Payment method used by the payment provider. Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED.",
           "enum": [
             "ACH",
             "CHECK",
@@ -306,7 +309,7 @@
         },
         "providerReference": {
           "type": "string",
-          "description": "	Unique identifier of the payment in the payment provider's system. Maximum 100 characters.",
+          "description": "Unique identifier of the payment in the payment provider's system. Maximum 100 characters.",
           "minLength": 0,
           "maxLength": 100
         },
@@ -383,7 +386,7 @@
         },
         "email": {
           "type": "string",
-          "description": "	Email Address. Maximum 255 characters."
+          "description": "Email Address. Maximum 255 characters."
         },
         "firstName": {
           "type": "string",
