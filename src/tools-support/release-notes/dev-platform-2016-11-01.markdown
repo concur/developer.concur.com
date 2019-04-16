@@ -11,7 +11,7 @@ As described in the Feb 2016 release notes, the effective date for the deprecati
 
 **IMPORTANT:** Please ensure that you are now using the latest versions of the APIs you require.
 
-The Concur Platform deprecation policy is available [here](/tools-support/reference/deprecation-policy.html).
+The Concur Platform deprecation policy is available [here](/tools-support/deprecation-policy.html).
 
 ### Deprecated APIs and API Functions
 

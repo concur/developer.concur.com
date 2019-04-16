@@ -1,33 +1,12 @@
-- title: Support
-  url: ''
-  children:
-      - title: Request Support
-        url: /tools-support/support.html
-      - title: Partners
-        url: /tools-support/requesting-partner-support.html
-- title: Reference
-  url: ''
-  children:
-      - title: Custom List Items
-        url: /tools-support/reference/custom-list-items.html
-      - title: API Lifecycle & Deprecation Policy
-        url: /tools-support/reference/deprecation-policy.html
-      - title: Hotel Direct Connect Codes
-        url: /tools-support/reference/hotel-direct-connect-codes.html
-      - title: HTTP Codes
-        url: /tools-support/reference/http-codes.html
-      - title: Locale Codes
-        url: /tools-support/reference/locale-codes.html
-      - title: Spend Category Codes
-        url: /tools-support/reference/spend-category-codes.html
+- title: Support Options
+  url: /tools-support/support.html
+- title: Request Support (Partners)
+  url: /tools-support/requesting-partner-support.html
+- title: API Lifecycle & Deprecation Policy
+  url: /tools-support/deprecation-policy.html
 - title: Release Notes
-  url: /tools-support/release-notes/
+  url: /tools-support/release-notes/index.html
 - title: Videos
-  url: /tools-support/videos/
-- title: Tools
-  url: ''
-  children:
-      - title: acconnect Utility
-        url: /tools-support/tools/acconnect-utility.html
-      - title: Web Test Tool
-        url: /tools-support/tools/webtest.html
+  url: /tools-support/videos/index.html
+- title: Samples
+  url: /tools-support/samples/index.html

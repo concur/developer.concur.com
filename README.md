@@ -1,7 +1,7 @@
 
 # SAP Concur Developer Center (Source)
 
-This repo contains the documentation, tools and support content for the Concur API developer audience. This includes both internal and external developers.  
+This repo contains the documentation and support content for the Concur API developer audience. This includes both internal and external developers.  
 
 Changes merged to the `preview` branch can be found here: [http://preview.developer.concur.com/](http://preview.developer.concur.com/)
 

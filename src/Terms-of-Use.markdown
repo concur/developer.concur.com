@@ -179,4 +179,4 @@ The license rights granted in the foregoing clauses (a) and (b) may not be subli
 9.9   Interpretation.  This Agreement will not be construed in favor of or against any party by reason of the extent to which any party participated in the preparation of this Agreement.  This Agreement may be executed by facsimile copy and in any number of counterparts, all of which taken together will constitute one single agreement between the parties.
 
 
-### [Deprecation Policy](/tools-support/reference/deprecation-policy.html)
+### [Deprecation Policy](/tools-support/deprecation-policy.html)

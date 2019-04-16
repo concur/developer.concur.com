@@ -28,7 +28,7 @@ SAP Concur also supports an alternative type of API referred to as a Callout. Th
 
 ## Explore the APIs
 
-For the basic information on the APIs and what they do, you can check out the Swagger docs in [API Explorer](/api-explorer/). Need more in-depth information? Then the [API Reference](api-reference/) is for you. You can find information on each API using the links on the left side of the page. Finally, there are some [Integration Guides](/api-guides/) that describe specific workflows. Even if none of them maps to your use case, they’re a good way to learn how to work with the SAP Concur APIs.
+For the basic information on the APIs and what they do, you can check out the Swagger docs in [API Explorer](/api-explorer/). Need more in-depth information? You can find information on each API using the links on the left side of the page. Finally, there are some [Integration Guides](/api-guides/) that describe specific workflows. Even if none of them maps to your use case, they’re a good way to learn how to work with the SAP Concur APIs.
 
 ## Resources
 

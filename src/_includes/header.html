@@ -20,7 +20,7 @@
           <li {% if page.url == '/why-concur.html' %} class="active" {% endif %}>
             <a href="{{ site.baseurl }}/why-concur.html">Why Concur</a>
           </li>
-          <li class="dropdown {% if page.url contains '/api-reference/' or page.url contains '/api-reference-deprecated' or page.url contains '/api-explorer/' %} active {% endif %}">
+          <li class="dropdown {% if page.url contains '/api-reference/' or page.url contains '/api-explorer/' %} active {% endif %}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               API <span class="caret"></span>
             </a>
@@ -46,17 +46,14 @@
           {% else %}
           <li class="dropdown">
           {% endif %}
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Tools & Support <span class="caret"></span>
-            </a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{ site.baseurl }}/tools-support/support.html">Request Support</a></li>
-              <li><a href="{{ site.baseurl }}/tools-support/tools/webtest.html">Tools</a></li>
-              <li><a href="https://forum.developer.concur.com/">Forum</a></li>
+              <li><a href="{{ site.baseurl }}/tools-support/support.html">Support Options</a></li>
+              <li><a href="{{ site.baseurl }}/tools-support/requesting-partner-support.html">Request Support (Partners)</a></li>
               <li><a href="{{ site.baseurl }}/tools-support/release-notes/index.html">Release Notes</a></li>
               <li><a href="{{ site.baseurl }}/announcements/index.html">Announcements</a></li>
               <li><a href="{{ site.baseurl }}/tools-support/videos/index.html">Videos</a></li>
-              <li><a href="{{ site.baseurl }}/tools-support/reference/custom-list-items.html">Reference</a></li>
+              <li><a href="{{ site.baseurl }}/tools-support/samples/index.html">Samples</a></li>
             </ul>
           </li>
           <li>

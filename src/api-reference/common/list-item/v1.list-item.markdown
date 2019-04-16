@@ -86,4 +86,4 @@ To change a list item's level code, the original list item must be deleted (usin
 
 ## See also
 
-[Posting Custom List Items](/tools-support/reference/custom-list-items.html)
+[Posting Custom List Items](./custom-list-items.html)

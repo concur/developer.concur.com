@@ -1,5 +1,5 @@
 ---
-title: Cancel
+title: Direct Connect - Hotel v2 - Cancel
 layout: reference
 ---
 
