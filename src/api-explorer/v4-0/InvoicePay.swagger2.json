@@ -11,14 +11,6 @@
     {
     "name": "Resources",
     "description": " "
-    },
-    {
-      "name": "GET Payments API",
-      "description": "Gets the payment details"
-    },
-    {
-      "name": "POST Payments API",
-      "description": "Updates the payment status"
     }
   ],
   "paths": {
@@ -268,7 +260,7 @@
     },
     "updatePaymentResult": {
       "type": "object",
-      "required" : ["status", "statusresult"],
+      "required" : ["status", "statusDate"],
       "properties": {
         "createdDate": {
           "type": "string",
