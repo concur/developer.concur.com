@@ -2,25 +2,22 @@
   "swagger": "2.0",
   "info": {
     "description": "SAP Concur partners with external payment providers for processing invoice payments. These payment providers are listed on the App Center and can integrate with the Invoice product by using the Invoice Pay APIs. Payment providers can get a list of all the payments authorized to be processed by them, and send back status of those payments.",
+    "version": "4.0",
     "title": "Invoice Payment Service API Documentation"
   },
   "host": "www.concursolutions.com",
   "basePath": "/",
   "tags": [
     {
-      "name": "GET Payments API",
-      "description": "Gets the payment details"
-    },
-    {
-      "name": "POST Payments API",
-      "description": "Updates the payment status"
+      "name": "Resources",
+      "description": " "
     }
   ],
   "paths": {
-    "/gateway/v4/payments": {
+    "/provider-payment/v4/payments": {
       "get": {
         "tags": [
-          "GET Payments API"
+          "Resources"
         ],
         "summary": "Payment Providers can use this API to get details of payments marked to be paid by them",
         "operationId": "manyUsingGET",
@@ -47,10 +44,10 @@
         "deprecated": false
       }
     },
-    "/gateway/v4/payments/{PaymentID}": {
+    "/provider-payment/v4/payments/{paymentId}": {
       "post": {
         "tags": [
-          "POST Payments API"
+          "Resources"
         ],
         "summary": "Payment Providers can use this API to update the status of payments made by them",
         "operationId": "oneUsingPOST",
@@ -71,9 +68,9 @@
             }
           },
           {
-            "name": "PaymentID",
+            "name": "paymentId",
             "in": "path",
-            "description": "PaymentID",
+            "description": "paymentId",
             "required": true,
             "type": "string"
           }
