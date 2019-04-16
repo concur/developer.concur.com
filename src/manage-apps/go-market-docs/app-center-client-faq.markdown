@@ -14,6 +14,7 @@ If you have SAP Concur App Center questions not covered in this document please,
 * [How do I access the SAP Concur App Center?](#access)
 * [Who can see the SAP Concur App Center tab?](#visibility)
 * [How does SAP Concur review App Center Partners and integrations?](#review)
+* [What should I do if I cannot find an application?](#filters)
 * [How do I know the app I’m connecting with is secure?](#secure)
 * [What is “OAuth 2.0”?](#oauth)
 * [There are two sections in the App Center, “user connections” and “enterprise applications”. What’s the difference?](#user-enterprise)
@@ -69,6 +70,10 @@ Each app appearing in the App Center is reviewed by Concur before clients or end
 
 SAP Concur ensures that the partner informs the user of the type of data they will be sharing with the partner if they connect. This provides complete transparency to the user on the data they are sharing with the partner.
 
+## <a name="filters"></a> What should I do if I cannot find an application?
+
+End users will only see applications that are available in their country. If an employee is searching for an application but unable to find it, it is possible the application does not support their region. You can refer to www.concur.com/appcenter and scroll down to the "regional availability" to find out where an application is avaiable.
+
 ## <a name="secure"></a>How do I know the app I’m connecting with is secure?
 
 SAP Concur's platform enforces several layers of security:
@@ -109,7 +114,7 @@ The public website experience will not display which apps the user is connected 
 
 For both the “In-Product” and public website App Center, enterprise applications will only display the app listing and the option to “Request Information” with the partner.
 
-User applications in the “in-product” App Center are also filtered by the user’s region, the Concur products your company is using (Travel, Expense, and/or Invoice), and whether or not your company has purchased TripLink.
+User applications in the “in-product” App Center are also filtered by the user’s region, the SAP Concur products your company is using (Travel, Expense, and/or Invoice), and whether or not your company has purchased TripLink.
 
 ## <a name="download"></a>I’m an Administrator. What if I don’t want my users to download an app from the SAP Concur App Center?
 
@@ -155,11 +160,15 @@ User connection apps displayed are based on the client’s product configuration
 
 ## <a name="regions"></a>Is the App Center available to all countries and regions?
 
-Yes. Regional availability will be noted in the details page of each app listing in the App Center.
+Yes. The in-product App Center is available to all countries and regions; however, the user connection apps an employee sees will be filtered to show only those available in the employee's home location and the SAP Concur products your company utilizes.
+
+The public App Center found at [concur.com/app-center] (https://www.concur.com/app-center) contains all partner applications regardless of where or with which products the app is available.
+
+Regional availability is noted in the details page of each app listing in the App Center.
 
 ![Regions Available](./app-center-client-faq-regions-available.png)
 
-Additionally, Concur is adding regional public App Centers. So far, we have pages with specially-curated apps for Japan, the UK, and Australia, with more to come. <!-- ToDo Broken Link -->
+Additionally, SAP Concur is adding regional public App Centers. So far, we have pages with specially-curated apps for Japan, the UK, and Australia, with more to come. <!-- ToDo Broken Link -->
 
 ## <a name="look"></a>What does the App Center look like?
 
