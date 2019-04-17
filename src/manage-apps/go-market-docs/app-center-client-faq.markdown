@@ -160,9 +160,9 @@ User connection apps displayed are based on the client’s product configuration
 
 ## <a name="regions"></a>Is the App Center available to all countries and regions?
 
-Yes. The in-product App Center is available to all countries and regions; however, the user connection apps an employee sees will be filtered to show only those available in the employee's home location and the SAP Concur products your company utilizes.
+Yes. The App Center within the SAP Concur product is available to all countries and regions; however, the user connection apps an employee sees will be filtered to show only those available in the employee's home location and the SAP Concur products your company utilizes.
 
-The public App Center found at [concur.com/app-center] (https://www.concur.com/app-center) contains all partner applications regardless of where or with which products the app is available.
+The public App Center found at www.concur.com/appcenter contains all partner applications regardless of where or with which products the app is available.
 
 Regional availability is noted in the details page of each app listing in the App Center.
 
