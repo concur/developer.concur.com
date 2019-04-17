@@ -59,11 +59,6 @@ As sensitive data and payment card details are transferred via API, the Hotel Su
 #### HTTPS
 SAP Concur prefers to use the newer TLS 1.2, however TLS 1.1 is still supported. TLS 1.0 is **not** supported. The Hotel Supplier will provide SAP Concur HTTPS URL of its end-point. Standard HTTPS port 443 should be used.
 
-#### Concur IP Ranges
-
-*Check with SM to see if we already have a publicly available list of IPs suppliers/vendors have to white-list.*
-
-
 ## <a name="urls"></a>URLs
 SAP Concur will receive a single URL from the Hotel Supplier. All requests will go to that URL.
 
