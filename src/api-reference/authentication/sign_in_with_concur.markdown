@@ -194,7 +194,7 @@ Connection: Close
 
 **4. Retrieve User Profile information**
 
-Once the partner completes the oauth2 flow, they receive an `access_token` and `refresh_token`. Using the `access_token` and within the hour lifetime of the token, the partner has the ability to call Concur's APIs.Your application may call Concur's Profile API to obtain user information in order to provision an account in the partner's application.
+Once the partner completes the oauth2 flow, they receive an `access_token` and `refresh_token`. Using the `access_token` and within the hour lifetime of the token, the partner has the ability to call SAP Concur's APIs.  Your application may call SAP Concur's Profile API to obtain user information in order to provision an account in the partner's application.
 
 *TripLink Suppliers see the appendix for more details.*
 
@@ -289,17 +289,23 @@ When an application supports enterprise integrations, the user's account should 
 In addition, the administrator will need to identify the users which should have access to your application. Given that, the administrator must first add users to your service. An example of the set up and sign in process are documented below.
 
 ### Sign in with Concur Set Up
-To set up the connection, the administrator must identify the users of your service. Your application may also require that roles/permissions be assigned to individual users to determine access to various features and functionality of your service. Users must then verify their identity before first sign in. 
+To set up the connection, the administrator must identify the users of your service. Your application may also require that roles/permissions be assigned to individual users to determine access to various features and functionality of your service. 
+
+Users must then verify their identity before first sign in. This process uses the [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) to first validate the user is the owner of the email address used to uniquely identify that individual. Once validated, the user may sign in with username and password going forward.
 
 The below diagram illustrates the initial set up process.
 
+![set_up_diagram](sign_in_with_concur_images/sign_in_with_concur_set_up.jpg)
 
 ### Signing in to the Client Application
 When a user first navigates to your application, you may offer multiple sign in options, including Sign in with Concur.
 Once signed in, your application must validate that users have completed the one-time verification. 
 
+If the user has not completed the one-time verification when visiting your site, the [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) should be initiated on the user's behalf.
+
 The below illustrates the process for users signing in to your service.
 
+![sign_in_diagram](sign_in_with_concur_images/signing_in_to_client_application.jpg)
 
 ## <a name="triplink_configurations"></a>TripLink Configurations
 
