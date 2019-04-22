@@ -67,7 +67,7 @@ _Back office applications_
 _Select_ **Sign in with Concur** _from the site login menu_
 
 
- ![login screen sample](sign_in_with_concur_images/login_screen_sample.png)
+ ![login screen sample](sign-in-with-concur-images/login-screen-sample.png)
 
 
 _Pick Authentication Option_
@@ -75,7 +75,7 @@ _Pick Authentication Option_
 Single-sign on users can utilize the "Send a link to my email" option.
 
 
- ![sign in](sign_in_with_concur_images/authorization_grant_sign_in.png)
+ ![sign in](sign-in-with-concur-images/authorization-grant-sign-in.png)
 
 
 _If the user selects "One-time Link":_
@@ -83,25 +83,25 @@ _If the user selects "One-time Link":_
 _Enter Email address_
 
 
- ![sign in email option](sign_in_with_concur_images/authorization_grant_sign_in_email.png)
+ ![sign in email option](sign-in-with-concur-images/authorization-grant-sign-in-email.png)
 
 
 _Confirmation page_
 
 
- ![email confirmation](sign_in_with_concur_images/authorization_grant_email_confirmation.png)
+ ![email confirmation](sign-in-with-concur-images/authorization-grant-email-confirmation.png)
 
 
 _Email example_
 
 
-![email sample](sign_in_with_concur_images/authorization_grant_email_sample.png)
+![email sample](sign-in-with-concur-images/authorization-grant-email-sample.png)
 
 
 _If the user selects "Enter Concur Credentials":_
 
 
- ![sign in username and password option](sign_in_with_concur_images/authorization_grant_username_password.png)
+ ![sign in username and password option](sign-in-with-concur-images/authorization-grant-username-password.png)
 
 
 
@@ -110,7 +110,7 @@ _Complete!_
 _For both authentication flows, once authorized, the account is provisioned and user is logged in_
 
 
- ![sign in complete](sign_in_with_concur_images/sign_in_with_concur_complete.png)
+ ![sign in complete](sign-in-with-concur-images/sign-in-with-concur-complete.png)
 
 # <a name="getting_started"></a>Getting Started
 
@@ -144,7 +144,7 @@ OR
 
 Option 2 is designed for users who do not want to use passwords or those that do not have passwords such as Single Sign On (SSO) users.
 
- ![sign in email option](sign_in_with_concur_images/authorization_grant_sign_in_email.png)
+ ![sign in email option](sign-in-with-concur-images/authorization-grant-sign-in-email.png)
 
 **3. Handle Authorization Completion**
 
@@ -295,7 +295,7 @@ Note that, in addition to identifying users of the service, your application may
 
 Once added to the service, users must then verify their identity before first sign in. This process uses the [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) to first validate the user is the owner of the email address used to uniquely identify that individual. Once validated, the user may sign in with username and password going forward.
 
-![set_up_diagram](sign_in_with_concur_images/sign-in-with-concur-set-up.jpg)
+![set_up_diagram](sign-in-with-concur-images/sign-in-with-concur-set-up.jpg)
 
 ### Signing in to the Client Application
 When a user first navigates to your application, you may offer multiple sign in options, including Sign in with Concur.
@@ -305,7 +305,7 @@ If the user has not completed the one-time verification when visiting your site,
 
 The below illustrates the process for users signing in to your service.
 
-![sign_in_diagram](sign_in_with_concur_images/signing-in-to-client-application.jpg)
+![sign_in_diagram](sign-in-with-concur-images/signing-in-to-client-application.jpg)
 
 ## <a name="triplink_configurations"></a>TripLink Configurations
 
