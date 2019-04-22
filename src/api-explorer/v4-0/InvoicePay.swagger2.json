@@ -2,19 +2,15 @@
   "swagger": "2.0",
   "info": {
     "description": "SAP Concur partners with external payment providers for processing invoice payments. These payment providers are listed on the App Center and can integrate with the Invoice product by using the Invoice Pay APIs. Payment providers can get a list of all the payments authorized to be processed by them, and send back status of those payments.",
-    "title": "Invoice Payment Service API Documentation",
-    "version": "4.0"
+    "version": "4.0",
+    "title": "Invoice Payment Service API Documentation"
   },
   "host": "www.concursolutions.com",
   "basePath": "/",
   "tags": [
     {
-      "name": "GET Payments API",
-      "description": "Gets the payment details"
-    },
-    {
-      "name": "POST Payments API",
-      "description": "Updates the payment status"
+    "name": "Resources",
+    "description": " "
     }
   ],
   "paths": {
@@ -160,7 +156,7 @@
         },
         "paymentId": {
           "type": "string",
-          "description": "	Unique identifier of the payment in SAP Concur. Maximum 36 characters."
+          "description": "Unique identifier of the payment in SAP Concur. Maximum 36 characters."
         },
         "paymentMethod": {
           "type": "string",
@@ -189,6 +185,7 @@
     },
     "updatePayment": {
       "type": "object",
+      "required" : ["status", "statusDate"],
       "properties": {
         "paidAmount": {
           "$ref": "#/definitions/amount"
@@ -264,6 +261,7 @@
     },
     "updatePaymentResult": {
       "type": "object",
+      "required" : ["status", "statusDate"],
       "properties": {
         "createdDate": {
           "type": "string",
@@ -305,13 +303,12 @@
         },
         "providerReference": {
           "type": "string",
-          "description": "	Unique identifier of the payment in the payment provider's system. Maximum 100 characters.",
+          "description": "Unique identifier of the payment in the payment provider's system. Maximum 100 characters.",
           "minLength": 0,
           "maxLength": 100
         },
         "status": {
           "type": "string",
-          "required": true,
           "description": "Used to depict success, error or any other intermediate state, defined by SAP Concur.",
           "enum": [
             "PAID",
@@ -333,7 +330,6 @@
         "statusDate": {
           "type": "string",
           "format": "date",
-          "required": true,
           "description": "The date that the payment provider recorded this status change."
         },
         "statusMessage": {
