@@ -295,7 +295,7 @@ Note that, in addition to identifying users of the service, your application may
 
 Once added to the service, users must then verify their identity before first sign in. This process uses the [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) to first validate the user is the owner of the email address used to uniquely identify that individual. Once validated, the user may sign in with username and password going forward.
 
-![set_up_diagram](sign_in_with_concur_images/sign_in_with_concur_set_up.jpg)
+![set_up_diagram](sign_in_with_concur_images/sign-in-with-concur-set-up.jpg)
 
 ### Signing in to the Client Application
 When a user first navigates to your application, you may offer multiple sign in options, including Sign in with Concur.
@@ -305,7 +305,7 @@ If the user has not completed the one-time verification when visiting your site,
 
 The below illustrates the process for users signing in to your service.
 
-![sign_in_diagram](sign_in_with_concur_images/signing_in_to_client_application.jpg)
+![sign_in_diagram](sign_in_with_concur_images/signing-in-to-client-application.jpg)
 
 ## <a name="triplink_configurations"></a>TripLink Configurations
 
