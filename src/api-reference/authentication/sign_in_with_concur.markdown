@@ -282,18 +282,18 @@ This section covers guidelines for specific Sign in with Concur implementations.
 
 ## <a name="enterprise_applications"></a>Enterprise Applications
 
-Company-wide integrations are unique in that your application will interact with SAP Concur both on a batch level (POST for multiple employees) but also allow individuals to sign in to the service without creating a new account.
+Company-wide integrations are unique in that your application will interact with SAP Concur both on a batch level (for example, GET or POST for multiple employees) but also allow individuals to sign in to the service without creating a new account.
 
 When an application supports enterprise integrations, the user's account should be associated with the company's information (company UUID) so that the company token can be used to process batch transactions.
 
 In addition, the administrator will need to identify the users which should have access to your application. Given that, the administrator must first add users to your service. An example of the set up and sign in process are documented below.
 
 ### Sign in with Concur Set Up
-To set up the connection, the administrator must identify the users of your service. Your application may also require that roles/permissions be assigned to individual users to determine access to various features and functionality of your service. 
+The below diagram illustrates the initial set up process. To set up the connection, the administrator must identify the users of your service. 
 
-Users must then verify their identity before first sign in. This process uses the [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) to first validate the user is the owner of the email address used to uniquely identify that individual. Once validated, the user may sign in with username and password going forward.
+Note that, in addition to identifying users of the service, your application may also require that roles/permissions be assigned to individual users to determine access to various features and functionality of your service. Role and permissions assignment are not depicted in the diagram below as the requirements may differ for each client application.
 
-The below diagram illustrates the initial set up process.
+Once added to the service, users must then verify their identity before first sign in. This process uses the [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) to first validate the user is the owner of the email address used to uniquely identify that individual. Once validated, the user may sign in with username and password going forward.
 
 ![set_up_diagram](sign_in_with_concur_images/sign_in_with_concur_set_up.jpg)
 
