@@ -233,9 +233,9 @@ In all cases, the user's token, geolocation and user UUID should be stored.  As 
 
 Once the account is provisioned or matched, the application must:
 
-- Maintain the tokens for future use. To maintain the connection, please see the  [token refresh documentation](/api-reference/authentication/apidoc.html#refresh_token).
 - [Provide the option to disconnect](/api-reference/authentication/apidoc.html#revoke_token)
-- Keep the user signed in. If your application has a valid (not expired) refresh token, the user should remain signed in. Your application may create a cookie with the refresh token to bypass sign in on future visits.
+- Maintain the user's session.  Once the session is established, your application's typical session maintenance should be observed. This includes idle timeout and session refresh, where applicable. The issued token will have a predetermined expiration. To maintain the connection, please see the  [token refresh documentation](/api-reference/authentication/apidoc.html#refresh_token).
+
 
 # <a name="error_handling"></a>Error Handling
 
@@ -282,10 +282,23 @@ This section covers guidelines for specific Sign in with Concur implementations.
 
 ## <a name="enterprise_applications"></a>Enterprise Applications
 
-Company-wide integrations are unique in that your application will interact with Concur both on a batch level (POST for multiple employees) but also allow individuals to sign in to the service without creating a new account.
+Company-wide integrations are unique in that your application will interact with SAP Concur both on a batch level (POST for multiple employees) but also allow individuals to sign in to the service without creating a new account.
 
 When an application supports enterprise integrations, the user's account should be associated with the company's information (company UUID) so that the company token can be used to process batch transactions.
 
+In addition, the administrator will need to identify the users which should have access to your application. Given that, the administrator must first add users to your service. An example of the set up and sign in process are documented below.
+
+### Sign in with Concur Set Up
+To set up the connection, the administrator must identify the users of your service. Your application may also require that roles/permissions be assigned to individual users to determine access to various features and functionality of your service. Users must then verify their identity before first sign in. 
+
+The below diagram illustrates the initial set up process.
+
+
+### Signing in to the Client Application
+When a user first navigates to your application, you may offer multiple sign in options, including Sign in with Concur.
+Once signed in, your application must validate that users have completed the one-time verification. 
+
+The below illustrates the process for users signing in to your service.
 
 
 ## <a name="triplink_configurations"></a>TripLink Configurations
