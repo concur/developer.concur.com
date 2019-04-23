@@ -72,7 +72,7 @@ A user at your company with the appropriate permissions is required to activate 
 
 ### Step 1: Create & Transfer Credentials
 
-> Note: This step can be completed by your own authorized SAP Concur Administrator. It is important that this Web Services Admin User Profile is not the same as any actual user of the system. **If an actual user’s credentials are utilized for this purpose and they leave the company, the applications will no longer function**.
+> Note: This step can be completed by your own authorized SAP Concur Administrator. That individual must have the ability to authorize data sharing on behalf of your company. It is important that this Web Services Admin User Profile is not the same as any actual user of the system. **If an actual user’s credentials are utilized for this purpose and they leave the company, the applications will no longer function**.
 
 #### How to Create a WSAdmin User Profile in Concur Standard Edition
 
