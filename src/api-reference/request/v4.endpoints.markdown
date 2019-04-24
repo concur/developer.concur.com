@@ -720,14 +720,14 @@ href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the res
 Name|Type|Format|Description
 ---|---|---|---
 code|string|-|The short code of the list item
-value|string|-|Name of the Expense type
+value|string|-|Name of the list item
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for the list item
 
 ### <a name="schema-segmentleg"></a>Segment Leg
 
 Name|Type|Format|Description
 ---|---|---|---
-class|list|[List Item Field](#schema-listitemfield)|The booking class of the segment leg, class part of the CLASS_LI_KEY table.
+class|list|[List Item Field](#schema-listitemfield)|The booking class of the segment leg.
 classOfService|string|-|The class of service of the segment leg. For example, in the case of an air segment, this field would contain the one-letter booking code: Y for economy class, or F for first class...
 comment|string|-|Contains the last comment saved in this segment leg.
 custom1 to custom40|object|[CustomField](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration
