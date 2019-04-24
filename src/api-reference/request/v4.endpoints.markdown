@@ -720,7 +720,7 @@ href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the res
 Name|Type|Format|Description
 ---|---|---|---
 code|string|-|The short code of the list item
-value|string|-|Name of the Expense type
+value|string|-|Name of the list item
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for the list item
 
 ### <a name="schema-segmentleg"></a>Segment Leg
