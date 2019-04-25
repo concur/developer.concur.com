@@ -297,7 +297,7 @@ Name|Type|Format|Description
 `LastComment`|`string`|-|The text of the most recent comment on the report.
 `LastModifiedDate`|`DateTime`|-|The date the report header was last modified.
 `LedgerName`|`string`|-|The name of the expense report ledger. Maximum 20 characters.
-`Name`|`string`|-|The name of the report.
+`Name`|`string`|-| *Required* The name of the report.
 `OrgUnit1 through OrgUnit6`|`CustomField`|-|The details from the Org Unit fields. These may not have data, depending on configuration.
 `OwnerLoginID`|`string`|-|The Login ID of the user this report belongs to.
 `OwnerName`|`string`|-|The name of the expense report owner.
