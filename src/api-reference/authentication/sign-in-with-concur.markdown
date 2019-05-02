@@ -3,6 +3,7 @@ title: Sign in with Concur
 layout: reference
 ---
 
+{% include prerelease.html %}
 
 # Sign in with Concur
 
@@ -67,7 +68,7 @@ _Back office applications_
 _Select_ **Sign in with Concur** _from the site login menu_
 
 
- ![login screen sample](sign_in_with_concur_images/login_screen_sample.png)
+ ![login screen sample](sign-in-with-concur-images/login-screen-sample.png)
 
 
 _Pick Authentication Option_
@@ -75,7 +76,7 @@ _Pick Authentication Option_
 Single-sign on users can utilize the "Send a link to my email" option.
 
 
- ![sign in](sign_in_with_concur_images/authorization_grant_sign_in.png)
+ ![sign in](sign-in-with-concur-images/authorization-grant-sign-in.png)
 
 
 _If the user selects "One-time Link":_
@@ -83,25 +84,25 @@ _If the user selects "One-time Link":_
 _Enter Email address_
 
 
- ![sign in email option](sign_in_with_concur_images/authorization_grant_sign_in_email.png)
+ ![sign in email option](sign-in-with-concur-images/authorization-grant-sign-in-email.png)
 
 
 _Confirmation page_
 
 
- ![email confirmation](sign_in_with_concur_images/authorization_grant_email_confirmation.png)
+ ![email confirmation](sign-in-with-concur-images/authorization-grant-email-confirmation.png)
 
 
 _Email example_
 
 
-![email sample](sign_in_with_concur_images/authorization_grant_email_sample.png)
+![email sample](sign-in-with-concur-images/authorization-grant-email-sample.png)
 
 
 _If the user selects "Enter Concur Credentials":_
 
 
- ![sign in username and password option](sign_in_with_concur_images/authorization_grant_username_password.png)
+ ![sign in username and password option](sign-in-with-concur-images/authorization-grant-username-password.png)
 
 
 
@@ -110,7 +111,7 @@ _Complete!_
 _For both authentication flows, once authorized, the account is provisioned and user is logged in_
 
 
- ![sign in complete](sign_in_with_concur_images/sign_in_with_concur_complete.png)
+ ![sign in complete](sign-in-with-concur-images/sign-in-with-concur-complete.png)
 
 # <a name="getting_started"></a>Getting Started
 
@@ -144,7 +145,7 @@ OR
 
 Option 2 is designed for users who do not want to use passwords or those that do not have passwords such as Single Sign On (SSO) users.
 
- ![sign in email option](sign_in_with_concur_images/authorization_grant_sign_in_email.png)
+ ![sign in email option](sign-in-with-concur-images/authorization-grant-sign-in-email.png)
 
 **3. Handle Authorization Completion**
 
@@ -194,7 +195,7 @@ Connection: Close
 
 **4. Retrieve User Profile information**
 
-Once the partner completes the oauth2 flow, they receive an `access_token` and `refresh_token`. Using the `access_token` and within the hour lifetime of the token, the partner has the ability to call Concur's APIs.Your application may call Concur's Profile API to obtain user information in order to provision an account in the partner's application.
+Once the partner completes the oauth2 flow, they receive an `access_token` and `refresh_token`. Using the `access_token` and within the hour lifetime of the token, the partner has the ability to call SAP Concur's APIs.  Your application may call SAP Concur's Profile API to obtain user information in order to provision an account in the partner's application.
 
 *TripLink Suppliers see the appendix for more details.*
 
@@ -233,9 +234,9 @@ In all cases, the user's token, geolocation and user UUID should be stored.  As 
 
 Once the account is provisioned or matched, the application must:
 
-- Maintain the tokens for future use. To maintain the connection, please see the  [token refresh documentation](/api-reference/authentication/apidoc.html#refresh_token).
 - [Provide the option to disconnect](/api-reference/authentication/apidoc.html#revoke_token)
-- Keep the user signed in. If your application has a valid (not expired) refresh token, the user should remain signed in. Your application may create a cookie with the refresh token to bypass sign in on future visits.
+- Maintain the user's session.  Once the session is established, your application's typical session maintenance should be observed. This includes idle timeout and session refresh, where applicable. The issued token will have a predetermined expiration. To maintain the connection, please see the  [token refresh documentation](/api-reference/authentication/apidoc.html#refresh_token).
+
 
 # <a name="error_handling"></a>Error Handling
 
@@ -282,11 +283,30 @@ This section covers guidelines for specific Sign in with Concur implementations.
 
 ## <a name="enterprise_applications"></a>Enterprise Applications
 
-Company-wide integrations are unique in that your application will interact with Concur both on a batch level (POST for multiple employees) but also allow individuals to sign in to the service without creating a new account.
+Company-wide integrations are unique in that your application will interact with SAP Concur both on a batch level (for example, GET or POST for multiple employees) but also allow individuals to sign in to the service without creating a new account.
 
 When an application supports enterprise integrations, the user's account should be associated with the company's information (company UUID) so that the company token can be used to process batch transactions.
 
+In addition, the administrator will need to identify the users which should have access to your application. Given that, the administrator must first add users to your service. An example of the set up and sign in process are documented below.
 
+### Sign in with Concur Set Up
+The below diagram illustrates the initial set up process. To set up the connection, the administrator must identify the users of your service. 
+
+Note that, in addition to identifying users of the service, your application may also require that roles/permissions be assigned to individual users to determine access to various features and functionality of your service. Role and permissions assignment are not depicted in the diagram below as the requirements may differ for each client application.
+
+Once added to the service, users must then verify their identity before first sign in. This process uses the [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) to first validate the user is the owner of the email address used to uniquely identify that individual. Once validated, the user may sign in with username and password going forward.
+
+![set_up_diagram](sign-in-with-concur-images/sign-in-with-concur-set-up.jpg)
+
+### Signing in to the Client Application
+When a user first navigates to your application, you may offer multiple sign in options, including Sign in with Concur.
+Once signed in, your application must validate that users have completed the one-time verification. 
+
+If the user has not completed the one-time verification when visiting your site, the [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) should be initiated on the user's behalf.
+
+The below illustrates the process for users signing in to your service.
+
+![sign_in_diagram](sign-in-with-concur-images/signing-in-to-client-application.jpg)
 
 ## <a name="triplink_configurations"></a>TripLink Configurations
 

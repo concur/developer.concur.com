@@ -61,7 +61,7 @@ Leads will be sent to the partner from Concur marketing automation tool Marketo.
 
 1. Verify the lead email address provided in the App Center Listing Form to receive leads is correct.
 1. Provide their IT team the following details to whitelist the Concur IP address and place Concur on the safe sender list.
-  1. Email From Address: appcenterreferral@concur.com
+  1. Email From Address: appcenterreferral@sap.com
   1. From Sender: Concur App Center Referral
   1. Subject: AppCenter Inquiry Submission
   1. Domain: et.concur.com, concur.com
