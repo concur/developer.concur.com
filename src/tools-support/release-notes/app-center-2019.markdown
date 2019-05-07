@@ -6,7 +6,7 @@ layout: reference
 * [January](#january)
 * [March](#march)
 * [April](#april)
-
+* [May](#may)
 
 ## <a name="january"></a>January 2019
 
@@ -253,3 +253,56 @@ By connecting your Concur account with Parken+, you can easily submit your expen
 
 Parken+ works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Parken+ integration, visit
 [http://www.parken.plus/](http://www.parken.plus/).
+
+## <a name="may"></a>May 2019
+
+* [Apps for Me / User Connection Apps Now Available](#apps-for-me-connection-now-available-may)
+  * [LoungeBuddy Removed from the App Center](#loungebuddy-may)
+  * [Uber Application Updated – Now Available in the EMEA Data Center](#uber-may)
+* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-may)
+  * [Parken+](#parken+-may)
+
+### <a href="apps-for-me-connection-now-available-may"></a>Apps for Me / User Connection Apps Now Available
+
+### <a name="loungebuddy-may"></a>LoungeBuddy Removed from the App Center
+
+![LoungeBuddy Logo](./app-center-2019-05-07-loungebuddy-logo.png)
+
+LoungeBuddy has been acquired by American Express. The integration with Concur Travel has been discontinued and will no longer be available after May 15th, 2019.
+
+Read more about the acquisition [here](https://about.americanexpress.com/press-release/consumer-charge-cards/american-express-acquire-loungebuddy).
+
+### <a name="uber-may"></a>Uber Application Updated– Now Available in the EMEA Data Centervailable in the EMEA Data Center
+
+![Uber Logo](./app-center-2019-05-07-uber-logo.png)
+
+The Uber user connection application has been updated to the latest SAP Concur Receipts API.
+
+Benefits of the integration include:
+* Now available for clients hosted in the EMEA Data Center in addition to the US Data Center
+* Detailed digital e-receipts automatically sent to Concur Expense
+* Expenses are matched to associated corporate card transactions
+* All standard expense fields are pre-populated with data
+
+**Existing users who connected to Uber via the SAP Concur App Center:** no immediate action is required.
+
+**Users who connected accounts by adding a Concur Business Profile in the Uber app:** While your receipts are still being forwarded into Concur Expense as usual, you should connect to Uber in the [SAP Concur App Center](https://www.concur.com/app-center) to enjoy the full integration and benefits.
+
+**New users:** To connect your account, visit Uber in the [SAP Concur App Center](https://www.concur.com/app-center) and click “Connect.”
+
+## <a name="apps-for-me-connection-coming-soon-may"></a>Apps for Me / User Connection Apps Coming Soon
+
+### <a name="parken+-may"></a>Parken+
+
+![Parken+ Logo](./app-center-2019-01-01-parken-logo.png)
+
+With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
+
+* See all the available parking spots near you with the click of a button.
+* In-app navigation will guide you to any parking spot you desire.
+* Book parking spots at any time.
+* Pay for parking and save all your receipts in the app.
+
+By connecting your Concur account with Parken+, you can easily submit your expense receipts directly to SAP Concur. Save time & money by using Parken+!
+
+Parken+ works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Parken+ integration, visit [http://www.parken.plus/](http://www.parken.plus/).
