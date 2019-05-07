@@ -279,10 +279,11 @@ Read more about the acquisition [here](https://about.americanexpress.com/press-r
 The Uber user connection application has been updated to the latest SAP Concur Receipts API.
 
 Benefits of the integration include:
-* Now available for clients hosted in the EMEA Data Center in addition to the North America Data Center
-* Detailed digital e-receipts automatically sent to Concur Expense
-* Expenses are matched to associated corporate card transactions
-* All standard expense fields are pre-populated with data
+
+* Now available for clients hosted in the EMEA Data Center in addition to the North America Data Center.
+* Detailed digital e-receipts automatically sent to Concur Expense.
+* Expenses are matched to associated corporate card transactions.
+* All standard expense fields are pre-populated with data.
 
 **Existing users who connected to Uber via the SAP Concur App Center:** no immediate action is required.
 
