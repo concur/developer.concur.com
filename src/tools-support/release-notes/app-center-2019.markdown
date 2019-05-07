@@ -204,7 +204,7 @@ Parken+ works with Expense for Concur Standard and Expense for Concur Profession
 
 ![DiDi Enterprise Solutions Logo](./app-center-2019-04-09-didienterprisesolutions-logo.png)
 
-*The DiDi integration will be updated to the SAP Concur Receipts v4 API and will be available on the EU Data Center and China Data Center, in addition to the US Data Center. No action is required from existing users. New users on all Data Centers can connect to DiDi in the [SAP Concur App Center](https://www.concur.com/app-center/listings/576c6598c144f515002e4fea).*
+*The DiDi integration will be updated to the SAP Concur Receipts v4 API and will be available on the EU Data Center and China Data Center, in addition to the North America Data Center. No action is required from existing users. New users on all Data Centers can connect to DiDi in the [SAP Concur App Center](https://www.concur.com/app-center/listings/576c6598c144f515002e4fea).*
 
 DiDi Enterprise Solutions (DiDi ES) is a market leader dedicated to offering business travel services and expense management solutions to corporate clients.
 
@@ -272,14 +272,14 @@ LoungeBuddy has been acquired by American Express. The integration with Concur T
 
 Read more about the acquisition [here](https://about.americanexpress.com/press-release/consumer-charge-cards/american-express-acquire-loungebuddy).
 
-### <a name="uber-may"></a>Uber Application Updated– Now Available in the EMEA Data Centervailable in the EMEA Data Center
+### <a name="uber-may"></a>Uber Application Updated– Now Available in the EMEA Data Center
 
 ![Uber Logo](./app-center-2019-05-07-uber-logo.png)
 
 The Uber user connection application has been updated to the latest SAP Concur Receipts API.
 
 Benefits of the integration include:
-* Now available for clients hosted in the EMEA Data Center in addition to the US Data Center
+* Now available for clients hosted in the EMEA Data Center in addition to the North America Data Center
 * Detailed digital e-receipts automatically sent to Concur Expense
 * Expenses are matched to associated corporate card transactions
 * All standard expense fields are pre-populated with data
