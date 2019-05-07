@@ -5,7 +5,7 @@ layout: reference
 
 ### 2019-05-10 :: Expense API Release Notes Published
 
-Concur has published release notes for the Quick Expense v3 and Quick Expense v4 APIs in the May 2019 release notes. More details can be found on the [Release Notes](./tools-support/release-notes/index.html) page.
+SAP Concur has published release notes for the Quick Expense v3 and Quick Expense v4 APIs in the May 2019 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
 
 ### 2019-04-08 :: SAP Concur Developer Center Forum Retirement
 
