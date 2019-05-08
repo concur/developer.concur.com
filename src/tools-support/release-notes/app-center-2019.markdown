@@ -260,7 +260,6 @@ Parken+ works with Expense for Concur Standard and Expense for Concur Profession
   * [LoungeBuddy Removed from the App Center](#loungebuddy-may)
   * [Uber Application Updated – Now Available in the EMEA Data Center](#uber-may)
 * [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-may)
-  * [Parken+](#parken+-may)
 
 ### <a href="apps-for-me-connection-now-available-may"></a>Apps for Me / User Connection Apps Now Available
 
@@ -293,17 +292,4 @@ Benefits of the integration include:
 
 ## <a name="apps-for-me-connection-coming-soon-may"></a>Apps for Me / User Connection Apps Coming Soon
 
-### <a name="parken+-may"></a>Parken+
-
-![Parken+ Logo](./app-center-2019-01-01-parken-logo.png)
-
-With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
-
-* See all the available parking spots near you with the click of a button.
-* In-app navigation will guide you to any parking spot you desire.
-* Book parking spots at any time.
-* Pay for parking and save all your receipts in the app.
-
-By connecting your Concur account with Parken+, you can easily submit your expense receipts directly to SAP Concur. Save time & money by using Parken+!
-
-Parken+ works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Parken+ integration, visit [http://www.parken.plus/](http://www.parken.plus/).
+None this month.
