@@ -13,7 +13,7 @@ redirect_from:
 * **Partners** have two choices depending on the scenario.
   * Alliance Team assistance - Partners should first contact their Alliance Manager or the [Alliance Team](mailto:concur_AppCenterAlliance@sap.com) for assistance that is not related to production app technical issues.
   * [Technical Support ticketing](/tools-support/requesting-partner-support.html) - select this option to log a support case related to the operation of your certified, production application.
-* **Company Administrators** access the [FAQ](https://www.concur.com/en-us/support) and other resources to get the help you need.
+* **Company Administrators** access the [FAQ and other resources](https://www.concur.com/en-us/support) to get the help you need.
 * **Individual Users** of SAP Concur products should request assistance from their company's internal help desk or their company's SAP Concur administrator.
 
 ## Maintenance Schedule
