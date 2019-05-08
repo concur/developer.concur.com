@@ -3,12 +3,7 @@ title: Itinerary Web Service (TMC/Third-Party)
 layout: reference
 ---
 
-
-# Itinerary Web Service (TMC & Third-Party)
-
-
-The Concur Itinerary Web Service allows Travel Management Companies (TMC) and third-party developers to view and create travel related events in the Concur Travel system. TMCs can post bookings for any travel type. This web service can also be used by third party developers to request trip information for Concur users. This web service is designed for use by TMCs or third party developers. The public Itinerary XSD can be found [here.](/api-reference/travel/itinerary/ItinServices_Public_0.xsd)  In addition, the GetList XSD can be found [here.](/api-reference/travel/itinerary/GetListOfItinerariesImport_v1_1.xsd)
-
+The SAP Concur Itinerary Web Service allows Travel Management Companies (TMC), SAP Concur clients, and third-party developers to view and create travel related events in the Concur Travel system. TMCs can post bookings for any travel type. This web service can also be used by SAP Concur clients and third-party developers to request trip information for SAP Concur users. The public Itinerary XSD can be found [here.](/api-reference/travel/itinerary/ItinServices_Public_0.xsd)  In addition, the GetList XSD can be found [here.](/api-reference/travel/itinerary/GetListOfItinerariesImport_v1_1.xsd)
 
 * [GET List of Itineraries](#getlist)
 * [GET Itinerary Details](#getdetails)
@@ -18,14 +13,11 @@ The Concur Itinerary Web Service allows Travel Management Companies (TMC) and th
 * [POST Booking Cancellation](#cancel)
 * [Booking Object Elements](#objects)
 
-
 ##  <a name="getlist"></a>GET List of Itineraries
-
 
 Retrieves trip summaries for the traveler specified in the OAuth token. This endpoint can also be used to get details for trips for a different user or the whole company. This is most often done when a Travel Management Company needs to get a list of trips on behalf of a user or company. During the request, a user with one of the following user roles from the user's company must authenticate through OAuth: Web Services Administrator for Professional, or Can Administer for Standard.
 
 The response for this function can be divided into pages for easier processing.
-
 
 ### Parameters
 
@@ -38,12 +30,13 @@ Name |  Description
 `createdBeforeDate****={_date_}` | The URL-encoded UTC date for when the trip was created. The query string will return trips created on or before this date. Used with the createdAfterDate for finding trips created during a date range. Format: YYYY-MM-DD.
 `lastModifiedDate****={_date_}` | The last modified UTC date of the trips and any their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time. The provided date/time can be anytime between now and the first date of trip creation in the database. The format is either the date or the date and time combined.
 `bookingType={_type_}` | The trip includes at least one booking of this type. Format: Air, Car, Dining, Hotel, Parking, Rail, or Ride
-`userid_type=login&userid_value=_{loginID}_` | The loginID is the user's Concur login ID. The userid_value of ALL can be sent to get trip summaries for all users at the company. The userid_type and userid_value parameters can only be used if the OAuth consumer has one of the user roles listed above.
+`userid_type=login&userid_value=_{loginID}_` | The loginID is the user's SAP Concur login ID. The userid_value of ALL can be sent to get trip summaries for all users at the company. The userid_type and userid_value parameters can only be used if the OAuth consumer has one of the user roles listed above.
 `includeMetadata=true&ItemsPerPage={_number_}&Page={_number_}` |  The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters will cause the response to be divided into pages. The response will be wrapped in a **ConcurResponse** parent element, with both the response details and the paging metadata included. The details of the response are here. If the ItemsPerPage query parameter is not sent, the response will default to 200 if the Page query parameter is sent, or 1000 if the Page query parameter is not set. If the Page query parameter is not sent, the response will default to page 1.
 `includeVirtualTrip=_1_` |  Virtual trips are segments booked offline through the Travel Request product. Set the includeVirtualTrip query parameter to 1 to include those trips in the list.
 `includeCanceledTrips=_{true/false}_` | The includeCanceledTrips query parameter will cause the request to also return trips with a status of Canceled. When this query parameter is set to **true**, the response will include the **TripStatus** element.
 
-### Examples:  
+### Examples:
+
 **To get itinerary list for the entire company (OAuth consumer must have Admin user role):**  
 https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login&userid_value=ALL
 
@@ -52,7 +45,6 @@ https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&en
 
 **To get itinerary list for a single user (other than the OAuth consumer):**  
 https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login_id&userid_value={_loginID_}
-
 
 ####  XML Example Request by Start and End Date
 
@@ -88,11 +80,9 @@ Host: www.concursolutions.com
 Authorization: OAuth {access token}
 ```
 
-
 ##  Get List of Itineraries Response
 
 This request will return an **ItineraryInfoList** parent element with an **ItineraryInfo** child element for each trip summary for the specified traveler. Each **ItineraryInfo** element has the following child elements:
-
 
 Name |  Description
 -----| ------------		
@@ -101,7 +91,7 @@ Name |  Description
 `TripStatus` |  The status of the trip. This element only appears if the **includeCanceledTrips** query parameter is used in the request.
 `StartDateLocal` |  The start date of the trip in the starting location's timezone. Format: YYYY-MM-DDThh:mm:ss.
 `EndDateLocal` |  The end date of the trip in the ending location's timezone. Format: YYYY-MM-DDThh:mm:ss.
-`UserLoginId` |  The user's login to Concur. Only appears when the OAuth consumer has one of the specified admin roles.
+`UserLoginId` |  The user's login to SAP Concur. Only appears when the OAuth consumer has one of the specified admin roles.
 `DateModifiedUtc` |  The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.
 `id` |  Trip ID URI with encrypted ID.
 
@@ -125,8 +115,6 @@ Name |  Description
 `ItemsPerPage` | The number of items set to display per page.  
 `PreviousPageURL` | The URI to the previous page of results. This element will be empty when there are no previous pages.  
 `NextPageURL` | The URI to the next set of results. This element will be empty when there are no next pages.
-
-
 
 ####  XML Example of Successful Response
 
@@ -201,10 +189,9 @@ Content-Type: application/xml
 </ConnectResponse>
 ```
 
-
 ##  <a name="getdetails"></a>GET Itinerary Details
 
-Retrieves the details for the specified trip. By default, the OAuth consumer should be the owner of the trip. This endpoint can also be used to get details for trips that the OAuth consumer does not own. This is most often done when a Travel Management Company needs to get trip details on behalf of a user. The TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.  
+Retrieves the details for the specified trip. By default, the OAuth consumer should be the owner of the trip. This endpoint can also be used to get details for trips that the OAuth consumer does not own. This is most often done when a Travel Management Company needs to get trip details on behalf of a user. The TMC must be registered with SAP Concur and have a SAP Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.  
 
 The returned elements will vary based on the following conditions:
 
@@ -220,9 +207,8 @@ This documentation contains the full set of possible elements that can be return
 Name |  Description
 -----| ------------		
 `{_tripId_}` | **Required.** The identifier for the desired trip.
-`userid_type=login&userid_value=_{loginID}_` | The loginID is the user's Concur login ID. The userid_value of ALL can be sent to get trip summaries for all users at the company. The userid_type and userid_value parameters can only be used if the OAuth consumer has one of the user roles listed above.
+`userid_type=login&userid_value=_{loginID}_` | The loginID is the user's SAP Concur login ID. The userid_value of ALL can be sent to get trip summaries for all users at the company. The userid_type and userid_value parameters can only be used if the OAuth consumer has one of the user roles listed above.
 `systemFormat=_{format}_` | The **systemFormat** query parameter can be used to specify that the response is formatted for a different system. The supported value is **Tripit**.
-
 
 ##  Get Itinerary Details Response
 This request will return an **Itinerary** parent element with a subset of the following child elements:
@@ -281,10 +267,7 @@ Name |  Description
 `WaitListSegments` |  Information will appear in this element if the segment is on a waiting list. |
 `Warnings` |  The warnings associated with the booking.
 `WebAddresses` |  List of web addresses. This parent element includes [**Web Address Data** child elements](#web) for each associated web address.
-`BookingReferrer` |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with Concur, Supplier Mobile, Supplier Web
-
-
-
+`BookingReferrer` |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with SAP Concur, Supplier Mobile, Supplier Web
 
 ### <a name="afchild"></a>Airfare Quotes Child Elements
 
@@ -303,7 +286,6 @@ Name |  Description
 `AirlineCharges` |  The charges applied by the airline. This parent element contains a **Fixed** child element for each fixed charge from the airline.
 `Taxes` |  The taxed applied to this airline ticket.
 
-
 ### <a name="alchild"></a>Airline Tickets Child Elements
 
 Name |  Description
@@ -311,7 +293,6 @@ Name |  Description
 `ManualAirlineTicket` |  The manual airline ticket for the booking.
 `AirlineTicket` |  The airline ticket for the booking.
 `AirlineAdjustment` |  Any adjustment made to the booking.
-
 
 ### <a name="mcchild"></a>Miscellaneous Charge Order Child Elements
 
@@ -325,8 +306,6 @@ Name |  Description
 `TotalAmount` |  The total amount of charge orders for the ticket. |
 `TotalAmountCurrency` |  The [3-letter ISO 4217 currency code][5] for the total charge order amount. |
 
-
-
 ### <a name="ppchild"></a>Pass Programs Child Elements
 
 Name |  Description
@@ -337,7 +316,6 @@ Name |  Description
 `UserFirstName` |  The first name of the passenger. |
 `UserLastName` |  The last name of the passenger. |
 
-
 ### <a name="phone"></a>Phone Number Data Child Elements
 
 Name |  Description
@@ -347,15 +325,12 @@ Name |  Description
 `Type` |  The type of phone number. |
 `Description` |  The description for the phone number. |
 
-
 ### <a name="rail"></a>Rail Payments Child Elements
 
 Name |  Description
 -----| ------------
 `RailPayment` |  The payment information for a rail booking.
 `RailAdjustment` |  The amount adjusted for a rail booking. Refer to the [Public Itinerary XSD](/api-reference/travel/itinerary/ItinServices_Public_0.xsd) for more information.
-
-
 
 ### <a name="delivery"></a>Delivery Method Child Elements
 
@@ -377,9 +352,6 @@ Name |  Description
 `Type` |  The type of delivery address. |
 `Zip` |  The delivery address. |
 
-
-
-
 ### <a name="web"></a>Web Address Data Child Elements
 
 Name |  Description
@@ -389,7 +361,6 @@ Name |  Description
 `Format` |  Format of the web address. Format: E=Email, U=URL, I=IM |
 `Type` |  Type code for web address. Format: TKT, RES, BUS |
 `Description` |  Free text describing the web address. Maximum length: 50 characters. |
-
 
 ### <a name="pchild"></a>Passenger Child Elements
 
@@ -409,7 +380,6 @@ Name |  Description
 `FrequentFlyer` |  The passenger's frequent flyer program details. This parent element has [Frequent Flyer Child Elements](#ffchild)
 `RailProgram` |  The passenger's rail loyalty program details. This parent element has [Rail Program Child Elements](#rpchild)
 
-
 ### <a name="ffchild"></a>Frequent Flyer Child Elements
 
 Name |  Description
@@ -423,7 +393,6 @@ Name |  Description
 `Status` |  The passenger's program status.
 `StatusExpirationDate` |  The expiration date for the passenger's program status.
 
-
 ### <a name="rpchild"></a>Rail Program Child Elements
 
 Name |  Description
@@ -435,7 +404,6 @@ Name |  Description
 `ProgramVendor` |  The program vendor.
 `Status` |  The passenger's program status.
 `StatusExpirationDate` |  The expiration date for the passenger's program status.
-
 
 ####  XML Example of Successful Response
 
@@ -664,18 +632,17 @@ Content-Type: application/xml
 </Response>
 ```
 
-
 ## <a name="postdetails"></a>POST Itinerary Details
 
 ### Description
 
 Creates a new trip or updates an existing trip. A new trip will be created if the trip dates span no existing trip and the request doesn't include a tripId. If a tripId is included in the URI it will update the specified trip. The full trip information is included in the update request, which replaces the existing trip.
 
-This endpoint can be used to create trips for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create a trip on behalf of a user. The supplier or TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
+This endpoint can be used to create trips for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create a trip on behalf of a user. The supplier or TMC must be registered with SAP Concur and have an SAP Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 ###  Agency Proposals
 
-Travel Management Companies for Concur clients with the Agency Proposal feature of Travel Request can send proposed itineraries using the Itinerary web service. The TMC will indicate that the itinerary is a proposal using the **TripStatus** element. The request must also include the **CustomAttributes** element and its child elements.
+Travel Management Companies for SAP Concur clients with the Agency Proposal feature of Travel Request can send proposed itineraries using the Itinerary web service. The TMC will indicate that the itinerary is a proposal using the **TripStatus** element. The request must also include the **CustomAttributes** element and its child elements.
 
 | Query Parameters - Required | Supported Content Types |
 | --------------------------- | ----------------------- |
@@ -686,7 +653,7 @@ Travel Management Companies for Concur clients with the Agency Proposal feature 
 * **{_tripId_}**  
 The identifier for the desired trip. Provided if the request is updating an existing trip.
 * **userid_type=login_id&userid_value={_loginID_}**  
-The Concur loginID of the user that owns the trip. Can be used when creating a new trip or updating an existing trip. The userid_type and userid_value parameters can only be used if the OAuth consumer has the user role listed above.
+The SAP Concur loginID of the user that owns the trip. Can be used when creating a new trip or updating an existing trip. The userid_type and userid_value parameters can only be used if the OAuth consumer has the user role listed above.
 
 Examples:  
 **To post a new trip for the OAuth consumer:**  
@@ -700,7 +667,7 @@ Examples:
 
 | Request Headers - Required | Request Headers - Optional |
 | -------------------------- | -------------------------- |
-| Authorization header with OAuth token for valid Concur user. To post trips for users other than the OAuth consumer, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
+| Authorization header with OAuth token for valid SAP Concur user. To post trips for users other than the OAuth consumer, the OAuth consumer must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
 
 ### Content Body
 This function requires as its arguments an **Itinerary** parent element. The parent element contains the following child elements:
@@ -712,8 +679,6 @@ This function requires as its arguments an **Itinerary** parent element. The par
 |  TripName |  Name of the trip. Maximum length: 255 characters. |
 |  TripStatus |  The status of the itinerary. One of the following:<br>0 - Confirmed<br>1 - Ticketed<br>2 - Canceled<br>6 - Proposal<br>7 - Booked Proposal |
 
-
-
 ### Required Elements for Agency Proposal
 
 | Element | Description |
@@ -722,9 +687,7 @@ This function requires as its arguments an **Itinerary** parent element. The par
 | TravelRequestId | The identifier for the travel request that the proposal is associated with. |
 | CustomAttributes | This parent element will contain **CustomAttributes** child element. The **CustomAttributes** child elements are detailed in the CustomAttributes Elements table.
 
-
-### CustomAttributes Elements required
-
+### CustomAttributes Elements - Required
 
 |DataType|Name| Data Supported Values|Comment|
 |:--|:------------:|:-------------:|:---------------------|
@@ -735,7 +698,6 @@ This function requires as its arguments an **Itinerary** parent element. The par
 |Text |DisplayOnItinerary| True |The value for this element has to be 'True'.|
 |N/A|DisplayTitle| N/A |This element should be empty.|
 |N/A |ExternalId| N/A | This element should be empty.|
-
 
 ###  Optional Elements
 
@@ -784,7 +746,7 @@ This function requires as its arguments an **Itinerary** parent element. The par
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warning |  The warnings associated with the booking. |
 |  WebAddresses |  List of web addresses such as emails, pickup URLs, etc. associated with this booking. |
-|  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with Concur, Supplier Mobile, Supplier Web |
+|  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with SAP Concur, Supplier Mobile, Supplier Web |
 
 ###  XML Example Request
 
@@ -1065,7 +1027,7 @@ Content-Type: application/xml
 
 | HTTP Responses | Supported Content Types |
 | -------------- | ----------------------- |
-| [HTTP Status Codes](/tools-support/reference/http-codes.html) | application/xml |
+| [HTTP Status Codes](/api-reference/http-status-codes.html) | application/xml |
 
 ### Content Body
 When the trip is created successfully, the request will return the full posted trip details with the following additional elements inside the **Itinerary** parent element:
@@ -1366,7 +1328,7 @@ The response will include the **CustomAttributes** element and its child element
 
 | Description | Supported Content Types |
 | ----------- | ----------------------- |
-|  Cancels all segments in the supplied trip.<br>This endpoint can be used to cancel trips for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to cancel a trip on behalf of a user. The supplier or TMC must be registered with Concur and have a Concur account with one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.<br>| application/xml |
+|  Cancels all segments in the supplied trip.<br>This endpoint can be used to cancel trips for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to cancel a trip on behalf of a user. The supplier or TMC must be registered with SAP Concur and have an SAP Concur account with one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.<br>| application/xml |
 
 ### Query Parameters - Required
 
@@ -1380,14 +1342,14 @@ Example:
 ### Query Parameters - Optional
 
 * **userid_type=login_id&userid_value={_loginID_}**  
-The Concur loginID of the user that owns the trip. The userid_type and userid_value parameters can only be used if the OAuth consumer has the user role listed above.
+The SAP Concur loginID of the user that owns the trip. The userid_type and userid_value parameters can only be used if the OAuth consumer has the user role listed above.
 
 Example:  
 `https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}&userid_type=login_id&userid_value={_loginID_}`
 
 | Request Headers - Required | Request Headers - Optional |
 | -------------------------- | -------------------------- |
-|  Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
+|  Authorization header with OAuth token for a valid SAP Concur user. The OAuth consumer must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
 
 ###  XML Example Request
 
@@ -1402,7 +1364,7 @@ Authorization: OAuth {access token}
 
 | HTTP Responses | Supported Content Types |
 | -------------- | ----------------------- |
-| [HTTP Status Codes](/tools-support/reference/http-codes.html) | application/xml |
+| [HTTP Status Codes](/api-reference/http-status-codes.html) | application/xml |
 
 ### Content Body
 The request will return the full trip details for the cancelled trip. The trip will contain no segments, as those are all cancelled. The response includes the following additional elements inside the **Itinerary** parent element:
@@ -1472,7 +1434,7 @@ The request will return the full trip details for the cancelled trip. The trip w
 ## <a name="post"></a>POST Booking Details
 Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.  
 
-This endpoint can be used to create/update bookings for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create/update a booking on behalf of a user. The supplier or TMC must be registered with Concur, and must have an account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
+This endpoint can be used to create/update bookings for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create/update a booking on behalf of a user. The supplier or TMC must be registered with SAP Concur, and must have an account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 ```http
 POST /api/travel/booking/v1.0?tripId=12345678 HTTPS/1.1
@@ -1487,7 +1449,7 @@ Authorization: OAuth {access token}
 * **tripId={tripId}**
 The unique identifier for the trip. Supplied in order to add a booking to an existing trip.
 * **userid_type=login_id&userid_value={loginID}**
-The Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
+The SAP Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
 
 Examples:
 
@@ -1495,8 +1457,8 @@ Examples:
 
 `https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}`
 
+### Request Body Root Elements
 
-### Request body root elements
 The request contains a Booking parent element with the following child elements:
 
 |  Required Element |  Description |
@@ -1504,7 +1466,6 @@ The request contains a Booking parent element with the following child elements:
 |  BookingSource |  The supplier's name. |
 |  ItinSourceName |  The itinerary source. Format: TravelSupplier |
 |  RecordLocator |  Record locator for this booking. This is often six alphanumeric characters but can have other formats depending on the booking source |
-
 
 |  Optional Element |  Description |
 |-------------------|--------------|
@@ -1527,10 +1488,9 @@ The request contains a Booking parent element with the following child elements:
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warnings |  The warnings associated with the booking. |
 |  WebAddresses |  List of web addresses such as emails, pickup URLs, etc. associated with this booking |
-|  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with Concur, Supplier Mobile, Supplier Web |
+|  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with SAP Concur, Supplier Mobile, Supplier Web |
 
-
-### Passenger child elements
+### Passenger Child Elements
 
 |  Required Element |  Description   |
 |-------------------|----------------|
@@ -1552,9 +1512,7 @@ The request contains a Booking parent element with the following child elements:
 ### Response
 This function returns the full trip details.
 
-If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to Concur.  If the previous booking is not cancelled, the user will see both bookings in their Concur trip list.
-
-
+If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to SAP Concur.  If the previous booking is not cancelled, the user will see both bookings in their SAP Concur trip list.
 
 ### Examples
 
@@ -1679,10 +1637,10 @@ Content-Type: application/xml
 
 ## <a name="cancel"></a>POST Booking Cancellation
 
-Cancels an existing booking. By default, the OAuth consumer should be the owner of the booking. This endpoint can also be used to cancel bookings that the OAuth consumer does not own. This is most often done when a Travel Management Company needs to cancel bookings on behalf of a user. The TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
+Cancels an existing booking. By default, the OAuth consumer should be the owner of the booking. This endpoint can also be used to cancel bookings that the OAuth consumer does not own. This is most often done when a Travel Management Company needs to cancel bookings on behalf of a user. The TMC must be registered with SAP Concur and have an SAP Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 **NOTE:**  
-Booking records can only be updated by the booking source that created them. Concur verifies the source information before processing the request.
+Booking records can only be updated by the booking source that created them. SAP Concur verifies the source information before processing the request.
 
 ```http
 POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431} HTTPS/1.1
@@ -1690,12 +1648,13 @@ Host: www.concursolutions.com
 Authorization: OAuth {access token}
 ```
 
-### Request parameters
+### Request Parameters
 
 #### Query Parameters - Required
+
 * **cancel?bookingSource={Supplier}**
 
-The cancel keyword and the unique identifier for the supplier, configured by Concur during the application review. The bookingSource must match the Supplier Name associated with the booking.
+The cancel keyword and the unique identifier for the supplier, configured by SAP Concur during the application review. The bookingSource must match the Supplier Name associated with the booking.
 
 * **confirmationNumber={confnum}**
 
@@ -1707,28 +1666,25 @@ Example:
 #### Query Parameters - Optional
 * **userid_type=login_id&userid_value={loginID}**
 
-The Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
+The SAP Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
 
 Example:
 `https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}&userid_type=login_id&userid_value={loginID}`
 
+### Content Type
 
-### Content type
 application/xml
 
+### Authorization Header
 
-### Authorization header
-The authorization header must have an OAuth token for valid Concur user.
-The OAuth consumer must be registered as a Supplier or TMC with Concur, and must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
+The authorization header must have an OAuth token for a valid SAP Concur user. The OAuth consumer must be registered as a Supplier or TMC with SAP Concur, and must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 ### Response
+
 This function returns the full booking details.
 If the booking is not found, the function returns a HTTP 404 error and the following element:
 
 **Status**: This element contains the value: NotFound.
-
-
 
 ## Examples
 
@@ -1801,12 +1757,11 @@ Authorization: OAuth {access token}
 </Car>
 ```
 
-# <a name="objects"></a>Booking Object Elements
+## <a name="objects"></a>Booking Object Elements
 
-## Booking Object Elements - TMCs and Third-party Developers
 The booking elements contain many child elements. For ease of use, these elements are divided into the Core Elements, which are the most frequently used, and Additional Elements, which are not often used but are supported by the Itinerary web service. Some elements only appear if the travel supplier created the booking. Elements are marked as required if they must be supplied for a new booking.  
 
-**NOTE:** TripLink - Open Booking suppliers see a targeted subset of these fields. Refer to the documentation here for the TripLink - Open Booking supplier booking object elements.
+**NOTE:** TripLink - Open Booking suppliers see a targeted subset of these fields. Refer to the documentation [here](/api-reference/travel/itinerary/trip/trip-resource.html) for the TripLink - Open Booking supplier booking object elements.
 
 ###  Air Booking Elements
 
@@ -1845,7 +1800,6 @@ The booking elements contain many child elements. For ease of use, these element
 |  TimeZone |  The time zone of the booking. Format: One of the supported Olson or Windows Time Zones. |
 
 #### Additional Elements - Optional
-
 
 |  Element |  Description |
 |----------|-------------|
@@ -1909,7 +1863,6 @@ The booking elements contain many child elements. For ease of use, these element
 |  TimeZone |  The time zone of the booking. Format: One of the supported Olson or Windows Time Zones. |
 |  TotalRate |  The total rate amount of the booking. |
 |  VendorName |  The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary. |
-
 
 #### Additional Elements - Optional
 
@@ -1986,7 +1939,6 @@ The booking elements contain many child elements. For ease of use, these element
 |  Status |  The booking status. |
 |  Vendor |  The two letter GDS vendor code. |
 
-
 ####  Core Elements - Optional
 
 |  Element |  Description |
@@ -2048,7 +2000,6 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  ConfirmationNumber |  The confirmation number from the vendor. |
-
 
 ####  Core Elements - Optional
 
@@ -2246,7 +2197,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Charges |  The charges for this booking. Refer to the Charges Child Elements table. |
 |  Seats |  The booked seats. This parent element contains a **RailSeat** element for each included seat. The **RailSeat** element has the following child elements:
 
-##### RailSeat child elements
+##### RailSeat Child Elements
 
 |  Element |  Description |
 |----------|-------------|
@@ -2309,8 +2260,10 @@ The booking elements contain many child elements. For ease of use, these element
 |  VendorName |  The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary. |
 |  Charges |  The charges for this booking. Refer to the Charges Child Elements table. |
 
-###  Travel Booking  
+###  Travel Booking
+
 **NOTE**: This booking type is used by the Concur Travel Request product to store the main destination for the trip without specifying a transport type.
+
 #### Core Elements - Required
 
 |  Element |  Description |
@@ -2372,13 +2325,13 @@ The booking elements contain many child elements. For ease of use, these element
 |  PassengerRph |  The passenger assigned to the seat. |
 |  SeatNumber |  The number of the seat. |  
 
-
-
 ####  Charges Child Elements
 
 #####  Core Elements - Required
 
-###### Percent - The percent of fixed charges. This parent element contains the following child elements:
+###### Percent - The Percent of Fixed Charges
+
+This parent element contains the following child elements:
 
 |  Element |  Description |
 |----------|-------------|
@@ -2393,7 +2346,9 @@ The booking elements contain many child elements. For ease of use, these element
 |  Vendor |  The vendor for the booking charge. |
 |  VendorChargeCode |  The vendor's code for the charge |
 
-###### Fixed - The fixed charges. This parent element contains the following child elements:
+###### Fixed - The Fixed Charges
+
+This parent element contains the following child elements:
 
 |  Element |  Description |
 |----------|-------------|
@@ -2407,7 +2362,9 @@ The booking elements contain many child elements. For ease of use, these element
 |  Vendor |  The vendor applying the booking charge. |
 |  VendorChargeCode |  The vendor's code for the charge. |
 
-###### Rate - The rate for the booking. This parent element contains the following child elements:
+###### Rate - The Rate for the Booking
+
+This parent element contains the following child elements:
 
 |  Element |  Description |
 |----------|-------------|
@@ -2424,7 +2381,9 @@ The booking elements contain many child elements. For ease of use, these element
 |  Vendor |  The vendor for the booking charge. |
 |  VendorChargeCode |  The vendor's code for the charge. |
 
-###### RateWithAllowance - The rate for the booking, including any travel allowances. This parent element contains the following child elements:
+###### RateWithAllowance - The Rate for the Booking, Including any Travel Allowances
+
+This parent element contains the following child elements:
 
 |  Element |  Description |
 |----------|-------------|
@@ -2444,7 +2403,6 @@ The booking elements contain many child elements. For ease of use, these element
 |  StartDateLocal |  The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
 |  Vendor |  The vendor for the booking charge. |
 |  VendorChargeCode |  The vendor's code for the charge. |
-
 
 ###  Time Zone Formats
 

@@ -11,7 +11,7 @@ layout: reference
 
 # <a name="overview"></a>Overview
 
-The Event PubSub service allows clients and partners to choose to be notified through web services when certain actions take place in connected SAP Concur companies. When the event occurs, SAP Concur generates a notification and sends a request to the configured endpoint with event information. 
+The Event Subscription Service (ESS) allows clients and partners to choose to be notified through web services when certain actions take place in connected SAP Concur companies. When the event occurs, SAP Concur generates a notification and sends a request to the configured endpoint with event information. 
 
 This callout differs from the standard Concur web services in the following ways:
 

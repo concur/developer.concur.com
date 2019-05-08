@@ -87,7 +87,7 @@ X-UserID: cmiller@example.com
 ```
 
 [1]: /api-reference/expense/expense-report/expense-delegators.html#get
-[2]: /api-reference/expense/expense-report/reports.html#get
-[3]: /api-reference/expense/expense-report/reports.html#getID
-[4]: /api-reference/expense/expense-report/reports.html#post
+[2]: /api-reference/expense/expense-report/v3.reports.html#get
+[3]: /api-reference/expense/expense-report/v3.reports.html#getID
+[4]: /api-reference/expense/expense-report/v3.reports.html#post
 [6]: https://developer.concur.com/reference/http-codes

@@ -70,6 +70,19 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="ConcurHotelSearchCustomFieldsTPA_ExtensionsType">
+		<xs:annotation>
+			<xs:documentation source="Description" xml:lang="en">Concur-specific extension of OTA spec. This adds vendor control of need Org unit name.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="CustomFields" type="CustomFieldsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">This adds ORG unit name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="ConcurHotelResTPA_ExtensionsType">
 		<xs:annotation>
 			<xs:documentation source="Description" xml:lang="en">Concur-specific extension of OTA spec for OTA_HotelResRQ. This adds postback URL and shared fields.</xs:documentation>
@@ -217,6 +230,11 @@
 				<xs:element name="Criteria" type="HotelSearchCriteriaType">
 					<xs:annotation>
 						<xs:documentation xml:lang="en">Specified hotel search criteria.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="TPA_Extensions" type="ConcurHotelSearchCustomFieldsTPA_ExtensionsType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">This adds ORG unit name.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
@@ -2824,8 +2842,7 @@
 		<xs:annotation>
 			<xs:documentation xml:lang="en">The standard code or abbreviation for the state, province, or region.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="StringLength1to8">
-			<xs:minLength value="2"/>
+		<xs:restriction base="StringLength0to64">
 		</xs:restriction>
 	</xs:simpleType>
 

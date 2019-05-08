@@ -112,5 +112,5 @@ Content-Type: application/xml
 
 
 
-[1]: /api-reference/expense/expense-report/reports.html#getID
+[1]: /api-reference/expense/expense-report/v3.reports.html#getID
 [2]: https://developer.concur.com/reference/http-codes

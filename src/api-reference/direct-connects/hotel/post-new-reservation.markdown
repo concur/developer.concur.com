@@ -1,5 +1,5 @@
 ---
-title: Post a new reservation
+title: Direct Connect - Hotel v1 - Post a new reservation
 layout: reference
 ---
 
@@ -60,7 +60,7 @@ The **Source** element contains the following element:
 
 |  Element |  Description |
 |----------|---------------------------------------|
-|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3]. <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.|
+|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes](/api-reference/direct-connects/hotel/hotel-direct-connect-codes.html#method6). <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.|
 
 #### HotelReservation elements
 
@@ -397,5 +397,4 @@ Content-Length: {length of content body}
 
 
 [1]: https://developer.concur.com/overview/partner-applications
-[3]: /tools-support/reference/hotel-direct-connect-codes.html#method6
 [4]: https://developer.concur.com/sites/default/files/HotelCodes.pdf

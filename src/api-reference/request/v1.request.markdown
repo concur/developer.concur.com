@@ -920,7 +920,7 @@ Element|Required (must contain value)?|Description
 Name|Y|The travel request name.
 Purpose|Depends on configuration|The business purpose of the travel request. Maximum length: 2000.
 Comment|Depends on configuration|The travel request header comment.
-Custom1 through Custom20|Depends on configuration|The custom fields on the travel request Header form. May be required depending on configuration.<br/>  **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][1] page for information on how to correctly submit list item values.
+Custom1 through Custom20|Depends on configuration|The custom fields on the travel request Header form. May be required depending on configuration.<br/>  **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items](/api-reference/common/list-item/custom-list-items.html) page for information on how to correctly submit list item values.
 StartDate|Depends on configuration|The start date for the travel request. Format: YYYY-MM-DD
 StartTime|Depends on configuration|The start time for the travel request. Format: hh:mm:ss
 EndDate|Depends on configuration|The end date for the travel request. Format: YYYY-MM-DD
@@ -1090,5 +1090,4 @@ Status|The status of the travel request workflow action.
 </ActionStatus>
 ```
 
-[1]: /tools-support/reference/custom-list-items.html
 [2]: http://en.wikipedia.org/wiki/ISO_4217

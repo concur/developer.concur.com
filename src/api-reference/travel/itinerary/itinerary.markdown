@@ -42,7 +42,7 @@ The terms itinerary and trip are synonyms. Trip is the name used for the SAP Con
 
 ## <a name="itin-use"></a>Who Can Use This Web Service?
 
-TripLink suppliers, travel management companies (TMCs), and SAP Concur partners can use the Itinerary API. The level of access to the data in the Concur Travel system depends on who is accessing it and the SAP Concur products that have been purchased.
+TripLink suppliers, travel management companies (TMCs), and SAP Concur clients and third-party developers can use the Itinerary API. The level of access to the data in the Concur Travel system depends on who is accessing it and the SAP Concur products that have been purchased.
 
 ### Travel Management Companies
 
@@ -63,12 +63,11 @@ TripLink suppliers, travel management companies (TMCs), and SAP Concur partners 
 * Modify bookings.
 * Cancel bookings for their travel type.
 
-### Third-Party Developers
+### SAP Concur Clients and Third-Party Developers
+* Get trip information for SAP Concur users. SAP Concur clients who purchase Web Services have access to their own trip data, while third party developers have access to the SAP Concur trip data of the clients who authorize them.
+* Third-party partner developers must determine which configurations are required for their solution prior to the review process.
 
-* Request trip information for SAP Concur users.
-* Partner developers must determine which configurations are required for their solution prior to the review process.
-
-If you are a TMC or a SAP Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team. SAP Concur products are highly configurable, and not all clients will have access to all features.
+If you would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team. SAP Concur products are highly configurable, and not all clients will have access to all features.
 
 Some itinerary data may have come from Sabre. SAP Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
 
@@ -154,12 +153,22 @@ No.
 
 ## <a name="itin-best-practices"></a>Best Practices
 
-*	When extracting past data:
+* When extracting past data:
     * Extract a month of trip summaries to gauge volume. If hundreds are returned, then adjust extraction to weekly.
-    * Do not extract more than a year of data at any given time regardless of the volume. For longer look backs, extract 6 month segments maximum at a time.
-    * Do not multi-thread requests to retrieve multiple pages of data.  Concurrent requests will impact your application’s performance.
-*	Itineraries change frequently. Changes do not necessarily indicate that the traveler modified their trip. If your application works with upcoming or in progress trips, be aware that you must evaluate the individual segments to determine whether it is a material change for your application.
-*	This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites, and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API.
+    * Do not extract more than a year of data at any given time regardless of the volume. For longer look backs, extract six month segments maximum at a time.
+    * Do not multi-thread requests to retrieve multiple pages of data. Concurrent requests will impact your application’s performance.
+* This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites, plans emailed to Concur, and most bookings from your travel agency.
+    * Some customers may have multiple booking options, which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API.
+    * Because the data comes from many sources, data across itineraries may not be consistent. It’s recommended that you only consume the relevant segments and data (for example, air only or air + hotel) for your application’s function.
+* Itineraries change frequently. Changes do not necessarily indicate that the traveler modified their trip. You should address relevant changes only. This may mean comparing what your application considers relevant (for example, trip dates) across updated itineraries. In addition:
+    * If your application works with upcoming or in progress trips, be aware that you must evaluate the individual segments to determine whether it is a material change for your application.
+    * If your app is consuming itineraries before the trip occurs, cancellations should be taken into account. To incorporate cancelled trips, set the `includeCancelledtrips` flag to “true” and leverage the trip status field to determine the application action.
+* Your app should log key identifiers in addition to the `tripID`. It is recommended that “client locator” and user UUID be tracked so you can troubleshoot issues and match to data that customers have available.
+* Many customers will opt-in to your integration for only a subset of their regions. It is recommended that you provide options, leveraging the user’s country in the travel profile, to determine which itineraries to extract.
+* There are three different booking modes, all of which should be considered when building your application. Note that some clients additionally allow individuals to book for multiple passengers at a time.
+    * An individual booking for themselves.
+    * An individual booking on behalf of another user (profiled user).
+    * An individual booking for a guest (non-profiled user).
 
 ## <a name="reference-topics" id="reference-topics">Reference</a>
 

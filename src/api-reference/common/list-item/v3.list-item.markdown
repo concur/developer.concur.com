@@ -3,9 +3,7 @@ title: List Item v3
 layout: reference
 ---
 
-The Concur List Item web service provides an automated solution to clients who would like to add, update or delete list items.
-
-Use of the API is contingent on the volume of List data. Due to capacity limitations of the List API, the mutual Client may need to manage the initial load of large volumes of data themselves via a file import due to capacity limitations. This is also true if their ongoing maintenance of List values involves a large volume. Large numbers of list values for vendors are not expected for Invoice compared to Expense.
+The SAP Concur List Item API provides an automated solution to clients who would like to add, update, or delete list items. Use of the API is subject to some limitations on the volume of List data. You may need to manage the initial load of large volumes of data via a file import due to capacity limitations. This is also true if ongoing maintenance of List values involves a large volume. 
 
 * [Retrieve all list items based on the search criteria](#get)
 * [Retrieve a list item by ID](#getID)
@@ -18,9 +16,9 @@ Use of the API is contingent on the volume of List data. Due to capacity limitat
 
 3.0
 
-1.0 documentation is available [here](/api-reference-deprecated/version-one/list-item/index.html)
+1.0 documentation is available [here](/api-reference/common/list-item/v1.list-item.html)
 
-## <a name="get"></a>Retrieve all list items based on the search criteria.
+## <a name="get"></a>Retrieve All List Items Based on the Search Criteria
 
 ```
 GET /api/v3.0/common/listitems
@@ -46,7 +44,7 @@ Name|Type|Format|Description
 `level9Code`|`string`|`query`|The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
 `level10Code`|`string`|`query`|The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
 
-## <a name="getID"></a>Retrieve a list item by ID
+## <a name="getID"></a>Retrieve a List Item by ID
 
 ```
 GET /api/v3.0/common/listitems/{id}
@@ -59,7 +57,7 @@ Name|Type|Format|Description
 `id`|`string`|`path`|**Required** The unique identifier for the listItem.
 `listId`|`string`|`query`|The unique identifier for the list this item is a member.
 
-## <a name="post"></a>Create a new list item
+## <a name="post"></a>Create a New List Item
 
 ```
 POST /api/v3.0/common/listitems
@@ -71,7 +69,7 @@ Name|Type|Format|Description
 ---|---|---|---
 `content`|-|`body`|**Required** List item object to create.
 
-## <a name="put"></a>Update a list item
+## <a name="put"></a>Update a List Item
 
 ```
 PUT /api/v3.0/common/listitems/{id}
@@ -84,7 +82,7 @@ Name|Type|Format|Description
 `id`|`string`|`path`|**Required** The unique identifier for the list item.
 `content`|-	|`body`|**Required** The list item object to update.
 
-## <a name="delete"></a>Delete a list item
+## <a name="delete"></a>Delete a List Item
 
 ```
 DELETE /api/v3.0/common/listitems/{id}
@@ -99,7 +97,7 @@ Name|Type|Format|Description
 
 ## <a name="schema"></a>Schema
 
-###<a name="listitems"></a>List Items
+### <a name="listitems"></a>List Items
 
 Name|Type|Format|Description
 ---|---|---|---

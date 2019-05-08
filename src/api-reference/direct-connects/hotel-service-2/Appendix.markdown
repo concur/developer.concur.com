@@ -1,9 +1,7 @@
 ---
-title: Appendix
+title: Direct Connect - Hotel v2 - Appendix
 layout: reference
 ---
-
-
 
 # Search
 
@@ -20,8 +18,8 @@ layout: reference
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
-                      EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2" 
+   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                      EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
                       Version="4" PrimaryLangID="en" AltLangID="en" MaxResponses="100">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -38,14 +36,49 @@ layout: reference
   </Body>
  </Envelope>
  ```
- 
+
 ### Response
 ```xml
-<search response goes here> add a complete samples folder so store the huge search response
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <soap:Body>
+    <OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" AltLangID="fr" EchoToken="FC6F5CDE-2D55-49A4-AE22-056AF980ADF4" PrimaryLangID="fr" Version="4">
+      <Success/>
+      <Properties>
+        <Property ChainName="Appart City" HotelCode="399671" HotelName="Appart'City Aix en Provence - La Duranne Residence de Tourisme">
+          <Position Latitude="43.49205" Longitude="5.351965"/>
+          <Address>
+            <AddressLine>300 avenue du Grand Vallat</AddressLine>
+            <CityName>Les Milles</CityName>
+            <PostalCode>13290</PostalCode>
+            <CountryName Code="FR">French Republic France</CountryName>
+          </Address>
+          <Award Rating="2"/>
+          <HotelAmenity Code="68"/>
+          <HotelAmenity Code="198"/>
+          <HotelAmenity Code="71"/>
+          <HotelAmenity Code="101"/>
+          <HotelAmenity Code="33"/>
+          <Policy CheckInTime="14:00:00" CheckOutTime="12:00:00"/>
+          <TPA_Extensions>
+            <HotelPreference>not_preferred</HotelPreference>
+            <TPA_HotelPreviewImageURI>
+              <URL>https://foto.hrsstatic.com/fotos/1/3/75/75/80/FFFFFF/http%3A%2F%2Ffoto-origin.hrsstatic.com%2Ffoto%2F3%2F9%2F9%2F6%2Fteaser_399671.jpg/v1M9Y02mJkgafy7d97qkhw%3D%3D/128%2C85/6/AppartCity_Aix_en_Provence_La_Duranne_Residence_de_Tourisme-Les_Milles_Aix-en-Provence-Exterior_view-3-399671.jpg</URL>
+            </TPA_HotelPreviewImageURI>
+          </TPA_Extensions>
+        </Property>
+        <Property>
+          ... and another properties follow here for all the returned hotels
+        </Property>
+      </Properties>
+    </OTA_HotelSearchRS>
+  </soap:Body>
+</soap:Envelope>
 ```
 
+# Availability
 
-The initial Search request is followed up by an multi-property Availability request.  In the example request below Concur requests the availability for 13 properties.  This could because the initial search only yielded 13 properties or the configuration per vendor is set to request availability for a maximum of 13 properties. 
+The initial Search request (see above) is followed up by an multi-property Availability request.  In the example request below Concur requests the availability for 13 properties.  This could because the initial search only yielded 13 properties or the configuration per vendor is set to request availability for a maximum of 13 properties.
 
 ### Request
 
@@ -59,7 +92,7 @@ The initial Search request is followed up by an multi-property Availability requ
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
+   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05"
                      EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
                      Version="5" PrimaryLangID="en" AltLangID="en">
     <POS>
@@ -126,38 +159,202 @@ The initial Search request is followed up by an multi-property Availability requ
 ### Response
 
 ```xml
-<response goes here>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <soap:Body>
+    <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" AltLangID="fr" EchoToken="FC6F5CDE-2D55-49A4-AE22-056AF980ADF4" PrimaryLangID="fr" Version="5">
+      <Success/>
+      <RoomStays>
+        <RoomStay>
+          <RoomTypes>
+            <RoomType RoomID="b3da298f">
+              <RoomDescription>
+                <Text>La chambre standard est équipée de douche/WC ou de baignoire/WC.</Text>
+              </RoomDescription>
+              <Amenities>
+                <Amenity ExistsCode="1" RoomAmenity="55"/>
+                <Amenity ExistsCode="1" RoomAmenity="56"/>
+                <Amenity ExistsCode="1" RoomAmenity="4"/>
+                <Amenity ExistsCode="1" RoomAmenity="28"/>
+                <Amenity ExistsCode="1" RoomAmenity="210"/>
+                <Amenity ExistsCode="1" RoomAmenity="92"/>
+                <Amenity ExistsCode="1" RoomAmenity="2"/>
+                <Amenity ExistsCode="1" RoomAmenity="126"/>
+                <Amenity ExistsCode="1" RoomAmenity="19"/>
+                <Amenity ExistsCode="1" RoomAmenity="13"/>
+                <Amenity ExistsCode="1" RoomAmenity="96"/>
+                <Amenity ExistsCode="1" RoomAmenity="50"/>
+                <Amenity ExistsCode="1" RoomAmenity="69"/>
+                <Amenity ExistsCode="1" RoomAmenity="107"/>
+                <Amenity ExistsCode="1" RoomAmenity="10"/>
+              </Amenities>
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="TOGG3BU">
+              <Guarantee GuaranteeType="GuaranteeRequired">
+                <Deadline AbsoluteDeadline="2019-05-08T23:59:59"/>
+              </Guarantee>
+              <CancelPenalties>
+                <CancelPenalty NonRefundable="false">
+                  <Deadline AbsoluteDeadline="2019-05-08T23:59:59" OffsetDropTime="BeforeArrival" OffsetTimeUnit="Day" OffsetUnitMultiplier="14"/>
+                </CancelPenalty>
+              </CancelPenalties>
+              <MealsIncluded Breakfast="false" Dinner="false" Lunch="false"/>
+            </RatePlan>
+          </RatePlans>
+          <RoomRates>
+            <RoomRate RatePlanID="TOGG3BU" RoomID="b3da298f">
+              <Rates>
+                <Rate ChargeType="18" GuaranteedInd="true" NumberOfUnits="1" RateTimeUnit="FullDuration" RoomPricingType="Per stay" UnitMultiplier="1">
+                  <PaymentPolicies>
+                    <GuaranteePayment>
+                      <AcceptedPayments>
+                        <AcceptedPayment>
+                          <PaymentCard>
+                            <CardType>VISA</CardType>
+                          </PaymentCard>
+                        </AcceptedPayment>
+                      </AcceptedPayments>
+                    </GuaranteePayment>
+                    <GuaranteePayment>
+                      <AcceptedPayments>
+                        <AcceptedPayment>
+                          <PaymentCard>
+                            <CardType>Mastercard</CardType>
+                          </PaymentCard>
+                        </AcceptedPayment>
+                      </AcceptedPayments>
+                    </GuaranteePayment>
+                  </PaymentPolicies>
+                  <Total AmountAfterTax="161.10" AmountBeforeTax="152.70" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <RateDescription>
+                    <Text>Tarif promotionnel</Text>
+                    <Text>Gratuit pour les clients HRS: Quotidien gratuit, Parking attenant à l'hôtel</Text>
+                  </RateDescription>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <GuestCounts>
+            <GuestCount Count="1"/>
+          </GuestCounts>
+          <TimeSpan End="2019-05-23" Start="2019-05-22"/>
+          <BasicPropertyInfo HotelCode="36151" HotelName="Château de la Pioline">
+            <Address>
+              <AddressLine>260 Rue Guillaume du Vair</AddressLine>
+              <CityName>AIX EN PROVENCE</CityName>
+              <PostalCode>13546</PostalCode>
+              <CountryName Code="FR">French Republic France</CountryName>
+            </Address>
+            <ContactNumbers>
+              <ContactNumber PhoneNumber="33442522727"/>
+            </ContactNumbers>
+          </BasicPropertyInfo>
+        </RoomStay>
+        <RoomStay>
+          <RoomTypes>
+            <RoomType RoomID="f7631619">
+              <RoomDescription>
+                <Text>La chambre standard est équipée de douche/WC ou de baignoire/WC.</Text>
+              </RoomDescription>
+              <Amenities>
+                <Amenity ExistsCode="1" RoomAmenity="55"/>
+                <Amenity ExistsCode="1" RoomAmenity="56"/>
+                <Amenity ExistsCode="1" RoomAmenity="4"/>
+                <Amenity ExistsCode="1" RoomAmenity="28"/>
+                <Amenity ExistsCode="1" RoomAmenity="210"/>
+                <Amenity ExistsCode="1" RoomAmenity="92"/>
+                <Amenity ExistsCode="1" RoomAmenity="2"/>
+                <Amenity ExistsCode="1" RoomAmenity="126"/>
+                <Amenity ExistsCode="1" RoomAmenity="19"/>
+                <Amenity ExistsCode="1" RoomAmenity="13"/>
+                <Amenity ExistsCode="1" RoomAmenity="96"/>
+                <Amenity ExistsCode="1" RoomAmenity="50"/>
+                <Amenity ExistsCode="1" RoomAmenity="69"/>
+                <Amenity ExistsCode="1" RoomAmenity="107"/>
+                <Amenity ExistsCode="1" RoomAmenity="10"/>
+              </Amenities>
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="MB4YV34">
+              <Guarantee GuaranteeType="Deposit"/>
+              <CancelPenalties>
+                <CancelPenalty NonRefundable="true">
+                  <Deadline AbsoluteDeadline="2019-04-15T12:51:47"/>
+                </CancelPenalty>
+              </CancelPenalties>
+              <MealsIncluded Breakfast="false" Dinner="false" Lunch="false"/>
+            </RatePlan>
+          </RatePlans>
+          <RoomRates>
+            <RoomRate RatePlanID="MB4YV34" RoomID="f7631619">
+              <Rates>
+                <Rate ChargeType="18" GuaranteedInd="true" NumberOfUnits="1" RateTimeUnit="FullDuration" RoomPricingType="Per stay" UnitMultiplier="1">
+                  <PaymentPolicies>
+                    <GuaranteePayment>
+                      <AcceptedPayments>
+                        <AcceptedPayment>
+                          <PaymentCard>
+                            <CardType>VISA</CardType>
+                          </PaymentCard>
+                        </AcceptedPayment>
+                      </AcceptedPayments>
+                    </GuaranteePayment>
+                    <GuaranteePayment>
+                      <AcceptedPayments>
+                        <AcceptedPayment>
+                          <PaymentCard>
+                            <CardType>Mastercard</CardType>
+                          </PaymentCard>
+                        </AcceptedPayment>
+                      </AcceptedPayments>
+                    </GuaranteePayment>
+                  </PaymentPolicies>
+                  <Total AmountAfterTax="149.00" AmountBeforeTax="141.23" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <RateDescription>
+                    <Text>Hot Deal</Text>
+                    <Text>Gratuit pour les clients HRS: Quotidien gratuit, Parking attenant à l'hôtel</Text>
+                  </RateDescription>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <GuestCounts>
+            <GuestCount Count="1"/>
+          </GuestCounts>
+          <TimeSpan End="2019-05-23" Start="2019-05-22"/>
+          <BasicPropertyInfo HotelCode="36151" HotelName="Château de la Pioline">
+            <Address>
+              <AddressLine>260 Rue Guillaume du Vair</AddressLine>
+              <CityName>AIX EN PROVENCE</CityName>
+              <PostalCode>13546</PostalCode>
+              <CountryName Code="FR">French Republic France</CountryName>
+            </Address>
+            <ContactNumbers>
+              <ContactNumber PhoneNumber="33442522727"/>
+            </ContactNumbers>
+          </BasicPropertyInfo>
+        </RoomStay>
+        <RoomStay>
+          ... and another RoomStay nodes follow here for all the returned rooms for all the hotels (properties) per Availability request 
+        </RoomStay>
+      </RoomStays>
+    </OTA_HotelAvailRS>
+  </soap:Body>
+</soap:Envelope>
 ```
 
+
 ### Search results displayed
+
+Search results page displaying hotels, based on Search response, and their rates, based on Availability response:
 
 ![./media/image1.png](./images/examples/search_results.png)
 
 
-
-
-
-
-
-
-
-
-# Availability
-
-Click the 'View Rooms' button on any search result will trigger a single-property request
-
-### Request
-```xml
-
-```
-
-### Response
-```xml
-
-```
-
-
-### Availability results displayed
+WIth Availability response also cancellation information comes which can be displayed in separate popup:
 
 ![./media/image1.png](./images/examples/17.png)
 
@@ -178,8 +375,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
-                               EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9" 
+   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                               EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9"
                                Version="3" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -198,7 +395,7 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" 
+    <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05"
                                 xmlns:ns2="http://www.concur.com/webservice/auth">
       <Success/>
       <HotelDescriptiveContents>
@@ -270,8 +467,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
-                   EchoToken="6C85DDBD-EB62-444D-B2C3-F59BDF65BE98" 
+   <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                   EchoToken="6C85DDBD-EB62-444D-B2C3-F59BDF65BE98"
                    Version="6" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -347,7 +544,7 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" 
+    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05"
                     xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
       <Success/>
       <HotelReservations>
@@ -482,8 +679,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
-               EchoToken="4E1B8BF4-ACBD-4709-9FCC-B59EB2550086" 
+   <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+               EchoToken="4E1B8BF4-ACBD-4709-9FCC-B59EB2550086"
                Version="5.002" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -501,8 +698,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" 
-                    xmlns:ns2="http://www.concur.com/webservice/auth" 
+    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05"
+                    xmlns:ns2="http://www.concur.com/webservice/auth"
                     ResResponseType="Reserved">
       <Success/>
       <HotelReservations>
@@ -648,7 +845,7 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
    <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" CancelType="Cancel"
-                 EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228" 
+                 EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228"
                  Version="3" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -666,8 +863,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" 
-                  xmlns:ns2="http://www.concur.com/webservice/auth" 
+    <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05"
+                  xmlns:ns2="http://www.concur.com/webservice/auth"
                   Status="Cancelled">
       <Success/>
       <UniqueID ID="88618333" Type="14"/>
@@ -679,4 +876,3 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 
 ![./media/image1.png](./images/examples/15.png)
 ![./media/image1.png](./images/examples/16.png)
-
