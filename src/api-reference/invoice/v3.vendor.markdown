@@ -159,7 +159,7 @@ Name | Type | Format | Description
 
 ## <a name="vendorGroupPut"></a>Add Vendor Group
 
-    PUT /api/v3.0/invoice/vendor/groups
+    PUT /api/v3.0/invoice/vendors/groups
     Note: If authenticating with a Company access token, the API will create the requested Vendor groups.
 
 ### Parameters
@@ -180,7 +180,7 @@ Name | Type | Format | Description
 
 ## <a name="vendorGroupDelete"></a>Delete Vendor Group
 
-    DELETE /api/v3.0/invoice/vendor/groups
+    DELETE /api/v3.0/invoice/vendors/groups
     Note: If authenticating with a Company access token, the API will delete the requested Vendor group.
 
 ### Parameters
