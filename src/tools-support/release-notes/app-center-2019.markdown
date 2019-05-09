@@ -6,7 +6,7 @@ layout: reference
 * [January](#january)
 * [March](#march)
 * [April](#april)
-
+* [May](#may)
 
 ## <a name="january"></a>January 2019
 
@@ -204,7 +204,7 @@ Parken+ works with Expense for Concur Standard and Expense for Concur Profession
 
 ![DiDi Enterprise Solutions Logo](./app-center-2019-04-09-didienterprisesolutions-logo.png)
 
-*The DiDi integration will be updated to the SAP Concur Receipts v4 API and will be available on the EU Data Center and China Data Center, in addition to the US Data Center. No action is required from existing users. New users on all Data Centers can connect to DiDi in the [SAP Concur App Center](https://www.concur.com/app-center/listings/576c6598c144f515002e4fea).*
+*The DiDi integration will be updated to the SAP Concur Receipts v4 API and will be available on the EU Data Center and China Data Center, in addition to the North America Data Center. No action is required from existing users. New users on all Data Centers can connect to DiDi in the [SAP Concur App Center](https://www.concur.com/app-center/listings/576c6598c144f515002e4fea).*
 
 DiDi Enterprise Solutions (DiDi ES) is a market leader dedicated to offering business travel services and expense management solutions to corporate clients.
 
@@ -253,3 +253,43 @@ By connecting your Concur account with Parken+, you can easily submit your expen
 
 Parken+ works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Parken+ integration, visit
 [http://www.parken.plus/](http://www.parken.plus/).
+
+## <a name="may"></a>May 2019
+
+* [Apps for Me / User Connection Apps Now Available](#apps-for-me-connection-now-available-may)
+  * [LoungeBuddy Removed from the App Center](#loungebuddy-may)
+  * [Uber Application Updated – Now Available in the EMEA Data Center](#uber-may)
+* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-may)
+
+### <a href="apps-for-me-connection-now-available-may"></a>Apps for Me / User Connection Apps Now Available
+
+### <a name="loungebuddy-may"></a>LoungeBuddy Removed from the App Center
+
+![LoungeBuddy Logo](./app-center-2019-05-07-loungebuddy-logo.png)
+
+LoungeBuddy has been acquired by American Express. The integration with Concur Travel has been discontinued and will no longer be available after May 15th, 2019.
+
+Read more about the acquisition [here](https://about.americanexpress.com/press-release/consumer-charge-cards/american-express-acquire-loungebuddy).
+
+### <a name="uber-may"></a>Uber Application Updated– Now Available in the EMEA Data Center
+
+![Uber Logo](./app-center-2019-05-07-uber-logo.png)
+
+The Uber user connection application has been updated to the latest SAP Concur Receipts API.
+
+Benefits of the integration include:
+
+* Now available for clients hosted in the EMEA Data Center in addition to the North America Data Center.
+* Detailed digital e-receipts automatically sent to Concur Expense.
+* Expenses are matched to associated corporate card transactions.
+* All standard expense fields are pre-populated with data.
+
+**Existing users who connected to Uber via the SAP Concur App Center:** no immediate action is required.
+
+**Users who connected accounts by adding a Concur Business Profile in the Uber app:** While your receipts are still being forwarded into Concur Expense as usual, you should connect to Uber in the [SAP Concur App Center](https://www.concur.com/app-center) to enjoy the full integration and benefits.
+
+**New users:** To connect your account, visit Uber in the [SAP Concur App Center](https://www.concur.com/app-center) and click “Connect.”
+
+## <a name="apps-for-me-connection-coming-soon-may"></a>Apps for Me / User Connection Apps Coming Soon
+
+None this month.
