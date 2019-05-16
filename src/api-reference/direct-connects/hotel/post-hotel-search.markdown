@@ -1,5 +1,5 @@
 ---
-title: Post a hotel search
+title: Direct Connect - Hotel v1 - Post a hotel search
 layout: reference
 ---
 
@@ -61,7 +61,7 @@ The **Source** element contains the following element:
 
 |  Element |  Description |
 |----------|---------------------------------------|
-|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3]. <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.
+|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes](/api-reference/direct-connects/hotel/hotel-direct-connect-codes.html#method6#method6). <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.
 
 #### Criterion elements
 
@@ -168,8 +168,8 @@ The **Property** element has the following child elements:
 |  Element |  Description |
 |----------|---------------------------------------|
 |  HotelImageURI |  The link to the image associated with the hotel. A fully qualified url to the hotel image should be returned in the response. Image size must be 70 pixels wide and 72 pixels tall. Images can be no larger than 8K bytes. The image format must be gif or jpg. Images should be accessible through http and https protocols. |
-|  HotelPreference |  This element includes the customer's preference level for the individual property. Refer to the [Hotel Direct Connect Codes][4] for the possible values. |
-|  GDS_InfoType |  This parent element has a **MasterChainCode** attribute, containing the two-letter GDS code that gives access to a number of different hotel brands owned or represented by the same chain. The **MasterChainCode** lets Concur automatically determine what advantage card numbers to send for this hotel. Refer to the [Hotel Direct Connect Codes][4]. This parent element contains a **GDS_Codes** element, which contains a **GDS_Code** element. The **GDS_Code** element has the following attributes:<br/>**GDS_PropertyCode**: This attribute lets Concur match against other results (to display GDS and HotelService rates as one item). The most typical one is Northstar ID. If GDS_PropertyCode is provided, GDS_Name must also be provided<br/>**GDS_Name**: The name of the associated GDS. |
+|  HotelPreference |  This element includes the customer's preference level for the individual property. Refer to the [Hotel Direct Connect Codes](/api-reference/direct-connects/hotel/hotel-direct-connect-codes.html) for the possible values. |
+|  GDS_InfoType |  This parent element has a **MasterChainCode** attribute, containing the two-letter GDS code that gives access to a number of different hotel brands owned or represented by the same chain. The **MasterChainCode** lets Concur automatically determine what advantage card numbers to send for this hotel. Refer to the [Hotel Direct Connect Codes](/api-reference/direct-connects/hotel/hotel-direct-connect-codes.html). This parent element contains a **GDS_Codes** element, which contains a **GDS_Code** element. The **GDS_Code** element has the following attributes:<br/>**GDS_PropertyCode**: This attribute lets Concur match against other results (to display GDS and HotelService rates as one item). The most typical one is Northstar ID. If GDS_PropertyCode is provided, GDS_Name must also be provided<br/>**GDS_Name**: The name of the associated GDS. |
 |  StarRating |  The number of stars the hotel is rated for. Optional. Possible values: 1-5 |
 
 ####  XML Example of Successful Response
@@ -227,5 +227,3 @@ Content-Length: {length of content body}
 
 
 [1]: https://developer.concur.com/overview/partner-applications
-[3]: /tools-support/reference/hotel-direct-connect-codes.html#method6
-[4]: /tools-support/reference/hotel-direct-connect-codes.html

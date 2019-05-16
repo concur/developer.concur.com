@@ -1,9 +1,7 @@
 ---
-title: Use Cases
+title: Direct Connect - Hotel v2 - Use Cases
 layout: reference
 ---
-
-{% include prerelease.html %}
 
 Basic scenario encompassing all the functionality provided by Hotel Service 2 incorporated into Concur Travel starting from a hotel search, through to confirmation of a booking and ending with a cancellation.
 

@@ -1,5 +1,5 @@
 ---
-title: Post an availability search
+title: Direct Connect - Hotel v1 - Post an availability search
 layout: reference
 ---
 
@@ -21,7 +21,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
     https://{servername}/concur/hotel/v1/
 
-The supplier determines the URI and provides it to SAP Concur to use when registering the partner application. 
+The supplier determines the URI and provides it to SAP Concur to use when registering the partner application.
 
 ### Authorization header
 Authorization header with Basic credentials.
@@ -54,7 +54,7 @@ The **OTA_HotelAvailRQ** parent element contains the following child elements:
 
 |  Element Name | Required/Optional | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
-| RequestorID |  | Object | The corporate identifier. If necessary, multiple RequestorID elements can be sent. This element has the following attributes: <br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3].<br/>**ID**: The corporate identifier.<br/>**ID_Context**: The corporate identifier context. |
+| RequestorID |  | Object | The corporate identifier. If necessary, multiple RequestorID elements can be sent. This element has the following attributes: <br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes](/api-reference/direct-connects/hotel/hotel-direct-connect-codes.html#method6).<br/>**ID**: The corporate identifier.<br/>**ID_Context**: The corporate identifier context. |
 
 ### AvailRequestSegment
 This parent element contains an AvailRequestSegment element for the requested availability.
@@ -241,6 +241,5 @@ Content-Length: {length of content body}
 
 
 [1]: https://developer.concur.com/overview/partner-applications
-[3]: /tools-support/reference/hotel-direct-connect-codes.html#method6
 [4]: http://en.wikipedia.org/wiki/ISO_4217
 [5]: https://developer.concur.com/sites/default/files/HotelCodes.pdf

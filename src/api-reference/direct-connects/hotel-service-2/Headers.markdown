@@ -1,9 +1,7 @@
 ---
-title: Headers
+title: Direct Connect - Hotel v2 - Headers
 layout: reference
 ---
-
-{% include prerelease.html %}
 
 SAP Concur will send the user-name and password in both the HTTP header and the SOAP header.  IF the user-name and password generates an authentication error, then SAP Concur expects an HTTP 403 response.
 
@@ -91,7 +89,6 @@ Every message must contain the following required attributes and elements.  On t
 | Element         | Required | Data Type          | Description |
 |-----------------|----------|--------------------|-------------|
 | *EchoToken*     | Y        | StringLength1to128 | A reference for additional message identification, assigned by the requesting host system. |
-| *Timestamp*     | Y        | DateTimeType       | Timestmap of XYZ operation - **To be confirmed what this actually means** |
 | *Version*       | Y        | Double            | The OpenTravel message version indicated by a decimal value. |
 | *PrimaryLangID* | Y        | String             | The primary language preference for the message encoded as ISO 639-1 |
 | *AltLangID*     | Y        | String             | The alternate language for a customer or message encoded as ISO 639-1. |

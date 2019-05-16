@@ -141,7 +141,7 @@ Content-Type: application/xml
 
 #### HTTP Responses
 
-* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [HTTP Status Codes](/api-reference/http-status-codes.html)
 * [List Item Error Codes](./v1.list-item.html#error-codes)
 
 #### Content Types
@@ -250,7 +250,7 @@ Content-Type: application/xml
 
 #### HTTP Responses
 
-* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [HTTP Status Codes](/api-reference/http-status-codes.html)
 * [List Item Error Codes](./v1.list-item.html#error-codes)
 
 #### Content Types
@@ -372,7 +372,7 @@ Content-Type: application/xml
 
 #### HTTP Responses
 
-* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [HTTP Status Codes](/api-reference/http-status-codes.html)
 * [List Item Error Codes](./v1.list-item.html#error-codes)
 
 #### Content Types

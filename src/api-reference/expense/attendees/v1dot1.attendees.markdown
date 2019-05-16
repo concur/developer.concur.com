@@ -19,7 +19,7 @@ Attendees that are privately owned or part of shared lists that allow manual add
 
 **NOTES:**
 
-* Posting expense report information is a multi-stage process. Refer to the [Reports v3](/api-reference/expense/expense-report/reports.html) documentation for the steps required to post new expense reports and entries.
+* Posting expense report information is a multi-stage process. Refer to the [Expense Reports v3](/api-reference/expense/expense-report/v3.reports.html) documentation for the steps required to post new expense reports and entries.
 
 ### Supported Content Types
 
@@ -43,7 +43,7 @@ reportId|**Required** The unique identifier for the expense report
 entryId/Attendees|**Required** The unique identifier for the expense entry and the Attendees keyword
 attendeeId|The unique identifier for the attendee. Only used in certain situations when updating an existing attendee. If the developer does not know the External ID for the Attendee, they should use this query parameter
 
-* The `reportId` value is returned by the [Get List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html) function, and as part of the **Report-Details-Url** element of the [Post Expense Report Header](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html) function. The entryId value is returned in the **ReportKey** element of the [Get  Report Details](/api-reference/expense/expense-report/expense-report-get.html) function.
+* The `reportId` value is returned by the [Get List of Reports](/api-reference/expense/expense-report/v2.reports.html) function, and as part of the **Report-Details-Url** element of the [Expense Report Header v1.1](/api-reference/expense/expense-report/v1dot1.reports.html) function. The entryId value is returned in the **ReportKey** element of the [Get  Report Details](/api-reference/expense/expense-report/expense-report-get.html) function.
 * The `attendeeId` value is returned in the **AttendeeKey** element of the [Get Report Details](/api-reference/expense/expense-report/expense-report-get.html) function, and as part of the **Attendee-Details-Url** value returned by this function.
 
 ##### URI Template
@@ -76,7 +76,7 @@ UpdateExisting|N|Whether the request should update an attendee with a matching E
 
 #### Status Codes
 
-See [HTTP Status Codes](/tools-support/reference/http-codes.html)
+See [HTTP Status Codes](/api-reference/http-status-codes.html)
 
 ### Payload
 

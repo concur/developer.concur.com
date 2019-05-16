@@ -1,12 +1,8 @@
 ---
-title: Migrating to Oauth2 Tokens
+title: Migrating old tokens to new Oauth2 Bearer Tokens
 layout: reference
 ---
 
-
-# Migrating old tokens to new Oauth2 Bearer Tokens
-
-* [Overview]()
 * [Base URIs](#base_uris)
 * [Exchanging a Token](#exchangetoken)
 * [Response Codes](#response_codes)
@@ -21,7 +17,6 @@ Environment | URI | Description
 -----|------|------
 US Production |`https://us.api.concursolutions.com` | Default for all API calls
 EU Production |`https://emea.api.concursolutions.com` | Default for EU users
-
 
 ## <a name="exchangetoken"></a>Exchanging a Token
 
@@ -50,14 +45,12 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `Authorization`|`string` | `Bearer <accessToken>` | **Required** The NEW client_credentials accessToken.
 
-
 **Request Body**
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
 `token`|`string` |  | **Required** The OLD refreshToken
 `secret`|`string` |  | **Required** The NEW application client_secret
-
 
 Sample Curl:
 
