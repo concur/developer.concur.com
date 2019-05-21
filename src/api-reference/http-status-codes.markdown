@@ -18,7 +18,7 @@ Success Code|Message|Description
 
 ## Failed Requests
 
-The web service should return a response within 60 seconds. If the request times out without a response, the application should wait for 5 minutes then retry the request. If the request continues to time out after a few retries, the developer should contact [concurconnecttech@concur.com](mailto:concurconnecttech@concur.com).
+The web service should return a response within 60 seconds. If the request times out without a response, the application should wait for 5 minutes then retry the request.
 
 The web service returns a 4xx or 5xx HTTP response code when there are any errors and will include the following elements:
 

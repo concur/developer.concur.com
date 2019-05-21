@@ -22,28 +22,32 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
   * [Get an existing expected expense](#get-existing-expense-expense-resource)
   * [Update the content of an existing expected expense](#update-content-existing-expected-expense-resource)
   * [Delete an expected expense from the Request](#delete-expected-expense-request-resource)
+* [Request Policy Resources](#request-policy-resource)
+  * [Get the list of existing Request policies for a given user](#get-user-request-policy-resource)
 * [Travel Agency Resources](#travel-agency-resource)
   * [Get the description of a travel agency office](#get-travel-agency-description-resource)
 * [Schema](#schema)
   * [Request](#schema-request)
+  * [Amount](#schema-amount)
   * [ApprovalStatus](#schema-approvalstatus)
   * [Customfield](#schema-customfield)
+  * [Employee](#schema-employee)
+  * [Link](#schema-link)
   * [List of Request](#schema-listofrequest)
   * [Location](#schema-location)
-  * [Amount](#schema-amount)
   * [ResourceLink](#schema-resourcelink)
   * [RequestLink](#schema-requestlink)
-  * [Link](#schema-link)
+  * [Request Type](#schema-requesttype)
   * [Expense](#schema-expense)
   * [Allocation](#schema-allocation)
   * [Exchange Rate](#schema-exchangerate)
   * [Expense Type](#schema-expensetype)
-  * [Request Type](#schema-requesttype)
+  * [List Item Field](#schema-listitemfield)
+  * [Segment Leg](#schema-segmentleg)
+  * [Segment Type](#schema-segmenttype)
   * [Travel Allowance](#schema-travelallowance)
   * [Trip Data](#schema-tripdata)
   * [Vendor](#schema-vendor)
-  * [Segment Leg](#schema-segmentleg)
-  * [Segment Type](#schema-segmenttype)
 
 ## HTTP Status Codes
 
@@ -165,8 +169,6 @@ Name|Parameter Type|Data Type|Description
 requestUuid|path|string|**Required** The unique identifier of the Request
 userId|path|string|The unique identifier of the user performing the update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
-
-
 ##### URI Template
 
 ```
@@ -176,7 +178,6 @@ PUT /v4/requests/{requestUuid}
 #### Payload
 
 [Request](#schema-request)
-
 
 ### HTTP Response
 
@@ -269,7 +270,7 @@ Name|Parameter Type|Data Type|Description
 ---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request
 action|path|string|**Required** The state transition to be executed (`submit`, `approve`, `recall`, `sendback`, `cancel`, `close` or `reopen`)
-comment|path|string|Must be used with the Send Back to Employee workflow action. This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
+comment|path|string|Only works with when the workflow action is ‘sendback’. This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
 userId|path|string|The unique identifier of the user performing the status transition. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 companyID|path|string|The unique identifier of the company
 
@@ -465,6 +466,42 @@ None
 
 [Example](./v4.examples.html#delete-expected-expense-request-resource)
 
+# <a name="request-policy-resource"></a>Request Policy Resources
+
+## <a name="get-user-request-policy-resource"></a>Get the list of existing Request policies for a given user
+
+### HTTP Request
+
+#### Parameters
+
+Name|Parameter Type|Data Type|Description
+---|---|---|---
+userId|path|string|The unique identifier of the user for whom the list of Request policies will be retrieved. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error
+
+##### URI Template
+
+```
+GET /v4/userpolicies
+```
+
+#### Payload
+
+None
+
+### HTTP Response
+
+#### Payload
+
+Name|Type|Format|Description
+---|---|---|---
+href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for this Request policy
+id|string|-|The Request policy unique identifier
+name|string|-|The name of the Request policy
+
+### Example
+
+[Example](./v4.examples.html#get-user-request-policy-resource)
+
 # <a name="travel-agency-resource"></a>Travel Agency Resources
 
 Manage the configuration for travel agencies integrated with Concur Request.
@@ -530,7 +567,7 @@ id|string|-|The unique identifier of the Request
 lastModified|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|The date the Request was last modified (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 mainDestination|object|[Location](#location)|The main destination of the Request
 name|string|-|The name of the Request
-owner|object|[ResourceLink](#schema-resourcelink)|The employee who owns the Request
+owner|object|[Employee](#schema-employee)|The employee who owns the Request
 pendingApproval|boolean|-|Indicates whether this Request is pending approval
 policy|object|[ResourceLink](#schema-resourcelink)|The policy that applies to the Request
 requestId|string|4 to 6 alphanumeric characters|The public key of the Request (unique per customer)
@@ -543,6 +580,13 @@ totalRemainingAmount|object|[Amount](#amount)|The total amount not included in a
 travelAgency|object|[ResourceLink](#schema-resourcelink)|The travel agency office that is managing the trip associated to this Request
 operations|array|[Link](#schema-link)|Links to operations available for the Request, depends on the current approval status
 type|object|[RequestType](#schema-requesttype)|The type of the Request, inherited from the Request Policy Type
+
+### <a name="schema-amount"></a>Amount
+
+Name|Type|Format|Description
+---|---|---|---
+value|number|-|**Required** The amount in the defined currency
+currency|string|[ISO 4217:2015](#https://www.iso.org/standard/64758.html)|**Required** The 3-letter ISO 4217 code for the currency in which the amount is expressed
 
 ### <a name="schema-approvalstatus"></a>Approval Status
 
@@ -559,6 +603,24 @@ code|string|-|The short code for the list item. For non-list fields, this value 
 value|string|-|The value of the non-list item. For list fields, this is the unique id of the item
 listItemId|string|-|The unique id of the item in case of a list field
 href|string|-|The link to get this list item on the list service. Empty for non-list items
+
+### <a name="schema-employee"></a>Employee
+
+Name|Type|Format|Description
+---|---|---|---
+firstName|string|-|The first name of the employee
+href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource
+id|string|[RFC 4122](https://tools.ietf.org/html/rfc4122)|Unique identifier of the related object
+lastName|string|-|The last name of the employee
+middleInitial|string|-|The middle initial of the employee
+template|string|-|Hyperlink template to the resource
+
+### <a name="schema-link"></a>Link
+
+Name|Type|Format|Description
+---|---|---|---
+rel|string|[RFC 5988](https://tools.ietf.org/html/rfc5988)|Relation type as defined by the server. There are registered relation types listed in RFC 5988 6.2.2. Initial Registry Contents including pagination relation types of next, prev, first and last
+href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource
 
 ### <a name="schema-listofrequest"></a>List of Request
 
@@ -577,13 +639,6 @@ city|string|-|The city name of the location
 iataCode|string|-|The IATA code of the location
 name|string|-|The name of the location
 
-### <a name="schema-amount"></a>Amount
-
-Name|Type|Format|Description
----|---|---|---
-value|number|-|**Required** The amount in the defined currency
-currency|string|[ISO 4217:2015](#https://www.iso.org/standard/64758.html)|**Required** The 3-letter ISO 4217 code for the currency in which the amount is expressed
-
 ### <a name="schema-resourcelink"></a>ResourceLink
 
 Name|Type|Format|Description
@@ -598,12 +653,12 @@ Name|Type|Format|Description
 ---|---|---|---
 requestId|string|4 to 6 alphanumeric characters|The public key of the Request (unique per customer)
 
-### <a name="schema-link"></a>Link
+### <a name="schema-requesttype"></a>Request Type
 
 Name|Type|Format|Description
 ---|---|---|---
-rel|string|[RFC 5988](https://tools.ietf.org/html/rfc5988)|Relation type as defined by the server. There are registered relation types listed in RFC 5988 6.2.2. Initial Registry Contents including pagination relation types of next, prev, first and last
-href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource
+code|string|-|The code of the type inherited from the Request Policy type
+label|string|-|The label of the type inherited from the Request Policy Type
 
 ### <a name="schema-expense"></a>Expense
 
@@ -660,42 +715,21 @@ id|string|-|**Required** Unique identifier of the Expense type
 name|string|-|Name of the Expense type
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for the Expense type definition
 
-### <a name="schema-requesttype"></a>Request Type
+### <a name="schema-listitemfield"></a>List Item Field
 
 Name|Type|Format|Description
 ---|---|---|---
-code|string|-|The code of the type inherited from the Request Policy type
-label|string|-|The label of the type inherited from the Request Policy Type
-
-### <a name="schema-travelallowance"></a>Travel Allowance
-
-Name|Type|Format|Description
----|---|---|---
-dailyTravelAllowanceId|string|-|The fixed daily travel allowance id associated with the Expense
-
-### <a name="schema-tripdata"></a>Trip Data
-
-Name|Type|Format|Description
----|---|---|---
-agencyBooked|boolean|-|True if this travel is (or has to be) handled by a travel agency
-legs|list|[Segment Leg](#schema-segmentleg)|The list of the legs of the travel
-tripType|string|-|Indicates the type of this trip. Should be one of `ONE_WAY`, `ROUND_TRIP` or `MULTI_STOPS`. If not provided, will be detected from the given legs.
-segmentType|object|[Segment Type](#schema-segmenttype)|**Required** The type of the segment
-selfBooked|boolean|-|True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS
-
-### <a name="schema-vendor"></a>Vendor
-
-Name|Type|Format|Description
----|---|---|---
-id|string|-|The vendor identifier of the entry
-name|string|-|The vendor description of the entry
+code|string|-|The short code of the list item
+value|string|-|Name of the list item
+href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for the list item
 
 ### <a name="schema-segmentleg"></a>Segment Leg
 
 Name|Type|Format|Description
 ---|---|---|---
-comment|string|-|Contains the last comment saved in this segment leg.
+class|list|[List Item Field](#schema-listitemfield)|The booking class of the segment leg.
 classOfService|string|-|The class of service of the segment leg. For example, in the case of an air segment, this field would contain the one-letter booking code: Y for economy class, or F for first class...
+comment|string|-|Contains the last comment saved in this segment leg.
 custom1 to custom40|object|[CustomField](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration
 endDate|date|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)|The date of the end of this segment leg (in the form YYYY-MM-DD). It represents the arrival date of AIRFR and TRAIN segments, check out date for HOTEL or drop off for CARRT
 endLocation|object|[ResourceLink](#schema-resourcelink)|The location where this segment leg arrives. This would be the arrival location for an air segment for example.
@@ -727,3 +761,26 @@ Example:
   "code": "AIRFR"
 }
 ```
+
+### <a name="schema-travelallowance"></a>Travel Allowance
+
+Name|Type|Format|Description
+---|---|---|---
+dailyTravelAllowanceId|string|-|The fixed daily travel allowance id associated with the Expense
+
+### <a name="schema-tripdata"></a>Trip Data
+
+Name|Type|Format|Description
+---|---|---|---
+agencyBooked|boolean|-|True if this travel is (or has to be) handled by a travel agency
+legs|list|[Segment Leg](#schema-segmentleg)|The list of the legs of the travel
+tripType|string|-|Indicates the type of this trip. Should be one of `ONE_WAY`, `ROUND_TRIP` or `MULTI_STOPS`. If not provided, will be detected from the given legs.
+segmentType|object|[Segment Type](#schema-segmenttype)|**Required** The type of the segment
+selfBooked|boolean|-|True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS
+
+### <a name="schema-vendor"></a>Vendor
+
+Name|Type|Format|Description
+---|---|---|---
+id|string|-|The vendor identifier of the entry
+name|string|-|The vendor description of the entry

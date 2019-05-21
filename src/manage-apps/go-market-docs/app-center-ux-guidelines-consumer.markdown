@@ -5,7 +5,7 @@ layout: reference
 
 In this guide, we will help you implement the connection between an SAP Concur user's account and your application. You will find best practices for user-centered design, examples of dos-and-don’ts, and suggested steps to guide the user through the connection process.
 
-It is not our intention to tell you what colors and fonts to use. Maintaining your brand integrity is important, and these guielines do not interfere with that. Rather, our goal is for user to have a pleasant and consistent experience across all of our partner applications. Observing these guidelines will help ensure that our shared users have positive experiences with both of our companies as a result of our partnership.
+It is not our intention to tell you what colors and fonts to use. Maintaining your brand integrity is important, and these guidelines do not interfere with that. Rather, our goal is for user to have a pleasant and consistent experience across all of our partner applications. Observing these guidelines will help ensure that our shared users have positive experiences with both of our companies as a result of our partnership.
 
 * [A word on accessibility](#word-on-accessibility)
 * [Account linking example](#design-guidelines-account-linking-example)
@@ -131,11 +131,11 @@ This section provides a summarized checklist of the required and recommended com
   * Must provide back/forward navigation, where applicable. (required)
   * Should be [Section 508 Compliance](https://www.section508.gov) (strongly recommended)
   * Should include support and help options clearly throughout the process.
-  * Must support major browsers and versions. The full list of Concur-supported browsers is available [here](https://www.concurtraining.com/customers/tech_pubs/Docs/Z_SuppConfig/Supported_Configurations_for_Concur_Travel_and_Expense_Client-Facing.pdf). (required)
+  * Must support major browsers and versions. The full list of SAP Concur-supported browsers is available [here](https://www.concurtraining.com/customers/tech_pubs/Docs/Z_SuppConfig/Supported_Configurations_for_Concur_Travel_and_Expense_Client-Facing.pdf). (required)
   * Should adhere to your company’s brand and marketing guidelines
   * Must include your company branding and specific application brand, if applicable (required)
 * On the first page (at a minimum),
-  * Must clearly indicate this is an integration with Concur (required)
+  * Must clearly indicate this is an integration with SAP Concur (required)
   * Must include links to your terms and conditions and privacy policy (required)
 
 
