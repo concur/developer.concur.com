@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Financial Integration APIs help Concur clients move extract data from Concur into their systems of record.",
-    "version": "1",
+    "version": "4",
     "title": "Financial Integration API",
     "termsOfService": "http://terms-of-service.url",
     "contact": {
@@ -115,7 +115,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PagedResources«Resource«FIDocument»»"
+              "$ref": "#/definitions/PagedResources.Resource.FIDocument"
             }
           },
           "400": {
@@ -124,7 +124,7 @@
           "500": {
             "description": "Internal error",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": ""
             }
           }
         }
@@ -355,7 +355,7 @@
         }
       }
     },
-    "Collection«Resource«FIDocument»»": {
+    "Collection.Resource.FIDocument": {
       "type": "object"
     },
     "PublishedPurgeMessage": {
@@ -417,7 +417,6 @@
             "300",
             "301",
             "302",
-            "302",
             "303",
             "304",
             "305",
@@ -437,8 +436,6 @@
             "411",
             "412",
             "413",
-            "413",
-            "414",
             "414",
             "415",
             "416",
@@ -474,7 +471,7 @@
     "FiDocumentResponse": {
       "properties": {
         "fIDocuments": {
-          "$ref": "#/definitions/Collection«FIDocument»"
+          "$ref": "#/definitions/Collection.FIDocument"
         },
         "nextPage": {
           "type": "string"
@@ -488,7 +485,7 @@
         }
       }
     },
-    "Resource«FIDocument»": {
+    "Resource.FIDocument": {
       "properties": {
         "companyId": {
           "type": "string"
@@ -542,7 +539,7 @@
         }
       }
     },
-    "Collection«FIDocument»": {
+    "Collection.FIDocument": {
       "type": "object"
     },
     "PublishedMessage": {
@@ -668,10 +665,10 @@
         }
       }
     },
-    "PagedResources«Resource«FIDocument»»": {
+    "PagedResources.Resource.FIDocument": {
       "properties": {
         "content": {
-          "$ref": "#/definitions/Collection«Resource«FIDocument»»"
+          "$ref": "#/definitions/Collection.Resource.FIDocument"
         },
         "links": {
           "type": "array",
@@ -795,7 +792,6 @@
             "300",
             "301",
             "302",
-            "302",
             "303",
             "304",
             "305",
@@ -815,8 +811,6 @@
             "411",
             "412",
             "413",
-            "413",
-            "414",
             "414",
             "415",
             "416",
