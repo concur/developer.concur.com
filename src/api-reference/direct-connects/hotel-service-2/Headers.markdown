@@ -3,8 +3,6 @@ title: Direct Connect - Hotel v2 - Headers
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 SAP Concur will send the user-name and password in both the HTTP header and the SOAP header.  IF the user-name and password generates an authentication error, then SAP Concur expects an HTTP 403 response.
 
 * [HTTP Headers](#http)
@@ -87,6 +85,7 @@ Every message must contain the following required attributes and elements.  On t
 
 ## <a name="request-message"></a>Request Message Headers
 
+<<<<<<< HEAD
 |Name|Type|Description |
 |-----------------|--------------------|-------------|
 |`EchoToken`|`stringLength1to128`|**Required** A reference for additional message identification, assigned by the requesting host system. |
@@ -95,6 +94,16 @@ Every message must contain the following required attributes and elements.  On t
 |`PrimaryLangID`|`string`|**Required** The primary language preference for the message encoded as ISO 639-1 |
 |`AltLangID`|`string`|**Required** The alternate language for a customer or message encoded as ISO 639-1. |
 |`POS`|`complex`|**Required** Point of Sale (POS) identifies the party or connection channel making the request. |
+=======
+| Element         | Required | Data Type          | Description |
+|-----------------|----------|--------------------|-------------|
+| *EchoToken*     | Y        | StringLength1to128 | A reference for additional message identification, assigned by the requesting host system. |
+| *Version*       | Y        | Double            | The OpenTravel message version indicated by a decimal value. |
+| *PrimaryLangID* | Y        | String             | The primary language preference for the message encoded as ISO 639-1 |
+| *AltLangID*     | Y        | String             | The alternate language for a customer or message encoded as ISO 639-1. |
+| POS             | Y        | Complex            | Point of Sale (POS) identifies the party or connection channel making the request. |
+
+>>>>>>> 8894e1ad907c54cb241dc9b84e554699d8c73b76
 
 **POS**
 

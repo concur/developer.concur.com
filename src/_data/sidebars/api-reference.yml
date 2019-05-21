@@ -95,8 +95,8 @@
         url: /api-reference/direct-connects/hotel-service-2/Read-Itinerary.html
       - title: Cancel
         url: /api-reference/direct-connects/hotel-service-2/Cancel.html
-      - title: FAQ
-        url: /api-reference/direct-connects/hotel-service-2/FAQ.html
+      - title: Virtual Payment
+        url: /api-reference/direct-connects/hotel-service-2/V-payment.html
       - title: Appendix
         url: /api-reference/direct-connects/hotel-service-2/Appendix.html
       - title: XSD-schema
@@ -154,9 +154,9 @@
 - title: Invoice
   url: ''
   children:
-      - title: Retrieve Payment Request Digests v3
+      - title: Retrieve Invoice Digests v3
         url: /api-reference/invoice/v3.payment-request-digest.html
-      - title: Payment Request v3
+      - title: Invoice v3
         url: /api-reference/invoice/v3.payment-request.html
       - title: Purchase Orders v3
         url: /api-reference/invoice/v3.purchase-order.html
