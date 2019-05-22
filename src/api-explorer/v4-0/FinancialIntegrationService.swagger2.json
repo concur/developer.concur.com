@@ -3,15 +3,7 @@
   "info": {
     "description": "Financial Integration APIs help Concur clients move extract data from Concur into their systems of record.",
     "version": "4",
-    "title": "Financial Integration API",
-    "termsOfService": "http://terms-of-service.url",
-    "contact": {
-      "name": "Team_RealGenius@sap.com"
-    },
-    "license": {
-      "name": "License",
-      "url": "http://licenseurl"
-    }
+    "title": "Financial Integration API"
   },
   "host": "us.api.concursolutions.com",
   "basePath": "/financialintegration",
@@ -81,7 +73,7 @@
           {
             "name": "docId",
             "in": "query",
-            "description": "docId",
+            "description": "expense report id/payroll report id/invoice report id",
             "required": false,
             "type": "string"
           },
@@ -106,7 +98,7 @@
           {
             "name": "Authorization",
             "in": "header",
-            "description": "Bearer JWTFromOAuthServiceHere",
+            "description": "For details on how to get an authorization token, please refer <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\"> here </a>",
             "required": true,
             "type": "string"
           }
