@@ -446,7 +446,6 @@ content-type: application/json
     }
 } 
 ```
-```
 
 ### Request
 ###### Add request - invalid mobile phone variation
