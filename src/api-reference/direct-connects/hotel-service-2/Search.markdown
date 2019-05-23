@@ -7,13 +7,37 @@ layout: reference
 
 Message to perform the initial search for hotels.
 
-| SOAPAction | OTA name    | Message structure |
+|SOAPAction|OTA Name|Message Structure|
 |------------|-------------|-------------------|
-| search     | HotelSearch | OTA_HotelSearchRQ |
+|search|HotelSearch|OTA_HotelSearchRQ|
 
 ---
 
-## Request
+* [Request](#request)
+  * [Schema](#req-schema)
+    * [Criteria](#criteria)
+    * [Criterion](#criterion)
+    * [TPA Extensions](#req-tpa-extensions)
+    * [Custom Fields](#custom-fields)
+    * [Position](#position)
+    * [Hotel Ref](#hotel-ref)
+    * [Radius](#radius)
+    * [Stay Date Range](#stay-date-range)
+* [Response](#response)
+  * [Schema](#res-schema)
+    * [Properties](#properties)
+    * [Property](#property)
+    * [Address](#address)
+    * [State Prov](#state-prov)
+    * [Country Name](#country-name)
+    * [Contact Numbers](#contact-numbers)
+    * [Contact Number](#contact-number)
+    * [Award](#award)
+    * [Hotel Amenity](#hotel-amenity)
+    * [TPA Extensions](#res-tpa-extensions)
+    * [TPA Hotel Preview Image URI](#tpa-hotel-preview)
+
+## <a name="request"></a>Request
 
 ```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
@@ -48,92 +72,80 @@ Message to perform the initial search for hotels.
  </Envelope>
 ```
 
+#### <a name="req-schema"></a>OTA_HotelSearchRQ
 
-**OTA_HotelSearchRQ**
+|Name|Type|Description|
+|----------------|-----------|-------------|
+|`MaxResponses`|`integer`|**Required** SAP Concur currently supports 100 search results in one (1) message. If more than 100 results are returned SAP Concur drops all results after the 100th entry.|
+|`Criteria`|`complex`|**Required** Specified hotel search criteria.|
+|`TPA_Extensions`|`complex`|This adds an Org Unit name to the Search request.|
 
-| Element        | Required | Data Type | Description |
-|----------------|----------|-----------|-------------|
-| *MaxResponses* | Y        | Int       | Concur currently supports 100 search results in one message. If more than 100 results are returned Concur drops all results after the 100th entry.|
-| Criteria       | Y        | Complex   | Specified hotel search criteria. |
-| TPA_Extensions|  N        | Complex   | This adds Org Unit name to the Search RQ |
+#### <a name="criteria"></a>Criteria
 
+|Name|Type|Description|
+|-----------|-----------|-------------|
+|`Criterion`|`complex`|**Required** Child elements that identify a single search criterion by criteria type.|
 
-**Criteria**
+#### <a name="criterion"></a>Criterion
 
-| Element   | Required | Data Type | Description |
-|-----------|----------|-----------|-------------|
-| Criterion | Y        | Complex   | Child elements that identify a single search criterion by criteria type. |
+The criterion is used to define the search criteria.  Currently we support only one `Criterion`.
 
+|Name|Type|Description|
+|---------------|-----------|-------------|
+|`Position`|`complex`|**Required for Search request only, but optional for Availability request.** Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709.|
+|`HotelRef`|`complex`|Indicates the detail of hotel reference information.|
+|`RefPoint`|`stringLength0to64`|The reference point element allows for a search by proximity to a designated reference point by name.|
+|`Radius`|`complex`|Used to specify the extent of a search area. The extent is relative to an element (`position`, `address`, `hotelRef`, etc.) present in this `ItemSearchCriterionType` that specifies a location.|
+|`StayDateRange`|`complex`|**Required** Range of dates using ISO 8601.|
 
-**Criterion**
+#### <a name="req-tpa-extensions"></a>TPA_Extensions
 
-The criterion is used to define the search criteria.  Currently we support only one Criterion.
+|Name|Type|Description|
+|--------------|----------|--------------------------|
+|`CustomFields`|`complex`|This adds Org Unit name.|
 
-| Element       | Required | Data Type | Description |
-|---------------|----------|-----------|-------------|
-| Position      | Y        | Complex   | Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709. **Required for Search request only, but optional for Availability request!** |
-| HotelRef      | N        | Complex   | Indicates the detail of hotel reference information. |
-| *RefPoint*     | N        | StringLength0to64   | The Reference Point element allows for a search by proximity to a designated reference point by name. |
-| Radius        | N        | Complex   | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location. |
-| StayDateRange | Y        | Complex   | Range of dates using ISO 8601. |
+#### <a name="custom-fields"></a>CustomFields
 
+|Name|Type|Description|
+|-------------|-----------|-------------|
+|`CustomField`|-|-|
+|`Name`|`xs:string`|-|
+|`Value`|`xs:string`|-|
 
-**TPA_Extensions**
+#### <a name="position"></a>Position
 
-|   Element    | Required |      Data Type      |      Description        |
-|--------------|----------|------------------|--------------------------|
-| CustomFields | N        | Complex | This adds ORG unit name. |
-
-
-**CustomFields**
-
-|  Element   | Required |   Data Type    | Description |
-|-------------|----------|-----------|-------------|
-| CustomField | N        |           |             |
-| *Name*      |          | xs:string |             |
-| *Value*     |          | xs:string |             |
-
-**Position**
-
-| Element     | Required | Data Type         | Description |
+|Name|Type|Description|
 |-------------|----------|-------------------|-------------|
-| *Latitude*  | Y        | StringLength1to16 | The measure of the angular distance on a meridian north or south of the equator. |
-| *Longitude* | Y        | StringLength1to16 | The measure of the angular distance on a meridian east or west of the prime meridian. |
+|`Latitude`|`stringLength1to16`|**Required** The measure of the angular distance on a meridian north or south of the equator.|
+|`Longitude`|`stringLength1to16`|**Required** The measure of the angular distance on a meridian east or west of the prime meridian.|
 
+#### <a name="hotel-ref"></a>HotelRef
 
-**HotelRef**
+|Name|Type|Description|
+|-------------|--------------------|-------------|
+|`HotelName`|`stringLength1to128`|A text field used to communicate the proper name of the hotel.|
+|`HotelCode`|`stringLength1to16`|The code that uniquely identifies a single hotel property. The hotel code is decided between vendors.|
 
-| Element     | Required | Data Type          | Description |
-|-------------|----------|--------------------|-------------|
-| *HotelName* | N        | StringLength1to128 | A text field used to communicate the proper name of the hotel. |
-| *HotelCode* | N        | StringLength1to16  | The code that uniquely identifies a single hotel property. The hotel code is decided between vendors. |
-
-
-**Radius**
+#### <a name="radius"></a>Radius
 
 The radius element is used along with the Hotel Preference to categorize the search results.
 
-| Element             | Required | Data Type                | Description |
-|---------------------|----------|--------------------------|-------------|
-| *Distance*          | Y        | NumericStringLength1to16 | The distance from a reference point. |
-| *DistanceMax*       | N        | NumericStringLength1to16 | Attribute indicating the distance from a reference point for Preferred (Corporate) hotels. |
-| *UnitOfMeasureCode* | Y        | NumericStringLength1to16 | The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code (UOM). Concur uses "1" for miles, "2" for kilometers. |
+|Name|Type|Description|
+|---------------------|--------------------------|-------------|
+|`Distance|`numericStringLength1to16`|**Required** The distance from a reference point.|
+|`DistanceMax`|`numericStringLength1to16`|Attribute indicating the distance from a reference point for Preferred (Corporate) hotels.|
+|`UnitOfMeasureCode`|`numericStringLength1to16`|**Required** The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code (UOM). SAP Concur uses `1` for miles, `2` for kilometers.|
 
+#### <a name="stay-date-range"></a>StayDateRange
 
-**StayDateRange**
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`Start`|`date`, `time`, or `datetime`|**Required** The starting value of the time span.|
+|`End`|`date`, `time`, or `datetime`|**Required** The ending value of the time span.|
 
-| Element | Required | Data Type                | Description |
-|---------|----------|-------------------       |-------------|
-| *Start* | Y        | DateOrTimeOrDateTimeType | The starting value of the time span. |
-| *End*   | Y        | DateOrTimeOrDateTimeType | The ending value of the time span. |
+## <a name="response"></a>Response
 
-
----
-
-
-## Response
-
-The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds this limit shall be dropped.
+The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that exceeds this limit will be dropped.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -169,102 +181,90 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 </soap:Envelope>
 ```
 
-**OTA_HotelSearchRS**
+#### <a name="res-schema"></a>OTA_HotelSearchRS
 
-| Element    | Required  | Data Type    | Description |
-|------------|-----------|--------------|-------------|
-| Properties | Y         | Complex      | A collection of individual property information. |
+|Name|Type|Description|
+|------------|--------------|-------------|
+|`Properties`|`complex`|**Required** A collection of individual property information.|
 
-**Properties**
+#### <a name="properties"></a>Properties
 
-| Element  | Required | Data Type | Description |
-|----------|----------|-----------|-------------|
-| Property | Y        | Complex   | A property that matches some or all of the search criteria. |
+|Name|Type|Description|
+|----------|-----------|-------------|
+|`Property`|`complex`|**Required** A property that matches some or all of the search criteria.|
 
+#### <a name="property"></a>Property
 
-**Property**
+|Name|Type|Description|
+|----------------|-------------------|-------------|
+|`ChainCode`|`stringLength1to32`|2-letter GDS chain code. The code that identifies a hotel chain or management group. Used for chain filter in UI, and for travel rules based on GDS codes.|
+|`ChainName`|`stringLength1to32`|The name of the hotel chain. Examples: `Hilton`, `Marriott`, `Hyatt`, `Starwood`|
+|`HotelCode`|`stringLength1to32`|**Required** The code that uniquely identifies a single hotel property. Used in other OTA messages.|
+|`HotelName`|`stringLength1to32`|**Required** A text field used to communicate the proper name of the hotel.|
+|`Position`|`complex`|**Required** Refer to `Position` in the Request.|
+|`Address`|`complex`|**Required** Public address of the hotel property.|
+|`ContactNumbers`|`complex`|Contact numbers.|
+|`Award`|`complex`|An element that identifies the hotel ratings.|
+|`HotelAmenity`|`complex`|List of hotel amenities.|
+|`TPA_Extensions`|`complex`|SAP Concur-specific extension of OTA spec. This adds support for extra property fields.|
 
-|  Element       | Required | Data Type         | Description |
-|----------------|----------|-------------------|-------------|
-| ChainCode      | N        | StringLength1to32 | 2 letter GDS chain code. The code that identifies a hotel chain or management group. Used for Chain filter in UI, and for Travel Rules based on GDS codes |
-| ChainName      | N        | StringLength1to32 | The name of the hotel chain (e.g., Hilton, Marriott, Hyatt, Starwood). |
-| HotelCode      | Y        | StringLength1to32 | The code that uniquely identifies a single hotel property. Used in other OTA messages. |
-| HotelName      | Y        | StringLength1to32 | A text field used to communicate the proper name of the hotel. |
-| Position       | Y        | Complex           | Refer to Position in the Request. |
-| Address        | Y        | Complex           | Public address of the hotel property. |
-| ContactNumbers | N        | Complex           | Contact numbers |
-| Award          | N        | Complex           | An element that identifies the hotel ratings. |
-| HotelAmenity   | N        | Complex           | List of Hotel Amenities. |
-| TPA_Extensions | N        | Complex           | Concur-specific extension of OTA spec. This adds support for extra property fields. |
+#### <a name="address"></a>Address
 
+|Name|Type|Description|
+|-------------|-----------|--------------|
+|`AddressLine`|`stringLength1to255`|The screenname and number. Maximum occurrences: `5`|
+|`CityName`|`stringLength1to64`|Name of the city.|
+|`PostalCode`|`stringLength1to16`|The postal code.|
+|`StateProv`|`complex`|Name of the state.|
+|`CountryName`|`complex`|Country name. Example: `Ireland`|
 
-**Address**
+#### <a name="state-prov"></a>StateProv
 
-|  Element    | Required | Data Type |  Description |
-|-------------|----------|-----------|--------------|
-| AddressLine | N        | StringLength1to255   | Free form text field. Normally the screen name and number. This element may occur up to 5 times. |
-| CityName    | N        | StringLength1to64   | Free form text field. Name of the city. |
-| PostalCode  | N        | StringLength1to16   | Free form text field. The Postal Code. |
-| StateProv   | N        | Complex   | Free form text field. Name of the state |
-| CountryName | N        | Complex   | Country name (e.g., Ireland) |
+|Name|Type|Description|
+|-----------|------------------|-------------|
+|`StateCode`|`stringLength0to64`|The standard code or abbreviation for the state, province, or region (note the code may not be available for all states).|
 
+#### <a name="country-name"></a>CountryName
 
-**StateProv**
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`Code`|`stringLength0to64`|**Required** The name or ISO 3166 code of a country.|
 
-| Element   | Required | Data Type        | Description |
-|-----------|----------|------------------|-------------|
-| StateCode | N        | StringLength0to64 | The standard code or abbreviation for the state, province, or region (note the code may not be available for all states). |
+#### <a name="contact-numbers"></a>ContactNumbers
 
+|Name|Type|Description|
+|---------------|-----------|-------------|
+|`ContactNumber`|`complex|Element which contains the `ContactNumber`. SAP Concur only accepts one (first) `ContactNumber` of each supported type.|
 
-**CountryName**
+#### <a name="contact-number"></a>ContactNumber
 
-| Element | Required | Data Type         | Description |
-|---------|----------|-------------------|-------------|
-| Code    | Y        | StringLength0to64 | The name or ISO 3166 code of a country (e.g. as used in an address or to specify citizenship of a traveller). |
+|Name|Type|Description|
+|-------------------|-------------------|-------------|
+|`CountryAccessCode`|`stringLength1to32`|The country code.|
+|`PhoneNumber`|`stringLength1to32`|**Required** The phone number.|
+|`PhoneTechType`|`string`|SAP Concur currently only supports a `PhoneTechType` set to `1` (phone) or `3` (fax). You can omit this field only in case you are providing one contact number. We suggest to fill the type in all cases, it may become mandatory in the future.|
 
+#### <a name="award"></a>Award
 
-**ContactNumbers**
+|Name|Type|Description|
+|----------|-----------|-------------|
+|`Rating`|`integer`|**Required** Hotel rating should be an integer number from 0 to 5, representing its star rating.|
 
-| Element       | Required | Data Type | Description |
-|---------------|----------|-----------|-------------|
-| ContactNumber | N        | Complex   | Element which contains the ContactNumber. Concur only accepts one (first) ContactNumber of each supported type. |
+#### <a name="hotel-amenity"></a>HotelAmenity
 
+|Name|Type|Description|
+|---------|--------------|-------------|
+|`Code`|`string`|**Required** Refer to OpenTravel Code List Hotel Amenity Code (HAC).|
 
-**ContactNumber**
+#### <a name="res-tpa-extensions"></a>TPA Extensions
 
-| Element           | Required | Data Type         | Description |
-|-------------------|----------|-------------------|-------------|
-| CountryAccessCode | N        | StringLength1to32 | The Country code. |
-| PhoneNumber       | Y        | StringLength1to32 | The phone number. |
-| PhoneTechType     | N        | String            | Concur currently only supported a PhoneTechType set to "1" (phone) or "3" (fax). You can omit this field only in case you are providing one contact number. Anyway, we suggest to fill the type in all cases, it may become mandatory in the future. |
+|Name|Type|Description|
+|------------------------|-------------------|-------------|
+|`HotelPreference`|`stringLength1to32`|**Required** SAP Concur allows customers to override property preference in the system settings. Supported values: `not_preferred`, `less_preferred`, `preferred`, `most_preferred`|
+|`TPA_HotelPreviewImageURI`|`complex`|**Required** Details for an image of a given category.|
 
+#### <a name="tpa-hotel-preview"></a>TPA_HotelPreviewImageURI
 
-**Award**
-
-| Element  | Required | Data Type | Description |
-|----------|----------|-----------|-------------|
-| *Rating* | Y        | Int       | Hotel rating should be integer number from 0 to 5, representation it's star rating. |
-
-
-**HotelAmenity**
-
-| Element | Required | Data Type    | Description |
-|---------|----------|--------------|-------------|
-| *Code*  | Y        | string	| Refer to OpenTravel Code List Hotel Amenity Code (HAC) |
-
-
-### TPA Extensions
-
-**TPA_Extensions**
-
-| Element                  | Required | Data Type         | Description |
-|--------------------------|----------|-------------------|-------------|
-| HotelPreference          | Y        | StringLength1to32 | Preference levels supports by Concur are "not_preferred", "less_preferred", "preferred", "most_preferred". Please note, that Concur allows customers to override property preference in the system settings.  |
-| TPA_HotelPreviewImageURI | Y        | Complex           | Details for an image of a given category. |
-
-
-**TPA_HotelPreviewImageURI**
-
-| Element | Required | Data Type         | Description |
-|---------|----------|-------------------|-------------|
-| URL     | Y        | StringLength1to32 | URL of the multimedia item for a specific format. Concur supports on one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message.  The image will be used as a thumb-nail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`URL`|`stringLength1to32`|**Required** URL of the multimedia item for a specific format. SAP Concur supports one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message. The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |

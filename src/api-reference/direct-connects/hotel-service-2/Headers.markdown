@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Headers
 layout: reference
 ---
 
-SAP Concur will send the user-name and password in both the HTTP header and the SOAP header.  IF the user-name and password generates an authentication error, then SAP Concur expects an HTTP 403 response.
+SAP Concur will send the user-name and password in both the HTTP header and the SOAP header. If the username and password generates an authentication error, then SAP Concur expects an HTTP 403 response.
 
 * [HTTP Headers](#http)
 * [Soap Header](#soap)
@@ -13,15 +13,15 @@ SAP Concur will send the user-name and password in both the HTTP header and the 
 
 # <a name="http"></a>HTTP Headers
 
-SAP Concur will send the following HTTP headers in every request.  The contents of the Authentication header will be repeated in the SOAP pay-load. Please note that some libraries used to handle the requests may be case sensitive.
+SAP Concur will send the following HTTP headers in every request.  The contents of the Authentication header will be repeated in the SOAP payload. Please note that some libraries used to handle the requests may be case sensitive.
 
 |Name|Type|Description|
 |----------------|-----------|-------------|
 |`Authorization`|`string`|A Base64 encoded string in the form of `Basic <username:password>`.|
-|`Soapaction`|`string`|The message type. The action will always be sent in lowercase. Example: `search` |
-|`Content-Type`|`string`|All communication with the HS2 API is by way of a `application/xml` content type. |
-|`Accept`|`string`|SAP Concur will always set the `Accept` header to `application/xml`. |
-|`Accept-Charset`|`string`|SAP Concur will always set the `Accept-Charset` header to `utf-8`. |
+|`Soapaction`|`string`|The message type. The action will always be sent in lowercase. Example: `search`|
+|`Content-Type`|`string`|All communication with the HS2 API is by way of a `application/xml` content type.|
+|`Accept`|`string`|SAP Concur will always set the `Accept` header to `application/xml`.|
+|`Accept-Charset`|`string`|SAP Concur will always set the `Accept-Charset` header to `utf-8`.|
 
 Supported Soapactions:
 
@@ -85,59 +85,47 @@ Every message must contain the following required attributes and elements.  On t
 
 ## <a name="request-message"></a>Request Message Headers
 
-<<<<<<< HEAD
-|Name|Type|Description |
+|Name|Type|Description|
 |-----------------|--------------------|-------------|
-|`EchoToken`|`stringLength1to128`|**Required** A reference for additional message identification, assigned by the requesting host system. |
-|`Timestamp`|`datetime`|**Required** Timestmap of XYZ operation|
-|`Version`|`double`|**Required** The OpenTravel message version indicated by a decimal value. |
-|`PrimaryLangID`|`string`|**Required** The primary language preference for the message encoded as ISO 639-1 |
-|`AltLangID`|`string`|**Required** The alternate language for a customer or message encoded as ISO 639-1. |
-|`POS`|`complex`|**Required** Point of Sale (POS) identifies the party or connection channel making the request. |
-=======
-| Element         | Required | Data Type          | Description |
-|-----------------|----------|--------------------|-------------|
-| *EchoToken*     | Y        | StringLength1to128 | A reference for additional message identification, assigned by the requesting host system. |
-| *Version*       | Y        | Double            | The OpenTravel message version indicated by a decimal value. |
-| *PrimaryLangID* | Y        | String             | The primary language preference for the message encoded as ISO 639-1 |
-| *AltLangID*     | Y        | String             | The alternate language for a customer or message encoded as ISO 639-1. |
-| POS             | Y        | Complex            | Point of Sale (POS) identifies the party or connection channel making the request. |
-
->>>>>>> 8894e1ad907c54cb241dc9b84e554699d8c73b76
+|`EchoToken`|`stringLength1to128`|**Required** A reference for additional message identification, assigned by the requesting host system.|
+|`Version`|`double`|**Required** The OpenTravel message version indicated by a decimal value.|
+|`PrimaryLangID`|`string`|**Required** The primary language preference for the message encoded as ISO 639-1.|
+|`AltLangID`|`string`|**Required** The alternate language for a customer or message encoded as ISO 639-1.|
+|`POS`|`complex`|**Required** Point of Sale (POS) identifies the party or connection channel making the request.|
 
 **POS**
 
 |Name|Type|Description|
 |---------|-----------|-------------|
-|`Sources`|`complex`|**Required** This holds the details about the requestor.  Max Occurrence: 10 |
+|`Sources`|`complex`|**Required** This holds the details about the requestor.  Max Occurrence: 10|
 
 **Source**
 
-SAP Concur will always send the ISO Currency
+SAP Concur will always send the ISO Currency.
 
 |Name|Type|Description|
 |---------------|--------------|-------------|
-|`ISOCurrency`|`alphaLength3`|**Required** Currency Code |
-|`RequestorID`|`complex`|An identifier of the entity making the request Examples: ATA/IATA/ID number, Electronic Reservation Service Provider (ERSP), Association of British Travel Agents (ABTA) |
+|`ISOCurrency`|`alphaLength3`|**Required** Currency code.|
+|`RequestorID`|`complex`|An identifier of the entity making the request Examples: ATA/IATA/ID number, Electronic Reservation Service Provider (ERSP), Association of British Travel Agents (ABTA)|
 
 **RequestorID**
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Type`|`stringLength1to32`|**Required** SAP Concur will always send a Requestor ID type of 1 |
-|`ID`|`stringLength1to32`|**Required** The Requestor ID |
+|`Type`|`stringLength1to32`|**Required** Supported value: `1`|
+|`ID`|`stringLength1to32`|**Required** The requestor ID.|
 
 ---
 
 ## <a name="response-message"></a>Response Message Headers
 
-The supplier is required to respond with the following attributes and elements in the root of any message.  On top of these each message may specify extra attributes and elements. Refer to a specific messages' page for details.
+The supplier is required to respond with the following attributes and elements in the root of any message. Each message may specify extra attributes and elements. Refer to a specific messages' page for details.
 
 |Name|Type|Description|
 |-----------------|--------------------|-------------|
-|`EchoToken`|`stringLength1to128`|**Required** Implementer: A reference for additional message identification, assigned by the requesting host system. When a request message includes an echo token the corresponding response message MUST include an echo token with an identical value.|
-|`Timestamp`|`datetime`|**Required** Timestmap of the response operation.|
-|`Version`|`double`|**Required** The OpenTravel message version indicated by a decimal value. |
-|`PrimaryLangID`|`string`|**Required** The primary language preference for the message encoded as ISO 639-1|
+|`EchoToken`|`stringLength1to128`|**Required** A reference for additional message identification, assigned by the requesting host system. When a request message includes an echo token the corresponding response message MUST include an echo token with an identical value.|
+|`Timestamp`|`datetime`|**Required** Timestamp of the response operation.|
+|`Version`|`double`|**Required** The OpenTravel message version indicated by a decimal value.|
+|`PrimaryLangID`|`string`|**Required** The primary language preference for the message encoded as ISO 639-1.|
 |`AltLangID`|`string`|**Required** The alternate language for a customer or message encoded as ISO 639-1.|
-|`Success / Error`|`complex`|**Required** Indicates Success Or Error.  Refer to Errors page for more details regarding Error handling.|
+|`Success / Error`|`complex`|**Required** Indicates Success Or Error.  Refer to the [Error Handling](/api-reference/direct-connects/hotel-service-2/Error-handling.html) page for more details.|
