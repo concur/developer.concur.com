@@ -23,7 +23,6 @@ Message to reserve a hotel.
     * [Guarantee](#guarantee)
     * [Guarantees Accepted](#guarantees-accepted)
     * [Payment Card](#payment-card)
-    * [Card Number](#card-number)
     * [Series Code](#series-code)
     * [Comments](#comments-one)
     * [Comment](#comment-one)
@@ -93,9 +92,6 @@ Message to reserve a hotel.
               <StateProv StateCode="DC"></StateProv>
               <CountryName>US</CountryName>
              </Address>
-             <CardNumber>
-               <PlainText>xxxxxxxxxxxx1234</PlainText>
-             </CardNumber>
              <SeriesCode>
                <PlainText>xxx</PlainText>
              </SeriesCode>
@@ -247,12 +243,6 @@ Message to reserve a hotel.
 |`CardNumber`|`complex`|**Required** The card number.|
 |`Address`|`complex`|**Required** Refer to `Address` in [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
 |`SeriesCode`|`complex`|Verification digits.|
-
-#### <a name="card-number"></a>CardNumber
-
-|Name|Type|Description|
-|-----------|-------------------|-------------|
-|`PlainText`|`stringLength1to32`|**Required** The card number. Only one (1) element of this type is sent.|
 
 #### <a name="series-code"></a>SeriesCode
 
