@@ -115,7 +115,7 @@ The criterion is used to define the search criteria.  Currently we support only 
 #### <a name="position"></a>Position
 
 |Name|Type|Description|
-|-------------|----------|-------------------|-------------|
+|--------------|----------|--------------------------|
 |`Latitude`|`stringLength1to16`|**Required** The measure of the angular distance on a meridian north or south of the equator.|
 |`Longitude`|`stringLength1to16`|**Required** The measure of the angular distance on a meridian east or west of the prime meridian.|
 
