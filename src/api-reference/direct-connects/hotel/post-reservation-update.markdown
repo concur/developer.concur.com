@@ -112,7 +112,6 @@ The **ResGuest** element contains a **Profiles** child element with information 
 The **PaymentCard** element has the following attributes:
 
 * **CardCode**: The type of card.
-* **CardNumber**: The card number.
 
 The **PaymentCard** element has the following child elements:
 
@@ -154,7 +153,8 @@ Content-Length: {length of content body}
                     <Guarantee>
                         <GuaranteesAccepted>
                             <GuaranteeAccepted GuaranteeTypeCode="CC">
-                                <PaymentCard CardCode="AX" CardNumber="4400000000000000" ExpireDate="1215">
+                                <PaymentCard CardCode="AX"
+                                 ExpireDate="1215">
                                     <CardHolderName>CHRIS MILLER</CardHolderName>
                                     <Address>
                                         <AddressLine>18400 NE UNION HILL RD.</AddressLine>
