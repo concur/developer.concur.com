@@ -12,9 +12,9 @@ layout: reference
   * [Obtain Expense Report Data for VAT Reclaim](#obtain-expense-report-data-for-vat-reclaim)
   * [Obtain Invoice Data for VAT Reclaim](#obtain-invoice-data-for-vat-reclaim)
 
-The VAT Reclaim App Category streamlines the VAT recovery process for SAP-Concur customers.  The VAT Reclaim Partner's certified app will obtain Expense Report and Invoice data from our customers' Concur site by using the "Quick Connect" process and executing their app using Concur's Expense and Invoice APIs.  To be certified, the Partner must support both products: Expense & Invoice and SAP-Concur Standard Edition and Professional Edition.
+The VAT Reclaim App Category streamlines the VAT recovery process for SAP Concur customers.  The VAT Reclaim Partner's certified app will obtain Expense Report and Invoice data from our customers' Concur site by using the "Quick Connect" process and executing their app using Concur's Expense and Invoice APIs.  To be certified, the Partner must support both products: Expense & Invoice and SAP Concur Standard Edition and Professional Edition.
 
-The Partners's application should use the API's search parameters so the response includes only Expense Reports or Invoices that have reached the end of the approval workflow within the customer's Concur system.  Those Expense Reports and Invoices that reached the end of the approval process ("Extracted" or "Payment Confirmed") can no longer be edited within the Concur system.  The Partner's app will therefore be simplified by only obtaining data that is locked down.
+The Partner's application should use the API's search parameters so the response includes only Expense Reports or Invoices that have reached the end of the approval workflow within the customer's Concur system.  Those Expense Reports and Invoices that reached the end of the approval process ("Extracted" or "Payment Confirmed") can no longer be edited within the Concur system.  The Partner's app will therefore be simplified by only obtaining data that is locked down.
 
 ## <a name="learn"></a>Learn
 
@@ -49,9 +49,9 @@ Concur is addressing this issue in our next generation of APIs.  At that time, t
 
 [Expense Report v3](/api-reference/expense/expense-report/v3.reports.html)
 
-The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the         following search parameters:
+The search parameters should focus on reports that can no longer be edited in the SAP Concur User interface. Use the following search parameters:
 
-The API request should be made for one day at a time. This API Request will result in a list of reports that match those search parameters. note: there could be multiple pages returned in the results so ensure your app can get every page of results.
+The API request should be made for one day at a time. This API Request will result in a list of reports that match those search parameters.
 
 > Note: there could be multiple pages returned in the results. Ensure you know how to successfully make requests for each subsequent page until the last page has been reached.
 
@@ -75,7 +75,7 @@ Insert one Report ID per API request. Make all of the requests until you obtain 
 
 [Receipt Image v3 API](/api/v3.0/expense/receiptimages)
 
-The GET Report Details API request will produce an Entry ID that will be used in this API request. The result will produce a URL that the Partner can use in a separate browser session to render the image. This url is short-lived (15 minutes). If the URL expires, then the Partner can re-try the same call to get another URI to render the image.
+The GET Report Details API request will produce an Entry ID that will be used in this API request. The result will produce a URL that the Partner can use in a separate browser session to render the image. This URL is short-lived (15 minutes). If the URL expires, then the Partner can re-try the same call to get another URI to render the image.
 
 > For the purposes of this API, the parameter variable {id} is acquired from the v2 GET Report Details API: `EntryImageID`.
 
@@ -83,11 +83,11 @@ The GET Report Details API request will produce an Entry ID that will be used in
 
 **There are 3 steps the Partner's app will take to obtain Invoice data (slightly different than the steps for Expense):**
 
-#### Step 1: GET a list of Payment Request Digests.
+#### Step 1: GET a list of Payment Request Digests
 
 [Payment Request Digests v3 API](/api-reference/invoice/v3.payment-request-digest.html)
 
-The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the following search parameters:
+The search parameters should focus on invoices that can no longer be edited in the SAP Concur User interface. Use the following search parameters:
 
 parameter|sample value
 ---|---
@@ -108,4 +108,4 @@ Insert one Payment Request ID per API request until you obtain details for every
 
 #### Step 3: GET Images
 
-same as above. Use the ReceiptImage ID obtained from the response that provides the details of the Payment Request         (Invoice)
+same as above. Use the ReceiptImage ID obtained from the response that provides the details of the Payment Request (Invoice)

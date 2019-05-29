@@ -18,7 +18,7 @@ The SAP Concur Expense Entries API is used to manage expense reports and their e
 
 ## <a name="get"></a>Retrieve All Expense Entries
 
-In order to retrieve all expense entries, you must use [version 2.0.](/api-reference/expense/expense-report/expense-report-get.html)
+[Version 2.0](/api-reference/expense/expense-report/expense-report-get.html), covers a wider range of partner scenarios and is recommended as the first step. However, depending on  the entries you need to retrieve, using a combination of version 2.0 and version 3.0 should be considered. To see examples, review the [VAT Reclaim](/api-guides/vat-reclaim/vat-reclaim-guide.html) integration guide.
 
 ## <a name="post"></a>Create a New Expense Entry
 
