@@ -89,7 +89,7 @@ https://{datacenterURI}/financialintegration/fi/v4/companies/transactiontypes/{d
 Name|Type|Format|Description
 ---|---|---|---
 `docType`|`string`|`path`|**Required** The financial document type to return. Only one type of transaction can be retrieved at a time. Supported values are: `expense`, `invoice`, `cashadvance`.
-`offset`|`string`|`query`|Starting page offset.
+`page`|`int32`|`query`|Starting page number.
 `limit`|`int32`|`query`|Number of records to return per page (default 100).
 `docId`|`string`|`query`|The transaction unique identifier, it could be expense report ID, payment request ID or cash advance ID. If specified, a single document which matches docId is returned.
 `ignoreDocumentStatus`|`string`|`query`|Ignores the financial documents status. Supported values are: `yes`, `no`. If yes, a document is returned regardless of status. If no, only documents that have not been acknowledged/confirmed are returned.
