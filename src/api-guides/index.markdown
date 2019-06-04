@@ -11,8 +11,8 @@ These guides are intended to help you gain a better understanding of our APIs in
 
 **SAP Concur Clients**: You can create solutions that interface with your SAP Concur data once you have purchased the Web Services product. Contact SAP Concur Support to get started.
 
-**New App Center Partners**: Your company must enter into a commercial agreement with SAP Concur before using the APIs. If you have not yet entered into an agreement with SAP Concur, contact our [business development team](mailto:bizdev_concur@sap.com).
+**New Partners**: Your company must enter into a commercial agreement with SAP Concur before using the APIs. If you have not yet entered into an agreement with SAP Concur, contact our [business development team](mailto:bizdev_concur@sap.com).
 
-**Existing App Center Partners**: Depending on the solution you want to build, the SAP Concur Platform team may need to configure your existing sandbox for your new needs. You can make that request by contacting your Alliance Manager.
+**Existing Partners**: Depending on the solution you want to build, the SAP Concur Platform team may need to configure your existing sandbox for your new needs. You can make that request by contacting your Alliance Manager.
 
 **All Developers**: Before using the Integration Guides, you must understand the [authentication process](/api-reference/authentication/apidoc.html).
