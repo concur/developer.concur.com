@@ -8,19 +8,20 @@ layout: reference
 # User Locations
 
 * [Overview](#overview)
+* [Process Flow](#process-flow)
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [POST](#post)
 * [Prerequisites](#prerequisites)
-* [Service Details](#serviceDetails)
-* [Regional Availability](#regionalAvailability)
 * [Schema](#schema)
   * [Client](#client)
   * [Users](#users)
   * [Locations](#locations)
-  * [Source Partner](#sourcePartner)
+  * [Source Partner](#source-partner)
   * [Transaction](#transaction)
-* [Request Headers](#requestHeaders)
-* [Response Headers](#responseHeaders)
-* [Status Codes](#statusCodes)
-* [Example](#example)
+* [Examples](#example)
 
 ## <a name="overview"></a>Overview
 
@@ -28,14 +29,21 @@ The goal of this API is to allow customers and third party vendors to add their 
 
 This API supports POST only.
 
-## Prerequisites
+> **Limitations**: This API is available only in the North America and EMEA Data Centers.
 
-1. [Obtain a client ID, secret and sandbox environment](/manage-apps/partner-applications.html) if you don't already have one.
-2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
-3. This API supports all valid authorization tokens, specifically those with the client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
+## <a name="process-flow"></a>Process Flow
 
-## Service Details
- The service is a POST call adhering to the following steps:
+## <a name="products-editions"></a>Products and Editions
+
+## <a name="scope-usage"></a>Scope Usage
+
+## <a name="dependencies"></a>Dependencies
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+## <a name="psot"></a>POST
+
+The service is a POST call adhering to the following steps:
 
 * Vendor onboarding has been completed prior to invoking the API. All the authentication and authorization credentials have been set up at this point.
 * Third party vendors invoke the User Location API using the client credentials (JWT)
@@ -44,20 +52,63 @@ This API supports POST only.
 * If the checks pass, then the request is forwarded to the load balancer which routes the request to the appropriate node for processing
 * The selected node processes the request which is in JSON format. Validations are performed the data conversion takes place. If any of the validations fail, then the appropriate error response is returned to the client (HTTP 400 Bad Request / HTTP 403 Unauthorized)
 * If the validations pass, then the request is processed, and the data is persisted to the backend (DB) in the following ways:
-    * Direct persistence
-    * Persistence via queues
+   * Direct persistence
+   * Persistence via queues
 * If the persistence is successful, then an HTTP 200 OK is returned to the caller
 * If there are any issues with the persistence, then the appropriate codes are returned to the caller (HTTP 500 Application exception)
 * Note that the error messages are intentionally ambiguous to prevent exploitation
 
-## Regional Availability
+### Request
+
+#### URI
+
+##### Template
 
 ```
-https://us.api.concursolutions.com/locate/api/v4/user/locations
+POST https://us.api.concursolutions.com//locate/api/v4/user/locations
 ```
-```
-https://emea.api.concursolutions.com/locate/api/v4/user/locations
-```
+
+#### Headers
+
+* [RFC 7230 Host](https://tools.ietf.org/html/rfc7230#section-5.4)
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Referer](https://tools.ietf.org/html/rfc7231#section-5.5.2)
+* [RFC 7231 User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3)
+
+#### Payload
+
+-
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7230 Transfer-Encoding](https://tools.ietf.org/html/rfc7230#section-3.3.1)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)
+
+#### Payload
+
+-
+
+## <a name="prerequisites"></a>Prerequisites
+
+1. [Obtain a client ID, secret and sandbox environment](/manage-apps/partner-applications.html) if you don't already have one.
+2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
+3. This API supports all valid authorization tokens, specifically those with the client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
 
 ## <a name="schema"></a>Schema
 
@@ -82,7 +133,7 @@ This indicates which entity within the organization the traveler belongs to. Thi
 
 Name|Type|Format|Description
 ---|---|---|---
-`Id`|`string`|-|**Required** This maps to the top-level corporation. Maximum length: 36
+`Id`|`string`|-|**Required** This maps to the top level corporation. Maximum length: 36
 `firstSubLevel`|`string`|-|This is the child corporation i.e one level below the top level corporation. Maximum length: 36
 `secondSubLevel`|`string`|-|This is the sub level of the child corporation (`firstsubleve`l). Maximum length: 36
 
@@ -96,16 +147,16 @@ Name|Type|Format|Description
 `firstName`|`string`|-| **Required** The first name of the user. Maximum length: 100
 `lastName`|`string`|-|**Required** The last name of the user. Maximum length: 100
 `email`|`string`|-|**Either `email` or `concurLoginId` must be provided** Maximum length: 255
-`employeeId`|`string`|-|Optional field to indicate the employee id of the user. Maximum length: 19
+`employeeId`|`string`|-|Optional field to indicate the employee ID of the user. Maximum length: 19
 `mobileCountryCode`|`string`|-|Either ISO Alpha-2 code or International Calling Codes (4 digits). Maximum length: 4
 `mobile`|`string`|-|The contact number of the user. Maximum length: 10
-`optedIn`|`boolean`||If `true`, indicates if the user has chosen to receive messages via SMS or text.
-`concurLoginId`|`string`||**Either `email` or `concurLoginId` must be provided**
+`optedIn`|`boolean`|-|If `true`, indicates if the user has chosen to receive messages via SMS or text.
+`concurLoginId`|`string`|-|**Either `email` or `concurLoginId` must be provided**
 `affiliation`|`string`|-|Used to indicate the type of traveler (e.g. `employee`, `student`, `faculty`). Maximum length: 128  
 
 ### <a name="locations"></a>Locations
 
-This section includes information about the traveler's future or current location. Either the location latitude and longitude OR the IATA (airport) code must be present. If both are present, the latitude and longitude take precedence.
+This section includes information about the traveler's future or current location. Either the location latitude and longitude or the IATA (airport) code must be present. If both are present, the latitude and longitude take precedence.
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -116,11 +167,11 @@ Name|Type|Format|Description
 `locationPhone`|`string`|-|Contact details of the travel location. Maximum length: 50
 `locationLatitude`|`string`|-|**Either `locationIATACode` or `locationLatitude/locationLongitude` must be provided**
 `locationLongitude`|`string`|-|**Either `locationIATACode` or `locationLatitude/locationLongitude` must be provided**
-locationIATACode|`string`|-|**Either `locationIATACode` or `locationLatitude/locationLongitude` must be provided** The three character IATA airport code. Maximum length: 3
+`locationIATACode`|`string`|-|**Either `locationIATACode` or `locationLatitude/locationLongitude` must be provided** The three character IATA airport code. Maximum length: 3
 `startDate`|`string`|`YYYY-MM-DDTHH:MM`|**Required** Traveler's arrival date. Maximum length: 16
 `endDate`|`string`|`YYYY-MM-DDTHH:MM`|**Required** Traveler's departure date. Maximum length: 16
 `timezoneId`|`string`|-|**Required** Maximum length: 60
-`visitorID`|`string`|-|This corresponds to the `visitorId` provided in the [`Users`](#users) schema. Ids present in this array must be present in the [`Users`](#users) schema. Maximum length: 10
+`visitorID`|`string`|-|This corresponds to the `visitorId` provided in the [`Users`](#users) schema. IDs present in this array must be present in the [`Users`](#users) schema. Maximum length: 10
 
 ### <a name="source-partner"></a>Source Partner
 
@@ -140,36 +191,7 @@ Name|Type|Format|Description
 ---|---|---|---
 `transactionId`|`string`|-|**Required** This is a unique identifier generated by your application for the request. Maximum length: 5
 `createdDate`|`string`|`YYYY-MM-DDTHH:MM`|**Required** Maximum length: 16
-`transactionType`|`string`|-|**Required** Add is indicative of creating a new itinerary or updating an existing itinerary. Cancel means removing the itinerary. Cancel works only on future dated itineraries. Supported values: `Add`, `Cancel`
-
-## Request Headers
-
-* [RFC 7230 Host](https://tools.ietf.org/html/rfc7230#section-5.4)
-* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
-* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
-* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
-* [RFC 7231 Referer](https://tools.ietf.org/html/rfc7231#section-5.5.2)
-* [RFC 7231 User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3)
-
-## Response Headers
-
-* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
-* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
-* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
-* [RFC 7230 Transfer-Encoding](https://tools.ietf.org/html/rfc7230#section-3.3.1)
-* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)
-
-## Status Codes
-
-* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
-* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
-* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
-* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
-* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
-
-Exceptions from the service will be mapped to one of the aforementioned
-error codes.
+`transactionType`|`string`|-|**Required** `Add` is indicative of creating a new itinerary or updating an existing itinerary. `Cancel` means removing the itinerary. `Cancel` works only on future dated itineraries. Supported values: `Add`, `Cancel`
 
 ## Example
 
