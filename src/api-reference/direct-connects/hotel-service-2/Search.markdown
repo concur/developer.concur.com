@@ -131,10 +131,10 @@ The criterion is used to define the search criteria.  Currently we support only 
 The radius element is used along with the Hotel Preference to categorize the search results.
 
 |Name|Type|Description|
-|---------------------|--------------------------|-------------|
-|`Distance|`numericStringLength1to16`|**Required** The distance from a reference point.|
-|`DistanceMax`|`numericStringLength1to16`|Attribute indicating the distance from a reference point for Preferred (Corporate) hotels.|
-|`UnitOfMeasureCode`|`numericStringLength1to16`|**Required** The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code (UOM). SAP Concur uses `1` for miles, `2` for kilometers.|
+|-------------|--------------------|-------------|
+|`Distance`|`stringLength1to16`|**Required** The distance from a reference point.|
+|`DistanceMax`|`stringLength1to16`|Attribute indicating the distance from a reference point or Preferred (Corporate) hotels.|
+|`UnitOfMeasureCode`|`stringLength1to16`|**Required** The unit of measure in a code format. Refer to OpenTravel Code List of Measure Code (UOM). SAP uses `1` for miles, `2` for kilometers.|
 
 #### <a name="stay-date-range"></a>StayDateRange
 
