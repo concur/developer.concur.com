@@ -165,7 +165,7 @@ Name|Type|Format|Description
 `isTest`|-|-|Signifies if this report belongs to a test user in system.
 `ledgerCode`|String|-|External accounting system ID. Maximum length 20 characters.
 `ledgerName`|String|-|The general ledger tied to the invoice.
-`multiplePurchaseOrder`|Y/N|-|Defines whether or not multiple purchase orders are tied to the invoice.
+`multiplePurchaseOrder`|Boolean|Y/N|Defines whether or not multiple purchase orders are tied to the invoice.
 `netPaymentTermDays`|Numeric|-|Numeric value defining the payment term day amount.
 `payMethodType`|String|-|The method used to pay the invoice, as of the point in time the extract is run. **NOTE:** It is possible for the method to be changed or updated *post-extract* through either the Payment Confirmation import (if the client controls payments), or through Invoice Pay (using Payment Manager). Valid format options include: ACH, client paid, check, PAYPVD, wire, card, or VCHER.
 `paymentDueDate`|Date|-|The date the payment is due for a given invoice.
