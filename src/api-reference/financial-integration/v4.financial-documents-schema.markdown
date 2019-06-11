@@ -18,7 +18,7 @@ layout: reference
   * [Invoice - Vendor](#scinvven)
   * [Invoice - Bill to Address](#scinvbta)
   * [Invoice - lineItem](#scinclin)
-  * [Invoice - Line Item Ship to Address](#scinvlisa)
+  * [Invoice - Tax](#scinvtax)
 * [Cash Advance](#sccashadv)
   * [Cash Advance - employeeData](#sccaemp)
   * [Cash Advance - cashAdvanceData](#sccaadv)
@@ -150,25 +150,27 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`amountNetInvoice`|-|-|-
+`amountNetInvoice`|Numeric|-|The invoice total amount minus the shipping and tax amounts.
 `amountShippingTotal`|Numeric|-|The value for the shipping amount header field. Maximum length 23 characters.
+`amountTax`|Numeric|-|The total amount of tax on a given invoice.
+`amountVAT1` through `amountVAT4`|Numeric|-|The individual total VAT amounts for the invoice.
 `clearingAccountCode`|-|-|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
 `currencyAlphaCode`|String|-|Currency ISO alpha code for the spend currency if not an imported credit card or the invoice currency if this is a credit card. Format: 3-character alpha code.
 `deliverySlipNumber`|String|-|Delivery slip number of the receipt which is associated to the invoice line item. Maximum length 256 characters.
-`discountPercentage`|-|-|-
-`discountTermsDays`|-|-|-
+`discountPercentage`|-|-|Percent value that defines the amount of discount that would be applied.
+`discountTermsDays`|Numeric|-|Numeric value defining the discount term day amount.
 `invoiceDate`|Date|-|Date of the invoice. Format: yyyy-mm-dd.
-`invoicePayIndicator`|-|-|-
+`invoicePayIndicator`|Y/N|-|Determines whether or not Invoice Pay is being used to pay the invoice in question.
 `invoiceReceivedDate`|Date|-|The value of the date on which the invoice was received (as Accounts Payable "stamp" when mail opened). Format: mm/dd/yyyy.
 `isTest`|-|-|Signifies if this report belongs to a test user in system.
 `ledgerCode`|String|-|External accounting system ID. Maximum length 20 characters.
-`ledgerName`|String|-|-
-`multiplePurchaseOrder`|-|-|-
-`netPaymentTermDays`|-|-|-
-`paymentDueDate`|-|-|-
+`ledgerName`|String|-|The general ledger tied to the invoice.
+`multiplePurchaseOrder`|Y/N|-|Defines whether or not multiple purchase orders are tied to the invoice.
+`netPaymentTermDays`|Numeric|-|Numeric value defining the payment term day amount.
 `payMethodType`|String|-|The method used to pay the invoice, as of the point in time the extract is run. **NOTE:** It is possible for the method to be changed or updated *post-extract* through either the Payment Confirmation import (if the client controls payments), or through Invoice Pay (using Payment Manager). Valid format options include: ACH, client paid, check, PAYPVD, wire, card, or VCHER.
-`postingDate`|-|-|-
-`processCompleteDate`|-|-|-
+`paymentDueDate`|Date|-|The date the payment is due for a given invoice.
+`postingDate`|Date|-|The date the invoice will be posted to the ERP system.
+`processCompleteDate`|Date|-|The date the invoice was processed.
 `reqKey`|Numeric|Integer|This is an integer that uniquely defines this invoice in SAP Concur. This is the value that the Invoice Confirmation Import uses to match to this particular invoice.
 `requestCreationDate`|Date|-|The date the invoice was originally saved. Format: yyyy-mm-dd.
 `requestCustom1Code` through `requestCustom24Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
@@ -179,7 +181,7 @@ Name|Type|Format|Description
 `requestOrgUnit1Value` through `requestOrgUnit6Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
 `requestTitle`|String|-|The invoice name. Maximum length 100 characters.
 `requestTotal`|Numeric|-|The sum of all Line Item Amounts plus Shipping Amount and Tax Amount for the invoice. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`revisionNumber`|-|-|Invoice revision number. Default value is 1.
+`revisionNumber`|Numeric|-|Invoice revision number. Default value is 1.
 `submitDate`|Date|-|Date/time the employee submitted the invoice for approval. Format: yyyy-mm-dd.
 `vendorInvoiceNumber`|String|-|The invoice number assigned by the vendor. Maximum length 50 characters.
 `versionId`|String|-|The version of the FI Document, which is the same as the version of the API endpoint.
@@ -201,46 +203,24 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `vendorCode`|String|-|The financial system's code for this vendor. Maximum length 23 characters.
-`vendorContactFirstName`|-|-|-
-`vendorContactLastName`|-|-|-
+`vendorContactFirstName`|String|-|Buyer contact for the vendor record’s first name.
+`vendorContactLastName`|String|-|Buyer contact for the vendor record’s last name.
 `vendorName`|String|-|The financial system's name for this vendor. Maximum length 255 characters.
 `vendorRemitToAddressCode`|String|Less than or equal to 64.| The financial system's code for this address.
-`vendorShipFromAddressCode`|-|-|-
-
-### <a name="scinvbta"></a>Invoice - Bill To Address
-
-Name|Type|Format|Description
----|---|---|---
-`address1`|String|-|Bill To Address Line 1.
-`address2`|String|-|Bill To Address Line 2.
-`address3`|String|-|Bill To Address Line 3.
-`addressCode`|String|-|Bill To Address Code value.
-`addressCreateDate`|Date|-|Date the Bill To Address was created.
-`addressID`|String|-|The Primary Key value for the Bill To Address.
-`addressName`|String|-|Address Name.
-`billToCompanyID`|Numeric|-|Company ID value from ERP tied to Bill To Address.
-`billToExternalSystem`| String|-|External ERP System value.
-`city`|String|-|City defined on the Bill To Address.
-`contactFirstName`|String|-|Bill To Contact First Name.
-`contactLastName`|String|-|Bill To Contact Last Name.
-`countryCode`|String|-|ISO Country Code.
-`phoneNumber`|Numeric| Integer| Phone Number on address.
-`postalCode`|String|-|Postal Code value.
-`state`|String|-|State value on Ship To Address.
-`taxJurisdictionCode`|String|-|The Tax `JurisdictionCode` value defined on the Bill To Address.
 
 ### <a name="scinclin"></a>Invoice - lineItem
 
 Name|Type|Format|Description
 ---|---|---|---
-`accountCode`|String|-|-
 `allocationAccountCode`|String|-|The Account Code for the Allocation related to this Journal Entry. Maximum length 20 characters.
 `allocationCustom1Code` through `allocationCustom20Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
 `allocationCustom1Value` through `allocationCustom20Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
 `allocationKey`|Integer|-|System-generated unique key for this allocation record. Maximum length 13 characters.
 `allocationPercentage`|Numeric|-|Percent of the report entry assigned to this allocation record. Maximum length 64 characters.
-`amountGross`|Numeric|-|-
-`amountNet`|Numeric|-|-
+`journal`|-|-|Container for journal entries tied to the allocation.
+`accountCode`|Numeric|-|The financial system accounting code value tied to the invoice line.
+`amountGross`|Numeric|-|The gross amount (total amount) of the invoice line item.
+`amountNet`|Numeric|-|The net amount of the invoice line item not including shipping and tax.
 `amountShipping`|Numeric|-|The value for the Shipping Amount header field. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field
 `expenseTypeCode`|String|-|Code for the expense type so a value that isn’t language dependent is returned.
 `expenseTypeName`|String|-|Expense type name. Maximum length 11 characters.
@@ -249,36 +229,23 @@ Name|Type|Format|Description
 `lineItemCustom1Code` through `lineItemCustom20Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
 `lineItemCustom1Value` through `lineItemCustom20Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
 `lineItemDeliverySlipNumber`|String|-|Delivery Slip Number of the receipt which is associated to the invoice line item. Maximum length 256 characters.
-`lineItemDescription`|-|-|-
+`lineItemDescription`|String|-|The description of the goods or services being purchased on the individual invoice line.
 `lineItemPurchaseOrderNumber`|String|-|The purchase order number associated with the invoice line item (for a multiple purchase order-based invoice), or the purchase order number associated with the header (for a single purchase order-based invoice). Maximum length 48 characters.
 `lineItemQuantity`|-|-|-
 `lineItemSequenceOrder`|Numeric|Integer| Line item number for the line item related to this Journal Entry.
-`lineItemUnitPrice`|-|-|-
+`lineItemUnitPrice`|Numeric|-|The quantity unit price for the item being purchased.
 `poLineNumber`|Numeric|-|The PO line item number associated to the payment request. Maximum length 10 characters.
 `receiptNumber`|Numeric|-|The Goods Receipt number.
 `receiptQuantity`|Numeric|-|The Goods Received quantity.
 `receiptItemID`|Numeric|-|The ID of the Goods Receipt tied to the Invoice and PO Line.
 
-### <a name="scinvlisa"></a>Invoice - Line Item Ship To Address
+### <a name="scinvtax"></a>Invoice - Tax
 
 Name|Type|Format|Description
 ---|---|---|---
-`address1`|String|-|Ship To Address Line 1.
-`address2`|String|-|Ship To Address Line 2.
-`address3`|String|-|Ship To Address Line 3.
-`addressCode`|String|-|Ship To Address Code value.
-`addressCreateDate`|Date|-|Date the Ship To Address was created.
-`addressID`|String|-|The Primary Key value for the Ship To address.
-`addressName`|String|-|Address Name.
-`city`|String|-|City defined on the Ship To Address.
-`contactFirstName`|String|-|Ship To Contact First Name.
-`contactLastName`|String|-|Ship To Contact Last Name.
-`countryCode`|String|-|ISO Country Code.
-`phoneNumber`|Numeric| Integer| Phone Number on address.
-`postalCode`|String|-|Postal Code value.
-`state`|String|-|State value on Ship To Address.
-`taxJurisdictionCode`| String|-|The Tax JurisdictionCode value defined on the Ship To Address.
-`poLineNumber`|Numeric|-|The PO line item number associated to the payment request. Maximum length 10 characters.
+`amountTax`|-|-|The taxation amount that exists on the invoice line.
+`taxCode`|-|-|Tax code assigned to this tax authority for the expense type entered on the expense entry. Maximum length 20 characters.
+`taxField`|-|-|Defines which database field the tax resides in.
 
 ## <a name="sccashadv"></a>Cash Advance
 
