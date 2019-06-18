@@ -30,21 +30,21 @@ Below are some benefits for using the Financial Integration service:
 * [Service Codes](#service-codes)
 * [Schema](#schema)
   * [Financial Documents](#schema-fidocuments)
-  * [Financial Document](#schema-fidocument)
-  * [Acknowledge Request](#schema-acknowledgerequest)
-  * [Acknowledge Response](#schema-acknowledgeresponse)
-  * [Acknowledge Response Item](#schema-acknowledgeresponse-item)
+  * [FIDocument](#schema-FIDocument)
+  * [AcknowledgeRequest](#schema-AcknowledgeRequest)
+  * [AcknowledgeResponse](#schema-AcknowledgeResponse)
+  * [AcknowledgeResponseItem](#schema-AcknowledgeResponseItem)
   * [Confirmation Request](#schema-confirmationrequest)
   * [Posting Confirmation Request Item](#schema-postingrequest)
   * [Posting Documents Details](#schema-postingdocs)
   * [System Messages](#schema-systemmsg)
   * [Posting Confirmation Response](#schema-postingconfirmationresponse)
-  * [Posting Confirmation Response Item](#schema-postingresponseitem)
+  * [PostingConfirmationResponseItem](#schema-PostingConfirmationResponseItem)
   * [Payment Request](#schema-paymentrequest)
   * [Payment Confirmation Request Item](#schema-paymentconfirmationrequest)
   * [Payment Documents Details](#schema-paymentdocs)
   * [Payment Confirmation Response](#schema-paymentconfirmationresponse)
-  * [Payment Confirmation Response Item](#schema-paymentresponseitem)
+  * [PaymentConfirmationResponseItem](#schema-PaymentConfirmationResponseItem)
 
 * Financial Documents
   * [Financial Document Schemas](/api-reference/financial-integration/v4.financial-documents-schema.html)
@@ -269,7 +269,7 @@ Name|Type|Format|Description
 
 #### Payload
 
-[Acknowledge Response](#schema-acknowledgeresponse)
+[AcknowledgeResponse](#schema-AcknowledgeResponse)
 
 ### Example
 
@@ -608,11 +608,11 @@ Code|Description|Category
 
 Name|Type|Format|Description
 ---|---|---|---
-`content`|`Array`|[FIDocument](#schema-fidocument)|The result collection.
-`page`|`string`|[Page](#schema-page)|Pagination details
-`links`|`Array`|[Links](#schema-links)|Pagination links.
+`content`|`Array`|[FIDocument](#schema-FIDocument)|The result collection.
+`page`|`string`|[PageMetadata](#schema-PageMetadata)|Pagination details
+`links`|`Array`|[Link](#schema-Link)|Pagination links.
 
-### <a name="schema-fidocument"></a>FIDocument
+### <a name="schema-FIDocument"></a>FIDocument
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -625,7 +625,7 @@ Name|Type|Format|Description
 `document`|`Array`|-|The JSON financial document. Review the [FI sample documents](#examples) below
 `docStatus`|`string`|-|The financial document status. Supported values are: `READY`, `ACKNOWLEDGED`, `POSTING_CONFIRMED_SUCCESS`, `POSTING_CONFIRMED_FAILURE`
 
-### <a name="schema-page"></a>PageMetadata
+### <a name="schema-PageMetadata"></a>PageMetadata
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -635,7 +635,7 @@ Name|Type|Format|Description
 `number`|int32|-|Page location for which the result is returned, ex: first page starts with number 0, second page starts with 1.
 
 
-### <a name="schema-links"></a>Link
+### <a name="schema-Link"></a>Link
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -653,13 +653,13 @@ Name|Type|Format|Description
 `ids`|`Array`|`string`|The unique identifiers list for the financial documents.
 `systemId`|`string`|-|The external System ID that acknowledged the documents.
 
-### <a name="schema-acknowledgeresponse"></a>Acknowledge Response
+### <a name="schema-AcknowledgeResponse"></a>AcknowledgeResponse
 
 Name|Type|Format|Description
 ---|---|---|---
-`AcknowledgeResponse`|`array`|[Acknowledge Response item](#acknowledgeresponse)|The JSON response
+`AcknowledgeResponse`|`array`|[AcknowledgeResponseItem](#AcknowledgeResponse)|The JSON response
 
-#### <a name="schema-acknowledgeresponse-item"></a>Acknowledge Response Item
+#### <a name="schema-AcknowledgeResponseItem"></a>AcknowledgeResponseItem
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -712,7 +712,7 @@ Name|Type|Format|Description
 ---|---|---|---
 `PostingConfirmationResponse`|`array`|[Posting Confirmation Response Item](#postingresponse)|The JSON response body
 
-#### <a name="schema-postingresponseitem"></a>Posting Confirmation Response Item
+#### <a name="schema-PostingConfirmationResponseItem"></a>PostingConfirmationResponseItem
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -772,7 +772,7 @@ Name|Type|Format|Description
 ---|---|---|---
 `PaymentConfirmationResponse`|`array`|[Payment Confirmation Response Item](#paymentresponse)|The JSON response body
 
-#### <a name="schema-paymentresponseitem"></a>Payment Confirmation Response Item
+#### <a name="schema-PaymentConfirmationResponseItem"></a>PaymentConfirmationResponseItem
 
 Name|Type|Format|Description
 ---|---|---|---
