@@ -214,23 +214,23 @@ Name|Type|Format (length)|Description
 
 Name|Type|Format (length)|Description
 ---|---|---|---
-`address1`|String|-|Bill To Address Line 1.
-`address2`|String|-|Bill To Address Line 2.
-`address3`|String|-|Bill To Address Line 3.
-`addressCode`|String|-|Bill To Address Code value.
-`addressCreateDate`|Date|-|Date the Bill To Address was created.
-`addressID`|String|-|The Primary Key value for the Bill To Address.
-`addressName`|String|-|Address Name.
-`billToCompanyID`|Numeric|-|Company ID value from ERP tied to Bill To Address.
-`billToExternalSystem`| String|-|External ERP System value.
-`city`|String|-|City defined on the Bill To Address.
-`contactFirstName`|String|-|Bill To Contact First Name.
-`contactLastName`|String|-|Bill To Contact Last Name.
-`countryCode`|String|-|ISO Country Code.
-`phoneNumber`|Numeric| Integer| Phone Number on address.
-`postalCode`|String|-|Postal Code value.
-`state`|String|-|State value on Ship To Address.
-`taxJurisdictionCode`|String|-|The Tax `JurisdictionCode` value defined on the Bill To Address.
+`address1`|String|255|Bill To Address Line 1.
+`address2`|String|255|Bill To Address Line 2.
+`address3`|String|255|Bill To Address Line 3.
+`addressCode`|String|32|Bill To Address Code value.
+`addressCreateDate`|Date|YYYY-MM-DD|Date the Bill To Address was created.
+`addressID`|String|20|The Primary Key value for the Bill To Address.
+`addressName`|String|255|Address Name.
+`billToCompanyID`|Numeric|30|Company ID value from ERP tied to Bill To Address.
+`billToExternalSystem`|String|30|External ERP System value.
+`city`|String|255|City defined on the Bill To Address.
+`contactFirstName`|String|255|Bill To Contact First Name.
+`contactLastName`|String|255|Bill To Contact Last Name.
+`countryCode`|String|2|ISO Country Code.
+`phoneNumber`|String|25| Phone Number on address.
+`postalCode`|String|20|Postal Code value.
+`state`|String|255|State value on Ship To Address.
+`taxJurisdictionCode`|String|30|The Tax `JurisdictionCode` value defined on the Bill To Address.
 
 ### <a name="scinclin"></a>Invoice - lineItem
 
@@ -275,22 +275,22 @@ Name|Type|Format (length)|Description
 
 Name|Type|Format (length)|Description
 ---|---|---|---
-`address1`|String|-|Ship To Address Line 1.
-`address2`|String|-|Ship To Address Line 2.
-`address3`|String|-|Ship To Address Line 3.
-`addressCode`|String|-|Ship To Address Code value.
-`addressCreateDate`|Date|-|Date the Ship To Address was created.
-`addressID`|String|-|The Primary Key value for the Ship To address.
-`addressName`|String|-|Address Name.
-`city`|String|-|City defined on the Ship To Address.
-`contactFirstName`|String|-|Ship To Contact First Name.
-`contactLastName`|String|-|Ship To Contact Last Name.
-`countryCode`|String|-|ISO Country Code.
-`phoneNumber`|Numeric| Integer| Phone Number on address.
-`postalCode`|String|-|Postal Code value.
-`state`|String|-|State value on Ship To Address.
-`taxJurisdictionCode`| String|-|The Tax JurisdictionCode value defined on the Ship To Address.
-`poLineNumber`|Numeric|-|The PO line item number associated to the payment request. Maximum length 10 characters.
+`address1`|String|255|Ship To Address Line 1.
+`address2`|String|255|Ship To Address Line 2.
+`address3`|String|255|Ship To Address Line 3.
+`addressCode`|String|3|Ship To Address Code value.
+`addressCreateDate`|Date|YYYY-MM-DD|Date the Ship To Address was created.
+`addressID`|String|20|The Primary Key value for the Ship To address.
+`addressName`|String|255|Address Name.
+`city`|String|255|City defined on the Ship To Address.
+`contactFirstName`|String|255|Ship To Contact First Name.
+`contactLastName`|String|255|Ship To Contact Last Name.
+`countryCode`|String|2|ISO Country Code.
+`phoneNumber`|String|25| Phone Number on address.
+`postalCode`|String|20|Postal Code value.
+`state`|String|255|State value on Ship To Address.
+`taxJurisdictionCode`|String|30|The Tax JurisdictionCode value defined on the Ship To Address.
+`poLineNumber`|Numeric|10|The PO line item number associated to the payment request. Maximum length 10 characters.
 
 ## <a name="sccashadv"></a>Cash Advance
 
