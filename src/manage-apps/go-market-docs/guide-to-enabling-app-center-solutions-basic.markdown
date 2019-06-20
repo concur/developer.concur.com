@@ -39,11 +39,13 @@ If the App Center tab is unavailable, please log a ticket with the SAP Concur He
 
 To find the application, you may use the "search" option or navigate to the app by clicking on the arrows ">". Enterprise applications will be in the "Enterprise Applications" row.
 
+![App Center Navigation](./guide-to-enabling-app-center-solutions-basic-locate-app.png)
 
 ### Step 3: Enable the App
 
 * The SAP Concur administrator can connect to the application using the "Connect" button on the listing.
 
+![App Center Navigation](./guide-to-enabling-app-center-solutions-basic-can-connect.png)
 
 The full client guide covering the remainign enablement process can be found here:
 
@@ -51,12 +53,14 @@ The full client guide covering the remainign enablement process can be found her
 
 ***Note: This step can either be completed by your own authorized SAP Concur Administrator or you can log a ticket with the SAP Concur Helpdesk to have this step completed for you by our support team.
 
-If you do not have the appropriate permissions to activate the app, the Connect button will be disabled as shown below. If the Connect button is enabled, please refer to the section [Assigning Authorized SAP Concur Administrator Permissions](#permissions) below.
+If you do not have the appropriate permissions to activate the app, the Connect button will be disabled as shown below. If the Connect button is disabled, please refer to the section [Assigning Authorized SAP Concur Administrator Permissions](#permissions) below.
+
+![SAP Concur App Center Checking Permissions Image](./guide-to-enabling-app-center-solutions-basic-check-permissions.png)
 
 #### <a name="permissions"></a>Assigning Authorized SAP Concur Administrator Permissions
 A user at your company with the appropriate permissions is required to activate the application. The instructions below provide information on adding the **Web Service Administrator** permissions for users that will be responsible for enabling and disabling enterprise applications.
 
-![SAP Concur App Center Checking Permissions Image](./guide-to-enabling-app-center-solutions-basic-check-permissions.png)
+
 
 
 ##### How to Assign the WSAdmin User Permission in Concur Standard Edition
