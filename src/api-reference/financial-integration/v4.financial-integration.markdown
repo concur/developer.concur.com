@@ -30,7 +30,7 @@ Below are some benefits for using the Financial Integration service:
 * [Service Codes](#service-codes)
 * [Schema](#schema)
   * [Financial Documents](#schema-fidocuments)
-  * [FIDocument](#schema-FIDocument)
+  * [FIDocument](#schema-Resource.FIDocument)
   * [AcknowledgeRequest](#schema-AcknowledgeRequest)
   * [AcknowledgeResponse](#schema-AcknowledgeResponse)
   * [AcknowledgeResponseItem](#schema-AcknowledgeResponseItem)
@@ -40,7 +40,7 @@ Below are some benefits for using the Financial Integration service:
   * [System Messages](#schema-systemmsg)
   * [Posting Confirmation Response](#schema-postingconfirmationresponse)
   * [PostingConfirmationResponseItem](#schema-PostingConfirmationResponseItem)
-  * [Payment Request](#schema-paymentrequest)
+  * [Payment Confirmation Request](#schema-paymentrequest)
   * [Payment Confirmation Request Item](#schema-paymentconfirmationrequest)
   * [Payment Documents Details](#schema-paymentdocs)
   * [Payment Confirmation Response](#schema-paymentconfirmationresponse)
@@ -495,7 +495,7 @@ Name|Type|Format|Description
 
 #### Payload
 
-[Confirmation Request](schema-paymentrequest)
+[Payment Confirmation Request](#schema-paymentrequest)
 
 ### Response
 
@@ -608,11 +608,11 @@ Code|Description|Category
 
 Name|Type|Format|Description
 ---|---|---|---
-`content`|`Array`|[FIDocument](#schema-FIDocument)|The result collection.
+`content`|`Array`|[FIDocument](#schema-Resource.FIDocument)|The result collection.
 `page`|`string`|[PageMetadata](#schema-PageMetadata)|Pagination details
 `links`|`Array`|[Link](#schema-Link)|Pagination links.
 
-### <a name="schema-FIDocument"></a>FIDocument
+### <a name="schema-Resource.FIDocument"></a>FIDocument
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -641,10 +641,11 @@ Name|Type|Format|Description
 ---|---|---|---
 `rel`|`string`|`-`|Relation of link, ex: `first`, `self`, `next`, `last`
 `href`|`string`|-|Complete URL for the paginated link
-`media`|`string`|-|null
-`title`|`string`|-|null
-`type`|`string`|-|null
-`deprecation`|`string`|-|null
+`hreflang`|`string`|-|Link language, if any
+`media`|`string`|-|Media type, if any
+`title`|`string`|-|Link title, if any
+`type`|`string`|-|Link type, if any
+`deprecation`|`string`|-|Deprecated indication, if any
 
 ### <a name="schema-acknowledgerequest"></a>Acknowledge Request
 
@@ -723,7 +724,7 @@ Name|Type|Format|Description
 `errorMessage`|`string`|-|The error message, if any
 `systemId`|`string`|-|The External system Id that acknowledged the document
 
-### <a name="schema-paymentrequest"></a>Payment Request
+### <a name="schema-paymentrequest"></a>Payment Confirmation Request
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -777,6 +778,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `paymentConfirmationResult`|`string`|-|Payment confirmation result. Supported values are: SUCCESS, SYSTEM_ERROR_OCCURRED, NOT_POSTING_CONFIRMED, DOCUMENT_NOT_FOUND, FAILURE, NOOP
+`paymentRef`|`string`|-|Any message corresponding to payment reference being processed
 `detailMessage`|`string`|-|Payment confirmation message
 `code`|`Int32`|-|The Financial Service return code
 `docId`|`string`|-|The document Id
