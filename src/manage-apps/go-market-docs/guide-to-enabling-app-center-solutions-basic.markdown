@@ -51,19 +51,19 @@ The full client guide covering the remainign enablement process can be found her
 
 [App Center Administration Guide](https://www.concurtraining.com/customers/tech_pubs/Docs/ConcurPremier/UG_Shr/Shr_UG_AppCenterAdmin.pdf)
 
-***Note: This step can either be completed by your own authorized SAP Concur Administrator or you can log a ticket with the SAP Concur Helpdesk to have this step completed for you by our support team.
+**Note: This step can either be completed by your own authorized SAP Concur Administrator or you can log a ticket with the SAP Concur Helpdesk to have this step completed for you by our support team.**
 
 If you do not have the appropriate permissions to activate the app, the Connect button will be disabled as shown below. If the Connect button is disabled, please refer to the section [Assigning Authorized SAP Concur Administrator Permissions](#permissions) below.
 
 ![SAP Concur App Center Checking Permissions Image](./guide-to-enabling-app-center-solutions-basic-check-permissions.png)
 
+
+
 #### <a name="permissions"></a>Assigning Authorized SAP Concur Administrator Permissions
 A user at your company with the appropriate permissions is required to activate the application. The instructions below provide information on adding the **Web Service Administrator** permissions for users that will be responsible for enabling and disabling enterprise applications.
 
 
-
-
-##### How to Assign the WSAdmin User Permission in Concur Standard Edition
+##### How to Authorized SAP Concur Administrator Permissions in Concur Standard Edition
 
 * Click **Administration**, and then **Expense Settings**, or **Expense & Invoice Settings**, or **Invoice Settings**.
 * In the Access to Concur section, click **User Accounts**.
@@ -72,7 +72,7 @@ A user at your company with the appropriate permissions is required to activate 
 
 ![Standard Enabling WS Admin Image](./guide-to-enabling-app-center-solutions-standard-wsadmin-userpermissions.png)
 
-#### How to Assign the WSAdmin User Profile in Concur Professional Edition
+##### How to Authorized SAP Concur Administrator Permissions in Concur Professional Edition
 
 * Click **Administration**, then **Company**, then **Company Admin**.
 * Click **User Permissions** (left menu).
