@@ -43,11 +43,11 @@ To find the application, you may use the "search" option or navigate to the app 
 
 ### Step 3: Enable the App
 
-* The SAP Concur administrator can connect to the application using the "Connect" button on the listing.
+* The authorized SAP Concur Administrator can connect to the application using the "Connect" button on the listing.
 
 ![App Center Navigation](./guide-to-enabling-app-center-solutions-basic-can-connect.png)
 
-The full client guide covering the remainign enablement process can be found here:
+The full client guide covering the subsequent enablement steps can be found here:
 
 [App Center Administration Guide](https://www.concurtraining.com/customers/tech_pubs/Docs/ConcurPremier/UG_Shr/Shr_UG_AppCenterAdmin.pdf)
 
