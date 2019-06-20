@@ -6,7 +6,7 @@
     "title": "Financial Integration API"
   },
   "host": "us.api.concursolutions.com",
-  "basePath": "/financialintegration",
+  "basePath": "/",
   "tags": [
     {
       "name": "Financial Transactions",
@@ -14,7 +14,7 @@
     }
   ],
   "paths": {
-    "/fi/v4/companies/transactiontypes/{docType}/transactions": {
+    "/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions": {
       "get": {
         "tags": [
           "Financial Transactions"
@@ -122,7 +122,7 @@
         }
       }
     },
-    "/fi/v4/companies/transactiontypes/{docType}/transactions/acknowledgements": {
+    "/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions/acknowledgements": {
       "post": {
         "tags": [
           "Financial Transactions"
@@ -172,10 +172,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/AcknowledgeResponseItem"
-              }
+                "$ref": "#/definitions/AcknowledgeResponse"
             }
           },
           "400": {
@@ -187,7 +184,7 @@
         }
       }
     },
-    "/fi/v4/companies/transactiontypes/{docType}/transactions/paymentconfirmations": {
+    "/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions/paymentconfirmations": {
       "post": {
         "tags": [
           "Financial Transactions"
@@ -222,6 +219,15 @@
             "description": "Bearer JWTFromOAuthServiceHere",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "paymentrequest",
+            "description": "Payment confirmation body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/paymentrequest"
+            }
           }
         ],
         "responses": {
@@ -230,7 +236,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/PostingConfirmationResponseItem"
+                "$ref": "#/definitions/PaymentConfirmationResponseItem"
               }
             }
           },
@@ -243,7 +249,7 @@
         }
       }
     },
-    "/fi/v4/companies/transactiontypes/{docType}/transactions/postingconfirmations": {
+    "/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions/postingconfirmations": {
       "post": {
         "tags": [
           "Financial Transactions"
@@ -278,6 +284,15 @@
             "description": "Bearer JWTFromOAuthServiceHere",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "confirmationrequest",
+            "description": "Posting confirmation body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/confirmationrequest"
+            }
           }
         ],
         "responses": {
@@ -348,116 +363,9 @@
       }
     },
     "Collection.Resource.FIDocument": {
-      "type": "object"
-    },
-    "PublishedPurgeMessage": {
-      "properties": {
-        "correlationId": {
-          "type": "string"
-        },
-        "data": {
-          "type": "string"
-        },
-        "eventType": {
-          "type": "string"
-        },
-        "facts": {
-          "$ref": "#/definitions/Facts"
-        },
-        "id": {
-          "type": "string"
-        },
-        "subtopic": {
-          "type": "string"
-        },
-        "timeStamp": {
-          "type": "string"
-        },
-        "topic": {
-          "type": "string"
-        }
-      }
-    },
-    "DocumentRefreshQueueResponseItem": {
-      "properties": {
-        "docsToRefresh": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "message": {
-          "type": "string"
-        },
-        "responseCode": {
-          "type": "string",
-          "enum": [
-            "100",
-            "101",
-            "102",
-            "103",
-            "200",
-            "201",
-            "202",
-            "203",
-            "204",
-            "205",
-            "206",
-            "207",
-            "208",
-            "226",
-            "300",
-            "301",
-            "302",
-            "303",
-            "304",
-            "305",
-            "307",
-            "308",
-            "400",
-            "401",
-            "402",
-            "403",
-            "404",
-            "405",
-            "406",
-            "407",
-            "408",
-            "409",
-            "410",
-            "411",
-            "412",
-            "413",
-            "414",
-            "415",
-            "416",
-            "417",
-            "418",
-            "419",
-            "420",
-            "421",
-            "422",
-            "423",
-            "424",
-            "426",
-            "428",
-            "429",
-            "431",
-            "451",
-            "500",
-            "501",
-            "502",
-            "503",
-            "504",
-            "505",
-            "506",
-            "507",
-            "508",
-            "509",
-            "510",
-            "511"
-          ]
-        }
+      "type": "array",
+      "items": {
+          "$ref": "#/definitions/Resource.FIDocument"
       }
     },
     "FiDocumentResponse": {
@@ -526,7 +434,7 @@
         "links": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Link"
+            "$ref": ""
           }
         }
       }
@@ -534,45 +442,10 @@
     "Collection.FIDocument": {
       "type": "object"
     },
-    "PublishedMessage": {
-      "properties": {
-        "correlationId": {
-          "type": "string"
-        },
-        "data": {
-          "type": "string"
-        },
-        "eventType": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "subtopic": {
-          "type": "string"
-        },
-        "timeStamp": {
-          "type": "string"
-        },
-        "topic": {
-          "type": "string"
-        }
-      }
-    },
-    "Facts": {
-      "properties": {
-        "InvoiceRequestId": {
-          "type": "string"
-        },
-        "cashAdvanceId": {
-          "type": "string"
-        },
-        "companyId": {
-          "type": "string"
-        },
-        "reportId": {
-          "type": "string"
-        }
+    "AcknowledgeResponse": {
+      "type": "array",
+      "items": {
+          "$ref": "#/definitions/AcknowledgeResponseItem"
       }
     },
     "AcknowledgeResponseItem": {
@@ -670,6 +543,236 @@
         },
         "page": {
           "$ref": "#/definitions/PageMetadata"
+        }
+      }
+    },
+    "confirmationrequest": {
+      "type": "object",
+      "required": [
+        "systemId",
+        "postingConfirmations"
+      ],
+      "properties": {
+        "systemId": {
+          "type": "string",
+          "description": "The external System ID that acknowledged the documents, it can be an empty String."
+        },
+        "postingConfirmations": {
+          "type": "array",
+          "description": "Posting confirmations JSON request.",
+          "items": {
+            "$ref": "#/definitions/postingrequest"
+          }
+        }
+      }
+    },
+    "postingrequest": {
+      "type": "object",
+      "required": [
+        "docId",
+        "overallPostingStatusCode",
+        "postingDocs",
+        "systemMessages"
+      ],
+      "properties": {
+        "docId": {
+          "type": "string",
+          "description": "The financial document Id to confirm."
+        },
+        "postingDocs": {
+          "type": "array",
+          "description": "Posting documents details, if any.",
+          "items": {
+            "$ref": "#/definitions/postingdocs"
+          }
+        },
+        "overallPostingStatusCode": {
+          "type": "string",
+          "description": "Posting status. VALUES: error or success."
+        },
+        "systemMessages": {
+          "type": "array",
+          "description": "Messages to post into Concur, if any.",
+          "items": {
+            "$ref": "#/definitions/systemmsg"
+          }
+        }
+      }
+    },
+    "postingdocs": {
+      "type": "object",
+      "required": [
+        "companyId"
+      ],
+      "properties": {
+        "companyId": {
+          "type": "string",
+          "description": "External system organizational Unit ID."
+        },
+        "documentNumber": {
+          "type": "string",
+          "description": "External system document identifier."
+        },
+        "fiscalYear": {
+          "type": "string",
+          "description": "External system fiscal year."
+        },
+        "paymentRelevantLineItems": {
+          "type": "array",
+          "description": "Payment Relevant line items. This array is usually empty.",
+          "items": {
+            "$ref": ""
+          }
+        },
+        "postingDate": {
+          "type": "string",
+          "description": "External system posting date."
+        }
+      }
+    },
+    "systemmsg": {
+      "type": "object",
+      "properties": {
+        "concurTransactionLineItemId": {
+          "type": "string",
+          "description": ""
+        },
+        "messageId": {
+          "type": "string",
+          "description": "External System message identifier"
+        },
+        "messageLanguage": {
+          "type": "string",
+          "description": "Message Language code, example EN, FR."
+        },
+        "messageLongText": {
+          "type": "array",
+          "description": "Message text, will be posted on the audit trail in SAP Concur.",
+          "items": {
+            "$ref": ""
+          }
+        },
+        "messageShortText": { 
+          "type": "string",
+          "description": "Message text, will be posted on the audit trail in SAP Concur."
+        }
+      }
+    },
+    "paymentrequest": {
+      "type": "object",
+      "required": [
+        "systemId",
+        "processingConfirmation"
+      ],
+      "properties": {
+        "systemId": {
+          "type": "string",
+          "description": "The external System ID that acknowledged the documents, it can be an empty String."
+        },
+        "processingConfirmation": {
+          "type": "array",
+          "description": "Payment confirmations JSON request.",
+          "items": {
+            "$ref": "#/definitions/paymentconfirmationrequest"
+          }
+        }
+      }
+    },
+    "paymentconfirmationrequest": {
+      "type": "object",
+      "required": [
+        "docId",
+        "processingStatusCode",
+        "clearingDetails"
+      ],
+      "properties": {
+        "docId": {
+          "type": "string",
+          "description": "The financial document Id to confirm."
+        },
+        "clearingDetails": {
+          "type": "array",
+          "description": "Payment documents details, if any.",
+          "items": {
+            "$ref": "#/definitions/paymentdocs"
+          }
+        },
+        "processingStatusCode": {
+          "type": "string",
+          "description": "Payment status. VALUES: CP, PP (Completely Paid, Partially paid)"
+        }
+      }
+    },
+    "paymentdocs": {
+      "type": "object",
+      "properties": {
+        "clearingDate": {
+          "type": "string",
+          "description": "Date the payment got cleared."
+        },
+        "clearingAmount": {
+          "type": "integer",
+          "description": "Amount cleared."
+        },
+        "clearingCurrency": {
+          "type": "string",
+          "description": "Currency value."
+        },
+        "receiver": {
+          "type": "array",
+          "description": "Receiver details.",
+          "items": {
+            "$ref": "#/definitions/receiver"
+          }
+        },
+        "clearingReference": {
+          "type": "array",
+          "description": "Clearing reference details.",
+          "items": {
+            "$ref": "#/definitions/clearing-reference"
+          }
+        }
+      }
+    },
+    "receiver": {
+      "type": "object",
+      "properties": {
+        "receiverId": {
+          "type": "string",
+          "description": "Receiver id."
+        },
+        "receiverName": {
+          "type": "string",
+          "description": "Name of receiver."
+        },
+        "receiverType": {
+          "type": "string",
+          "description": "Type of receiver."
+        }
+      }
+    },
+    "clearing-reference": {
+      "type": "object",
+      "properties": {
+        "companyCode": {
+          "type": "string",
+          "description": "Company code."
+        },
+        "financialDocumentId": {
+          "type": "string",
+          "description": "Document id in ERP."
+        },
+        "fiscalYear": {
+          "type": "string",
+          "description": "Fiscal year."
+        },
+        "paymentRef": {
+          "type": "string",
+          "description": "Payment reference id."
+        },
+        "paymentMethod": {
+          "type": "string",
+          "description": "Payment method."
         }
       }
     },
