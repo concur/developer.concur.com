@@ -63,7 +63,7 @@ If you do not have the appropriate permissions to activate the app, the Connect 
 A user at your company with the appropriate permissions is required to activate the application. The instructions below provide information on adding the **Web Service Administrator** permissions for users that will be responsible for enabling and disabling enterprise applications.
 
 
-##### How to Authorized SAP Concur Administrator Permissions in Concur Standard Edition
+##### How to assign Authorized SAP Concur Administrator Permissions in Concur Standard Edition
 
 * Click **Administration**, and then **Expense Settings**, or **Expense & Invoice Settings**, or **Invoice Settings**.
 * In the Access to Concur section, click **User Accounts**.
@@ -72,7 +72,7 @@ A user at your company with the appropriate permissions is required to activate 
 
 ![Standard Enabling WS Admin Image](./guide-to-enabling-app-center-solutions-standard-wsadmin-userpermissions.png)
 
-##### How to Authorized SAP Concur Administrator Permissions in Concur Professional Edition
+##### How to assign Authorized SAP Concur Administrator Permissions in Concur Professional Edition
 
 * Click **Administration**, then **Company**, then **Company Admin**.
 * Click **User Permissions** (left menu).
