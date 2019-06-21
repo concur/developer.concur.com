@@ -29,7 +29,7 @@ Below are some benefits for using the Financial Integration service:
 * [Post Financial Payment Confirmations](#payment-confirmations)
 * [Service Codes](#service-codes)
 * [Schema](#schema)
-  * [Financial Documents](#schema-fidocuments)
+  * [Financial Documents](#schema-PagedResources.Resource.FIDocument)
   * [FIDocument](#schema-Resource.FIDocument)
   * [AcknowledgeRequest](#schema-AcknowledgeRequest)
   * [AcknowledgeResponse](#schema-AcknowledgeResponse)
@@ -127,7 +127,7 @@ None.
 
 #### Payload
 
-[FI Documents](#schema-fidocuments)
+[FI Documents](#schema-PagedResources.Resource.FIDocument)
 
 ### Example
 
@@ -242,7 +242,7 @@ https://{datacenterURI}/financialintegration/fi/v4/companies/transactiontypes/{d
 
 Name|Type|Format|Description
 ---|---|---|---
-`docType`|`string`|`path`|**Required** The financial document type. Only one type of transaction can be acknowledged at a time. Supported values are: `expense`, `invoice`, `cashadvance`.
+`docType`|`string`|`path`|**Required** The financial document type. Only one type of transaction can be acknowledged at a time. Supported values are: `expense`, `invoice`, `cashadvance`, `payroll`, `obligation`.
 
 #### Headers
 
@@ -339,7 +339,7 @@ https://{datacenterURI}/financialintegration/fi/v4/companies/transactiontypes/{d
 
 Name|Type|Format|Description
 ---|---|---|---
-`docType`|`string`|`path`|**Required** The financial document type to return. VALUES: expense; invoice; cashadvance. Only one type of transactions can be retrieved at a time
+`docType`|`string`|`path`|**Required** The financial document type to return. `expense`, `invoice`, `cashadvance`, `payroll`, `obligation`. Only one type of transactions can be retrieved at a time
 `confirmationRequest`||[body](#confirmationrequest)|**Required** The JSON request to be posted
 
 #### Headers
@@ -485,7 +485,7 @@ https://{datacenterURI}/financialintegration/fi/v4/companies/transactiontypes/{d
 
 Name|Type|Format|Description
 ---|---|---|---
-`docType`|`string`|`path`|**Required** The financial document type to return. VALUES: expense; invoice; cashadvance; payroll; obligation. Only one type of transactions can be retrieved at a time
+`docType`|`string`|`path`|**Required** The financial document type to return. `expense`, `invoice`, `cashadvance`, `payroll`, `obligation`. Only one type of transactions can be retrieved at a time
 `confirmationRequest`||[body](#confirmationrequest)|**Required** The JSON request to be posted
 
 #### Headers
@@ -604,7 +604,7 @@ Code|Description|Category
 
 ## <a name="schema"></a>Schema
 
-### <a name="schema-fidocuments"></a>Financial Documents
+### <a name="schema-PagedResources.Resource.FIDocument"></a>Financial Documents
 
 Name|Type|Format|Description
 ---|---|---|---
