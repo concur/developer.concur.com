@@ -462,54 +462,6 @@
         }
       }
     },
-    "FIDocument": {
-      "properties": {
-        "companyId": {
-          "type": "string"
-        },
-        "companyUuid": {
-          "type": "string"
-        },
-        "docStatus": {
-          "type": "string",
-          "enum": [
-            "ACKNOWLEDGED",
-            "PAID",
-            "RECALLED",
-            "READY",
-            "POSTING_CONFIRMED_SUCCESS",
-            "POSTING_CONFIRMED_FAILURE",
-            "PAYMENT_CONFIRMED_SUCCESS",
-            "PAYMENT_CONFIRMED_REVERSED",
-            "PAYMENT_CONFIRMED_OBSOLETE",
-            "PENDING_SYSTEM_REFRESH",
-            "FLAG_DUPLICATE"
-          ]
-        },
-        "docType": {
-          "type": "string",
-          "enum": [
-            "expense",
-            "invoice",
-            "cashadvance",
-            "payroll",
-            "obligation"
-          ]
-        },
-        "document": {
-          "type": "object"
-        },
-        "entityId": {
-          "type": "string"
-        },
-        "erpSystemId": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        }
-      }
-    },
     "PagedResources.Resource.FIDocument": {
       "properties": {
         "content": {
