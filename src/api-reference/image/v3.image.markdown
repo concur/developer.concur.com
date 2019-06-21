@@ -5,6 +5,7 @@ redirect_from:
   - /api-reference/image/index.html
 ---
 
+* [Scope Usage](#scope-usage)
 * [Retrieve a list of all receipt images](#get)
 * [Retrieve a receipt image by ID](#getID)
 * [Create a new receipt image](#post)
@@ -12,7 +13,13 @@ redirect_from:
 * [Delete a receipt image](#delete)
 * [Schema](#schema)
 
-The SAP Concur Receipt Image API allows for the management of receipt images attached to expense reports, expense entries, and payment requests. You can retrieve existing images by Report ID, Image ID, Entry ID, or Request ID, and upload new images to a User, Expense Entry, Expense Report, or Payment Request. This API allows you to upload images in a predefined format and size targeting a specific resource or user in SAP Concur. You can also pull images down from SAP Concur by either displaying them in the browser or downloading the image content to save locally.
+The SAP Concur Receipt Image API allows for the management of receipt images attached to expense reports, expense entries, and payment requests. You can retrieve existing images by Image ID, and upload new images to a User. This API allows you to upload images in a predefined format and size targeting a specific resource or user in SAP Concur. You can also pull images down from SAP Concur by either displaying them in the browser or downloading the image content to save locally.
+
+## <a name="scope-usage"></a>Scope Usage
+
+Name|Description|Endpoint
+---|---|---
+`IMAGE`|Add or Retrieve Report and Line Item Images.|GET, POST, PUT, DELETE
 
 ## <a name="get"></a>Retrieve a List of All Receipt Images
 
