@@ -5,21 +5,25 @@ layout: reference
 
 {% include prerelease.html %}
 
-* [Overview](#overview)
+* [Overview](#ess)
+* [Terminology](#ess-terminology)
+* [Architecture](#ess-architecture)
 * [Subscribing](#subscribing)
 * [Endpoint Requirements](#endpoint-requirements)
+* [Authentication](#ess-authentication)
+* [Service behavior](#ess-behavior")
 
-# <a name="ESS"></a>Event Subscription Service (ESS)
+# <a name="ess"></a>Event Subscription Service (ESS)
 
-The Event Subscription Service (ESS) implements Publish/Subscribe pattern using principles of Event Driven Architecture in SAP Concur. It allows clients and partners to be notified through web services when certain actions take place in connected SAP Concur companies. When the event occurs, SAP Concur generates an event and sends that event to the configured endpoint with relevant information.
+The Event Subscription Service (ESS) implements Publish/Subscribe pattern using principles of Event Driven Architecture in SAP Concur. It allows clients and partners to be notified through web services when certain actions take place in connected SAP Concur companies. When the business/system event occurs in SAP Concur, ESS sends that event to the configured endpoint with relevant information.
 
-## ESS Terminology
+## <a name="ess-terminology"></a>ESS Terminology
 * Event - a state of business/system object or entity. Always has EventType that represents a type of entity change or specific state in a workflow. Example: Report Created, Report Submitted, etc
 * Topic - a stream of events of business/system object or entity. Example: Concur.user, Concur.expense.report, Concur.travel.request. There is always a topic owner in Concur, it can be team, product or system.
 * Subscription - a topic consumer. Each subscription has a topic it is subscribed to.  
 * Webhook - an ESS application that uses subscription and delivers events to the endpoint.
 
-## ESS Architecture
+## <a name="ess-architecture"></a>ESS Architecture
 
 It is important to remember that ESS doesn't have any API that you can call for SAP Concur events, ESS delivers events to your endpoint.
 
@@ -43,7 +47,7 @@ The Event Subscription Service provides guaranteed at least once event delivery.
 * We multithreaded application to deliver events to your endpoint. 24 threads by default.
 * Your HTTPS server endpoint must be accessible from the public web with a non-self-signed certificate.  The certificate should be signed by a known Certificate Authority and should be reachable through DNS.
 
-### ESS Authentication
+### <a name="ess-authentication"></a> ESS Authentication
 
 There are several way how you can be sure that your endpoint being accessed by our service.
 * We will always use the same client x509 certificate. Common name is "CN=webhook.api.concursolutions.com,O=Concur Technologies\, Inc.,L=Bellevue,ST=Washington,C=US" and certificate serial number is "0AE315A13AB9EF8CADB9A46255C87283"
@@ -66,7 +70,7 @@ HlbTP6jE7MqB5sJ9r2EEzrJzJZjD13UqlzvI61tTC8SKpuk5AEaSsUV7RKlKUCjB
 
 
 
-### <a name="event-subscription-service-behavior"></a>ESS Behavior
+### <a name="ess-behavior"></a>ESS Behavior
 
 The Event Subscription service has the following characteristics from the subscriber perspective:
 
