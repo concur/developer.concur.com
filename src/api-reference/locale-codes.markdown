@@ -18,9 +18,13 @@ Customers can request to have additional locales added to their entity if necess
 
 All Supported Locales|Code
 ---|---
+Bulgarian (Bulgaria)|bg_BG
 Chinese (China)|zh_CN
 Chinese (Hong Kong)|zh_HK
 Chinese (Taiwan)|zh_TW
+Croatian (Croatia)|hr_HR
+Czech (Czech Republic)|cs_CZ
+Danish (Denmark)|da_DK
 Dutch (Belgium)|nl_BE
 Dutch (Netherlands)|nl_NL
 English (Australia)|en_AU
@@ -31,6 +35,7 @@ English (New Zealand)|en_NZ
 English (South Africa)|en_ZA
 English (United Kingdom)|en_GB
 English (United States)|en_US
+Finnish (Finland)|fi_FI
 French (Belgium)|fr_BE
 French (Canada)|fr_CA
 French (France)|fr_FR
@@ -41,10 +46,18 @@ German (Germany)|de_DE
 German (Luxembourg)|de_LU
 German (Switzerland)|de_CH
 Hungarian (Hungary)|hu_HU
+Indonesian (Indonesia)|id_ID
 Italian (Italy)|it_IT
 Italian (Switzerland)|it_CH
 Japanese (Japan)|ja_JP
+Korean (North Korea)|ko_KP
+Korean (South Korea)|ko_KR
+Norwegian (Norway)|no_NO
+Polish (Poland)|pl_PL
 Portuguese (Brazil)|pt_BR
+Romanian (Romania)|ro_RO
+Russian (Russian Federation)|ru_RU
+Slovak (Slovakia)|sk_SK
 Spanish (Argentina)|es_AR
 Spanish (Bolivia)|es_BO
 Spanish (Chile)|es_CL
@@ -65,3 +78,4 @@ Spanish (Spain)|es_ES
 Spanish (Uruguay)|es_UY
 Spanish (Venezuela)|es_VE
 Swedish (Sweden)|sv_SE
+Turkish (Turkey)|tr_TR
