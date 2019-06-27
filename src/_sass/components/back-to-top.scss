@@ -12,12 +12,13 @@
 }
 
 #topcontrol:after {
-  top: -2px;
+  top: 2px;
   left: 8.5px;
   content: "\f106";
   position: absolute;
   text-align: center;
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
 }
 
 #topcontrol:hover {
