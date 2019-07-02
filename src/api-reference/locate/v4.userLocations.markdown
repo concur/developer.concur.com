@@ -35,24 +35,22 @@ This API supports POST only.
 
 ## <a name="products-editions"></a>Products and Editions
 
-* Concur Invoice Professional Edition
-* Concur Invoice Standard Edition
 * Concur Expense Professional Edition
 * Concur Expense Standard Edition
 * Concur Travel Professional Edition
 * Concur Travel Standard Edition
-* Concur Request Professional Edition
-* Concur Request Standard Edition
 
 ## <a name="scope-usage"></a>Scope Usage
 
 ## <a name="dependencies"></a>Dependencies
 
+None.
+
 ## <a name="access-token-usage"></a>Access Token Usage
 
 This API supports company level access tokens.
 
-## <a name="psot"></a>POST Endpoint
+## <a name="post"></a>POST Endpoint
 
 The service is a POST call adhering to the following steps:
 
