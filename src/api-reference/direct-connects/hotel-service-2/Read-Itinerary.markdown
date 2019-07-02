@@ -7,9 +7,9 @@ layout: reference
 
 Returns detailed information about a hotel reservation. Used in a process of booking a hotel to write information to Itinerary. Not invoked by user, but by automatic Concur process. Hotel Supplier should reply with HotelRes RS message in the same format, as for HotelResRQ.
 
-| SOAPAction     | OTA name | Message structure |
+|SOAPAction|OTA Name|Message structure|
 |----------------|----------|-------------------|
-| Read Itinerary | HotelRes | OTA_ReadRQ |
+|Read Itinerary|HotelRes|OTA_ReadRQ|
 
 ---
 
@@ -38,17 +38,16 @@ Returns detailed information about a hotel reservation. Used in a process of boo
 
 **OTA_ReadRQ**
 
-| Element  | Required | Data Type | Description |
-|----------|----------|-----------|-------------|
-| UniqueID | Y        | Complex   | A reference to identify the booking. |
-
+|Name|Type|Description|
+|---------|------------|-------------|
+|`UniqueID`|`complex`|**Required** A reference to identify the booking.|
 
 **UniqueID**
 
-| Element  | Required | Data Type         | Description |
-|----------|----------|-------------------|-------------|
-| *Type*   | Y        | StringLength1to32 | Must be set to 14 |
-| *ID*     | Y        | StringLength1to32 | UniqueID from HotelResRS is used as reservation ID |
+|Name|Type|Description|
+|---------|------------|-------------|
+|`Type`|`stringLength1to32`|**Required** Supported value: `14`|
+|`ID`|`stringLength1to32`|**Required** `UniqueID` from `HotelResRS` is used as reservation ID.|
 
 ---
 
