@@ -7,6 +7,7 @@ layout: reference
 * [March](#march)
 * [April](#april)
 * [May](#may)
+* [July](#july)
 
 ## <a name="january"></a>January 2019
 
@@ -293,3 +294,36 @@ Benefits of the integration include:
 ## <a name="apps-for-me-connection-coming-soon-may"></a>Apps for Me / User Connection Apps Coming Soon
 
 None this month.
+
+## <a name="july"></a>July 2019
+
+* [Apps for Me / User Connection Apps Now Available](#apps-for-me-connection-now-available-july)
+* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-july)
+  * [Cabcharge](#cabcharge-july)
+
+### <a href="apps-for-me-connection-now-available-july"></a>Apps for Me / User Connection Apps Now Available
+
+None this month.
+
+## <a name="apps-for-me-connection-coming-soon-july"></a>Apps for Me / User Connection Apps Coming Soon
+
+### <a name="cabcharge-july"></a>Cabcharge
+
+![Cabcharge Logo](./app-center-2019-07-02-cabcharge-logo.png)
+
+**Never lose a receipt again**
+
+To be reimbursed for most credit card payments in a taxi, you are required to take a photo of the physical receipt. With Cabcharge, your e-receipt will automatically be posted to Concur Expense after your trip, saving you time and eliminating the need for a paper receipt.
+
+**Hailed and booked trips**
+
+Cabcharge is accepted by 98% of taxis across Australia- for both hailed and booked trips-
+ensuring your receipt will always be posted to your Concur Expense account.
+
+**Digital FASTCARDs**
+
+Say goodbye to physical credit cards with the Cabcharge Digital FASTCARD. Simply tap your smartphone on the in-taxi terminal and your receipt will be sent to Concur Expense.
+
+To get started, click “Connect” to link your Cabcharge account to Concur Expense.
+
+Cabcharge works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Cabcharge integration, visit [https://www.cabcharge.com.au/](https://www.cabcharge.com.au/).
