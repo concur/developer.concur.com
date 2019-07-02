@@ -31,11 +31,11 @@ These two different resources are sent/fetched from the Receipts V4 API via diff
 * E-Receipts (Receipts With Data) - Use E-Receipt Endpoints
 * Image-Only Receipts (Standalone Images Without Data) - Use Image-Only Receipt Endpoints
 
-### Version
+### Prior Versions
 
-* 4.0
+* Receipts v3 (Deprecated) documentation is available [here](./v3.receipts.html)
 
-#### Overview of Version 4.0
+### Overview of Version 4.0
 
 Version 4.0 of the Receipts API offers features like more receipt types, automatic e-receipt generation in end user’s preferred language and ability for partners to provide detailed tax information. Unlike version 3.0, we are discontinuing the use of matching facts; instead the partner will have to create a receipt for a specific end user. Receipts 4.0 works only with the new [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 

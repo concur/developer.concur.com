@@ -18,7 +18,7 @@ layout: reference
   * [Invoice - Vendor](#scinvven)
   * [Invoice - Bill to Address](#scinvbta)
   * [Invoice - lineItem](#scinclin)
-  * [Invoice - Line Item Ship to Address](#scinvlisa)
+  * [Invoice - Tax](#scinvtax)
 * [Cash Advance](#sccashadv)
   * [Cash Advance - employeeData](#sccaemp)
   * [Cash Advance - cashAdvanceData](#sccaadv)
@@ -28,312 +28,281 @@ layout: reference
 
 ### <a name="scexpemploy"></a>Expense - Employee
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`employeeCustomCode1` through `employeeCustomCode21`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. Maximum length 48 characters.
-`employeeCustom1Value` through `employeeCustom21Value`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
-`employeeFirstName`|Alphanumeric|-|First name of employee. Maximum length 32 characters.
-`employeeId`|Alphanumeric|-|Employee ID often also serves as the employee’s Vendor ID for AP system integrations or payroll ID for payroll integrations. Maximum length 48 characters.
-`employeeLastName`|Alphanumeric|-|Last name of employee. Maximum length 32 characters.
-`employeeMI`|Alphanumeric|-|Middle initial of employee. Maximum length 1 character.
-`employeeOrgUnit1Code` through `employeeOrgUnit6Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`employeeOrgUnit1Value` through `employeeOrgUnit6Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
+`employeeCustom1Code` through `employeeCustom21Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration. Maximum length 48 characters.
+`employeeCustom1Value` through `employeeCustom21Value`|CustomField|64|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
+`employeeFirstName`|Alphanumeric|32|First name of employee. Maximum length 32 characters.
+`employeeId`|Alphanumeric|128|Employee ID often also serves as the employee’s Vendor ID for AP system integrations or payroll ID for payroll integrations. Maximum length 128 characters.
+`employeeLastName`|Alphanumeric|32|Last name of employee. Maximum length 32 characters.
+`employeeMI`|Alphanumeric|1|Middle initial of employee. Maximum length 1 character.
+`employeeOrgUnit1Code` through `employeeOrgUnit6Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`employeeOrgUnit1Value` through `employeeOrgUnit6Value`| CustomField|64|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
 
 ### <a name="scexprep"></a>Expense - Report
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`cashAdvanceReturnsAmount`|Money|-|Amount of cash advance returned. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`employeeCurrencyAlphaCode`|Alphanumeric|-|Reimbursement currency in 3-letter ISO 4217 alpha format.
-`homeCountryCode`|Alphanumeric|-|The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US.
-`isTest`|Alphanumeric|-|Signifies if this report belongs to a test user in system.
-`ledgerCode`|Alphanumeric|-|External accounting system ID. Maximum length 20 characters.
-`payrollPayIndicator`|Alphanumeric|-|  This field indicates whether the expense group the report user belongs to is configured to reimburse employees using Payroll.
-`payrollPaymentClearingAccountCode`|Alphanumeric|-|SAP customers who reimburse their employees via Payroll need to capture a payroll clearing account code as part of the accounting entry during the financial posting process.
-`reportCreationDate`|-|-|Date the report was created. Format: yyyy-mm-dd.
-`reportCustom1Code` through `reportCustom20Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. The seventh segment (if necessary) in the fully qualified GL string should use Custom1, except the natural account field; the natural account data is stored in column 167 of the SAE. Maximum length 48 characters.
-`reportCustom1Value` through `reportCustom20Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
-`reportEndDate`|Date|-|End date from the report header. Can be imported from trip data or manually entered. Format: yyyy-mm-dd.
-`reportId`|Alphanumeric|-|Unique (across all SAP Concur clients) 32 character varchar. Often used as a voucher number when integrating to AP systems. Often used as a voucher number when integrating across AP systems.
-`reportKey`|Numeric|-|A unique ID (within a single SAP Concur client's company) generated by the system. An alternative to the `reportId`. Starts with 1 and increments with each expense report. Maximum length 48 characters.
-`reportName`|Alphanumeric|-|Report name assigned by employee. Maximum length 40 characters.
-`reportOrgUnit1Code` through `reportOrgUnit20Code`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. The second segment in the fully qualified GL string should use Org Unit 2, except the natural account field; the natural account data is stored in column 167 of the SAE. Maximum length 48 characters.
-`reportPaymentProcessingDate`| Date|-|The date that the report completed all approvals and was ready to be extracted for payment. Format: yyyy-mm-dd.
-`reportStartDate`|Date|-|Report start date.
-`reportSubmitDate`|Date|-|Date/time the employee submitted the report for approval. Format: yyyy-mm-dd.
-`reportUserDefinedDate`|Date|-|Custom date/time specified by user. Format: yyyy-mm-dd.
-`revisionNumber`|-|-|Report revision number. This will be used to track changes made to posted expenses. Default value is 1. Maximum length 32 characters.
-`totalApprovedAmount`|Money|-|Total approved amount of the report. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`versionId`|-|-|The FI Document Version.  A simple incrementing number.  This identifies the version of the end point. Maximum length 32 characters.
+`cashAdvanceReturnsAmount`|Money|23|Amount of cash advance returned. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`employeeCurrencyAlphaCode`|Alphanumeric|3|Reimbursement currency in 3-letter ISO 4217 alpha format.
+`homeCountryCode`|Alphanumeric|2|The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US.
+`isTest`|Boolean|1|Signifies if this report belongs to a test user in system. Y = test user, N = not a test user.
+`ledgerCode`|Alphanumeric|20|External accounting system ID. Maximum length 20 characters.
+`payrollPayIndicator`|Boolean|1|  This field indicates whether the expense group the report user belongs to is configured to reimburse employees using Payroll. Y = Yes, N = No
+`payrollPaymentClearingAccountCode`|Alphanumeric|128|SAP customers who reimburse their employees via Payroll need to capture a payroll clearing account code as part of the accounting entry during the financial posting process.
+`reportCreationDate`|Date|24|Date the report was created. Format: yyyy-mm-ddThr:min:sec.msZ.
+`reportCustom1Code` through `reportCustom20Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration. Maximum length 48 characters.
+`reportCustom1Value` through `reportCustom20Value`| CustomField|64|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
+`reportEndDate`|Date|24|End date from the report header. Can be imported from trip data or manually entered. Format: yyyy-mm-ddThr:min:sec.msZ.
+`reportId`|Alphanumeric|32|Unique (across all SAP Concur clients) 32 character varchar. Often used as a voucher number when integrating to AP systems. Often used as a voucher number when integrating across AP systems.
+`reportKey`|Integer|11|A unique ID (within a single SAP Concur client's company) generated by the system. An alternative to the `reportId`. Starts with 1 and increments with each expense report. Maximum length 11 characters.
+`reportName`|Alphanumeric|40|Report name assigned by employee. Maximum length 40 characters.
+`reportOrgUnit1Code` through `reportOrgUnit20Code`| CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration. The second segment in the fully qualified GL string should use Org Unit 2, except the natural account field; the natural account data is stored in column 167 of the SAE. Maximum length 48 characters.
+`reportOrgUnit1Value` through `reportOrgUnit20Value`| CustomField|64|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
+`reportPaymentProcessingDate`| Date|24|The date that the report completed all approvals and was ready to be extracted for payment. Format: yyyy-mm-ddThr:min:sec.msZ.
+`reportStartDate`|Date|24|Report start date.
+`reportSubmitDate`|Date|24|Date/time the employee submitted the report for approval.
+`reportUserDefinedDate`|Date|24|Custom date/time specified by user.
+`revisionNumber`|Numeric|32|Report revision number. This will be used to track changes made to posted expenses. Default value is 1. Maximum length 32 characters.
+`totalApprovedAmount`|Money|23|Total approved amount of the report. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`versionId`|Numberic|32|The FI Document Version.  A simple incrementing number.  This identifies the version of the end point. Maximum length 32 characters.
 
 ### <a name="scexpent"></a>Expense - expenseEntry
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`cardAccountID`|-|-|ID for the card account. This can be used by the receiving system to condense transactions associated with this card. Maximum length 32 bytes.
-`cardProgramTypeCode`|Alphanumeric|-|The code used to identify the card’s program type. Maximum length 5 characters.
-`cardStatementPeriodEndDate`|Date|-|The date of the end of the statement period. Format: yyyy-mm-dd.
-`cardStatementPeriodStartDate`|Date|-|The date of the start of the statement period. Format: yyyy-mm-dd.
-`cardTransactionAmount`|Money|-|Amount of the charge in the spend currency. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`cardTransactionCurrency`|Alphanumeric|-|Currency code for the spend currency. Format: ISO 3-character alpha code.
-`cardTransactionID`|Alphanumeric|-|Reference number from the credit card vendor. Maximum length 64 characters.
-`cardTransactionPostedAmount`|Money|-|Amount of the charge in the billing currency of the card. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`cardTransactionPostedCurrency`|Alphanumeric|-|Currency code for the card billing currency. Format: ISO 3-character alpha code.
-`clearingAccountCode`|Alphanumeric|-|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
-`entryApprovedAmount`|Money|-|Amount approved in the reimbursement currency. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`entryCountryCode`|Alphanumeric|-|Report entry country code. Format: 2-character country code.
-`entryCountrySubCode`|Alphanumeric|-|Report entry country sub code. Maximum length 6 characters.
-`entryCurrAlphaCode`|Alphanumeric|-|Currency ISO alpha code for the spend currency if not an imported credit card or the invoice currency if this is a credit card. Format: 3-character alpha code.
-`entryCustom1Code` through `entryCustom40Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
-`entryDate`|Date|-|Date that this expense was incurred (when the money was spent or credit card receipt date). Format: yyyy-mm-dd.
-`entryDescription`|Alphanumeric|-|Expense description as entered by the employee. Maximum length 64 characters.
-`entryElectronicReceiptId`|-|-|Electronic receipt ID.
-`entryExchangeRate`|Numeric|-|Rate used to convert from the report entry (spend) currency to the report (reimbursement) currency. Maximum length 23 characters.
-`entryExchangeRateDirection`|Alphanumeric|-|The direction of the exchange rate conversion. Either: M = Multiply or D = Divide.
-`entryId`|Numeric|-|Report entry unique key. Maximum length 13 characters.
-`entryIsBillable`|Alphanumeric|-|Yes or no is the expense billable.
-`entryIsPersonal`|Alphanumeric|-|Yes or no is the expense personal.
-`entryLocationCityName`|Alphanumeric|-|Report entry location city name. Maximum length 64 characters.
-`entryLocationName`|Alphanumeric|-|Report entry location name. Maximum length 64 characters.
-`entryOrgUnit1Value` through `entryOrgUnit6Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
-`entryOrgUnit1Code` through `entryOrgUnit6Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. Maximum length 48 characters.
-`entryReceiptId`|-|-|Non-electronic receipt image.
-`entryReceiptType`|Alphanumeric|-|One of these: T = Tax receipt, R = Regular receipt, or N = No receipt.
-`entrySupplierTaxID`|Alphanumeric|-|Report entry XML receipt supplier tax ID. Maximum length 64 characters.
-`entryUuid`|Alphanumeric|-|Report Entry XML Receipt UUID.
-`entryVendorCode`|Alphanumeric|nvarchar|Vendor name, in US English. Maximum length 329 characters.
-`entryVendorDescription`|Alphanumeric|-|Vendor description. Maximum length 64 characters.
-`expensePayIndicator`|Alphanumeric|-|Indicates whether Expense Pay reimbursed this journal entry. Either: 1 = Expense Pay or blank = not Expense Pay.
-`expenseTypeCode`|Alphanumeric|-|Code for the expense type.
-`expenseTypeName`|Alphanumeric|-|Expense type name. Maximum length 64 characters.
-`legacyEntryId`|Alphanumeric|-|-
-`liabilityAccountCode`|Alphanumeric|-|The liability account code assigned to the funding account paying this entry. Maximum length 48 characters.
-`offsetPayType`|-|-|-
-`reportEntryPatKey`|Alphanumeric|-|Report Entry Payment Code Code. Maximum length 4 characters.
+`cardAccountID`|Alphanumeric|32|ID for the card account. This can be used by the receiving system to condense transactions associated with this card. Maximum length 32 bytes.
+`cardProgramTypeCode`|Alphanumeric|5|The code used to identify the card’s program type. Maximum length 5 characters.
+`cardStatementPeriodEndDate`|Date|24|The date of the end of the statement period. Format: yyyy-mm-ddThr:min:sec.msZ.
+`cardStatementPeriodStartDate`|Date|24|The date of the start of the statement period. Format: yyyy-mm-ddThr:min:sec.msZ.
+`cardTransactionAmount`|Money|23|Amount of the charge in the spend currency. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`cardTransactionCurrency`|Alphanumeric|3|Currency code for the spend currency. Format: ISO 3-character alpha code.
+`cardTransactionID`|Alphanumeric|32|Reference number from the credit card vendor. Maximum length 32 characters.
+`cardTransactionPostedAmount`|Money|23|Amount of the charge in the billing currency of the card. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`cardTransactionPostedCurrency`|Alphanumeric|3|Currency code for the card billing currency. Format: ISO 3-character alpha code.
+`clearingAccountCode`|Alphanumeric|48|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
+`entryApprovedAmount`|Money|23|Amount approved in the reimbursement currency. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`entryCountryCode`|Alphanumeric|2|Report entry country code. Format: 2-character country code.
+`entryCountrySubCode`|Alphanumeric|6|Report entry country sub code. Maximum length 6 characters.
+`entryCurrAlphaCode`|Alphanumeric|4|Currency ISO alpha code for the spend currency if not an imported credit card or the invoice currency if this is a credit card. Format: 3-character alpha code.
+`entryCustom1Code` through `entryCustom40Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration. Maximum length 48 characters.
+`entryCustom1Value` through `entryCustom40Value`|CustomField|64|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
+`entryDate`|Date|24|Date that this expense was incurred (when the money was spent or credit card receipt date). Format: yyyy-mm-ddThr:min:sec.msZ.
+`entryDescription`|Alphanumeric|64|Expense description as entered by the employee. Maximum length 64 characters.
+`entryElectronicReceiptId`|GUUID|32|Electronic receipt ID.
+`entryExchangeRate`|Numeric|23|Rate used to convert from the report entry (spend) currency to the report (reimbursement) currency. Maximum length 23 characters.
+`entryExchangeRateDirection`|Alphanumeric|1|The direction of the exchange rate conversion. Either: M = Multiply or D = Divide.
+`entryId`|GUUID|32|Report entry sync guuid unique key. Maximum length 32 characters.
+`entryIsBillable`|Boolean|1|Yes or no is the expense billable.
+`entryIsPersonal`|Boolean|1|Yes or no is the expense personal.
+`entryLocationCityName`|Alphanumeric|64|Report entry location city name. Maximum length 64 characters.
+`entryLocationName`|Alphanumeric|64|Report entry location name. Maximum length 64 characters.
+`entryOrgUnit1Value` through `entryOrgUnit6Value`| CustomField|64|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
+`entryOrgUnit1Code` through `entryOrgUnit6Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration. Maximum length 48 characters.
+`entryReceiptId`|GUUID|32|Non-electronic receipt image.
+`entryReceiptType`|Alphanumeric|1|One of these: T = Tax receipt, R = Regular receipt, or N = No receipt.
+`entrySupplierTaxID`|Alphanumeric|64|Report entry XML receipt supplier tax ID. Maximum length 64 characters.
+`entryUuid`|GUUID|32|Report Entry XML Receipt UUID.
+`entryVendorCode`|Alphanumeric|32|Vendor name list short code. Maximum length 32 characters.
+`entryVendorDescription`|Alphanumeric|64|Vendor description. Maximum length 64 characters.
+`expensePayIndicator`|Boolean|1|Indicates whether Expense Pay reimbursed this journal entry. Either: 1 = Expense Pay or blank = not Expense Pay.
+`expenseTypeCode`|Alphanumeric|5|Code for the expense type.
+`expenseTypeName`|Alphanumeric|64|Expense type name. Maximum length 64 characters.
+`legacyEntryId`|Integer|11|Legacy report entry key.
+`liabilityAccountCode`|Alphanumeric|48|The liability account code assigned to the funding account paying this entry. Maximum length 48 characters.
+`offsetPayType`|Boolean|1|Use Offsets. Y = Yes, N= No.
+`reportEntryPatKey`|Alphanumeric|4|Report Entry Payment Code. Maximum length 4 characters.
 
 ### <a name="scexpall"></a>Expense - Allocation
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`allocationCustom1Code` through `allocationCustom20Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. Maximum length 48 characters.
-`allocationCustom1Value` through `allocationCustom20Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
-`allocationId`|Numeric|-|System-generated unique key for this allocation record. Maximum length 13 characters.
-`allocationPercentage`|Numeric|-|Percent of the report entry assigned to this allocation record. Maximum length 11 characters.
+`allocationCustom1Code` through `allocationCustom20Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration. Maximum length 48 characters.
+`allocationCustom1Value` through `allocationCustom20Value`| CustomField|64|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
+`allocationId`|GUUID|32|System-generated unique key for this allocation record.
+`allocationPercentage`|Numeric|11|Percent of the report entry assigned to this allocation record. Maximum length 11 characters.
 
 ### <a name="scexpjour"></a>Expense - Journal
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`accountingTransactionType`|Alphanumeric|-|This is the Intuit QuickBooks specific transaction value. It will be null or a value (GJ, CC, or BILL) depending on if it’s a `journalpayee` or `journalpayer`. This determines if a transaction should be posted as Bill or Credit Card in QuickBooks.
-`amountGrossCard`|Money|-|Amount due to the company card of either CBCP or IBCP type for this detail row. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`amountNetOfReclaim`|Money|-|Gross Journal amount subtracting reclaimable tax. Or the Net Journal amount adding non-reclaimable tax.
-`amountNetOfTax`|Money|-|Allocated net of reclaim tax. You get this by starting from the net and adding the tax that is not reclaimable, or starting with the gross and subtracting reclaimable. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`amountTax`|Money|-|This is the Gross Journal amount subtracting the total Tax amount. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`cardTransactionReferenceNumber`| Numeric|-|Reference number from the credit card vendor. Maximum length 64 characters.
-`journalAccountCode`|Alphanumeric|-|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
-`journalPayee`|Alphanumeric|-|Payment code name for the payee. Maximum length 80 characters.
-`journalPayer`|Alphanumeric|-|Payment code name for the payer. Maximum length 80 characters.
-`taxGuid`|-|-|Unique identifier associated with the report entry tax allocation.
+`accountingTransactionType`|Alphanumeric|24|This is the Intuit QuickBooks specific transaction value. It will be null or a value (GJ, CC, or BILL) depending on if it’s a `journalpayee` or `journalpayer`. This determines if a transaction should be posted as Bill or Credit Card in QuickBooks.
+`amountGrossCard`|Money|23|Amount due to the company card of either CBCP or IBCP type for this detail row. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`amountNetOfReclaim`|Money|23|Gross Journal amount subtracting reclaimable tax. Or the Net Journal amount adding non-reclaimable tax.
+`amountNetOfTax`|Money|23|Allocated net of reclaim tax. You get this by starting from the net and adding the tax that is not reclaimable, or starting with the gross and subtracting reclaimable. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`amountTax`|Money|23|This is the Gross Journal amount subtracting the total Tax amount. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`cardTransactionReferenceNumber`| Numeric|64|Reference number from the credit card vendor. Maximum length 64 characters.
+`journalAccountCode`|Alphanumeric|48|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
+`journalPayee`|Alphanumeric|4|Payment code name for the payee.
+`journalPayer`|Alphanumeric|4|Payment code name for the payer.
+`taxGuid`|GUUID|32|Unique identifier associated with the report entry tax allocation.
 
 ### <a name="scexpca"></a>Expense - cashAdvanceApplication
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`cashAdvanceApplicationAmount`|Money|-|Cash advance utilized amount. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`cashAdvanceClearingAccountCode`| Alphanumeric|-|The Account Code is the clearing account code which was configured for the employee in the profile. Maximum length 48 characters.
-`cashAdvanceId`|Alphanumeric|-|Unique system ID assigned to the cash advance. Maximum length 13 characters.
-`cashAdvanceTransactionType`|Numeric|-|Type of transaction: 1 = Issue or return to administrator, 2 = Application, including cash advance return expense within a report, or 3 = System cash advance, from balance carry forward.
+`cashAdvanceApplicationAmount`|Money|23|Cash advance utilized amount. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`cashAdvanceClearingAccountCode`| Alphanumeric|48|The Account Code is the clearing account code which was configured for the employee in the profile. Maximum length 48 characters.
+`cashAdvanceId`|GUUID|32|Unique system ID assigned to the cash advance. Maximum length 32 characters.
+`cashAdvanceTransactionType`|Numeric|1|Type of transaction: 1 = Issue or return to administrator, 2 = Application, including cash advance return expense within a report, or 3 = System cash advance, from balance carry forward.
 
 ## <a name="scinvoice"></a>Invoice
 
 ### <a name="scinvreq"></a>Invoice - requestHeader
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`amountNetInvoice`|-|-|-
-`amountShippingTotal`|Numeric|-|The value for the shipping amount header field. Maximum length 23 characters.
-`clearingAccountCode`|-|-|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
-`currencyAlphaCode`|String|-|Currency ISO alpha code for the spend currency if not an imported credit card or the invoice currency if this is a credit card. Format: 3-character alpha code.
-`deliverySlipNumber`|String|-|Delivery slip number of the receipt which is associated to the invoice line item. Maximum length 256 characters.
-`discountPercentage`|-|-|-
-`discountTermsDays`|-|-|-
-`invoiceDate`|Date|-|Date of the invoice. Format: yyyy-mm-dd.
-`invoicePayIndicator`|-|-|-
-`invoiceReceivedDate`|Date|-|The value of the date on which the invoice was received (as Accounts Payable "stamp" when mail opened). Format: mm/dd/yyyy.
-`isTest`|-|-|Signifies if this report belongs to a test user in system.
-`ledgerCode`|String|-|External accounting system ID. Maximum length 20 characters.
-`ledgerName`|String|-|-
-`multiplePurchaseOrder`|-|-|-
-`netPaymentTermDays`|-|-|-
-`paymentDueDate`|-|-|-
-`payMethodType`|String|-|The method used to pay the invoice, as of the point in time the extract is run. **NOTE:** It is possible for the method to be changed or updated *post-extract* through either the Payment Confirmation import (if the client controls payments), or through Invoice Pay (using Payment Manager). Valid format options include: ACH, client paid, check, PAYPVD, wire, card, or VCHER.
-`postingDate`|-|-|-
-`processCompleteDate`|-|-|-
+`amountNetInvoice`|Numeric|23|The invoice total amount minus the shipping and tax amounts.-
+`amountShippingTotal`|Numeric|23|The value for the shipping amount header field. Maximum length 23 characters.
+`amountTax`|Numeric|23|The total amount of tax on a given invoice.
+`amountVAT1` through `amountVAT4`|Numeric|23|The individual total VAT amounts for the invoice.
+`clearingAccountCode`|String|20|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
+`currencyAlphaCode`|String|3|Currency ISO alpha code for the spend currency if not an imported credit card or the invoice currency if this is a credit card. Format: 3-character alpha code.
+`deliverySlipNumber`|String|256|Delivery slip number of the receipt which is associated to the invoice line item. Maximum length 256 characters.
+`discountPercentage`|Numeric|%|Percent value that defines the amount of discount that would be applied.
+`discountTermsDays`|Numeric|3|Numeric value defining the discount term day amount.
+`invoiceDate`|Date|YYYY-MM-DD|Date of the invoice. Format: yyyy-mm-dd.
+`invoicePayIndicator`|Y/N|1|Signifies if this report belongs to a test user in system.
+`invoiceReceivedDate`|Date|YYYY-MM-DD|The value of the date on which the invoice was received (as Accounts Payable "stamp" when mail opened). Format: mm/dd/yyyy.
+`isTest`|Y/N|1|Signifies if this report belongs to a test user in system.
+`ledgerCode`|String|20|External accounting system ID. Maximum length 20 characters.
+`ledgerName`|String|100|The general ledger tied to the invoice.
+`multiplePurchaseOrder`|Y/N|1|Defines whether or not multiple purchase orders are tied to the invoice.
+`netPaymentTermDays`|Numeric|3|Numeric value defining the payment term day amount.
+`paymentDueDate`|Date|YYYY-MM-DD|The date the payment is due for a given invoice.
+`payMethodType`|String|Drop Down Selector|The method used to pay the invoice, as of the point in time the extract is run. **NOTE:** It is possible for the method to be changed or updated *post-extract* through either the Payment Confirmation import (if the client controls payments), or through Invoice Pay (using Payment Manager). Valid format options include: ACH, client paid, check, PAYPVD, wire, card, or VCHER.
+`postingDate`|Date|YYYY-MM-DD|The date the invoice will be posted to the ERP system.
+`processCompleteDate`|Date|YYYY-MM-DD|The date the invoice was processed.
 `reqKey`|Numeric|Integer|This is an integer that uniquely defines this invoice in SAP Concur. This is the value that the Invoice Confirmation Import uses to match to this particular invoice.
-`requestCreationDate`|Date|-|The date the invoice was originally saved. Format: yyyy-mm-dd.
-`requestCustom1Code` through `requestCustom24Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`requestCustom1Value` through `requestCustom24Value`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`requestDescription`|String|-|The invoice’s description. Maximum length 250 characters.
-`requestId`|String|-|The unique identification assigned to the invoice. Maximum length 20 characters.
-`requestOrgUnit1Code` through `requestOrgUnit6Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`requestOrgUnit1Value` through `requestOrgUnit6Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`requestTitle`|String|-|The invoice name. Maximum length 100 characters.
-`requestTotal`|Numeric|-|The sum of all Line Item Amounts plus Shipping Amount and Tax Amount for the invoice. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`revisionNumber`|-|-|Invoice revision number. Default value is 1.
-`submitDate`|Date|-|Date/time the employee submitted the invoice for approval. Format: yyyy-mm-dd.
-`vendorInvoiceNumber`|String|-|The invoice number assigned by the vendor. Maximum length 50 characters.
-`versionId`|String|-|The version of the FI Document, which is the same as the version of the API endpoint.
+`requestCreationDate`|Date|YYYY-MM-DD|The date the invoice was originally saved. Format: yyyy-mm-dd.
+`requestCustom1Code` through `requestCustom24Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`requestCustom1Value` through `requestCustom24Value`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`requestDescription`|String|250|The invoice’s description. Maximum length 250 characters.
+`requestId`|String|20|The unique identification assigned to the invoice. Maximum length 20 characters.
+`requestOrgUnit1Code` through `requestOrgUnit6Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`requestOrgUnit1Value` through `requestOrgUnit6Value`| CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`requestTitle`|String|100|The invoice name. Maximum length 100 characters.
+`requestTotal`|Numeric|23|The sum of all Line Item Amounts plus Shipping Amount and Tax Amount for the invoice. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`revisionNumber`|Numeric|32|Invoice revision number. Default value is 1.
+`submitDate`|Date|YYYY-MM-DD|Date/time the employee submitted the invoice for approval. Format: yyyy-mm-dd.
+`vendorInvoiceNumber`|String|50|The invoice number assigned by the vendor. Maximum length 50 characters.
+`versionId`|String|32|The version of the FI Document, which is the same as the version of the API endpoint.
 
 ### <a name="scinvown"></a>Invoice - ownerEmployee
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`employeeCustom1Code` through `employeeCustom21Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`employeeCustom1Value` through `employleeCustom21Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`employeeFirstName`|String|-|First name of employee. Maximum length 32 characters.
-`employeeId`|String|-|Employee ID often also serves as the employee’s Vendor ID for AP system integrations or Payroll ID for Payroll integrations. Maximum length 48 characters.
-`employeeLastName`|String|-|Last name of employee. Maximum length 32 characters.
-`employeeMI`|String|-|Middle initial of employee. Maximum length 1 character.
-`employeeOrgUnit1Value` through `employeeOrgUnit6Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
+`employeeCustom1Code` through `employeeCustom21Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`employeeCustom1Value` through `employleeCustom21Value`| CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`employeeFirstName`|String|32|First name of employee. Maximum length 32 characters.
+`employeeId`|String|48|Employee ID often also serves as the employee’s Vendor ID for AP system integrations or Payroll ID for Payroll integrations. Maximum length 48 characters.
+`employeeLastName`|String|32|Last name of employee. Maximum length 32 characters.
+`employeeMI`|String|1|Middle initial of employee. Maximum length 1 character.
+`employeeOrgUnit1Value` through `employeeOrgUnit6Value`| CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
 
 ### <a name="scinvven"></a>Invoice - Vendor
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`vendorCode`|String|-|The financial system's code for this vendor. Maximum length 23 characters.
-`vendorContactFirstName`|-|-|-
-`vendorContactLastName`|-|-|-
-`vendorName`|String|-|The financial system's name for this vendor. Maximum length 255 characters.
+`vendorCode`|String|32|The financial system's code for this vendor. Maximum length 23 characters.
+`vendorContactFirstName`|String|255|Buyer contact for the vendor record’s first name.
+`vendorContactLastName`|String|255|Buyer contact for the vendor record’s last name.
+`vendorName`|String|255|The financial system's name for this vendor. Maximum length 255 characters.
 `vendorRemitToAddressCode`|String|Less than or equal to 64.| The financial system's code for this address.
-`vendorShipFromAddressCode`|-|-|-
-
-### <a name="scinvbta"></a>Invoice - Bill To Address
-
-Name|Type|Format|Description
----|---|---|---
-`address1`|String|-|Bill To Address Line 1.
-`address2`|String|-|Bill To Address Line 2.
-`address3`|String|-|Bill To Address Line 3.
-`addressCode`|String|-|Bill To Address Code value.
-`addressCreateDate`|Date|-|Date the Bill To Address was created.
-`addressID`|String|-|The Primary Key value for the Bill To Address.
-`addressName`|String|-|Address Name.
-`billToCompanyID`|Numeric|-|Company ID value from ERP tied to Bill To Address.
-`billToExternalSystem`| String|-|External ERP System value.
-`city`|String|-|City defined on the Bill To Address.
-`contactFirstName`|String|-|Bill To Contact First Name.
-`contactLastName`|String|-|Bill To Contact Last Name.
-`countryCode`|String|-|ISO Country Code.
-`phoneNumber`|Numeric| Integer| Phone Number on address.
-`postalCode`|String|-|Postal Code value.
-`state`|String|-|State value on Ship To Address.
-`taxJurisdictionCode`|String|-|The Tax `JurisdictionCode` value defined on the Bill To Address.
 
 ### <a name="scinclin"></a>Invoice - lineItem
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`accountCode`|String|-|-
-`allocationAccountCode`|String|-|The Account Code for the Allocation related to this Journal Entry. Maximum length 20 characters.
-`allocationCustom1Code` through `allocationCustom20Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`allocationCustom1Value` through `allocationCustom20Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`allocationKey`|Integer|-|System-generated unique key for this allocation record. Maximum length 13 characters.
-`allocationPercentage`|Numeric|-|Percent of the report entry assigned to this allocation record. Maximum length 64 characters.
-`amountGross`|Numeric|-|-
-`amountNet`|Numeric|-|-
-`amountShipping`|Numeric|-|The value for the Shipping Amount header field. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field
-`expenseTypeCode`|String|-|Code for the expense type so a value that isn’t language dependent is returned.
-`expenseTypeName`|String|-|Expense type name. Maximum length 11 characters.
-`externalLineItemId`|String|-|-
-`lineItemCode`|String|-|The Primary Key value for the expense type. Maximum length 7 characters.
-`lineItemCustom1Code` through `lineItemCustom20Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`lineItemCustom1Value` through `lineItemCustom20Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`lineItemDeliverySlipNumber`|String|-|Delivery Slip Number of the receipt which is associated to the invoice line item. Maximum length 256 characters.
-`lineItemDescription`|-|-|-
-`lineItemPurchaseOrderNumber`|String|-|The purchase order number associated with the invoice line item (for a multiple purchase order-based invoice), or the purchase order number associated with the header (for a single purchase order-based invoice). Maximum length 48 characters.
-`lineItemQuantity`|-|-|-
+`allocationAccountCode`|String|20|The Account Code for the Allocation related to this Journal Entry. Maximum length 20 characters.
+`allocationCustom1Code` through `allocationCustom20Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`allocationCustom1Value` through `allocationCustom20Value`| CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`allocationKey`|Integer|13|System-generated unique key for this allocation record. Maximum length 13 characters.
+`allocationPercentage`|Numeric|64|Percent of the report entry assigned to this allocation record. Maximum length 64 characters.
+`jornual`|String|48|Container for journal entries tied to the allocation.
+`accountCode`|Numeric|20|The financial system accounting code value tied to the invoice line.
+`amountGross`|Numeric|23|The gross amount (total amount) of the invoice line item.
+`amountNet`|Numeric|23|The net amount of the invoice line item not including shipping and tax.
+`amountShipping`|Numeric|23|The value for the Shipping Amount header field. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field
+`expenseTypeCode`|String|7|Code for the expense type so a value that isn’t language dependent is returned.
+`expenseTypeName`|String|64|Expense type name. Maximum length 11 characters.
+`externalLineItemId`|String|100|The PO Line item associated with to the Invoice.
+`lineItemCode`|String|7|The Primary Key value for the expense type. Maximum length 7 characters.
+`lineItemCustom1Code` through `lineItemCustom20Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`lineItemCustom1Value` through `lineItemCustom20Value`| CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`lineItemDeliverySlipNumber`|String|256|Delivery Slip Number of the receipt which is associated to the invoice line item. Maximum length 256 characters.
+`lineItemDescription`|String|255|The description of the goods or services being purchased on the individual invoice line.
+`lineItemPurchaseOrderNumber`|String|10|The purchase order number associated with the invoice line item (for a multiple purchase order-based invoice), or the purchase order number associated with the header (for a single purchase order-based invoice). Maximum length 10 characters.
+`lineItemQuantity`|String|23|The quantity of the line item.
 `lineItemSequenceOrder`|Numeric|Integer| Line item number for the line item related to this Journal Entry.
-`lineItemUnitPrice`|-|-|-
-`poLineNumber`|Numeric|-|The PO line item number associated to the payment request. Maximum length 10 characters.
-`receiptNumber`|Numeric|-|The Goods Receipt number.
-`receiptQuantity`|Numeric|-|The Goods Received quantity.
-`receiptItemID`|Numeric|-|The ID of the Goods Receipt tied to the Invoice and PO Line.
+`lineItemUnitPrice`|Numeric|23|The quantity unit price for the item being purchased.
+`poLineNumber`|Numeric|48|The PO line item number associated to the payment request. Maximum length 48 characters.
+`receiptNumber`|Numeric|256|The Goods Receipt number.
+`receiptQuantity`|Numeric|23|The Goods Received quantity.
+`receiptItemID`|Numeric|48|The ID of the Goods Receipt tied to the Invoice and PO Line.
 
-### <a name="scinvlisa"></a>Invoice - Line Item Ship To Address
+### <a name="scinvlisa"></a>Invoice - Tax
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`address1`|String|-|Ship To Address Line 1.
-`address2`|String|-|Ship To Address Line 2.
-`address3`|String|-|Ship To Address Line 3.
-`addressCode`|String|-|Ship To Address Code value.
-`addressCreateDate`|Date|-|Date the Ship To Address was created.
-`addressID`|String|-|The Primary Key value for the Ship To address.
-`addressName`|String|-|Address Name.
-`city`|String|-|City defined on the Ship To Address.
-`contactFirstName`|String|-|Ship To Contact First Name.
-`contactLastName`|String|-|Ship To Contact Last Name.
-`countryCode`|String|-|ISO Country Code.
-`phoneNumber`|Numeric| Integer| Phone Number on address.
-`postalCode`|String|-|Postal Code value.
-`state`|String|-|State value on Ship To Address.
-`taxJurisdictionCode`| String|-|The Tax JurisdictionCode value defined on the Ship To Address.
-`poLineNumber`|Numeric|-|The PO line item number associated to the payment request. Maximum length 10 characters.
+`amountTax`|Numeric|23|The taxation amount that exists on the invoice line.
+`taxCode`|String|20|Tax code assigned to this tax authority for the expense type entered on the expense entry. Maximum length 20 characters.
+`taxField`|String|20|Defines which database field the tax resides in.
 
 ## <a name="sccashadv"></a>Cash Advance
 
 ### <a name="sccaemp"></a>Cash Advance - employeeData
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`employeeCustomCode1` through `employeeCustomCode21`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`employeeCustom1Value` through `employeeCustom21Value`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`employeeFirstName`|Alphanumeric|-|First name of employee. Maximum length 32 characters.
-`employeeId`|Alphanumeric|-|Employee ID often also serves as the employee’s Vendor ID for AP system integrations or Payroll ID for Payroll integrations. Maximum length 48 characters.
-`employeeLastName`|Alphanumeric|-|Last name of employee. Maximum length 32 characters.
-`employeeMI`|Alphanumeric|-|Middle initial of employee. Maximum length 1 character.
-`employeeOrgUnit1Code` through `employeeOrgUnit6Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
-`employeeOrgUnit1Value` through `employeeOrgUnit6Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration.
+`employeeCustom1Code` through `employeeCustom21Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`employeeCustom1Value` through `employeeCustom21Value`|CustomField|64|The details from the custom fields. These fields may not have data, depending on the configuration.
+`employeeFirstName`|Alphanumeric|32|First name of employee. Maximum length 32 characters.
+`employeeId`|Alphanumeric|128|Employee ID often also serves as the employee’s Vendor ID for AP system integrations or Payroll ID for Payroll integrations. Maximum length 128 characters.
+`employeeLastName`|Alphanumeric|32|Last name of employee. Maximum length 32 characters.
+`employeeMI`|Alphanumeric|1|Middle initial of employee. Maximum length 1 character.
+`employeeOrgUnit1Code` through `employeeOrgUnit6Code`|CustomField|48|The details from the custom fields. These fields may not have data, depending on the configuration.
+`employeeOrgUnit1Value` through `employeeOrgUnit6Value`| CustomField|64|The details from the custom fields. These fields may not have data, depending on the configuration.
 
 ### <a name="sccaadv"></a>Cash Advance - cashAdvanceData
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`cardAccountID`|Alphanumeric|-|ID will be used initially by the receiving system to “condense” transactions associated with this card. It will also be used to retrieve the card number in a separate API call. Maximum length 32 bytes.
-`cardTransactionAmount`|Money|-|Amount of the charge in the spend currency. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`cardTransactionCurrency`|Alphanumeric|-|Currency code for the spend currency. Format: ISO 3-character alpha code.
-`cardTransactionID`|Alphanumeric|-|Calculated value assigned to this card entry during the import process. Maximum length 32 characters.
-`cardTransactionPostedAmount`|Money|-|Amount of the charge in the billing currency of the card. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`cardTransactionPostedCurrency`| Alphanumeric|-|Currency code for the card billing currency. Format: ISO 3-character alpha code.
-`cashAdvanceId`|Alphanumeric|-|Unique system ID assigned to the cash advance. Maximum length 13 characters.
-`clearingAccountCode`|Alphanumeric|-|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
-`countryCode`|Alphanumeric|-|The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US.
-`countrySubCode`|Alphanumeric|-|Report entry country sub code. Maximum length 6 characters.
-`currencyAlphaCode`|Alphanumeric|-|Currency ISO alpha code for the spend currency if not an imported credit card or the invoice currency if this is a credit card. Format: 3-character alpha code.
-`currencyNumCode`|Alphanumeric|-|Currency code for the transaction currency using ISO number code. Format: 3-character alpha code.
-`employeeCurrencyAlphaCode`|Alphanumeric|-|Reimbursement currency in 3-letter ISO 4217 alpha format.
-`exchangeRate`|Numeric|-|Rate used to convert from the report entry (spend) currency to the report (reimbursement) currency. Maximum length 23 characters.
-`expensePayIndicator`|Alphanumeric|-|Indicates whether Expense Pay reimbursed this journal entry. Either: 1 = Expense Pay or blank = **not** Expense Pay.
-`issuedDate`|Date|-|Date of issue. Format: yyy-mm-dd.
-`isTest`|-|-|Signifies if this report belongs to a test user in system.
-`locationName`|Alphanumeric|-|The report entry location name (for example, city name.
-`name`|Alphanumeric|-|Cash advance request name. Maximum length 40 characters.
-`paymentMethod`|Alphanumeric|-|The method used, either Expense Pay or Other, used for disbursement of the cash advance. Either: 0 = Non-Expense Pay method used for disbursement or 1 = Expense Pay method used for disbursement.
-`purpose`|Alphanumeric|-|Describes the purpose of cash advance issued.
-`requestAmount`|Money|-|For issue journal record, the total amount of the cash advance in the cash advance transaction currency. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`requestDate`|Date|-|Date of cash advance request from the detailed cash advance record. Format: yyyy-mm-dd.
-`requestedDisbursementDate`|Date|-|Cash advance disbursement date. Format: yyyy-mm-dd.
-`transactionType`|Alphanumeric|-|Type of transaction: 1 = Issue or Return to Administrator, 2 = Application, including Cash Advance Return expense within a report, or 3 = System Cash advance, from balance carry forward.
-`travelEndDate`|Date|-|The last day of the trip on the assigned travel request itinerary. Format: yyyy-mm-dd.
-`travelStartDate`|Date|-|The first day of the trip on the assigned travel request itinerary. Format: yyyy-mm-dd.
+`cardAccountID`|Alphanumeric|32|ID will be used initially by the receiving system to “condense” transactions associated with this card. It will also be used to retrieve the card number in a separate API call. Maximum length 32 bytes.
+`cardTransactionAmount`|Money|23|Amount of the charge in the spend currency. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`cardTransactionCurrency`|Alphanumeric|3|Currency code for the spend currency. Format: ISO 3-character alpha code.
+`cardTransactionID`|Alphanumeric|32|Calculated value assigned to this card entry during the import process. Maximum length 32 characters.
+`cardTransactionPostedAmount`|Money|23|Amount of the charge in the billing currency of the card. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`cardTransactionPostedCurrency`| Alphanumeric|3|Currency code for the card billing currency. Format: ISO 3-character alpha code.
+`cashAdvanceId`|GUUID|32|Unique system ID assigned to the cash advance. Maximum length 32 characters.
+`clearingAccountCode`|Alphanumeric|48|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
+`countryCode`|Alphanumeric|2|The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US.
+`countrySubCode`|Alphanumeric|6|Report entry country sub code. Maximum length 6 characters.
+`currencyAlphaCode`|Alphanumeric|3|Currency ISO alpha code for the spend currency if not an imported credit card or the invoice currency if this is a credit card. Format: 3-character alpha code.
+`currencyNumCode`|Alphanumeric|3|Currency code for the transaction currency using ISO number code. Format: 3-character alpha code.
+`employeeCurrencyAlphaCode`|Alphanumeric|3|Reimbursement currency in 3-letter ISO 4217 alpha format.
+`exchangeRate`|Numeric|23|Rate used to convert from the report entry (spend) currency to the report (reimbursement) currency. Maximum length 23 characters.
+`expensePayIndicator`|Boolean|1|Indicates whether Expense Pay reimbursed this journal entry. Either: Y = Expense Pay or N = **not** Expense Pay.
+`issuedDate`|Date|24|Date of issue. Format: yyyy-mm-ddThr:min:sec.msZ.
+`isTest`|Boolean|1|Signifies if this report belongs to a test user in system. Y = Yes, N = No.
+`entrylocationName`|Alphanumeric|64|The report entry location name (for example, city name.
+`name`|Alphanumeric|40|Cash advance request name. Maximum length 40 characters.
+`paymentMethod`|Alphanumeric|1|The method used, either Expense Pay or Other, used for disbursement of the cash advance. Either: 0 = Non-Expense Pay method used for disbursement or 1 = Expense Pay method used for disbursement.
+`purpose`|Alphanumeric|2,000|Describes the purpose of cash advance issued.
+`requestAmount`|Money|23|For issue journal record, the total amount of the cash advance in the cash advance transaction currency. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`requestDate`|Date|24|Date of cash advance request from the detailed cash advance record. Format: yyyy-mm-ddThr:min:sec.msZ.
+`requestedDisbursementDate`|Date|24|Cash advance disbursement date. Format: yyyy-mm-ddThr:min:sec.msZ.
+`transactionType`|Alphanumeric|1|Type of transaction: 1 = Issue or Return to Administrator, 2 = Application, including Cash Advance Return expense within a report, or 3 = System Cash advance, from balance carry forward.
+`travelEndDate`|Date|24|The last day of the trip on the assigned travel request itinerary. Format: yyyy-mm-ddThr:min:sec.msZ.
+`travelStartDate`|Date|24|The first day of the trip on the assigned travel request itinerary. Format: yyyy-mm-ddThr:min:sec.msZ.
 
 ### <a name="sccajour"></a>Cash Advance - journalData
 
-Name|Type|Format|Description
+Name|Type|Format (length)|Description
 ---|---|---|---
-`accountCode`|Alphanumeric|-|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
-`amount`|Money|-|Value, as credit or debit, of the amount to be exchanged between the payer and payee for this expense account code **(not an absolute value) EXAMPLES:** Value of zero, credit, or debit, as the following: 0 (Zero) "0," **+** (Plus / Debit) "+50.00," or **-** (Minus / Credit) "-50.00." Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
-`debitOrCredit`| Alphanumeric|-|Either: DR = Debit or CR = credit.
-`payee`|Alphanumeric|-|Either a company or an employee depending on the payment type. Maximum length 64 characters.
-`payer`|Alphanumeric|-|Either a company or an employee depending on the payment type. Maximum length 64 characters.
-`paymentCode`|Alphanumeric|-|The payment code for either a payee or payer. Maximum length 80 characters.
+`accountCode`|Alphanumeric|48|Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 48 characters.
+`amount`|Money|23|Value, as credit or debit, of the amount to be exchanged between the payer and payee for this expense account code **(not an absolute value) EXAMPLES:** Value of zero, credit, or debit, as the following: 0 (Zero) "0," **+** (Plus / Debit) "+50.00," or **-** (Minus / Credit) "-50.00." Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
+`debitOrCredit`| Alphanumeric|2|Either: DR = Debit or CR = credit.
+`payee`|Alphanumeric|4|Either a company or an employee depending on the payment type. Maximum length 64 characters.
+`payer`|Alphanumeric|4|Either a company or an employee depending on the payment type. Maximum length 64 characters.
+`paymentCode`|Alphanumeric|80|The payment code for either a payee or payer. Maximum length 80 characters.
