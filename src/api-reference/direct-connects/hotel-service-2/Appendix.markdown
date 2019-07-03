@@ -338,7 +338,7 @@ The initial Search request (see above) is followed up by an multi-property Avail
           </BasicPropertyInfo>
         </RoomStay>
         <RoomStay>
-          ... and another RoomStay nodes follow here for all the returned rooms for all the hotels (properties) per Availability request 
+          ... and another RoomStay nodes follow here for all the returned rooms for all the hotels (properties) per Availability request
         </RoomStay>
       </RoomStays>
     </OTA_HotelAvailRS>
@@ -485,9 +485,6 @@ WIth Availability response also cancellation information comes which can be disp
              <PaymentCard CardCode="VI" ExpireDate="1220">
               <CardType Code="VI">VISA</CardType>
               <CardHolderName>HOTELSERVICEAMADEUS TESTUSERMOCK</CardHolderName>
-              <CardNumber>
-               <PlainText>xxxxxxxxxxxx4111</PlainText>
-              </CardNumber>
              </PaymentCard>
             </GuaranteeAccepted>
            </GuaranteesAccepted>

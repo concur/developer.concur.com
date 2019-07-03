@@ -29,7 +29,7 @@ layout: reference
 
 #### <a name="supported-image-formats"></a>Supported Image Formats
 
-* Image size must not exceed 5MB.
+* Image size must not exceed 25MB.
 * Images with any dimension exceeding 2,200 pixels will be reduced, with the longest dimension reduced to 2,200 pixels and the remaining dimensions scaled down using a fixed aspect ratio.
 * Image must be one of the supported file types: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf. Images provided in image/tiff and image/tif will be converted to a PDF document with the image embedded within.
 

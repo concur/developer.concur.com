@@ -217,7 +217,7 @@
         },
         "providerReference": {
           "type": "string",
-          "description": "Unique identifier of the payment in the payment provider's system. Maximum 100 characters.",
+          "description": "Unique identifier of the payment in the payment provider's system. This will be used for internal troubleshooting. Maximum 100 characters.",
           "minLength": 0,
           "maxLength": 100
         },

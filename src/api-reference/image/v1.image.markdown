@@ -34,6 +34,12 @@ The Imaging web service supports the following image formats:
 
 The maximum file size allowed is 10 MB.
 
+## Scope Usage
+
+Name|Description|Endpoint
+---|---|---
+`IMAGE`|Add or Retrieve Report and Line Item Images.|GET, POST
+
 ## Product Restrictions
 
 Concur products are highly configurable, and not all clients will have access to all features.

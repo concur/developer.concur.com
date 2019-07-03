@@ -49,7 +49,7 @@ Acceptable|Branding|Notes
 &#9989;|We are an SAP Concur partner.|-
 &#9989;|![SAP Concur Partner App Center Logo](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-partner.png)|-
 &#9989;|![SAP Concur Partner App Center Logo](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-partner-app-center.png)|-
-&#9989;|![](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-logo.png)|Partners may use the SAP Concur logo; however, you must follow logo guidelines and submit content for review.
+Specific cases only|![](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-logo.png)|Partners may use the SAP Concur logo only in specific situations, such as your integration or connection landing page UI or in a list of all of your partnerships. You must follow logo guidelines and submit content for review.
 &#10060;|![Do Not Use SAP Logo](./app-center-partner-marketing-toolkit-logo-brand-sap-logo.png)|Partners are **not** permitted to use the SAP corporate logo.
 &#10060;|![Do Not Use Concur Logo](./app-center-partner-marketing-toolkit-logo-brand-concur-logo.png)|Do **not** use the outdated “Concur” logo when creating materials.
 
