@@ -313,7 +313,7 @@ To be reimbursed for most credit card payments in a taxi, you are required to ta
 
 **Hailed and booked trips**
 
-Cabcharge is accepted by 98% of taxis across Australia- for both hailed and booked trips-
+Cabcharge is accepted by 98% of taxis across Australia - for both hailed and booked trips -
 ensuring your receipt will always be posted to your Concur Expense account.
 
 **Digital FASTCARDs**
