@@ -298,8 +298,8 @@ None this month.
 ## <a name="july"></a>July 2019
 
 * [Apps for Me / User Connection Apps Now Available](#apps-for-me-connection-now-available-july)
-* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-july)
   * [Cabcharge](#cabcharge-july)
+* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-july)
 
 ### <a href="apps-for-me-connection-now-available-july"></a>Apps for Me / User Connection Apps Now Available
 
