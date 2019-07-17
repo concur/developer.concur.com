@@ -303,10 +303,6 @@ None this month.
 
 ### <a href="apps-for-me-connection-now-available-july"></a>Apps for Me / User Connection Apps Now Available
 
-None this month.
-
-## <a name="apps-for-me-connection-coming-soon-july"></a>Apps for Me / User Connection Apps Coming Soon
-
 ### <a name="cabcharge-july"></a>Cabcharge
 
 ![Cabcharge Logo](./app-center-2019-07-02-cabcharge-logo.png)
@@ -327,3 +323,7 @@ Say goodbye to physical credit cards with the Cabcharge Digital FASTCARD. Simply
 To get started, click “Connect” to link your Cabcharge account to Concur Expense.
 
 Cabcharge works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Cabcharge integration, visit [https://www.cabcharge.com.au/](https://www.cabcharge.com.au/).
+
+## <a name="apps-for-me-connection-coming-soon-july"></a>Apps for Me / User Connection Apps Coming Soon
+
+None this month.
