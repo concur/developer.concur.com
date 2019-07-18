@@ -6,7 +6,7 @@
     "title": "Workflow"
   },
   "host": "www.concursolutions.com",
-  "basePath": "/api/v4",
+  "basePath": "/travelrequest/v4",
   "tags": [
     {
     "name": "Resources",
@@ -14,7 +14,7 @@
     }
   ],
   "paths": {
-    "/travelrequest/requests/{requestUuid}/{action}": {
+    "/requests/{requestUuid}/{action}": {
       "post": {
         "tags": [
           "workflow-resource"

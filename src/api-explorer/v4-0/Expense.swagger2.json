@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Manage expected expense entries attached to a Request document.",
+    "description": "Manage expected expense entries attached to a Request.",
     "version": "4.0",
     "title": "Workflow"
   },
   "host": "www.concursolutions.com",
-  "basePath": "/api/v4",
+  "basePath": "/travelrequest/v4",
   "tags": [
     {
     "name": "Resources",
@@ -14,7 +14,7 @@
     }
   ],
   "paths": {
-    "/travelrequest/requests/{requestUuid}/expenses": {
+    "/requests/{requestUuid}/expenses": {
       "get": {
         "tags": [
           "expense-resource"
@@ -31,7 +31,7 @@
           {
             "name": "requestUuid",
             "in": "path",
-            "description": "Name of the perimeter defining the requests to get",
+            "description": "The unique identifier of the Request",
             "required": false,
             "type": "string"
           },
@@ -150,7 +150,7 @@
         }
       }
     },
-    "/travelrequest/expenses/{expenseUuid}": {
+    "/expenses/{expenseUuid}": {
       "get": {
         "tags": [
           "expense-resource"

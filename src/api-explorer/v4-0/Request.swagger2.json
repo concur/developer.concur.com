@@ -6,7 +6,7 @@
     "title": "Request"
   },
   "host": "www.concursolutions.com",
-  "basePath": "/api/v4",
+  "basePath": "/travelrequest/v4",
   "tags": [
     {
     "name": "Resources",
@@ -14,7 +14,7 @@
     }
   ],
   "paths": {
-    "/travelrequest/requests": {
+    "/requests": {
       "get": {
         "tags": [
           "request-resource"
@@ -250,7 +250,7 @@
         }
       }
     },
-    "/travelrequest/requests/{requestUuid}": {
+    "/requests/{requestUuid}": {
       "get": {
         "tags": [
           "request-resource"
@@ -491,7 +491,7 @@
         }
       }
     },
-    "/travelrequest/requests/{requestUuid}/reports": {
+    "/requests/{requestUuid}/reports": {
       "post": {
         "tags": [
           "request-resource"
