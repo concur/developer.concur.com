@@ -1,23 +1,39 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Manage documents used for pre-spend authorizations within Concur Request.",
+    "description": "Request as a Service",
     "version": "4.0",
-    "title": "Request"
+    "title": "Concur Request API Documentation"
   },
   "host": "www.concursolutions.com",
   "basePath": "/travelrequest/v4",
   "tags": [
     {
-    "name": "Resources",
-    "description": " "
+      "name": "Request Resource",
+      "description": "Manage documents used for pre-spend authorizations within Concur Request"
+    },
+    {
+      "name": "Workflow Resource",
+      "description": "Manage workflow transitions for a Request document"
+    },
+    {
+      "name": "Travel Agency Resource",
+      "description": "Manage the configuration for travel agencies integrated with Concur Request"
+    },
+    {
+      "name": "Policy Resource",
+      "description": "Manage policy settings"
+    },
+    {
+      "name": "Expense Resource",
+      "description": "Manage expected expense entries attached to a Request"
     }
   ],
   "paths": {
     "/requests": {
       "get": {
         "tags": [
-          "request-resource"
+          "Request Resource"
         ],
         "summary": "Get the list of existing requests",
         "operationId": "getListUsingGET",
@@ -170,7 +186,7 @@
       },
       "post": {
         "tags": [
-          "request-resource"
+          "Request Resource"
         ],
         "summary": "Create a new request",
         "operationId": "createUsingPOST_4",
@@ -253,7 +269,7 @@
     "/requests/{requestUuid}": {
       "get": {
         "tags": [
-          "request-resource"
+          "Request Resource"
         ],
         "summary": "Get the content of an existing request",
         "operationId": "getUsingGET_6",
@@ -325,7 +341,7 @@
       },
       "put": {
         "tags": [
-          "request-resource"
+          "Request Resource"
         ],
         "summary": "Update the content of an existing request",
         "operationId": "updateUsingPUT_2",
@@ -413,7 +429,7 @@
       },
       "delete": {
         "tags": [
-          "request-resource"
+          "Request Resource"
         ],
         "summary": "Delete an existing request",
         "operationId": "deleteUsingDELETE_1",
@@ -491,10 +507,87 @@
         }
       }
     },
+    "/requests/{requestUuid}/comments": {
+      "get": {
+        "tags": [
+          "Request Resource"
+        ],
+        "summary": "Get the list of comments for an existing request",
+        "operationId": "getCommentsByRequestUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "requestUuid",
+            "in": "path",
+            "description": "The unique identifier of the Request",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Comment"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad param: invalid Guid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Invalid or non existent authorization HTTP header",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Permission Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "408": {
+            "description": "Time out",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
     "/requests/{requestUuid}/reports": {
       "post": {
         "tags": [
-          "request-resource"
+          "Request Resource"
         ],
         "summary": "Create an expense report linked to an approved request",
         "operationId": "createReportFromRequestUsingPOST",
@@ -552,6 +645,612 @@
           },
           "500": {
             "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/requests/{requestUuid}/{action}": {
+      "post": {
+        "tags": [
+          "Workflow Resource"
+        ],
+        "summary": "Move an existing request in the approval workflow",
+        "operationId": "workflowActionUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "requestUuid",
+            "in": "path",
+            "description": "The unique identifier of the Request",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "action",
+            "in": "path",
+            "description": "The state transition to be executed",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "submit",
+              "approve",
+              "recall",
+              "sendback",
+              "cancel",
+              "close",
+              "reopen"
+            ]
+          },
+          {
+            "in": "body",
+            "name": "comment",
+            "description": "Only works with when the workflow action is ‘sendback’.",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/WorkflowAction"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "description": "The unique identifier of the company",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The unique identifier of the user performing the status transition",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRequest"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/requests/{requestUuid}/expenses": {
+      "get": {
+        "tags": [
+          "Expense Resource"
+        ],
+        "summary": "Get expected expenses attached to a request",
+        "operationId": "listUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "requestUuid",
+            "in": "path",
+            "description": "The unique identifier of the Request",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The unique identifier of the user viewing the expected expenses attached to a Request",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResourceOfExpense"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Expense Resource"
+        ],
+        "summary": "Create a new expected expense",
+        "operationId": "createUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "requestUuid",
+            "in": "path",
+            "description": "The unique identifier of the Request to which the Expense is attached",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "expense",
+            "description": "expense",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Expense"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The unique identifier of the user performing the expense creation",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfExpense"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/expenses/{expenseUuid}": {
+      "get": {
+        "tags": [
+          "Expense Resource"
+        ],
+        "summary": "Get an existing expected expense",
+        "operationId": "getUsingGET_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "expenseUuid",
+            "in": "path",
+            "description": "The unique identifier of the Expense",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The unique identifier of the user viewing the expected expense",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfExpense"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Expense Resource"
+        ],
+        "summary": "Update the content of an existing expected expense",
+        "operationId": "updateUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "expenseUuid",
+            "in": "path",
+            "description": "The unique identifier of the Expense",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "expense",
+            "description": "expense",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Expense"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The unique identifier of the user performing the expense update",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfExpense"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Expense Resource"
+        ],
+        "summary": "Delete an expected expense from the request",
+        "operationId": "deleteUsingDELETE",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "expenseUuid",
+            "in": "path",
+            "description": "The unique identifier of the Expense",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The unique identifier of the user performing the deletion of the expense",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/expenses/{expenseUuid}/comments": {
+      "get": {
+        "tags": [
+          "Expense Resource"
+        ],
+        "summary": "Get the list of comments for an existing expected expense",
+        "operationId": "getCommentsByExpenseUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "expenseUuid",
+            "in": "path",
+            "description": "The unique identifier of the Expense",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The unique identifier of the user",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Comment"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/userpolicies": {
+      "get": {
+        "tags": [
+          "Policy Resource"
+        ],
+        "summary": "Get the list of existing Request policies for a given user",
+        "operationId": "getListForUserUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The unique identifier of the user for whom the list of Request policies will be retrieved",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResourceOfPolicy"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/travelagencies/{agencyUuid}": {
+      "get": {
+        "tags": [
+          "Travel Agency Resource"
+        ],
+        "summary": "Get the description of a travel agency office",
+        "operationId": "getUsingGET_7",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "agencyUuid",
+            "in": "path",
+            "description": "The unique identifier of the Travel Agency",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfTravelAgency"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
