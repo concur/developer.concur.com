@@ -7,13 +7,29 @@ layout: reference
 
 Message to retrieve descriptive details about a given hotel. This may include text and/or a number of URL pointed to hosted images. Concur does not host any hotel images.
 
-| SOAPAction | OTA name             | Message structure |
+|SOAPAction|OTA Name|Message Structure|
 |------------|----------------------|-------------------|
-| detail     | HotelDescriptiveInfo | OTA_HotelDescriptiveInfoRQ |
+|detail|HotelDescriptiveInfo|OTA_HotelDescriptiveInfoRQ|
 
 ---
 
-## Request
+* [Request](#request)
+  * [Schema](#req-schema)
+    * [Hotel Descriptive Infos](#hotel-desc-infos)
+    * [Hotel Descriptive Info](#hotel-desc-info)
+* [Response](#response)
+  * [Schema](#res-schema)
+    * [Hotel Descriptive Contents](#hotel-desc-contents)
+    * [Hotel Descriptive Content](#hotel-desc-content)
+    * [TPA Extensions](#tpa-extensions)
+    * [Description](#description)
+    * [Multimedia Descriptions](#multi-descs)
+    * [Multimedia Description](#multi-desc)
+    * [Image Items](#image-items)
+    * [Image Item](#image-item)
+    * [Image Format](#image-format)
+
+## <a name="request"></a>Request
 
 ```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
@@ -38,34 +54,28 @@ Message to retrieve descriptive details about a given hotel. This may include te
  </Envelope>
  ```
 
+#### <a name="req-schema"></a>OTA_HotelDescriptiveInfoRQ
 
-**OTA_HotelDescriptiveInfoRQ**
+|Name|Type|Description|
+|-----------------------|-----------|-------------|
+|`HotelDescriptiveInfos`|`complex`|**Required** Collection of items for data from multiple  hotels. SAP Concur will only ever send one (1) `HotelDescriptiveInfo`.|
 
-| Element               | Required | Data Type | Description |
-|-----------------------|----------|-----------|-------------|
-| HotelDescriptiveInfos | Y        | Complex   | Collection of items for data from multiple  hotels. Concur will only ever send exactly one HotelDescriptiveInfo |
+#### <a name="hotel-desc-infos"></a> HotelDescriptiveInfos
 
+|Name|Type|Description|
+|----------------------|-----------|-------------|
+|`HotelDescriptiveInfo`|`complex`|**Required** This allows the requestor to indicate which specific information is requested if complete hotel details are not required.|
 
-**HotelDescriptiveInfos**
+#### <a name="hotel-desc-info"></a>HotelDescriptiveInfo
 
-| Element              | Required | Data Type | Description |
-|----------------------|----------|-----------|-------------|
-| HotelDescriptiveInfo | Y        | Complex   | This allows the requestor to indicate which specific information is requested if complete hotel details are not required.|
+|Name|Type|Description|
+|-------------|-------------------|-------------|
+|`ChainCode`|`stringLength1to8`|The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the `HotelCode` attribute.|
+|`HotelCode`|`stringLength1to16`|**Required** The code that uniquely identifies a single hotel property. The hotel code is decided between vendors.|
 
+## <a name="response"></a>Response
 
-**HotelDescriptiveInfo**
-
-| Element     | Required | Data Type         | Description |
-|-------------|----------|-------------------|-------------|
-| *ChainCode* | N        | StringLength1to8  | The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the HotelCode attribute. |
-| *HotelCode* | Y        | StringLength1to16 | The code that uniquely identifies a single hotel property. The hotel code is decided between vendors. |
-
----
-
-
-## Response
-
-The maximum allowed size of OTA_HotelDescriptiveInfoRS is 150 KB. Any response that exceeds this limit shall be dropped.
+The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response that exceeds this limit will be dropped.
 
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -107,72 +117,66 @@ The maximum allowed size of OTA_HotelDescriptiveInfoRS is 150 KB. Any response t
 </soap:Envelope>
 ```
 
-**OTA_HotelDescriptiveInfoRS**
+#### <a name="res-schema"></a>OTA_HotelDescriptiveInfoRS
 
-| Element                  | Required | Data Type   | Description |
-|--------------------------|----------|-------------|-------------|
-| HotelDescriptiveContents | Y        | Complex     | Contains Hotel Details content which is made up of text and image URLs |
+|Name|Type|Description|
+|--------------------------|-------------|-------------|
+|`HotelDescriptiveContents`|`complex`|**Required** Contains hotel details content which is made up of text and image URLs.|
 
-**HotelDescriptiveContents**
+#### <a name="hotel-desc-contents"></a>HotelDescriptiveContents
 
-| Element                 | Required | Data Type | Description |
-|-------------------------|----------|-----------|-------------|
-| HotelDescriptiveContent | Y        | Complex	 | Contains Hotel Details content which is made up of text and image URLs. Concur only expects one HotelDescriptiveContent |
+|Name|Type|Description|
+|-------------------------|-----------|-------------|
+|`HotelDescriptiveContent`|`complex|**Required** Contains hotel details content which is made up of text and image URLs. SAP Concur expects one (1) `HotelDescriptiveContent`.|
 
-**HotelDescriptiveContent**
+#### <a name="hotel-desc-content"></a>HotelDescriptiveContent
 
-| Element                | Required | Data Type         | Description |
-|------------------------|----------|-------------------|-------------|
-| *HotelCode*            | Y        | StringLength1to16  | The code that uniquely identifies a single hotel property. The hotel code is decided between vendors. |
-| *HotelName*            | Y        | StringLength1to128 | A text field used to communicate the proper name of the hotel. Concur always expects the Hotel Name to be provided. |
-| TPA_Extensions         | N        | Complex | Concur specific extensions. |
-| MultimediaDescriptions | N        | Complex | Multimedia information about a collection of multimedia objects. Concur only expects one MultimediaDescription element. |
+|Name|Type|Description|
+|------------------------|-------------------|-------------|
+|`HotelCode`|`stringLength1to16`|**Required** The code that uniquely identifies a single hotel property. The hotel code is decided between vendors.|
+|`HotelName`|`stringLength1to128`|**Required** A text field used to communicate the proper name of the hotel. SAP Concur always expects the Hotel Name to be provided.|
+|`TPA_Extensions`|`complex`|SAP Concur specific extensions.|
+|`MultimediaDescriptions`|`complex`|Multimedia information about a collection of multimedia objects. SAP Concur expects one (1) `MultimediaDescription` element.|
 
-**TPA_Extensions**
+#### <a name="tpa-extensions"></a>TPA_Extensions
 
-| Element     | Required | Data Type | Description |
-|-------------|----------|-----------|-------------|
-| Description | N        | Complex   | Represents text which will be rendered in the UI in the form of a heading and a paragraph |
+|Name|Type|Description|
+|-------------|----------|-------------|
+|`Description`|`complex`|Represents text which will be rendered in the UI in the form of a heading and a paragraph.|
 
+#### <a name="description"></a>Description
 
-**Description**
+|Name|Type|Description|
+|---------|--------------------|-------------|
+|`name`|`stringLength1to64`|The contents of this element will be rendered as a heading on the hotel details page.|
+|`Text`|`stringLength1to255`|**Required** The contents of this element will be rendered as a paragraph. SAP Concur expects a maximum of 20 text elements per description, which will be concatenated to into one (1) paragraph.|
 
-| Element | Required | Data Type          | Description |
-|---------|----------|--------------------|-------------|
-| *name*  | N        | StringLength1to64  | The contents of this element will be rendered as a heading on the Hotel Details page. |
-| Text    | Y        | StringLength1to255 | The contents of this element will be rendered as a paragraph.  Concur expects up to a maximum of 20 Text elements per Description, which will be concatenated to into one paragraph. |
+#### <a name="multi-descs"></a>MultimediaDescriptions
 
+|Name|Type|Description|
+|----------------------|-----------|-------------|
+|`MultimediaDescription`|`complex`|Holds a list of `ImageItems`, each representing a single hotel image.|
 
-**MultimediaDescriptions**
+#### <a name="multi-desc"></a>MultimediaDescription
 
-| Element               | Required | Data Type | Description |
-|-----------------------|----------|-----------|-------------|
-| MultimediaDescription | N        | Complex   | Holds a list of ImageItems each representing a single hotel image. |
+|Name|Type|Description|
+|------------|-----------|-------------|
+|`ImageItems`|`complex`|Holds a list of `ImageItem`, each representing a single hotel image. SAP Concur expects up to a maximum of 200 `ImageItem` elements.|
 
+#### <a name="image-items"></a>ImageItems
 
-**MultimediaDescription**
+|Name|Type|Description|
+|-----------|-----------|-------------|
+|`ImageItem`|`complex`|One (1) `ImageItem` per hotel image.|
 
-| Element    | Required | Data Type	| Description |
-|------------|----------|-----------|-------------|
-| ImageItems | N        | Complex   | Holds a list of ImageItems each representing a single hotel image.  Concur expects up to a maximum of 200 ImageItem elements. |
+#### <a name="image-item"></a>ImageItem
 
+|Name|Type|Description|
+|-------------|-----------|-------------|
+|`ImageFormat`|`complex`|Format of image.|
 
-**ImageItems**
+#### <a name="image-format"></a>ImageFormat
 
-| Element   | Required | Data Type | Description |
-|-----------|----------|-----------|-------------|
-| ImageItem | N        | Complex   | Use one ImageItem per hotel image. |
-
-
-**ImageItem**
-
-| Element     |	Required | Data Type | Description |
-|-------------|----------|-----------|-------------|
-| ImageFormat | N        | Complex	 | ImageFormat |
-
-
-**ImageFormat**
-
-| Element | Required | Data Type         | Description |
-|---------|----------|-------------------|-------------|
-| URL     | Y        | StringLength1to32 | Contains a URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with .png and .jpg files. |
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`URL`|`stringLength1to32`|**Required** Contains a URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with `.png` and `.jpg` files.|

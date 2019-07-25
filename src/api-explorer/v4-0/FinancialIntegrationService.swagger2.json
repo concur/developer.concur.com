@@ -1,0 +1,826 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Financial Integration APIs help Concur clients move extract data from Concur into their systems of record.",
+    "version": "4",
+    "title": "Financial Integration API"
+  },
+  "host": "us.api.concursolutions.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Financial Transactions",
+      "description": "Interacting with financial documents generated from Concur."
+    }
+  ],
+  "paths": {
+    "/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions": {
+      "get": {
+        "tags": [
+          "Financial Transactions"
+        ],
+        "summary": "Retrieves a list of financial transactions.",
+        "description": "If docId is not present, the results are paged, page size is 25 by default if limit is not specified. Only one type of transactions can be retrieved at a time - specified by the docType. <br>If paging is occurring, each response contains a URI to retrieve the next page of transactions (if more exist). <br>If systemId is specified, the returned list of queued documents is filtered by systemId, paging applies. <br>If docId is specified, a single document which matches docId is returned. Paging doesn't apply. <br>If docId and systemId are specified, a single document whose docId AND systemId match the values is returned. Paging doesn't apply. <br>If docId is specified and ignoreDocumentStatus is no, a document which has not been retrieved by an ERP system is returned only, i.e document status is READY. If ignoreDocumentStatus is yes, a document is returned regardless of status.",
+        "operationId": "getTransactionDocsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "docType",
+            "in": "path",
+            "description": "docType",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "expense",
+              "invoice",
+              "cashadvance",
+              "payroll",
+              "obligation"
+            ]
+          },
+          {
+            "name": "documentFormatAs",
+            "in": "header",
+            "description": "documentFormatAs",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "text",
+              "json"
+            ]
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "docId",
+            "in": "query",
+            "description": "expense report id/payroll report id/invoice report id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ignoreDocumentStatus",
+            "in": "query",
+            "description": "ignoreDocumentStatus",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "yes",
+              "no"
+            ]
+          },
+          {
+            "name": "systemId",
+            "in": "query",
+            "description": "systemId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "For details on how to get an authorization token, please refer <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\"> here </a>",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PagedResources.Resource.FIDocument"
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "500": {
+            "description": "Internal error",
+            "schema": {
+              "$ref": ""
+            }
+          }
+        }
+      }
+    },
+    "/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions/acknowledgements": {
+      "post": {
+        "tags": [
+          "Financial Transactions"
+        ],
+        "summary": "Acknowledges successful retrieval of financial transaction(s).",
+        "description": "This API allows a financial system to acknowledge/confirm that it has successfully retrieved one or more financial transactions and will begin to process those transactions. These transactions are then taken out of the ready queue.",
+        "operationId": "acknowledgeUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "docType",
+            "in": "path",
+            "description": "Document type",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "expense",
+              "invoice",
+              "cashadvance",
+              "payroll",
+              "obligation"
+            ]
+          },
+          {
+            "in": "body",
+            "name": "acknowledgeRequest",
+            "description": "Acknowledge Request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AcknowledgeRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer JWTFromOAuthServiceHere",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+                "$ref": "#/definitions/AcknowledgeResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions/paymentconfirmations": {
+      "post": {
+        "tags": [
+          "Financial Transactions"
+        ],
+        "summary": "Confirms results of financial transactions payment posting.",
+        "description": "This API allows financial posting results to be sent to Concur.",
+        "operationId": "postErpPaymentConfirmationsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "docType",
+            "in": "path",
+            "description": "docType",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "expense",
+              "invoice",
+              "cashadvance",
+              "payroll",
+              "obligation"
+            ]
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer JWTFromOAuthServiceHere",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "paymentrequest",
+            "description": "Payment confirmation body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/paymentrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PaymentConfirmationResponseItem"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions/postingconfirmations": {
+      "post": {
+        "tags": [
+          "Financial Transactions"
+        ],
+        "summary": "Confirms results of financial transactions posting.",
+        "description": "This API allows financial posting results to be sent to Concur.",
+        "operationId": "postErpPostingConfirmationsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "docType",
+            "in": "path",
+            "description": "docType",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "expense",
+              "invoice",
+              "cashadvance",
+              "payroll",
+              "obligation"
+            ]
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer JWTFromOAuthServiceHere",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "confirmationrequest",
+            "description": "Posting confirmation body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/confirmationrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PostingConfirmationResponseItem"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "mykey": {
+      "type": "apiKey",
+      "name": "mykey",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "PageMetadata": {
+      "properties": {
+        "number": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "AcknowledgeRequest": {
+      "required": [
+        "ids",
+        "systemId"
+      ],
+      "properties": {
+        "ids": {
+          "type": "array",
+          "description": "The list of document ID's that to be acknowledged.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "systemId": {
+          "type": "string",
+          "description": "The ERP Id that acknowledged the document."
+        }
+      }
+    },
+    "Collection.Resource.FIDocument": {
+      "type": "array",
+      "items": {
+          "$ref": "#/definitions/Resource.FIDocument"
+      }
+    },
+    "Resource.FIDocument": {
+      "properties": {
+        "companyId": {
+          "type": "string"
+        },
+        "companyUuid": {
+          "type": "string"
+        },
+        "docStatus": {
+          "type": "string",
+          "enum": [
+            "ACKNOWLEDGED",
+            "PAID",
+            "RECALLED",
+            "READY",
+            "POSTING_CONFIRMED_SUCCESS",
+            "POSTING_CONFIRMED_FAILURE",
+            "PAYMENT_CONFIRMED_SUCCESS",
+            "PAYMENT_CONFIRMED_REVERSED",
+            "PAYMENT_CONFIRMED_OBSOLETE",
+            "PENDING_SYSTEM_REFRESH",
+            "FLAG_DUPLICATE"
+          ]
+        },
+        "docType": {
+          "type": "string",
+          "enum": [
+            "expense",
+            "invoice",
+            "cashadvance",
+            "payroll",
+            "obligation"
+          ]
+        },
+        "document": {
+          "type": "object"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "erpSystemId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": ""
+          }
+        }
+      }
+    },
+    "AcknowledgeResponse": {
+      "type": "array",
+      "items": {
+          "$ref": "#/definitions/AcknowledgeResponseItem"
+      }
+    },
+    "AcknowledgeResponseItem": {
+      "required": [
+        "acknowledgeResult",
+        "docId",
+        "systemId"
+      ],
+      "properties": {
+        "acknowledgeResult": {
+          "type": "string",
+          "description": "Acknowledge processing result, succeeded or failed.",
+          "enum": [
+            "SUCCESS",
+            "FAILURE"
+          ]
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The fi return code"
+        },
+        "docId": {
+          "type": "string",
+          "description": "The document id"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Any error message if occurred."
+        },
+        "systemId": {
+          "type": "string",
+          "description": "The ERP Id that acknowledged the document."
+        }
+      }
+    },
+    "PagedResources.Resource.FIDocument": {
+      "properties": {
+        "content": {
+          "$ref": "#/definitions/Collection.Resource.FIDocument"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/PageMetadata"
+        }
+      }
+    },
+    "confirmationrequest": {
+      "type": "object",
+      "required": [
+        "systemId",
+        "postingConfirmations"
+      ],
+      "properties": {
+        "systemId": {
+          "type": "string",
+          "description": "The external System ID that acknowledged the documents, it can be an empty String."
+        },
+        "postingConfirmations": {
+          "type": "array",
+          "description": "Posting confirmations JSON request.",
+          "items": {
+            "$ref": "#/definitions/postingrequest"
+          }
+        }
+      }
+    },
+    "postingrequest": {
+      "type": "object",
+      "required": [
+        "docId",
+        "overallPostingStatusCode",
+        "postingDocs",
+        "systemMessages"
+      ],
+      "properties": {
+        "docId": {
+          "type": "string",
+          "description": "The financial document Id to confirm."
+        },
+        "postingDocs": {
+          "type": "array",
+          "description": "Posting documents details, if any.",
+          "items": {
+            "$ref": "#/definitions/postingdocs"
+          }
+        },
+        "overallPostingStatusCode": {
+          "type": "string",
+          "description": "Posting status. VALUES: error or success."
+        },
+        "systemMessages": {
+          "type": "array",
+          "description": "Messages to post into Concur, if any.",
+          "items": {
+            "$ref": "#/definitions/systemmsg"
+          }
+        }
+      }
+    },
+    "postingdocs": {
+      "type": "object",
+      "required": [
+        "companyId"
+      ],
+      "properties": {
+        "companyId": {
+          "type": "string",
+          "description": "External system organizational Unit ID."
+        },
+        "documentNumber": {
+          "type": "string",
+          "description": "External system document identifier."
+        },
+        "fiscalYear": {
+          "type": "string",
+          "description": "External system fiscal year."
+        },
+        "paymentRelevantLineItems": {
+          "type": "array",
+          "description": "Payment Relevant line items. This array is usually empty.",
+          "items": {
+            "$ref": ""
+          }
+        },
+        "postingDate": {
+          "type": "string",
+          "description": "External system posting date."
+        }
+      }
+    },
+    "systemmsg": {
+      "type": "object",
+      "properties": {
+        "concurTransactionLineItemId": {
+          "type": "string",
+          "description": ""
+        },
+        "messageId": {
+          "type": "string",
+          "description": "External System message identifier"
+        },
+        "messageLanguage": {
+          "type": "string",
+          "description": "Message Language code, example EN, FR."
+        },
+        "messageLongText": {
+          "type": "array",
+          "description": "Message text, will be posted on the audit trail in SAP Concur.",
+          "items": {
+            "$ref": ""
+          }
+        },
+        "messageShortText": { 
+          "type": "string",
+          "description": "Message text, will be posted on the audit trail in SAP Concur."
+        }
+      }
+    },
+    "paymentrequest": {
+      "type": "object",
+      "required": [
+        "systemId",
+        "processingConfirmation"
+      ],
+      "properties": {
+        "systemId": {
+          "type": "string",
+          "description": "The external System ID that acknowledged the documents, it can be an empty String."
+        },
+        "processingConfirmation": {
+          "type": "array",
+          "description": "Payment confirmations JSON request.",
+          "items": {
+            "$ref": "#/definitions/paymentconfirmationrequest"
+          }
+        }
+      }
+    },
+    "paymentconfirmationrequest": {
+      "type": "object",
+      "required": [
+        "docId",
+        "processingStatusCode",
+        "clearingDetails"
+      ],
+      "properties": {
+        "docId": {
+          "type": "string",
+          "description": "The financial document Id to confirm."
+        },
+        "clearingDetails": {
+          "type": "array",
+          "description": "Payment documents details, if any.",
+          "items": {
+            "$ref": "#/definitions/paymentdocs"
+          }
+        },
+        "processingStatusCode": {
+          "type": "string",
+          "description": "Payment status. VALUES: CP, PP (Completely Paid, Partially paid)"
+        }
+      }
+    },
+    "paymentdocs": {
+      "type": "object",
+      "properties": {
+        "clearingDate": {
+          "type": "string",
+          "description": "Date the payment got cleared."
+        },
+        "clearingAmount": {
+          "type": "integer",
+          "description": "Amount cleared."
+        },
+        "clearingCurrency": {
+          "type": "string",
+          "description": "Currency value."
+        },
+        "receiver": {
+          "type": "array",
+          "description": "Receiver details.",
+          "items": {
+            "$ref": "#/definitions/receiver"
+          }
+        },
+        "clearingReference": {
+          "type": "array",
+          "description": "Clearing reference details.",
+          "items": {
+            "$ref": "#/definitions/clearing-reference"
+          }
+        }
+      }
+    },
+    "receiver": {
+      "type": "object",
+      "properties": {
+        "receiverId": {
+          "type": "string",
+          "description": "Receiver id."
+        },
+        "receiverName": {
+          "type": "string",
+          "description": "Name of receiver."
+        },
+        "receiverType": {
+          "type": "string",
+          "description": "Type of receiver."
+        }
+      }
+    },
+    "clearing-reference": {
+      "type": "object",
+      "properties": {
+        "companyCode": {
+          "type": "string",
+          "description": "Company code."
+        },
+        "financialDocumentId": {
+          "type": "string",
+          "description": "Document id in ERP."
+        },
+        "fiscalYear": {
+          "type": "string",
+          "description": "Fiscal year."
+        },
+        "paymentRef": {
+          "type": "string",
+          "description": "Payment reference id."
+        },
+        "paymentMethod": {
+          "type": "string",
+          "description": "Payment method."
+        }
+      }
+    },
+    "PaymentConfirmationResponseItem": {
+      "required": [
+        "docId",
+        "paymentConfirmationResult",
+        "systemId"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The fi return code"
+        },
+        "detailMessage": {
+          "type": "string"
+        },
+        "docId": {
+          "type": "string",
+          "description": "The document id"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Any error message if occurred."
+        },
+        "paymentConfirmationResult": {
+          "type": "string",
+          "description": "Payment confirmation result",
+          "enum": [
+            "SUCCESS",
+            "SYSTEM_ERROR_OCCURRED",
+            "NOT_POSTING_CONFIRMED",
+            "DOCUMENT_NOT_FOUND",
+            "FAILURE",
+            "NOOP"
+          ]
+        },
+        "paymentRef": {
+          "type": "string",
+          "description": "Any message corresponding to payment reference being processed."
+        },
+        "systemId": {
+          "type": "string",
+          "description": "The ERP Id that acknowledged the document."
+        }
+      }
+    },
+    "PostingConfirmationResponseItem": {
+      "required": [
+        "docId",
+        "postingConfirmationResult",
+        "systemId"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The fi return code"
+        },
+        "detailMessage": {
+          "type": "string"
+        },
+        "docId": {
+          "type": "string",
+          "description": "The document id"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Any error message if occurred."
+        },
+        "postingConfirmationResult": {
+          "type": "string",
+          "description": "Posting confirmation result",
+          "enum": [
+            "SUCCESS",
+            "SYSTEM_ERROR_OCCURRED",
+            "NOT_YET_ACKNOWLEDGED",
+            "DOCUMENT_NOT_FOUND",
+            "FAILURE",
+            "WAS_RECALLED"
+          ]
+        },
+        "systemId": {
+          "type": "string",
+          "description": "The ERP Id that acknowledged the document."
+        }
+      }
+    },
+    "Link": {
+      "properties": {
+        "deprecation": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "hreflang": {
+          "type": "string"
+        },
+        "media": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "templated": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
