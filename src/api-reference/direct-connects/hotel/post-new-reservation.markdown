@@ -97,7 +97,6 @@ The **Source** element contains the following element:
 The **PaymentCard** element has the following attributes:
 
 * **CardCode**: The type of card.
-* **CardNumber**: The card number.
 * **ExpireDate**: The expiration date. Format: MMYY
 * **SeriesCode**: The CVV value, it should be queried and passed only if hotel requires it.
 
@@ -141,7 +140,7 @@ Content-Length: {length of content body}
                     <Guarantee>
                         <GuaranteesAccepted>
                             <GuaranteeAccepted GuaranteeTypeCode="CC">
-                                <PaymentCard CardCode="AX" CardNumber="4400000000000" ExpireDate="1215" SeriesCode="1234">
+                                <PaymentCard CardCode="AX" ExpireDate="1215" SeriesCode="1234">
                                     <CardHolderName>CHRIS MILLER</CardHolderName>
                                     <Address>
                                         <AddressLine>18400 NE UNION HILL RD.</AddressLine>

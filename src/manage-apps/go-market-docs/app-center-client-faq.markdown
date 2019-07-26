@@ -30,6 +30,7 @@ If you have SAP Concur App Center questions not covered in this document please,
 * [Are all of the apps listed relevant to my organization?](#relevant)
 * [Is the App Center available to all countries and regions?](#regions)
 * [What does the App Center look like?](#look)
+* [I don't see the App Center tab. How do I enable it?](#enable-app-center)
 * [I don’t see an application I’d like to have. Who can I talk to?](#request-application)
 * [Who can I contact for other questions?](#contact)
 
@@ -179,6 +180,10 @@ What you’ll see in the public and in-product App Center:
 What you’ll see in the App Center on Concur for Mobile:
 
 ![SAP Concur App Center Look - Mobile](./app-center-client-faq-look-mobile.png)
+
+## <a name="enable-app-center"></a>I don’t see the App Center tab. How can I turn on the App Center for my company?
+
+If your company does not have the App Center tab enabled within Concur Solutions and would like to add it, please email [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com) with your company name. The App Center is available for all customers and is free of charge.
 
 ## <a name="request-application"></a>I don’t see an application I’d like to have. Who can I talk to?
 
