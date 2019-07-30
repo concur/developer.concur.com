@@ -7,7 +7,7 @@ layout: reference
 
 * [Overview](#ess)
 * [Terminology](#ess-terminology)
-* [Architecture](#ess-architecture)
+* [Delivery model](#ess-delivery)
 * [Subscribing](#subscribing)
 * [Endpoint Requirements](#endpoint-requirements)
 * [Authentication](#ess-authentication)
@@ -23,7 +23,7 @@ The Event Subscription Service (ESS) implements Publish/Subscribe pattern using 
 * Subscription - a topic consumer. Each subscription has a topic it is subscribed to.  
 * Webhook - an ESS application that uses subscription and delivers events to the endpoint.
 
-## <a name="ess-architecture"></a>ESS Architecture
+## <a name="ess-delivery"></a>ESS Delivery model
 
 It is important to remember that ESS doesn't have any API that you can call for SAP Concur events, ESS delivers events to your endpoint.
 
