@@ -2283,7 +2283,7 @@
           }
         },
         "approvedAmount": {
-          "description": "The approved amount of the expense entry",
+          "description": "The approved amount of the expected expense",
           "$ref": "#/definitions/Amount"
         },
         "budgetAccrualDate": {
@@ -2459,11 +2459,11 @@
           "$ref": "#/definitions/CustomField"
         },
         "exchangeRate": {
-          "description": "The exchange rate that applies to the entry",
+          "description": "The exchange rate that applies to the expected expense",
           "$ref": "#/definitions/ExchangeRate"
         },
         "expenseType": {
-          "description": "The expense type of the entry",
+          "description": "The expense type of the expected expense",
           "$ref": "#/definitions/ExpenseType"
         },
         "href": {
@@ -2471,18 +2471,18 @@
         },
         "id": {
           "type": "string",
-          "description": "The unique identifier of the entry"
+          "description": "The unique identifier of the expected expense"
         },
         "lastComment": {
           "type": "string",
-          "description": "The last comment of the entry"
+          "description": "The last comment of the expected expense"
         },
         "lastModifiedDate": {
           "type": "string",
           "description": "The date when this expense was last modified"
         },
         "location": {
-          "description": "The location of the expense entry",
+          "description": "The location of the expense expected expense",
           "$ref": "#/definitions/Location"
         },
         "operations": {
@@ -2516,11 +2516,11 @@
           "$ref": "#/definitions/CustomField"
         },
         "postedAmount": {
-          "description": "The posted amount of the expense entry",
+          "description": "The posted amount of the expected expense",
           "$ref": "#/definitions/Amount"
         },
         "remainingAmount": {
-          "description": "The remaining amount of the expense entry",
+          "description": "The remaining amount of the expected expense",
           "$ref": "#/definitions/Amount"
         },
         "source": {
@@ -2549,7 +2549,7 @@
           "$ref": "#/definitions/TripData"
         },
         "vendor": {
-          "description": "The vendor of the expense entry",
+          "description": "The vendor of the expected expense",
           "$ref": "#/definitions/Vendor"
         }
       }
@@ -3189,7 +3189,7 @@
         "selfBooked": {
           "type": "boolean",
           "example": false,
-          "description": "rue if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS"
+          "description": "True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS"
         },
         "tripType": {
           "type": "string",
