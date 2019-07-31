@@ -10,23 +10,23 @@
   "tags": [
     {
       "name": "Request Resource",
-      "description": "Manage documents used for pre-spend authorizations within Concur Request"
+      "description": "Manage Request which is representing the starting point of pre-spend authorizations within Concur Request"
     },
     {
       "name": "Workflow Resource",
-      "description": "Manage workflow transitions for a Request document"
+      "description": "Manage workflow transitions for a Request"
     },
     {
       "name": "Travel Agency Resource",
-      "description": "Manage the configuration for travel agencies integrated with Concur Request"
+      "description": "Manage the configuration for Travel Agencies integrated with Concur Request"
     },
     {
       "name": "Policy Resource",
-      "description": "Manage policy settings"
+      "description": "Get available Request Policies"
     },
     {
-      "name": "Expense Resource",
-      "description": "Manage expected expense entries attached to a Request"
+      "name": "Expected Expense Resource",
+      "description": "Manage expected expenses attached to a Request"
     }
   ],
   "paths": {
@@ -35,7 +35,7 @@
         "tags": [
           "Request Resource"
         ],
-        "summary": "Get the list of existing requests",
+        "summary": "Get the list of existing Requests",
         "operationId": "getListUsingGET",
         "consumes": [
           "application/json"
@@ -47,7 +47,7 @@
           {
             "name": "view",
             "in": "query",
-            "description": "Name of the perimeter defining the requests to get",
+            "description": "Name of the perimeter defining the Requests to get",
             "required": false,
             "type": "string",
             "default": "ALL",
@@ -188,7 +188,7 @@
         "tags": [
           "Request Resource"
         ],
-        "summary": "Create a new request",
+        "summary": "Create a new Request",
         "operationId": "createUsingPOST_4",
         "consumes": [
           "application/json"
@@ -271,7 +271,7 @@
         "tags": [
           "Request Resource"
         ],
-        "summary": "Get the content of an existing request",
+        "summary": "Get the content of an existing Request",
         "operationId": "getUsingGET_6",
         "consumes": [
           "application/json"
@@ -284,7 +284,7 @@
             "name": "requestUuid",
             "in": "path",
             "description": "The unique identifier of the Request",
-            "required": false,
+            "required": true,
             "type": "string"
           }
         ],
@@ -343,7 +343,7 @@
         "tags": [
           "Request Resource"
         ],
-        "summary": "Update the content of an existing request",
+        "summary": "Update the content of an existing Request",
         "operationId": "updateUsingPUT_2",
         "consumes": [
           "application/json"
@@ -356,7 +356,7 @@
             "name": "requestUuid",
             "in": "path",
             "description": "The unique identifier of the Request",
-            "required": false,
+            "required": true,
             "type": "string"
           },
           {
@@ -431,7 +431,7 @@
         "tags": [
           "Request Resource"
         ],
-        "summary": "Delete an existing request",
+        "summary": "Delete an existing Request",
         "operationId": "deleteUsingDELETE_1",
         "consumes": [
           "application/json"
@@ -441,10 +441,10 @@
         ],
         "parameters": [
           {
-            "name": "The unique identifier of the Request",
+            "name": "requestUuid",
             "in": "path",
             "description": "The unique identifier of the Request",
-            "required": false,
+            "required": true,
             "type": "string"
           },
           {
@@ -512,7 +512,7 @@
         "tags": [
           "Request Resource"
         ],
-        "summary": "Get the list of comments for an existing request",
+        "summary": "Get the list of comments for an existing Request",
         "operationId": "getCommentsByRequestUsingGET",
         "consumes": [
           "application/json"
@@ -589,7 +589,7 @@
         "tags": [
           "Request Resource"
         ],
-        "summary": "Create an expense report linked to an approved request",
+        "summary": "Create an Expense Report linked to an approved Request",
         "operationId": "createReportFromRequestUsingPOST",
         "consumes": [
           "application/json"
@@ -602,7 +602,7 @@
             "name": "requestUuid",
             "in": "path",
             "description": "The unique identifier of the Request",
-            "required": false,
+            "required": true,
             "type": "string"
           }
         ],
@@ -663,7 +663,7 @@
         "tags": [
           "Workflow Resource"
         ],
-        "summary": "Move an existing request in the approval workflow",
+        "summary": "Move an existing Request in the approval workflow",
         "operationId": "workflowActionUsingPOST",
         "consumes": [
           "application/json"
@@ -676,14 +676,14 @@
             "name": "requestUuid",
             "in": "path",
             "description": "The unique identifier of the Request",
-            "required": false,
+            "required": true,
             "type": "string"
           },
           {
             "name": "action",
             "in": "path",
             "description": "The state transition to be executed",
-            "required": false,
+            "required": true,
             "type": "string",
             "enum": [
               "submit",
@@ -756,9 +756,9 @@
     "/requests/{requestUuid}/expenses": {
       "get": {
         "tags": [
-          "Expense Resource"
+          "Expected Expense Resource"
         ],
-        "summary": "Get expected expenses attached to a request",
+        "summary": "Get the list of expected expenses attached to a Request",
         "operationId": "listUsingGET",
         "consumes": [
           "application/json"
@@ -771,7 +771,7 @@
             "name": "requestUuid",
             "in": "path",
             "description": "The unique identifier of the Request",
-            "required": false,
+            "required": true,
             "type": "string"
           },
           {
@@ -820,7 +820,7 @@
       },
       "post": {
         "tags": [
-          "Expense Resource"
+          "Expected Expense Resource"
         ],
         "summary": "Create a new expected expense",
         "operationId": "createUsingPOST_2",
@@ -834,8 +834,8 @@
           {
             "name": "requestUuid",
             "in": "path",
-            "description": "The unique identifier of the Request to which the Expense is attached",
-            "required": false,
+            "description": "The unique identifier of the Request to which the expected expense is attached",
+            "required": true,
             "type": "string"
           },
           {
@@ -850,7 +850,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user performing the expense creation",
+            "description": "The unique identifier of the user performing the expected expense creation",
             "required": false,
             "type": "string"
           }
@@ -892,7 +892,7 @@
     "/expenses/{expenseUuid}": {
       "get": {
         "tags": [
-          "Expense Resource"
+          "Expected Expense Resource"
         ],
         "summary": "Get an existing expected expense",
         "operationId": "getUsingGET_2",
@@ -906,8 +906,8 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the Expense",
-            "required": false,
+            "description": "The unique identifier of the expected expense",
+            "required": true,
             "type": "string"
           },
           {
@@ -953,7 +953,7 @@
       },
       "put": {
         "tags": [
-          "Expense Resource"
+          "Expected Expense Resource"
         ],
         "summary": "Update the content of an existing expected expense",
         "operationId": "updateUsingPUT",
@@ -967,8 +967,8 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the Expense",
-            "required": false,
+            "description": "The unique identifier of the expected expense",
+            "required": true,
             "type": "string"
           },
           {
@@ -983,7 +983,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user performing the expense update",
+            "description": "The unique identifier of the user performing the expected expense update",
             "required": false,
             "type": "string"
           }
@@ -1023,9 +1023,9 @@
       },
       "delete": {
         "tags": [
-          "Expense Resource"
+          "Expected Expense Resource"
         ],
-        "summary": "Delete an expected expense from the request",
+        "summary": "Delete an expected expense from the Request",
         "operationId": "deleteUsingDELETE",
         "consumes": [
           "application/json"
@@ -1037,14 +1037,14 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the Expense",
-            "required": false,
+            "description": "The unique identifier of the expected expense",
+            "required": true,
             "type": "string"
           },
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user performing the deletion of the expense",
+            "description": "The unique identifier of the user performing the deletion of the expected expense",
             "required": false,
             "type": "string"
           }
@@ -1086,7 +1086,7 @@
     "/expenses/{expenseUuid}/comments": {
       "get": {
         "tags": [
-          "Expense Resource"
+          "Expected Expense Resource"
         ],
         "summary": "Get the list of comments for an existing expected expense",
         "operationId": "getCommentsByExpenseUsingGET",
@@ -1100,7 +1100,7 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the Expense",
+            "description": "The unique identifier of the expected expense",
             "required": true,
             "type": "string"
           },
@@ -1154,7 +1154,7 @@
         "tags": [
           "Policy Resource"
         ],
-        "summary": "Get the list of existing Request policies for a given user",
+        "summary": "Get the list of existing Request Policies for a given user",
         "operationId": "getListForUserUsingGET",
         "consumes": [
           "application/json"
@@ -1166,7 +1166,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user for whom the list of Request policies will be retrieved",
+            "description": "The unique identifier of the user for whom the list of Request Policies will be retrieved",
             "required": false,
             "type": "string"
           }
@@ -1213,7 +1213,7 @@
         "tags": [
           "Travel Agency Resource"
         ],
-        "summary": "Get the description of a travel agency office",
+        "summary": "Get the description of a Travel Agency office",
         "operationId": "getUsingGET_7",
         "consumes": [
           "application/json"
@@ -1226,7 +1226,7 @@
             "name": "agencyUuid",
             "in": "path",
             "description": "The unique identifier of the Travel Agency",
-            "required": false,
+            "required": true,
             "type": "string"
           }
         ],
@@ -1266,279 +1266,6 @@
     }
   },
   "definitions": {
-    "ActionOfImportItinProposalAction": {
-      "type": "object",
-      "properties": {
-        "emtAction": {
-          "$ref": "#/definitions/ImportItinProposalAction"
-        }
-      }
-    },
-    "AgencyProposal": {
-      "type": "object",
-      "required": [
-        "agencyProposalEntries",
-        "booked",
-        "importDate"
-      ],
-      "properties": {
-        "agencyProposalEntries": {
-          "type": "array",
-          "description": "List of the proposal entries",
-          "items": {
-            "$ref": "#/definitions/AgencyProposalEntry"
-          }
-        },
-        "agencyProposalType": {
-          "type": "string",
-          "description": "The agency proposal type - equal API for generic proposition",
-          "enum": [
-            "CWT",
-            "CWTF",
-            "AEBT",
-            "API",
-            "NONE"
-          ]
-        },
-        "approvalLimitDate": {
-          "type": "string",
-          "description": "The date by which the Request must be approved. This element appears only when integrated with Concur Travel"
-        },
-        "autoSelect": {
-          "type": "boolean",
-          "example": false,
-          "description": "The option AutoSelect permit to choose automaticly a proposal"
-        },
-        "booked": {
-          "type": "boolean",
-          "example": false,
-          "description": "True if this travel is (or has to be) handled by a travel agency"
-        },
-        "comments": {
-          "type": "string",
-          "description": "Comment",
-          "minLength": 0,
-          "maxLength": 2000
-        },
-        "importDate": {
-          "type": "string",
-          "description": "The date of the import"
-        },
-        "itineraryLocator": {
-          "type": "string",
-          "description": "Itinerary Locator",
-          "minLength": 0,
-          "maxLength": 32
-        },
-        "policyCompliant": {
-          "type": "boolean",
-          "example": false,
-          "description": "The policy Compliant"
-        },
-        "proposal": {
-          "type": "boolean",
-          "example": false,
-          "description": "True if the status is proposal and false if the status is confirmed or Ticket issued"
-        },
-        "proposalBatchSize": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The size of the batch of proposal expected to be received.",
-          "minimum": 1,
-          "exclusiveMinimum": false
-        },
-        "proposalOrder": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The position of the proposal",
-          "minimum": 1,
-          "exclusiveMinimum": false
-        },
-        "proposalUuid": {
-          "type": "string",
-          "description": "Unique Identifier of Agency Proposal receive"
-        },
-        "providerMessageId": {
-          "type": "string",
-          "description": "The provider Message Id",
-          "minLength": 0,
-          "maxLength": 32
-        },
-        "selected": {
-          "type": "boolean",
-          "example": false,
-          "description": "By default equal false, but it's true when the user choose it"
-        },
-        "status": {
-          "type": "string",
-          "description": "The status send in the proposal equal [proposal] or [confirmed] or [ticketissue]",
-          "enum": [
-            "PROPOSAL",
-            "CONFIRMED",
-            "TICKETISSUED"
-          ]
-        },
-        "totalPostedAmount": {
-          "description": "The total Amount of the proposal",
-          "$ref": "#/definitions/Amount"
-        }
-      }
-    },
-    "AgencyProposalEntry": {
-      "type": "object",
-      "required": [
-        "agencyProposalSegments",
-        "transactionDate"
-      ],
-      "properties": {
-        "agencyProposalSegments": {
-          "type": "array",
-          "description": "List of the segments composing this entry",
-          "items": {
-            "$ref": "#/definitions/AgencyProposalSegment"
-          }
-        },
-        "comments": {
-          "type": "string",
-          "description": "Legs comments"
-        },
-        "exchangeRate": {
-          "description": "The exchange rate that applies to the Proposal Segment amount",
-          "$ref": "#/definitions/ExchangeRate"
-        },
-        "matchingExpense": {
-          "description": "The expense link",
-          "$ref": "#/definitions/ResourceLink"
-        },
-        "proposalEntryUuid": {
-          "type": "string",
-          "description": "Unique Identifier of Agency Proposal entry receive"
-        },
-        "transactionAmount": {
-          "description": "The amount of the Proposal Entry",
-          "$ref": "#/definitions/Amount"
-        },
-        "transactionDate": {
-          "type": "string",
-          "description": "The date of the transaction"
-        }
-      }
-    },
-    "AgencyProposalSegment": {
-      "type": "object",
-      "required": [
-        "booked",
-        "confirmationNumber",
-        "pnr",
-        "proposalSegmentType",
-        "vendorName"
-      ],
-      "properties": {
-        "booked": {
-          "type": "boolean",
-          "example": false,
-          "description": "True if this travel is (or has to be) handled by a travel agency"
-        },
-        "comments": {
-          "type": "string",
-          "description": "A comments for this Proposal Segment",
-          "minLength": 0,
-          "maxLength": 2000
-        },
-        "confirmationNumber": {
-          "type": "string",
-          "description": "The number of the confirmation of this Proposal Segment",
-          "minLength": 0,
-          "maxLength": 32
-        },
-        "endDate": {
-          "type": "string",
-          "description": "The end date of the Proposal Segment (in the format YYYY-MM-DD).It represents the arrival date of AIRFR and TRAIN segments, check out date for HOTEL or drop off for CARRT"
-        },
-        "endTime": {
-          "type": "string",
-          "description": "The end time of the Proposal Segment (in the format HH:MM). It is expressed in the local time of the endLocation"
-        },
-        "matchingSegmentLeg": {
-          "description": "The Segment Leg link",
-          "$ref": "#/definitions/ResourceLink"
-        },
-        "pnr": {
-          "type": "string",
-          "description": "PNR of the proposal",
-          "minLength": 1,
-          "maxLength": 32
-        },
-        "policyCompliant": {
-          "type": "boolean",
-          "example": false,
-          "description": "The policy Compliant"
-        },
-        "policyCompliantLevel": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The policy Compliant Level",
-          "minimum": 0,
-          "maximum": 100,
-          "exclusiveMinimum": false,
-          "exclusiveMaximum": false
-        },
-        "proposalSegmentType": {
-          "type": "string",
-          "description": "The proposal type : AIR, RAIL, CAR, HOTEL or MISC of this Proposal Segment",
-          "enum": [
-            "AIR",
-            "RAIL",
-            "CAR",
-            "HOTEL",
-            "MISC"
-          ]
-        },
-        "proposalSegmentUuid": {
-          "type": "string",
-          "description": "Unique Identifier of Agency Proposal Segment receive"
-        },
-        "segmentTypeCode": {
-          "type": "string",
-          "description": "The segment type : AIRFR, RAILF, CARRT, HOTEL or MISC of this Proposal Segment",
-          "enum": [
-            "AIRFR",
-            "CARRT",
-            "HOTEL",
-            "LIMOF",
-            "TAXIF",
-            "MISC",
-            "PARKG",
-            "DININ",
-            "EVENT",
-            "OTHER",
-            "VISA",
-            "INSUR",
-            "AIRSU",
-            "RAISU",
-            "RAILF"
-          ]
-        },
-        "startDate": {
-          "type": "string",
-          "description": "The start date of the Proposal Segment (in the format YYYY-MM-DD).It represents the departure date of AIRFR and TRAIN segments, check in date for HOTEL or pickup for CARRT"
-        },
-        "startTime": {
-          "type": "string",
-          "description": "The start time of the proposal segment (in the format HH:MM). It is expressed in the local time of the startLocation\""
-        },
-        "timeZone": {
-          "description": "The timezone. Either in UTC/GMT + offset format or matching TZDB names.",
-          "$ref": "#/definitions/ZoneId"
-        },
-        "vendorName": {
-          "type": "string",
-          "description": "The name of the vendor of this Proposal Segment.",
-          "minLength": 0,
-          "maxLength": 64
-        }
-      }
-    },
     "Allocation": {
       "type": "object",
       "properties": {
@@ -1704,108 +1431,6 @@
         }
       }
     },
-    "AuditTrailAction": {
-      "type": "object",
-      "properties": {
-        "comment": {
-          "type": "string"
-        }
-      }
-    },
-    "BodyOfImportItinProposalAction": {
-      "type": "object",
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/ActionOfImportItinProposalAction"
-        }
-      }
-    },
-    "Booking": {
-      "type": "object",
-      "properties": {
-        "bookingSource": {
-          "type": "string"
-        },
-        "calculatedAirCharges": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CalculatedAirCharge"
-          }
-        },
-        "charges": {
-          "$ref": "#/definitions/Charges"
-        },
-        "dateBookedLocal": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "itinSourceId": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "itinSourceName": {
-          "type": "string"
-        },
-        "lastTicketDateUtc": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "railPayments": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RailPayment"
-          }
-        },
-        "railQuotes": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RailPayment"
-          }
-        },
-        "recordLocator": {
-          "type": "string"
-        },
-        "remarks": {
-          "$ref": "#/definitions/Remarks"
-        },
-        "segments": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Segment"
-          }
-        }
-      }
-    },
-    "CalculatedAirCharge": {
-      "type": "object",
-      "properties": {
-        "netFare": {
-          "type": "number"
-        },
-        "totalFareCurrency": {
-          "type": "string"
-        }
-      }
-    },
-    "Charges": {
-      "type": "object",
-      "properties": {
-        "fixed": {
-          "$ref": "#/definitions/Fixed"
-        }
-      }
-    },
-    "ClientSetting": {
-      "type": "object",
-      "properties": {
-        "enableCompanyNui": {
-          "type": "boolean"
-        },
-        "entityId": {
-          "type": "string"
-        }
-      }
-    },
     "Comment": {
       "type": "object",
       "properties": {
@@ -1828,34 +1453,6 @@
         }
       }
     },
-    "CurrencyAmount": {
-      "type": "object",
-      "properties": {
-        "amount": {
-          "type": "number"
-        },
-        "currency": {
-          "type": "string"
-        }
-      }
-    },
-    "CustomAttribute": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "type": "string"
-        },
-        "dataType": {
-          "type": "string"
-        },
-        "displayOnItinerary": {
-          "type": "boolean"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
     "CustomField": {
       "type": "object",
       "properties": {
@@ -1870,63 +1467,6 @@
         "value": {
           "type": "string",
           "description": "The value of the custom field or the value of the list item id for list fields"
-        }
-      }
-    },
-    "DataRetentionDetails": {
-      "type": "object",
-      "properties": {
-        "dataRetentionDate": {
-          "type": "string",
-          "example": "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        },
-        "dataRetentionPolicyId": {
-          "type": "string"
-        },
-        "userId": {
-          "type": "string"
-        }
-      }
-    },
-    "Duration": {
-      "type": "object",
-      "properties": {
-        "nano": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "negative": {
-          "type": "boolean"
-        },
-        "seconds": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "units": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TemporalUnit"
-          }
-        },
-        "zero": {
-          "type": "boolean"
-        }
-      }
-    },
-    "EMTSaveActionResponse": {
-      "type": "object",
-      "properties": {
-        "errorCode": {
-          "type": "string"
-        },
-        "errorMessage": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        },
-        "success": {
-          "type": "boolean"
         }
       }
     },
@@ -1956,157 +1496,6 @@
         }
       }
     },
-    "EntitySetting": {
-      "type": "object",
-      "properties": {
-        "enableAgencyFeesEstimates": {
-          "type": "boolean"
-        },
-        "enableApprovalNui": {
-          "type": "boolean"
-        },
-        "enableAutoCancel": {
-          "type": "boolean"
-        },
-        "enableAutoCreateReport": {
-          "type": "boolean"
-        },
-        "enableCopyTA": {
-          "type": "boolean"
-        },
-        "enableFundsManagement": {
-          "type": "boolean"
-        },
-        "enableMileageNui": {
-          "type": "boolean"
-        },
-        "enableNewAirportSearch": {
-          "type": "boolean"
-        },
-        "enableNewRoutesNui": {
-          "type": "boolean"
-        },
-        "enableNuiPreview": {
-          "type": "boolean"
-        },
-        "enablePassiveApproval": {
-          "type": "boolean"
-        },
-        "enablePublicApi": {
-          "type": "boolean"
-        },
-        "enableRaaSAgencyProposal": {
-          "type": "boolean"
-        },
-        "enableRaaSAgencyProposalTravelImport": {
-          "type": "boolean"
-        },
-        "enableSimpleBudgetRequest": {
-          "type": "boolean"
-        },
-        "enableTAExpenseSummary": {
-          "type": "boolean"
-        },
-        "enableUserCache": {
-          "type": "boolean"
-        },
-        "entityId": {
-          "type": "string"
-        }
-      }
-    },
-    "ErrorEntity": {
-      "type": "object",
-      "properties": {
-        "errorCode": {
-          "type": "string"
-        },
-        "errorMessage": {
-          "type": "string"
-        }
-      }
-    },
-    "ErrorResponse": {
-      "type": "object",
-      "properties": {
-        "errors": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        },
-        "exception": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        },
-        "path": {
-          "type": "string"
-        },
-        "timestamp": {
-          "type": "integer",
-          "format": "int64"
-        }
-      }
-    },
-    "Event": {
-      "type": "object",
-      "properties": {
-        "correlationId": {
-          "type": "string"
-        },
-        "data": {
-          "type": "string"
-        },
-        "eventType": {
-          "type": "string"
-        },
-        "facts": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
-        "id": {
-          "type": "string"
-        },
-        "receivedCount": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "subtopic": {
-          "type": "string"
-        },
-        "timeStamp": {
-          "type": "string"
-        },
-        "topic": {
-          "type": "string"
-        }
-      }
-    },
-    "ExchangeRate": {
-      "type": "object",
-      "required": [
-        "operation",
-        "value"
-      ],
-      "properties": {
-        "operation": {
-          "type": "string",
-          "description": "Exchange rate operation. Possible values: 'MULTIPLY' or 'DIVIDE'",
-          "enum": [
-            "MULTIPLY",
-            "DIVIDE"
-          ]
-        },
-        "value": {
-          "type": "number",
-          "description": "Exchange rate value"
-        }
-      }
-    },
     "Expense": {
       "type": "object",
       "required": [
@@ -2121,7 +1510,7 @@
           }
         },
         "approvedAmount": {
-          "description": "The approved amount of the expense entry",
+          "description": "The approved amount of the expected expected expense",
           "$ref": "#/definitions/Amount"
         },
         "budgetAccrualDate": {
@@ -2130,7 +1519,7 @@
         },
         "businessPurpose": {
           "type": "string",
-          "description": "The purpose of the Request entry"
+          "description": "The purpose of the expected expense"
         },
         "comments": {
           "description": "Historical comments to the Expense",
@@ -2297,11 +1686,11 @@
           "$ref": "#/definitions/CustomField"
         },
         "exchangeRate": {
-          "description": "The exchange rate that applies to the entry",
+          "description": "The exchange rate that applies to the expected expense",
           "$ref": "#/definitions/ExchangeRate"
         },
         "expenseType": {
-          "description": "The expense type of the entry",
+          "description": "The expense type of the expected expense",
           "$ref": "#/definitions/ExpenseType"
         },
         "href": {
@@ -2309,18 +1698,18 @@
         },
         "id": {
           "type": "string",
-          "description": "The unique identifier of the entry"
+          "description": "The unique identifier of the expected expense"
         },
         "lastComment": {
           "type": "string",
-          "description": "The last comment of the entry"
+          "description": "The last comment of the expected expense"
         },
         "lastModifiedDate": {
           "type": "string",
           "description": "The date when this expense was last modified"
         },
         "location": {
-          "description": "The location of the expense entry",
+          "description": "The location of the expected expense",
           "$ref": "#/definitions/Location"
         },
         "orgUnit1": {
@@ -2348,11 +1737,11 @@
           "$ref": "#/definitions/CustomField"
         },
         "postedAmount": {
-          "description": "The posted amount of the expense entry",
+          "description": "The posted amount of the expected expense",
           "$ref": "#/definitions/Amount"
         },
         "remainingAmount": {
-          "description": "The remaining amount of the expense entry",
+          "description": "The remaining amount of the expected expense",
           "$ref": "#/definitions/Amount"
         },
         "source": {
@@ -2365,7 +1754,7 @@
           ]
         },
         "transactionAmount": {
-          "description": "The amount of the expense entry, in the transaction currency paid to the vendor",
+          "description": "The amount of the expected expense, in the transaction currency paid to the vendor",
           "$ref": "#/definitions/Amount"
         },
         "transactionDate": {
@@ -2377,12 +1766,33 @@
           "$ref": "#/definitions/TravelAllowance"
         },
         "tripData": {
-          "description": "This property is non empty if this expense represents a travel segment (AIR, CAR, HOTEL, ...)",
+          "description": "This property is non empty if this expected expense represents a trip Segment (AIR, CAR, HOTEL, ...)",
           "$ref": "#/definitions/TripData"
         },
         "vendor": {
-          "description": "The vendor of the expense entry",
+          "description": "The vendor of the expected expense",
           "$ref": "#/definitions/Vendor"
+        }
+      }
+    },
+    "ExchangeRate": {
+      "type": "object",
+      "required": [
+        "operation",
+        "value"
+      ],
+      "properties": {
+        "operation": {
+          "type": "string",
+          "description": "Exchange rate operation. Possible values: 'MULTIPLY' or 'DIVIDE'",
+          "enum": [
+            "MULTIPLY",
+            "DIVIDE"
+          ]
+        },
+        "value": {
+          "type": "number",
+          "description": "Exchange rate value"
         }
       }
     },
@@ -2392,7 +1802,7 @@
         "agencyVisible": {
           "type": "boolean",
           "example": false,
-          "description": "Whether the segment is managed by agency"
+          "description": "True if the Segment is managed by Travel Agency"
         },
         "caRelated": {
           "type": "boolean",
@@ -2456,220 +1866,27 @@
         }
       }
     },
-    "ExpenseTypeCategory": {
+    "ErrorResponse": {
       "type": "object",
       "properties": {
-        "children": {
-          "type": "array",
-          "description": "List of the expense types of the category",
-          "items": {
-            "$ref": "#/definitions/ExpenseType"
-          }
-        },
-        "id": {
-          "type": "string",
-          "description": "The expense type category id"
-        },
-        "name": {
-          "type": "string",
-          "description": "The expense type category name"
-        }
-      }
-    },
-    "Fixed": {
-      "type": "object",
-      "properties": {
-        "amount": {
-          "type": "number"
-        },
-        "currency": {
-          "type": "string"
-        },
-        "vendor": {
-          "type": "string"
-        }
-      }
-    },
-    "Header": {
-      "type": "object",
-      "properties": {
-        "companyId": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "entityId": {
-          "type": "string"
-        },
-        "log": {
-          "$ref": "#/definitions/Log"
-        }
-      }
-    },
-    "ImportItinProposalAction": {
-      "type": "object",
-      "properties": {
-        "itinerary": {
-          "$ref": "#/definitions/Itinerary"
-        }
-      }
-    },
-    "Itinerary": {
-      "type": "object",
-      "properties": {
-        "approvalStatus": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "bookings": {
+        "errors": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Booking"
+            "type": "object"
           }
         },
-        "clientLocator": {
+        "exception": {
           "type": "string"
-        },
-        "cliqbookState": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "comments": {
-          "type": "string"
-        },
-        "companyId": {
-          "type": "string"
-        },
-        "customAttributes": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CustomAttribute"
-          }
-        },
-        "dateBookedLocal": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "dateCreatedUtc": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "dateModifiedUtc": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "description": {
-          "type": "string"
-        },
-        "endDateLocal": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "endDateUtc": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "isExpensed": {
-          "type": "boolean"
-        },
-        "isPersonal": {
-          "type": "boolean"
-        },
-        "isPrivate": {
-          "type": "boolean"
-        },
-        "itinLocator": {
-          "type": "string"
-        },
-        "itinSourceId": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "ruleViolations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RuleViolation"
-          }
-        },
-        "startDateLocal": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "startDateUtc": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "travelRequestId": {
-          "type": "string"
-        },
-        "tripName": {
-          "type": "string"
-        },
-        "tripStatus": {
-          "type": "string",
-          "format": "byte"
-        },
-        "tripTotal": {
-          "$ref": "#/definitions/TripTotal"
-        },
-        "userCuuid": {
-          "type": "string"
-        },
-        "userId": {
-          "type": "integer",
-          "format": "int64"
-        }
-      }
-    },
-    "JobDescription": {
-      "type": "object",
-      "properties": {
-        "dataRetentionDetails": {
-          "$ref": "#/definitions/DataRetentionDetails"
-        },
-        "id": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "jobType": {
-          "type": "string"
-        },
-        "key": {
-          "$ref": "#/definitions/RequestKey"
-        },
-        "result": {
-          "$ref": "#/definitions/JobResult"
-        },
-        "retryCount": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "scheduledDate": {
-          "type": "string",
-          "example": "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        }
-      }
-    },
-    "JobResult": {
-      "type": "object",
-      "properties": {
-        "duration": {
-          "type": "integer",
-          "format": "int64"
         },
         "message": {
           "type": "string"
         },
-        "status": {
-          "type": "string",
-          "enum": [
-            "SCHEDULED",
-            "CANCELED",
-            "RUNNING",
-            "COMPLETED",
-            "ABORTED",
-            "DELETED",
-            "ERROR"
-          ]
+        "path": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -2704,33 +1921,12 @@
         }
       }
     },
-    "LocalTime": {
-      "type": "object",
-      "properties": {
-        "hour": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "minute": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "nano": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "second": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
     "Location": {
       "type": "object",
       "properties": {
         "airportName": {
           "type": "string",
-          "description": "The aiport name of the location"
+          "description": "The airport name of the location"
         },
         "city": {
           "type": "string",
@@ -2779,96 +1975,6 @@
         }
       }
     },
-    "LocationView": {
-      "type": "object",
-      "properties": {
-        "airportName": {
-          "type": "string"
-        },
-        "countryName": {
-          "type": "string"
-        },
-        "ctryCode": {
-          "type": "string"
-        },
-        "displayName": {
-          "type": "string"
-        },
-        "iataCode": {
-          "type": "string"
-        },
-        "isIata": {
-          "type": "string"
-        },
-        "lnKey": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "locKey": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "location": {
-          "$ref": "#/definitions/Location"
-        },
-        "name": {
-          "type": "string"
-        },
-        "subCountryName": {
-          "type": "string"
-        }
-      }
-    },
-    "Log": {
-      "type": "object",
-      "properties": {
-        "level": {
-          "type": "string"
-        }
-      }
-    },
-    "PageResultOfEvent": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Event"
-          }
-        },
-        "operations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Link"
-          }
-        },
-        "totalCount": {
-          "type": "integer",
-          "format": "int64"
-        }
-      }
-    },
-    "PageResultOfJobDescription": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/JobDescription"
-          }
-        },
-        "operations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Link"
-          }
-        },
-        "totalCount": {
-          "type": "integer",
-          "format": "int64"
-        }
-      }
-    },
     "PageResultOfResourceOfRequest": {
       "type": "object",
       "properties": {
@@ -2890,121 +1996,6 @@
         }
       }
     },
-    "Point": {
-      "type": "object",
-      "properties": {
-        "latitude": {
-          "type": "number"
-        },
-        "longitude": {
-          "type": "number"
-        }
-      }
-    },
-    "Policy": {
-      "type": "object",
-      "properties": {
-        "autoCreateReportConfig": {
-          "type": "string",
-          "description": "The report creation automation mode (ex: on the request start date",
-          "enum": [
-            "ON_REQUEST_START_DATE",
-            "NONE"
-          ]
-        },
-        "dataRetentionPolicyId": {
-          "type": "string",
-          "description": "Unique Identifier of Data Retention policy"
-        },
-        "enablePostApprovalTripUpdate": {
-          "type": "boolean",
-          "example": false,
-          "description": "Indicates whether Post Approval Trip Updates are enabled for the Request policy"
-        },
-        "enableRequestEntriesToER": {
-          "type": "boolean",
-          "example": false,
-          "description": "Indicates whether the copy of the Request Entries feature, to an existing Report, is enabled"
-        },
-        "expensePolicy": {
-          "description": "The expense policy that applies to the Request policy",
-          "$ref": "#/definitions/ResourceLink"
-        },
-        "id": {
-          "type": "string",
-          "description": "Unique identifier of the Request policy",
-          "minLength": 1,
-          "maxLength": 2147483647
-        },
-        "name": {
-          "type": "string",
-          "description": "Name of the Request policy",
-          "minLength": 1,
-          "maxLength": 2147483647
-        },
-        "passiveApprovalAction": {
-          "type": "string",
-          "description": "Passive Approval action",
-          "enum": [
-            "APPROVED",
-            "CANCELED",
-            "NOT_SUBMITTED",
-            "PENDING_BOOKING",
-            "SENTBACK",
-            "SUBMITTED"
-          ]
-        },
-        "passiveApprovalDelayAfterSubmit": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Passive Approval delay after submit"
-        },
-        "passiveApprovalDelayBeforeApprovalLimit": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Passive Approval delay before ApprovalLimitDate"
-        }
-      }
-    },
-    "PolicyUpdate": {
-      "type": "object",
-      "properties": {
-        "dataRetentionPolicyId": {
-          "type": "string",
-          "description": "Unique Identifier of Data Retention policy"
-        }
-      }
-    },
-    "RailPayment": {
-      "type": "object",
-      "properties": {
-        "totalFare": {
-          "type": "number"
-        },
-        "totalFareCurrency": {
-          "type": "string"
-        }
-      }
-    },
-    "RemarkData": {
-      "type": "object",
-      "properties": {
-        "text": {
-          "type": "string"
-        }
-      }
-    },
-    "Remarks": {
-      "type": "object",
-      "properties": {
-        "generalRemarks": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RemarkData"
-          }
-        }
-      }
-    },
     "Request": {
       "type": "object",
       "properties": {
@@ -3020,7 +2011,7 @@
           "type": "boolean"
         },
         "approver": {
-          "description": "The approver of this request. Null when request is in an approvalStatus different from SUBMITTED",
+          "description": "The approver of this Request. Null when Request is in an approval status different from SUBMITTED",
           "$ref": "#/definitions/Employee"
         },
         "authorizedDate": {
@@ -3049,7 +2040,7 @@
         },
         "creationDate": {
           "type": "string",
-          "description": "For approved request, the date at which the approval process was completed"
+          "description": "For approved Request, the date at which the approval process was completed"
         },
         "custom1": {
           "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
@@ -3161,7 +2152,7 @@
         },
         "highestExceptionLevel": {
           "type": "string",
-          "description": "The highest level of exception contained in this request. One of { NONE, WARNING, ERROR }",
+          "description": "The highest level of exception contained in this Request. One of { NONE, WARNING, ERROR }",
           "enum": [
             "NONE",
             "WARNING",
@@ -3221,7 +2212,7 @@
           "description": "The date the Request was submitted (last submit date in case of recall)"
         },
         "totalApprovedAmount": {
-          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the request",
+          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
           "$ref": "#/definitions/Amount"
         },
         "totalPostedAmount": {
@@ -3229,7 +2220,7 @@
           "$ref": "#/definitions/Amount"
         },
         "totalRemainingAmount": {
-          "description": "The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the request",
+          "description": "The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the Request",
           "$ref": "#/definitions/Amount"
         },
         "travelAgency": {
@@ -3242,47 +2233,12 @@
         }
       }
     },
-    "RequestKey": {
-      "type": "object",
-      "properties": {
-        "companyId": {
-          "type": "string",
-          "description": "The unique company identifier of the customer"
-        },
-        "entityId": {
-          "type": "string",
-          "description": "The entity code of the customer"
-        },
-        "internalCompanyId": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The internal company identifier of the customer"
-        },
-        "requestId": {
-          "type": "string",
-          "description": "The public key of the Request (unique per customer)"
-        }
-      }
-    },
     "RequestLink": {
       "type": "object",
       "properties": {
         "requestId": {
           "type": "string",
           "description": "The public id of the Request"
-        }
-      }
-    },
-    "RequestType": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string",
-          "description": "The code of the type inherited from the Request Policy type"
-        },
-        "label": {
-          "type": "string",
-          "description": "The label of the type inherited from the Request Policy Type"
         }
       }
     },
@@ -3297,6 +2253,19 @@
         },
         "template": {
           "type": "string"
+        }
+      }
+    },
+    "RequestType": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The code of the type inherited from the Request Policy type"
+        },
+        "label": {
+          "type": "string",
+          "description": "The label of the type inherited from the Request Policy Type"
         }
       }
     },
@@ -3323,10 +2292,10 @@
         },
         "businessPurpose": {
           "type": "string",
-          "description": "The purpose of the Request entry"
+          "description": "The purpose of the expected expense"
         },
         "comments": {
-          "description": "Historical comments to the Expense",
+          "description": "Historical comments to the expected expense",
           "$ref": "#/definitions/ResourceLink"
         },
         "custom1": {
@@ -3556,7 +2525,7 @@
         },
         "source": {
           "type": "string",
-          "description": "The source that created the expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. This field will be empty in any other case.",
+          "description": "The source that created the expected expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. This field will be empty in any other case.",
           "enum": [
             "CASH_ADVANCE",
             "TRAVEL_ALLOWANCE",
@@ -3564,7 +2533,7 @@
           ]
         },
         "transactionAmount": {
-          "description": "The amount of the expense entry, in the transaction currency paid to the vendor",
+          "description": "The amount of the expected expense, in the transaction currency paid to the vendor",
           "$ref": "#/definitions/Amount"
         },
         "transactionDate": {
@@ -3576,7 +2545,7 @@
           "$ref": "#/definitions/TravelAllowance"
         },
         "tripData": {
-          "description": "This property is non empty if this expense represents a travel segment (AIR, CAR, HOTEL, ...)",
+          "description": "This property is non empty if this expected expense represents a travel segment (AIR, CAR, HOTEL, ...)",
           "$ref": "#/definitions/TripData"
         },
         "vendor": {
@@ -3590,7 +2559,7 @@
       "properties": {
         "autoCreateReportConfig": {
           "type": "string",
-          "description": "The report creation automation mode (ex: on the request start date",
+          "description": "The report creation automation mode. Possible values ON_REQUEST_START_DATE and NONE",
           "enum": [
             "ON_REQUEST_START_DATE",
             "NONE"
@@ -3598,12 +2567,12 @@
         },
         "dataRetentionPolicyId": {
           "type": "string",
-          "description": "Unique Identifier of Data Retention policy"
+          "description": "Unique identifier of Data Retention Policy"
         },
         "enablePostApprovalTripUpdate": {
           "type": "boolean",
           "example": false,
-          "description": "Indicates whether Post Approval Trip Updates are enabled for the Request policy"
+          "description": "Indicates whether Post Approval Trip Updates are enabled for the Request Policy"
         },
         "enableRequestEntriesToER": {
           "type": "boolean",
@@ -3619,13 +2588,13 @@
         },
         "id": {
           "type": "string",
-          "description": "Unique identifier of the Request policy",
+          "description": "Unique identifier of the Request Policy",
           "minLength": 1,
           "maxLength": 2147483647
         },
         "name": {
           "type": "string",
-          "description": "Name of the Request policy",
+          "description": "Name of the Request Policy",
           "minLength": 1,
           "maxLength": 2147483647
         },
@@ -3934,120 +2903,6 @@
         }
       }
     },
-    "RuleViolation": {
-      "type": "object",
-      "properties": {
-        "ruleAction": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "ruleTemplateId": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "ruleValueId": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "vendorCode": {
-          "type": "string"
-        },
-        "vendorName": {
-          "type": "string"
-        }
-      }
-    },
-    "Segment": {
-      "type": "object",
-      "properties": {
-        "currency": {
-          "type": "string"
-        },
-        "endCity": {
-          "type": "string"
-        },
-        "endCityCode": {
-          "type": "string"
-        },
-        "endCountry": {
-          "type": "string"
-        },
-        "endDateLocal": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "endDateUTCFromLocation": {
-          "$ref": "#/definitions/LocationView"
-        },
-        "endDateUtc": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "endLatitude": {
-          "type": "number"
-        },
-        "endLocationData": {
-          "$ref": "#/definitions/LocationView"
-        },
-        "endLongitude": {
-          "type": "number"
-        },
-        "endState": {
-          "type": "string"
-        },
-        "notes": {
-          "type": "string"
-        },
-        "ruleViolations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RuleViolation"
-          }
-        },
-        "segmentLocator": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "startCity": {
-          "type": "string"
-        },
-        "startCityCode": {
-          "type": "string"
-        },
-        "startCountry": {
-          "type": "string"
-        },
-        "startDateLocal": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "startDateUTCFromLocation": {
-          "$ref": "#/definitions/LocationView"
-        },
-        "startDateUtc": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "startLatitude": {
-          "type": "number"
-        },
-        "startLocationData": {
-          "$ref": "#/definitions/LocationView"
-        },
-        "startLongitude": {
-          "type": "number"
-        },
-        "startState": {
-          "type": "string"
-        },
-        "timeZone": {
-          "type": "string"
-        },
-        "totalAmount": {
-          "type": "number"
-        }
-      }
-    },
     "SegmentLeg": {
       "type": "object",
       "properties": {
@@ -4299,100 +3154,12 @@
         }
       }
     },
-    "SelectArProposalAction": {
-      "type": "object",
-      "properties": {
-        "proposalOrder": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "providerMessageId": {
-          "type": "string"
-        }
-      }
-    },
-    "SettingLog": {
-      "type": "object",
-      "properties": {
-        "entityId": {
-          "type": "string"
-        },
-        "settingName": {
-          "type": "string"
-        },
-        "settingType": {
-          "type": "string",
-          "enum": [
-            "REQ_ADMIN",
-            "TECH_SUPPORT_ADMIN"
-          ]
-        },
-        "settingValue": {
-          "type": "string"
-        },
-        "timeStamp": {
-          "type": "string"
-        },
-        "user": {
-          "$ref": "#/definitions/Employee"
-        }
-      }
-    },
-    "TemporalUnit": {
-      "type": "object",
-      "properties": {
-        "dateBased": {
-          "type": "boolean"
-        },
-        "duration": {
-          "$ref": "#/definitions/Duration"
-        },
-        "durationEstimated": {
-          "type": "boolean"
-        },
-        "timeBased": {
-          "type": "boolean"
-        }
-      }
-    },
-    "TravelAgency": {
-      "type": "object",
-      "properties": {
-        "emailAddress": {
-          "type": "string",
-          "description": "The travel agency email address"
-        },
-        "id": {
-          "type": "string",
-          "description": "The travel agency unique identifier",
-          "minLength": 1,
-          "maxLength": 2147483647
-        },
-        "name": {
-          "type": "string",
-          "description": "The travel agency office name",
-          "minLength": 1,
-          "maxLength": 2147483647
-        },
-        "proposalType": {
-          "type": "string",
-          "description": "The travel agency proposal type",
-          "enum": [
-            "CWT",
-            "CWTF",
-            "AEBT",
-            "API",
-            "NONE"
-          ]
-        }
-      }
-    },
     "TravelAllowance": {
       "type": "object",
       "properties": {
         "dailyTravelAllowanceId": {
           "type": "string",
-          "description": "The fixed daily travel allowance id associated with the expense"
+          "description": "The fixed daily travel allowance id associated with the expected expense"
         }
       }
     },
@@ -4406,7 +3173,7 @@
         "agencyBooked": {
           "type": "boolean",
           "example": false,
-          "description": "Indicates whether this trip has been booked by a travel agency or not. Possible values are 'Y' if yes or 'N' otherwise"
+          "description": "Indicates whether this trip has been booked by a Travel Agency or not. True if this travel is (or has to be) handled by a travel agency."
         },
         "legs": {
           "type": "array",
@@ -4422,7 +3189,7 @@
         "selfBooked": {
           "type": "boolean",
           "example": false,
-          "description": "Indicates whether this trip has been booked by the employee himself or not. Possible values are 'Y' if yes or 'N' otherwise"
+          "description": "rue if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS"
         },
         "tripType": {
           "type": "string",
@@ -4432,14 +3199,6 @@
             "ROUND_TRIP",
             "MULTI_STOPS"
           ]
-        }
-      }
-    },
-    "TripTotal": {
-      "type": "object",
-      "properties": {
-        "currencyAmount": {
-          "$ref": "#/definitions/CurrencyAmount"
         }
       }
     },
@@ -4464,156 +3223,6 @@
         },
         "fromApprovalFlow": {
           "type": "boolean"
-        }
-      }
-    },
-    "XmlRequestOfImportItinProposalAction": {
-      "type": "object",
-      "properties": {
-        "body": {
-          "$ref": "#/definitions/BodyOfImportItinProposalAction"
-        },
-        "header": {
-          "$ref": "#/definitions/Header"
-        }
-      }
-    },
-    "ZoneId": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "rules": {
-          "$ref": "#/definitions/ZoneRules"
-        }
-      }
-    },
-    "ZoneOffset": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "rules": {
-          "$ref": "#/definitions/ZoneRules"
-        },
-        "totalSeconds": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
-    "ZoneOffsetTransition": {
-      "type": "object",
-      "properties": {
-        "dateTimeAfter": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "dateTimeBefore": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "duration": {
-          "$ref": "#/definitions/Duration"
-        },
-        "gap": {
-          "type": "boolean"
-        },
-        "instant": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "offsetAfter": {
-          "$ref": "#/definitions/ZoneOffset"
-        },
-        "offsetBefore": {
-          "$ref": "#/definitions/ZoneOffset"
-        },
-        "overlap": {
-          "type": "boolean"
-        }
-      }
-    },
-    "ZoneOffsetTransitionRule": {
-      "type": "object",
-      "properties": {
-        "dayOfMonthIndicator": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "dayOfWeek": {
-          "type": "string",
-          "enum": [
-            "MONDAY",
-            "TUESDAY",
-            "WEDNESDAY",
-            "THURSDAY",
-            "FRIDAY",
-            "SATURDAY",
-            "SUNDAY"
-          ]
-        },
-        "localTime": {
-          "$ref": "#/definitions/LocalTime"
-        },
-        "midnightEndOfDay": {
-          "type": "boolean"
-        },
-        "month": {
-          "type": "string",
-          "enum": [
-            "JANUARY",
-            "FEBRUARY",
-            "MARCH",
-            "APRIL",
-            "MAY",
-            "JUNE",
-            "JULY",
-            "AUGUST",
-            "SEPTEMBER",
-            "OCTOBER",
-            "NOVEMBER",
-            "DECEMBER"
-          ]
-        },
-        "offsetAfter": {
-          "$ref": "#/definitions/ZoneOffset"
-        },
-        "offsetBefore": {
-          "$ref": "#/definitions/ZoneOffset"
-        },
-        "standardOffset": {
-          "$ref": "#/definitions/ZoneOffset"
-        },
-        "timeDefinition": {
-          "type": "string",
-          "enum": [
-            "UTC",
-            "WALL",
-            "STANDARD"
-          ]
-        }
-      }
-    },
-    "ZoneRules": {
-      "type": "object",
-      "properties": {
-        "fixedOffset": {
-          "type": "boolean"
-        },
-        "transitionRules": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ZoneOffsetTransitionRule"
-          }
-        },
-        "transitions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ZoneOffsetTransition"
-          }
         }
       }
     }
