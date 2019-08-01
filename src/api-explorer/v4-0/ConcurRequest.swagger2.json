@@ -700,9 +700,7 @@
             "name": "comment",
             "description": "Only works with when the workflow action is ‘sendback’.",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/WorkflowAction"
-            }
+            "type": "string"
           },
           {
             "name": "companyId",
@@ -1511,6 +1509,7 @@
         },
         "budgetAccrualDate": {
           "type": "string",
+          "description": "The date to determine which budgets are affected (in the format yyyy-MM-dd’T’HH:mm:ss.SSS’Z’)",
           "example": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         },
         "businessPurpose": {
@@ -1858,7 +1857,7 @@
         },
         "href": {
           "type": "string",
-          "description": "The HATEOAS link to get this list item."
+          "description": "Hyperlink to the resource for the list item."
         },
         "value": {
           "type": "string",
@@ -2212,6 +2211,7 @@
         },
         "budgetAccrualDate": {
           "type": "string",
+          "description": "The date to determine which budgets are affected (in the format yyyy-MM-dd’T’HH:mm:ss.SSS’Z’)",
           "example": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         },
         "businessPurpose": {
@@ -3053,17 +3053,6 @@
         "name": {
           "type": "string",
           "description": "The vendor description of the entry"
-        }
-      }
-    },
-    "WorkflowAction": {
-      "type": "object",
-      "properties": {
-        "comment": {
-          "type": "string"
-        },
-        "fromApprovalFlow": {
-          "type": "boolean"
         }
       }
     }
