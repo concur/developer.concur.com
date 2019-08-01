@@ -3014,7 +3014,7 @@
         "agencyBooked": {
           "type": "boolean",
           "example": false,
-          "description": "Indicates whether this trip has been booked by a Travel Agency or not. True if this travel is (or has to be) handled by a travel agency."
+          "description": "Indicates whether this trip has been booked by a Travel Agency or not. True if this trip is (or has to be) handled by a Travel Agency."
         },
         "legs": {
           "type": "array",
@@ -3030,7 +3030,7 @@
         "selfBooked": {
           "type": "boolean",
           "example": false,
-          "description": "True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS"
+          "description": "True if this trip has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS"
         },
         "tripType": {
           "type": "string",
