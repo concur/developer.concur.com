@@ -1435,7 +1435,7 @@
       "type": "object",
       "properties": {
         "author": {
-          "description": "Comment's author (Create by)",
+          "description": "Author of the comment",
           "$ref": "#/definitions/Employee"
         },
         "creationDateTime": {
