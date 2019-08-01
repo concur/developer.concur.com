@@ -1487,10 +1487,6 @@
           "type": "string",
           "description": "The last name of the employee"
         },
-        "middleInitial": {
-          "type": "string",
-          "description": "The middle initial of the employee"
-        },
         "template": {
           "type": "string"
         }
@@ -1522,7 +1518,7 @@
           "description": "The purpose of the expected expense"
         },
         "comments": {
-          "description": "Historical comments to the Expense",
+          "description": "Historical comments to the expected expense",
           "$ref": "#/definitions/ResourceLink"
         },
         "custom1": {
@@ -1746,7 +1742,7 @@
         },
         "source": {
           "type": "string",
-          "description": "The source that created the expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. This field will be empty in any other case.",
+          "description": "The source that created the expected expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. This field will be empty in any other case.",
           "enum": [
             "CASH_ADVANCE",
             "TRAVEL_ALLOWANCE",
@@ -1766,7 +1762,7 @@
           "$ref": "#/definitions/TravelAllowance"
         },
         "tripData": {
-          "description": "This property is non empty if this expected expense represents a trip Segment (AIR, CAR, HOTEL, ...)",
+          "description": "This property is non empty if this expected expense represents a travel Segment (AIR, CAR, HOTEL, ...)",
           "$ref": "#/definitions/TripData"
         },
         "vendor": {
@@ -1798,52 +1794,10 @@
     },
     "ExpenseType": {
       "type": "object",
+      "required": [
+        "id"
+      ],
       "properties": {
-        "agencyVisible": {
-          "type": "boolean",
-          "example": false,
-          "description": "True if the Segment is managed by Travel Agency"
-        },
-        "caRelated": {
-          "type": "boolean",
-          "example": false,
-          "description": "The related cash advance to the expense type"
-        },
-        "code": {
-          "type": "string",
-          "description": "Language code of the expense type"
-        },
-        "customFormId": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The custom form id of the expense"
-        },
-        "expId": {
-          "type": "string",
-          "description": "The key to expenseType"
-        },
-        "expKey": {
-          "type": "string",
-          "description": "The key to expenseType"
-        },
-        "formId": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The form id of the expense"
-        },
-        "formType": {
-          "type": "string",
-          "description": "Form code of the Expense type"
-        },
-        "formula": {
-          "type": "string",
-          "description": "The amount calculation formula upon the expense type"
-        },
-        "hasSegment": {
-          "type": "boolean",
-          "example": false,
-          "description": "Whether the expense type is a segment one"
-        },
         "href": {
           "type": "string",
           "description": "Hyperlink to the resource for the expense type definition"
@@ -1855,14 +1809,6 @@
         "name": {
           "type": "string",
           "description": "Name of the expense type"
-        },
-        "spendCategoryCode": {
-          "type": "string",
-          "description": "The spend Category Code of the expense type"
-        },
-        "spendExpenseCode": {
-          "type": "string",
-          "description": "The spend expense category code"
         }
       }
     },
@@ -1894,13 +1840,12 @@
       "type": "object",
       "properties": {
         "href": {
-          "type": "string"
+          "type": "string",
+          "description": "Relation type as defined by the server."
         },
         "rel": {
-          "type": "string"
-        },
-        "templated": {
-          "type": "boolean"
+          "type": "string",
+          "description": "Hyperlink to the resource."
         }
       }
     },
@@ -1989,10 +1934,6 @@
           "items": {
             "$ref": "#/definitions/Link"
           }
-        },
-        "totalCount": {
-          "type": "integer",
-          "format": "int64"
         }
       }
     },
@@ -2009,10 +1950,6 @@
         },
         "approved": {
           "type": "boolean"
-        },
-        "approver": {
-          "description": "The approver of this Request. Null when Request is in an approval status different from SUBMITTED",
-          "$ref": "#/definitions/Employee"
         },
         "authorizedDate": {
           "type": "string",
@@ -2135,10 +2072,6 @@
           "example": false,
           "description": "Indicates whether the Request has ever been sent back to the employee"
         },
-        "expensePolicy": {
-          "description": "The expense policy that applies to the Request",
-          "$ref": "#/definitions/ResourceLink"
-        },
         "expenses": {
           "type": "array",
           "description": "Expected expenses attached to this Request",
@@ -2149,15 +2082,6 @@
         "extensionOf": {
           "description": "The Request that this Request is an extension of, or adendum to",
           "$ref": "#/definitions/RequestLink"
-        },
-        "highestExceptionLevel": {
-          "type": "string",
-          "description": "The highest level of exception contained in this Request. One of { NONE, WARNING, ERROR }",
-          "enum": [
-            "NONE",
-            "WARNING",
-            "ERROR"
-          ]
         },
         "href": {
           "type": "string"
@@ -2485,12 +2409,6 @@
           "description": "The location of the expense expected expense",
           "$ref": "#/definitions/Location"
         },
-        "operations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Link"
-          }
-        },
         "orgUnit1": {
           "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
           "$ref": "#/definitions/CustomField"
@@ -2557,34 +2475,9 @@
     "ResourceOfPolicy": {
       "type": "object",
       "properties": {
-        "autoCreateReportConfig": {
-          "type": "string",
-          "description": "The report creation automation mode. Possible values ON_REQUEST_START_DATE and NONE",
-          "enum": [
-            "ON_REQUEST_START_DATE",
-            "NONE"
-          ]
-        },
-        "dataRetentionPolicyId": {
-          "type": "string",
-          "description": "Unique identifier of Data Retention Policy"
-        },
-        "enablePostApprovalTripUpdate": {
-          "type": "boolean",
-          "example": false,
-          "description": "Indicates whether Post Approval Trip Updates are enabled for the Request Policy"
-        },
-        "enableRequestEntriesToER": {
-          "type": "boolean",
-          "example": false,
-          "description": "Indicates whether the copy of the Request Entries feature, to an existing Report, is enabled"
-        },
-        "expensePolicy": {
-          "description": "The expense policy that applies to the Request policy",
-          "$ref": "#/definitions/ResourceLink"
-        },
         "href": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink to the resource for this Request policy"
         },
         "id": {
           "type": "string",
@@ -2597,34 +2490,6 @@
           "description": "Name of the Request Policy",
           "minLength": 1,
           "maxLength": 2147483647
-        },
-        "operations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Link"
-          }
-        },
-        "passiveApprovalAction": {
-          "type": "string",
-          "description": "Passive Approval action",
-          "enum": [
-            "APPROVED",
-            "CANCELED",
-            "NOT_SUBMITTED",
-            "PENDING_BOOKING",
-            "SENTBACK",
-            "SUBMITTED"
-          ]
-        },
-        "passiveApprovalDelayAfterSubmit": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Passive Approval delay after submit"
-        },
-        "passiveApprovalDelayBeforeApprovalLimit": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Passive Approval delay before ApprovalLimitDate"
         }
       }
     },
@@ -2641,10 +2506,6 @@
         },
         "approved": {
           "type": "boolean"
-        },
-        "approver": {
-          "description": "The approver of this request. Null when request is in an approvalStatus different from SUBMITTED",
-          "$ref": "#/definitions/Employee"
         },
         "authorizedDate": {
           "type": "string",
@@ -2672,7 +2533,7 @@
         },
         "creationDate": {
           "type": "string",
-          "description": "For approved request, the date at which the approval process was completed"
+          "description": "For approved Request, the date at which the approval process was completed"
         },
         "custom1": {
           "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
@@ -2767,10 +2628,6 @@
           "example": false,
           "description": "Indicates whether the Request has ever been sent back to the employee"
         },
-        "expensePolicy": {
-          "description": "The expense policy that applies to the Request",
-          "$ref": "#/definitions/ResourceLink"
-        },
         "expenses": {
           "type": "array",
           "description": "Expected expenses attached to this Request",
@@ -2781,15 +2638,6 @@
         "extensionOf": {
           "description": "The Request that this Request is an extension of, or adendum to",
           "$ref": "#/definitions/RequestLink"
-        },
-        "highestExceptionLevel": {
-          "type": "string",
-          "description": "The highest level of exception contained in this request. One of { NONE, WARNING, ERROR }",
-          "enum": [
-            "NONE",
-            "WARNING",
-            "ERROR"
-          ]
         },
         "href": {
           "type": "string"
@@ -2844,19 +2692,19 @@
           "description": "The date the Request was submitted (last submit date in case of recall)"
         },
         "totalApprovedAmount": {
-          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the request",
+          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
           "$ref": "#/definitions/Amount"
         },
         "totalPostedAmount": {
-          "description": "The total amount of the Request, expressed in the reimbursement currency of the employee at the time he created the request",
+          "description": "The total amount of the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
           "$ref": "#/definitions/Amount"
         },
         "totalRemainingAmount": {
-          "description": "The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the request",
+          "description": "The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the Request",
           "$ref": "#/definitions/Amount"
         },
         "travelAgency": {
-          "description": "The travel agency office that is managing the trip associated to this request",
+          "description": "The travel agency office that is managing the trip associated to this Request",
           "$ref": "#/definitions/ResourceLink"
         },
         "type": {
@@ -2877,12 +2725,6 @@
           "description": "The travel agency unique identifier",
           "minLength": 1,
           "maxLength": 2147483647
-        },
-        "links": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Link"
-          }
         },
         "name": {
           "type": "string",
@@ -3105,7 +2947,7 @@
         },
         "segmentLocator": {
           "type": "string",
-          "description": "The segment locator"
+          "description": "The identifier for ConcurTravel segments"
         },
         "startDate": {
           "type": "string",
@@ -3166,7 +3008,6 @@
     "TripData": {
       "type": "object",
       "required": [
-        "legs",
         "segmentType"
       ],
       "properties": {
