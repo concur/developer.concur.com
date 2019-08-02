@@ -552,7 +552,7 @@ approvalStatus|object|[Approval Status](#schema-approvalstatus)|The approval sta
 approved|boolean|-|Indicates whether this Request is approved
 authorizedDate|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|For approved Request, the date at which the approval process was completed (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 businessPurpose|string|-|The business purpose of the Request
-canceledPostApproval|boolean|-|Indicates whether this Request was canceledPostApproval
+canceledPostApproval|boolean|-|Indicates whether this Request was canceled post approval
 closed|boolean|-|Indicates whether this Request is closed
 comment|string|-|The last comment attached to this Request
 creationDate|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|The date the Request was created (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')

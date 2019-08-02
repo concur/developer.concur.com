@@ -18,7 +18,7 @@
     },
     {
       "name": "Travel Agency Resource",
-      "description": "Manage the configuration for Travel Agencies integrated with Concur Request"
+      "description": "Get details of Travel Agencies integrated with Concur Request"
     },
     {
       "name": "Policy Resource",
@@ -218,7 +218,7 @@
           "201": {
             "description": "Created",
             "schema": {
-              "$ref": "#/definitions/ResourceOfRequest"
+              "$ref": "#/definitions/Request"
             }
           },
           "400": {
@@ -292,7 +292,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ResourceOfRequest"
+              "$ref": "#/definitions/Request"
             }
           },
           "400": {
@@ -380,7 +380,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ResourceOfRequest"
+              "$ref": "#/definitions/Request"
             }
           },
           "400": {
@@ -682,7 +682,7 @@
           {
             "name": "action",
             "in": "path",
-            "description": "The state transition to be executed",
+            "description": "The workflow state transition to be executed",
             "required": true,
             "type": "string",
             "enum": [
@@ -696,7 +696,7 @@
             ]
           },
           {
-            "in": "body",
+            "in": "query",
             "name": "comment",
             "description": "Only works with when the workflow action is ‘sendback’.",
             "required": false,
@@ -721,7 +721,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ResourceOfRequest"
+              "$ref": "#/definitions/Request"
             }
           },
           "400": {
@@ -786,7 +786,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ResourceOfExpense"
+                "$ref": "#/definitions/Expense"
               }
             }
           },
@@ -857,7 +857,7 @@
           "201": {
             "description": "Created",
             "schema": {
-              "$ref": "#/definitions/ResourceOfExpense"
+              "$ref": "#/definitions/Expense"
             }
           },
           "400": {
@@ -920,7 +920,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ResourceOfExpense"
+              "$ref": "#/definitions/Expense"
             }
           },
           "400": {
@@ -990,7 +990,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ResourceOfExpense"
+              "$ref": "#/definitions/Expense"
             }
           },
           "400": {
@@ -1757,7 +1757,7 @@
           "description": "The date of the transaction"
         },
         "travelAllowance": {
-          "description": "The Travel allowance",
+          "description": "The travel allowance",
           "$ref": "#/definitions/TravelAllowance"
         },
         "tripData": {
@@ -1840,11 +1840,11 @@
       "properties": {
         "href": {
           "type": "string",
-          "description": "Relation type as defined by the server."
+          "description": "Hyperlink to the resource."
         },
         "rel": {
           "type": "string",
-          "description": "Hyperlink to the resource."
+          "description": "Relation type as defined by the server."
         }
       }
     },
@@ -1925,7 +1925,7 @@
         "data": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ResourceOfRequest"
+            "$ref": "#/definitions/Request"
           }
         },
         "operations": {
@@ -1948,18 +1948,20 @@
           "$ref": "#/definitions/ApprovalStatus"
         },
         "approved": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Indicates whether this Request is approved"
         },
         "authorizedDate": {
           "type": "string",
-          "description": "The date the Request was authorized"
+          "description": "The date when the Request was authorized"
         },
         "businessPurpose": {
           "type": "string",
-          "description": "The businessPurpose of the Request"
+          "description": "The business purpose of the Request"
         },
         "canceledPostApproval": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Indicates whether this Request was canceled post approval"
         },
         "closed": {
           "type": "boolean",
@@ -2091,7 +2093,7 @@
         },
         "lastModified": {
           "type": "string",
-          "description": "The date the Request was last modified"
+          "description": "The date when the Request was last modified"
         },
         "mainDestination": {
           "description": "The main destination of the Request",
@@ -2112,7 +2114,8 @@
           "$ref": "#/definitions/Employee"
         },
         "pendingApproval": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Indicates whether this Request is pending approval"
         },
         "policy": {
           "description": "The policy that applies to the Request",
@@ -2132,7 +2135,7 @@
         },
         "submitDate": {
           "type": "string",
-          "description": "The date the Request was submitted (last submit date in case of recall)"
+          "description": "The date when the Request was submitted (last submit date in case of recall)"
         },
         "totalApprovedAmount": {
           "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
@@ -2151,7 +2154,7 @@
           "$ref": "#/definitions/ResourceLink"
         },
         "type": {
-          "description": "The type of the Request, inherited from the Request Policy Type",
+          "description": "The type of the Request, inherited from the Request policy type",
           "$ref": "#/definitions/RequestType"
         }
       }
@@ -2184,291 +2187,11 @@
       "properties": {
         "code": {
           "type": "string",
-          "description": "The code of the type inherited from the Request Policy type"
+          "description": "The code of the type inherited from the Request policy type"
         },
         "label": {
           "type": "string",
-          "description": "The label of the type inherited from the Request Policy Type"
-        }
-      }
-    },
-    "ResourceOfExpense": {
-      "type": "object",
-      "required": [
-        "transactionDate"
-      ],
-      "properties": {
-        "allocations": {
-          "type": "array",
-          "description": "List of the allocations composing this segment",
-          "items": {
-            "$ref": "#/definitions/Allocation"
-          }
-        },
-        "approvedAmount": {
-          "description": "The approved amount of the expected expense",
-          "$ref": "#/definitions/Amount"
-        },
-        "budgetAccrualDate": {
-          "type": "string",
-          "description": "The date to determine which budgets are affected (in the format yyyy-MM-dd’T’HH:mm:ss.SSS’Z’)",
-          "example": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        },
-        "businessPurpose": {
-          "type": "string",
-          "description": "The purpose of the expected expense"
-        },
-        "comments": {
-          "description": "Historical comments to the expected expense",
-          "$ref": "#/definitions/ResourceLink"
-        },
-        "custom1": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom10": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom11": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom12": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom13": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom14": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom15": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom16": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom17": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom18": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom19": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom2": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom20": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom21": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom22": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom23": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom24": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom25": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom26": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom27": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom28": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom29": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom3": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom30": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom31": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom32": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom33": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom34": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom35": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom36": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom37": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom38": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom39": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom4": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom40": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom5": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom6": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom7": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom8": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom9": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "exchangeRate": {
-          "description": "The exchange rate that applies to the expected expense",
-          "$ref": "#/definitions/ExchangeRate"
-        },
-        "expenseType": {
-          "description": "The expense type of the expected expense",
-          "$ref": "#/definitions/ExpenseType"
-        },
-        "href": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string",
-          "description": "The unique identifier of the expected expense"
-        },
-        "lastComment": {
-          "type": "string",
-          "description": "The last comment of the expected expense"
-        },
-        "lastModifiedDate": {
-          "type": "string",
-          "description": "The date when this expense was last modified"
-        },
-        "location": {
-          "description": "The location of the expense expected expense",
-          "$ref": "#/definitions/Location"
-        },
-        "orgUnit1": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "orgUnit2": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "orgUnit3": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "orgUnit4": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "orgUnit5": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "orgUnit6": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "postedAmount": {
-          "description": "The posted amount of the expected expense",
-          "$ref": "#/definitions/Amount"
-        },
-        "remainingAmount": {
-          "description": "The remaining amount of the expected expense",
-          "$ref": "#/definitions/Amount"
-        },
-        "source": {
-          "type": "string",
-          "description": "The source that created the expected expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. This field will be empty in any other case.",
-          "enum": [
-            "CASH_ADVANCE",
-            "TRAVEL_ALLOWANCE",
-            "AGENCY_FEE"
-          ]
-        },
-        "transactionAmount": {
-          "description": "The amount of the expected expense, in the transaction currency paid to the vendor",
-          "$ref": "#/definitions/Amount"
-        },
-        "transactionDate": {
-          "type": "string",
-          "description": "The date of the transaction"
-        },
-        "travelAllowance": {
-          "description": "The Travel allowance",
-          "$ref": "#/definitions/TravelAllowance"
-        },
-        "tripData": {
-          "description": "This property is non empty if this expected expense represents a travel segment (AIR, CAR, HOTEL, ...)",
-          "$ref": "#/definitions/TripData"
-        },
-        "vendor": {
-          "description": "The vendor of the expected expense",
-          "$ref": "#/definitions/Vendor"
+          "description": "The label of the type inherited from the Request policy type"
         }
       }
     },
@@ -2481,235 +2204,15 @@
         },
         "id": {
           "type": "string",
-          "description": "Unique identifier of the Request Policy",
+          "description": "Unique identifier of the Request policy",
           "minLength": 1,
           "maxLength": 2147483647
         },
         "name": {
           "type": "string",
-          "description": "Name of the Request Policy",
+          "description": "Name of the Request policy",
           "minLength": 1,
           "maxLength": 2147483647
-        }
-      }
-    },
-    "ResourceOfRequest": {
-      "type": "object",
-      "properties": {
-        "approvalLimitDate": {
-          "type": "string",
-          "description": "The date by which the Request must be approved. This element appears only when integrated with Concur Travel"
-        },
-        "approvalStatus": {
-          "description": "The approval status of the Request",
-          "$ref": "#/definitions/ApprovalStatus"
-        },
-        "approved": {
-          "type": "boolean"
-        },
-        "authorizedDate": {
-          "type": "string",
-          "description": "The date the Request was authorized"
-        },
-        "businessPurpose": {
-          "type": "string",
-          "description": "The businessPurpose of the Request"
-        },
-        "canceledPostApproval": {
-          "type": "boolean"
-        },
-        "closed": {
-          "type": "boolean",
-          "example": false,
-          "description": "Indicates whether the Request is closed"
-        },
-        "comment": {
-          "type": "string",
-          "description": "The last comment attached to this Request"
-        },
-        "comments": {
-          "description": "Historical comments header to the Request",
-          "$ref": "#/definitions/ResourceLink"
-        },
-        "creationDate": {
-          "type": "string",
-          "description": "For approved Request, the date at which the approval process was completed"
-        },
-        "custom1": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom10": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom11": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom12": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom13": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom14": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom15": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom16": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom17": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom18": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom19": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom2": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom20": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom3": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom4": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom5": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom6": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom7": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom8": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "custom9": {
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
-          "$ref": "#/definitions/CustomField"
-        },
-        "endDate": {
-          "type": "string",
-          "description": "The end date of the Request (in the format YYYY-MM-DD)"
-        },
-        "endTime": {
-          "type": "string",
-          "description": "The start time of the Request (in the format HH:MM)"
-        },
-        "everSentBack": {
-          "type": "boolean",
-          "example": false,
-          "description": "Indicates whether the Request has ever been sent back to the employee"
-        },
-        "expenses": {
-          "type": "array",
-          "description": "Expected expenses attached to this Request",
-          "items": {
-            "$ref": "#/definitions/ResourceLink"
-          }
-        },
-        "extensionOf": {
-          "description": "The Request that this Request is an extension of, or adendum to",
-          "$ref": "#/definitions/RequestLink"
-        },
-        "href": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string",
-          "description": "The unique identifier of the Request"
-        },
-        "lastModified": {
-          "type": "string",
-          "description": "The date the Request was last modified"
-        },
-        "mainDestination": {
-          "description": "The main destination of the Request",
-          "$ref": "#/definitions/Location"
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Request"
-        },
-        "operations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Link"
-          }
-        },
-        "owner": {
-          "description": "The employee who owns the Request",
-          "$ref": "#/definitions/Employee"
-        },
-        "pendingApproval": {
-          "type": "boolean"
-        },
-        "policy": {
-          "description": "The policy that applies to the Request",
-          "$ref": "#/definitions/ResourceLink"
-        },
-        "requestId": {
-          "type": "string",
-          "description": "The public key of the Request (unique per customer)"
-        },
-        "startDate": {
-          "type": "string",
-          "description": "The start date of the Request (in the format YYYY-MM-DD)"
-        },
-        "startTime": {
-          "type": "string",
-          "description": "The start time of the Request (in the format HH:MM)"
-        },
-        "submitDate": {
-          "type": "string",
-          "description": "The date the Request was submitted (last submit date in case of recall)"
-        },
-        "totalApprovedAmount": {
-          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
-          "$ref": "#/definitions/Amount"
-        },
-        "totalPostedAmount": {
-          "description": "The total amount of the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
-          "$ref": "#/definitions/Amount"
-        },
-        "totalRemainingAmount": {
-          "description": "The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the Request",
-          "$ref": "#/definitions/Amount"
-        },
-        "travelAgency": {
-          "description": "The travel agency office that is managing the trip associated to this Request",
-          "$ref": "#/definitions/ResourceLink"
-        },
-        "type": {
-          "description": "The type of the Request, inherited from the Request Policy Type",
-          "$ref": "#/definitions/RequestType"
         }
       }
     },
@@ -2736,7 +2239,6 @@
           "type": "string",
           "description": "The travel agency proposal type",
           "enum": [
-            "CWT",
             "CWTF",
             "AEBT",
             "API",
@@ -2934,7 +2436,7 @@
         },
         "endTime": {
           "type": "string",
-          "description": "The end time of the segment leg (in the format HH:MM). It is expressed in the local time of the endLocation"
+          "description": "The end time of the segment leg (in the format HH:MM). It is expressed in the local time of the end Location"
         },
         "id": {
           "type": "string",
@@ -2947,11 +2449,11 @@
         },
         "segmentLocator": {
           "type": "string",
-          "description": "The identifier for ConcurTravel segments"
+          "description": "The identifier for Concur Travel segments"
         },
         "startDate": {
           "type": "string",
-          "description": "The start date of the segment leg (in the format YYYY-MM-DD).It represents the departure date of AIRFR and TRAIN segments, check in date for HOTEL or pickup for CARRT"
+          "description": "The start date of the segment leg (in the format YYYY-MM-DD). It represents the departure date of AIRFR and TRAIN segments, check in date for HOTEL or pickup for CARRT"
         },
         "startLocation": {
           "description": "The start location of the segment leg (for HOTEL, this is empty)",
@@ -2963,7 +2465,7 @@
         },
         "startTime": {
           "type": "string",
-          "description": "The start time of the segment leg (in the format HH:MM). It is expressed in the local time of the startLocation\""
+          "description": "The start time of the segment leg (in the format HH:MM). It is expressed in the local time of the startLocation"
         },
         "vendorName": {
           "type": "string",
@@ -2992,7 +2494,7 @@
         },
         "code": {
           "type": "string",
-          "description": "The code of the segment type. This will most frequently be a String, but could also be an integer in the case of a custom expense typeFor example, would be REQ_SEG_AIRFR / AIRFR for a regular air segment, but REQ_SEG_AIRFR / 10325 for a custom air segment."
+          "description": "The code of the segment type. This will most frequently be a String, but could also be an integer in the case of a custom expense typeFor example, would be category = REQ_SEG_AIRFR and code = AIRFR for a regular air segment, but category = REQ_SEG_AIRFR and code = 10325 for a custom air segment."
         }
       }
     },
@@ -3048,11 +2550,11 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "The vendor identifier of the entry"
+          "description": "The vendor identifier of the expected expense"
         },
         "name": {
           "type": "string",
-          "description": "The vendor description of the entry"
+          "description": "The vendor description of the expected expense"
         }
       }
     }
