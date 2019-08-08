@@ -66,7 +66,7 @@ Employee Vendor|-|USD 10
 
 [**Standard Accounting Extract Details**](./v4.financial-integration-use-cases-extract-information.html#esopce)
 
-[**JSON Example**](/json/FI-API-ReportID-B1041655B4CE4171BDAA-Example-1.1.json)
+[**JSON Example**](json/FI-API-ReportID-B1041655B4CE4171BDAA-Example-1.1.json)
 
 ### <a name="usopcc"></a>Simple Out-of-Pocket Cash Credit
 
@@ -85,7 +85,7 @@ Employee Vendor|USD 50|-
 
 [**Standard Accounting Extract Details**](./v4.financial-integration-use-cases-extract-information.html#esopcc)
 
-[**JSON Example**](/json/FI-APIReportID-6517F735E33A47B98D80-Example-1.2.json)
+[**JSON Example**](json/FI-APIReportID-6517F735E33A47B98D80-Example-1.2.json)
 
 ### <a name="uspcme"></a>Simple Personal Car Mileage Expense
 
@@ -104,7 +104,7 @@ Employee Vendor|-|USD 24.30
 
 [**Standard Accounting Extract Details**](./v4.financial-integration-use-cases-extract-information.html#espcme)
 
-[**JSON Example**](/json/FI-API-ReportID-473498AF26AE45A094A6-Example-1.3.json)
+[**JSON Example**](json/FI-API-ReportID-473498AF26AE45A094A6-Example-1.3.json)
 
 ### <a name="utacprg"></a>Travel Allowances – Company Specific Rate Greater Than Government Rate
 
@@ -124,7 +124,7 @@ Employee Vendor (taxable)|-|EUR 26
 
 [**Standard Accounting Extract Details**](./v4.financial-integration-use-cases-extract-information.html#etacsrg)
 
-[**JSON Example**](/json/FI-API-ReportID-AA45D472EC0D456D9D73-Example-1.4.json)
+[**JSON Example**](json/FI-API-ReportID-AA45D472EC0D456D9D73-Example-1.4.json)
 
 ## <a name="uvath"></a>VAT Handling
 
@@ -152,7 +152,7 @@ Expense (amount net of tax)|EUR 8.40|-
 VAT|EUR 1.60|-
 Employee Vendor (gross amount)|-|EUR 10
 
-[**JSON Example**](/json/FI-API-ReportID-F071FADEA6B142DD884A-Example-2.1.json)
+[**JSON Example**](json/FI-API-ReportID-F071FADEA6B142DD884A-Example-2.1.json)
 
 ### <a name="undv"></a>Non-Deductible VAT
 
@@ -178,7 +178,7 @@ Expense (amount net of tax)|EUR 84.03|-
 Non-deductible VAT Expense|EUR 15.97|-
 Employee Vendor (gross amount)|-|EUR 100
 
-[**JSON Example**](/json/FI-API-ReportID-641C4F998328438284A2-Example-2.2.json)
+[**JSON Example**](json/FI-API-ReportID-641C4F998328438284A2-Example-2.2.json)
 
 ### <a name="uepmti"></a>Expense Posting With Multiple Tax Items
 
@@ -201,7 +201,7 @@ Tax Type 1|CAD 4.42|-
 Tax Type 2|CAD 7.08|-
 Employee Vendor (gross amount)|-|CAD 100
 
-[**JSON Example**](/json/FI-API-ReportID-0EE74C75C9344DEA942F-Example-2.3.json)
+[**JSON Example**](json/FI-API-ReportID-0EE74C75C9344DEA942F-Example-2.3.json)
 
 ###  <a name="updv"></a>Partially Deductible VAT
 
@@ -224,7 +224,7 @@ VAT|CAD 3.16|-
 Non-deductible VAT|CAD 3.16|-
 Employee Vendor (gross amount)|-|CAD 55
 
-[**JSON Example**](/json/FI-API-ReportID-FABA2A8599224AE5A6C8-Example-2.4.json)
+[**JSON Example**](json/FI-API-ReportID-FABA2A8599224AE5A6C8-Example-2.4.json)
 
 ### <a name="uferwv"></a>Foreign Expense Report Without VAT
 
@@ -248,7 +248,7 @@ Room Rate|GBP 60.24|-
 Hotel Tax|GBP 20.08|-
 Card Vendor|-|GBP 80.32
 
-[**JSON Example**](/json/FI-API-ReportID-2519BED4A22B43C4B8E7-Example-2.5.json)
+[**JSON Example**](json/FI-API-ReportID-2519BED4A22B43C4B8E7-Example-2.5.json)
 
 ## <a name="uitem"></a>Itemization
 
@@ -273,7 +273,7 @@ Employee Vendor|-|USD 325
 
 [**Standard Accounting Extract Details**](./v4.financial-integration-use-cases-extract-information.html#eiei)
 
-[**JSON Example**](/json/FI-API-ReportID-0C45F960C3064ED88C39-Example-3.1.json)
+[**JSON Example**](json/FI-API-ReportID-0C45F960C3064ED88C39-Example-3.1.json)
 
 ## <a name="ucosta"></a>Cost Allocation
 
@@ -304,7 +304,7 @@ Employee Vendor|-|USD 325
 
 [**Standard Accounting Extract Details**](./v4.financial-integration-use-cases-extract-information.html#eiei)
 
-[**JSON Example**](/json/FI-API-ReportID-460EFDDC98634EA9A0AD-Example-4.1.json)
+[**JSON Example**](json/FI-API-ReportID-460EFDDC98634EA9A0AD-Example-4.1.json)
 
 > **NOTE**: The room rate and room tax is charged to the same cost center as in the itemized expense example. Only the breakfast cost is allocated 50% between two different cost centers: 0021-Bellevue1 and Top Management. The allocation section is towards the bottom of the JSON.
 
@@ -333,7 +333,7 @@ Employee Vendor|-|USD 7000
 
 > **Note**: This extract example is the same as Itemized Expense Items.
 
-[**JSON Example**](/json/FI-API-CashAdvanceID-E2A086D30B88AE4683BC48ADE47B8116-Example-5.1.1.json)
+[**JSON Example**](json/FI-API-CashAdvanceID-E2A086D30B88AE4683BC48ADE47B8116-Example-5.1.1.json)
 
 ## <a name="uapp"></a>Application
 
@@ -361,11 +361,11 @@ Employee Vendor|-|GBP 15
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecailt)
 
-[**JSON Example**](/json/FI-API-CashAdvance-ID-2E6DA12BB8B87D468BD666383E44033D-Example-5.2.1.json)
+[**JSON Example**](json/FI-API-CashAdvance-ID-2E6DA12BB8B87D468BD666383E44033D-Example-5.2.1.json)
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecailtca)
 
-[**JSON Example**](/json/FI-API-Report-ID-14A40453BED6493EB53F-Example-5.2.1.json)
+[**JSON Example**](json/FI-API-Report-ID-14A40453BED6493EB53F-Example-5.2.1.json)
 
 ### <a name="ucahtp"></a>Cash Advance Is Higher Than the Payout Amount
 
@@ -391,11 +391,11 @@ Employee Vendor|GBP 85|-
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecaiht)
 
-[**JSON Example**](/json/FI-API-CashAdvance-ID-30D6B657B6A50946AC6C2DAB537C8CD9-Example-5.2.2.json)
+[**JSON Example**](json/FI-API-CashAdvance-ID-30D6B657B6A50946AC6C2DAB537C8CD9-Example-5.2.2.json)
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecaihtca)
 
-[**JSON Example**](/json/FI-API-Report-ID-52F40A7F26D74F1AAFFB-Example-5.2.2.json)
+[**JSON Example**](json/FI-API-Report-ID-52F40A7F26D74F1AAFFB-Example-5.2.2.json)
 
 ## <a name="ucct"></a>Credit Card Types
 
@@ -424,7 +424,7 @@ Employee Vendor|-|USD 10
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#epveva)
 
-[**JSON Example**](/json/FI-API-ReportID-B1041655B4CE4171BDAA-Example-6.1.1.json)
+[**JSON Example**](json/FI-API-ReportID-B1041655B4CE4171BDAA-Example-6.1.1.json)
 
 ### <a name="upccva"></a>Payment via Credit Card Vendor Account (Split Payment)
 
@@ -445,7 +445,7 @@ Credit Card Vendor|-|USD 56.10
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#epvccva)
 
-[**JSON Example**](/json/FI-API-ReportID-CDFDE0F4CACE4426A913-Example-6.1.2.json)
+[**JSON Example**](json/FI-API-ReportID-CDFDE0F4CACE4426A913-Example-6.1.2.json)
 
 ### <a name="uctccva"></a>Credit Transaction via Credit Card Vendor Account (Split Payment)
 
@@ -464,7 +464,7 @@ Credit Card Vendor|USD 349|-
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ectvcc)
 
-[**JSON Example**](/json/FI-API-ReportID-57A29232093E4B7AADF7-Example-6.1.3.json)
+[**JSON Example**](json/FI-API-ReportID-57A29232093E4B7AADF7-Example-6.1.3.json)
 
 ### <a name="usiccc"></a>Simple IBCP Corporate Card Charge With Itemization
 
@@ -487,7 +487,7 @@ Employee Vendor|-|USD 325
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#esiccc)
 
-[**JSON Example**](/json/FI-API-ReportID-0C45F960C3064ED88C39-Example-6.1.4.json)
+[**JSON Example**](json/FI-API-ReportID-0C45F960C3064ED88C39-Example-6.1.4.json)
 
 ### <a name="uiwpen"></a>IBCP With Personal Expense: No Out-of-Pocket
 
@@ -512,7 +512,7 @@ Employee Vendor|-|USD 325
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#eiwpe)
 
-[**JSON Example**](/json/FI-API-ReportID-4B643D954FF64AF0B771-Example-6.1.5.json)
+[**JSON Example**](json/FI-API-ReportID-4B643D954FF64AF0B771-Example-6.1.5.json)
 
 ### <a name="uiwpegt"></a>IBCP with Personal Expense Where Out-of-Pocket Exceeds the Personal Expense
 
@@ -537,7 +537,7 @@ Taxi|USD 35|-
 Credit Card Vendor|-|USD 270
 Employee Vendor|-|USD 35
 
-[**JSON Example**](/json/FI-API-ReportID-1B25850DD8B94D5F8B2D-Example-6.1.6.json)
+[**JSON Example**](json/FI-API-ReportID-1B25850DD8B94D5F8B2D-Example-6.1.6.json)
 
 **With Offsetting**
 
@@ -561,7 +561,7 @@ Employee Vendor|-|USD 21
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#eipewope)
 
-[**JSON Example**](/json/FI-API-ReportID-7E141428931340B990A3-Example-6.1.6-with-offsetting.json)
+[**JSON Example**](json/FI-API-ReportID-7E141428931340B990A3-Example-6.1.6-with-offsetting.json)
 
 ### <a name="uwpelt"></a>IBCP With Personal Expense Where Out-of-Pocket Is Less Than Personal Expense
 
@@ -585,7 +585,7 @@ Dinner|USD 20|-
 Parking|USD 5|-
 **Credit Card Vendor** |-|USD 275
 
-[**JSON Example**](/json/FI-API-ReportID-EEBD898C643A40DEB4E9-Example-6.1.7.json)
+[**JSON Example**](json/FI-API-ReportID-EEBD898C643A40DEB4E9-Example-6.1.7.json)
 
 **With Offsetting**
 
@@ -605,7 +605,7 @@ Parking |USD 5|-
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#eipewopl)
 
-[**JSON Example**](/json/FI-API-ReportID-9AAA32338A264AC1908E-Example-6.1.7-with-offsetting.json)
+[**JSON Example**](json/FI-API-ReportID-9AAA32338A264AC1908E-Example-6.1.7-with-offsetting.json)
 
 ## <a name="ucpcc"></a>Company Paid Credit Card
 
@@ -632,7 +632,7 @@ Credit Card Clearing|USD 32|-
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#eccccep)
 
-[**JSON Example**](/json/FI-API-ReportID-15298B27B5FC4EBC98B3-Example-6.2.1.json)
+[**JSON Example**](json/FI-API-ReportID-15298B27B5FC4EBC98B3-Example-6.2.1.json)
 
 ### <a name="ucccwcons"></a>CBCP Corporate Card Charge with Itemization and Personal Expense (Net Due Employee With Consolidation)
 
@@ -658,7 +658,7 @@ Credit Card Clearing|-|USD 284
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#eccccwc)
 
-[**JSON Example**](/json/FI-API-ReportID-815EF4FB5B4448A9B09E-Example-6.2.2.json)
+[**JSON Example**](json/FI-API-ReportID-815EF4FB5B4448A9B09E-Example-6.2.2.json)
 
 ### <a name="ucccepev"></a>CBCP Corporate Card Charge for Entirely Personal Expense (Net Due Company With Verbose Extract)
 
@@ -679,7 +679,7 @@ Credit Card Vendor|-|USD 300
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecccceve)
 
-[**JSON Example**](/json/FI-API-ReportID-9616BC579E7246D8BDB9-Example-6.2.3.json)
+[**JSON Example**](json/FI-API-ReportID-9616BC579E7246D8BDB9-Example-6.2.3.json)
 
 ### <a name="ucccnoff"></a>CBCP Corporate Card Charge with Itemization and Personal Expense (Net Due Employee With No Offsets)
 
@@ -703,4 +703,4 @@ Credit Card Vendor|-|USD 284
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#eccccepno)
 
-[**JSON Example**](/json/FI-API-ReportID-7F00502973D84DEFA49E-Example-6.2.4.json)
+[**JSON Example**](json/FI-API-ReportID-7F00502973D84DEFA49E-Example-6.2.4.json)
