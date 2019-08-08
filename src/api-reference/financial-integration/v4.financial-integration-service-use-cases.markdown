@@ -85,7 +85,7 @@ Employee Vendor|USD 50|-
 
 [**Standard Accounting Extract Details**](./v4.financial-integration-use-cases-extract-information.html#esopcc)
 
-[**JSON Example**](json/FI-APIReportID-6517F735E33A47B98D80-Example-1.2.json)
+[**JSON Example**](json/FI-API-ReportID-6517F735E33A47B98D80-Example-1.2.json)
 
 ### <a name="uspcme"></a>Simple Personal Car Mileage Expense
 
