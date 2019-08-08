@@ -696,11 +696,13 @@
             ]
           },
           {
-            "in": "query",
+            "in": "body",
             "name": "comment",
             "description": "Only works with when the workflow action is ‘sendback’.",
             "required": false,
-            "type": "string"
+            "schema": {
+              "$ref": "#/definitions/WorkflowAction"
+            }
           },
           {
             "name": "companyId",
@@ -2557,6 +2559,10 @@
           "description": "The vendor description of the expected expense"
         }
       }
+    },
+    "WorkflowAction": {
+      "type": "string",
+       "description": "Comment when the workflow action is ‘sendback’."
     }
   }
 }
