@@ -9,6 +9,7 @@ layout: reference
   * [Request](#schema-request)
   * [Amount](#schema-amount)
   * [ApprovalStatus](#schema-approvalstatus)
+  * [Comments](#schema-comments)
   * [Customfield](#schema-customfield)
   * [Employee](#schema-employee)
   * [Link](#schema-link)
@@ -24,6 +25,7 @@ layout: reference
   * [List Item Field](#schema-listitemfield)
   * [Segment Leg](#schema-segmentleg)
   * [Segment Type](#schema-segmenttype)
+  * [Travel Agency](#schema-travelagency)
   * [Travel Allowance](#schema-travelallowance)
   * [Trip Data](#schema-tripdata)
   * [Vendor](#schema-vendor)
@@ -82,6 +84,15 @@ Name|Type|Format|Description
 ---|---|---|---
 code|string|-|The code for the approval status the Request. <br>Possible values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED` or `SENTBACK`
 name|string|-|The approval status of the Request in the current user's language
+
+### <a name="schema-comments"></a>Comments
+
+Name|Type|Format|Description
+---|---|---|---
+author|object|[Employee](#schema-employee)|The employee who has created the comment in the expected expense
+creationDate|path|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|Creation date of the comment (in the format yyyy-MM-dd'T'HH:mm:ss.SSS)
+isLates|boolean|path|-|True when the comment has been edited since the last workflow transition
+value|path|string|-|The value of the comment
 
 ### <a name="schema-customfield"></a>CustomField
 
@@ -250,6 +261,15 @@ Example:
   "code": "AIRFR"
 }
 ```
+
+### <a name="schema-travelagency"></a>Travel Agency
+
+Name|Type|Format|Description
+---|---|---|---
+emailAddress|string|-|The travel agency email address
+id|string|-|The travel agency unique identifier
+name|string|-|The travel agency office name
+proposalType|string|-|The travel agency proposal type. Possible value: `CWTF`, `AEBT` or `API`
 
 ### <a name="schema-travelallowance"></a>Travel Allowance
 

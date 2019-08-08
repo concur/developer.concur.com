@@ -24,16 +24,6 @@ Manage workflow transitions for a Request.
 
 ### HTTP Request
 
-#### Parameters
-
-Name|Parameter Type|Data Type|Description
----|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
-action|path|string|**Required** The state transition to be executed (`submit`, `approve`, `recall`, `sendback`, `cancel`, `close` or `reopen`)
-comment|path|string|Only works with when the workflow action is ‘sendback’. This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
-userId|path|string|The unique identifier of the user performing the status transition. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
-companyID|path|string|The unique identifier of the company
-
 The HATEOAS links for actions available given the current user and state are listed in the operations of the Request resource.
 
 * Traveler actions
@@ -51,6 +41,16 @@ The HATEOAS links for actions available given the current user and state are lis
 ```
 POST {datacenter}/travelrequest/v4/requests/{requestUuid}/{action}
 ```
+
+#### Parameters
+
+Name|Parameter Type|Data Type|Description
+---|---|---|---
+requestUuid|path|string|**Required** The unique identifier of the Request
+action|path|string|**Required** The state transition to be executed (`submit`, `approve`, `recall`, `sendback`, `cancel`, `close` or `reopen`)
+comment|path|string|Only works with when the workflow action is ‘sendback’. This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
+userId|path|string|The unique identifier of the user performing the status transition. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+companyID|path|string|The unique identifier of the company
 
 #### Payload
 

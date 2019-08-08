@@ -17,23 +17,23 @@ layout: reference
 
 To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
-# <a name="expense-resource"></a>Expense Resources
+# <a name="expected-expense-resource"></a>Expected Expense Resources
 
 Manage expected expense entries attached to a Request document.
 
 ## <a name="create-new-expected-expense-resource"></a>Create a new expected expense
-
-##### URI Template
-
-```
-POST {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
-```
 
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+POST {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
+```
 
 #### Parameters
 
@@ -44,13 +44,13 @@ userId|path|string|The unique identifier of the user performing the expected exp
 
 #### Payload
 
-[Expense](./v4.endpoints.schemas.html#schema-expected-expense)
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense)
 
 ### HTTP Response
 
 #### Payload
 
-None
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The created expected expense
 
 ### Example
 
@@ -263,18 +263,17 @@ Authorization: Bearer {token}
 
 ## <a name="get-expected-expense-attached-request-resource"></a>Get the list of expected expenses attached to a Request
 
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
 
 ##### URI Template
 
 ```
 GET {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
 ```
-
-### Scopes
-
-`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
-
-### HTTP Request
 
 #### Parameters
 
@@ -291,7 +290,7 @@ None
 
 #### Payload
 
-[Expense](./v4.endpoints.schemas.html#schema-expected-expense) - List of expected expenses attached to a Request.
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - List of expected expenses attached to a Request.
 
 operations - [RFC 5988](https://tools.ietf.org/html/rfc5988) Pagination links to next/prev/first/last page.
 
@@ -537,17 +536,17 @@ Authorization: Bearer {token}
 
 ## <a name="get-content-expected-expense-resource"></a>Get the content of an expected expense
 
-##### URI Template
-
-```
-GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}
+```
 
 #### Parameters
 
@@ -564,7 +563,7 @@ None
 
 #### Payload
 
-[Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier
 
 ### Example
 
@@ -615,7 +614,7 @@ Authorization: Bearer {token}
     "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/2F9FB5CE3AC2C74C9AC3D4AB3A83C0DA/comments",
     "id": "2F9FB5CE3AC2C74C9AC3D4AB3A83C0DA",
     "template": "http://us.api.concursolutions.com/travelrequest/v4/expenses/{id}/comments"
-  }, 
+  },
   "exchangeRate": {
     "value": 1,
     "operation": "MULTIPLY"
@@ -776,17 +775,17 @@ Authorization: Bearer {token}
 
 ## <a name="update-content-expected-expense-resourcee"></a>Update the content of an expected expense
 
-##### URI Template
-
-```
-PUT {datacenter}/travelrequest/v4/expenses/{expenseUuid}
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+PUT {datacenter}/travelrequest/v4/expenses/{expenseUuid}
+```
 
 #### Parameters
 
@@ -797,13 +796,13 @@ userId|path|string|The unique identifier of the user performing the expected exp
 
 #### Payload
 
-[Expense](./v4.endpoints.schemas.html#schema-expected-expense)
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense)
 
 ### HTTP Response
 
 #### Payload
 
-[Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier after update
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier after update
 
 ### Example
 
@@ -1059,17 +1058,17 @@ Authorization: Bearer {token}
 
 ## <a name="delete-expected-expense-request-resource"></a>Delete an expected expense from the Request
 
-##### URI Template
-
-```
-DELETE {datacenter}/travelrequest/v4/expenses/{expenseUuid}
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+DELETE {datacenter}/travelrequest/v4/expenses/{expenseUuid}
+```
 
 #### Parameters
 
@@ -1110,26 +1109,24 @@ true
 
 ## <a name="expense-resource-comments"></a>Get the list of comments for an existing expected expense
 
-##### URI Template
-
-```
-GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}/comments
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
 
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}/comments
+```
+
 #### Parameters
 
-Name|Type|Format|Description
+Name|Parameter Type|Data Type|Description
 ---|---|---|---
-author|object|[Employee](#schema-employee)|The employee who has created the comment in the expected expense
-creationDate|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|Creation date of the comment (in the format yyyy-MM-dd'T'HH:mm:ss.SSS)
-isLates|boolean|-|True when the comment has been edited since the last workflow transition
-value|string|-|The value of the comment
+expenseUuid|path|string|**Required** The unique identifier of the expected expense
+userId|path|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
@@ -1139,7 +1136,7 @@ None
 
 #### Payload
 
-None
+[Comments](./v4.endpoints.schemas.html#schema-comments)
 
 ### Example
 

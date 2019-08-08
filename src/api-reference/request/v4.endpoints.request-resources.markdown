@@ -22,16 +22,17 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 ## <a name="request-resource-create"></a>Create a new Request
 
-##### URI Template
-
-```
-POST {datacenter}/travelrequest/v4/requests
-```
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+POST {datacenter}/travelrequest/v4/requests
+```
 
 #### Parameters
 
@@ -191,26 +192,26 @@ Authorization: Bearer {token}
 
 ## <a name="request-resource-getlist"></a>Get the list of existing Requests
 
-##### URI Template
-
-```
-GET {datacenter}/travelrequest/v4/requests
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
 
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/requests
+```
+
 #### Parameters
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-view|path|string|Name of the perimeter defining the requests to get.<br> Possible values: 
+view|path|string|Name of the perimeter defining the requests to get.<br> Possible values:
 <br> `ALL`: Get all existing Requests for a user (relevant only for the traveler);
 <br> `ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than 3 months based on current date and must not be in closed status;
-<br> `UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler); 
+<br> `UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler);
 <br> `PENDING`: Get all the pending Requests (relevant only for the traveler);
 <br> `VALIDATED`: Get all the approved Requests for a user (relevant only for the traveler). Closed Requests are included in this view;
 <br> `APPROVED`: Get all the approved Requests by a user (relevant only for the approver). Closed Requests are included in this view;
@@ -219,7 +220,7 @@ view|path|string|Name of the perimeter defining the requests to get.<br> Possibl
 <br> `SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests;
 <br> `TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver);
 <br> `PENDINGEBOOKING: Approved Requests awaiting Concur Travel booking(s).
-<br> When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`. 
+<br> When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`.
 <br> If no view value is sent, the default view `ALL` will be used
 userId|path|string|The unique identifier of the Request owner to use when searching for Requests
 start|path|Integer|Pagination: index of the first record (default 0)
@@ -354,17 +355,17 @@ Authorization: Bearer {token}
 
 ## <a name="request-resource-get"></a>Get the content of an existing Request
 
-##### URI Template
-
-```
-GET {datacenter}/travelrequest/v4/requests/{requestUuid}
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/requests/{requestUuid}
+```
 
 #### Parameters
 
@@ -415,7 +416,7 @@ Authorization: Bearer {token}
     "href": "http://us.api.concursolutions.com/v4/requests/474AD50230C0B94AAB318D22BB1C4322/comments",
     "id": "474AD50230C0B94AAB318D22BB1C4322",
     "template": "http://us.api.concursolutions.com/v4/requests/{id}/comments"
-  }, 
+  },
   "creationDate": "2018-05-25T07:31:33.000Z",
   "custom1": {
     "value": "Kick-off meeting for project KIWI"
@@ -514,17 +515,17 @@ This endpoint supports partial update. You may submit only the fields to update 
 To clear a field use the value *null* (without quotes)<br>
 `id` field is not mandatory in the payload, if provided the value must match the requestUuid parameter.<br>
 
-##### URI Template
-
-```
-PUT {datacenter}/travelrequest/v4/requests/{requestUuid}
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+PUT {datacenter}/travelrequest/v4/requests/{requestUuid}
+```
 
 #### Parameters
 
@@ -685,17 +686,17 @@ Authorization: Bearer {token}
 
 ## <a name="request-resource-delete"></a>Delete an existing Request
 
-##### URI Template
-
-```
-DELETE {datacenter}/travelrequest/v4/requests/{requestUuid}
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+DELETE {datacenter}/travelrequest/v4/requests/{requestUuid}
+```
 
 #### Parameters
 
@@ -736,17 +737,17 @@ true
 
 ## <a name="request-resource-create-expense-linked"></a>Create an Expense Report linked to an approved Request
 
-##### URI Template
-
-```
-POST {datacenter}/travelrequest/v4/requests/{requestUuid}/reports
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+POST {datacenter}/travelrequest/v4/requests/{requestUuid}/reports
+```
 
 #### Parameters
 
@@ -791,26 +792,24 @@ Authorization: Bearer {token}
 
 ## <a name="request-resource-comments"></a>Get the list of comments for an existing Request
 
-##### URI Template
-
-```
-GET {datacenter}/travelrequest/v4/requests/{requestUuid}/comments
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
 
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/requests/{requestUuid}/comments
+```
+
 #### Parameters
 
 Name|Type|Format|Description
 ---|---|---|---
-author|object|[Employee](#schema-employee)|The employee who has created the comment in the Request Header
-creationDate|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|Creation date of the comment (in the format yyyy-MM-dd'T'HH:mm:ss.SSS)
-isLates|boolean|-|True when the comment has been edited since the last workflow transition
-value|string|-|The value of the comment
+erequestUuid|path|string|**Required** The unique identifier of the Request
+userId|path|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
@@ -820,7 +819,7 @@ None
 
 #### Payload
 
-None
+[Comments](./v4.endpoints.schemas.html#schema-comments)
 
 ### Example
 

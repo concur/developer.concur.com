@@ -16,17 +16,17 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 ## <a name="get-user-request-policy-resource"></a>Get the list of existing Request policies for a given user
 
-##### URI Template
-
-```
-GET {datacenter}/travelrequest/v4/userpolicies
-```
-
 ### Scopes
 
 `travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
 
 ### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/userpolicies
+```
 
 #### Parameters
 
