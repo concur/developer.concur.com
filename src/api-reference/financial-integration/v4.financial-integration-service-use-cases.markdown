@@ -361,7 +361,7 @@ Employee Vendor|-|GBP 15
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecailt)
 
-[**JSON Example**](json/FI-API-CashAdvance-ID-2E6DA12BB8B87D468BD666383E44033D-Example-5.2.1.json)
+[**JSON Example**](json/FI-API-CashAdvanceID-2E6DA12BB8B87D468BD666383E44033D-Example-5.2.1.json)
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecailtca)
 
