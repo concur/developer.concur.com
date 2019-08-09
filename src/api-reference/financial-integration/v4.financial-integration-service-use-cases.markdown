@@ -365,7 +365,7 @@ Employee Vendor|-|GBP 15
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecailtca)
 
-[**JSON Example**](json/FI-API-Report-ID-14A40453BED6493EB53F-Example-5.2.1.json)
+[**JSON Example**](json/FI-API-ReportID-14A40453BED6493EB53F-Example-5.2.1.json)
 
 ### <a name="ucahtp"></a>Cash Advance Is Higher Than the Payout Amount
 
