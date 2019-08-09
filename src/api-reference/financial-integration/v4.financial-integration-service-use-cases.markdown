@@ -391,11 +391,11 @@ Employee Vendor|GBP 85|-
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecaiht)
 
-[**JSON Example**](json/FI-API-CashAdvance-ID-30D6B657B6A50946AC6C2DAB537C8CD9-Example-5.2.2.json)
+[**JSON Example**](json/FI-API-CashAdvanceID-30D6B657B6A50946AC6C2DAB537C8CD9-Example-5.2.2.json)
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecaihtca)
 
-[**JSON Example**](json/FI-API-Report-ID-52F40A7F26D74F1AAFFB-Example-5.2.2.json)
+[**JSON Example**](json/FI-API-ReportID-52F40A7F26D74F1AAFFB-Example-5.2.2.json)
 
 ## <a name="ucct"></a>Credit Card Types
 
