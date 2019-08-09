@@ -85,7 +85,7 @@ Employee Vendor|USD 50|-
 
 [**Standard Accounting Extract Details**](./v4.financial-integration-use-cases-extract-information.html#esopcc)
 
-[**JSON Example**](json/FI-APIReportID-6517F735E33A47B98D80-Example-1.2.json)
+[**JSON Example**](json/FI-API-ReportID-6517F735E33A47B98D80-Example-1.2.json)
 
 ### <a name="uspcme"></a>Simple Personal Car Mileage Expense
 
@@ -361,11 +361,11 @@ Employee Vendor|-|GBP 15
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecailt)
 
-[**JSON Example**](json/FI-API-CashAdvance-ID-2E6DA12BB8B87D468BD666383E44033D-Example-5.2.1.json)
+[**JSON Example**](json/FI-API-CashAdvanceID-2E6DA12BB8B87D468BD666383E44033D-Example-5.2.1.json)
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecailtca)
 
-[**JSON Example**](json/FI-API-Report-ID-14A40453BED6493EB53F-Example-5.2.1.json)
+[**JSON Example**](json/FI-API-ReportID-14A40453BED6493EB53F-Example-5.2.1.json)
 
 ### <a name="ucahtp"></a>Cash Advance Is Higher Than the Payout Amount
 
@@ -391,11 +391,11 @@ Employee Vendor|GBP 85|-
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecaiht)
 
-[**JSON Example**](json/FI-API-CashAdvance-ID-30D6B657B6A50946AC6C2DAB537C8CD9-Example-5.2.2.json)
+[**JSON Example**](json/FI-API-CashAdvanceID-30D6B657B6A50946AC6C2DAB537C8CD9-Example-5.2.2.json)
 
 [**Standard Accounting Extract**](./v4.financial-integration-use-cases-extract-information.html#ecaihtca)
 
-[**JSON Example**](json/FI-API-Report-ID-52F40A7F26D74F1AAFFB-Example-5.2.2.json)
+[**JSON Example**](json/FI-API-ReportID-52F40A7F26D74F1AAFFB-Example-5.2.2.json)
 
 ## <a name="ucct"></a>Credit Card Types
 
