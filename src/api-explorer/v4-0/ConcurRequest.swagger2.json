@@ -5,7 +5,7 @@
     "version": "4.0",
     "title": "Concur Request API Documentation"
   },
-  "host": "www.concursolutions.com",
+  "host": "us.api.concursolutions.com",
   "basePath": "/travelrequest/v4",
   "tags": [
     {
