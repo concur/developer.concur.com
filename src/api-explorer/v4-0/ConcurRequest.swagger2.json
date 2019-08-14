@@ -10,7 +10,7 @@
   "tags": [
     {
       "name": "Request Resource",
-      "description": "Manage Request which is representing the starting point of pre-spend authorizations within Concur Request"
+      "description": "Represents the starting point of pre-spend authorizations within Concur Request"
     },
     {
       "name": "Workflow Resource",
