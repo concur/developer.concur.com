@@ -62,7 +62,7 @@ The App Center partner will receive an inquiry notification email. Partners must
 
 ![Sample Accept/Reject Form](./app-center-lead-submission-process-accept-reject-form.png)
 
-## Client/Prospect-Submitted Leads
+## SAP Concur Rep-Submitted Leads
 
 ## <a name="referral"></a>Step 1: Rep Clicks App Center Referral on the Client/Prospect’s Salesforce Contact Record
 
