@@ -14,7 +14,8 @@ A subscription to a notification when the SAP Concur user changes the specified 
 
 To subscribe:
 
-```https://www.concursolutions.com/api/user/v1.0/subscribe
+```
+https://www.concursolutions.com/api/user/v1.0/subscribe
 ```
 
 To unsubscribe:
@@ -48,7 +49,8 @@ Subscribes or unsubscribes the travel supplier from notifications when the user 
 
 To subscribe:
 
-```shells://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary
+```
+shells://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary
 ```
 
 To unsubscribe:
