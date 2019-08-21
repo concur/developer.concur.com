@@ -14,8 +14,7 @@ A subscription to a notification when the SAP Concur user changes the specified 
 
 To subscribe:
 
-```
-https://www.concursolutions.com/api/user/v1.0/subscribe
+```https://www.concursolutions.com/api/user/v1.0/subscribe
 ```
 
 To unsubscribe:
@@ -36,9 +35,10 @@ application/xml
 
 ## Operations
 
-* [Subscribe for notifications for itinerary changes](#a1)
-* [Subscribe for notifications for payment changes](#a2)
-* [Subscribe for notifications for travel profile changes](#a3)
+* [Subscribe to notifications for itinerary changes](#a1)
+  * [Schema](#schema)
+* [Subscribe to notifications for payment changes](#a2)
+* [Subscribe to notifications for travel profile changes](#a3)
 
 ## <a name="a1">Subscribe to Notifications for Itinerary Changes</a>
 
@@ -84,7 +84,7 @@ The notification will be sent to the Postback URL that the supplier has register
 
 `https://postbackurl.com?type=Itinerary&oauth_token_key={oauth_token}`
 
-### Response Body Schema
+### <a name="schema"></a>Response Body Schema
 
 The request will include a **Notification** parent element, with the following child elements:
 
