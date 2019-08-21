@@ -6,13 +6,13 @@ redirect_from:
   - /api-reference/travel-profile/05-notification-user-resource.html
 ---
 
-A subscription to a notification when the Concur user changes the specified features of their Concur account or data. Currently supports notifications for the following events: Itinerary change (create or update), Travel Profile basic information change, or Travel Profile Form of Payment change. This functionality is restricted to Travel Suppliers or TMCs (Travel Management Companies) who have registered with Concur.
+A subscription to a notification when the SAP Concur user changes the specified features of their SAP Concur account or data. Currently supports notifications for the following events: Itinerary change (create or update), Travel Profile basic information change, or Travel Profile Form of Payment change. This functionality is restricted to Travel Suppliers or TMCs (Travel Management Companies) who have registered with SAP Concur.
 
 **NOTE**: This resource can only be accessed by partner applications that have selected the `User` API scope.
 
 ## Resource URI
 
-To subscribe:
+To subscribe
 
 ```
 https://www.concursolutions.com/api/user/v1.0/subscribe
@@ -26,11 +26,11 @@ https://www.concursolutions.com/api/user/v1.0/unsubscribe
 
 ## Headers
 
-### Content-Type header
+### Content-Type Header
 
 application/xml
 
-### Accept header
+### Accept Header
 
 application/xml
 
@@ -40,9 +40,9 @@ application/xml
 * [Subscribe for notifications for payment changes](#a2)
 * [Subscribe for notifications for travel profile changes](#a3)
 
-## <a name="a1">Subscribe for notifications for itinerary changes</a>
+## <a name="a1">Subscribe to Notifications for Itinerary Changes</a>
 
-Subscribes or unsubscribes the travel supplier from notifications when the user adds, modifies, or cancels an itinerary. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their trip information.
+Subscribes or unsubscribes the travel supplier from notifications when the user adds, modifies, or cancels an itinerary. This functionality is only available to travel suppliers that have an application on the App Center tab of SAP Concur. The supplier must also have received authorization by the user to access their trip information.
 
 ## Request
 
@@ -57,7 +57,7 @@ To unsubscribe
 https://www.concursolutions.com/api/travelprofile/v1.0/unsubscribe?type=itinerary
 ```
 
-### Request parameters
+### Request Parameters
 
 Name|Description
 ---|---
@@ -65,26 +65,26 @@ type=itinerary|The type of subscription. Required.
 
 ### Headers
 
-#### Authorization header
+#### Authorization Header
 
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/apidoc.html).
+Required. Authorization header with OAuth token for the desired SAP Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/apidoc.html).
 
-###  Example: Subscribe to itinerary changes
+###  Example: Subscribe to Itinerary Changes
 
 ```shell
 POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
-##  Post notification subscription for itinerary changes response
+##  Post Notification Subscription for Itinerary Changes Response
 
-### Notification format
+### Notification Format
 
-The notification will be sent to the Postback URL that the supplier has registered with Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
+The notification will be sent to the Postback URL that the supplier has registered with SAP Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
 
 `https://postbackurl.com?type=Itinerary&oauth_token_key={oauth_token}`
 
-### Response body root elements
+### Response Body Schema
 
 The request will include a **Notification** parent element, with the following child elements:
 
@@ -97,7 +97,7 @@ EventType|The type of the change. Format: CREATE, UPDATE, CANCEL
 Context|This is not used yet but will be used in the future to specify the change in the trip. Developers can use this in conjunction with EventType to decide how to process the notification.
 TripId|The unique identifier for the trip. Format: String
 
-###  Example: Post a of notification in XML format
+###  Example: Post a of Notification in XML Format
 
 ```shell
 POST https://www.postbackurl.com?type=itinerary&oauth_token_key={oauthtoken} HTTP/1.1
@@ -121,17 +121,17 @@ Content-Type: application/xml
 
 `200 OK`
 
-##  <a name="a2">Subscribe for notifications for payment changes</a>
+##  <a name="a2">Subscribe for Notifications for Payment Changes</a>
 
 ### Description
 
-Subscribes or unsubscribes the travel supplier from notifications when the user's Form of Payment information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their Form of Payment information.
+Subscribes or unsubscribes the travel supplier from notifications when the user's Form of Payment information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of SAP Concur. The supplier must also have received authorization by the user to access their Form of Payment information.
 
-**NOTE**: Concur will send a notification when any area of the user's Form of Payment is updated. This may include fields that are not available through the Travel Profile web service.
+**NOTE**: SAP Concur will send a notification when any area of the user's Form of Payment is updated. This may include fields that are not available through the Travel Profile web service.
 
 ### <a name="a2">Post Notification Subscription for Form of Payment Changes Request</a>
 
-#### Request parameters
+#### Request Parameters
 
 Name|Description
 ---|---
@@ -152,9 +152,9 @@ https://www.concursolutions.com/api/travelprofile/v1.0/unsubscribe?type=fop
 
 #### Headers
 
-##### Authorization header
+##### Authorization Header
 
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/apidoc.html).
+Required. Authorization header with OAuth token for the desired SAP Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/apidoc.html).
 
 ###  XML Example Request
 
@@ -163,25 +163,25 @@ POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=fop H
 Authorization: OAuth {access token}
 ```
 
-###  Post notification subscription for form of payment changes response
+###  Post Notification Subscription for Form of Payment Changes Response
 
 #### Notification Format
 
-The notification will be sent to the Postback URL that the supplier has registered with Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
+The notification will be sent to the Postback URL that the supplier has registered with SAP Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
 
 ```
 https://postbackurl.com?type=FOP&oauth_token_key={oauth_token}
 ```
 
-###  XML Example of successful response
+###  XML Example of Successful Response
 
 `200 OK`
 
-##  <a name="a3">Subscribe for notifications for travel profile changes</a>
+##  <a name="a3">Subscribe for Notifications for Travel Profile Changes</a>
 
-Subscribes or unsubscribes the travel supplier from notifications when the user's Travel Profile information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their travel profile information.
+Subscribes or unsubscribes the travel supplier from notifications when the user's Travel Profile information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of SAP Concur. The supplier must also have received authorization by the user to access their travel profile information.
 
-**NOTE**: Concur will send a notification when any area of the user's Travel Profile is updated. This may include fields that are not available through the Travel Profile web service.
+**NOTE**: SAP Concur will send a notification when any area of the user's Travel Profile is updated. This may include fields that are not available through the Travel Profile web service.
 
 ### Request
 
@@ -209,7 +209,7 @@ https://www.concursolutions.com/api/travelprofile/v1.0/unsubscribe?type=profile
 
 ##### Authorization header
 
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authorization-pre-2017.html).
+Required. Authorization header with OAuth token for the desired SAP Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authorization-pre-2017.html).
 
 ###  Request
 
@@ -222,7 +222,7 @@ Authorization: OAuth {access token}
 
 #### Notification Format
 
-The notification will be sent to the Postback URL that the supplier has registered with Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
+The notification will be sent to the Postback URL that the supplier has registered with SAP Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
 
 ```
 https://postbackurl.com?type=Profile&oauth_token_key={oauth_token}
