@@ -6,25 +6,27 @@ redirect_from:
 - /api-reference/travel-profile/03-loyalty-program-resource.html
 ---
 
-The loyalty program information for the user, as entered in Concur.
+The loyalty program information for the user, as entered in SAP Concur.
 
 ## URI
 
 `https://www.concursolutions.com/api/travelprofile/v1.0/loyalty`
 
-## Content types
+## Content Types
 
 * application/xml
 
-## Accept types
+## Accept Types
 
 * application/xml
 
 ## Operations
 
 * [Update loyalty program information](#a1)
+  * [Request schema](#requestschema)
+  * [Response schema](#responseschema)
 
-## <a name="a1">Update loyalty program information</a>
+## <a name="a1">Update Loyalty Program Information</a>
 
 Updates the loyalty program information for the OAuth consumer. Loyalty contains a variety of information about the user's loyalty membership, including:
 
@@ -47,40 +49,38 @@ If the request is sent by a TMC, the request can update any loyalty program for 
 
 ### Restrictions
 
-This function is only available to travel suppliers who have completed the [Concur application review process](/manage-apps/app-certification.html). Suppliers may post loyalty membership information for their loyalty programs only.
+This function is only available to travel suppliers who have completed the [SAP Concur application review process](/manage-apps/app-certification.html). Suppliers may post loyalty membership information for their loyalty programs only.
 
 ## Request
 
 ### Headers
 
-#### Authorization header
+#### Authorization Header
 
-Authorization header with OAuth token for valid Concur user. Required.
+Authorization header with OAuth token for valid SAP Concur user. Required.
 
-#### Accept header
+#### Accept Header
 
 application/xml
 
-### Request body
-
-#### Root elements
+### Request Body
 
 This request contains the **LoyaltyMembershipUpdate** parent element with a **Membership** child element for each included loyalty program. The **Membership** element has a **UniqueID** attribute containing the loyalty program identifier, and the following child elements.
 
-##### Membership element
+#### <a name="requestschema"></a>Update Loyalty Program Membership Request Schema
 
 Element|Description
 ---|---
-VendorCode|The code for the vendor that manages the loyalty program. This element is required when the request is sent by a TMC, and is ignored when the request is sent by a travel supplier.
-VendorType|The type of vendor that manages the loyalty program. Format: A, C or H<br>A – Air<br>C – Car<br>H – Hotel<br>This element is required when the request is sent by a TMC, and is ignored when the request is sent by a travel supplier.
-AccountNo|The user's account identifier in the loyalty program.
-Status|Name of the user's current level in the loyalty program.  Examples: Gold or Premier.
-StatusBenefits|Description of a benefit of the loyalty program at the current status. Example: You are entitled to free breakfast.
-PointTotal|The user's total number of points in the loyalty program.
-SegmentTotal|The user's total segments in the loyalty program.
-NextStatus|Name or description of next higher status level in the  loyalty program.
-PointsUntilNextStatus|Loyalty points required to next status level.
-SegmentsUntilNextStatus|Booking segments to next status level.
+`VendorCode`|The code for the vendor that manages the loyalty program. This element is required when the request is sent by a TMC, and is ignored when the request is sent by a travel supplier.
+`VendorType`|The type of vendor that manages the loyalty program. Format: A, C or H<br>A – Air<br>C – Car<br>H – Hotel<br>This element is required when the request is sent by a TMC, and is ignored when the request is sent by a travel supplier.
+`AccountNo`|The user's account identifier in the loyalty program.
+`Status`|Name of the user's current level in the loyalty program.  Examples: Gold or Premier.
+`StatusBenefits`|Description of a benefit of the loyalty program at the current status. Example: You are entitled to free breakfast.
+`PointTotal`|The user's total number of points in the loyalty program.
+`SegmentTotal`|The user's total segments in the loyalty program.
+`NextStatus`|Name or description of next higher status level in the  loyalty program.
+`PointsUntilNextStatus`|Loyalty points required to next status level.
+`SegmentsUntilNextStatus`|Booking segments to next status level.
 
 ###  XML Example Request From Travel Supplier
 
@@ -156,14 +156,14 @@ Authorization: OAuth {access token}
 
 application/xml
 
-###  Response body root elements
+### <a name="responseschema"></a>Update Loyalty Program Membership Response Schema
 
 This request will return a **LoyaltyMembershipResponse** parent element with the following child elements:
 
 Element|Description
 ---|---
-Status|The status of the update request. Format: OK or ERROR
-ErrorDescription|The details of the error. Only contains data if the **Status** is ERROR.
+`Status`|The status of the update request. Format: OK or ERROR
+`ErrorDescription`|The details of the error. Only contains data if the **Status** is ERROR.
 
 ###  XML Example of Successful Response
 

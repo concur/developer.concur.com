@@ -4,15 +4,23 @@ layout: reference
 ---
 
 # User
+
 The Users resource represents a set of SAP Concur users. It is always managed as a batch of users, even if the batch contains only one user.
 
 * [Retrieve a user's information](#getUser)
+  * [Schema](#getUserSchema)
 * [Retrieve all users based on search criteria](#getall)
 * [Retrieve the list of required fields for creating a user](#requiredFields)
+  * [Schema](#requiredFieldsSchema)
 * [Update a user's account information](#createUser) - Create a User is not supported at this time.
+  * [Request schema](#createUserRequestSchema)
+  * [Response schema](#createUserResponseSchema)
 * [Update a user's password](#updatePwd)
+  * [Request schema](#updatePwdRequestSchema)
+  * [Response schema](#updatePwdResponseSchema)
 
 ### Version
+
 1.0
 
 ## <a name="getUser"></a>Retrieve a User's Information
@@ -27,7 +35,7 @@ Name|Type|Format|Description
 -----|------|------|--------------
 `loginID`|`string`|-|The URL-encoded SAP Concur login of the user. Optional.
 
-### Response
+### <a name="getUserSchema"></a>Get User Response Schema
 
 Name|Type|Format|Description
 -----|------|------|--------------
@@ -64,7 +72,7 @@ Retrieves a list of configured fields on the Global employee form in SAP Concur.
 
     GET api/user/v1.0/FormFields
 
-### Response
+### <a name="requiredFieldsSchema"></a> Required Fields Response Schema
 
 Name|Type|Format|Description
 -----|------|------|--------------
@@ -100,7 +108,7 @@ Updates one or more users. The batch can contain up to 500 users.
 
 This API requires as its arguments a `batch` element containing a `UserProfile` child element for each user to be added (in the future) or updated. The `UserProfile` child elements will vary depending on the form configuration, and may contain the following elements.
 
-### Request
+### <a name="createUserRequestSchema"></a>Update User Account Information Request Schema
 
 Name|Type|Format|Description
 -----|------|------|--------------
@@ -130,7 +138,7 @@ Name|Type|Format|Description
 `NewLoginID`|`string`|-|Use this element to change the Login ID for an existing employee. Maximum 128 characters.
 `NewEmployeeID`|`string`|-|Use this element to change the Employee ID for an existing employee. Maximum 48 characters.
 
-### Response
+### <a name="createUserResponseSchema"></a>Update User Account Information Response Schema
 
 Name|Type|Format|Description
 -----|------|------|--------------
@@ -169,13 +177,13 @@ Name|Type|Format|Description
 </batch>
 ```
 
-## <a name="updatePwd"></a>Update a user's password
+## <a name="updatePwd"></a>Update a User's Password
 
      POST api/user/v1.0/Users/password
 
 Updates passwords for up to 500 users.
 
-### Request
+### <a name="updatePwdRequestSchema"></a>Update User's Password Request Schema
 
 This function requires as its arguments a `UserBatch` element containing a User child element for each user. The `User` element must have the following elements:
 
@@ -184,7 +192,8 @@ Name|Type|Format|Description
 `LoginID`|`string`|-|Required. The user's login ID. The default value is the user's email address.
 `Password`|`string`|-|The user's new password.
 
-### Response
+### <a name="updatePwdResponseSchema"></a>Update User's Password Response Schema
+
 This request will return a `BatchResult` parent element with the following child elements:
 
 Name|Type|Format|Description

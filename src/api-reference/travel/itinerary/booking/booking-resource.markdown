@@ -6,9 +6,11 @@ layout: reference
 The Booking resource represents booking segments in the SAP Concur Travel system. TripLink suppliers use this resource to display a subset of the full booking fields.
 
 * [Create or Update Booking](#create-update-booking)
+  * [Schema](#create-update-booking-schema)
 * [Cancel a Booking](#cancel-booking)
 
 ## Version
+
 Version 1.1
 
 ## URI
@@ -21,6 +23,7 @@ In order to obtain itinerary data when making Itinerary API calls, the value of 
 ## <a name="create-update-booking"></a>Create or Update Booking
 
 Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.
+
 This endpoint can be used to create/update bookings for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create/update a booking on behalf of a user. The supplier or TMC must be registered with SAP Concur, and must have an account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 ## Request
@@ -47,57 +50,60 @@ Examples:
 `https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}`
 
 ### Content Type
+
 application/xml
 
 ### Authorization Header
+
 Authorization header with OAuth token for a valid SAP Concur user. In order to create or update booking for anyone other than the OAuth consumer, the OAuth consumer must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
-### Request Body Root Elements
+### <a name="create-update-booking-schema"></a>Create or Update Booking Request Schema
+
 The request contains a Booking parent element with the following child elements:
 
 |  Required Element |  Description |
 |-------------------|--------------|
-|  BookingSource |  The supplier's name. |
-|  RecordLocator |  Record locator for this booking. This is often six alphanumeric characters but can have other formats depending on the booking source |
+|  `BookingSource` |  The supplier's name. |
+|  `RecordLocator` |  Record locator for this booking. This is often six alphanumeric characters but can have other formats depending on the booking source |
 
 |  Optional Element |  Description |
 |-------------------|--------------|
-|  DateBookedLocal |  The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
-|  FormOfPaymentName |  The name of the form of payment for the booking. |
-|  FormOfPaymentType |  The type of the form of payment. |
-|  TicketMailingAddress |  The mailing address for the booked ticket, if available. |
-|  TicketPickupLocation |  The pickup location for the booked ticket, if available. |
-|  TicketPickupNumber |  The confirmation number to pick up the booked ticket, if available. |
-|  AirfareQuotes |  List of stored airfare quotes for this booking. |
-|  AirlineTickets |  List of Airline Tickets for this booking. |
-|  Charges |  List of Charges for this booking. |
-|  MiscChargeOrders |  List of Miscellaneous AirCharges for this booking. |
-|  Passengers | The *Passengers* element contains a *Passenger* child element for each booked passenger. The description of each child element can be seen in a subsequent table. |
-|  PassPrograms |  List of Pass Programs for this booking. |
-|  PhoneNumbers |  List of Phone numbers associated with this booking. |
-|  RailPayments |  List of Rail payments associated with rail segments in this booking. |
-|  Segments |  List of Segments in this booking. This parent element contains one or more **Air**, **Car**, **Hotel**, **Dining**, **Ride**, **Rail**, **Parking**, or **Event** parent elements for the booking. Refer to [Booking Object Elements][1] for more information about the child elements contained in the booking elements. |
-|  Delivery |  The method this booking was delivered.  |
-|  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
-|  Warnings |  The warnings associated with the booking. |
-|  WebAddresses |  List of web addresses such as emails, pickup URLs, etc. associated with this bookings |
+|  `DateBookedLocal` |  The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+|  `FormOfPaymentName` |  The name of the form of payment for the booking. |
+|  `FormOfPaymentType` |  The type of the form of payment. |
+|  `TicketMailingAddress` |  The mailing address for the booked ticket, if available. |
+|  `TicketPickupLocation` |  The pickup location for the booked ticket, if available. |
+|  `TicketPickupNumber` |  The confirmation number to pick up the booked ticket, if available. |
+|  `AirfareQuotes` |  List of stored airfare quotes for this booking. |
+|  `AirlineTickets` |  List of Airline Tickets for this booking. |
+|  `Charges` |  List of Charges for this booking. |
+|  `MiscChargeOrders` |  List of Miscellaneous `AirCharges` for this booking. |
+|  `Passengers` | The `Passengers` element contains a `Passenger` child element for each booked passenger. The description of each child element can be seen in a subsequent table. |
+|  `PassPrograms` |  List of Pass Programs for this booking. |
+|  `PhoneNumbers` |  List of Phone numbers associated with this booking. |
+|  `RailPayments` |  List of Rail payments associated with rail segments in this booking. |
+|  `Segments` |  List of Segments in this booking. This parent element contains one or more `Air, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Event` parent elements for the booking. Refer to [Booking Object Elements][1] for more information about the child elements contained in the booking elements. |
+|  `Delivery` |  The method this booking was delivered.  |
+|  `WaitListSegments` |  The segments that the traveler is waitlisted for this booking. |
+|  `Warnings` |  The warnings associated with the booking. |
+|  `WebAddresses` |  List of web addresses such as emails, pickup URLs, etc. associated with this bookings |
 
 ### Passenger Child Elements
 
 |  Required Element |  Description   |
 |-------------------|----------------|
-|  NameFirst |  The first name of the passenger. |  
-|  NameLast |  The last name of the passenger. |
+|  `NameFirst` |  The first name of the passenger. |  
+|  `NameLast` |  The last name of the passenger. |
 
 |  Optional Element |  Description   |
 |-------------------|----------------|
-|  NameMiddle |  The middle name of the passenger. |
-|  NamePrefix |  The name prefix of the passenger. |
-|  NameRemark |  Additional details about the passenger's name. |
-|  NameSuffix |  The name suffix of the passenger. |
-|  NameTitle |  The title of the passenger. |
-|  TextName |  The user's full name as entered in the booking tool if different from the name in the database. |
-|  FrequentTravelerProgram |  Passenger's loyalty programs |
+|  `NameMiddle` |  The middle name of the passenger. |
+|  `NamePrefix` |  The name prefix of the passenger. |
+|  `NameRemark` |  Additional details about the passenger's name. |
+|  `NameSuffix` |  The name suffix of the passenger. |
+|  `NameTitle` |  The title of the passenger. |
+|  `TextName` |  The user's full name as entered in the booking tool if different from the name in the database. |
+|  `FrequentTravelerProgram` |  Passenger's loyalty programs |
 
 ## Response
 This function returns the full trip details, as documented in the Response of the [Get Itinerary Details][2] function.
@@ -248,6 +254,7 @@ Authorization: OAuth {access token}
 ### Request Parameters
 
 #### Query Parameters - Required
+
 * **cancel?bookingSource={Supplier}**
 
 The cancel keyword and the unique identifier for the supplier, configured by SAP Concur during the application review. The bookingSource must match the Supplier Name associated with the booking.
@@ -260,6 +267,7 @@ Example:
 `https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}`
 
 #### Query Parameters - Optional
+
 * **userid_type=login_id&userid_value={loginID}**
 
 The SAP Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
@@ -268,14 +276,18 @@ Example:
 `https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}&userid_type=login_id&userid_value={loginID}`
 
 ### Content Type
+
 application/xml
 
 ### Authorization Header
+
 The authorization header must have an OAuth token for valid SAP Concur user.
 The OAuth consumer must be registered as a Supplier or TMC with SAP Concur, and must have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 ## Response
+
 This function returns the full booking details, as specified in the Booking Object Elements section.
+
 If the booking is not found, the function returns a HTTP 404 error and the following element:
 
 **Status**: This element contains the value: NotFound.
