@@ -65,7 +65,7 @@ application/xml
 
 ### Request Body
 
-This request contains the **LoyaltyMembershipUpdate** parent element with a **Membership** child element for each included loyalty program. The **Membership** element has a **UniqueID** attribute containing the loyalty program identifier, and the following child elements.
+This request contains the `LoyaltyMembershipUpdate` parent element with a `Membership` child element for each included loyalty program. The `Membership` element has a `UniqueID` attribute containing the loyalty program identifier, and the following child elements.
 
 #### <a name="requestschema"></a>Update Loyalty Program Membership Request Schema
 
@@ -158,12 +158,12 @@ application/xml
 
 ### <a name="responseschema"></a>Update Loyalty Program Membership Response Schema
 
-This request will return a **LoyaltyMembershipResponse** parent element with the following child elements:
+This request will return a `LoyaltyMembershipResponse` parent element with the following child elements:
 
 Element|Description
 ---|---
 `Status`|The status of the update request. Format: OK or ERROR
-`ErrorDescription`|The details of the error. Only contains data if the **Status** is ERROR.
+`ErrorDescription`|The details of the error. Only contains data if the `Status` is ERROR.
 
 ###  XML Example of Successful Response
 

@@ -201,13 +201,13 @@ Name|Description
 To subscribe:
 
 ```
-https://www.SAP Concursolutions.com/api/company/v1.0/subscribe?type=profile
+https://www.concursolutions.com/api/company/v1.0/subscribe?type=profile
 ```
 
 To unsubscribe:
 
 ```
-https://www.SAP Concursolutions.com/api/company/v1.0/unsubscribe?type=profile
+https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=profile
 ```
 
 ##### Authorization Header

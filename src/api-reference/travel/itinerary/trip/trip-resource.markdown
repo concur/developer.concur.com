@@ -24,6 +24,7 @@ In order to obtain itinerary data when making Itinerary API calls, the value of 
 * [Get trip summaries](#getts)
   * [Schema](#getts-schema)
 * [Get trip details](#gettd)
+  * [Schema](#gettd-schema)
 * [Create a new trip](#postnt)
   * [Request schema](#postnt-request-schema)
   * [Response schema](#postnt-response-schema)
@@ -61,13 +62,13 @@ To identify a specific user by login ID or `XMLSyncID`, you can specify the foll
 |`createdAfterDate`	|`date`	|`dateTime`	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or after this date. Used with the ``createdBeforeDate`` for finding trips created during a date range. Format: YYYY-MM-DD.|
 |`createdBeforeDate`|`date`	|`dateTime`	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or before this date. Used with the `createdAfterDate` for finding trips created during a date range. Format: YYYY-MM-DD.|
 |`lastModifiedDate`|`date`|`dateTime`	|The last modified UTC date of the trips and their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time. The provided date/time can be anytime between now and the first date of trip creation in the database. The format is either the date or the date and time combined.
-|`bookingType`|`type`	|`string`	|The trip includes at least one booking of this type. Format: Air, Car, Dining, Hotel, Parking, Rail, or Ride
+|`bookingType`|`type`	|`string`	|The trip includes at least one booking of this type. Format: `Air`, `Car`, `Dining`, `Hotel`, `Parking`, `Rail`, or `Ride`.
 |`userid_type=login`|`userid`|`string`|The `loginID` is the user's SAP Concur login ID. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
 |`userid_value`|`userid`|`string`	|The `userid_value` of ALL can be sent to get trip summaries for all users at the company. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
 |`includeMetadata`|`true/false`|`string`|The `includeMetadata` query parameter combined with the `ItemsPerPage` and `Page` query parameters cause the response to be divided into pages. The response is wrapped in a `ConcurResponse` parent element, with both the response details and the paging metadata included. If the `ItemsPerPage` query parameter is not sent, the response will default to 200 if the `Page` query parameter is sent, or 1000 if the `Page` query parameter is not set. If the `Page` query parameter is not sent, the response will default to page 1.|
 |`ItemsPerPage`|`number`|`integer`|The `includeMetadata` query parameter combined with the `ItemsPerPage` and `Page` query parameters will cause the response to be divided into pages. The response will be wrapped in a `ConcurResponse` parent element, with both the response details and the paging metadata included. If the `ItemsPerPage` query parameter is not sent, the response will default to 200 if the `Page` query parameter is sent, or 1000 if the `Page` query parameter is not set. If the `Page` query parameter is not sent, the response will default to page 1.|
 |`includeVirtualTrip`|`flag`|`integer`	|Virtual trips are segments booked offline through the Concur Request product. Set the `includeVirtualTrip` query parameter to 1 to include those trips in the list.|
-|includ`eCanceledTrips	|`true/false`|`string`|The `includeCanceledTrips` query parameter will cause the request to also return trips with a status of Canceled. When this query parameter is set to true, the response will include the `TripStatus` element.|
+|`includeCanceledTrips`	|`true/false`|`string`|The `includeCanceledTrips` query parameter will cause the request to also return trips with a status of Canceled. When this query parameter is set to true, the response will include the `TripStatus` element.|
 |`includeGuestBookings` |`true/false`|`string`|The `includeGuestBookings` query parameter will cause the request to show guest bookings if set to true. It is set to false by default.|
 
 Here are some examples of how to format GET requests using a combination of these query parameters:
@@ -402,7 +403,7 @@ The response returns subset of the elements described in the following tables de
 
 | Element Name | Data Type |Description
 | --------- | --------- | -------
-|`Segments`	|`array`	|List of segments in this booking. The child elements included in this element vary depending on whether a TMC, SAP Concur client,  third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, Di`ning, `Ride`, `Rail`, `Parking`, or `Travel` parent elements. **For TripLink suppliers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, or `Ride` parent elements.
+|`Segments`	|`array`	|List of segments in this booking. The child elements included in this element vary depending on whether a TMC, SAP Concur client,  third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Travel` parent elements. **For TripLink suppliers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, or `Ride` parent elements.
 |`Passengers`	|`array`	|Contains a `Passenger` child element for each included passenger. For more information on the `Passengers` element, see [Create a New Trip](#postnt).
 |`RecordLocator`	|`string`	|The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
 |`BookingSource`	|`string`	|The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place.

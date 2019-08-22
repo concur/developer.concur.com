@@ -82,7 +82,7 @@ The request contains a Booking parent element with the following child elements:
 |  `PassPrograms` |  List of Pass Programs for this booking. |
 |  `PhoneNumbers` |  List of Phone numbers associated with this booking. |
 |  `RailPayments` |  List of Rail payments associated with rail segments in this booking. |
-|  `Segments` |  List of Segments in this booking. This parent element contains one or more `Air, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Event` parent elements for the booking. Refer to [Booking Object Elements][1] for more information about the child elements contained in the booking elements. |
+|  `Segments` |  List of Segments in this booking. This parent element contains one or more `Air`, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Event` parent elements for the booking. Refer to [Booking Object Elements][1] for more information about the child elements contained in the booking elements. |
 |  `Delivery` |  The method this booking was delivered.  |
 |  `WaitListSegments` |  The segments that the traveler is waitlisted for this booking. |
 |  `Warnings` |  The warnings associated with the booking. |

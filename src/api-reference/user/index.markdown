@@ -40,7 +40,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 -----|------|------|--------------
 `loginID`|`string`|-|The user's login ID.
-`Active`|`string`|-|Whether the user is currently active. Format: Y/N.
+`Active`|`Boolean`|Y/N|Whether the user is currently active.
 `FirstName`|`string`|-|The user's first name.
 `LastName`|`string`|-|The user's last name.
 `Mi`|`string`|-|The user's middle initial.
@@ -50,17 +50,17 @@ Name|Type|Format|Description
 `LocaleName`|`string`|-|The user's language locale code. One of the Supported Locales. Example: United States English is en_US.
 `OrgUnit1 through OrgUnit6`|`string`|-|Varies depending on configuration.
 `Custom1 through Custom21`|`string`|-|Varies depending on configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: <Custom1>(1234) Project 1234</Custom1>
-`CtryCode`|`string`|-|The user's two-digit country code.
+`CtryCode`|`string`|2-character country code|The user's two-digit country code.
 `CashAdvanceAccountCode`|`string`|-|The user's account code for cash advances.
-`CrnCode`|`string`|-|The user's three character reimbursement currency. Example: United States Dollar is USD.
+`CrnCode`|`string`|ISO 4217 currency code|The user's three character reimbursement currency. Example: United States Dollar is USD.
 `CtrySubCode`|`string`|-|The user's two-digit country code and two-digit state or province code. Example: Washington State, United States is US-WA.
-`ExpenseUser`|`string`|-|Whether the user has access to Expense. Format: Y/N.
-`ExpenseApprover`|`string`|-|Whether the user is an Expense approver. Format: Y/N.
-`TripUser`|`string`|-|Whether the user has access to Travel. Format: Y/N.
-`InvoiceUser`|`string`|-|Whether the user has access to Invoice. Format: Y/N.
-`InvoiceApprover`|`string`|-|Whether the user is an Invoice approver. Format: Y/N.
+`ExpenseUser`|`Boolean`|Y/N|Whether the user has access to Expense.
+`ExpenseApprover`|`Boolean`|Y/N|Whether the user is an Expense approver.
+`TripUser`|`Boolean`|Y/N|Whether the user has access to Travel.
+`InvoiceUser`|`Boolean`|Y/N|Whether the user has access to Invoice.
+`InvoiceApprover`|`Boolean`|Y/N|Whether the user is an Invoice approver.
 `ExpenseApproverEmployeeID`|`string`|-|The employee ID of the user's Expense approver. If you are importing both a user and their approver, the approver should be listed before the user in the batch.
-`IsTestEmp`|`string`|-|Whether the user is a test user. Format: Y/N.
+`IsTestEmp`|`Boolean`|Y/N|Whether the user is a test user.
 
 ## <a name="getall"></a>Retrieve All Users Based on Search Criteria
 
@@ -115,26 +115,26 @@ Name|Type|Format|Description
 `EmpId`|`string`|-|Required. The unique identifier for the user. The default value is the user's email address. Maximum 48 characters.
 `FeedRecordNumber`|`string`|-|Required. The record number in the current batch.
 `LoginId`|`string`|-|Required. The user's login ID. The default value is the user's email address. Maximum 128 characters.
-`LocaleName`|`string`|-|The user's language locale code. Maximum 5 characters. One of the Supported Locales. Example: United States English is en_US. The supported languages vary by company but always include en_US.
-`Active`|`string`|-|Whether the user is currently active. Format: Y/N.
+`LocaleName`|`string`|-|The user's language locale code. Maximum 5 characters. One of the Supported Locales. Example: United States English is en_US. The supported languages vary by company but always include en_US. Maximum 5 characters.
+`Active`|`Boolean`|Y/N|Whether the user is currently active.
 `Password`|`string`|-|Required. The user's password. This element can be used to enter the password for a new user, but cannot be used to update the password for an existing user. Maximum 255 characters.
 `FirstName`|`string`|-|The user's first name. Maximum 32 characters.
 `LastName`|`string`|-|The user's last name. Maximum 32 characters.
 `Mi`|`string`|-|The user's middle initial. Maximum 1 character.
 `EmailAddress`|`string`|-|The user's email address. Maximum 255 characters.
-`LedgerKey`|`string`|-|Required for new users. The user's assigned account code ledger. Maximum 20 characters. Example: Default.
+`LedgerKey`|`string`|-|Required for new users. The user's assigned account code ledger. Example: Default. Maximum 20 characters.
 `OrgUnit1 through OrgUnit6`|`string`|-|The custom organizational unit fields on the Employee form. Varies depending on configuration. Use the Employee Form Field resource to get the list of configured fields. Maximum 48 characters for each field.
 `Custom1 through Custom21`|`string`|-|The custom fields on the Employee form. Varies depending on configuration. Use the Employee Form Field resource to get the list of configured fields. Maximum 48 characters.
-`CtryCode`|`string`|-|The ISO 3166-1 alpha-2 country code. Maximum 2 characters. Example: United States is US.
+`CtryCode`|`string`|ISO 3166-1 alpha-2 country code|Country code, example: United States is US. Maximum 2 characters.
 `CashAdvanceAccountCode`|`string`|-|The user's account code for cash advances. Maximum 20 characters.
-`CrnKey`|`string`|-|The 3-letter ISO 4217 currency code for the user's reimbursement currency. Maximum 3 characters. Example: United States Dollar is USD.
-`CtrySubCode`|`string`|-|The user's two-character country code and two-character state or province code. Maximum 2 characters. Example: Washington State, United States is US-WA.
-`ExpenseUser`|`boolean`|`Y/N`|Whether the user has access to Expense.
-`ExpenseApprover`|`boolean`|`Y/N`|Whether the user is an Expense approver.
-`TripUser`|`boolean`|`Y/N`|Whether the user has access to Travel.
-`InvoiceUser`|`boolean`|`Y/N`|Whether the user has access to Invoice.
-`InvoiceApprover`|`boolean`|`Y/N`|Whether the user is an Invoice approver.
-`ExpenseApproverEmployeeID`|`string`|-|The employee ID of the user's Expense approver. Maximum 48 characters. If you are importing both a user and their approver, the approver should be listed before the user in the batch.
+`CrnKey`|`string`|ISO 4217 3-letter currency code|Currency code for the user's reimbursement currency. Example: United States Dollar is USD. Maximum 3 characters.
+`CtrySubCode`|`string`|-|The user's two-character country code and two-character state or province code. Example: Washington State, United States is US-WA. Maximum 2 characters.
+`ExpenseUser`|`Boolean`|`Y/N`|Whether the user has access to Expense.
+`ExpenseApprover`|`Boolean`|`Y/N`|Whether the user is an Expense approver.
+`TripUser`|`Boolean`|`Y/N`|Whether the user has access to Travel.
+`InvoiceUser`|`Boolean`|`Y/N`|Whether the user has access to Invoice.
+`InvoiceApprover`|`Boolean`|`Y/N`|Whether the user is an Invoice approver.
+`ExpenseApproverEmployeeID`|`string`|-|The employee ID of the user's Expense approver. If you are importing both a user and their approver, the approver should be listed before the user in the batch. Maximum 48 characters.
 `NewLoginID`|`string`|-|Use this element to change the Login ID for an existing employee. Maximum 128 characters.
 `NewEmployeeID`|`string`|-|Use this element to change the Employee ID for an existing employee. Maximum 48 characters.
 
@@ -207,7 +207,7 @@ The `UserPasswordStatus` element contains the following child elements:
 Name|Type|Format|Description
 -----|------|------|--------------
 `LoginID`|`string`|-|The login ID of the user.
-`Status`|`string`|-|The status of the attempt to update the user's password. Format: Success, Failed.
+`Status`|`Boolean`|Success/Failed|The status of the attempt to update the user's password.
 `Message`|`string`|-|Additional details about the success or failure of the request.
 
 ### Example
