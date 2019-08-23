@@ -555,7 +555,7 @@ businessPurpose|string|-|The business purpose of the Request
 canceledPostApproval|boolean|-|Indicates whether this Request was canceled post approval
 closed|boolean|-|Indicates whether this Request is closed
 comment|string|-|The last comment attached to this Request
-creationDate|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|The date the Request was created (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+creationDate|timestamp|[RFC 3339](https://tools.ietf.org/html/rfc3339)|The date when the Request was created (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 custom1 to custom20|object|[CustomField](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration
 endDate|date|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)|The end date of the Request (in the format yyyy-MM-dd)
 endTime|time|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)|The end time of the Request (in the format HH:mm)
@@ -586,20 +586,20 @@ type|object|[RequestType](#schema-requesttype)|The type of the Request, inherite
 Name|Type|Format|Description
 ---|---|---|---
 value|number|-|**Required** The amount in the defined currency
-currency|string|[ISO 4217:2015](#https://www.iso.org/standard/64758.html)|**Required** The 3-letter ISO 4217 code for the currency in which the amount is expressed
+currency|string|[ISO 4217:2015](#https://www.iso.org/standard/64758.html)|**Required** The 3-letter ISO 4217 code of the currency in which the amount is expressed
 
 ### <a name="schema-approvalstatus"></a>Approval Status
 
 Name|Type|Format|Description
 ---|---|---|---
-code|string|-|The code for the approval status the Request. <br>Possible values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED` or `SENTBACK`
+code|string|-|The code of the approval status of the Request. <br>Possible values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED` or `SENTBACK`
 name|string|-|The approval status of the Request in the current user's language
 
 ### <a name="schema-customfield"></a>CustomField
 
 Name|Type|Format|Description
 ---|---|---|---
-code|string|-|The short code for the list item. For non-list fields, this value will be blank
+code|string|-|The short code of the list item. For non-list fields, this value will be blank
 value|string|-|The value of the non-list item. For list fields, this is the unique id of the item
 listItemId|string|-|The unique id of the item in case of a list field
 href|string|-|The link to get this list item on the list service. Empty for non-list items
@@ -698,7 +698,7 @@ expenseId|string|-|The unique identifier of the Expense associated with the allo
 percentEdited|boolean|-|Whether the allocation percent has been edited
 percentage|number|-|The percentage of the total Expense that this allocation represents
 postedAmount|object|[Amount](#amount)|The amount of the allocation calculated with the percentage value multiplied by the posted amount on the Expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
-systemAllocation|boolean|-|Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only
+systemAllocation|boolean|-|Whether the allocation is a system allocation. It is usually hidden or read only for Request users
 
 ### <a name="schema-exchangerate"></a>Exchange Rate
 

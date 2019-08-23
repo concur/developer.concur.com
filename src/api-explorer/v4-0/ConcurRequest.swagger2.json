@@ -698,7 +698,7 @@
           {
             "in": "body",
             "name": "comment",
-            "description": "Only works with when the workflow action is ‘sendback’.",
+            "description": "Only usable when the workflow action is set to ‘sendback’.",
             "required": false,
             "schema": {
               "$ref": "#/definitions/WorkflowAction"
@@ -736,7 +736,7 @@
             "description": "Request is not authenticated"
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
+            "description": "You do not have permission to perform this operation"
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -802,7 +802,7 @@
             "description": "Request is not authenticated"
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
+            "description": "You do not have permission to perform this operation"
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -872,7 +872,7 @@
             "description": "Request is not authenticated"
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
+            "description": "You do not have permission to perform this operation"
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -935,7 +935,7 @@
             "description": "Request is not authenticated"
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
+            "description": "You do not have permission to perform this operation"
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -1005,7 +1005,7 @@
             "description": "Request is not authenticated"
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
+            "description": "You do not have permission to perform this operation"
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -1066,7 +1066,7 @@
             "description": "Request is not authenticated"
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
+            "description": "You do not have permission to perform this operation"
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -1132,7 +1132,7 @@
             "description": "Request is not authenticated"
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
+            "description": "You do not have permission to perform this operation"
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -1191,7 +1191,7 @@
             "description": "Request is not authenticated"
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
+            "description": "You do not have permission to perform this operation"
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -1247,7 +1247,7 @@
             "description": "Request is not authenticated"
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
+            "description": "You do not have permission to perform this operation"
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -1381,7 +1381,7 @@
         "systemAllocation": {
           "type": "boolean",
           "example": false,
-          "description": "Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only"
+          "description": "Whether the allocation is a system allocation. It is usually hidden or read only for Request users"
         }
       }
     },
@@ -1394,7 +1394,7 @@
       "properties": {
         "currency": {
           "type": "string",
-          "description": "The 3-letter ISO 4217 code for the currency in which the amount is expressed",
+          "description": "The 3-letter ISO 4217 code of the currency in which the amount is expressed",
           "minLength": 1,
           "maxLength": 2147483647
         },
@@ -1411,7 +1411,7 @@
       "properties": {
         "code": {
           "type": "string",
-          "description": "The code for the approval status the Request",
+          "description": "The code of the approval status of the Request",
           "minLength": 1,
           "maxLength": 2147483647,
           "enum": [
@@ -1445,7 +1445,7 @@
         "isLatest": {
           "type": "boolean",
           "example": false,
-          "description": "true when the comment has been edited since the last workflow transition"
+          "description": "Is set to true if the comment was edited after the last workflow transition"
         },
         "value": {
           "type": "string",
@@ -1458,7 +1458,7 @@
       "properties": {
         "code": {
           "type": "string",
-          "description": "The short code for the list item. For non-list fields, this value will be blank"
+          "description": "The short code of the list item. For non-list fields, this value will be blank"
         },
         "href": {
           "type": "string",
@@ -1506,7 +1506,7 @@
           }
         },
         "approvedAmount": {
-          "description": "The approved amount of the expected expected expense",
+          "description": "The approved amount of the expected expense",
           "$ref": "#/definitions/Amount"
         },
         "budgetAccrualDate": {
@@ -1888,7 +1888,7 @@
         },
         "iataCode": {
           "type": "string",
-          "description": "The IATA code for the location"
+          "description": "The IATA code of the location"
         },
         "id": {
           "type": "string",
@@ -1975,12 +1975,12 @@
           "description": "The last comment attached to this Request"
         },
         "comments": {
-          "description": "Historical comments header to the Request",
+          "description": "Comment history of this Request",
           "$ref": "#/definitions/ResourceLink"
         },
         "creationDate": {
           "type": "string",
-          "description": "For approved Request, the date at which the approval process was completed"
+          "description": "The date when the Request was created (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')"
         },
         "custom1": {
           "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
