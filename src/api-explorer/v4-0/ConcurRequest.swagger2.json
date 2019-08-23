@@ -200,7 +200,7 @@
           {
             "in": "body",
             "name": "request",
-            "description": "request",
+            "description": "Request",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Request"
@@ -1516,10 +1516,10 @@
         },
         "businessPurpose": {
           "type": "string",
-          "description": "The purpose of the expected expense"
+          "description": "The purpose of the Expected Expense"
         },
         "comments": {
-          "description": "Historical comments to the expected expense",
+          "description": "Historical comments to the Expected Expense",
           "$ref": "#/definitions/ResourceLink"
         },
         "custom1": {
@@ -1683,11 +1683,11 @@
           "$ref": "#/definitions/CustomField"
         },
         "exchangeRate": {
-          "description": "The exchange rate that applies to the expected expense",
+          "description": "The exchange rate that applies to the Expected Expense",
           "$ref": "#/definitions/ExchangeRate"
         },
         "expenseType": {
-          "description": "The expense type of the expected expense",
+          "description": "The expense type of the Expected Expense",
           "$ref": "#/definitions/ExpenseType"
         },
         "href": {
@@ -1695,18 +1695,18 @@
         },
         "id": {
           "type": "string",
-          "description": "The unique identifier of the expected expense"
+          "description": "The unique identifier of the Expected Expense"
         },
         "lastComment": {
           "type": "string",
-          "description": "The last comment of the expected expense"
+          "description": "The last comment of the Expected Expense"
         },
         "lastModifiedDate": {
           "type": "string",
           "description": "The date when this expense was last modified"
         },
         "location": {
-          "description": "The location of the expected expense",
+          "description": "The location of the Expected Expense",
           "$ref": "#/definitions/Location"
         },
         "orgUnit1": {
@@ -1734,16 +1734,16 @@
           "$ref": "#/definitions/CustomField"
         },
         "postedAmount": {
-          "description": "The posted amount of the expected expense",
+          "description": "The posted amount of the Expected Expense",
           "$ref": "#/definitions/Amount"
         },
         "remainingAmount": {
-          "description": "The remaining amount of the expected expense",
+          "description": "The remaining amount of the Expected Expense",
           "$ref": "#/definitions/Amount"
         },
         "source": {
           "type": "string",
-          "description": "The source that created the expected expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. This field will be empty in any other case.",
+          "description": "The source that created the Expected Expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. This field will be empty in any other case.",
           "enum": [
             "CASH_ADVANCE",
             "TRAVEL_ALLOWANCE",
@@ -1751,7 +1751,7 @@
           ]
         },
         "transactionAmount": {
-          "description": "The amount of the expected expense, in the transaction currency paid to the vendor",
+          "description": "The amount of the Expected Expense, in the transaction currency paid to the vendor",
           "$ref": "#/definitions/Amount"
         },
         "transactionDate": {
@@ -1763,11 +1763,11 @@
           "$ref": "#/definitions/TravelAllowance"
         },
         "tripData": {
-          "description": "This property is non empty if this expected expense represents a travel Segment (AIR, CAR, HOTEL, ...)",
+          "description": "This property is non empty if this Expected Expense represents a travel Segment (AIR, CAR, HOTEL, ...)",
           "$ref": "#/definitions/TripData"
         },
         "vendor": {
-          "description": "The vendor of the expected expense",
+          "description": "The vendor of the Expected Expense",
           "$ref": "#/definitions/Vendor"
         }
       }
@@ -2077,7 +2077,7 @@
         },
         "expenses": {
           "type": "array",
-          "description": "Expected expenses attached to this Request",
+          "description": "Expected Expenses attached to this Request",
           "items": {
             "$ref": "#/definitions/ResourceLink"
           }
@@ -2144,7 +2144,7 @@
           "$ref": "#/definitions/Amount"
         },
         "totalPostedAmount": {
-          "description": "The total amount of the Request, expressed in the reimbursement currency of the employee at the time he created the request",
+          "description": "The total amount of the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
           "$ref": "#/definitions/Amount"
         },
         "totalRemainingAmount": {
@@ -2152,7 +2152,7 @@
           "$ref": "#/definitions/Amount"
         },
         "travelAgency": {
-          "description": "The travel agency office that is managing the trip associated to this request",
+          "description": "The travel agency office that is managing the trip associated to this Request",
           "$ref": "#/definitions/ResourceLink"
         },
         "type": {
@@ -2438,7 +2438,7 @@
         },
         "endTime": {
           "type": "string",
-          "description": "The end time of the segment leg (in the format HH:MM). It is expressed in the local time of the end Location"
+          "description": "The end time of the segment leg (in the format HH:MM). It is expressed in the local time of the end location"
         },
         "id": {
           "type": "string",
@@ -2467,7 +2467,7 @@
         },
         "startTime": {
           "type": "string",
-          "description": "The start time of the segment leg (in the format HH:MM). It is expressed in the local time of the startLocation"
+          "description": "The start time of the segment leg (in the format HH:MM). It is expressed in the local time of the start location"
         },
         "vendorName": {
           "type": "string",
@@ -2505,7 +2505,7 @@
       "properties": {
         "dailyTravelAllowanceId": {
           "type": "string",
-          "description": "The fixed daily travel allowance id associated with the expected expense"
+          "description": "The fixed daily travel allowance id associated with the Expected Expense"
         }
       }
     },
@@ -2552,11 +2552,11 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "The vendor identifier of the expected expense"
+          "description": "The vendor identifier of the Expected Expense"
         },
         "name": {
           "type": "string",
-          "description": "The vendor description of the expected expense"
+          "description": "The vendor description of the Expected Expense"
         }
       }
     },
