@@ -26,7 +26,7 @@
     },
     {
       "name": "Expected Expense Resource",
-      "description": "Manage expected expenses attached to a Request"
+      "description": "Manage Expected Expenses attached to a Request"
     }
   ],
   "paths": {
@@ -758,7 +758,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Get the list of expected expenses attached to a Request",
+        "summary": "Get the list of Expected Expenses attached to a Request",
         "operationId": "listUsingGET",
         "consumes": [
           "application/json"
@@ -777,7 +777,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user viewing the expected expenses attached to a Request",
+            "description": "The unique identifier of the user viewing the Expected Expenses attached to a Request",
             "required": false,
             "type": "string"
           }
@@ -822,7 +822,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Create a new expected expense",
+        "summary": "Create a new Expected Expense",
         "operationId": "createUsingPOST_2",
         "consumes": [
           "application/json"
@@ -834,7 +834,7 @@
           {
             "name": "requestUuid",
             "in": "path",
-            "description": "The unique identifier of the Request to which the expected expense is attached",
+            "description": "The unique identifier of the Request to which the Expected Expense is attached",
             "required": true,
             "type": "string"
           },
@@ -850,7 +850,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user performing the expected expense creation",
+            "description": "The unique identifier of the user performing the Expected Expense creation",
             "required": false,
             "type": "string"
           }
@@ -894,7 +894,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Get an existing expected expense",
+        "summary": "Get an existing Expected Expense",
         "operationId": "getUsingGET_2",
         "consumes": [
           "application/json"
@@ -906,14 +906,14 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the expected expense",
+            "description": "The unique identifier of the Expected Expense",
             "required": true,
             "type": "string"
           },
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user viewing the expected expense",
+            "description": "The unique identifier of the user viewing the Expected Expense",
             "required": false,
             "type": "string"
           }
@@ -955,7 +955,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Update the content of an existing expected expense",
+        "summary": "Update the content of an existing Expected Expense",
         "operationId": "updateUsingPUT",
         "consumes": [
           "application/json"
@@ -967,7 +967,7 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the expected expense",
+            "description": "The unique identifier of the Expected Expense",
             "required": true,
             "type": "string"
           },
@@ -983,7 +983,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user performing the expected expense update",
+            "description": "The unique identifier of the user performing the Expected Expense update",
             "required": false,
             "type": "string"
           }
@@ -1025,7 +1025,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Delete an expected expense from the Request",
+        "summary": "Delete an Expected Expense from the Request",
         "operationId": "deleteUsingDELETE",
         "consumes": [
           "application/json"
@@ -1037,14 +1037,14 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the expected expense",
+            "description": "The unique identifier of the Expected Expense",
             "required": true,
             "type": "string"
           },
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user performing the deletion of the expected expense",
+            "description": "The unique identifier of the user performing the deletion of the Expected Expense",
             "required": false,
             "type": "string"
           }
@@ -1088,7 +1088,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Get the list of comments for an existing expected expense",
+        "summary": "Get the list of comments for an existing Expected Expense",
         "operationId": "getCommentsByExpenseUsingGET",
         "consumes": [
           "application/json"
@@ -1100,7 +1100,7 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the expected expense",
+            "description": "The unique identifier of the Expected Expense",
             "required": true,
             "type": "string"
           },
@@ -1506,7 +1506,7 @@
           }
         },
         "approvedAmount": {
-          "description": "The approved amount of the expected expense",
+          "description": "The approved amount of the Expected Expense",
           "$ref": "#/definitions/Amount"
         },
         "budgetAccrualDate": {
