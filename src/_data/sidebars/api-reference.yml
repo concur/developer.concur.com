@@ -142,8 +142,8 @@
         url: /api-reference/expense/expense-report/expense-report-get.html
       - title: Payment Batches v1.1
         url: /api-reference/expense/payment-batch/v1.payment-batches.html
-      - title: Quick Expense v3
-        url: /api-reference/expense/quick-expense/v3.quick-expense.html
+      - title: Quick Expense v4
+        url: /api-reference/expense/quick-expense/v4.quick-expense.html
 - title: Insights
   url: ''
   children:
@@ -158,6 +158,8 @@
         url: /api-reference/invoice/v3.payment-request-digest.html
       - title: Invoice v3
         url: /api-reference/invoice/v3.payment-request.html
+      - title: Invoice Pay v4
+        url: /api-reference/invoice/v4.invoice-pay.html
       - title: Purchase Orders v3
         url: /api-reference/invoice/v3.purchase-order.html
       - title: Purchase Request v4 - Get Started

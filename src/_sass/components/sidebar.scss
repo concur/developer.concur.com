@@ -80,15 +80,16 @@
 
   /*Sidebar List Toggle*/
   .list-toggle:after {
-    top: 7px;
+    top: 12px;
     right: 10px;
     color: #777;
-    font-size: 14px;
+    font-size: 12px;
     content: "\f105";
     position: absolute;
     font-weight: normal;
     display: inline-block;
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
   }
 
   .list-toggle.active:after {

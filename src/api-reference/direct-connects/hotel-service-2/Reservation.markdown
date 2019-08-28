@@ -429,14 +429,16 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                         <GuaranteePayment>
                         <AcceptedPayments>
                           <AcceptedPayment>
-                          <PaymentCard CardCode="VI"/>
+                            <PaymentCard>
+                              <CardType>VISA</CardType>
+                            </PaymentCard>
                           </AcceptedPayment>
                         </AcceptedPayments>
                         </GuaranteePayment>
                         <GuaranteePayment>
                         <AcceptedPayments>
                           <AcceptedPayment>
-                          <PaymentCard CardCode="MC">
+                          <PaymentCard>
                             <CardType>Mastercard</CardType>
                           </PaymentCard>
                           </AcceptedPayment>
@@ -445,21 +447,9 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                         <GuaranteePayment>
                         <AcceptedPayments>
                           <AcceptedPayment>
-                          <PaymentCard CardCode="CA"/>
-                          </AcceptedPayment>
-                        </AcceptedPayments>
-                        </GuaranteePayment>
-                        <GuaranteePayment>
-                        <AcceptedPayments>
-                          <AcceptedPayment>
-                          <PaymentCard CardCode="IK"/>
-                          </AcceptedPayment>
-                        </AcceptedPayments>
-                        </GuaranteePayment>
-                        <GuaranteePayment>
-                        <AcceptedPayments>
-                          <AcceptedPayment>
-                          <PaymentCard CardCode="AX"/>
+                            <PaymentCard>
+                              <CardType>AmericanExpress</CardType>
+                            </PaymentCard>
                           </AcceptedPayment>
                         </AcceptedPayments>
                         </GuaranteePayment>
