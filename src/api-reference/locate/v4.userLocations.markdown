@@ -42,6 +42,13 @@ This API supports POST only.
 
 ## <a name="scope-usage"></a>Scope Usage
 
+Required Scopes:
+
+Name|Description|Endpoint
+---|---|---
+`locate.location.read`|Get user location information.|POST
+`locate.location.write`|Get User Information, necessary for `userID`.|POST
+
 ## <a name="dependencies"></a>Dependencies
 
 None.
