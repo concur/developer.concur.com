@@ -621,7 +621,10 @@
       "type": "object",
       "required": ["expenseTypes", "name"],
       "properties": {
-        "description": { "type": "string" },
+        "description": {
+          "type": "string",
+          "description": "The friendly name for this category."
+        },
         "expenseTypes": {
           "type": "array",
           "description": "The list of expense types that this budget category matches.",
@@ -771,7 +774,7 @@
       "properties": {
         "active": {
           "type": "boolean",
-          "description": "Indicates if this budget should be displayed on user screens **Read only**"
+          "description": "Indicates if this budget should be displayed on user screens **READ ONLY**"
         },
         "annualBudget": {
           "type": "number",
@@ -831,7 +834,7 @@
         "dateRange": { "readOnly": true, "$ref": "#/definitions/DateRangeDTO" },
         "description": {
           "type": "string",
-          "description": "The friendly name for a budget item."
+          "description": "The user-friendly name for this budget. This description is displayed to end users on desktop and mobile."
         },
         "fiscalYear": { "$ref": "#/definitions/FiscalYearDTO" },
         "fiscalYearId": { "type": "string" },
@@ -854,7 +857,7 @@
         },
         "owned": {
           "type": "boolean",
-          "description": "A flag indicating if the current user is the owner of this budget. **Read only**"
+          "description": "A flag indicating if the current user is the owner of this budget. **READ ONLY**"
         },
         "owner": {
           "description": "The user who is ultimately responsible for this budget.",
@@ -862,7 +865,7 @@
         },
         "periodType": {
           "type": "string",
-          "description": "The type of period within the fiscal year that this budget uses. **Read only**",
+          "description": "The type of period within the fiscal year that this budget uses. **READ ONLY**",
           "enum": ["MONTHLY", "QUARTERLY", "YEARLY", "CUSTOM", "DATE_RANGE"]
         },
         "syncGuid": {
@@ -917,14 +920,40 @@
     "CostObjectFieldDTO": {
       "type": "object",
       "properties": {
-        "budgetSequenceNumber": { "type": "integer", "format": "int32" },
-        "budgetTrackingFieldName": { "type": "string" },
-        "connectedListSequenceNumber": { "type": "integer", "format": "int32" },
-        "feildType": { "type": "string" },
-        "fieldDefinitionId": { "type": "string" },
-        "fieldId": { "type": "string" },
-        "fieldSyncGuid": { "type": "string" },
-        "listSyncGuid": { "type": "string" }
+        "budgetSequenceNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The sequence or the order in which the budget tracking field appears in the budget UI."
+         },
+        "budgetTrackingFieldName": {
+          "type": "string",
+          "description": "The budget field tracking name."
+         },
+        "connectedListSequenceNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Indicates the level of the budget tracking field in a connected list. READ ONLY"
+         },
+        "feildType": {
+          "type": "string",
+          "description": "The data type of this field or field collection.",
+          "enum": ["LIST", "MLIST", "VARCHAR"]
+         },
+        "fieldDefinitionId": {
+          "type": "string",
+          "description": "The budget service’s key for this object’s field definition id."
+        },
+        "fieldId": { 
+          "type": "string",
+          "description": "The budget service’s key for this object."
+        },
+        "fieldSyncGuid": {
+          "type": "string",
+        },
+        "listSyncGuid": {
+          "type": "string",
+          "description": "If the dataType of this item is LIST or MLIST, this is the id of the list definition from SAP Concur’s list service."
+        }
       },
       "title": "CostObjectFieldDTO"
     },
@@ -1020,9 +1049,12 @@
         },
         "id": {
           "type": "string",
-          "description": "The unique idenifier for the expense type"
+          "description": "The budget service’s key for this object. If this field is not supplied, the service will use an existing expense type entry if one exists."
         },
-        "name": { "type": "string" },
+        "name": {
+          "type": "string",
+          "description": "READ ONLY. The name for this expense type if it maps to an expense type set up in SAP Concur."
+         },
         "syncGuid": {
           "type": "string",
           "description": "The unique idenifier for the expense type"
@@ -1206,7 +1238,7 @@
         "limit": {
           "type": "integer",
           "format": "int32",
-          "description": "The maximum number of entries a user can receive from this service."
+          "description": "The number of results returned per page. Maximum: 50"
         },
         "next": {
           "description": "The link to the next page of results, if one exists.",
