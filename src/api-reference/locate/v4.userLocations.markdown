@@ -47,7 +47,7 @@ Required Scopes:
 Name|Description|Endpoint
 ---|---|---
 `locate.location.read`|Get user location information.|POST
-`locate.location.write`|Get User Information, necessary for `userID`.|POST
+`locate.location.write`|Post user location information.|POST
 
 ## <a name="dependencies"></a>Dependencies
 
