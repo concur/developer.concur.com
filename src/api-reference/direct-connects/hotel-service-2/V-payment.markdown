@@ -43,9 +43,9 @@ When guarantee type is set to ‘none’ the FOP selection will not be triggered
 
 **4.	Descriptive Billing Data**
 
-For Company Account payment or virtual payment, descriptive billing data is required. Descriptive billing data is typically profile data (e.g. cost center or employee ID) or custom trip fields (e.g. project number). Those fields need to be mapped to reference data fields in Concur so that it can be sent to the hotel supplier with the reservation. Descriptive billing data can be transmitted independently from the payment solution set up at hotel supplier. The field names can be individually defined by HotelService supplier. A client individual naming of custom fields will not be supported.
+For Company Account payment or virtual payment, descriptive billing data is required. Descriptive billing data is typically profile data (e.g. cost center or employee ID) or custom trip fields (e.g. project number). Those fields need to be mapped to reference data fields in Concur so that it can be sent to the hotel supplier with the reservation. In order to have this data passed in the reservation request, it is required to have them displayed at the start of booking. Descriptive billing data can be transmitted independently from the payment solution set up at hotel supplier. The field names can be individually defined by HotelService supplier. A client individual naming of custom fields will not be supported.
 
-Org units can also be integrated in this workflow.  If enabled, they will be made available through our OTA_HotelResRQ call.
+Org units can also be integrated in this workflow. If enabled, they will be made available through our OTA_HotelSearchRQ and OTA_HotelResRQ call.
 
 
 **5.	Reservation**
