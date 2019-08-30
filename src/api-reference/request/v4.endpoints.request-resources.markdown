@@ -14,10 +14,6 @@ layout: reference
   * [Create an Expense Report linked to an approved Request](#request-resource-create-expense-linked)
   * [Get the list of comments for an existing Request](#request-resource-comments)
 
-## HTTP Status Codes
-
-To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
-
 # <a name="request-resource"></a>Request Resources
 
 ## <a name="request-resource-create"></a>Create a new Request
@@ -38,7 +34,7 @@ POST {datacenter}/travelrequest/v4/requests
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-userId|path|string|The unique identifier of the Request owner for whom the Request will be created. <br> The corresponding user name will be displayed in the audit trail of the Request <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|query|string|The unique identifier of the Request owner for whom the Request will be created. <br> The corresponding user name will be displayed in the audit trail of the Request <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
@@ -48,6 +44,10 @@ Since this endpoint is performing a Request creation, specifying an `id` field i
 A newly allocated `id` value will be returned upon successful Request creation
 
 ### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 
@@ -208,7 +208,7 @@ GET {datacenter}/travelrequest/v4/requests
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-view|path|string|Name of the perimeter defining the requests to get.<br> Possible values:
+view|query|string|Name of the perimeter defining the requests to get.<br> Possible values:
 <br> `ALL`: Get all existing Requests for a user (relevant only for the traveler);
 <br> `ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than 3 months based on current date and must not be in closed status;
 <br> `UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler);
@@ -219,16 +219,16 @@ view|path|string|Name of the perimeter defining the requests to get.<br> Possibl
 <br> `CLOSED`: Get all the closed Requests for a user (relevant only for the traveler). Includes canceled then closed Request as well as approved then closed Requests;
 <br> `SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests;
 <br> `TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver);
-<br> `PENDINGEBOOKING: Approved Requests awaiting Concur Travel booking(s).
+<br> `PENDINGEBOOKING`: Approved Requests awaiting Concur Travel booking(s).
 <br> When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`.
 <br> If no view value is sent, the default view `ALL` will be used
-userId|path|string|The unique identifier of the Request owner to use when searching for Requests
-start|path|Integer|Pagination: index of the first record (default 0)
-limit|path|Integer|Number of records to return per page (default 10) - maximum limit is 100, if higher value or digit value is set, a 400 error code will be displayed
-modifiedBefore|path|DateTime|This returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
-modifiedAfter|path|DateTime|This returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
-sortField|path|string|The name of the field on which to sort.<br> Possible values: `startDate`, `approvalStatus`, `requestId`.<br> If no view value is sent, the default sortField `startDate` will be used
-sortOrder|path|string|Sort order.<br> Possible values: `ASC`, `DESC`.<br> If no view value is sent, the default sortOrder `DESC` will be used
+userId|query|string|The unique identifier of the Request owner to use when searching for Requests
+start|query|Integer|Pagination: index of the first record (default 0)
+limit|query|Integer|Number of records to return per page (default 10) - maximum limit is 100, if higher value or digit value is set, a 400 error code will be displayed
+modifiedBefore|query|DateTime|This returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
+modifiedAfter|query|DateTime|This returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
+sortField|query|string|The name of the field on which to sort.<br> Possible values: `startDate`, `approvalStatus`, `requestId`.<br> If no view value is sent, the default sortField `startDate` will be used
+sortOrder|query|string|Sort order.<br> Possible values: `ASC`, `DESC`.<br> If no view value is sent, the default sortOrder `DESC` will be used
 
 #### Payload
 
@@ -236,13 +236,17 @@ None
 
 ### HTTP Response
 
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
 #### Payload
 
 [List of Request](./v4.endpoints.schemas.html#schema-listofrequest)
 
 ### Example
 
-[#### HTTP Request
+#### HTTP Request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/requests?view=ALL&limit=10&start=0
@@ -378,6 +382,10 @@ requestUuid|path|string|**Required** The unique identifier of the Request
 None
 
 ### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 
@@ -532,13 +540,17 @@ PUT {datacenter}/travelrequest/v4/requests/{requestUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request
-userId|path|string|The unique identifier of the user performing the update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|query|string|The unique identifier of the user performing the update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
 [Request](./v4.endpoints.schemas.html#schema-request)
 
 ### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 
@@ -703,7 +715,7 @@ DELETE {datacenter}/travelrequest/v4/requests/{requestUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request
-userId|path|string|The unique identifier of the user performing the deletion. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|query|string|The unique identifier of the user performing the deletion. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
@@ -761,6 +773,10 @@ None
 
 ### HTTP Response
 
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
 #### Payload
 
 [ResourceLink](./v4.endpoints.schemas.html#schema-resourcelink) - The resource link leading to the created report
@@ -784,9 +800,7 @@ Authorization: Bearer {token}
 
 ```json
 {
-  "href": "https://us.api.concursolutions.com/expensereports/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/reports/C5EDBE0E507C46FFB132",
-  "id": "C5EDBE0E507C46FFB132",
-  "template": "https://us.api.concursolutions.com/expensereports/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/reports/{id}"
+  "id": "C5EDBE0E507C46FFB132"
 }
 ```
 
@@ -808,14 +822,18 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}/comments
 
 Name|Type|Format|Description
 ---|---|---|---
-erequestUuid|path|string|**Required** The unique identifier of the Request
-userId|path|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+requestUuid|path|string|**Required** The unique identifier of the Request
+userId|query|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
 None
 
 ### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 

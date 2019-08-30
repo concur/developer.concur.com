@@ -8,10 +8,6 @@ layout: reference
 * [Workflow Resources](#workflow-resource)
   * [Move an existing Request in the approval workflow](#Move-existing-request-in-approval-workflow)
 
-## HTTP Status Codes
-
-To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
-
 # <a name="workflow-resource"></a>Workflow Resources
 
 Manage workflow transitions for a Request.
@@ -48,15 +44,27 @@ Name|Parameter Type|Data Type|Description
 ---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request
 action|path|string|**Required** The state transition to be executed (`submit`, `approve`, `recall`, `sendback`, `cancel`, `close` or `reopen`)
-comment|path|string|Only works with when the workflow action is ‘sendback’. This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
-userId|path|string|The unique identifier of the user performing the status transition. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
-companyID|path|string|The unique identifier of the company
+userId|query|string|The unique identifier of the user performing the status transition. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+companyId|query|string|The unique identifier of the company
 
 #### Payload
 
 None
 
+Except when the workflow action is ‘sendback’ where an optional comment may be submitted
+
+```json
+{ comment : “My Comment” }
+```
+
+This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
+
+
 ### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 

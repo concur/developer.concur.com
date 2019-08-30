@@ -18,9 +18,14 @@ Version 4.0 of Request API works only with the new [Authentication API](/api-ref
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
-* [Explore the API](#explore-api)
-  * [Prerequisites](#prerequisites)
-  * [Obtain an Access Token](#token)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Policy](./v4.endpoints.request-policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/bfe85f4a4e435a161a8a)
 
 ## <a name="overview"></a>Overview
 
@@ -38,17 +43,9 @@ These resources are used to manage documents used for pre-spend authorizations w
 
 ## <a name="version"></a>Version
 
-* 4.0
-  * Resources
-    * [Request](./v4.endpoints.request-resources.html)
-    * [Workflow](./v4.endpoints.workflow-resources.html)
-    * [Expected Expense](./v4.endpoints.expected-expense-resources.html)
-    * [Request Policy](./v4.endpoints.request-policy-resources.html)
-    * [Travel Agency](./v4.endpoints.travel-agency-resources.html)
-  * [Schema](./v4.endpoints.schemas.html)
-  * [HTTP Status Codes](./v4.response-codes.html)
-* [3.0](./v3.request.html)
-* [1.0](./v1.request.html)
+* Prior Versions
+  * [3.0](./v3.request.html)
+  * [1.0](./v1.request.html)
 
 ## <a name="process-flow"></a>Process Flow
 ![Process Flow for Request V4](./v4.request-process-flow.png)
@@ -85,16 +82,3 @@ This API supports both company level and user level access tokens.
 
 * The `userId` parameter is not required.
 * Requires the Web Service Admin role to call the API.
-
-## <a name="explore-api"></a>Explore the API
-
-### <a name="prerequisites"></a>Prerequisites
-
-Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
-
-[Run in Postman](https://app.getpostman.com/run-collection/bfe85f4a4e435a161a8a)
-
-### <a name="token"></a>Obtain an Access Token:
-
-Before issuing requests to the API, you must [obtain an access token from the Authentication API](/api-reference/authentication/getting-started.html).
-```

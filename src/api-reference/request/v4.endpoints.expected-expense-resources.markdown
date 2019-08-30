@@ -13,10 +13,6 @@ layout: reference
   * [Delete an expected expense from the Request](#delete-expected-expense-request-resource)
   * [Get the list of comments for an existing expected expense](#expected-expense-resource-comments)
 
-## HTTP Status Codes
-
-To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
-
 # <a name="expected-expense-resource"></a>Expected Expense Resources
 
 Manage expected expense entries attached to a Request document.
@@ -40,13 +36,17 @@ POST {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request to which the expected expense is attached
-userId|path|string|The unique identifier of the user performing the expected expense creation. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|query|string|The unique identifier of the user performing the expected expense creation. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
 [Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense)
 
 ### HTTP Response
+
+##### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 
@@ -201,9 +201,8 @@ Authorization: Bearer {token}
   },
   "expenseType": {
     "id": "TRAIN",
-    "name": "Train",
-    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/TRAIN"
-  },
+    "name": "Train"
+   },
   "postedAmount": {
     "value": 122.38,
     "currency": "USD"
@@ -280,7 +279,7 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request
-userId|path|string|The unique identifier of the user viewing the expected expenses attached to a Request. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|query|string|The unique identifier of the user viewing the expected expenses attached to a Request. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
@@ -288,11 +287,15 @@ None
 
 ### HTTP Response
 
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
 #### Payload
 
 [Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - List of expected expenses attached to a Request.
 
-operations - [RFC 5988](https://tools.ietf.org/html/rfc5988) Pagination links to next/prev/first/last page.
+operations - [RFC 5988] Pagination links to next/prev/first/last page.
 
 ### Example
 
@@ -346,8 +349,7 @@ Authorization: Bearer {token}
     },
     "expenseType": {
       "id": "AIRFR",
-      "name": "Airfare",
-      "href": "https://us.api.concursolutions.comm/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+      "name": "Airfare"
     },
     "postedAmount": {
       "value": 324.56,
@@ -462,8 +464,7 @@ Authorization: Bearer {token}
     },
     "expenseType": {
       "id": "TAXIX",
-      "name": "Taxi",
-      "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/TAXIX"
+      "name": "Taxi"
     },
     "postedAmount": {
       "value": 90,
@@ -514,8 +515,7 @@ Authorization: Bearer {token}
     },
     "expenseType": {
       "id": "DINNR",
-      "name": "Dinner",
-      "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/DINNR"
+      "name": "Dinner"
     },
     "postedAmount": {
       "value": 80,
@@ -553,7 +553,7 @@ GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 expenseUuid|path|string|**Required** The unique identifier of the expected expense
-userId|path|string|The unique identifier of the user viewing the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|query|string|The unique identifier of the user viewing the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
@@ -561,11 +561,15 @@ None
 
 ### HTTP Response
 
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
 #### Payload
 
 [Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier
 
-### Example
+### Example 1 - for a Request segment
 
 #### HTTP Request
 
@@ -621,8 +625,7 @@ Authorization: Bearer {token}
   },
   "expenseType": {
     "id": "AIRFR",
-    "name": "Airfare",
-    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+    "name": "Airfare"
   },
   "postedAmount": {
     "value": 324.56,
@@ -704,6 +707,8 @@ Authorization: Bearer {token}
 }
 ```
 
+### Example 2 - for a Request expected expense
+
 #### HTTP Request
 
 ```shell
@@ -754,8 +759,7 @@ Authorization: Bearer {token}
   },
   "expenseType": {
     "id": "DINNR",
-    "name": "Dinner",
-    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/DINNR"
+    "name": "Dinner"
   },
   "postedAmount": {
     "value": 80,
@@ -792,13 +796,17 @@ PUT {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 expenseUuid|path|string|**Required** The unique identifier of the expected expense to update
-userId|path|string|The unique identifier of the user performing the expected expense update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|query|string|The unique identifier of the user performing the expected expense update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
 [Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense)
 
 ### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 
@@ -849,8 +857,7 @@ Authorization: Bearer {token}
   },
   "expenseType": {
     "id": "AIRFR",
-    "name": "Airfare",
-    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+    "name": "Airfare"
   },
   "postedAmount": {
     "value": 432.45,
@@ -973,9 +980,8 @@ Authorization: Bearer {token}
   },
   "expenseType": {
     "id": "AIRFR",
-    "name": "Airfare",
-    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
-  },
+    "name": "Airfare"
+   },
   "postedAmount": {
     "value": 432.45,
     "currency": "USD"
@@ -1075,13 +1081,17 @@ DELETE {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 expenseUuid|path|string|**Required** The unique identifier of the expected expense to delete
-userId|path|string|The unique identifier of the user performing the deletion of the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|query|string|The unique identifier of the user performing the deletion of the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
 None
 
 ### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 
@@ -1126,13 +1136,17 @@ GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}/comments
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 expenseUuid|path|string|**Required** The unique identifier of the expected expense
-userId|path|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|query|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 
 None
 
 ### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 

@@ -8,10 +8,6 @@ layout: reference
 * [Travel Agency Resources](#travel-agency-resource)
   * [Get the description of a travel Agency](#get-travel-agency-description-resource)
 
-## HTTP Status Codes
-
-To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
-
 # <a name="travel-agency-resource"></a>Travel Agency Resources
 
 Manage the configuration for Travel Agencies integrated with Concur Request.
@@ -41,6 +37,10 @@ agencyUuid|path|string|**Required** The unique identifier of the Travel Agency
 None
 
 ### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 #### Payload
 
