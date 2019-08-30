@@ -54,7 +54,7 @@ None
 Except when the workflow action is ‘sendback’ where an optional comment may be submitted
 
 ```json
-{ comment : “My Comment” }
+{ "comment" : "My Comment" }
 ```
 
 This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
