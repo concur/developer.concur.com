@@ -12,18 +12,10 @@ redirect_from:
   - /api-reference-deprecated/version-one/Image/report-image-URL-get.html
 ---
 
-{% capture deprecation_content %}
-
-[Image v3](./v3.image.html) replaces this API.
-
-{% endcapture %}
-
-{% include deprecation-alert.html content=deprecation_content %}
-
 * [Post an image](#post-image)
 * [Get an image URL](#get-image-url)
 
-The Concur Imaging Web service allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.
+The SAP Concur Imaging Web service allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.
 
 The Imaging web service supports the following image formats:
 
@@ -42,11 +34,11 @@ Name|Description|Endpoint
 
 ## Product Restrictions
 
-Concur products are highly configurable, and not all clients will have access to all features.
+SAP Concur products are highly configurable, and not all clients will have access to all features.
 
 Partner developers must determine which configurations are required for their solution prior to the review process.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with SAP Concur Advantage Technical Services to create custom applications that work with their configuration.
 
 ## <a name="post-image"></a>Post an image
 
@@ -69,14 +61,14 @@ https://www.concursolutions.com/api/image/v1.0/report/{reportId}
 
 Name|Type|Format|Description
 ---|---|---|---
-`receipt`|`string`|-|Uploads a receipt image and associates it with the OAuth consumer. The user can view the image in the receipt management section of Concur.
+`receipt`|`string`|-|Uploads a receipt image and associates it with the OAuth consumer. The user can view the image in the receipt management section of SAP Concur.
 `expenseentry/{entryID}`|`string`|-|Uploads a receipt image and associates it with the expense entry that matches the supplied entry ID. Once an image is attached to the entry, you cannot append additional images.
 `invoice/{requestID}`|`string`|-|Uploads an invoice image and associates it with the invoice that matches the supplied request ID. Each invoice is uniquely identified by the request ID value. Once an image is attached to the invoice, you cannot append additional images. The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
 `report/{reportID}`|`string`|-|Uploads a receipt image and associates it with the report that matches the supplied report ID. If a report image already exists for the report, the new image will be appended to the existing image.
 
 #### Headers
 
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) (Required) - Authorization header with OAuth token for valid Concur user. The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These administrative roles allow the user to manage data for the entire company.
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) (Required) - Authorization header with OAuth token for valid SAP Concur user. The SAP Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in SAP Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These administrative roles allow the user to manage data for the entire company.
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
   * `application/pdf`, `image/jpg`, `image/jpeg`, `image/png`
 * [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
@@ -105,7 +97,7 @@ Delete unused codes
 
 #### Request
 
-> This example contains a truncated (see the elipsis) 64-bit encoded string representation of the image for illustration purposes only.
+> This example contains a truncated (see the ellipsis) 64-bit encoded string representation of the image for illustration purposes only.
 > This example demonstrates one of the endpoints available.
 
 ```shell
@@ -176,7 +168,7 @@ Name|Type|Format|Description
 
 #### Headers
 
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) containing an OAuth token for a valid Concur user. The OAuth consumer must be the owner of the report to which the image is attached.
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) containing an OAuth token for a valid SAP Concur user. The OAuth consumer must be the owner of the report to which the image is attached.
 * [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2): `application/xml`
 
 #### Payload

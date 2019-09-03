@@ -161,7 +161,7 @@ Name|Type|Format|Description
 `IsChangeOrder`|`string`|-|If the purchase order has a change order or not.
 `LedgerCode`|`string`|-|A code which indicates which company journal the Purchase Order is assigned to.
 `LineItem`|`array`|[`LineItem`](#lineItem)|**Required** The line items in a purchase order.
-`Name`|`string`|-|A name for the purchase order.
+`Name`|`string`|-|**Required** A name for the purchase order.
 `NeededByDate`|`string`|-|The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD
 `OrderDate`|`string`|-|**Required** The date when goods were ordered. Format: YYYY-MM-DD
 `PaymentTerms`|`string`|-|The net payment terms that have been set up with a vendor.
