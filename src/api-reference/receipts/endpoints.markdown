@@ -516,6 +516,8 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 
 ### Image-Only Receipts
 
+> This API is not designed to obtain the receipt images attached to an expense report. If you are an Enterprise Partner creating integrations that are intended to obtain final-approved Expense or Invoice data, and the accompanying receipt images that substantiate those transactions you will need to use [Image v1](./v1.image.html). These scenarios include, but are not limited to: ERP integrations for financial journal entry postings, VAT reclaim integrations that obtain transactions to calculate VAT reclaim, project billing integrations used to substantiate expenses billed back, etc. 
+
 |Endpoint|Response Format|Request Summary|
 |---|---|---|
 |[POST /v4/users/:userId/image-only-receipts](#endpoint-post-an-image-only-receipt)|N/A|Post an image-only receipt|
