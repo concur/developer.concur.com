@@ -213,7 +213,6 @@ Name|Type|Format|Description
 ---|---|---|---
 id|string|-|**Required** Unique identifier of the expense type
 name|string|-|Name of the expense type
-href|string|[RFC 3986]|Hyperlink to the resource for the expense type definition
 
 ### <a name="schema-listitemfield"></a>List Item Field
 

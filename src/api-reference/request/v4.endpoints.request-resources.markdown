@@ -208,20 +208,7 @@ GET {datacenter}/travelrequest/v4/requests
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-view|query|string|Name of the perimeter defining the requests to get.<br> Possible values:
-<br> `ALL`: Get all existing Requests for a user (relevant only for the traveler);
-<br> `ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than 3 months based on current date and must not be in closed status;
-<br> `UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler);
-<br> `PENDING`: Get all the pending Requests (relevant only for the traveler);
-<br> `VALIDATED`: Get all the approved Requests for a user (relevant only for the traveler). Closed Requests are included in this view;
-<br> `APPROVED`: Get all the approved Requests by a user (relevant only for the approver). Closed Requests are included in this view;
-<br> `CANCELED`: Get all the cancelled Requests for a user (relevant only for the traveler). Cancelled could include close/not closed requests;
-<br> `CLOSED`: Get all the closed Requests for a user (relevant only for the traveler). Includes canceled then closed Request as well as approved then closed Requests;
-<br> `SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests;
-<br> `TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver);
-<br> `PENDINGEBOOKING`: Approved Requests awaiting Concur Travel booking(s).
-<br> When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`.
-<br> If no view value is sent, the default view `ALL` will be used
+view|query|string|Name of the perimeter defining the Requests to get.<br>Possible values:<br>`ALL`: Get all existing Requests for a user (relevant only for the traveler);<br>`ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than 3 months based on current date and must not be in closed status;<br>`UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler);<br>`PENDING`: Get all the pending Requests (relevant only for the traveler);<br>`VALIDATED`: Get all the approved Requests for a user (relevant only for the traveler). Closed Requests are included in this view;<br>`APPROVED`: Get all the approved Requests by a user (relevant only for the approver). Closed Requests are included in this view;<br>`CANCELED`: Get all the cancelled Requests for a user (relevant only for the traveler). Cancelled could include close/not closed requests;<br>`CLOSED`: Get all the closed Requests for a user (relevant only for the traveler). Includes canceled then closed Request as well as approved then closed Requests;<br>`SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests;<br>`TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver);<br>`PENDINGEBOOKING`: Approved Requests awaiting Concur Travel booking(s).<br>When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`.<br>If no view value is sent, the default view `ALL` will be used
 userId|query|string|The unique identifier of the Request owner to use when searching for Requests
 start|query|Integer|Pagination: index of the first record (default 0)
 limit|query|Integer|Number of records to return per page (default 10) - maximum limit is 100, if higher value or digit value is set, a 400 error code will be displayed
@@ -421,9 +408,9 @@ Authorization: Bearer {token}
   "closed": false,
   "comment": "Need to arrive the day before for meeting in Company Office",
   "comments": {
-    "href": "http://us.api.concursolutions.com/v4/requests/474AD50230C0B94AAB318D22BB1C4322/comments",
+    "href": "http://us.api.concursolutions.com/travelrequest/v4/requests/474AD50230C0B94AAB318D22BB1C4322/comments",
     "id": "474AD50230C0B94AAB318D22BB1C4322",
-    "template": "http://us.api.concursolutions.com/v4/requests/{id}/comments"
+    "template": "http://us.api.concursolutions.com/travelrequest/v4/requests/{id}/comments"
   },
   "creationDate": "2018-05-25T07:31:33.000Z",
   "custom1": {
@@ -566,8 +553,6 @@ Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {token}
 ```
-
-#### HTTP Response
 
 ```json
 {
