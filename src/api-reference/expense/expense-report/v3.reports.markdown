@@ -46,7 +46,6 @@ Name|Type|Format|Description
 `hasBillableExpenses`|`Boolean`|`query`|The IsBillable flag for at least one expense entry in the report. Format: true or false.
 `isTestUser`|`Boolean`|`query`|The report owner is a test user using the report for testing purposes in a non-production environment. Format: true or false.
 `expenseGroupConfigID`|`string`|`query`|The unique identifier for the expense group configuration associated to the report's expense group. Use the ID from the Response of the Expense Group Configurations V3.
-`costObject`|`string`|`query`|The list item code for an allocation field for at least allocation in the report.
 `entryTransactionDateBefore`|`DateTime`|`query`|The entry transaction date for at least one expense entry in the report is before this date. Format: YYYY-MM-DD
 `entryTransactionDateAfter`|`DateTime`|`query`|The entry transaction date for at least one expense entry in the report is after this date. Format: YYYY-MM-DD
 `createDateBefore`|`DateTime`|`query`|The report create date is before this date. Format: YYYY-MM-DD
