@@ -1,7 +1,6 @@
 .jumbotron-home {
   background-color: white !important;
-  height: 100vh;
-  padding-top: 100px !important;
+  padding: 100px !important;
 
   h1, h2, h3, h4, h5, h6 {
     color: #222222;
@@ -59,8 +58,6 @@
 
 @media (max-width: 991px) {
   .jumbotron-home {
-    height: 100%;
-
     .row {
       display: flex;
       flex-direction: column;
