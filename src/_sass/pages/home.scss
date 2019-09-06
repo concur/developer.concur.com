@@ -1,12 +1,20 @@
-$home-image: url('/assets/img/slider_1_bg.png');
-$home-bg: rgba(0, 0, 0, 0.2);
-
 .jumbotron-home {
-  background: -webkit-linear-gradient($home-bg, $home-bg), $home-image top center;
-  background:    -moz-linear-gradient($home-bg, $home-bg), $home-image top center;
-  background:      -o-linear-gradient($home-bg, $home-bg), $home-image top center;
-  background:         linear-gradient($home-bg, $home-bg), $home-image top center;
-  background-size: cover;
+  background-color: white !important;
+  height: 100vh;
+  padding-top: 100px !important;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #222222;
+    font-size: 36px;
+    font-weight: 400;
+  }
+
+  p {
+    color: #4a4a4a;
+    font-size: 16px !important;
+    font-weight: 300;
+    line-height: 1.75;
+  }
 }
 
 .card-content {
