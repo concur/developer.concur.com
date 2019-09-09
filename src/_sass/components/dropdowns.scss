@@ -7,6 +7,7 @@
   }
 
   li > a {
+    color: $concur-blue;
     font-weight: 300;
     padding: 5px 15px;
 
@@ -15,6 +16,16 @@
       color: $white;
       background-color: $dark-gray;
     }
+  }
+
+  .column-icon {
+    color: $concur-blue;
+    padding: 10px 10px 0;
+  }
+
+  .column-title {
+    font-size: 16px;
+    padding: 5px 15px;
   }
 
   &.two-column-menu {
@@ -41,7 +52,7 @@
     li > a {
       display: block;
       line-height: 1.428571429;
-      color: #333333;
+      color: $concur-blue;
 
       &:hover {
         background-color: #999;
@@ -59,7 +70,42 @@
 }
 
 @media (max-width: $grid-float-breakpoint-max) {
-  .dropdown-menu > li > a {
-    border-bottom: 1px solid $off-black;
+  .dropdown-menu {
+    li > a {
+      border-bottom: 1px solid $off-black;
+    }
+
+    .column-icon {
+      padding-left: 20px;
+    }
+
+    .column-title {
+      color: $light-gray;
+      padding-left: 25px;
+    }
+
+    &.two-column-menu {
+      .col-sm-6:nth-child(1) {
+        padding-left: 25px !important;
+      }
+
+      .col-sm-6:nth-child(2) {
+        padding-left: 25px !important;
+      }
+
+      .column-icon {
+        padding-left: 10px;
+      }
+
+      .column-title {
+        padding-left: 15px;
+      }
+    }
+
+    .multi-column-dropdown {
+      li > a {
+        color: white;
+      }
+    }
   }
 }
