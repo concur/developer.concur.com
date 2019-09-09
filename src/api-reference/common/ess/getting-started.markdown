@@ -7,7 +7,8 @@ layout: reference
 
 * [Overview](#ess)
 * [Terminology](#ess-terminology)
-* [Architecture](#ess-architecture)
+* [Delivery model](#ess-delivery)
+* [Access control](#access-control)
 * [Subscribing](#subscribing)
 * [Endpoint Requirements](#endpoint-requirements)
 * [Authentication](#ess-authentication)
@@ -23,13 +24,25 @@ The Event Subscription Service (ESS) implements Publish/Subscribe pattern using 
 * Subscription - a topic consumer. Each subscription has a topic it is subscribed to.  
 * Webhook - an ESS application that uses subscription and delivers events to the endpoint.
 
-## <a name="ess-architecture"></a>ESS Architecture
+## <a name="ess-delivery"></a>ESS Delivery model
 
 It is important to remember that ESS doesn't have any API that you can call for SAP Concur events, ESS delivers events to your endpoint.
 
 * It uses an outbound callout where SAP Concur calls a public facing URL provided by client or partner, which is a web server hosted by the third-party developer or client.
 
 * The application endpoint can also use the related web services to retrieve or send SAP Concur data. For example, an event may be generated when a request for travel is submitted. The application endpoint may then leverage data from the event, such as the request ID, to retrieve the relevant travel request record from the published Request APIs.
+
+
+## <a name="access-control"></a>Access control
+
+ESS is requiring a caller to have a proper JWT and scopes, for more details please refer <a href="https://developer.concur.com/api-reference/authentication/scopes.html">our wiki</a>
+A caller must have types of scopes
+
+* ESS API level scope "events.topic.read" is required to be able to access ESS API
+
+* Resource level scope example "expense.request.read" is required to be able to access "expense.request" topic and to be able to create subscriptions to that topic
+
+All required scopes can be requested for a caller Application by Partner Enablement team.
 
 
 ## <a name="subscribing"></a>Subscribing your endpoint
