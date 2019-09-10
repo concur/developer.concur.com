@@ -78,11 +78,11 @@ Insert one Report ID per API request. Make all of the requests until you obtain 
 
 #### Step 3: GET the Images
 
-[Receipt Image v3 API](/api/v3.0/expense/receiptimages)
+[Image v1 API](/api-reference/image/v1.image.html#get-image-url)
 
 The GET Report Details API request will produce an Entry ID that will be used in this API request. The result will produce a URL that the Partner can use in a separate browser session to render the image. This URL is short-lived (15 minutes). If the URL expires, then the Partner can retry the same call to get another URI to render the image.
 
-> For the purposes of this API, the parameter variable {id} is acquired from the v2 GET Report Details API: `EntryImageID`.
+> For the purposes of this API, the parameter variable {id} is acquired from the v2 GET Report Details API: `EntryID`.
 
 ### <a name="obtain-invoice-data-for-vat-reclaim"></a>Obtain Invoice Data for VAT Reclaim
 
