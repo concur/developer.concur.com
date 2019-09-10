@@ -28,7 +28,7 @@ GET {datacenter}/travelrequest/v4/userpolicies
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-userId|query|string|The unique identifier of the user for whom the list of Request policies will be retrieved. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error
+userId|path|string|The unique identifier of the user for whom the list of Request policies will be retrieved. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error
 
 #### Payload
 
@@ -42,11 +42,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-Name|Type|Format|Description
----|---|---|---
-href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for this Request policy
-id|string|-|The Request policy unique identifier
-name|string|-|The name of the Request policy
+[List of Request Policies](./v4.endpoints.schemas.html#schema-requestpolicylist)
 
 ### Example
 
@@ -65,15 +61,17 @@ Authorization: Bearer {token}
 ```
 
 ```json
-{
-  "href": "https://us.api.concursolutions.com/travelrequest/v4/userpolicies/F4C8BD31CA9D4D6292795BE687EB9B2A",
-  "id": "F4C8BD31CA9D4D6292795BE687EB9B2A",
-  "name": "Internal training Request policy"
-},
-{
-  "href": "https://us.api.concursolutions.com/travelrequest/v4/userpolicies/F10E6059B5A14A4C80327FE387491026",
-  "id": "F10E6059B5A14A4C80327FE387491026",
-  "name": "Client meeting Request policy"
-}
+[
+  {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/userpolicies/F4C8BD31CA9D4D6292795BE687EB9B2A",
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A",
+   "name": "Internal training Request policy"
+  },
+  {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/userpolicies/F10E6059B5A14A4C80327FE387491026",
+    "id": "F10E6059B5A14A4C80327FE387491026",
+   "name": "Client meeting Request policy"
+  }
+]
 
 ```

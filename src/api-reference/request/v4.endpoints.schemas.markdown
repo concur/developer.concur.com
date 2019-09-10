@@ -14,9 +14,11 @@ layout: reference
   * [Employee](#schema-employee)
   * [Link](#schema-link)
   * [List of Request](#schema-listofrequest)
+  * [List of Request Policies](#schema-requestpolicylist)
   * [Location](#schema-location)
   * [ResourceLink](#schema-resourcelink)
   * [RequestLink](#schema-requestlink)
+  * [Request Policy](#schema-requestpolicy)
   * [Request Type](#schema-requesttype)
   * [Expected Expense](#schema-expected-expense)
   * [Allocation](#schema-allocation)
@@ -68,7 +70,7 @@ totalApprovedAmount|object|[Amount](#amount)|The total amount of approved expect
 totalPostedAmount|object|[Amount](#amount)|The total amount of the Request, expressed in the reimbursement currency of the employee at the time they created the Request
 totalRemainingAmount|object|[Amount](#amount)|The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time they created the Request
 travelAgency|object|[ResourceLink](#schema-resourcelink)|The travel agency office that is managing the trip associated to this Request
-operations|array|[Link](#schema-link)|Links to operations available for the Request, depends on the current approval status
+operations|array|[Link](#schema-link)|Links to operations available for the Request, depends on the current workflow status
 type|object|[RequestType](#schema-requesttype)|The type of the Request, inherited from the Request Policy Type
 
 ### <a name="schema-amount"></a>Amount
@@ -128,6 +130,12 @@ Name|Type|Format|Description
 data|array|[Request](#schema-request)|List of Requests in the page requested
 operations|array|[Link](#schema-link)|Links to next, prev, first and last pages
 
+### <a name="schema-requestpolicylist"></a>List of Request Policies
+
+Name|Type|Format|Description
+---|---|---|---
+-|array|[Request Policy](#schema-requestpolicy)|List of active Requests policies for a given user
+
 ### <a name="schema-location"></a>Location
 
 Name|Type|Format|Description
@@ -151,6 +159,14 @@ template|string|-|Hyperlink template to the resource
 Name|Type|Format|Description
 ---|---|---|---
 requestId|string|4 to 6 alphanumeric characters|The public key of the Request (unique per customer)
+
+### <a name="schema-requestpolicy"></a>Request Policy
+
+Name|Type|Format|Description
+---|---|---|---
+href|string|[RFC 3986]|Hyperlink to the resource for this Request policy
+id|string|-|The Request policy unique identifier
+name|string|-|The name of the Request policy
 
 ### <a name="schema-requesttype"></a>Request Type
 
