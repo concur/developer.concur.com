@@ -64,7 +64,7 @@ If a customer requests that the ERP Partner obtain images to be added to their G
 
 The GET Report Details API request will produce an Entry ID that will be used in this API request. The result will produce a URL that the ERP Partner can use in a separate browser session to render the image. This URL is short-lived (15 minutes). If the URL expires, then the ERP Partner can retry the same call to get another URI to render the image.
 
-> For the purposes of this API, the parameter variable {id} is acquired from the v2 GET Report Details API: `EntryImageID`.
+> For the purposes of this API, the parameter variable {id} is acquired from the v2 GET Report Details API: `EntryID`.
 
 ### <a name="integration-manage-lists"></a>Manage lists of Cost Object codes
 
