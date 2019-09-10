@@ -3,14 +3,18 @@ title: Payment Batches
 layout: reference
 ---
 
-
 # Payment Batches
+
 The Payment Batch File web service provides an automated solution to clients who would like to manage their payment batches and collect their batch files.
 
 * [Retrieve the list of payment batches](#getpaymentbatches)
+  * [Schema](#getpaymentbatchesschema)
 * [Close a payment batch asynchronously](#closepaymentbatch)
+  * [Schema](#closepaymentbatchschema)
 * [Close a payment batch synchronously](#closepaymentbatchsync)
+  * [Schema](#closepaymentbatchsyncschema)
 * [Retrieve a payment batch file](#getbatchfile)
+  * [Schema](#getbatchfileschema)
 * [Error Messages](#errormessages)
 
 ## Product and Edition
@@ -33,7 +37,7 @@ Name|Type|Format|Description
 `batchlist`|`string`|-|**Required.** The batchlist keyword.
 `Status`|`Boolean`|-|The status of the batches. Can be either OPEN or CLOSED.
 
-### Response
+### <a name="getpaymentbatchesschema"></a>Retrieve Payment Batches Response Schema
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -49,7 +53,7 @@ Name|Type|Format|Description
 ## <a name="closepaymentbatch"></a>Close a Payment Batch Asynchronously
 ### Version 1.2
 
-This asynchronous request schedules closing of the specified batch, preventing any new expenses from entering it. After the batch closes, you can use Close Payment Batch v1.1 to get the `File-Url` to download the file containing the expense transaction information. 
+This asynchronous request schedules closing of the specified batch, preventing any new expenses from entering it. After the batch closes, you can use Close Payment Batch v1.1 to get the `File-Url` to download the file containing the expense transaction information.
 
 > **Note**: You can check batch status using the Retrieve the List of Payment Batches method.
 
@@ -64,7 +68,7 @@ Name|Type|Format|Description
 `BatchID`|`string`|-|**Required.** The unique identifier for the batch.
 `close`|`string`|-|**Required.** The close keyword.
 
-### Response
+### <a name="closepaymentbatchschema"></a>Close Payment Batch Asynchronously Response Schema
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -74,7 +78,7 @@ Name|Type|Format|Description
 ## <a name="closepaymentbatchsync"></a>Close a Payment Batch Synchronously
 ### Version 1.1
 
-This request synchronously closes the batch preventing any new expenses from entering it. After the batch closes, SAP Concur creates the batch file containing the expense transaction information. If a batch ID for an already closed batch is sent, SAP Concur regenerates the batch file for the specified batch. 
+This request synchronously closes the batch preventing any new expenses from entering it. After the batch closes, SAP Concur creates the batch file containing the expense transaction information. If a batch ID for an already closed batch is sent, SAP Concur regenerates the batch file for the specified batch.
 
 This synchronous call has a time limit that can be superseded by the time it takes to close the batch. It is recommended that you use Close a Payment Batch Asynchronously (v1.2) to close batches, then use this request after the batch is closed to obtain the `File-Url` needed to download the file with the expense transaction information.
 
@@ -91,7 +95,7 @@ Name|Type|Format|Description
 `BatchID`|`string`|-|**Required.** The unique identifier for the batch.
 `close`|`string`|-|**Required.** The close keyword.
 
-### Response
+### <a name="closepaymentbatchsyncschema"></a>Close Payment Batch Synchronously Response Schema
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -113,7 +117,7 @@ Name|Type|Format|Description
 ---|---|---|---
 `JobRunKey`|`string`|-|**Required.**  The `File-Url` element returned by the Close Batches 1.1 API response contains the encrypted JobRunKey. In practice, you can use the `File-Url` whole value to download the file.
 
-### Response
+### <a name="getbatchfileschema"></a>Retrieve Payment Batch File Response Schema
 
 This request will return the expense transaction data in text/csv format if there was a single file produced or as a zip archive if the batch is configured to produce more than one file. An example of a client who will receive multiple files is a client using QuickBooks, who receives one file formatted for import into QuickBooks (.IIF extension), and one file for the general ledger (.CSV extension), inside a .ZIP file.  
 
