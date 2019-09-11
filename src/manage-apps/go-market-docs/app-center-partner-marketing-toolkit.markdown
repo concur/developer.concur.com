@@ -187,13 +187,13 @@ For logo files, please email [concur_AppCenterMarketing@SAP.com](mailto:concur_A
 
 Acceptable|Branding
 :---:|---
-&#9989; <p> (Certain cases and with App Center Marketing approval only.) </p>|![Full logo image](./app-center-partner-marketing-toolkit-sap-concur-logo-full.png)
+Certain cases and with App Center Marketing approval only.|![Full logo image](./app-center-partner-marketing-toolkit-sap-concur-logo-full.png)
 
 #### <a name="sap-concur-logos-available-c-dot"></a>C-dot only
 
 Acceptable|Branding
 :---:|---
-&#9989; <p> (Certain cases and with App Center Marketing approval only. C-dot to be used only when the full logo will not fit the intended space.) </p>|![c-dot only image](./app-center-partner-marketing-toolkit-sap-concur-logo-c-dot.png)
+Certain cases and with App Center Marketing approval only. C-dot to be used only when the full logo will not fit the intended space. |![c-dot only image](./app-center-partner-marketing-toolkit-sap-concur-logo-c-dot.png)
 
 ## <a name="partner-landing-pages"></a>Partner Landing Pages
 
