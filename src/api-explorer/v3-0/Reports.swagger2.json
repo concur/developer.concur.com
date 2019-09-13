@@ -175,13 +175,6 @@
             "type": "string"
           },
           {
-            "name": "costObject",
-            "in": "query",
-            "description": "The list item code for an allocation field for at least allocation in the report.",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "entryTransactionDateBefore",
             "in": "query",
             "description": "The entry transaction date for at least one expense entry in the report is before this date.Format: YYYY-MM-DD",
