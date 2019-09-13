@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "The Budget service exposes budget and fiscal year data. Partners may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration. Summary and detailed balance amounts are also available to read, but may not be altered via the API.",
-    "version": "4.0.0",
+    "version": "4.0",
     "title": "Budget Service API Documentation"
   },
   "host": "www.concursolutions.com",
@@ -943,7 +943,7 @@
           "type": "string",
           "description": "The budget service’s key for this object’s field definition id."
         },
-        "fieldId": { 
+        "fieldId": {
           "type": "string",
           "description": "The budget service’s key for this object."
         },

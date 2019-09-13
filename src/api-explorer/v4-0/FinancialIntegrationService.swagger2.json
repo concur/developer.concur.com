@@ -7,6 +7,10 @@
   },
   "host": "us.api.concursolutions.com",
   "basePath": "/",
+  "externalDocs": {
+    "description": "Financial Documents Schema Documentation",
+    "url": "https://developer.concur.com/api-reference/financial-integration/v4.financial-documents-schema.html"
+  },
   "tags": [
     {
       "name": "Financial Transactions",
@@ -20,7 +24,7 @@
           "Financial Transactions"
         ],
         "summary": "Retrieves a list of financial transactions.",
-        "description": "If docId is not present, the results are paged, page size is 25 by default if limit is not specified. Only one type of transactions can be retrieved at a time - specified by the docType. <br>If paging is occurring, each response contains a URI to retrieve the next page of transactions (if more exist). <br>If systemId is specified, the returned list of queued documents is filtered by systemId, paging applies. <br>If docId is specified, a single document which matches docId is returned. Paging doesn't apply. <br>If docId and systemId are specified, a single document whose docId AND systemId match the values is returned. Paging doesn't apply. <br>If docId is specified and ignoreDocumentStatus is no, a document which has not been retrieved by an ERP system is returned only, i.e document status is READY. If ignoreDocumentStatus is yes, a document is returned regardless of status.",
+        "description": "If docId is not present, the results are paged, page size is 25 by default if limit is not specified. Only one type of transactions can be retrieved at a time - specified by the docType. <br>If paging is occurring, each response contains a URI to retrieve the next page of transactions (if more exist). <br>If systemId is specified, the returned list of queued documents is filtered by systemId, paging applies. <br>If docId is specified, a single document which matches docId is returned. Paging doesn't apply. <br>If docId and systemId are specified, a single document whose docId AND systemId match the values is returned. Paging doesn't apply. <br>If docId is specified and ignoreDocumentStatus is no, a document which has not been retrieved by an ERP system is returned only, i.e document status is READY. If ignoreDocumentStatus is yes, a document is returned regardless of status.<br><br><a href=\"https://developer.concur.com/api-reference/financial-integration/v4.financial-documents-schema.html\">Financial Documents Schema Documentation</a>",
         "operationId": "getTransactionDocsUsingGET",
         "consumes": [
           "application/json"
@@ -172,7 +176,7 @@
           "200": {
             "description": "OK",
             "schema": {
-                "$ref": "#/definitions/AcknowledgeResponse"
+              "$ref": "#/definitions/AcknowledgeResponse"
             }
           },
           "400": {
@@ -327,19 +331,23 @@
       "properties": {
         "number": {
           "type": "integer",
-          "format": "int64"
+          "format": "int64",
+          "description": "Page location for which the result is returned, for example: first page starts with 0, second page starts with 1"
         },
         "size": {
           "type": "integer",
-          "format": "int64"
+          "format": "int64",
+          "description": "Total number of pages returned"
         },
         "totalElements": {
           "type": "integer",
-          "format": "int64"
+          "format": "int64",
+          "description": "Total count of records returned"
         },
         "totalPages": {
           "type": "integer",
-          "format": "int64"
+          "format": "int64",
+          "description": "Total number of pages returned"
         }
       }
     },
@@ -351,33 +359,37 @@
       "properties": {
         "ids": {
           "type": "array",
-          "description": "The list of document ID's that to be acknowledged.",
+          "description": "The unique identifiers list for the financial documents",
           "items": {
             "type": "string"
           }
         },
         "systemId": {
           "type": "string",
-          "description": "The ERP Id that acknowledged the document."
+          "description": "The external System ID that acknowledged the documents."
         }
       }
     },
     "Collection.Resource.FIDocument": {
       "type": "array",
+      "description": "The result collection",
       "items": {
-          "$ref": "#/definitions/Resource.FIDocument"
+        "$ref": "#/definitions/Resource.FIDocument"
       }
     },
     "Resource.FIDocument": {
       "properties": {
         "companyId": {
-          "type": "string"
+          "type": "string",
+          "description": "Unique identifier for the company in SAP Concur"
         },
         "companyUuid": {
-          "type": "string"
+          "type": "string",
+          "description": "UUID for the company in SAP Concur"
         },
         "docStatus": {
           "type": "string",
+          "description": "The financial document status. Supported values are: READY, ACKNOWLEDGED, POSTING_CONFIRMED_SUCCESS, POSTING_CONFIRMED_FAILURE",
           "enum": [
             "ACKNOWLEDGED",
             "PAID",
@@ -394,6 +406,7 @@
         },
         "docType": {
           "type": "string",
+          "description": "Transaction type. Supported values are: expense, invoice, cashadvance, payroll, obligation",
           "enum": [
             "expense",
             "invoice",
@@ -403,19 +416,23 @@
           ]
         },
         "document": {
-          "type": "object"
+          "type": "object",
+          "description": "The JSON financial document. Review the <a href='https://developer.concur.com/api-reference/financial-integration/v4.financial-documents-schema.html'>Financial Documents Schema Documentation</a>"
         },
         "entityId": {
-          "type": "string"
+          "type": "string",
+          "description": "Unique identifier for the entity in SAP Concur"
         },
         "erpSystemId": {
           "type": "string"
         },
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "The unique identifier for the document"
         },
         "links": {
           "type": "array",
+          "description": "Pagination links",
           "items": {
             "$ref": ""
           }
@@ -424,8 +441,9 @@
     },
     "AcknowledgeResponse": {
       "type": "array",
+      "description": "The JSON response",
       "items": {
-          "$ref": "#/definitions/AcknowledgeResponseItem"
+        "$ref": "#/definitions/AcknowledgeResponseItem"
       }
     },
     "AcknowledgeResponseItem": {
@@ -437,7 +455,7 @@
       "properties": {
         "acknowledgeResult": {
           "type": "string",
-          "description": "Acknowledge processing result, succeeded or failed.",
+          "description": "Acknowledge processing result. Supported values are: SUCCESS or FAILURE",
           "enum": [
             "SUCCESS",
             "FAILURE"
@@ -446,34 +464,37 @@
         "code": {
           "type": "integer",
           "format": "int32",
-          "description": "The fi return code"
+          "description": "The Financial Integration Service Code. This is a particular code based on the success and failure of individual records for Acknowledging documents."
         },
         "docId": {
           "type": "string",
-          "description": "The document id"
+          "description": "The financial document unique identifier."
         },
         "errorMessage": {
           "type": "string",
-          "description": "Any error message if occurred."
+          "description": "The error message, if any"
         },
         "systemId": {
           "type": "string",
-          "description": "The ERP Id that acknowledged the document."
+          "description": "The external system ID that acknowledged the documents"
         }
       }
     },
     "PagedResources.Resource.FIDocument": {
       "properties": {
         "content": {
-          "$ref": "#/definitions/Collection.Resource.FIDocument"
+          "$ref": "#/definitions/Collection.Resource.FIDocument",
+          "description": "The result collection"
         },
         "links": {
           "type": "array",
+          "description": "Pagination links",
           "items": {
             "$ref": "#/definitions/Link"
           }
         },
         "page": {
+          "description": "Pagination details",
           "$ref": "#/definitions/PageMetadata"
         }
       }
@@ -584,7 +605,7 @@
             "$ref": ""
           }
         },
-        "messageShortText": { 
+        "messageShortText": {
           "type": "string",
           "description": "Message text, will be posted on the audit trail in SAP Concur."
         }
@@ -797,28 +818,35 @@
     "Link": {
       "properties": {
         "deprecation": {
-          "type": "string"
+          "type": "string",
+          "description": "Deprecated indication, if any"
         },
         "href": {
-          "type": "string"
+          "type": "string",
+          "description": "Complete URL for the paginated link"
         },
         "hreflang": {
-          "type": "string"
+          "type": "string",
+          "description": "Link language, if any"
         },
         "media": {
-          "type": "string"
+          "type": "string",
+          "description": "Media type, if any"
         },
         "rel": {
-          "type": "string"
+          "type": "string",
+          "description": "Relation of link, for example: first, self, next, last"
         },
         "templated": {
           "type": "boolean"
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "Link title, if any"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "description": "Link type, if any"
         }
       }
     }
