@@ -84,7 +84,7 @@
       },
       "post": {
         "tags": ["Budget Category"],
-        "summary": "Save budget category. Creates a new budget category if one doesn't exist. Any value may be supplied for ",
+        "summary": "Save budget category. Creates a new budget category if one doesn't exist. Any value may be supplied for summary.",
         "operationId": "saveBudgetCategoryUsingPOST",
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -115,7 +115,7 @@
     "/budget/v4/budgetCategory/expenseTypes": {
       "get": {
         "tags": ["Budget Category"],
-        "summary": "Calls the concur midtier to fetches the list of expense types for the given entity.",
+        "summary": "Fetches the list of expense types for the given entity.",
         "operationId": "getExpenseTypesUsingGET",
         "produces": ["application/json"],
         "parameters": [
