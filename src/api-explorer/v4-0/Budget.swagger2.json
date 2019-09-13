@@ -934,7 +934,7 @@
           "format": "int32",
           "description": "Indicates the level of the budget tracking field in a connected list. READ ONLY"
          },
-        "feildType": {
+        "fieldType": {
           "type": "string",
           "description": "The data type of this field or field collection.",
           "enum": ["LIST", "MLIST", "VARCHAR"]
@@ -948,7 +948,7 @@
           "description": "The budget service’s key for this object."
         },
         "fieldSyncGuid": {
-          "type": "string",
+          "type": "string"
         },
         "listSyncGuid": {
           "type": "string",
