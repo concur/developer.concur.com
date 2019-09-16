@@ -1,40 +1,81 @@
-$home-image: url('/assets/img/slider_1_bg.png');
-$home-bg: rgba(0, 0, 0, 0.2);
-
 .jumbotron-home {
-  background: -webkit-linear-gradient($home-bg, $home-bg), $home-image top center;
-  background:    -moz-linear-gradient($home-bg, $home-bg), $home-image top center;
-  background:      -o-linear-gradient($home-bg, $home-bg), $home-image top center;
-  background:         linear-gradient($home-bg, $home-bg), $home-image top center;
-  background-size: cover;
-}
+  background-color: white !important;
+  padding: 100px !important;
+  height: 100vh;
 
-.card-content {
-  padding: 50px 0;
-}
-
-.home-card {
-  position: relative;
-  margin-bottom: 20px;
-  padding: 30px;
-  min-height: 380px;
-  border: 2px solid $light-gray;
-  text-align: center;
-  background-color: white;
-  -webkit-box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.25);
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.25);
-
-  img {
-    min-height: 120px;
-    padding: 10px;
+  h1, h2, h3, h4, h5, h6 {
+    color: #222222;
+    font-size: 36px;
+    font-weight: 400;
   }
 
-  .btn {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+  p {
+    color: #4a4a4a;
+    font-size: 16px !important;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+}
+
+.curated {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 25px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  .curated-card {
+    border-radius: 8px;
+    box-shadow: 2px 7px 38px 4px rgba(0,0,0,0.13);
+    padding: 50px;
+    display: flex;
+
+    .curated-icon {
+      background: linear-gradient(90deg, #00d2ff 0%, $concur-blue 100%);
+      border-radius: 50%;
+      box-shadow: 2px 2px 8px 0 rgba(85, 85, 85, .5);
+      color: #ffffff;
+      font-size: 32px;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 60px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+
+      li {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 2;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .jumbotron-home {
+    .row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
+
+    .col-md-6:nth-child(2) {
+      order: -1;
+
+      img {
+        max-width: 420px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  .curated {
+    grid-template-columns: 1fr;
   }
 }
