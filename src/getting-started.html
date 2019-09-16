@@ -33,8 +33,63 @@ layout: default
           as needed, for your project and help you work through the development and certification process.
         </p>
         <p>
-          The following terms are used when describing the dev environment that works with the APIs.
+          The following terms are used when describing the dev environment that works with the APIs:
         </p>
+        <div id="glossary">
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-puzzle-piece"></i>
+            </div>
+            <strong class="term">Application or App</strong>
+            <p class="definition">
+              Used by a client or partner to interact with the SAP Concur APIs and make test API
+              calls. This is not included with a Sandbox. An app will have <em>scopes</em> assigned to it that dictate the
+              endpoints
+              the app has access to. An app will also have <em>grants</em> that dictate the authentication method used by the
+              app.
+            </p>
+          </div>
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-plug"></i>
+            </div>
+            <strong class="term">Application Connector</strong>
+            <p class="definition">
+              The piece of software that communicates with the SAP Concur APIs and your
+              application. This software can be a simple scheduled task, a user executed application, or even a separate module
+              hosted
+              on a public Web Server. For more information see, <a
+                href="{{ site.baseurl }}/api-reference/callouts/callouts-application-connectors.html">Callouts and
+                Application Connectors</a>.
+            </p>
+          </div>
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <strong class="term">Grants</strong>
+            <p class="definition">Which authentication method the app is allowed to use.</p>
+          </div>
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-pencil-ruler"></i>
+            </div>
+            <strong class="term">Sandbox</strong>
+            <p class="definition">
+              An instance of the SAP Concur production environment that a client or partner can use to gain
+              familiarity with SAP Concur products and create sample trips, expense reports, etc. Typically these are used for
+              partner
+              apps, but in some cases web services clients will be provided with an implementation test site.
+            </p>
+          </div>
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <strong class="term">Scopes</strong>
+            <p class="definition">Which endpoints the app (not Sandbox) has access to.</p>
+          </div>
+        </div>
 
         <h3>Best Practices to Keep in Mind</h3>
         <p>
