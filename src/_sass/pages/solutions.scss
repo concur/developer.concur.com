@@ -26,3 +26,22 @@
     line-height: 1.75;
   }
 }
+
+@media (max-width: 991px) {
+  .jumbotron-solutions {
+    .row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
+
+    .col-md-6:nth-child(2) {
+      order: -1;
+
+      img {
+        max-width: 420px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
