@@ -1,3 +1,13 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148078744-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148078744-1');
+</script>
+
 {% if site.data.branch.branchname != 'livesite' %}
   <title>[{{ site.data.branch.branchname }}] SAP Concur Developer Center | {{ page.title }}</title>
 {% else %}
