@@ -23,6 +23,10 @@ The Users resource represents a set of SAP Concur users. It is always managed as
 
 1.0
 
+## Process Flow
+
+![Process Flow for the User Resource](./create-user.png)
+
 ## <a name="getUser"></a>Retrieve a User's Information
 
 This resource allows you to get profile information for a given user. If a request URL does not include a `?loginID` parameter then the response will be for the logged in user (and you must pass authentication information with your request).

@@ -17,6 +17,10 @@ The Payment Batch File web service provides an automated solution to clients who
   * [Schema](#getbatchfileschema)
 * [Error Messages](#errormessages)
 
+## Process Flow
+
+![Process Flow for Payment Batch](./payment-batch.png)
+
 ## Product and Edition
 
 Concur Expense Standard Edition
