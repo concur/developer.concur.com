@@ -56,7 +56,7 @@
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: $grid-float-breakpoint-max) {
   .jumbotron-home {
     .row {
       display: flex;
@@ -82,5 +82,18 @@
 @media (max-width: 800px) {
   .jumbotron-home {
     padding: 40px 20px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .curated-card {
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+
+    .curated-icon {
+      margin-right: 0 !important;
+      margin-bottom: 10px;
+    }
   }
 }
