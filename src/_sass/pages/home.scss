@@ -78,3 +78,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 800px) {
+  .jumbotron-home {
+    padding: 40px 20px !important;
+  }
+}
