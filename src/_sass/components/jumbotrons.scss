@@ -5,3 +5,51 @@
     padding-bottom: 20px;
   }
 }
+
+.jumbotron-custom {
+  background-color: white !important;
+  padding: 100px !important;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #222222;
+  }
+
+  h2 {
+    font-weight: 500;
+  }
+
+  h3 {
+    font-weight: 400;
+    padding-bottom: 0;
+  }
+
+  h3:not(:first-of-type) {
+    margin-top: 75px;
+  }
+
+  p, li {
+    color: #4a4a4a;
+    font-size: 16px !important;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 991px) {
+  .jumbotron-custom {
+    .row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
+
+    .col-md-6:nth-child(2) {
+      order: -1;
+
+      img {
+        max-width: 420px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
