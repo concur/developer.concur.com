@@ -11,7 +11,7 @@ Handling data with care and delivering a positive experience for our customers i
 
 Start with an overview of the whole process: [API documentation]({{ site.baseurl }}/api-reference/). During the Business Development phase, you will be provided access to a Professional Edition Sandbox. Sandboxes are required for partners or customers looking to use SAP Concur APIs to read and write data from SAP Concur. It is important that you contact your assigned technical resource at SAP Concur to gain access to a sandbox that best fits your scenario. If you are unsure of your technical contact, consider these 3 scenarios:
 
-* Develop an application for the SAP Concur App Center. This requires a signed Partner Agreement, [contact us](mailto:concur_bizdev@sap.com).
+* Develop an application for the SAP Concur App Center. This requires a signed Partner Agreement, review the information on the [Build App Center Solutions](https://developer.concur.com/solutions/app-center.html) page.
 * Develop an application as a SAP Concur client (or for a client). The client must purchase the Client Web Services SKU and their administrative support contact would open a case through our [support portal](https://www.concur.com/en-us/support).
 * Develop an application as a TMC/reseller, [contact us](mailto:supplierservices@sap.com).
 
@@ -37,7 +37,7 @@ SAP Concur conducts an initial application and security review in the sandbox en
 
 #### **Is There a Cost?**  
 
-For apps for individual travelers, the fee for App Review is currently being waived.  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Review and you will be asked to enter into a partnership agreement.  Our partner team at [concur_bizdev@sap.com](mailto:concur_bizdev@sap.com) will work hand-in-hand with you, and looks forward to hearing from you.  
+For apps for individual travelers, the fee for App Review is currently being waived.  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Review and you will be asked to enter into a partnership agreement, review the information on the [Build App Center Solutions](https://developer.concur.com/solutions/app-center.html) page.
 
 #### **What Does SAP Concur Specifically Review?**  
 
