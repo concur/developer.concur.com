@@ -596,12 +596,6 @@ content-type: application/json
 
 ## <a name="schema"></a>Schema
 
-_POST /locate/api/v4/user/locations_
-
-See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema.
-
-The user locations API includes users and itineraries (`locations`) in addition to information about the company and post type (`add` or `cancel`).
-
 Name|Type|Format|Description
 ---|---|---|---
 `UserLocations`|`object`|[`UserLocations`](#user-locations)|**Required** Contains the `Client`, `Users`, `Locations`, `SourcePartner` and `Transaction`.
@@ -669,7 +663,7 @@ Name|Type|Format|Description
 
 ### <a name="transaction"></a>Transaction
 
-Itineraries can be added or cancelled. This section allows you to indicate whether this is an addition of a new itinerary or cancellation of an existing itinerary. A cancellation request is for canceling the itinerary completely in our system and if there are any updates to the existing itineraries then it needs to be resent using the same booking or transaction id.
+Itineraries can be added or cancelled. This section allows you to indicate whether this is an addition of a new itinerary or cancellation of an existing itinerary. A cancellation request is for canceling the itinerary completely in our system and if there are any updates to the existing itineraries then it needs to be resent using the same booking or transaction ID.
 
 Name|Type|Format|Description
 ---|---|---|---
