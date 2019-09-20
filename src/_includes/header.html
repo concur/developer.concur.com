@@ -11,50 +11,155 @@
         </button>
         <a class="navbar-brand" href="{{ site.baseurl }}/">
           <img src="{{ site.baseurl }}/assets/img/concur_logo_white_gold.png" alt="Logo">
-          <div class="app-name">SAP Concur Developer Center</div>
+          <div class="app-name">Developer Center</div>
         </a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="nav-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li {% if page.url == '/why-concur.html' %} class="active" {% endif %}>
-            <a href="{{ site.baseurl }}/why-concur.html">Why Concur</a>
-          </li>
+          <!-- Development -->
           <li class="dropdown {% if page.url contains '/api-reference/' or page.url contains '/api-explorer/' %} active {% endif %}">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              API <span class="caret"></span>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+              Development <span class="caret"></span>
             </a>
-            <ul class="dropdown-menu">
-              <li><a href="{{ site.baseurl }}/api-reference/">API Reference</a></li>
-              <li><a href="{{ site.baseurl }}/api-explorer/">API Explorer</a></li>
-              <li><a href="{{ site.baseurl }}/api-guides/">Integration Guides</a></li>
+            <ul class="dropdown-menu multi-column three-column-menu">
+              <div class="row">
+                <div class="col-sm-4">
+                  <ul class="multi-column-dropdown">
+                    <li class="column-icon">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-map fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </li>
+                    <li class="column-title">Getting Started</li>
+                    <li><a href="{{ site.baseurl }}/getting-started.html">Getting Started</a></li>
+                    <li><a href="{{ site.baseurl }}/api-reference/authentication/getting-started.html">Authentication</a></li>
+                    <li><a href="{{ site.baseurl }}/api-reference/">API Reference</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                  <ul class="multi-column-dropdown">
+                    <li class="column-icon">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-clipboard-list fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </li>
+                    <li class="column-title">UX Guidelines</li>
+                    <li><a href="{{ site.baseurl }}/manage-apps/go-market-docs/app-center-ux-guidelines-enterprise.html">Apps for My Business</a></li>
+                    <li><a href="{{ site.baseurl }}/manage-apps/go-market-docs/app-center-ux-guidelines-consumer.html">Apps for Me</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                  <ul class="multi-column-dropdown">
+                    <li class="column-icon">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-toolbox fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </li>
+                    <li class="column-title">Resources</li>
+                    <li><a href="{{ site.baseurl }}/api-explorer/">API Explorer</a></li>
+                    <li><a href="https://open.concur.com/" target="_blank">Service Status</a></li>
+                    <li><a href="{{ site.baseurl }}/tools-support/deprecation-policy.html">API Deprecation</a></li>
+                  </ul>
+                </div>
+              </div>
             </ul>
+            <!-- <ul class="dropdown-menu multi-column two-column-menu">
+              <div class="row">
+                <div class="col-sm-6">
+                  <ul class="multi-column-dropdown">
+                    <li class="column-icon">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-map fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </li>
+                    <li class="column-title">Getting Started</li>
+                    <li><a href="{{ site.baseurl }}/getting-started.html">Getting Started</a></li>
+                    <li><a href="{{ site.baseurl }}/api-reference/authentication/getting-started.html">Authentication</a></li>
+                    <li><a href="{{ site.baseurl }}/api-reference/">API Reference</a></li>
+                    <li><a href="{{ site.baseurl }}/api-explorer/">API Explorer</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-6">
+                  <ul class="multi-column-dropdown">
+                    <li class="column-icon">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-toolbox fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </li>
+                    <li class="column-title">Resources</li>
+                    <li><a href="{{ site.baseurl }}/manage-apps/go-market-docs/app-center-ux-guidelines-enterprise.html">UX Guidelines - Apps for my Business</a></li>
+                    <li><a href="{{ site.baseurl }}/manage-apps/go-market-docs/app-center-ux-guidelines-consumer.html">UX Guidelines - Apps for Me</a></li>
+                    <li><a href="https://open.concur.com/" target="_blank">Service Status</a></li>
+                    <li><a href="{{ site.baseurl }}/tools-support/deprecation-policy.html">API Lifecycle & Deprecation</a></li>
+                  </ul>
+                </div>
+              </div>
+            </ul> -->
           </li>
+          <!-- Partner Resources -->
           <li class="dropdown {% if page.url contains '/manage-apps/' %} active {% endif %}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Manage Apps <span class="caret"></span>
+              Partner Resources <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="{{ site.baseurl }}/manage-apps/go-to-market.html">Go To Market</a></li>
+              <li class="column-icon">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-lightbulb fa-stack-1x fa-inverse"></i>
+                </span>
+              </li>
+              <li class="column-title">Partner Resources</li>
               <li><a href="{{ site.baseurl }}/manage-apps/app-certification.html">App Certification</a></li>
-              <li><a href="{{ site.baseurl }}/manage-apps/partner-applications.html">App Registration & Management</a><li>
+              <li><a href="{{ site.baseurl }}/manage-apps/partner-applications.html">App Registration & Management</a></li>
+              <li><a href="{{ site.baseurl }}/manage-apps/redirect.html">Go to Market</a></li>
               <li><a href="https://www.concur.com/en-us/app-center" target="_blank">App Center</a></li>
+              <li><a href="https://www.concursolutions.com/" target="_blank">Login to Concur</a></li>
             </ul>
           </li>
-          {% if page.url contains '/tools-support/' or page.url contains '/changelog/' %}
-          <li class="dropdown active">
-          {% else %}
-          <li class="dropdown">
-          {% endif %}
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="{{ site.baseurl }}/tools-support/support.html">Support Options</a></li>
-              <li><a href="{{ site.baseurl }}/tools-support/release-notes/index.html">Release Notes</a></li>
-              <li><a href="{{ site.baseurl }}/announcements/index.html">Announcements</a></li>
-              <li><a href="{{ site.baseurl }}/tools-support/videos/index.html">Videos</a></li>
-              <li><a href="{{ site.baseurl }}/tools-support/samples/index.html">Samples</a></li>
+          <!-- Support -->
+          <li
+            class="dropdown {% if page.url contains '/tools-support/' or page.url contains '/changelog/' %} active {% endif %}">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+              Support <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu multi-column two-column-menu">
+              <div class="row">
+                <div class="col-sm-6">
+                  <ul class="multi-column-dropdown">
+                    <li class="column-icon">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-question fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </li>
+                    <li class="column-title">Support</li>
+                    <li><a href="{{ site.baseurl }}/tools-support/support.html">Support Options</a></li>
+                    <li><a href="https://open.concur.com/" target="_blank">Service Status</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-6">
+                  <ul class="multi-column-dropdown">
+                    <li class="column-icon">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-bullhorn fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </li>
+                    <li class="column-title">Bulletin</li>
+                    <li><a href="{{ site.baseurl }}/announcements/index.html">Announcements</a></li>
+                    <li><a href="{{ site.baseurl }}/tools-support/release-notes/index.html">Release Notes</a></li>
+                  </ul>
+                </div>
+              </div>
             </ul>
           </li>
+          <!-- Search -->
           <li>
             <a href="#" class="search">
               <span class="sr-only">Search</span>
@@ -80,14 +185,4 @@
       </div> <!-- /.navbar-collapse -->
     </div> <!-- /.container -->
   </nav> <!-- /.navbar -->
-  <div class="navbar-notice">
-    <div class="container">
-      <div>
-        <a class="pull-right" href="https://www.concursolutions.com">
-          <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
-          Login to Concur
-        </a>
-      </div>
-    </div>
-  </div>
 </div>

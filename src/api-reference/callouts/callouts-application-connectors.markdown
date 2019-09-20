@@ -4,6 +4,7 @@ layout: reference
 ---
 
 * [Overview](#overview)
+  * [Process Flow](#process-flow)
   * [Application Connector Management](#app-connector-management)
 * [Specifications](#specifications)
   * [Security](#security)
@@ -41,6 +42,10 @@ The client can arrange to add an Expense Entry form field that is configured to 
 The application connector can access SAP Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), he/she clicks a button such as "Done" that indicates he/she has concluded their work in the window. The application connector then closes the window.
 
 The application connector can use web services to send information to SAP Concur, to update field values on the expense entry form or other form types. The application connector may send the updates before or after the user closes the window. When the user returns to SAP Concur, the page refreshes and the user sees the current values.
+
+### <a name="process-flow"></a>Process Flow
+
+![A process flow diagram showing flow between SAP Concur and an application connector](./callout-flow.png)
 
 ####  <a name="app-connector-management"></a>Application Connector Management
 

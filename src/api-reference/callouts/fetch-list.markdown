@@ -12,6 +12,7 @@ This callout differs from the inbound SAP Concur web services in the following w
 * The client Expense administrator must configure a list (most commonly a connected list), and SAP Concur must perform database configuration on the list before this service can be used.
 
 ## Contents
+* [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
 * [Fetch List Process Overview](#fetch-list-process-overview)
@@ -20,6 +21,10 @@ This callout differs from the inbound SAP Concur web services in the following w
 * [Functions](#functions)
 * [Concur Expense Configuration](#concur-expense-config)
 * [Responses and Errors](#responses-errors)
+
+### <a name="process-flow"></a>Process Flow
+
+![A process flow diagram showing flow between SAP Concur, an application connector, and client's data source](./fetch-list-item.png)
 
 ## <a name="products-editions"></a>Products and Editions
 * Concur Expense Professional Edition
