@@ -17,6 +17,7 @@ This callout differs from the standard SAP Concur web services in the following 
 * The client Expense administrator must configure a new form field and add the field to the desired form before this service can be used.
 
 ## Contents
+* [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
 * [Concur Connect Callout Details](#concur-connect-callout-details)
@@ -26,6 +27,10 @@ This callout differs from the standard SAP Concur web services in the following 
 * [Functions](#functions)
 * [Concur Expense Configuration](#concur-expense-config)
 * [Responses and Errors](#responses-errors)
+
+## <a name="process-flow"></a>Process Flow
+
+![Process Flow for Launch External Service](./launch-external-url.png)
 
 ### <a name="products-editions"></a>Products and Editions
 
