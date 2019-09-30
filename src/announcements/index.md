@@ -3,6 +3,10 @@ title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
 
+### 2019-09-20 :: September 2019 Release Notes Published
+
+SAP Concur has published release notes for the Quick Expense v3, Quick Expense v4, Budget v4, Reports v3, and Request APIs in the September 2019 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
+
 ### 2019-05-31 :: June 2019 Release Notes Published
 
 SAP Concur has published release notes for the Quick Expense v3, Quick Expense v4, Budget v4, and Invoice Pay v4 APIs in the June 2019 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
