@@ -255,6 +255,7 @@ Name | Type | Format | Description
 `DiscountPercentage`|`string`|-|The Discount Percentage.
 `DiscountTermsDays`|`string`|-|The Vendor Discount Terms Days.
 `ID`|`string`|-|The unique identifier of the resource.
+`IsLineItemVatIncld`|`string`|-|Line item Unit Price Contains VAT ,
 `IsVisibleForContentExtraction`|`string`|-|Flag that indicates if the vendor will be available for OCR within Brainware
 `PaymentMethodType`|`string`|-|Preferred Payment Type for Vendor.
 `PaymentTerms`|`Integer between 1 and 999`|-|The Vendor Payment Terms. This field represents the number of days by which a payment must be made, for example, 30 days
