@@ -3,7 +3,7 @@ title: Request v4 API Documentation Reformat
 layout: reference
 ---
 
-# 2019-08-06 :: Request v4 API Documentation Reformat
+# 2019-10-07:: Request v4 API Documentation Reformat
 
 SAP Concur has updated the Request v4 API documentation to match the SAP Concur API documentation standard. As this documentation has been in active EA for several months, we are providing this document change notification for all EA clients and SAP Concur internal staff.
 
