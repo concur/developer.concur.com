@@ -136,10 +136,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/Void"
-            }
+            "description": "Success"
           }
         }
       }
@@ -248,9 +245,6 @@
           "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
         }
       }
-    },
-    "Void": {
-      "properties": {}
     }
   }
 }
