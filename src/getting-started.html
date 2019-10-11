@@ -1,0 +1,128 @@
+---
+title: Getting Started Guide
+layout: default
+---
+
+<div class="jumbotron jumbotron-custom width-980">
+  <div class="container animated fadeInDown">
+    <div class="row">
+      <div class="col-12">
+        <h2>Getting Started</h2>
+
+        <h3>What Can I Do with the SAP Concur APIs?</h3>
+        <p>
+          SAP Concur APIs allow clients or partners to access data and functions within the SAP Concur product ecosystem. Through
+          the use of these exposed endpoints and functions you can solve a vast array of different business issues and reporting
+          needs such as:
+        </p>
+        <ul>
+          <li>Pull data from SAP Concur for in-depth reporting services.</li>
+          <li>Reconcile or validate your data by comparing SAP Concur data to what you have.</li>
+          <li>Post new data into SAP Concur allowing for programmatic creation of information.</li>
+          <li>Update existing information in SAP Concur to match your system data.</li>
+        </ul>
+
+        <h3>How Do I Get Started?</h3>
+        <p>
+          Once you have an agreement in place SAP Concur will set up a meeting with our technical resource team. They'll go
+          through your requirements with you to develop a plan for creating your app or application connector.
+        </p>
+        <p>
+          After that meeting you'll receive the credentials necessary to make your first API call, including a <code>client_id</code> and
+          <code>client_secret</code> that you'll use to obtain an <code>access_token</code>. They'll also set up sandboxes and/or implementation entities,
+          as needed, for your project and help you work through the development and certification process.
+        </p>
+        <p>
+          The following terms are used when describing the dev environment that works with the APIs:
+        </p>
+        <div id="glossary">
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-puzzle-piece"></i>
+            </div>
+            <strong class="term">Application or App</strong>
+            <p class="definition">
+              Used by a client or partner to interact with the SAP Concur APIs and make test API
+              calls. This is not included with a Sandbox. An app will have <em>scopes</em> assigned to it that dictate the
+              endpoints
+              the app has access to. An app will also have <em>grants</em> that dictate the authentication method used by the
+              app.
+            </p>
+          </div>
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-plug"></i>
+            </div>
+            <strong class="term">Application Connector</strong>
+            <p class="definition">
+              The piece of software that communicates with the SAP Concur APIs and your
+              application. This software can be a simple scheduled task, a user executed application, or even a separate module
+              hosted
+              on a public Web Server. For more information see, <a
+                href="{{ site.baseurl }}/api-reference/callouts/callouts-application-connectors.html">Callouts and
+                Application Connectors</a>.
+            </p>
+          </div>
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <strong class="term">Grants</strong>
+            <p class="definition">Which authentication method the app is allowed to use.</p>
+          </div>
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-pencil-ruler"></i>
+            </div>
+            <strong class="term">Sandbox</strong>
+            <p class="definition">
+              An instance of the SAP Concur production environment that a client or partner can use to gain
+              familiarity with SAP Concur products and create sample trips, expense reports, etc. Typically these are used for
+              partner
+              apps, but in some cases web services clients will be provided with an implementation test site.
+            </p>
+          </div>
+          <div>
+            <div class="glossary-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <strong class="term">Scopes</strong>
+            <p class="definition">Which endpoints the app (not Sandbox) has access to.</p>
+          </div>
+        </div>
+
+        <h3>Best Practices to Keep in Mind</h3>
+        <p>
+          We all know you shouldn't write your password on a sticky note and keep it under your keyboard. That said, sometimes
+          convenience overrides common sense. Some things to keep in mind as you create your app:
+        </p>
+        <ul>
+          <li>Ensure your app credentials are stored securely and completely separate from each other to avoid mixing the IDs and
+          secrets.</li>
+          <li>Examples that are provided in the online documentation are for illustration only. Don't copy and paste them into your
+          app without verifying their security and stability.</li>
+          <li>Real financial data shouldn't be used while developing and testing your app.</li>
+        </ul>
+        
+        <h3>How Do I Authenticate?</h3>
+        <p>
+          SAP Concur uses OAuth 2.0 an authorization protocol designed to enable third-party applications to obtain limited access
+          to an HTTP service, either on behalf of a resource owner by orchestrating an approval interaction between the resource
+          owner and the HTTP service, or by allowing a third-party application to obtain access on its own behalf.
+        </p>
+        <p>
+          The APIs implement OAuth 2.0 because it provides a simple mechanism for end-users to grant a partner application access
+          to their data (protected resources) without sharing their passwords. It also enables the user to grant limited access to
+          their data in terms of scope, duration, and so on. For example, a user (resource owner) can grant a travel app (client)
+          access to her protected travel data stored at SAP Concur (resource server), without sharing her username and password
+          with the travel app. Instead, she authenticates directly with SAP Concur (authorization server), which issues the travel
+          app delegation-specific credentials (access token).
+        </p>
+        <p>
+          To learn how to obtain the credentials you'll need for authentication, read <a href="{{ site.baseurl }}/api-reference/authentication/getting-started.html">Getting Started</a>. For information on the
+          various types of grants available and when to use them, read <a href="{{ site.baseurl }}/api-reference/authentication/apidoc.html">Authentication</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

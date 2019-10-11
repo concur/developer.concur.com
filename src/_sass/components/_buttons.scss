@@ -1,21 +1,18 @@
 /*--- Default button styles ---*/
 .btn {
-  font-family: "proxima-nova", arial, helvetica, sans-serif;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   display: inline-block;
-  padding: 10px 25px 9px;
+  padding: 10px 15px;
   text-decoration: none;
   font-size: 18px;
   line-height: 19px;
-  font-weight: 400;
+  font-weight: 300;
   color: #fff;
   margin-bottom: 3px;
   background-color: $bright-blue;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-  -webkit-box-shadow: 0px 3px 0px #0075a8;
-     -moz-box-shadow: 0px 3px 0px #0075a8;
-          box-shadow: 0px 3px 0px #0075a8;
 
   &:hover {
     background-color: #27beff;
@@ -26,6 +23,11 @@
   &:focus {
     text-decoration: underline;
     color: #fff;
+  }
+
+  &.is-rounded {
+    border-radius: 290486px;
+    margin-top: 12px;
   }
 }
 
@@ -57,9 +59,6 @@ button.btn, input.btn {
 .btn.concur-blue {
   background-color: #0078c9;
   color: #fff;
-  -webkit-box-shadow: 0px 3px 0px #004089;
-     -moz-box-shadow: 0px 3px 0px #004089;
-          box-shadow: 0px 3px 0px #004089;
 
   &:hover {
     background-color: #0088e3;
@@ -71,9 +70,6 @@ button.btn, input.btn {
 .btn.dark-blue {
   background-color: #004a7d;
   color: #fff;
-  -webkit-box-shadow: 0px 3px 0px #012041;
-     -moz-box-shadow: 0px 3px 0px #012041;
-          box-shadow: 0px 3px 0px #012041;
 
   &:hover {
     background-color: #0b59a9;
@@ -85,9 +81,6 @@ button.btn, input.btn {
 .btn.orange {
   background-color: #d25533;
   color: #fff;
-  -webkit-box-shadow: 0px 3px 0px #862614;
-     -moz-box-shadow: 0px 3px 0px #862614;
-          box-shadow: 0px 3px 0px #862614;
 
   &:hover {
     background-color: #ec6039;
@@ -99,9 +92,6 @@ button.btn, input.btn {
 .btn.bright-green {
   background-color: #89bf42;
   color: #fff;
-  -webkit-box-shadow: 0px 3px 0px #4b850a;
-     -moz-box-shadow: 0px 3px 0px #4b850a;
-          box-shadow: 0px 3px 0px #4b850a;
 
   &:hover {
     background-color: #92cb53;
@@ -113,9 +103,6 @@ button.btn, input.btn {
 .btn.dark-green {
   background-color: #548d3d;
   color: #fff;
-  -webkit-box-shadow: 0px 3px 0px #2a4e04;
-     -moz-box-shadow: 0px 3px 0px #2a4e04;
-          box-shadow: 0px 3px 0px #2a4e04;
 
   &:hover {
     background-color: #59a33d;
@@ -128,9 +115,6 @@ button.btn, input.btn {
   margin-right: 6px;
   background-color: #9b9c9d;
   color: #fff;
-  -webkit-box-shadow: 0px 3px 0px #626166;
-     -moz-box-shadow: 0px 3px 0px #626166;
-          box-shadow: 0px 3px 0px #626166;
 
   &:hover {
     background-color: #adaeae;
@@ -142,9 +126,6 @@ button.btn, input.btn {
 .btn.white {
   background-color: #fff;
   color: #444;
-  -webkit-box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
-     -moz-box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
-          box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
 
   &:hover {
     background-color: #e5e5e5;
@@ -156,9 +137,6 @@ button.btn, input.btn {
 .btn.yellow {
   background-color: #f4a900;
   color: #fff;
-  -webkit-box-shadow: 0px 3px 0px #b4670d;
-     -moz-box-shadow: 0px 3px 0px #b4670d;
-          box-shadow: 0px 3px 0px #b4670d;
 
   &:hover {
     background-color: #f8b723;
