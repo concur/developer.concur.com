@@ -112,7 +112,7 @@
       "properties": {
         "Amount": {
           "type": "string",
-          "description": "The total amount of the allocation."
+          "description": "Required. The total amount of the allocation."
         },
         "Custom1": {
           "type": "string",
@@ -196,11 +196,11 @@
         },
         "GrossAmount": {
           "type": "string",
-          "description": "The allocation gross amount."
+          "description": "Required. The allocation gross amount."
         },
         "Percentage": {
           "type": "string",
-          "description": "The allocation percentage."
+          "description": "Required. The allocation percentage."
         }
       }
     },
@@ -209,7 +209,7 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "Address line 1 of the shipping or billing address."
+          "description": "Required. Address line 1 of the shipping or billing address."
         },
         "Address2": {
           "type": "string",
@@ -221,15 +221,15 @@
         },
         "City": {
           "type": "string",
-          "description": "The city of the shipping or billing address."
+          "description": "Required. The city of the shipping or billing address."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The code of the country for the shipping or billing address."
+          "description": "Required. The code of the country for the shipping or billing address."
         },
         "ExternalID": {
           "type": "string",
-          "description": "A unique value supplied by the customer to identify a particular shipping or billing address."
+          "description": "Required. A unique value supplied by the customer to identify a particular shipping or billing address."
         },
         "Name": {
           "type": "string",
@@ -237,7 +237,7 @@
         },
         "PostalCode": {
           "type": "string",
-          "description": "The postal code of the shipping or billing address."
+          "description": "Required. The postal code of the shipping or billing address."
         },
         "State": {
           "type": "string",
@@ -245,7 +245,7 @@
         },
         "StateProvince": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Required. The state or province of the shipping or billing address."
         }
       }
     },
@@ -360,7 +360,7 @@
         },
         "ExternalID": {
           "type": "string",
-          "description": "A customer-supplied value that uniquely identifies the line item within the purchase order."
+          "description": "Required. A customer-supplied value that uniquely identifies the line item within the purchase order."
         },
         "IsReceiptRequired": {
           "type": "string",
@@ -368,7 +368,7 @@
         },
         "LineNumber": {
           "type": "string",
-          "description": "The line item number within the purchase order."
+          "description": "Required. The line item number within the purchase order."
         },
         "PurchaseOrderReceiptType": {
           "type": "string",
@@ -376,7 +376,7 @@
         },
         "Quantity": {
           "type": "string",
-          "description": "The quantity associated with the line item."
+          "description": "Required. The quantity associated with the line item."
         },
         "RequestedBy": {
           "type": "string",
@@ -400,7 +400,7 @@
         },
         "UnitPrice": {
           "type": "string",
-          "description": "The price of each item of the line item."
+          "description": "Required. The price of each item of the line item."
         },
         "VatAmount": {
           "type": "string",
@@ -424,7 +424,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The 3-letter ISO 4217 <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\"> currency code</a> of the currency that is associated with the purchase order."
+          "description": "Required. The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order."
         },
         "Custom1": {
           "type": "string",
@@ -558,7 +558,7 @@
         },
         "Name": {
           "type": "string",
-          "description": "A name for the purchase order."
+          "description": "Required. A name for the purchase order."
         },
         "NeededByDate": {
           "type": "string",
@@ -566,7 +566,7 @@
         },
         "OrderDate": {
           "type": "string",
-          "description": "The date when goods were ordered. Format: YYYY-MM-DD"
+          "description": "Required. The date when goods were ordered. Format: YYYY-MM-DD"
         },
         "PaymentTerms": {
           "type": "string",
@@ -574,7 +574,7 @@
         },
         "PolicyExternalID": {
           "type": "string",
-          "description": " The external identifier of the policy that should be associated with the purchase order. The external Id is a property of the policy configuration screen. Clients will need to get these ID’s from the Implementation team if using professional version. For standard version the value is always 'PO'"
+          "description": "Required. The external identifier of the policy that should be associated with the purchase order. The external Id is a property of the policy configuration screen. Clients will need to get these ID’s from the Implementation team if using professional version. For standard version the value is always 'PO'"
         },
         "PoVendorTaxId": {
           "type": "string",
@@ -657,11 +657,11 @@
         },
         "VendorAddressCode": {
           "type": "string",
-          "description": "The code that identifies the vendor's remit address for the purchase order."
+          "description": "Required. The code that identifies the vendor's remit address for the purchase order."
         },
         "VendorCode": {
           "type": "string",
-          "description": "The code that identifies the vendor for the purchase order."
+          "description": "Required. The code that identifies the vendor for the purchase order."
         }
       }
     },
@@ -702,7 +702,7 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "Address line 1 of the shipping or billing address."
+          "description": "Required. Address line 1 of the shipping or billing address."
         },
         "Address2": {
           "type": "string",
@@ -714,15 +714,15 @@
         },
         "City": {
           "type": "string",
-          "description": "The city of the shipping or billing address."
+          "description": "Required. The city of the shipping or billing address."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The code of the country for the shipping or billing address."
+          "description": "Required. The code of the country for the shipping or billing address."
         },
         "ExternalID": {
           "type": "string",
-          "description": "A unique value supplied by the customer to identify a particular shipping or billing address."
+          "description": "Required. A unique value supplied by the customer to identify a particular shipping or billing address."
         },
         "Name": {
           "type": "string",
@@ -730,7 +730,7 @@
         },
         "PostalCode": {
           "type": "string",
-          "description": "The postal code of the shipping or billing address."
+          "description": "Required. The postal code of the shipping or billing address."
         },
         "State": {
           "type": "string",
@@ -738,7 +738,7 @@
         },
         "StateProvince": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Required. The state or province of the shipping or billing address."
         }
       }
     }
