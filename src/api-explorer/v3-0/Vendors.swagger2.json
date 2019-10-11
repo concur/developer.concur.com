@@ -31,7 +31,7 @@
           "Resources"
         ],
         "summary": "Retrieves an existing vendor.",
-        "description": "Gets an existing vendor. Note: If authenticating with a Company JWT the API will return all vendors associated with a specific entity.",
+        "description": "Gets an existing vendor. Note: If authenticating with a Company access token the API will return all vendors associated with a specific entity.",
         "parameters": [
           {
             "name": "limit",
@@ -65,7 +65,7 @@
           {
             "name": "searchType",
             "in": "query",
-            "description": "Valid Options - exact, begins, contains and ends - Applies for the entire given search parameters. The default value if not sent is exact.",
+            "description": "Applies for the entire given search parameters. The default value is exact. Supported values: exact, begins, contains, ends",
             "required": false,
             "type": "string"
           },
@@ -773,7 +773,7 @@
           "description": "Record Number for create/update request."
         },
         "Items": {
-          
+
         }
       }
     }
