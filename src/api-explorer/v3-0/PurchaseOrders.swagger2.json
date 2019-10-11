@@ -625,7 +625,7 @@
         },
         "Status": {
           "type": "string",
-          "description": "The current status of the purchase order."
+          "description": "The current status of the purchase order. Status should be either Closed or Transmitted. If a value is not provided, it will default to Transmitted."
         },
         "Tax": {
           "type": "string",
