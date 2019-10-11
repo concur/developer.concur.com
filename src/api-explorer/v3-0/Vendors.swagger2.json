@@ -1,5 +1,5 @@
 {
-  "x-sap-shortText": "Short description, 80 char limit.",
+  "x-sap-shortText": "Manages the vendors that send you invoices.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
