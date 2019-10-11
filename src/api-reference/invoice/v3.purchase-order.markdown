@@ -178,7 +178,7 @@ Name|Type|Format|Description
 `ShippingMethodKey`|`string`|-|A code that represents the shipping method used by the vendor. Maximum length: 10 characters
 `ShippingTermsKey`|`string`|-|A code that represents the shipping terms that the vendor offers. Maximum length: 10 characters
 `ShipToAddress`|`object`|[`ShipToAddress`](#ship-to-address)|**Required** The customer's shipping address, which is where the vendor should ship the goods.
-`Status`|`string`|-|The current status of the purchase order.
+`Status`|`string`|-|The current status of the purchase order. Status should be either Closed or Transmitted . If a value is not provided, it will default to Transmitted
 `Tax`|`string`|-|The total tax for the purchase order.
 `URI`|`string`|-|The URI to the resource.
 `VatAmountOne`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
