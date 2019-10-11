@@ -7,7 +7,7 @@ At SAP Concur, e-receipts are digital representations of receipts with both a re
 
 ## Getting Started
 
-**New App Center Partners:**  Your Company must have entered into a commercial agreement with SAP Concur. If you have not yet entered into said agreement with SAP Concur, click [here](mailto:concur_bizdev@sap.com) to contact our business development team.
+**New App Center Partners:**  Your Company must have entered into a commercial agreement with SAP Concur. If you have not yet entered into said agreement with SAP Concur, review the information on the [Build App Center Solutions](https://developer.concur.com/solutions/app-center.html) page.
 
 **Existing App Center Partners:**  The SAP Concur Platform team will need to configure your existing sandbox, among other things to enable access.  You can make that request by contacting your [Alliance Manager](mailto:concur_AppCenterAlliance@sap.com?
 subject=Receipts%20v4%20Migration%20Request).
