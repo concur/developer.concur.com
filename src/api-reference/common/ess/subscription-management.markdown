@@ -1,16 +1,30 @@
+---
+title: Event Subscription Management
+layout: reference
+---
 # Event Subscription Management
 
+{% include prerelease.html %}
 
-## 1. Access Control (JWT)
+* [Access Control (JWT)](#ac-jwt)
+* [Browse available topics](#get-topics)
+* [Create a subscription](#put-subscription)
+* [Verify your subscription](#get-subscription)
+* [Browse existing subscriptions](#get-subscription-list)
+* [Delete your subscription](#delete-subscription)
+* [Request Example](#example)
+
+## <a name="ac-jwt"></a> 1. Access Control (JWT)
 In order to make any API call you must have a proper <a href="https://developer.concur.com/api-reference/authentication/getting-started.html">JWT</a>
 
 Very important:
 - your JWT should have `"concur.appId": "dabd27f0-23e7-415d-b5e5-19a7dbe4fb4d"` - that is used to identify you as an owner of the subscription.
 - your JWT should have `"concur.type": "app"` - that stand for the level your your JWT and is made available <a href="https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials">by setting</a> `client_credentials` as one of the allowed `grant_type` in your Concur Application and .... API call  
+- in order to access ESS your Application must have a scope `events.topic.read`
 
 Please provide `Concur-Correlationid: something-unique-and-valuable` as a request header for troubleshooting purposes.
 
-## 2. Browse available topics
+## <a name="get-topics"></a> 2. Browse available topics
 Before you create any subscription you need to verify that you have sufficient access to the topic. If that request returns empty you need to get in touch with your assigned contact from Concur to set proper scopes to you Concur Application Records (how do I call that and not confuse them with their endpoint/application?).
 
 **Request**
@@ -22,7 +36,7 @@ GET /events/v4/topics
 ["public.test"]
 ```
 
-## 3. Create a subscription
+## <a name="put-subscription"></a> 3. Create a subscription
 To create a subscription you need to
 1. know and have sufficient access to the **topic**
 1. get your receiving **endpoint** up running, <a href="https://developer.concur.com/api-reference/common/ess/getting-started.html#endpoint-requirements">endpoint
@@ -49,7 +63,7 @@ PUT /events/v4/subscriptions/webhook
 {"message":"Subscription 'my-unique-subscription-id' saved successfully"}
 ```
 
-## 4. Verify your subscription
+## <a name="get-subscription"></a>  4. Verify your subscription
 You can always request a configuration of your subscription. You might notice that your subscription contains some more parameters that you can not modify for security reasons, but can use them for troubleshooting purposes.
 -  applicationId - identifies your Concur Application as an owner of that subscription
 - companyIds - a list of UUIDs of companies that allowed your Applicaion to access their data, the process of connecting Concur company to your application is described here (where???)
@@ -76,7 +90,7 @@ GET /events/v4/subscriptions/my-unique-subscription-id
     }
 ]
 ```
-## 5. Browse existing subscriptions
+## <a name="get-subscription-list"></a> 5. Browse existing subscriptions
 If you happen to forget your subscription name/id, you can always retrieve all of your subscriptions by calling next endpoint:  
 **Request**
 ```
@@ -113,7 +127,7 @@ GET /events/v4/subscriptions
 ```
 
 
-## 6. Delete your subscription
+## <a name="delete-subscription"></a>  6. Delete your subscription
 **Request**
 ```
 DELETE /events/v4/subscriptions/my-unique-subscription-id
@@ -124,3 +138,52 @@ DELETE /events/v4/subscriptions/my-unique-subscription-id
     "message": "Subscription 'my-unique-subscription-id' marked for deletion"
 }
 ```
+
+## <a name="example"></a>  6. Request Example
+
+**HEADERS**
+```
+PUT /events/v4/subscriptions/webhook HTTP/1.1
+Content-Type: application/json
+Concur-Correlationid: something-unique-and-trackable
+Authorization: Bearer eyJ0e*****MY-SECRET-JWT-HERE******** 
+Accept: */*
+Cache-Control: no-cache
+Host: www-us.api.concursolutions.com
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+```
+**BODY**
+```
+{
+  "id": "my-unique-subscription-example",
+  "filter": ".*",
+  "topic": "public.test",
+  "webHookConfig": {"endpoint": "https://www.concuress.com/sub/my-unique-endpoint" }
+}
+```
+
+CURL Code
+```
+curl -X PUT \
+  https://www-us.api.concursolutions.com/events/v4/subscriptions/webhook \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Authorization: Bearer eyJ0e*****MY-SECRET-JWT-HERE********' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Concur-Correlationid: something-unique-and-trackable' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: www-us.api.concursolutions.com' \
+  -H 'cache-control: no-cache' \
+  -d '{
+  "id": "my-unique-subscription-example-2",
+  "filter": ".*",
+  "topic": "public.test",
+  "webHookConfig": {
+    "endpoint": "https://www.concuress.com/sub/my-unique-endpoint"
+  }
+}'
+```
+
+
