@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Returns the Request group configuration for the specified user.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.1",
@@ -65,8 +66,7 @@
           }
         }
       }
-    },
-    "/travelrequest/requestgroupconfigurations/{id}": {}
+    }
   },
   "definitions": {
     "AgencyOffice": {
