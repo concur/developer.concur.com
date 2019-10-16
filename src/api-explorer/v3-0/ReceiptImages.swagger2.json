@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Upload images in the supported formats or retrieve individual images.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -15,7 +16,7 @@
   ],
   "info": {
     "title": "Receipt Images",
-    "description": "The Receipt Image API allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.",
+    "description": "Allows for the management of receipt images attached to expense reports, expense entries, and payment requests. You can retrieve existing images by Image ID, and upload new images to a User. This API allows you to upload images in a predefined format and size targeting a specific resource or user in SAP Concur. You can also pull images down from SAP Concur by either displaying them in the browser or downloading the image content to save locally. Note: This API is not designed to obtain the receipt images attached to an expense report. If you are an Enterprise Partner creating integrations that are intended to obtain final-approved Expense or Invoice data, and the accompanying receipt images that substantiate those transactions you will need to use Image v1.",
     "version": "3.0"
   },
   "tags": [
@@ -31,7 +32,7 @@
           "Resources"
         ],
         "summary": "Get all receipt IDs by user",
-        "description": "Get a list of all receipt IDs owned by the user associated with the OAuth token",
+        "description": "Get a list of all receipt IDs owned by the user associated with the access token",
         "parameters": [
           {
             "name": "offset",
@@ -70,7 +71,7 @@
           "Resources"
         ],
         "summary": "Create a new receipt image",
-        "description": "Creates a new image in the receipt store.",
+        "description": "Upload a new receipt image.",
         "parameters": [
           {
             "name": "user",
@@ -85,7 +86,7 @@
             "description": "Image data file",
             "required": true,
             "schema": {
-              "type": "file"
+              "type": "object"
             }
           }
         ],
@@ -135,8 +136,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Appends a receipt image to an existing receipt image",
-        "description": "Appends a receipt image to an existing image in the receipt store.",
+        "summary": "Append a receipt image",
+        "description": "Appends a receipt image to an existing image. The resulting image will be a consolidated PDF.",
         "parameters": [
           {
             "name": "id",
@@ -158,7 +159,7 @@
             "description": "Image data file",
             "required": true,
             "schema": {
-              "type": "file"
+              "type": "object"
             }
           }
         ],

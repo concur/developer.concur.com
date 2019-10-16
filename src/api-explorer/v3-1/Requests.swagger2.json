@@ -1,7 +1,8 @@
 {
+  "x-sap-shortText": "Receive pre-authorization for trips, expenses, and cash advances.",
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
-  "basePath": "/api/v3.1",
+  "host": "sandbox.api.sap.com",
+  "basePath": "/concur/api/v3.1",
   "schemes": [
     "https"
   ],
@@ -15,9 +16,10 @@
   ],
   "info": {
     "title": "Requests",
-    "description": "Requests allow travelers to submit travel plans, expected expenses, and expected cash advance needs prior to spending funds. This API provides methods to view, create, update, submit, or recall requests owned by the specified user.",
+    "description": "Allows employees to submit travel plans, expected expenses, and expected cash advance needs prior to spending funds. This API provides methods to view, create, update, submit, or recall requests owned by the specified user.",
     "version": "3.1"
   },
+
   "tags": [
     {
       "name": "Resources",
@@ -62,7 +64,7 @@
           "Resources"
         ],
         "summary": "Update a Request",
-        "description": "Update a Request",
+        "description": "Updates all or partial request information.",
         "parameters": [
           {
             "name": "content",
@@ -194,7 +196,7 @@
           "Resources"
         ],
         "summary": "Create a Request",
-        "description": "Create a Request",
+        "description": "Creates a new Request, with full or partial information.",
         "parameters": [
           {
             "name": "content",
@@ -243,7 +245,7 @@
           "Resources"
         ],
         "summary": "Submit a Request by ID",
-        "description": "Submit a Request by ID",
+        "description": "Submits a Request to the approval workflow.",
         "parameters": [
           {
             "name": "id",
@@ -269,7 +271,7 @@
           "Resources"
         ],
         "summary": "Recall a Request by ID",
-        "description": "Recall a Request by ID",
+        "description": "Recalls the specified Request from the approval workflow.",
         "parameters": [
           {
             "name": "id",
@@ -316,9 +318,6 @@
         }
       }
     },
-    "Decimal": {
-      "properties": {}
-    },
     "Error": {
       "properties": {
         "Code": {
@@ -344,17 +343,6 @@
         "Url": {
           "type": "string",
           "description": "The URL of the resource that the user can access."
-        }
-      }
-    },
-    "Nullable`1": {
-      "properties": {
-        "HasValue": {
-          "type": "boolean",
-          "description": "Indicates that the comment is the last one."
-        },
-        "Value": {
-          "$ref": "#/definitions/Decimal"
         }
       }
     },
@@ -396,7 +384,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency."
+          "description": "The 3-letter ISO 4217 currency code for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency."
         },
         "CurrencyName": {
           "type": "string",
@@ -416,10 +404,10 @@
         },
         "HeaderFormID": {
           "type": "string",
-          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information)."
+          "description": "The unique identifier of the Header Form resource. See the \"Forms\" resource for more information."
         },
         "HighestExceptionLevel": {
-          "type": "exceptionlevel",
+          "type": "string",
           "description": "Indicates the highest exception level of the Request. Possible value: NONE, NON_BLOCKING, BLOCKING"
         },
         "LastModifiedDate": {
@@ -504,7 +492,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency."
+          "description": "The 3-letter ISO 4217 currency code for the Request currency."
         },
         "EndDate": {
           "type": "string",
@@ -563,7 +551,7 @@
         },
         "FromLocationID": {
           "type": "string",
-          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information)."
+          "description": "The unique identifier of the departure location. See the \"Locations\" resource for more information."
         },
         "ToLocationDetail": {
           "type": "string",
@@ -571,7 +559,7 @@
         },
         "ToLocationID": {
           "type": "string",
-          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information)."
+          "description": "The unique identifier of the arrival location. See the \"Locations\" resource for more information."
         }
       }
     },
@@ -584,17 +572,17 @@
         },
         "ForeignCurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the entry."
+          "description": "The 3-letter ISO 4217 currency code for the foreign currency amount of the entry."
         },
         "Segments": {
           "$ref": "#/definitions/PostSegment"
         },
         "SegmentTypeID": {
           "type": "string",
-          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created (See. the policies and associated data in \"RequestGroupConfigurations\" resource for more information)."
+          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created. See the policies and associated data in \"RequestGroupConfigurations\" resource for more information."
         },
         "TripType": {
-          "type": "triptype",
+          "type": "string",
           "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP."
         }
       }
@@ -645,7 +633,7 @@
         },
         "ForeignCurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the entry."
+          "description": "The 3-letter ISO 4217 currency code for the foreign currency amount of the entry."
         },
         "ID": {
           "type": "string",
@@ -656,10 +644,10 @@
         },
         "SegmentTypeID": {
           "type": "string",
-          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created (See. the policies and associated data in \"RequestGroupConfigurations\" resource for more information)."
+          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created. See the policies and associated data in \"RequestGroupConfigurations\" resource for more information."
         },
         "TripType": {
-          "type": "triptype",
+          "type": "string",
           "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP."
         }
       }
@@ -690,7 +678,7 @@
         },
         "FromLocationID": {
           "type": "string",
-          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information)."
+          "description": "The unique identifier of the departure location. See the \"Locations\" resource for more information."
         },
         "ID": {
           "type": "string",
@@ -702,7 +690,7 @@
         },
         "ToLocationID": {
           "type": "string",
-          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information)."
+          "description": "The unique identifier of the arrival location. See the \"Locations\" resource for more information."
         }
       }
     },
@@ -738,7 +726,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency."
+          "description": "The 3-letter ISO 4217 currency code for the Request currency."
         },
         "EmployeeName": {
           "type": "string",
@@ -751,10 +739,10 @@
         },
         "HeaderFormID": {
           "type": "string",
-          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information)."
+          "description": "The unique identifier of the Header Form resource. See the \"Forms\" resource for more information."
         },
         "HighestExceptionLevel": {
-          "type": "exceptionlevel",
+          "type": "string",
           "description": "Indicates the highest exception level of the Request. Possible value: NONE, NON_BLOCKING, BLOCKING"
         },
         "ID": {
@@ -864,7 +852,7 @@
         },
         "FromLocationID": {
           "type": "string",
-          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information)."
+          "description": "The unique identifier of the departure location. See the \"Locations\" resource for more information."
         },
         "FromLocationName": {
           "type": "string",
@@ -898,7 +886,7 @@
         },
         "ToLocationID": {
           "type": "string",
-          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information)."
+          "description": "The unique identifier of the arrival location. See the \"Locations\" resource for more information."
         },
         "ToLocationName": {
           "type": "string",
@@ -923,7 +911,7 @@
         },
         "ForeignCurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the Request entry."
+          "description": "The 3-letter ISO 4217 currency code for the foreign currency amount of the Request entry."
         },
         "ForeignCurrencyName": {
           "type": "string",
@@ -931,7 +919,7 @@
         },
         "ID": {
           "type": "string",
-          "description": "The unique identifier of the Segment(s) Entry resource (See. the \"SegmentsEntry\" resource for more information)."
+          "description": "The unique identifier of the Segment(s) Entry resource. See the \"SegmentsEntry\" resource for more information."
         },
         "LastModifiedDate": {
           "type": "string",
@@ -940,7 +928,7 @@
         },
         "SegmentFormID": {
           "type": "string",
-          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information)."
+          "description": "The unique identifier of the Segment Form resource. See the \"Forms\" resource for more information."
         },
         "SegmentFormTypeCode": {
           "type": "string",
@@ -955,14 +943,14 @@
         },
         "SegmentTypeID": {
           "type": "string",
-          "description": "The unique identifier of the Segment Type resource (See. the policies and associated data in \"RequestGroupConfigurations\" resource for more information)."
+          "description": "The unique identifier of the Segment Type resource. See the policies and associated data in \"RequestGroupConfigurations\" resource for more information."
         },
         "SegmentTypeName": {
           "type": "string",
           "description": "The name for the type of itinerary segment."
         },
         "TripType": {
-          "type": "triptype",
+          "type": "string",
           "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP."
         }
       }
