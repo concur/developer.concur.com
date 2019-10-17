@@ -286,7 +286,7 @@ The users *must be* able to authenticate themselves via an SAP Concur username &
 
 **Grant details**
 
-> Note that the grant type must be accessed using the `www-` version of the API Gateway inorder to avoid certificate issues with some browsers. (ex: https://www-us.api.concursolutions.com instead of https://us.api.concursolutions.com)
+> Note that the grant type must be accessed using the `www-` version of the API Gateway in order to avoid certificate issues with some browsers. (ex: https://www-us.api.concursolutions.com instead of https://us.api.concursolutions.com)
 
 `GET /oauth2/v0/authorize`
 
