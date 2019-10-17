@@ -322,8 +322,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Create vendor/s and returns the status of creation.",
-        "description": "Create vendor/s and returns the status of creation.",
+        "summary": "Creates new vendors.",
+        "description": "Creates a new vendor and returns the status of creation.",
         "parameters": [
           {
             "name": "vendors",
@@ -348,8 +348,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Updates existing vendor/s and returns the status of creation.",
-        "description": "Updates existing vendor/s and returns the status of creation.",
+        "summary": "Manages existing vendors.",
+        "description": "Updates existing vendors and returns the status of creation.",
         "parameters": [
           {
             "name": "vendors",
@@ -374,8 +374,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Delete a vendor by Vendor Code and Address Code.",
-        "description": "Delete a vendor by Vendor Code and Address Code.",
+        "summary": "Deletes a vendor.",
+        "description": "Deletes a vendor by Vendor Code and Address Code.",
         "parameters": [
           {
             "name": "vendorCode",
