@@ -6,35 +6,41 @@ layout: reference
 {% include prerelease.html %}
 
 * [Obtain Company Token](#company)
-* [Calling /users Bulk API](#usersbulk)
-
+* [Calling Users Bulk API](#usersbulk)
+* [Schema](#schema)
 
 ## <a name="company"></a>Obtain Company Token
 
-Company is a top-level principal within Concur and you would be able to obtain an access token and a refresh token on a Company's behalf just like you would be able to with a User. Only one authorization flow is currently available for obtaining tokens for a Company, which is the [Password grant](/api-reference/authentication/apidoc.html#password_grant).
+Company is a top-level principal within SAP Concur and you would be able to obtain an access token and a refresh token on a company's behalf just like you would be able to with a user. Only one authorization flow is currently available for obtaining tokens for a company, which is the [Password grant](/api-reference/authentication/apidoc.html#password_grant).
 
-Instructions for obtaining a Company Token is here : https://developer.concur.com/api-reference/authentication/company-auth.html
+For more information and instructions for obtaining a Company Token, please review the [Company Level Authentication](/https://developer.concur.com/api-reference/authentication/company-auth.html)
 
-## <a name="usersbulk"></a>Calling /users Bulk API
+## <a name="usersbulk"></a>Calling Users Bulk API
 
-Once you have the Company Token, you would call the `/users/` endpoint to retrieve a list of users that belong to that company.
+This endpoint will retrieve a list of users that belong to a company and return basic company information together with the list of users.
 
-This endpoint will also return basic company information together with the list of users.
+### Request
 
+#### URI
 
-`GET /users/`
+##### Template
 
-**Query Parameters**
+```http
+GET  /users/
+```
+
+#### Parameters
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
-`offset`|`string` |  | **Optional** The offset to begin returning the list of users
-`limit`|`string` |  | **Optional** The number of user records to return in that call. Max: 1000
-`<name_of_filter>`|`string` |  | **Optional** Filters results based on the desired field. Possible filters are : `isactive` `loginid` `lastname` `employeeid` `primaryemail` `countrycode` and `id`.
+`total`|`string` | - |The total number of users within the company.
+`offset`|`string` | - |The offset to begin returning the list of users.
+`limit`|`string` | - |The number of user records to return in that call. Maximum: 1000
+`<name_of_filter>`|`string` | - |Filters results based on the desired field. Supported values: `isactive`, `loginid`, `lastname`, `employeeid`, `primaryemail`, `countrycode`, `id`
 
-* Note: All query parameters must be lower-case and are CASE-SENSITIVE. If you pass an invalid query parameter, you will receive a 400 Bad Request, invalid query params.
+### Example
 
-**Request**
+#### Request
 
 ```http
 
@@ -44,7 +50,7 @@ Host: us.api.concursolutions.com
 
 ```
 
-Sample Curl:
+##### Sample Curl:
 
 ```shell
 curl -v -X GET -H "Authorization: Bearer $token" \
@@ -52,7 +58,7 @@ curl -v -X GET -H "Authorization: Bearer $token" \
 'https://us.api.concursolutions.com/users/?offset=0&limit=100&isactive=true'
 ```
 
-successful call, responds with
+#### Response
 
 ```json
 200 OK
@@ -101,4 +107,25 @@ successful call, responds with
 }
 ```
 
-* `total` - is the total number of users within the company.
+## <a name="schema"></a>Schema
+
+Property Name|Type|Format|Description
+---|---|---|---
+`Items`|`array`|[`User`](#user)	|**Required** Contains the Client, Users, Locations, Source Partner and Transaction.
+`NextPage`|`string`|-|The URI of the next page of results, if any.
+
+### <a name="user"></a>User
+
+Property Name|Type|Format|Description
+---|---|---|---
+`Active`|`boolean`|-|Indicates whether the user is currently active or not.
+`CellPhoneNumber`|`string`|-|The cell phone number of the user.
+`EmployeeID`|`string`|-|The employee ID of the user.
+`FirstName`|`string`|-|The first name of the user.
+`ID`|`string`|-|The unique identifier of the resource.
+`LastName`|`string`|-|The last name of the user.
+`LoginID`|`string`|-|The login ID of the user.
+`MiddleName`|`string`|-|The middle name of the user.
+`OrginzationUnit`|`string`|-|The organization unit of the user.
+`PrimaryEmail`|`string`|-|The primary email of the user.
+`URI`|`string`|-|The URI to the resource.
