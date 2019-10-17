@@ -1,27 +1,26 @@
 {
+  "x-sap-shortText": "Internal Shared List API for viewing and updating configured lists.",
   "swagger": "2.0",
   "info": {
-    "description": "Rest API for Expense Midtier",
+    "description": "Concur Internal Rest API for list management.",
     "version": "4.0",
-    "title": "Expense Midtier Rest API",
-    "contact": {},
-    "license": {}
+    "title": "Concur Internal Shared List API"
   },
   "basePath": "/cesmidtier",
   "tags": [
     {
-      "name": "List API",
-      "description": " "
+      "name": "Resources",
+      "description": ""
     }
   ],
   "paths": {
     "/api/lists/v4/companies/{companyId}": {
       "get": {
         "tags": [
-          "List API"
+          "Resources"
         ],
-        "summary": "Gets lists",
-        "description": "Returns lists",
+        "summary": "Get lists",
+        "description": "Returns all configured lists, with vendor and agency lists optional.",
         "operationId": "getListsUsingGET",
         "consumes": [
           "application/json"
@@ -92,10 +91,10 @@
     "/api/lists/v4/companies/{companyId}/listCategories/{listCategory}/listNames/{listName}": {
       "put": {
         "tags": [
-          "List API"
+          "Resources"
         ],
-        "summary": "Updates or creates list items",
-        "description": "Updates or creates list items in the given list",
+        "summary": "Update or create list items",
+        "description": "Updates or creates list items in the specified list",
         "operationId": "putListItemsUsingPUT",
         "consumes": [
           "application/json"
@@ -173,7 +172,7 @@
 
   },
   "securityDefinitions": {
-    "basicAuth": {
+    "basicAuthentication": {
       "type": "basic"
     }
   },
