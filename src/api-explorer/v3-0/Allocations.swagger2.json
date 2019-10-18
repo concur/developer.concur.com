@@ -2,7 +2,7 @@
   "x-sap-shortText": "View all allocations for a user or report, or view an allocation by ID",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
-  "basePath": "/api/v3.1",
+  "basePath": "/api/v3.0",
   "schemes": [
     "https"
   ],

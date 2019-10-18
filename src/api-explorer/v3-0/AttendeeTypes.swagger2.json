@@ -1,8 +1,8 @@
 {
   "x-sap-shortText": "Get and update your configured attendee types in Concur Expense.",
   "swagger": "2.0",
-  "host": "sandbox.api.sap.com",
-  "basePath": "/concur/api/v3.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
   "schemes": [
     "https"
   ],
