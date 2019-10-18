@@ -2,7 +2,7 @@
   "x-sap-shortText": "Manages the expense reports for a user or the entire company.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
-  "basePath": "/api/v3.0",
+  "basePath": "/api/v3.1",
   "schemes": [
     "https"
   ],
@@ -14,9 +14,22 @@
     "application/json",
     "application/xml"
   ],
+  "securityDefinitions": {
+		"OAuth2": {
+			"type": "oauth2",
+			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication inFormation</a> for more inFormation.",
+			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+			"flow": "application"
+		}
+	},
+  "security": [
+		{
+			"OAuth2": []
+		}
+	],
   "info": {
     "title": "Reports",
-    "description": "",
+    "description": "Get expense reports for a user or company, and update existing reports or create new reports.",
     "version": "3.0"
   },
   "tags": [
@@ -80,7 +93,7 @@
           {
             "name": "paymentType",
             "in": "query",
-            "description": "The unique identifier for the payment type that is the payment type for at least one expense entry in the report. Use PaymentTypeID from Response of GET Expense Group Configurations V3 to obtain valid payment types.",
+            "description": "The unique identifier for the payment type that is the payment type for at least one expense entry in the report. Use PaymentTypeID from the \"GET Expense Group Configurations\" function.",
             "required": false,
             "type": "string"
           },
@@ -101,7 +114,7 @@
           {
             "name": "expenseTypeCode",
             "in": "query",
-            "description": "The expense type code that is the expense type for at least one expense entry in the report. Use ExpenseTypeCode from Response of GET Expense Group Configurations V3.",
+            "description": "The expense type code that is the expense type for at least one expense entry in the report. Use ExpenseTypeCode from the \"GET Expense Group Configurations\" function.",
             "required": false,
             "type": "string"
           },
@@ -122,7 +135,7 @@
           {
             "name": "batchID",
             "in": "query",
-            "description": "The unique identifier for a payment batch where there is at least one report payee within the report. Use the BatchID from Response of GET Payment Batch List.",
+            "description": "The unique identifier for a payment batch where there is at least one report payee within the report. Use the BatchID from the \"GET Payment Batch List\" function.",
             "required": false,
             "type": "string"
           },
@@ -136,42 +149,42 @@
           {
             "name": "hasVAT",
             "in": "query",
-            "description": "Determines if the report has at least one expense entry with VAT details. FORMAT: true or false.",
+            "description": "Determines if the report has at least one expense entry with VAT details. Format: true or false.",
             "required": false,
             "type": "boolean"
           },
           {
             "name": "hasImages",
             "in": "query",
-            "description": "Determines if the report has at least one expense entry with an entry image or if there is a report image for this report. FORMAT: true or false.",
+            "description": "Determines if the report has at least one expense entry with an entry image or if there is a report image for this report. Format: true or false.",
             "required": false,
             "type": "boolean"
           },
           {
             "name": "hasAttendees",
             "in": "query",
-            "description": "Determines if the report has at least one expense entry with an attendee. FORMAT: true or false.",
+            "description": "Determines if the report has at least one expense entry with an attendee. Format: true or false.",
             "required": false,
             "type": "boolean"
           },
           {
             "name": "hasBillableExpenses",
             "in": "query",
-            "description": "The IsBillable flag for at least one expense entry in the report. FORMAT: true or false.",
+            "description": "The IsBillable flag for at least one expense entry in the report. Format: true or false.",
             "required": false,
             "type": "boolean"
           },
           {
             "name": "isTestUser",
             "in": "query",
-            "description": "The report owner is a test user using the report for testing purposes in a non-production envirnment. FORMAT: true or false.",
+            "description": "The report owner is a test user using the report for testing purposes in a non-production envirnment. format: true or false.",
             "required": false,
             "type": "boolean"
           },
           {
             "name": "expenseGroupConfigID",
             "in": "query",
-            "description": "The unique identifier for the expense group configuration associated to the report's expense group. Use the ID from the Response of the Expense Group Configurations V3.",
+            "description": "The unique identifier for the expense group configuration associated to the report's expense group. Use the ID from the \"GET Expense Group Configurations\" function.",
             "required": false,
             "type": "string"
           },
@@ -307,7 +320,7 @@
           {
             "name": "content",
             "in": "body",
-            "description": "report object to create",
+            "description": "Report object to create",
             "required": true,
             "schema": {
               "$ref": "#/definitions/ReportPost"
@@ -327,6 +340,12 @@
             "schema": {
               "$ref": "#/definitions/CreateResponse"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -336,13 +355,13 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Gets a single report by ID",
+        "summary": "Gets a single report",
         "description": "Returns the specified report.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "report ID",
+            "description": "Report ID",
             "required": true,
             "type": "string"
           },
@@ -400,6 +419,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -428,7 +453,7 @@
         },
         "Type": {
           "type": "string",
-          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text"
+          "description": "The custom field type. Supported values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text"
         },
         "Value": {
           "type": "string",
@@ -490,7 +515,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\\\">3-letter ISO 4217 currency code</a> for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
+          "description": "The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
         },
         "Custom1": {
           "$ref": "#/definitions/CustomField"
@@ -610,7 +635,7 @@
         "PaidDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date when all journal entries in the report was integrated with or extracted to the financial system."
+          "description": "The date when all journal entries in the report were integrated with or extracted to the financial system."
         },
         "PaymentStatusCode": {
           "type": "string",
@@ -669,7 +694,7 @@
         },
         "WorkflowActionUrl": {
           "type": "string",
-          "description": "The URL to post a workflow action to the report using the Post Report Workflow Action function."
+          "description": "The URL to post a workflow action to the report using the \"Post Report Workflow Action\" function."
         }
       }
     },
@@ -789,7 +814,7 @@
         },
         "PolicyID": {
           "type": "string",
-          "description": "The unique identifier for the policy.  This is the protected, Policy Key"
+          "description": "The unique identifier for the policy. This is the protected Policy Key"
         },
         "Purpose": {
           "type": "string",
@@ -918,7 +943,7 @@
         },
         "PolicyID": {
           "type": "string",
-          "description": "The unique identifier for the policy.  This is the protected, Policy Key"
+          "description": "The unique identifier for the policy. This is the protected Policy Key"
         },
         "Purpose": {
           "type": "string",
@@ -934,5 +959,11 @@
     "Void": {
       "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }
