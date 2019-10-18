@@ -782,7 +782,7 @@
         },
         "HeaderFormID": {
           "type": "string",
-          "description": "The unique identifier of the Header Form resource See the \"Forms\" resource for more information."
+          "description": "The unique identifier of the Header Form resource. See the \"Forms\" resource for more information."
         },
         "HighestExceptionLevel": {
           "type": "array",
