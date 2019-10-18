@@ -1,8 +1,8 @@
 {
   "x-sap-shortText": "Receive pre-authorization for trips, expenses, and cash advances.",
   "swagger": "2.0",
-  "host": "sandbox.api.sap.com",
-  "basePath": "/concur/api/v3.1",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.1",
   "schemes": [
     "https"
   ],
@@ -19,7 +19,19 @@
     "description": "Allows employees to submit travel plans, expected expenses, and expected cash advance needs prior to spending funds. This API provides methods to view, create, update, submit, or recall requests owned by the specified user.",
     "version": "3.1"
   },
-
+  "securityDefinitions": {
+		"OAuth2": {
+			"type": "oauth2",
+			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+			"flow": "application"
+		}
+	},
+  "security": [
+		{
+			"OAuth2": []
+		}
+	],
   "tags": [
     {
       "name": "Resources",
@@ -69,7 +81,7 @@
           {
             "name": "content",
             "in": "body",
-            "description": "Partial or complete Request object to save",
+            "description": "Partial or complete Request object to save.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/PutInputRequest"
@@ -92,7 +104,7 @@
           {
             "name": "doSubmit",
             "in": "query",
-            "description": "Trigger a submit action upon a successfull save operation",
+            "description": "Trigger a submit action upon a successful save operation",
             "required": false,
             "type": "boolean"
           },
@@ -109,6 +121,12 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/RequestResponse"
+            }
+          },
+          "403": {
+            "description": "Failure",
+            "schema": {
+              "$ref": "#/definitions/Void"
             }
           }
         }
@@ -147,14 +165,14 @@
           {
             "name": "status",
             "in": "query",
-            "description": "The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used.",
+            "description": "Specifies which request or approval status to return. If no Status value is sent, the default Status of Active will be used.",
             "required": false,
             "type": "string"
           },
           {
             "name": "modifiedAfter",
             "in": "query",
-            "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+            "description": "Returns requests in which the associated dependents (header, entries, segments, allocations, attendees, comments) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -162,7 +180,7 @@
           {
             "name": "modifiedBefore",
             "in": "query",
-            "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+            "description": "Returns requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -177,7 +195,7 @@
           {
             "name": "withUserPermissions",
             "in": "query",
-            "description": "Pass true to get the UserPermssions in the result.",
+            "description": "Pass true to get the UserPermissions in the result.",
             "required": false,
             "type": "boolean"
           }
@@ -217,7 +235,7 @@
           {
             "name": "doSubmit",
             "in": "query",
-            "description": "Trigger a submit action upon a successfull save operation",
+            "description": "Trigger a submit action upon a successful save operation",
             "required": false,
             "type": "boolean"
           },
@@ -234,6 +252,12 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/RequestResponse"
+            }
+          },
+          "403": {
+            "description": "Failure",
+            "schema": {
+              "$ref": "#/definitions/Void"
             }
           }
         }
@@ -261,6 +285,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "403": {
+            "description": "Failure",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -284,6 +314,12 @@
         "responses": {
           "200": {
             "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          },
+          "403": {
+            "description": "Failure",
             "schema": {
               "$ref": "#/definitions/Void"
             }
@@ -363,11 +399,11 @@
         },
         "ApprovalStatusCode": {
           "type": "string",
-          "description": "The code for the approval status the Request."
+          "description": "The code of the approval status of the Request."
         },
         "ApprovalStatusName": {
           "type": "string",
-          "description": "The approval status of the Request."
+          "description": "The name of the approval status of the Request."
         },
         "AuthorizedDate": {
           "type": "string",
@@ -407,7 +443,8 @@
           "description": "The unique identifier of the Header Form resource. See the \"Forms\" resource for more information."
         },
         "HighestExceptionLevel": {
-          "type": "string",
+          "type": "array",
+          "items": {},
           "description": "Indicates the highest exception level of the Request. Possible value: NONE, NON_BLOCKING, BLOCKING"
         },
         "LastModifiedDate": {
@@ -579,11 +616,14 @@
         },
         "SegmentTypeID": {
           "type": "string",
-          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created. See the policies and associated data in \"RequestGroupConfigurations\" resource for more information."
+          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created. See the policies and associated data in the \"RequestGroupConfigurations\" resource for more information."
         },
         "TripType": {
-          "type": "string",
-          "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP."
+          "description": "Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -647,8 +687,11 @@
           "description": "The unique identifier of the Segment Type resource used to define the type of the segment created. See the policies and associated data in \"RequestGroupConfigurations\" resource for more information."
         },
         "TripType": {
-          "type": "string",
-          "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP."
+          "description": "Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -739,10 +782,11 @@
         },
         "HeaderFormID": {
           "type": "string",
-          "description": "The unique identifier of the Header Form resource. See the \"Forms\" resource for more information."
+          "description": "The unique identifier of the Header Form resource See the \"Forms\" resource for more information."
         },
         "HighestExceptionLevel": {
-          "type": "string",
+          "type": "array",
+          "items": {},
           "description": "Indicates the highest exception level of the Request. Possible value: NONE, NON_BLOCKING, BLOCKING"
         },
         "ID": {
@@ -950,8 +994,11 @@
           "description": "The name for the type of itinerary segment."
         },
         "TripType": {
-          "type": "string",
-          "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP."
+          "description": "Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -981,5 +1028,11 @@
     "Void": {
       "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://us.api.concursolutions.com/api/v3.1",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }
