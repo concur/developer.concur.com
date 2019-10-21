@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Get and update your configured attendee types in Concur Expense.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -15,9 +16,22 @@
   ],
   "info": {
     "title": "Attendee Types",
-    "description": "",
+    "description": "Get the configured attendee types for the company or for a specified user. You can also update attendee types by providing some or all of the attendee type fields.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+		"OAuth2": {
+			"type": "oauth2",
+			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+			"flow": "application"
+		}
+	},
+  "security": [
+		{
+			"OAuth2": []
+		}
+	],
   "tags": [
     {
       "name": "Resources",
@@ -81,6 +95,12 @@
             "schema": {
               "$ref": "#/definitions/CreateResponse"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -90,8 +110,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get a single attendee type by ID",
-        "description": "Gets an attendee type by ID.",
+        "summary": "Get a single attendee type",
+        "description": "Gets an attendee type for the specified ID.",
         "parameters": [
           {
             "name": "id",
@@ -131,6 +151,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       },
@@ -164,6 +190,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -190,7 +222,7 @@
         },
         "ConnectorID": {
           "type": "string",
-          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, the Expense database is the data source."
+          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, Concur Expense is the data source."
         },
         "DuplicateSearchFields": {
           "type": "array",
@@ -198,7 +230,7 @@
             "type": "string",
             "description": "The URI of the next page of results, if any."
           },
-          "description": "The list of Attendee field IDs used by the Add Attendee user interface to alert users that the attendee they want to add is a possible duplicate. This parent element has a DuplicateSearchField child element for each field ID."
+          "description": "The list of Attendee field IDs used by the Add Attendee user interface to alert users that the attendee they want to add is a possible duplicate."
         },
         "ID": {
           "type": "string",
@@ -234,7 +266,7 @@
         },
         "ConnectorID": {
           "type": "string",
-          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, the Expense database is the data source."
+          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, Concur Expense is the data source."
         },
         "DuplicateSearchFields": {
           "type": "array",
@@ -242,7 +274,7 @@
             "type": "string",
             "description": "The URI of the next page of results, if any."
           },
-          "description": "The list of Attendee field IDs used by the Add Attendee user interface to alert users that the attendee they want to add is a possible duplicate. This parent element has a DuplicateSearchField child element for each field ID."
+          "description": "The list of Attendee field IDs used by the Add Attendee user interface to alert users that the attendee they want to add is a possible duplicate."
         },
         "Name": {
           "type": "string",
@@ -270,7 +302,7 @@
         },
         "ConnectorID": {
           "type": "string",
-          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, the Expense database is the data source."
+          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, Concur Expense is the data source."
         },
         "DuplicateSearchFields": {
           "type": "array",
@@ -278,7 +310,7 @@
             "type": "string",
             "description": "The URI of the next page of results, if any."
           },
-          "description": "The list of Attendee field IDs used by the Add Attendee user interface to alert users that the attendee they want to add is a possible duplicate. This parent element has a DuplicateSearchField child element for each field ID."
+          "description": "The list of Attendee field IDs used by the Add Attendee user interface to alert users that the attendee they want to add is a possible duplicate."
         },
         "Name": {
           "type": "string",
@@ -312,5 +344,11 @@
     "Void": {
       "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }

@@ -98,7 +98,7 @@
       "properties": {
         "HeaderFormID": {
           "type": "string",
-          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information)."
+          "description": "The unique identifier of the Header Form resource. See the \"Forms\" resource for more information."
         },
         "ID": {
           "type": "string",
@@ -194,11 +194,11 @@
         },
         "SegmentCustomFormID": {
           "type": "string",
-          "description": "The unique identifier of the Segment Form resource which contains custom fields (See. the \"Forms\" resource for more information)."
+          "description": "The unique identifier of the Segment Form resource which contains custom fields. See the \"Forms\" resource for more information."
         },
         "SegmentFormID": {
           "type": "string",
-          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information)."
+          "description": "The unique identifier of the Segment Form resource. See the \"Forms\" resource for more information."
         },
         "SegmentTypeCode": {
           "type": "string",
