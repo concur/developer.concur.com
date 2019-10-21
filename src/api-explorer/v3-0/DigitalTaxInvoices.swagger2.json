@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Allows tax validators to get and update digital receipts.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -12,6 +13,19 @@
   "consumes": [
     "application/json",
     "application/xml"
+  ],
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
   ],
   "info": {
     "title": "Digital Tax Invoices",
@@ -30,7 +44,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get all digital tax invoices",
+        "summary": "Get digital tax invoices",
         "description": "Gets all digital tax invoices that can be validated by the user based on the search criteria.",
         "parameters": [
           {
@@ -71,8 +85,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get a single digital tax invoice by ID",
-        "description": "Gets a single digital tax invoice by ID.",
+        "summary": "Get a single digital tax invoice",
+        "description": "Gets the specified digital tax invoice.",
         "parameters": [
           {
             "name": "id",
@@ -95,7 +109,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Update a digital tax invoice by ID",
+        "summary": "Update a digital tax invoice",
         "description": "Updates the specified digital tax invoice.",
         "parameters": [
           {
@@ -118,6 +132,12 @@
         "responses": {
           "200": {
             "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Void"
             }
@@ -158,7 +178,7 @@
       "properties": {
         "AccountID": {
           "type": "string",
-          "description": "The unique identifier assigned by the validation partner to the Concur client company that owns the digital tax invoices."
+          "description": "The unique identifier assigned by the validation partner to the SAP Concur client company that owns the digital tax invoices."
         },
         "ConcurReceiptID": {
           "type": "string",
@@ -189,5 +209,11 @@
     "Void": {
       "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }

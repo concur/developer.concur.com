@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Create simple expenses without Expense configuration information.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -13,9 +14,22 @@
     "application/json",
     "application/xml"
   ],
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "info": {
     "title": "Quick Expenses",
-    "description": "The Quick Expense API provides methods to create basic expenses without requiring any client or user specific Expense configuration data. These expenses appear in the Available Expenses area in Concur, for users to add to expense reports.",
+    "description": "Provides methods to create basic expenses without requiring any client or user specific Expense configuration data. These expenses appear in the Available Expenses area in Concur, for users to add to expense reports.",
     "version": "3.0"
   },
   "tags": [
@@ -69,8 +83,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Create a new quick expense",
-        "description": "Creates a new quick expense.",
+        "summary": "Create quick expense",
+        "description": "Creates a new quick expense for the user.",
         "parameters": [
           {
             "name": "content",
@@ -95,6 +109,12 @@
             "schema": {
               "$ref": "#/definitions/CreateResponse"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -104,8 +124,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get a single quick expense by ID",
-        "description": "Returns a quick expenses by ID.",
+        "summary": "Get a single quick expense",
+        "description": "Returns the specified quick expense.",
         "parameters": [
           {
             "name": "id",
@@ -135,8 +155,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Update a quick expense by ID",
-        "description": "Updates the QuickExpense specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
+        "summary": "Update a quick expense",
+        "description": "Updates the specified Quick Expense.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
         "parameters": [
           {
             "name": "id",
@@ -148,7 +168,7 @@
           {
             "name": "content",
             "in": "body",
-            "description": "Partial or complete QuickExpense object to update",
+            "description": "Partial or complete Quick Expense object to update",
             "required": true,
             "schema": {
               "$ref": "#/definitions/QuickExpensePut"
@@ -168,6 +188,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       },
@@ -175,7 +201,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Delete a quick expense by ID",
+        "summary": "Delete a quick expense",
         "description": "Deletes the specified quick expense.",
         "parameters": [
           {
@@ -199,6 +225,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -212,19 +244,6 @@
         },
         "URI": {
           "type": "string"
-        }
-      }
-    },
-    "Decimal": {
-      "properties": {}
-    },
-    "Nullable`1": {
-      "properties": {
-        "HasValue": {
-          "type": "boolean"
-        },
-        "Value": {
-          "$ref": "#/definitions/Decimal"
         }
       }
     },
@@ -247,11 +266,11 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the expense transaction amount. Example: USD"
+          "description": "The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD"
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the Get Expense Group Configuration function response."
+          "description": "The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the \"Get Expense Group Configuration\" function response."
         },
         "ExpenseTypeName": {
           "type": "string",
@@ -309,23 +328,23 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the expense transaction amount. Example: USD"
+          "description": "The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD"
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the <a target=\"_blank\" href=\"https://developer.concur.com/node/473\">Get Expense Group Configuration</a> function response."
+          "description": "The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the \"Get Expense Group Configuration\" function response."
         },
         "LocationCity": {
           "type": "string",
-          "description": "The city where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry.<br/><br/>If you provide both the LocationCity and LocationCountry values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense.<br/><br/>If a LocationCity is provided, the LocationCountry and LocationSubdivision must be provided. If a country does not have subdivisions, the LocationSubdivision field may be omitted."
+          "description": "The city where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. If you provide both the LocationCity and LocationCountry values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense. If a LocationCity is provided, the LocationCountry and LocationSubdivision must be provided. If a country does not have subdivisions, the LocationSubdivision field may be omitted."
         },
         "LocationCountry": {
           "type": "string",
-          "description": "The country where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: 2-letter <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1</a> country code."
+          "description": "The country where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: 2-letter ISO 3166-1 country code."
         },
         "LocationSubdivision": {
           "type": "string",
-          "description": "The state, province, or other country subdivision where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-2:2007-04-17#I-8\">ISO 3166-2:2007</a> country subdivision."
+          "description": "The state, province, or other country subdivision where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: ISO 3166-2:2007 country subdivision."
         },
         "PaymentTypeCode": {
           "type": "string",
@@ -333,11 +352,11 @@
         },
         "ReceiptImageID": {
           "type": "string",
-          "description": "The unique identifier for the image. The ReceiptImageID is returned in the ID element of the Post Receipt Image API response."
+          "description": "The unique identifier for the image."
         },
         "SpendCategoryCode": {
           "type": "string",
-          "description": "The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting.  Format: One of the Code values in the Spend Category Code List.  Developers can view the configured Spend Category/Expense Type mappings by using the Get Expense Group Configuration function."
+          "description": "The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting.  Format: One of the Code values in the Spend Category Code List.  Developers can view the configured Spend Category/Expense Type mappings by using the \"Get Expense Group Configuration\" function."
         },
         "TransactionAmount": {
           "type": "number",
@@ -363,23 +382,23 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the expense transaction amount. Example: USD"
+          "description": "The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD"
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the <a target=\"_blank\" href=\"https://developer.concur.com/node/473\">Get Expense Group Configuration</a> function response."
+          "description": "The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the \"Get Expense Group Configuration\" function response."
         },
         "LocationCity": {
           "type": "string",
-          "description": "The city where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry.<br/><br/>If you provide both the LocationCity and LocationCountry values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense.<br/><br/>If a LocationCity is provided, the LocationCountry and LocationSubdivision must be provided. If a country does not have subdivisions, the LocationSubdivision field may be omitted."
+          "description": "The city where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. If you provide both the LocationCity and LocationCountry values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense. If a LocationCity is provided, the LocationCountry and LocationSubdivision must be provided. If a country does not have subdivisions, the LocationSubdivision field may be omitted."
         },
         "LocationCountry": {
           "type": "string",
-          "description": "The country where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: 2-letter <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1</a> country code."
+          "description": "The country where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: 2-letter ISO 3166-1 country code."
         },
         "LocationSubdivision": {
           "type": "string",
-          "description": "The state, province, or other country subdivision where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-2:2007-04-17#I-8\">ISO 3166-2:2007</a> country subdivision."
+          "description": "The state, province, or other country subdivision where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: ISO 3166-2:2007 country subdivision."
         },
         "PaymentTypeCode": {
           "type": "string",
@@ -391,7 +410,7 @@
         },
         "SpendCategoryCode": {
           "type": "string",
-          "description": "The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting.  Format: One of the Code values in the <a target=\"_blank\" href=\"https://developer.concur.com/node/557\">Spend Category Code List.  Developers can view the configured Spend Category/Expense Type mappings by using the <a target=\"_blank\" href=\"https://developer.concur.com/node/473\">Get Expense Group Configuration</a> function.</a>"
+          "description": "The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting.  Format: One of the Code values in the Spend Category Code List.  Developers can view the configured Spend Category/Expense Type mappings by using the \"Get Expense Group Configuration\" function."
         },
         "TransactionAmount": {
           "type": "number",
@@ -412,5 +431,11 @@
     "Void": {
       "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }

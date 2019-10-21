@@ -1,0 +1,386 @@
+{
+  "x-sap-shortText": "Internal Shared List API for viewing and updating configured lists.",
+  "swagger": "2.0",
+  "info": {
+    "description": "Concur Internal Rest API for list management.",
+    "version": "4.0",
+    "title": "Concur Internal Shared List API"
+  },
+  "basePath": "/cesmidtier",
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/api/lists/v4/companies/{companyId}": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get lists",
+        "description": "Returns all configured lists, with vendor and agency lists optional.",
+        "operationId": "getListsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Company ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entityid",
+            "in": "header",
+            "description": "Entity ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "includeVendorLists",
+            "in": "query",
+            "description": "Include Vendor Lists?",
+            "required": false,
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "includeAgencyLists",
+            "in": "query",
+            "description": "Include Agency Lists?",
+            "required": false,
+            "type": "boolean",
+            "default": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful get all lists for company",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ListOutputInfo"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value was entered",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      }
+    },
+    "/api/lists/v4/companies/{companyId}/listCategories/{listCategory}/listNames/{listName}": {
+      "put": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Update or create list items",
+        "description": "Updates or creates list items in the specified list",
+        "operationId": "putListItemsUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Company ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entityid",
+            "in": "header",
+            "description": "Entity ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "listCategory",
+            "in": "path",
+            "description": "List category",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "listName",
+            "in": "path",
+            "description": "List name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "in": "body",
+            "name": "listItems",
+            "description": "List items",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ListItemsInfo"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful put of list items for input list",
+            "schema": {
+              "$ref": "#/definitions/BatchListItemResult"
+            }
+          },
+          "400": {
+            "description": "Invalid value was entered",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      }
+    }
+
+  },
+  "securityDefinitions": {
+    "basicAuthentication": {
+      "type": "basic"
+    }
+  },
+  "definitions": {
+    "ListOutputInfo": {
+      "type": "object",
+      "properties": {
+        "itemCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Item count"
+        },
+        "levelCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Level count"
+        },
+        "listCategoryName": {
+          "type": "string",
+          "description": "List category name"
+        },
+        "listDisplayFormat": {
+          "type": "string",
+          "description": "List default display format"
+        },
+        "listDisplayText": {
+          "type": "string",
+          "description": "List default display format"
+        },
+        "listId": {
+          "type": "string",
+          "description": "List ID"
+        },
+        "listKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "List Key"
+        },
+        "listName": {
+          "type": "string",
+          "description": "List name"
+        },
+        "listSyncGuid": {
+          "type": "string",
+          "description": "List Sync Guid"
+        },
+        "searchCriteria": {
+          "type": "string",
+          "description": "Search criteria"
+        }
+      }
+    },
+    "ErrorMessage": {
+      "type": "object",
+      "properties": {
+        "errorMessage": {
+          "type": "string"
+        },
+        "httpStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "internalCode": {
+          "type": "string"
+        },
+        "moreInfo": {
+          "type": "string"
+        }
+      }
+    },
+
+    "ListItemsInfo": {
+      "type": "object",
+      "properties": {
+        "deleted": {
+          "type": "boolean",
+          "description": "Is deleted?"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "End date"
+        },
+        "inputPosition": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "level10Code": {
+          "type": "string"
+        },
+        "level1Code": {
+          "type": "string"
+        },
+        "level2Code": {
+          "type": "string"
+        },
+        "level3Code": {
+          "type": "string"
+        },
+        "level4Code": {
+          "type": "string"
+        },
+        "level5Code": {
+          "type": "string"
+        },
+        "level6Code": {
+          "type": "string"
+        },
+        "level7Code": {
+          "type": "string"
+        },
+        "level8Code": {
+          "type": "string"
+        },
+        "level9Code": {
+          "type": "string"
+        },
+        "longCode": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of list item"
+        },
+        "numLevels": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of levels"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Start date"
+        },
+        "validDates": {
+          "type": "boolean"
+        }
+      }
+    },
+    "BatchListItemResult": {
+      "type": "object",
+      "properties": {
+        "changedValueCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Changed value count"
+        },
+        "correlationId": {
+          "type": "string",
+          "description": "Correlation ID"
+        },
+        "deletedItemCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Deleted item count"
+        },
+        "errorCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Error count"
+        },
+        "listCategory": {
+          "type": "string",
+          "description": "List category"
+        },
+        "listItemResults": {
+          "type": "array",
+          "description": "List item results",
+          "items": {
+            "$ref": "#/definitions/ListItemResults"
+          }
+        },
+        "listName": {
+          "type": "string",
+          "description": "List name"
+        },
+        "newItemCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "New item count"
+        },
+        "unDeletedItemCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Undeleted item count"
+        }
+      }
+    },
+    "ListItemResults": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string",
+          "description": "Error code"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Error message"
+        },
+        "listItemCodes": {
+          "type": "string",
+          "description": "List item codes"
+        },
+        "severity": {
+          "type": "string",
+          "description": "Severity"
+        }
+      }
+    }
+  }
+}
