@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Manages your finanacial transactions.",
   "swagger": "2.0",
   "info": {
     "description": "Financial Integration APIs help Concur clients move extract data from Concur into their systems of record.",
@@ -194,7 +195,7 @@
           "Financial Transactions"
         ],
         "summary": "Confirms results of financial transactions payment posting.",
-        "description": "This API allows financial posting results to be sent to Concur.",
+        "description": "This API allows financial posting results to be sent to SAP Concur.",
         "operationId": "postErpPaymentConfirmationsUsingPOST",
         "consumes": [
           "application/json"
@@ -259,7 +260,7 @@
           "Financial Transactions"
         ],
         "summary": "Confirms results of financial transactions posting.",
-        "description": "This API allows financial posting results to be sent to Concur.",
+        "description": "This API allows financial posting results to be sent to SAP Concur.",
         "operationId": "postErpPostingConfirmationsUsingPOST",
         "consumes": [
           "application/json"

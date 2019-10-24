@@ -86,7 +86,7 @@
           "Resources"
         ],
         "summary": "Get an existing purchase order.",
-        "description": "Gets an existing purchase order.",
+        "description": "Retrieves information about an existing purchase order.",
         "parameters": [
           {
             "name": "id",

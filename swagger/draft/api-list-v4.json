@@ -1,27 +1,39 @@
 {
+  "x-sap-shortText": "Internal Shared List API for viewing and updating configured lists.",
   "swagger": "2.0",
   "info": {
-    "description": "Rest API for Expense Midtier",
+    "description": "SAP Concur Internal Rest API for list management.",
     "version": "4.0",
-    "title": "Expense Midtier Rest API",
-    "contact": {},
-    "license": {}
+    "title": "SAP Concur Internal Shared List API"
   },
+  "securityDefinitions": {
+		"OAuth2": {
+			"type": "oauth2",
+			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+			"flow": "application"
+		}
+	},
+  "security": [
+		{
+			"OAuth2": []
+		}
+	],
   "basePath": "/cesmidtier",
   "tags": [
     {
-      "name": "List API",
-      "description": " "
+      "name": "Resources",
+      "description": ""
     }
   ],
   "paths": {
     "/api/lists/v4/companies/{companyId}": {
       "get": {
         "tags": [
-          "List API"
+          "Resources"
         ],
-        "summary": "Gets lists",
-        "description": "Returns lists",
+        "summary": "Get lists.",
+        "description": "Returns all configured lists, with vendor and agency lists optional.",
         "operationId": "getListsUsingGET",
         "consumes": [
           "application/json"
@@ -33,7 +45,7 @@
           {
             "name": "companyId",
             "in": "path",
-            "description": "Company ID",
+            "description": "Company ID.",
             "required": true,
             "type": "integer",
             "format": "int32"
@@ -41,14 +53,14 @@
           {
             "name": "entityid",
             "in": "header",
-            "description": "Entity ID",
+            "description": "Entity ID.",
             "required": true,
             "type": "string"
           },
           {
             "name": "langCode",
             "in": "query",
-            "description": "Language code",
+            "description": "Language code.",
             "required": false,
             "type": "string",
             "default": "en"
@@ -56,7 +68,7 @@
           {
             "name": "includeVendorLists",
             "in": "query",
-            "description": "Include Vendor Lists?",
+            "description": "Include vendor lists?",
             "required": false,
             "type": "boolean",
             "default": true
@@ -64,7 +76,7 @@
           {
             "name": "includeAgencyLists",
             "in": "query",
-            "description": "Include Agency Lists?",
+            "description": "Include agency lists?",
             "required": false,
             "type": "boolean",
             "default": true
@@ -72,7 +84,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful get all lists for company",
+            "description": "Successful get all lists for company.",
             "schema": {
               "type": "array",
               "items": {
@@ -81,7 +93,7 @@
             }
           },
           "400": {
-            "description": "Invalid value was entered",
+            "description": "Invalid value was entered.",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -92,10 +104,10 @@
     "/api/lists/v4/companies/{companyId}/listCategories/{listCategory}/listNames/{listName}": {
       "put": {
         "tags": [
-          "List API"
+          "Resources"
         ],
-        "summary": "Updates or creates list items",
-        "description": "Updates or creates list items in the given list",
+        "summary": "Manages list items.",
+        "description": "Updates or creates list items in the specified list.",
         "operationId": "putListItemsUsingPUT",
         "consumes": [
           "application/json"
@@ -107,7 +119,7 @@
           {
             "name": "companyId",
             "in": "path",
-            "description": "Company ID",
+            "description": "Company ID.",
             "required": true,
             "type": "integer",
             "format": "int32"
@@ -115,28 +127,28 @@
           {
             "name": "entityid",
             "in": "header",
-            "description": "Entity ID",
+            "description": "Entity ID.",
             "required": true,
             "type": "string"
           },
           {
             "name": "listCategory",
             "in": "path",
-            "description": "List category",
+            "description": "List category.",
             "required": true,
             "type": "string"
           },
           {
             "name": "listName",
             "in": "path",
-            "description": "List name",
+            "description": "List name.",
             "required": true,
             "type": "string"
           },
           {
             "name": "langCode",
             "in": "query",
-            "description": "Language code",
+            "description": "Language code.",
             "required": false,
             "type": "string",
             "default": "en"
@@ -144,7 +156,7 @@
           {
             "in": "body",
             "name": "listItems",
-            "description": "List items",
+            "description": "List items.",
             "required": true,
             "schema": {
               "type": "array",
@@ -172,11 +184,6 @@
     }
 
   },
-  "securityDefinitions": {
-    "basicAuth": {
-      "type": "basic"
-    }
-  },
   "definitions": {
     "ListOutputInfo": {
       "type": "object",
@@ -184,45 +191,45 @@
         "itemCount": {
           "type": "integer",
           "format": "int32",
-          "description": "Item count"
+          "description": "Item count."
         },
         "levelCount": {
           "type": "integer",
           "format": "int32",
-          "description": "Level count"
+          "description": "Level count."
         },
         "listCategoryName": {
           "type": "string",
-          "description": "List category name"
+          "description": "List category name."
         },
         "listDisplayFormat": {
           "type": "string",
-          "description": "List default display format"
+          "description": "List default display format."
         },
         "listDisplayText": {
           "type": "string",
-          "description": "List default display format"
+          "description": "List default display format."
         },
         "listId": {
           "type": "string",
-          "description": "List ID"
+          "description": "List ID."
         },
         "listKey": {
           "type": "integer",
           "format": "int32",
-          "description": "List Key"
+          "description": "List key."
         },
         "listName": {
           "type": "string",
-          "description": "List name"
+          "description": "List name."
         },
         "listSyncGuid": {
           "type": "string",
-          "description": "List Sync Guid"
+          "description": "List sync guid."
         },
         "searchCriteria": {
           "type": "string",
-          "description": "Search criteria"
+          "description": "Search criteria."
         }
       }
     },
@@ -255,58 +262,70 @@
         "endDate": {
           "type": "string",
           "format": "date-time",
-          "description": "End date"
+          "description": "End date."
         },
         "inputPosition": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "description": "Input position."
         },
         "level10Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 10 code."
         },
         "level1Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 1 code."
         },
         "level2Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 2 code."
         },
         "level3Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 3 code."
         },
         "level4Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 4 code."
         },
         "level5Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 5 code."
         },
         "level6Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 6 code."
         },
         "level7Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 7 code."
         },
         "level8Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 8 code."
         },
         "level9Code": {
-          "type": "string"
+          "type": "string",
+          "description": "Level 9 code."
         },
         "longCode": {
-          "type": "string"
+          "type": "string",
+          "description": "Long code."
         },
         "name": {
           "type": "string",
-          "description": "Name of list item"
+          "description": "Name of list item."
         },
         "numLevels": {
           "type": "integer",
           "format": "int32",
-          "description": "Number of levels"
+          "description": "Number of levels."
         },
         "startDate": {
           "type": "string",
           "format": "date-time",
-          "description": "Start date"
+          "description": "Start date."
         },
         "validDates": {
           "type": "boolean"
@@ -319,46 +338,46 @@
         "changedValueCount": {
           "type": "integer",
           "format": "int32",
-          "description": "Changed value count"
+          "description": "Changed value count."
         },
         "correlationId": {
           "type": "string",
-          "description": "Correlation ID"
+          "description": "Correlation ID."
         },
         "deletedItemCount": {
           "type": "integer",
           "format": "int32",
-          "description": "Deleted item count"
+          "description": "Deleted item count."
         },
         "errorCount": {
           "type": "integer",
           "format": "int32",
-          "description": "Error count"
+          "description": "Error count."
         },
         "listCategory": {
           "type": "string",
-          "description": "List category"
+          "description": "List category."
         },
         "listItemResults": {
           "type": "array",
-          "description": "List item results",
+          "description": "List item results.",
           "items": {
             "$ref": "#/definitions/ListItemResults"
           }
         },
         "listName": {
           "type": "string",
-          "description": "List name"
+          "description": "List name."
         },
         "newItemCount": {
           "type": "integer",
           "format": "int32",
-          "description": "New item count"
+          "description": "New item count."
         },
         "unDeletedItemCount": {
           "type": "integer",
           "format": "int32",
-          "description": "Undeleted item count"
+          "description": "Undeleted item count."
         }
       }
     },
@@ -367,19 +386,19 @@
       "properties": {
         "errorCode": {
           "type": "string",
-          "description": "Error code"
+          "description": "Error code."
         },
         "errorMessage": {
           "type": "string",
-          "description": "Error message"
+          "description": "Error message."
         },
         "listItemCodes": {
           "type": "string",
-          "description": "List item codes"
+          "description": "List item codes."
         },
         "severity": {
           "type": "string",
-          "description": "Severity"
+          "description": "Severity."
         }
       }
     }
