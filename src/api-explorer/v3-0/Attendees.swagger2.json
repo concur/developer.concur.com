@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Get or manage attendees in Concur Expense.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -15,9 +16,22 @@
   ],
   "info": {
     "title": "Attendees",
-    "description": "",
+    "description": "Get the configured attendees for a user. You can also update attendees by providing some or all of the attendee fields, or create new attendees.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+		"OAuth2": {
+			"type": "oauth2",
+			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+			"flow": "application"
+		}
+	},
+  "security": [
+		{
+			"OAuth2": []
+		}
+	],
   "tags": [
     {
       "name": "Resources",
@@ -31,7 +45,7 @@
           "Resources"
         ],
         "summary": "Get all attendees",
-        "description": "Gets all attendees owned by the specified user.",
+        "description": "Gets all attendees owned by the specified user, or the user associated with the access token.",
         "parameters": [
           {
             "name": "externalID",
@@ -83,7 +97,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Create a new attendee",
+        "summary": "Create attendee",
         "description": "Creates a new attendee.",
         "parameters": [
           {
@@ -109,6 +123,12 @@
             "schema": {
               "$ref": "#/definitions/CreateResponse"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -118,7 +138,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get a single attendee by ID",
+        "summary": "Get attendee",
         "description": "Gets a single attendee by ID.",
         "parameters": [
           {
@@ -149,7 +169,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Update an attendee by ID",
+        "summary": "Update attendee",
         "description": "Updates the specified attendee. Only the fields provided in the supplied object are updated. Missing fields are not altered.",
         "parameters": [
           {
@@ -179,6 +199,12 @@
         "responses": {
           "200": {
             "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Void"
             }
@@ -213,6 +239,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -238,7 +270,7 @@
         },
         "AttendeeTypeID": {
           "type": "string",
-          "description": "The ID of the attendee type. To obtain the attendee type ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes/Get_offset_limit_get_0\">GET /expense/attendeetypes</a> endpoint. The value of the ID element in the response is the attendee type ID. "
+          "description": "The ID of the attendee type. To obtain the attendee type ID value, use the \"GET /expense/attendeetypes\" endpoint. The value of the ID element in the response is the attendee type ID. "
         },
         "Company": {
           "type": "string",
@@ -246,7 +278,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for monetary amounts related to an attendee."
+          "description": "The 3-letter ISO 4217 currency code for monetary amounts related to an attendee."
         },
         "Custom1": {
           "$ref": "#/definitions/CustomField"
@@ -392,7 +424,7 @@
       "properties": {
         "AttendeeTypeID": {
           "type": "string",
-          "description": "The ID of the attendee type. To obtain the attendee type ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes/Get_offset_limit_get_0\">GET /expense/attendeetypes</a> endpoint. The value of the ID element in the response is the attendee type ID. "
+          "description": "The ID of the attendee type. To obtain the attendee type ID value, use the \"GET /expense/attendeetypes\" endpoint. The value of the ID element in the response is the attendee type ID."
         },
         "Company": {
           "type": "string",
@@ -400,7 +432,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for monetary amounts related to an attendee."
+          "description": "The 3-letter ISO 4217 currency code for monetary amounts related to an attendee."
         },
         "Custom1": {
           "type": "string",
@@ -504,7 +536,7 @@
         },
         "ExternalID": {
           "type": "string",
-          "description": "A unique identifier for the attendee, assigned outside of Concur. Maximum length: 48 characters"
+          "description": "A unique identifier for the attendee, assigned outside of SAP Concur. Maximum length: 48 characters"
         },
         "FirstName": {
           "type": "string",
@@ -537,7 +569,7 @@
       "properties": {
         "AttendeeTypeID": {
           "type": "string",
-          "description": "The ID of the attendee type. To obtain the attendee type ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes/Get_offset_limit_get_0\">GET /expense/attendeetypes</a> endpoint. The value of the ID element in the response is the attendee type ID. "
+          "description": "The ID of the attendee type. To obtain the attendee type ID value, use the \"GET /expense/attendeetypes\" endpoint. The value of the ID element in the response is the attendee type ID. "
         },
         "Company": {
           "type": "string",
@@ -545,7 +577,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for monetary amounts related to an attendee."
+          "description": "The 3-letter ISO 4217 currency code for monetary amounts related to an attendee."
         },
         "Custom1": {
           "type": "string",
@@ -710,22 +742,14 @@
         }
       }
     },
-    "Decimal": {
-      "properties": {}
-    },
-    "Nullable`1": {
-      "properties": {
-        "HasValue": {
-          "type": "boolean",
-          "description": "Determines whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Format: true or false"
-        },
-        "Value": {
-          "$ref": "#/definitions/Decimal"
-        }
-      }
-    },
     "Void": {
       "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }

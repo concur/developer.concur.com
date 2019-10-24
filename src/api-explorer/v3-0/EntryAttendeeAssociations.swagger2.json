@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Manages the relationship between attendees and expense entries.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -13,9 +14,22 @@
     "application/json",
     "application/xml"
   ],
+  "securityDefinitions": {
+		"OAuth2": {
+			"type": "oauth2",
+			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+			"flow": "application"
+		}
+	},
+  "security": [
+		{
+			"OAuth2": []
+		}
+	],
   "info": {
     "title": "Entry Attendee Associations",
-    "description": "The Entry Attendee Associations resource manages the relationship between the attendees and the expense report and entry, for the specified expense entry. This resource does not include the full attendee information, which can be accessed using the Attendees resource. This API provides methods to view, create, update, and delete entry attendee associations.",
+    "description": "Manage the relationship between the attendees and the expense report and entry, for the specified expense entry. This resource does not include the full attendee information, which can be accessed using the Attendees resource. This API provides methods to view, create, update, and delete entry attendee associations.",
     "version": "3.0"
   },
   "tags": [
@@ -76,8 +90,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Create a new entry-attendee association. This is the association between an expense entry and an attendee.",
-        "description": "Creates a new entry-attendee association.",
+        "summary": "Create entry-attendee association",
+        "description": "Creates a new association between an expense entry and an attendee.",
         "parameters": [
           {
             "name": "content",
@@ -102,6 +116,12 @@
             "schema": {
               "$ref": "#/definitions/CreateResponse"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -111,8 +131,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get a single entry-attendee association by ID",
-        "description": "Gets an entry-attendee association by ID.",
+        "summary": "Get a single entry-attendee association",
+        "description": "Gets the specified entry-attendee association.",
         "parameters": [
           {
             "name": "id",
@@ -142,7 +162,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Update an entry-attendee association by ID",
+        "summary": "Update an entry-attendee association",
         "description": "Updates the specified entry-attendee association. Only the fields provided in the supplied object will be updated. Missing fields will not be altered.",
         "parameters": [
           {
@@ -175,6 +195,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       },
@@ -182,7 +208,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Delete an entry-attendee association by ID",
+        "summary": "Delete an entry-attendee association",
         "description": "Deletes the specified entry-attendee association.",
         "parameters": [
           {
@@ -206,6 +232,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -221,9 +253,6 @@
           "type": "string"
         }
       }
-    },
-    "Decimal": {
-      "properties": {}
     },
     "EntryAttendeeAssociationCollection": {
       "properties": {
@@ -250,7 +279,7 @@
         },
         "AttendeeID": {
           "type": "string",
-          "description": "The unique identifier of the associated attendee. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Attendees/Get_externalID_attendeeTypeID_offset_limit_user_get_0\">GET /expense/attendees</a> endpoint. The value of the ID element in the response is the attendee ID."
+          "description": "The unique identifier of the associated attendee. To obtain the attendee ID value, use the \"GET /expense/attendees\" endpoint."
         },
         "Custom1": {
           "type": "string",
@@ -274,7 +303,7 @@
         },
         "EntryID": {
           "type": "string",
-          "description": "The unique identifier of the associated entry. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint. The value of the ID element in the response is the entry ID. "
+          "description": "The unique identifier of the associated entry. To obtain the attendee ID value, use the \"GET /expense/entries\" endpoint."
         },
         "ID": {
           "type": "string",
@@ -300,7 +329,7 @@
         },
         "AttendeeID": {
           "type": "string",
-          "description": "The unique identifier of the associated attendee. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Attendees/Get_externalID_attendeeTypeID_offset_limit_user_get_0\">GET /expense/attendees</a> endpoint. The value of the ID element in the response is the attendee ID."
+          "description": "The unique identifier of the associated attendee. To obtain the attendee ID value, use the \"GET /expense/attendees\" endpoint."
         },
         "Custom1": {
           "type": "string",
@@ -324,7 +353,7 @@
         },
         "EntryID": {
           "type": "string",
-          "description": "The unique identifier of the associated entry. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint. The value of the ID element in the response is the entry ID. "
+          "description": "The unique identifier of the associated entry. To obtain the attendee ID value, use the \"GET /expense/entries\" endpoint. The value of the ID element in the response is the entry ID. "
         }
       }
     },
@@ -362,18 +391,14 @@
         }
       }
     },
-    "Nullable`1": {
-      "properties": {
-        "HasValue": {
-          "type": "boolean"
-        },
-        "Value": {
-          "$ref": "#/definitions/Decimal"
-        }
-      }
-    },
     "Void": {
       "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }

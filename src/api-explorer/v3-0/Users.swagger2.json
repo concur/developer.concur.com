@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Retreives basic company information with a list of users.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -15,7 +16,7 @@
   ],
   "info": {
     "title": "Users",
-    "description": "Provides details of all the client's Concur users that meet the search parameters.",
+    "description": "Provides details of all the client's SAP Concur users that meet the search parameters.",
     "version": "3.0"
   },
   "tags": [
@@ -30,8 +31,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get all users",
-        "description": "Gets all users based on the search criteria.",
+        "summary": "Get all users.",
+        "description": "Retrieves all users based on the search criteria.",
         "parameters": [
           {
             "name": "offset",
