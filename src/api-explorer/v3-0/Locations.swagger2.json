@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Retrieves location information.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -15,9 +16,22 @@
   ],
   "info": {
     "title": "Locations",
-    "description": "The valid city location codes in Concur. The location codes vary by client, and cannot be used across multiple clients. This API provides methods to get a list of valid locations for the supplied user, or get details of a location by ID.",
+    "description": "The valid city location codes in SAP Concur. The location codes vary by client, and cannot be used across multiple clients. This API provides methods to get a list of valid locations for the supplied user, or get details of a location by ID.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+		"OAuth2": {
+			"type": "oauth2",
+			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+			"flow": "application"
+		}
+	},
+  "security": [
+		{
+			"OAuth2": []
+		}
+	],
   "tags": [
     {
       "name": "Resources",
@@ -30,8 +44,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get all locations",
-        "description": "Gets details of locations that are used by Concur and that are valid at the user's company.",
+        "summary": "Retrieves all locations.",
+        "description": "Gets details of locations that are used by SAP Concur and that are valid at the user's company.",
         "parameters": [
           {
             "name": "offset",
@@ -43,7 +57,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "The number of records to return. Default value: 25",
+            "description": "The number of records to return. Default value: 25.",
             "required": false,
             "type": "integer",
             "format": "int32"
@@ -65,14 +79,14 @@
           {
             "name": "countrySubdivision",
             "in": "query",
-            "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-2\">ISO 3166-2:2007 country subdivision code</a> for the location. Example: US-WA",
+            "description": "The ISO 3166-2:2007 country subdivision code for the location. Example: US-WA.",
             "required": false,
             "type": "string"
           },
           {
             "name": "country",
             "in": "query",
-            "description": "The 2-letter <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 country code</a> for the location. Example: United States is US",
+            "description": "The 2-letter ISO 3166-1 country code for the location. Example: United States is US.",
             "required": false,
             "type": "string"
           },
@@ -99,7 +113,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get a location by ID",
+        "summary": "Retrieves a location by ID.",
         "description": "Gets details of the specified location.",
         "parameters": [
           {
@@ -133,15 +147,15 @@
         },
         "Country": {
           "type": "string",
-          "description": "The 2-letter <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 country code</a> for the location."
+          "description": "The 2-letter ISO 3166-1 country code for the location."
         },
         "CountrySubdivision": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-2\">ISO 3166-2:2007 country subdivision code</a> for the location. Example: US-WA"
+          "description": "The ISO 3166-2:2007 country subdivision code for the location. Example: US-WA."
         },
         "IATACode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://www.iata.org/publications/Pages/code-search.aspx\">International Air Transport Association (IATA) airport code</a> of the location."
+          "description": "The International Air Transport Association (IATA) airport code of the location."
         },
         "ID": {
           "type": "string",
@@ -149,11 +163,11 @@
         },
         "IsAirport": {
           "type": "boolean",
-          "description": "Indicates whether the location is an airport. Format: true or false"
+          "description": "Indicates whether the location is an airport. Format: true or false."
         },
         "IsBookingTool": {
           "type": "boolean",
-          "description": "Indicates whether the location is used by the booking tool. Format: true or false"
+          "description": "Indicates whether the location is used by the booking tool. Format: true or false."
         },
         "Latitude": {
           "type": "number",
@@ -167,7 +181,7 @@
         },
         "Name": {
           "type": "string",
-          "description": "The location name. Maximum length: 64 characters"
+          "description": "The location name. Maximum length: 64 characters."
         },
         "URI": {
           "type": "string",
@@ -197,5 +211,11 @@
         }
       }
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "SAP Concur API EndPoint"
+    }
+  ]
 }
