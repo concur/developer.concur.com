@@ -177,7 +177,7 @@ None
 
 Name|Type|Format|Description
 ---|---|---|---
-`AmountWithoutVat`|`string`|-|The net amount of the purchase oWoo!rder (excluding VAT).
+`AmountWithoutVat`|`string`|-|The net amount of the purchase order (excluding VAT).
 `BillToAddress`|`object`|[`BillToAddress`](#bill-to-address)|**Required** The customer's billing address, which is where the vendor should send the bill.
 `CurrencyCode`|`string`|-|**Required** The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order.
 `Custom1 through Custom24`|`string`|-|A value that can be applied to a custom field that is part of the purchase order header form.
