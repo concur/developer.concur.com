@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Returns summarized lists of payment requests.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -15,9 +16,22 @@
   ],
   "info": {
     "title": "Payment Request Digest",
-    "description": "A payment request digest is a collection of payment requests to invoice vendors. This API provides methods to view all payment requests corresponding to search parameters, or view a payment request digest by ID.",
+    "description": "A payment request digest is a collection of summarized payment requests to invoice vendors. This API provides methods to view all payment requests corresponding to search parameters, or view a payment request digest by ID.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+		"OAuth2": {
+			"type": "oauth2",
+			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+			"flow": "application"
+		}
+	},
+  "security": [
+		{
+			"OAuth2": []
+		}
+	],
   "tags": [
     {
       "name": "Resources",
@@ -30,8 +44,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get the payment request digest based on ID. ",
-        "description": "Returns the payment request digest based on ID. ",
+        "summary": "Get payment request digest",
+        "description": "Returns the specified payment request digest. ",
         "parameters": [
           {
             "name": "id",
@@ -56,7 +70,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get all payment requests digests based on the search criteria.",
+        "summary": "Get all payment requests digests",
         "description": "Returns all payment requests digests based on the search criteria.",
         "parameters": [
           {
@@ -77,14 +91,14 @@
           {
             "name": "approvalStatus",
             "in": "query",
-            "description": "A code representing a Payment Request Approval Status. Use GET /invoice/localizeddata to get the available approval status codes.",
+            "description": "A code representing a payment request approval status. Use \"GET /invoice/localizeddata\" to get the available approval status codes.",
             "required": false,
             "type": "string"
           },
           {
             "name": "paymentStatus",
             "in": "query",
-            "description": "A code representing a Payment Request Payment Status. Use GET /invoice/localizeddata to get the available payment status codes",
+            "description": "A code representing a Payment Request Payment Status. Use \"GET /invoice/localizeddata\" to get the available payment status codes",
             "required": false,
             "type": "string"
           },
@@ -98,7 +112,7 @@
           {
             "name": "createDateBefore",
             "in": "query",
-            "description": "The payment request create date is before this date.Format: YYYY-MM-DD.",
+            "description": "The payment request create date is before this date. Format: YYYY-MM-DD",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -106,7 +120,7 @@
           {
             "name": "createDateAfter",
             "in": "query",
-            "description": "The payment request create date is after this date.Format: YYYY-MM-DD.",
+            "description": "The payment request create date is after this date. Format: YYYY-MM-DD",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -114,7 +128,7 @@
           {
             "name": "userDefinedDateBefore",
             "in": "query",
-            "description": "The payment request user defined date is before this date.Format: YYYY-MM-DD.",
+            "description": "The payment request user defined date is before this date. Format: YYYY-MM-DD",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -122,7 +136,7 @@
           {
             "name": "userDefinedDateAfter",
             "in": "query",
-            "description": "The payment request user defined date is after this date.Format: YYYY-MM-DD.",
+            "description": "The payment request user defined date is after this date. Format: YYYY-MM-DD",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -130,7 +144,7 @@
           {
             "name": "submitDateBefore",
             "in": "query",
-            "description": "The payment request submit date is before this date.Format: YYYY-MM-DD.",
+            "description": "The payment request submit date is before this date. Format: YYYY-MM-DD",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -138,7 +152,7 @@
           {
             "name": "submitDateAfter",
             "in": "query",
-            "description": "The payment request submit date is after this date.Format: YYYY-MM-DD.",
+            "description": "The payment request submit date is after this date. Format: YYYY-MM-DD",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -146,7 +160,7 @@
           {
             "name": "paidDateBefore",
             "in": "query",
-            "description": "The payment request paid date is before this date.Format: YYYY-MM-DD.",
+            "description": "The payment request paid date is before this date. Format: YYYY-MM-DD",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -154,7 +168,7 @@
           {
             "name": "paidDateAfter",
             "in": "query",
-            "description": "The payment request paid date is after this date.Format: YYYY-MM-DD.",
+            "description": "The payment request paid date is after this date. Format: YYYY-MM-DD",
             "required": false,
             "type": "string",
             "format": "date-time"
@@ -192,19 +206,19 @@
         },
         "InvoiceNumber": {
           "type": "string",
-          "description": "The invoice number of the Payment Request."
+          "description": "The invoice number of the payment request."
         },
         "IsDeleted": {
           "type": "string",
-          "description": "A true/false value which indicates whether the request has been deleted. (Deleted requests are retained in the system for historical purposes.)."
+          "description": "A true/false value which indicates whether the request has been deleted. Deleted requests are retained in the system for historical purposes."
         },
         "OwnerLoginID": {
           "type": "string",
-          "description": "The login ID of the Payment Request owner."
+          "description": "The login ID of the payment request owner."
         },
         "OwnerName": {
           "type": "string",
-          "description": "The name of the Payment Request owner."
+          "description": "The name of the payment request owner."
         },
         "PaidDate": {
           "type": "string",
@@ -212,11 +226,11 @@
         },
         "PaymentRequestId": {
           "type": "string",
-          "description": "The unique identifier of the Payment Request summarized in this digest."
+          "description": "The unique identifier of the payment request summarized in this digest."
         },
         "PaymentRequestUri": {
           "type": "string",
-          "description": "The URI of the Payment Request summarized in this digest."
+          "description": "The URI of the payment request summarized in this digest."
         },
         "PaymentStatusCode": {
           "type": "string",
@@ -262,5 +276,11 @@
         }
       }
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }

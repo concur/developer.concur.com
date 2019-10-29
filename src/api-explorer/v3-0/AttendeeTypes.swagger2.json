@@ -14,24 +14,24 @@
     "application/json",
     "application/xml"
   ],
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "info": {
     "title": "Attendee Types",
     "description": "Get the configured attendee types for the company or for a specified user. You can also update attendee types by providing some or all of the attendee type fields.",
     "version": "3.0"
   },
-  "securityDefinitions": {
-		"OAuth2": {
-			"type": "oauth2",
-			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
-			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
-			"flow": "application"
-		}
-	},
-  "security": [
-		{
-			"OAuth2": []
-		}
-	],
   "tags": [
     {
       "name": "Resources",
@@ -73,6 +73,7 @@
         }
       },
       "post": {
+        "deprecated": true,
         "tags": [
           "Resources"
         ],
@@ -131,6 +132,7 @@
         }
       },
       "delete": {
+        "deprecated": true,
         "tags": [
           "Resources"
         ],

@@ -349,7 +349,7 @@
           "Resources"
         ],
         "summary": "Manages existing vendors.",
-        "description": "Updates existing vendors and returns the status of creation.",
+        "description": "Updates existing vendors and returns the update status.",
         "parameters": [
           {
             "name": "vendors",
