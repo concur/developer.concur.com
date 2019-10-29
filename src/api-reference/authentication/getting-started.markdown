@@ -199,7 +199,7 @@ Access Tokens have a default __One hour__ lifetime. In order to obtain a fresh `
 Utilizing the `geolocation` for the token, here's an example of a cURL call to obtain a new `accessToken`
 
 ```shell
-curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' --data "client_id=$client_id&client_secret=$client_secret&grant_type=refresh&refresh_token=<old refresh token>"
+curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' --data "client_id=$client_id&client_secret=$client_secret&grant_type=refresh_token&refresh_token=<old refresh token>"
 ```
 
 Full docs: <https://developer.concur.com/api-reference/authentication/apidoc.html#refresh_token>

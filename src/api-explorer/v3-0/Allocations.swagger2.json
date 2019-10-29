@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "View all allocations for a user or report, or view an allocation by ID",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -18,6 +19,19 @@
     "description": "Allocations divide the responsibility for an expense. Allocation entries consist of a percentage of the original expense, and the configured custom fields. Allocation entries are children of the expense entry. This API provides methods to view all allocations for a user or report, or view an allocation by ID.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+		"OAuth2": {
+			"type": "oauth2",
+			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+			"flow": "application"
+		}
+	},
+  "security": [
+		{
+			"OAuth2": []
+		}
+	],
   "tags": [
     {
       "name": "Resources",
@@ -30,7 +44,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get all allocations per entry or report",
+        "summary": "Get allocations",
         "description": "Gets all allocations per entry or report.",
         "parameters": [
           {
@@ -51,7 +65,7 @@
           {
             "name": "reportID",
             "in": "query",
-            "description": "The unique identifier for the report as it appears in the Concur Expense UI. Format: A variable-length string. Maximum length: 32 characters.",
+            "description": "The unique identifier for the report as it appears in Concur Expense. Format: A variable-length string. Maximum length: 32 characters.",
             "required": false,
             "type": "string"
           },
@@ -92,8 +106,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get a single allocation by ID",
-        "description": "Gets a single allocation by ID.",
+        "summary": "Get a single allocation",
+        "description": "Gets the allocation for the supplied ID.",
         "parameters": [
           {
             "name": "id",
@@ -217,7 +231,7 @@
         },
         "IsPercentEdited": {
           "type": "boolean",
-          "description": "Indicates whether the percentage has been edited. Format: true or false"
+          "description": "Indicates whether the allocation percentage has been edited. Format: true or false"
         },
         "Percentage": {
           "type": "string",
@@ -246,7 +260,7 @@
         "Sequence": {
           "type": "integer",
           "format": "int32",
-          "description": "The sequence value for this custom field i.e. the order in which this field appears on the form."
+          "description": "The order in which this field appears on the form."
         },
         "Type": {
           "type": "string",
@@ -258,5 +272,11 @@
         }
       }
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }
