@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Manage sales tax information on invoices.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -18,6 +19,19 @@
     "description": "An invoice is a bill of sale for goods or services. This API provides invoice information so that clients can calculate appropriate sales tax for invoice items. It also allows clients to update the invoice with the calculated sales tax.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "tags": [
     {
       "name": "Resources",
@@ -30,7 +44,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get invoices for calculating tax",
+        "summary": "Get invoices",
         "description": "Gets invoices for the purpose of calculating sales tax.",
         "parameters": [
           {
@@ -69,8 +83,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Update invoices with the calcuated tax amount and tax rate",
-        "description": "Updates invoices with the calculated tax amount and tax rate.",
+        "summary": "Update invoices with the calculated tax information",
+        "description": "Updates the specified invoices with the calculated tax amount and tax rate.",
         "parameters": [
           {
             "name": "invoice",
@@ -87,6 +101,12 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/InvoiceStatus"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
             }
           }
         }
@@ -165,7 +185,7 @@
         },
         "StatusCode": {
           "type": "string",
-          "description": "The status code that indicates the outcome of tax validation. Valid values are: ERROR, CMPLT"
+          "description": "The status code that indicates the outcome of tax validation. Supported values: ERROR, CMPLT"
         },
         "TaxReferenceID": {
           "type": "string",
@@ -196,7 +216,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the invoice currency. For example, USD or CAD."
+          "description": "The 3-letter ISO 4217 currency code for the invoice currency. For example, USD or CAD."
         },
         "ID": {
           "type": "string",
@@ -219,7 +239,7 @@
         },
         "RequestID": {
           "type": "string",
-          "description": "The Request ID of the Payment Request"
+          "description": "The request ID of the payment request"
         },
         "ShippingAmount": {
           "type": "string",
@@ -234,7 +254,7 @@
         },
         "StatusCode": {
           "type": "string",
-          "description": "The status code that indicates the outcome of tax validation. Valid values are: ERROR, CMPLT"
+          "description": "The status code that indicates the outcome of tax validation. Supported values: ERROR, CMPLT"
         },
         "Tax": {
           "type": "string",
@@ -358,7 +378,7 @@
         },
         "Status": {
           "type": "string",
-          "description": "The status of the update. Possible values: SUCCESS, FAILURE"
+          "description": "The status of the update. Supported values: SUCCESS, FAILURE"
         },
         "TaxReferenceID": {
           "type": "string",
@@ -453,6 +473,15 @@
           "description": "The state or province of the shipping or billing address."
         }
       }
+    },
+    "Void": {
+  "properties": {}
+}
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
     }
-  }
+  ]
 }

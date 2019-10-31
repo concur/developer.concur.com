@@ -212,6 +212,7 @@
         }
       },
       "delete": {
+        "deprecated":true,
         "tags": [
           "Resources"
         ],
