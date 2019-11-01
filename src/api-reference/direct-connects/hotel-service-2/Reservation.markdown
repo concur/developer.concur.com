@@ -466,7 +466,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                   <AddressLine>Rosenstr. 1</AddressLine>
                   <CityName>Berlin</CityName>
                   <CountryName Code="DEU">Federal Republic of Germany</CountryName>
-                  <StateProv StateCode="BE">Berlin Disctrict</StateProv>
+                  <StateProv StateCode="BE">Berlin District</StateProv>
                   <PostalCode>BE123</PostalCode>
                 </Address>
                 <ContactNumbers>
@@ -535,7 +535,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 
 |Name|Type|Description|
 |---------|------------|-------------|
-|`UniqueID`|`complex`|**Required** A reference to identify the booking. Maximum occurance: `2`|
+|`UniqueID`|`complex`|**Required** A reference to identify the booking. Maximum occurrences: `2`|
 |`RoomStays`|`complex`|**Required** A collection of details on the room stay including time span of this room stay, and financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties. |
 
 #### <a name="unique-id"></a>UniqueID

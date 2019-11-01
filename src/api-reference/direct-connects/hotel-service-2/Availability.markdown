@@ -448,7 +448,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 # <a name="relationship-roomid-rateplanid"></a>Relationship between RoomID and RatePlanID
 
-The combination of these IDs must be unique per `RoomStay`.  IDs with the same values can be redefinined in multiple `RoomStays`.
+The combination of these IDs must be unique per `RoomStay`.  IDs with the same values can be redefined in multiple `RoomStays`.
 
 ```xml
 <OTA_HotelAvailRS>

@@ -34,7 +34,7 @@
 
 	<xs:complexType name="PaymentCardTypeTPA_ExtensionsType">
 		<xs:annotation>
-			<xs:documentation source="Description" xml:lang="en">Concur-specific extension of OTA spec. This is uded to pass Airplus / Amex billing fields. There are limitations on values</xs:documentation>
+			<xs:documentation source="Description" xml:lang="en">Concur-specific extension of OTA spec. This is used to pass Airplus / Amex billing fields. There are limitations on values</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="0" name="DBIFields">
@@ -577,7 +577,7 @@
 			</xs:attributeGroup>
 			<xs:attribute name="Status" type="TransactionStatusType" use="required">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Specifies the status for the transaction. Usually contains the action specifed in the request message.	</xs:documentation>
+					<xs:documentation xml:lang="en">Specifies the status for the transaction. Usually contains the action specified in the request message.	</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
@@ -881,7 +881,7 @@
                 </xs:attributeGroup>
 				<xs:attribute name="NodeList" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation source="Description" xml:lang="en">An XPath expression that selects all the nodes whose data caused this error. Further, this expression should have an additional contraint which contains the data of the node. This will provide the offending data back to systems that cannot maintain the original message.</xs:documentation>
+						<xs:documentation source="Description" xml:lang="en">An XPath expression that selects all the nodes whose data caused this error. Further, this expression should have an additional constraint which contains the data of the node. This will provide the offending data back to systems that cannot maintain the original message.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -974,7 +974,7 @@
 					<xs:attribute name="Rating" type="xs:integer" use="optional">
 						<xs:annotation>
 							<xs:documentation xml:lang="en">The actual award or rating received by the hotel facility.</xs:documentation>
-							<xs:documentation source="Concur">Hotel rating should be integer number from 1 to 5, represention it's star rating.</xs:documentation>
+							<xs:documentation source="Concur">Hotel rating should be integer number from 1 to 5, representing it's star rating.</xs:documentation>
 						</xs:annotation>
 					</xs:attribute>
 				</xs:complexType>
@@ -1087,7 +1087,7 @@
 
 	<xs:complexType name="RoomStayType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally finacial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
+			<xs:documentation xml:lang="en">Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="RoomTypes">
@@ -1195,13 +1195,13 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Features">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">A collection of features that are made available as part of this speciific room and this specifiic rate plan.</xs:documentation>
+					<xs:documentation xml:lang="en">A collection of features that are made available as part of this specific room and this specific rate plan.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="99" minOccurs="0" name="Feature">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Allows for the description of any features and/or amenities that are made available as part of this specific room and this specifiic rate plan, for example, large screen television, video/DVD player in room, room service breakfast, and details about that breakfast.</xs:documentation>
+								<xs:documentation xml:lang="en">Allows for the description of any features and/or amenities that are made available as part of this specific room and this specific rate plan, for example, large screen television, video/DVD player in room, room service breakfast, and details about that breakfast.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -1520,7 +1520,7 @@
 		<xs:sequence minOccurs="0">
 			<xs:element maxOccurs="5" minOccurs="0" name="Guarantee">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Guarantee information that applies to the rate plan. A maximum of 5 occurances are available for use depending on the context.</xs:documentation>
+					<xs:documentation xml:lang="en">Guarantee information that applies to the rate plan. A maximum of 5 occurrences are available for use depending on the context.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
@@ -2345,7 +2345,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="RoomStay">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally finacial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
+					<xs:documentation xml:lang="en">Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
 					<xs:documentation xml:lang="en"> A collection of reference place holders. This is a reference placeholder, used as an index for the reservation guests.</xs:documentation>
 					<xs:documentation xml:lang="en">A collection of Hotel Service reference placeholders.</xs:documentation>
 				</xs:annotation>
@@ -2637,7 +2637,7 @@
 
 	<xs:complexType name="ResCommonDetailType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">A grouping of elements including Guest Counts, Time Span, pointers to Res Guests, guest Memberships, Comments and Special Requests and finally finacial information including Guarantee, Deposit and Payyment and Cancellation Penalties.</xs:documentation>
+			<xs:documentation xml:lang="en">A grouping of elements including Guest Counts, Time Span, pointers to Res Guests, guest Memberships, Comments and Special Requests and finally financial information including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="TimeSpan">
@@ -3118,7 +3118,7 @@ Commit the transaction and override the end transaction edits.
 
 	<xs:simpleType name="TransactionStatusType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">To specify a status to the transaction, usually in the response message, of the action specifed in the request message.	</xs:documentation>
+			<xs:documentation xml:lang="en">To specify a status to the transaction, usually in the response message, of the action specified in the request message.	</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Cancelled"/>
