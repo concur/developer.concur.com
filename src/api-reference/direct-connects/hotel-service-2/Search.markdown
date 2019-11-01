@@ -43,33 +43,35 @@ Message to perform the initial search for hotels.
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>user</userid>
-    <password>password</password>
-   </authentication>
+      <userid>user</userid>
+      <password>password</password>
+    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="4" PrimaryLangID="de" AltLangID="de" MaxResponses="100">
-    <POS>
-      <Source ISOCurrency="USD"></Source>
-      <RequestorID Type="1" ID="47777"></RequestorID>
-    </POS>
-    <Criteria>
-     <Criterion>
-      <Position Latitude="52.520007" Longitude="13.404954"></Position>
-      <RefPoint></RefPoint>
-      <HotelRef HotelName="sunshine"></HotelRef>
-      <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
-      <StayDateRange Start="2018-09-26" End="2018-09-27"></StayDateRange>
-     </Criterion>
-    </Criteria>
-    <TPA_Extensions>
-       <CustomFields>
-        <CustomField Name="OrgUnit" Value="Travel Agents"></CustomField>
-       </CustomFields>
-    </TPA_Extensions>
-   </OTA_HotelSearchRQ>
+    <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="4"
+                       PrimaryLangID="de" AltLangID="de" MaxResponses="100">
+      <POS>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="47777"></RequestorID>
+        </Source>
+      </POS>
+      <Criteria>
+        <Criterion>
+          <Position Latitude="52.520007" Longitude="13.404954"></Position>
+          <RefPoint></RefPoint>
+          <HotelRef HotelName="sunshine"></HotelRef>
+          <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
+          <StayDateRange Start="2018-09-26" End="2018-09-27"></StayDateRange>
+        </Criterion>
+      </Criteria>
+      <TPA_Extensions>
+        <CustomFields>
+          <CustomField Name="OrgUnit" Value="Travel Agents"></CustomField>
+        </CustomFields>
+      </TPA_Extensions>
+    </OTA_HotelSearchRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
 
 #### <a name="req-schema"></a>OTA_HotelSearchRQ
@@ -124,7 +126,6 @@ The criterion is used to define the search criteria.  Currently we support only 
 |Name|Type|Description|
 |-------------|--------------------|-------------|
 |`HotelName`|`stringLength1to128`|A text field used to communicate the proper name of the hotel.|
-|`HotelCode`|`stringLength1to16`|The code that uniquely identifies a single hotel property. The hotel code is decided between vendors.|
 
 #### <a name="radius"></a>Radius
 

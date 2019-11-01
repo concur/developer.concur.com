@@ -57,40 +57,41 @@ Message to retrieved the availability of hotels.
 ## <a name="request"></a>Request
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
- <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>user</userid>
-    <password>password</password>
+      <userid>user</userid>
+      <password>password</password>
     </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5" PrimaryLangID="de" AltLangID="de">
-    <POS>
-      <Source ISOCurrency="USD"></Source>
-      <RequestorID Type="1" ID="1234567"></RequestorID>
-    </POS>
-    <AvailRequestSegments>
-     <AvailRequestSegment>
-      <HotelSearchCriteria>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
-       </Criterion>
-      </HotelSearchCriteria>
-      <StayDateRange Start="2018-10-26" End="2018-10-27"></StayDateRange>
-      <RoomStayCandidates>
-       <RoomStayCandidate>
-        <GuestCounts>
-         <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
-        </GuestCounts>
-       </RoomStayCandidate>
-      </RoomStayCandidates>
-     </AvailRequestSegment>
-    </AvailRequestSegments>
-   </OTA_HotelAvailRQ>
+    <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5"
+                      PrimaryLangID="de" AltLangID="de">
+      <POS>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="1234567"></RequestorID>
+        </Source>
+      </POS>
+      <AvailRequestSegments>
+        <AvailRequestSegment>
+          <HotelSearchCriteria>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
+            </Criterion>
+          </HotelSearchCriteria>
+          <StayDateRange Start="2018-10-26" End="2018-10-27"></StayDateRange>
+          <RoomStayCandidates>
+            <RoomStayCandidate>
+              <GuestCounts>
+                <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
+              </GuestCounts>
+            </RoomStayCandidate>
+          </RoomStayCandidates>
+        </AvailRequestSegment>
+      </AvailRequestSegments>
+    </OTA_HotelAvailRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
 ### <a name="req-schema"></a>Schema
 
