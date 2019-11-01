@@ -153,10 +153,10 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" AltLangID="EN" PrimaryLangID="EN" Version="4">
+    <OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05" AltLangID="EN" PrimaryLangID="EN" Version="4">
       <Success/>
       <Properties>
-      <Property ChainCode="AB" ChainName="1111" HotelCode="22222" HotelName="Sunshine Hotel">
+        <Property ChainCode="AB" ChainName="1111" HotelCode="22222" HotelName="Sunshine Hotel">
           <Position Latitude="52.4567" Longitude="13.5635"/>
           <Address>
             <AddressLine>An der Wuhlheide</AddressLine>

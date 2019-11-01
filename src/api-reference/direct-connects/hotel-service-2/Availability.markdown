@@ -169,7 +169,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Version="5">
+    <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="5">
       <Success/>
       <RoomStays>
         <RoomStay>
@@ -213,16 +213,17 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                <Total AmountAfterTax="199.00" AmountBeforeTax="99.00" CurrencyCode="EUR" DecimalPlaces="2"/>
-                <RateDescription>
-                  <Text>Test rate description. Both before and after tax.</Text>
-                </RateDescription>
-                <TPA_Extensions>
-							  <RequireSeriesCode>true</RequireSeriesCode>
-						  </TPA_Extensions>
-              </Rate>
-            </Rates>
-          </RoomRate>
+                  <Total AmountAfterTax="199.00" AmountBeforeTax="99.00" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <RateDescription>
+                    <Text>Test rate description. Both before and after tax.</Text>
+                  </RateDescription>
+                  <TPA_Extensions>
+                    <RequireSeriesCode>true</RequireSeriesCode>
+                  </TPA_Extensions>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
           <TimeSpan End="2018-10-27" Start="2018-10-26"/>
           <BasicPropertyInfo ChainCode="ZZ" HotelCode="419430"/>
         </RoomStay>
@@ -452,7 +453,7 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
 ```xml
 <OTA_HotelAvailRS>
   <Success/>
-<!-- Hotel #1 with 3 rates -->
+  <!-- Hotel #1 with 3 rates -->
   <RoomStays>
     <RoomStay>
       <RoomTypes>
@@ -471,6 +472,7 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
       </RoomRates>
       ...
     </RoomStay>
+  </RoomStays>
 <!-- Hotel #2 with 2 rates -->
   <RoomStays>
     <RoomStay>
@@ -488,6 +490,7 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
       </RoomRates>
       ...
     </RoomStay>
-…
+  </RoomStays>
+  ...
 </OTA_HotelAvailRS>
 ```
