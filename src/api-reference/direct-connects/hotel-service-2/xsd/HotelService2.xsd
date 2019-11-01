@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- new format with alphabetical order of the element's attributes -->
-<?xml-stylesheet type="text/xsl" href="xs3p_better_doc.xsl"?><xs:schema xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="OTA2015B" targetNamespace="http://www.opentravel.org/OTA/2003/05" version="4.000">
+<?xml-stylesheet type="text/xsl" href="xs3p_better_doc.xsl"?>
+<xs:schema xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="OTA2015B" targetNamespace="http://www.opentravel.org/OTA/2003/05" version="4.001">
+	<!-- new format with alphabetical order of the element's attributes -->
 	<xs:annotation>
 		<xs:documentation source="Description" xml:lang="en">ALL SCHEMA FILES IN THE OPENTRAVEL ALLIANCE SPECIFICATION ARE MADE AVAILABLE ACCORDING TO THE TERMS DEFINED BY THE OPENTRAVEL LICENSE AGREEMENT AT http://www.opentravel.org/Specifications/Default.aspx.</xs:documentation>
 	</xs:annotation>
@@ -78,6 +79,19 @@
 			<xs:element minOccurs="0" name="CustomFields" type="CustomFieldsType">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">This adds ORG unit name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ConcurHotelSearchSessionTPA_ExtensionsType">
+		<xs:annotation>
+			<xs:documentation source="Description" xml:lang="en">Concur-specific extension of OTA spec.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="SearchSessionToken" type="StringLength1to128">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A token that links the Search results to Availability and Reservation requests.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -265,6 +279,7 @@
 								<xs:documentation xml:lang="en">A collection of individual property information.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element minOccurs="0" name="TPA_Extensions" type="ConcurHotelSearchSessionTPA_ExtensionsType"/>
 					</xs:sequence>
 					<xs:element name="Errors" type="ErrorsType">
 						<xs:annotation>
@@ -1079,6 +1094,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element minOccurs="0" name="TPA_Extensions" type="ConcurHotelSearchSessionTPA_ExtensionsType"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2335,6 +2351,7 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="TPA_Extensions" type="ConcurHotelSearchSessionTPA_ExtensionsType"/>
 		</xs:sequence>
 	</xs:complexType>
 
