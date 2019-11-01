@@ -78,7 +78,7 @@ Create or update a Purchase Order. Batch processing is not available using the P
   "CurrencyCode": "USD",
   "OrderDate":"2011-08-12T20:17:46.384Z",
   "ID": "API101",
-  "IsTest": "false",
+  "IsTest": "N",
   "IsChangeOrder": "false",
   "LedgerCode": "23",
   "LineItem": [
