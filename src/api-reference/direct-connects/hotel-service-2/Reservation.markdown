@@ -502,6 +502,9 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
               </Comment>
             </Comments>
           </ResGlobalInfo>
+          <TPA_Extensions>
+            <SearchSessionToken>5EA6C45E55104704E4</SearchSessionToken>
+          </TPA_Extensions>
         </HotelReservation>
       </HotelReservations>
     </OTA_HotelResRS>
@@ -515,6 +518,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |---------|------------|-------------|
 |`ResResponseType`|`stringLength1to32`|**Required** See the list of possible values.|
 |`HotelReservations`|`complex`|**Required** SAP Concur only supports one (1) reservation. All extra reservations will be ignored.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from `Search` response that links the Search results to Availability and Reservation requests.|
 
 #### <a name="res-response-type"></a>ResResponseType
 

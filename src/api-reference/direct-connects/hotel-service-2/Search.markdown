@@ -177,6 +177,9 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
           </TPA_Extensions>
         </Property>
       </Properties>
+      <TPA_Extensions>
+        <SearchSessionToken>5EA6C45E55104704E4</SearchSessionToken>
+      </TPA_Extensions>
     </OTA_HotelSearchRS>
   </soap:Body>
 </soap:Envelope>
@@ -187,6 +190,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 |Name|Type|Description|
 |------------|--------------|-------------|
 |`Properties`|`complex`|**Required** A collection of individual property information.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|**Optional** A token that links the Search results to Availability and Reservation requests.|
 
 #### <a name="properties"></a>Properties
 
