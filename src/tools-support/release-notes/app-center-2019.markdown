@@ -8,6 +8,7 @@ layout: reference
 * [April](#april)
 * [May](#may)
 * [July](#july)
+* [November](#november)
 
 ## <a name="january"></a>January 2019
 
@@ -327,3 +328,34 @@ Cabcharge works with Expense for Concur Standard and Expense for Concur Professi
 ## <a name="apps-for-me-connection-coming-soon-july"></a>Apps for Me / User Connection Apps Coming Soon
 
 None this month.
+
+## <a name="november"></a>November 2019
+
+* [Apps for Me / User Connection Apps Now Available](#apps-for-me-connection-now-available-november)
+* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-november)
+  * [Ele.me](#eleme-november)
+
+### <a href="apps-for-me-connection-now-available-november"></a>Apps for Me / User Connection Apps Now Available
+
+None this month.
+
+## <a name="apps-for-me-connection-coming-soon-november"></a>Apps for Me / User Connection Apps Coming Soon
+
+#### <a href="eleme-november"></a>Ele.me
+
+![Ele.me Logo](./app-center-2019-11-06-eleme-logo.png)
+
+Cater your business meals and expense them with ease. Ele.me, established in 2008, is a leading online-to-offline catering and food delivery platform, covering 3 million restaurants and 3 million delivery drivers in 2000 cities across China. It was acquired by the Alibaba Group in April 2018. Ele.me focuses on high-quality, convenient catering solutions for enterprises, with well-selected restaurants, a professional team, and excellent customer service. Ele.me provides catering and delivery services for a variety of dining needs such as daily work meals, tea breaks, conference receptions, and business banquets.
+
+Product Features：
+
+* Mixed payment options: you can pay with corporate meal supplements, avoiding personal funds and eliminating complicated reimbursement procedures. Or, pay in corporate accounts and regular financial reconciliations.
+*	Convenient reimbursement: ability to connect Ele.me to Concur Expense and receive e-receipts and e-fapiao automatically after payment.
+*	Customizable service: option to choose a standard or custom service.
+*	Food security: restaurants are supervised for food safety and quality control
+*	Support: through Alibaba resources, Ele.me offers professional support services and a business hotline.
+*	Control & compliance: Employee information and meal data are accurately tracked and can be pre-approved. Receive early warnings and trend analyses.
+
+With Ele.me enterprise catering service, companies gain visibility and control over their employees’catering spend. Concur Expense clients can additionally pay through a business account instead of an individual account, making it even easier for employees to order and expense meals.
+
+Ele.me works with Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Ele.me integration, visit [https://e.ele.me](https://e.ele.me).
