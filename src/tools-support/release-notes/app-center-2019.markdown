@@ -356,6 +356,6 @@ Product Features：
 *	Support: through Alibaba resources, Ele.me offers professional support services and a business hotline.
 *	Control & compliance: Employee information and meal data are accurately tracked and can be pre-approved. Receive early warnings and trend analyses.
 
-With Ele.me enterprise catering service, companies gain visibility and control over their employees’catering spend. Concur Expense clients can additionally pay through a business account instead of an individual account, making it even easier for employees to order and expense meals.
+With Ele.me enterprise catering service, companies gain visibility and control over their employees’ catering spend. Concur Expense clients can additionally pay through a business account instead of an individual account, making it even easier for employees to order and expense meals.
 
 Ele.me works with Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Ele.me integration, visit [https://e.ele.me](https://e.ele.me).
