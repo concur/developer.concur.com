@@ -104,10 +104,12 @@
       "type": "object",
       "properties": {
         "Name": {
-          "type": "string"
+          "type": "string",
+          "description":"The form type name."
         },
         "FormCode": {
-          "type": "string"
+          "type": "string",
+          "description":"The form type code."
         }
       },
       "title": "FormType"
@@ -129,10 +131,12 @@
       "type": "object",
       "properties": {
         "Name": {
-          "type": "string"
+          "type": "string",
+          "description":"The form name."
         },
         "FormId": {
-          "type": "string"
+          "type": "string",
+          "description":"The form identifier."
         }
       },
       "title": "FormData"
