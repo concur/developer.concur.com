@@ -446,10 +446,10 @@ https://{datacenterURI}//api/v3.0/invoice/salestaxvalidationrequest
 |`InvoiceAmount`|`string`|-|The invoice amount (the cost of the purchased items).
 |`InvoiceDate`|`string`|-|The date of the invoice.
 |`LineItem`|`array`|[`LineItem`](#line-item)|The line items associated with the invoice.
-|`OrgUnit1 through OrgUnit6`|`string`|-|The code from the OrgUnit fields. These fields may not have data, depending on the configuration.
-|`OrgUnit1Value though OrgUnit6Value`|`string`|-|The value from the OrgUnit fields. These fields may not have data, depending on the configuration.
-|`Custom1 through Custom24`|`string`|-|The code from the Custom fields. These fields may not have data, depending on the configuration.
-|`Custom1Value through Custom24Value`|`string`|-|The value from the Custom fields. These fields may not have data, depending on the configuration.
+|`OrgUnit1 through OrgUnit6`|`string`|-|**Not available for PUT.** The code from the OrgUnit fields. These fields may not have data, depending on the configuration.
+|`OrgUnit1Value though OrgUnit6Value`|`string`|-|**Not available for PUT.** The value from the OrgUnit fields. These fields may not have data, depending on the configuration.
+|`Custom1 through Custom24`|`string`|-|**Not available for PUT.** The code from the Custom fields. These fields may not have data, depending on the configuration.
+|`Custom1Value through Custom24Value`|`string`|-|**Not available for PUT.** The value from the Custom fields. These fields may not have data, depending on the configuration.
 |`PurchaseOrderNumber`|`string`|-|The purchase order number associated to the invoice.
 |`RequestID`|`string`|-|The ID of the invoice.
 |`ShippingAmount`|`string`|-|The shipping amount for the invoice.
@@ -499,8 +499,8 @@ https://{datacenterURI}//api/v3.0/invoice/salestaxvalidationrequest
 |Name | Type | Format | Description
 |-----|------|--------|------------
 |`AllocationAmount`|`string`|-|The allocation amount associated with the line item.
-|`Custom1 through Custom20`|`string`|-|The code from the Custom fields. These fields may not have data, depending on the configuration.
-|`Custom1Value through Custom20Value`|`string`|-|The value from the Custom fields. These fields may not have data, depending on the configuration.
+|`Custom1 through Custom20`|`string`|-|**Not available for PUT.** The code from the Custom fields. These fields may not have data, depending on the configuration.
+|`Custom1Value through Custom20Value`|`string`|-|**Not available for PUT.** The value from the Custom fields. These fields may not have data, depending on the configuration.
 
 ### <a name="vendor"></a>Vendor  
 
