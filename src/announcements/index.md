@@ -2,6 +2,10 @@
 title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
+### 2019-11-08 :: November 2019 Release Notes Published
+
+SAP Concur has published release notes for the Quick Expense v3, Budget v4, and Request APIs in the November 2019 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
+
 ### 2019-10-03 :: Support for TLS v1.1 Encryption Protocol to End in First Quarter of 2020
 
 #### Overview
