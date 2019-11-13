@@ -70,12 +70,12 @@ The Soap header nested in the Envelope will contain an authentication element.
 Sample:
 
 ```xml
-    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-        <authentication xmlns="http://www.concur.com/webservice/auth">
-            <userid>testLogin123</userid>
-            <password>xxxxxxxxxxxx</password>
-        </authentication>
-    </Header>
+<Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <authentication xmlns="http://www.concur.com/webservice/auth">
+    <userid>testLogin123</userid>
+    <password>xxxxxxxxxxxx</password>
+  </authentication>
+</Header>
 ```
 Login and password are provided by the Hotel supplier for SAP Concur as API consumer, not per customer.
 
