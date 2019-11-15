@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- new format with alphabetical order of the element's attributes -->
-<?xml-stylesheet type="text/xsl" href="xs3p_better_doc.xsl"?><xs:schema xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="OTA2015B" targetNamespace="http://www.opentravel.org/OTA/2003/05" version="4.000">
+<?xml-stylesheet type="text/xsl" href="xs3p_better_doc.xsl"?>
+<xs:schema xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="OTA2015B" targetNamespace="http://www.opentravel.org/OTA/2003/05" version="4.001">
+	<!-- new format with alphabetical order of the element's attributes -->
 	<xs:annotation>
 		<xs:documentation source="Description" xml:lang="en">ALL SCHEMA FILES IN THE OPENTRAVEL ALLIANCE SPECIFICATION ARE MADE AVAILABLE ACCORDING TO THE TERMS DEFINED BY THE OPENTRAVEL LICENSE AGREEMENT AT http://www.opentravel.org/Specifications/Default.aspx.</xs:documentation>
 	</xs:annotation>
@@ -34,7 +35,7 @@
 
 	<xs:complexType name="PaymentCardTypeTPA_ExtensionsType">
 		<xs:annotation>
-			<xs:documentation source="Description" xml:lang="en">Concur-specific extension of OTA spec. This is uded to pass Airplus / Amex billing fields. There are limitations on values</xs:documentation>
+			<xs:documentation source="Description" xml:lang="en">Concur-specific extension of OTA spec. This is used to pass Airplus / Amex billing fields. There are limitations on values</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="0" name="DBIFields">
@@ -78,6 +79,19 @@
 			<xs:element minOccurs="0" name="CustomFields" type="CustomFieldsType">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">This adds ORG unit name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ConcurHotelSearchSessionTPA_ExtensionsType">
+		<xs:annotation>
+			<xs:documentation source="Description" xml:lang="en">Concur-specific extension of OTA spec.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="SearchSessionToken" type="StringLength1to128">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A token that links the Search results to Availability and Reservation requests.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -153,7 +167,7 @@
 			<xs:enumeration value="less_preferred"/>
 			<xs:enumeration value="preferred"/>
 			<xs:enumeration value="most_preferred"/>
-	 </xs:restriction>
+		</xs:restriction>
 	</xs:simpleType>
 
 
@@ -211,7 +225,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-<!-- ********************************* END custom types END ********************************** -->
+	<!-- ********************************* END custom types END ********************************** -->
 
 	<!-- ***************************** BEGIN Search BEGIN ***************************** -->
 	<!-- ***************************** Request ***************************** -->
@@ -265,6 +279,7 @@
 								<xs:documentation xml:lang="en">A collection of individual property information.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element minOccurs="0" name="TPA_Extensions" type="ConcurHotelSearchSessionTPA_ExtensionsType"/>
 					</xs:sequence>
 					<xs:element name="Errors" type="ErrorsType">
 						<xs:annotation>
@@ -577,7 +592,7 @@
 			</xs:attributeGroup>
 			<xs:attribute name="Status" type="TransactionStatusType" use="required">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Specifies the status for the transaction. Usually contains the action specifed in the request message.	</xs:documentation>
+					<xs:documentation xml:lang="en">Specifies the status for the transaction. Usually contains the action specified in the request message.	</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
@@ -656,9 +671,9 @@
 		<xs:complexContent>
 			<xs:extension base="ItemSearchCriterionType">
 				<xs:sequence>
-					<xs:element minOccurs="1" name="StayDateRange" type="DateTimeSpanType">
+					<xs:element minOccurs="0" name="StayDateRange" type="DateTimeSpanType">
 						<xs:annotation>
-							<xs:documentation xml:lang="en">Range of dates, or fixed set of dates for Availability Request. </xs:documentation>
+							<xs:documentation xml:lang="en">Range of dates using ISO 8601.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -730,7 +745,7 @@
 			<xs:element name="StreetNmbr" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation source="Description"
-						xml:lang="en">May contain the street number and optionally the street
+														xml:lang="en">May contain the street number and optionally the street
 						name.
 					</xs:documentation>
 				</xs:annotation>
@@ -738,10 +753,10 @@
 					<xs:complexContent>
 						<xs:extension base="StreetNmbrType">
 							<xs:attribute name="StreetNmbrSuffix"
-								type="StringLength1to8" use="optional">
+														type="StringLength1to8" use="optional">
 								<xs:annotation>
 									<xs:documentation source="Description"
-										xml:lang="en">Usually a letter right after the street number (A in
+																		xml:lang="en">Usually a letter right after the street number (A in
 										66-A, B in 123-B etc).
 									</xs:documentation>
 								</xs:annotation>
@@ -782,7 +797,7 @@
 			</xs:annotation>
 		</xs:attributeGroup>
 	</xs:complexType>
-		<xs:complexType name="StreetNmbrType">
+	<xs:complexType name="StreetNmbrType">
 		<xs:annotation>
 			<xs:documentation source="Description" xml:lang="en">Street
 				name; number on street.
@@ -875,13 +890,13 @@
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attributeGroup ref="ErrorWarningAttributeGroup">
-                    <xs:annotation>
-                        <xs:documentation source="Description" xml:lang="en">Details of the error.</xs:documentation>
-                    </xs:annotation>
-                </xs:attributeGroup>
+					<xs:annotation>
+						<xs:documentation source="Description" xml:lang="en">Details of the error.</xs:documentation>
+					</xs:annotation>
+				</xs:attributeGroup>
 				<xs:attribute name="NodeList" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation source="Description" xml:lang="en">An XPath expression that selects all the nodes whose data caused this error. Further, this expression should have an additional contraint which contains the data of the node. This will provide the offending data back to systems that cannot maintain the original message.</xs:documentation>
+						<xs:documentation source="Description" xml:lang="en">An XPath expression that selects all the nodes whose data caused this error. Further, this expression should have an additional constraint which contains the data of the node. This will provide the offending data back to systems that cannot maintain the original message.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -907,7 +922,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-  <xs:complexType name="PropertyValueMatchType">
+	<xs:complexType name="PropertyValueMatchType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">A property that matches some or all of the search criteria.</xs:documentation>
 		</xs:annotation>
@@ -931,7 +946,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-  <xs:complexType name="BasicPropertyInfoType">
+	<xs:complexType name="BasicPropertyInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">An abbreviated short summary of hotel descriptive information.</xs:documentation>
 		</xs:annotation>
@@ -974,7 +989,7 @@
 					<xs:attribute name="Rating" type="xs:integer" use="optional">
 						<xs:annotation>
 							<xs:documentation xml:lang="en">The actual award or rating received by the hotel facility.</xs:documentation>
-							<xs:documentation source="Concur">Hotel rating should be integer number from 1 to 5, represention it's star rating.</xs:documentation>
+							<xs:documentation source="Concur">Hotel rating should be integer number from 1 to 5, representing it's star rating.</xs:documentation>
 						</xs:annotation>
 					</xs:attribute>
 				</xs:complexType>
@@ -1046,7 +1061,7 @@
 					<xs:sequence>
 						<xs:element minOccurs="0" name="HotelSearchCriteria">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Availability search criteria should be specified here for implementations using OpenTravel messages that are LATER than 2005B which was version 1.005 of this message, e.g. 2006A through the current specification.</xs:documentation>
+								<xs:documentation xml:lang="en">Specified hotel search criteria. SAP Concur will send only one (1) HotelSearchCriteria</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:complexContent>
@@ -1056,12 +1071,12 @@
 						</xs:element>
 						<xs:element minOccurs="0" name="StayDateRange" type="DateTimeSpanType">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Range of dates, or fixed set of dates for Availability Request. Date range can also be specified by using start dates and number of nights (minimum, maximum or fixed). **This element is maintained at this level to support those who have implemented this message prior to 2005B. For new implementations consider using this element under HotelSearchCriteria.**</xs:documentation>
+								<xs:documentation xml:lang="en">Range of dates using ISO 8601.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-					<xs:element minOccurs="0" name="RoomStayCandidates">
+						<xs:element minOccurs="0" name="RoomStayCandidates">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Collection of room stay candidates. **This element is maintained at this level to support those who have implemented this message prior to 2005B.  For new implementations consider using this element under HotelSearchCriteria.**</xs:documentation>
+								<xs:documentation xml:lang="en">Collection of room stay candidates.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -1079,6 +1094,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element minOccurs="0" name="TPA_Extensions" type="ConcurHotelSearchSessionTPA_ExtensionsType"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1087,7 +1103,7 @@
 
 	<xs:complexType name="RoomStayType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally finacial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
+			<xs:documentation xml:lang="en">Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="RoomTypes">
@@ -1195,13 +1211,13 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Features">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">A collection of features that are made available as part of this speciific room and this specifiic rate plan.</xs:documentation>
+					<xs:documentation xml:lang="en">A collection of features that are made available as part of this specific room and this specific rate plan.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="99" minOccurs="0" name="Feature">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Allows for the description of any features and/or amenities that are made available as part of this specific room and this specifiic rate plan, for example, large screen television, video/DVD player in room, room service breakfast, and details about that breakfast.</xs:documentation>
+								<xs:documentation xml:lang="en">Allows for the description of any features and/or amenities that are made available as part of this specific room and this specific rate plan, for example, large screen television, video/DVD player in room, room service breakfast, and details about that breakfast.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -1388,7 +1404,7 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Guarantee deadline, absolute or relative.</xs:documentation>
 				</xs:annotation>
- 				<xs:complexType>
+				<xs:complexType>
 					<xs:attributeGroup ref="DeadlineGroup"/>
 				</xs:complexType>
 			</xs:element>
@@ -1520,7 +1536,7 @@
 		<xs:sequence minOccurs="0">
 			<xs:element maxOccurs="5" minOccurs="0" name="Guarantee">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Guarantee information that applies to the rate plan. A maximum of 5 occurances are available for use depending on the context.</xs:documentation>
+					<xs:documentation xml:lang="en">Guarantee information that applies to the rate plan. A maximum of 5 occurrences are available for use depending on the context.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
@@ -1753,7 +1769,7 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Cancellation deadline, absolute or relative.</xs:documentation>
 				</xs:annotation>
-				 <xs:complexType>
+				<xs:complexType>
 					<xs:attributeGroup ref="DeadlineGroup">
 						<xs:annotation>
 							<xs:documentation xml:lang="en">The absolute deadline or amount of offset time before a deadline for a payment of cancel goes into effect.</xs:documentation>
@@ -1876,7 +1892,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-		<xs:complexType name="AcceptedPaymentsType">
+	<xs:complexType name="AcceptedPaymentsType">
 		<xs:annotation>
 			<xs:documentation source="Description" xml:lang="en">Used to define the types of payments accepted.</xs:documentation>
 		</xs:annotation>
@@ -2335,6 +2351,7 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="TPA_Extensions" type="ConcurHotelSearchSessionTPA_ExtensionsType"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2345,7 +2362,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="RoomStay">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally finacial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
+					<xs:documentation xml:lang="en">Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
 					<xs:documentation xml:lang="en"> A collection of reference place holders. This is a reference placeholder, used as an index for the reservation guests.</xs:documentation>
 					<xs:documentation xml:lang="en">A collection of Hotel Service reference placeholders.</xs:documentation>
 				</xs:annotation>
@@ -2366,7 +2383,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-<xs:complexType name="MembershipType">
+	<xs:complexType name="MembershipType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">A collection of Membership objects. Memberships provides a list of reward programs which may be credited with points accrued from the guest's activity. Which memberships are to be applied to which part is determined by each object's SelectedMembershipRPHs collection.</xs:documentation>
 		</xs:annotation>
@@ -2637,7 +2654,7 @@
 
 	<xs:complexType name="ResCommonDetailType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">A grouping of elements including Guest Counts, Time Span, pointers to Res Guests, guest Memberships, Comments and Special Requests and finally finacial information including Guarantee, Deposit and Payyment and Cancellation Penalties.</xs:documentation>
+			<xs:documentation xml:lang="en">A grouping of elements including Guest Counts, Time Span, pointers to Res Guests, guest Memberships, Comments and Special Requests and finally financial information including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="TimeSpan">
@@ -2657,7 +2674,7 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Memberships" type="MembershipType"
-				minOccurs="0">
+									minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A collection of
 						Membership objects. Memberships provides a list of reward programs
@@ -2692,7 +2709,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="GuestCounts" type="GuestCountType"
-				minOccurs="0" />
+									minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -3099,7 +3116,7 @@
 			<xs:enumeration value="CommitOverrideEdits">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">
-Commit the transaction and override the end transaction edits.
+						Commit the transaction and override the end transaction edits.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -3118,7 +3135,7 @@ Commit the transaction and override the end transaction edits.
 
 	<xs:simpleType name="TransactionStatusType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">To specify a status to the transaction, usually in the response message, of the action specifed in the request message.	</xs:documentation>
+			<xs:documentation xml:lang="en">To specify a status to the transaction, usually in the response message, of the action specified in the request message.	</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Cancelled"/>
@@ -3280,31 +3297,31 @@ Commit the transaction and override the end transaction edits.
 		</xs:attribute>
 	</xs:attributeGroup>
 
- <xs:attributeGroup name="ErrorWarningAttributeGroup">
-        <xs:annotation>
-            <xs:documentation source="Description" xml:lang="en">Used to identify an application error by either text, code, or by an online description and also to give the status, tag, and/or identification of the record that may have caused the error.</xs:documentation>
-        </xs:annotation>
-        <xs:attribute name="ShortText" type="StringLength1to64" use="optional">
-            <xs:annotation>
-                <xs:documentation source="Description" xml:lang="en">An abbreviated version of the error in textual format.</xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
-        <xs:attribute name="Code" type="OTA_CodeType" use="optional">
-            <xs:annotation>
-                <xs:documentation source="Description" xml:lang="en">If present, this refers to a table of coded values exchanged between applications to identify errors or warnings. Refer to OpenTravel Code List Error Codes (ERR).</xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
-        <xs:attribute name="Status" type="StringLength1to64" use="optional">
-            <xs:annotation>
-                <xs:documentation source="Description" xml:lang="en">If present, recommended values are those enumerated in the OTA_ErrorRS, (NotProcessed | Incomplete | Complete | Unknown) however, the data type is designated as string data, recognizing that trading partners may identify additional status conditions not included in the enumeration.</xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
-        <xs:attribute name="Tag" type="xs:string" use="optional">
-            <xs:annotation>
-                <xs:documentation source="Description" xml:lang="en">If present, this attribute may identify an unknown or misspelled tag that caused an error in processing. It is recommended that the Tag attribute use XPath notation to identify the location of a tag in the event that more than one tag of the same name is present in the document. Alternatively, the tag name alone can be used to identify missing data [Type=ReqFieldMissing].</xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
-    </xs:attributeGroup>
+	<xs:attributeGroup name="ErrorWarningAttributeGroup">
+		<xs:annotation>
+			<xs:documentation source="Description" xml:lang="en">Used to identify an application error by either text, code, or by an online description and also to give the status, tag, and/or identification of the record that may have caused the error.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="ShortText" type="StringLength1to64" use="optional">
+			<xs:annotation>
+				<xs:documentation source="Description" xml:lang="en">An abbreviated version of the error in textual format.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Code" type="OTA_CodeType" use="optional">
+			<xs:annotation>
+				<xs:documentation source="Description" xml:lang="en">If present, this refers to a table of coded values exchanged between applications to identify errors or warnings. Refer to OpenTravel Code List Error Codes (ERR).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Status" type="StringLength1to64" use="optional">
+			<xs:annotation>
+				<xs:documentation source="Description" xml:lang="en">If present, recommended values are those enumerated in the OTA_ErrorRS, (NotProcessed | Incomplete | Complete | Unknown) however, the data type is designated as string data, recognizing that trading partners may identify additional status conditions not included in the enumeration.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Tag" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation source="Description" xml:lang="en">If present, this attribute may identify an unknown or misspelled tag that caused an error in processing. It is recommended that the Tag attribute use XPath notation to identify the location of a tag in the event that more than one tag of the same name is present in the document. Alternatively, the tag name alone can be used to identify missing data [Type=ReqFieldMissing].</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
 
 	<xs:attributeGroup name="RateRangeGroup">
 		<xs:annotation>
@@ -3478,7 +3495,7 @@ Commit the transaction and override the end transaction edits.
 		</xs:attribute>
 	</xs:attributeGroup>
 
- 	<xs:attributeGroup name="DeadlineGroup">
+	<xs:attributeGroup name="DeadlineGroup">
 		<xs:annotation>
 			<xs:documentation source="Description" xml:lang="en">The absolute deadline or amount of offset time before a deadline for a payment of cancel goes into effect.</xs:documentation>
 		</xs:annotation>

@@ -17,17 +17,17 @@ Errors should always be returned in a response. For example:
 
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-	<SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" />
-	<soap:Body>
-		<OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05"
-			xmlns:ns2="http://www.concur.com/webservice/auth" AltLangID="en"
-			EchoToken="11111111-2222-3333-4444-555555555555" PrimaryLangID="en"
-			Version="4">
-			<Errors>
-				<Error Code="322" ShortText="No availability" Type="13"></Error>
-			</Errors>
-		</OTA_HotelSearchRS>
-	</soap:Body>
+  <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <soap:Body>
+    <OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05"
+                       AltLangID="en"
+                       EchoToken="11111111-2222-3333-4444-555555555555" PrimaryLangID="en"
+                       Version="4">
+      <Errors>
+        <Error Code="322" ShortText="No availability" Type="13"></Error>
+      </Errors>
+    </OTA_HotelSearchRS>
+  </soap:Body>
 </soap:Envelope>
 ```
 

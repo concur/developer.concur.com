@@ -43,33 +43,35 @@ Message to perform the initial search for hotels.
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>user</userid>
-    <password>password</password>
-   </authentication>
+      <userid>user</userid>
+      <password>password</password>
+    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="4" PrimaryLangID="de" AltLangID="de" MaxResponses="100">
-    <POS>
-      <Source ISOCurrency="USD"></Source>
-      <RequestorID Type="1" ID="47777"></RequestorID>
-    </POS>
-    <Criteria>
-     <Criterion>
-      <Position Latitude="52.520007" Longitude="13.404954"></Position>
-      <RefPoint></RefPoint>
-      <HotelRef HotelName="sunshine"></HotelRef>
-      <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
-      <StayDateRange Start="2018-09-26" End="2018-09-27"></StayDateRange>
-     </Criterion>
-    </Criteria>
-    <TPA_Extensions>
-       <CustomFields>
-        <CustomField Name="OrgUnit" Value="Travel Agents"></CustomField>
-       </CustomFields>
-    </TPA_Extensions>
-   </OTA_HotelSearchRQ>
+    <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="4"
+                       PrimaryLangID="de" AltLangID="de" MaxResponses="100">
+      <POS>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="47777"></RequestorID>
+        </Source>
+      </POS>
+      <Criteria>
+        <Criterion>
+          <Position Latitude="52.520007" Longitude="13.404954"></Position>
+          <RefPoint></RefPoint>
+          <HotelRef HotelName="sunshine"></HotelRef>
+          <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
+          <StayDateRange Start="2018-09-26" End="2018-09-27"></StayDateRange>
+        </Criterion>
+      </Criteria>
+      <TPA_Extensions>
+        <CustomFields>
+          <CustomField Name="OrgUnit" Value="Travel Agents"></CustomField>
+        </CustomFields>
+      </TPA_Extensions>
+    </OTA_HotelSearchRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
 
 #### <a name="req-schema"></a>OTA_HotelSearchRQ
@@ -124,7 +126,6 @@ The criterion is used to define the search criteria.  Currently we support only 
 |Name|Type|Description|
 |-------------|--------------------|-------------|
 |`HotelName`|`stringLength1to128`|A text field used to communicate the proper name of the hotel.|
-|`HotelCode`|`stringLength1to16`|The code that uniquely identifies a single hotel property. The hotel code is decided between vendors.|
 
 #### <a name="radius"></a>Radius
 
@@ -152,10 +153,10 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" AltLangID="EN" PrimaryLangID="EN" Version="4">
+    <OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05" AltLangID="EN" PrimaryLangID="EN" Version="4">
       <Success/>
       <Properties>
-      <Property ChainCode="AB" ChainName="1111" HotelCode="22222" HotelName="Sunshine Hotel">
+        <Property ChainCode="AB" ChainName="1111" HotelCode="22222" HotelName="Sunshine Hotel">
           <Position Latitude="52.4567" Longitude="13.5635"/>
           <Address>
             <AddressLine>An der Wuhlheide</AddressLine>
@@ -176,6 +177,9 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
           </TPA_Extensions>
         </Property>
       </Properties>
+      <TPA_Extensions>
+        <SearchSessionToken>5EA6C45E55104704E4</SearchSessionToken>
+      </TPA_Extensions>
     </OTA_HotelSearchRS>
   </soap:Body>
 </soap:Envelope>
@@ -186,6 +190,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 |Name|Type|Description|
 |------------|--------------|-------------|
 |`Properties`|`complex`|**Required** A collection of individual property information.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|**Optional** A token that links the Search results to Availability and Reservation requests.|
 
 #### <a name="properties"></a>Properties
 

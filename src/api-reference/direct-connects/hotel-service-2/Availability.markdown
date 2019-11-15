@@ -57,40 +57,44 @@ Message to retrieved the availability of hotels.
 ## <a name="request"></a>Request
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
- <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>user</userid>
-    <password>password</password>
+      <userid>user</userid>
+      <password>password</password>
     </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5" PrimaryLangID="de" AltLangID="de">
-    <POS>
-      <Source ISOCurrency="USD"></Source>
-      <RequestorID Type="1" ID="1234567"></RequestorID>
-    </POS>
-    <AvailRequestSegments>
-     <AvailRequestSegment>
-      <HotelSearchCriteria>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
-       </Criterion>
-      </HotelSearchCriteria>
-      <StayDateRange Start="2018-10-26" End="2018-10-27"></StayDateRange>
-      <RoomStayCandidates>
-       <RoomStayCandidate>
-        <GuestCounts>
-         <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
-        </GuestCounts>
-       </RoomStayCandidate>
-      </RoomStayCandidates>
-     </AvailRequestSegment>
-    </AvailRequestSegments>
-   </OTA_HotelAvailRQ>
+    <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5"
+                      PrimaryLangID="de" AltLangID="de">
+      <POS>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="1234567"></RequestorID>
+        </Source>
+      </POS>
+      <AvailRequestSegments>
+        <AvailRequestSegment>
+          <HotelSearchCriteria>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
+            </Criterion>
+          </HotelSearchCriteria>
+          <StayDateRange Start="2018-10-26" End="2018-10-27"></StayDateRange>
+          <RoomStayCandidates>
+            <RoomStayCandidate>
+              <GuestCounts>
+                <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
+              </GuestCounts>
+            </RoomStayCandidate>
+          </RoomStayCandidates>
+          <TPA_Extensions>
+            <SearchSessionToken>5EA6C45E55104704E4</SearchSessionToken>
+          </TPA_Extensions>
+        </AvailRequestSegment>
+      </AvailRequestSegments>
+    </OTA_HotelAvailRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
 ### <a name="req-schema"></a>Schema
 
@@ -112,6 +116,7 @@ Message to retrieved the availability of hotels.
 |---------------------|-----------|-------------|
 |`HotelSearchCriteria`|`complex`|**Required** Specified hotel search criteria. SAP Concur will send only one (1) `HotelSearchCriteria`.|
 |`StayDateRange`|`complex`|Range of dates using ISO 8601.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from `Search` response that links the Search results to Availability and Reservation requests.|
 
 #### <a name="hotel-search-criteria"></a>HotelSearchCriteria
 
@@ -168,7 +173,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Version="5">
+    <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="5">
       <Success/>
       <RoomStays>
         <RoomStay>
@@ -212,16 +217,17 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                <Total AmountAfterTax="199.00" AmountBeforeTax="99.00" CurrencyCode="EUR" DecimalPlaces="2"/>
-                <RateDescription>
-                  <Text>Test rate description. Both before and after tax.</Text>
-                </RateDescription>
-                <TPA_Extensions>
-							  <RequireSeriesCode>true</RequireSeriesCode>
-						  </TPA_Extensions>
-              </Rate>
-            </Rates>
-          </RoomRate>
+                  <Total AmountAfterTax="199.00" AmountBeforeTax="99.00" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <RateDescription>
+                    <Text>Test rate description. Both before and after tax.</Text>
+                  </RateDescription>
+                  <TPA_Extensions>
+                    <RequireSeriesCode>true</RequireSeriesCode>
+                  </TPA_Extensions>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
           <TimeSpan End="2018-10-27" Start="2018-10-26"/>
           <BasicPropertyInfo ChainCode="ZZ" HotelCode="419430"/>
         </RoomStay>
@@ -446,12 +452,12 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 # <a name="relationship-roomid-rateplanid"></a>Relationship between RoomID and RatePlanID
 
-The combination of these IDs must be unique per `RoomStay`.  IDs with the same values can be redefinined in multiple `RoomStays`.
+The combination of these IDs must be unique per `RoomStay`.  IDs with the same values can be redefined in multiple `RoomStays`.
 
 ```xml
 <OTA_HotelAvailRS>
   <Success/>
-<!-- Hotel #1 with 3 rates -->
+  <!-- Hotel #1 with 3 rates -->
   <RoomStays>
     <RoomStay>
       <RoomTypes>
@@ -470,6 +476,7 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
       </RoomRates>
       ...
     </RoomStay>
+  </RoomStays>
 <!-- Hotel #2 with 2 rates -->
   <RoomStays>
     <RoomStay>
@@ -487,6 +494,7 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
       </RoomRates>
       ...
     </RoomStay>
-…
+  </RoomStays>
+  ...
 </OTA_HotelAvailRS>
 ```

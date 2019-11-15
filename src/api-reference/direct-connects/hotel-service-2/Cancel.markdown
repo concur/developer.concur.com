@@ -18,20 +18,21 @@ Message used to indicate to the hotel supplier that a given reservation should b
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-      <authentication xmlns="http://www.concur.com/webservice/auth">
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <authentication xmlns="http://www.concur.com/webservice/auth">
       <userid>user</userid>
       <password>password</password>
-      </authentication>
-    </Header>
-    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-        <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="3" PrimaryLangID="en" AltLangID="en">
-            <POS>
-              <Source ISOCurrency="USD"></Source>
-            </POS>
-            <UniqueID Type="14" ID="11112222"></UniqueID>
-        </OTA_CancelRQ>
-    </Body>
+    </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="3"
+                  PrimaryLangID="en" AltLangID="en" CancelType="Cancel">
+      <POS>
+        <Source ISOCurrency="USD"></Source>
+      </POS>
+      <UniqueID Type="14" ID="11112222"></UniqueID>
+    </OTA_CancelRQ>
+  </Body>
 </Envelope>
 ```
 
@@ -60,7 +61,7 @@ The maximum allowed size of OTA_CancelRS is 150 KB. Any response that exceeds th
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Status="Cancelled">
+    <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="3" Status="Cancelled">
       <Success/>
       <UniqueID ID="11112222" Type="14"/>
       <UniqueID ID="12122" Type="15"/>
