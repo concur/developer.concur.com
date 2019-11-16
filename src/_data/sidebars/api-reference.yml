@@ -191,9 +191,9 @@
   url: ''
   children:
       - title: Image v1
-      url: /api-reference/image/v1.image.html
+        url: /api-reference/image/v1.image.html
       - title: Image v3
-      url: /api-reference/image/v3.image.html
+        url: /api-reference/image/v3.image.html
 - title: Request v3
   url: /api-reference/request/v3.request.html
 - title: Travel Profile
