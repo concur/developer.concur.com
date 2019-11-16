@@ -1,8 +1,8 @@
 {
   "x-sap-shortText": "Returns information about the form types and configured forms in SAP Concur.",
   "swagger": "2.0",
-  "host": "sandbox.api.sap.com",
-  "basePath": "/concur/api/v1.1",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v1.1",
   "info": {
     "description": "Returns the configured Expense form types, or the form IDs for the supplied form type. Clients can have multiple forms configured for each form type.",
     "version": "1.1",

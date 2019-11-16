@@ -1,5 +1,17 @@
 - title: Swagger API Explorer
   url: /api-explorer/
+- title: v1.0
+  url: ''
+  children:
+      - title: Image
+        url: /api-explorer/v1-0/Image.html
+- title: v1.1
+  url: ''
+  children:
+      - title: Expense Report Forms
+        url: /api-explorer/v1-1/ExpenseReportForms.html
+      - title: Expense Report Form Fields
+        url: /api-explorer/v1-1/ExpenseReportFormFields.html
 - title: v3.0
   url: ''
   children:

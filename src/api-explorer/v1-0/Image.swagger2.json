@@ -19,7 +19,7 @@
 			"OAuth2": []
 		}
 	],
-  "host": "sandbox.api.sap.com",
+  "host": "www.concursolutions.com",
   "basePath": "/api/image/v1.0/",
   "tags": [
     {
