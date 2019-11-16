@@ -1,8 +1,8 @@
 {
   "x-sap-shortText": "Returns information about the configured form fields for a specified form in SAP Concur.",
   "swagger": "2.0",
-  "host": "sandbox.api.sap.com",
-  "basePath": "/concur/api/v1.1",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v1.1",
   "info": {
     "description": "Returns the configured fields for the specified expense form.",
     "version": "1.1",
