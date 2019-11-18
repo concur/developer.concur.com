@@ -43,8 +43,8 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `cashAdvanceReturnsAmount`|`Number`|Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.|Currency. Amount of cash advance returned.
-`employeeCurrencyAlphaCode`|`String`|3-letter ISO 4217 alpha|Alphanumeric. Reimbursement currency.
-`homeCountryCode`|`String`|ISO 3166-1 alpha-2 country code|Alphanumeric. The report country. Example: United States is US.
+`employeeCurrencyAlphaCode`|`String`|3-letter ISO 4217 alpha code.|Alphanumeric. Reimbursement currency.
+`homeCountryCode`|`String`|ISO 3166-1 alpha-2 country code.|Alphanumeric. The report country. Example: United States is US.
 `isTest`|`String`|Y/N|Signifies if this report belongs to a test user in system. Y = test user, N = not a test user.
 `ledgerCode`|`String`|-|Alphanumeric. External accounting system ID. Maximum length 20 characters.
 `payrollPayIndicator`|`String`|Y/N|This field indicates whether the expense group the report user belongs to is configured to reimburse employees using Payroll.
@@ -269,10 +269,10 @@ Name|Type|Format|Description
 ---|---|---|---
 `cardAccountID`|`String`|-|Alphanumeric. ID will be used initially by the receiving system to “condense” transactions associated with this card. It will also be used to retrieve the card number in a separate API call. Maximum length 32 bytes.
 `cardTransactionAmount`|`Number`|Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.|Currency. Amount of the charge in the spend currency.
-`cardTransactionCurrency`|`String`|Alphanumeric. ISO 4217 3-letter alpha code.|Currency code for the spend currency.
+`cardTransactionCurrency`|`String`|ISO 4217 3-letter alpha code.|Alphanumeric. Currency code for the spend currency.
 `cardTransactionID`|`String`|-|Alphanumeric. Calculated value assigned to this card entry during the import process. Maximum length 32 characters.
 `cardTransactionPostedAmount`|`Number`|Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.|Currency. Amount of the charge in the billing currency of the card.
-`cardTransactionPostedCurrency`| `String`|Alphanumeric. ISO 4217 3-letter alpha code.|Currency code for the card billing currency.
+`cardTransactionPostedCurrency`| `String`|ISO 4217 3-letter alpha code.|Alphanumeric. Currency code for the card billing currency.
 `cashAdvanceId`|`String`|-|GUUID. Unique system ID assigned to the cash advance. Maximum length 32 characters.
 `clearingAccountCode`|`String`|-|Alphanumeric. Contains the expense type account code. - or - If a CBCP Personal expense, the company card clearing account code. - or - If charge is tied to a Statement Report, and accounting code is set for Company Billed card account, the card's accounting code as specified in the **Account Code** field when creating or editing a CBS account. Maximum length 20 characters.
 `countryCode`|`String`|ISO 3166-1 alpha-2 country code.|Alphanumeric. The report country. Example: United States is US.
