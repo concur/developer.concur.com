@@ -188,7 +188,7 @@ Message to reserve a hotel.
 |`RoomStays`|`complex`|**Required** A reference to identify the booking.|
 |`ResGuests`|`complex`|**Required** List of guests. Supported value: `1`|
 |`ResGlobalInfo`|`complex`|Contains information that affects the reservation as a whole, typically a list of reward programs (see `Memberships`) or itinerary remarks (see `Comments`).|
-|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from `Search` response that links the Search results to Availability and Reservation requests.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from [Search](/api-reference/direct-connects/hotel-service-2/Search.html) response that links the Search results to [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html) and [Reservation](#request) requests.|
 
 #### <a name="req-room-stays"></a>RoomStays
 

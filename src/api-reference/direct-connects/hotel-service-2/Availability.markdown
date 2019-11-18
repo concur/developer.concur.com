@@ -116,7 +116,7 @@ Message to retrieved the availability of hotels.
 |---------------------|-----------|-------------|
 |`HotelSearchCriteria`|`complex`|**Required** Specified hotel search criteria. SAP Concur will send only one (1) `HotelSearchCriteria`.|
 |`StayDateRange`|`complex`|Range of dates using ISO 8601.|
-|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from `Search` response that links the Search results to Availability and Reservation requests.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from [Search](/api-reference/direct-connects/hotel-service-2/Search.html) response that links the Search results to [Availability](#request) and [Reservation](/api-reference/direct-connects/hotel-service-2/Reservation.html) requests.|
 
 #### <a name="hotel-search-criteria"></a>HotelSearchCriteria
 
