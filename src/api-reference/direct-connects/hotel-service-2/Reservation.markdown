@@ -181,7 +181,7 @@ Message to reserve a hotel.
 |-------------------|-----------|-------------|
 |`HotelReservations`|`complex`|**Required** A collection of hotel reservations. SAP Concur will only send one (1) hotel reservation.|
 
-#### <a name="req-hotel-reservation"></a>HotelReservation**
+#### <a name="req-hotel-reservation"></a>HotelReservation
 
 |Name|Type|Description|
 |---------------|-----------|-------------|
