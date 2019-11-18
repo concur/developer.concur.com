@@ -294,7 +294,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |----------------------|-------------------|-------------|
 |`RatePlanID`|`stringLength1to64`|**Required** A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples: Corporate ID.|
 |`AvailabilityStatus`|`stringLength1to32`|**Required** Used to specify an availability status for the rate plan. Supported values: `AvailableForSale`, `ChangeDuringStay`|
-|`Guarantee`|`complex|**Required** Guarantee information that applies to the rate plan. SAP Concur only expects one (1) Guarantee element per `RatePlan`.|
+|`Guarantee`|`complex`|**Required** Guarantee information that applies to the rate plan. SAP Concur only expects one (1) Guarantee element per `RatePlan`.|
 |`CancelPenalties`|`complex`|**Required** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
 |`MealsIncluded`|`complex`|**Required** Defines which meals are included with this rate program.|
 
