@@ -346,7 +346,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 #### <a name="penalty-description"></a>PenaltyDescription
 
 |Name|Type|Description|
-|---------|----------|-----------------------|-------------|
+|---------|----------|-----------------------|
 |`Text`|`formattedText`|**Required** Formatted text content in a given language.|
 
 #### <a name="meals-included"></a>MealsIncluded
