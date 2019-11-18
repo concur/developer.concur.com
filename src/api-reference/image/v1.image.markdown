@@ -81,8 +81,6 @@ A byte array containing the image data.
 
 #### Status Codes
 
-Delete unused codes
-
 * [201 Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)
 
 #### Headers

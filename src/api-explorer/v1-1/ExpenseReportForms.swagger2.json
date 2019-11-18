@@ -2,7 +2,7 @@
   "x-sap-shortText": "Returns information about the form types and configured forms in SAP Concur.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
-  "basePath": "/concur/api",
+  "basePath": "/api/v1.1",
   "info": {
     "description": "Returns the configured Expense form types, or the form IDs for the supplied form type. Clients can have multiple forms configured for each form type.",
     "version": "1.1",
@@ -37,7 +37,8 @@
         "tags": [
           "Form Types"
         ],
-        "summary": "Retrieves the list of configured form types.",
+        "summary": "Get all form types",
+        "description": "Retrieves the list of configured form types for the company.",
         "operationId": "getFormTypesUsingGET",
         "produces": [ "application/xml" ],
         "responses": {
@@ -59,7 +60,8 @@
         "tags": [
           "Form Data"
         ],
-        "summary": "Retrieves the list of configured forms for the specified form type.",
+        "summary": "Get all forms by form type.",
+        "description": "Retrieves the list of configured forms for the specified form type.",
         "operationId": "getFormDataUsingGET",
         "produces": [ "application/xml" ],
         "parameters": [
@@ -89,30 +91,28 @@
   "definitions": {
     "FormTypesList": {
       "type": "object",
+      "description": "List of configured form types.",
       "properties": {
         "FormType": {
           "type": "array",
-          "description": "List of configured form types.",
           "items": {
             "$ref": "#/definitions/FormType"
           }
         }
-      },
-      "title": "FormTypesList"
+      }
     },
     "FormType": {
       "type": "object",
+      "description":"The form type name.",
       "properties": {
         "Name": {
-          "type": "string",
-          "description":"The form type name."
+          "type": "string"
         },
         "FormCode": {
           "type": "string",
           "description":"The form type code."
         }
-      },
-      "title": "FormType"
+      }
     },
     "FormDataList": {
       "type": "object",
@@ -124,8 +124,7 @@
             "$ref": "#/definitions/FormData"
           }
         }
-      },
-      "title": "FormDataList"
+      }
     },
     "FormData": {
       "type": "object",
@@ -138,8 +137,13 @@
           "type": "string",
           "description":"The form identifier."
         }
-      },
-      "title": "FormData"
+      }
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/expense/expensereport/v1.1",
+      "description": "Concur Expense Report API endpoint"
+    }
+  ]
 }
