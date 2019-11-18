@@ -60,114 +60,115 @@ Message to reserve a hotel.
 
 ```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
- <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <authentication xmlns="http://www.concur.com/webservice/auth">
-   <userid>user</userid>
-   <password>password</password>
-  </authentication>
- </Header>
- <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-  <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="6" PrimaryLangID="de" AltLangID="de">
-   <POS>
-    <Source ISOCurrency="USD">
-    <RequestorID Type="4" ID="s1"></RequestorID>
-    </Source>
-   </POS>
-   <HotelReservations>
-    <HotelReservation>
-     <RoomStays>
-      <RoomStay>
-       <RatePlans>
-        <RatePlan RatePlanID="ZZZZ1117">
-         <Guarantee GuaranteeType="CC/DC/Voucher">
-          <GuaranteesAccepted>
-           <GuaranteeAccepted>
-            <PaymentCard CardCode="VI" ExpireDate="1018">
-             <CardType Code="VI">VISA</CardType>
-             <CardHolderName>Jane Doe</CardHolderName>
-             <Address>
-              <StreetNmbr>600 13TH ST NE</StreetNmbr>
-              <CityName>WASHINGTON</CityName>
-              <PostalCode>20002</PostalCode>
-              <StateProv StateCode="DC"></StateProv>
-              <CountryName>US</CountryName>
-             </Address>
-             <SeriesCode>
-               <PlainText>xxx</PlainText>
-             </SeriesCode>
-            </PaymentCard>
-           </GuaranteeAccepted>
-          </GuaranteesAccepted>
-         </Guarantee>
-        </RatePlan>
-       </RatePlans>
-       <TimeSpan Start="2017-01-26" End="2017-01-27"></TimeSpan>
-       <BasicPropertyInfo HotelCode="111222"></BasicPropertyInfo>
-       <Comments>
-        <Comment>
-         <Text TextFormat="PlainText">ROLLAWAY</Text>
-        </Comment>
-        <Comment>
-         <Text TextFormat="PlainText">FOAMPILLOWS</Text>
-        </Comment>
-       </Comments>
-      </RoomStay>
-     </RoomStays>
-     <ResGuests>
-      <ResGuest>
-       <Profiles>
-        <ProfileInfo>
-         <Profile>
-          <Customer Gender="Female" BirthDate="1987-05-12">
-           <PersonName Language="de">
-            <NamePrefix>MRS</NamePrefix>
-            <GivenName>JANE</GivenName>
-            <Surname>DOE</Surname>
-           </PersonName>
-           <Telephone PhoneNumber="703-837-6100"></Telephone>
-           <Email>jane.doe@example.com</Email>
-           <Address>
-            <AddressLine>209 Madison St Suite 400</AddressLine>
-            <CityName>Alexandria</CityName>
-            <PostalCode>22314</PostalCode>
-            <StateProv StateCode="VA"></StateProv>
-            <CountryName Code="US">USA</CountryName>
-           </Address>
-           <CitizenCountryName Code="US"></CitizenCountryName>
-          </Customer>
-          <CompanyInfo>
-           <CompanyName>SAP Concur</CompanyName>
-          </CompanyInfo>
-         </Profile>
-        </ProfileInfo>
-       </Profiles>
-       <GuestCounts>
-        <GuestCount Count="1"></GuestCount>
-       </GuestCounts>
-      </ResGuest>
-     </ResGuests>
-     <ResGlobalInfo>
-      <Memberships>
-       <Membership ProgramCode="HotelLoyaltyProgram" AccountID="1111111"></Membership>
-     </Memberships>
-     </ResGlobalInfo>
-    </HotelReservation>
-    <TPA_Extensions>
-     <NotifyEmails>
-      <NotifyEmails>jane.doe@example.com</NotifyEmails>
-      <NotifyEmails>a@b.cz</NotifyEmails>
-      <NotifyEmails>d@f.cz</NotifyEmails>
-     </NotifyEmails>
-     <CustomFields>
-       <CustomField Name="trip1" Value="value1t"></CustomField>
-       <CustomField Name="trip2" Value="value2t"></CustomField>
-       <CustomField Name="user1" Value="value1u"></CustomField>
-       <CustomField Name="user2"></CustomField>
-     </CustomFields>
-    </TPA_Extensions>
-   </HotelReservations>
-  </OTA_HotelResRQ>
- </Body>
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+      <userid>user</userid>
+      <password>password</password>
+    </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="6"
+                    PrimaryLangID="de" AltLangID="de">
+      <POS>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="4" ID="s1"></RequestorID>
+        </Source>
+      </POS>
+      <HotelReservations>
+        <HotelReservation>
+          <RoomStays>
+            <RoomStay>
+              <RatePlans>
+                <RatePlan RatePlanID="ZZZZ1117">
+                  <Guarantee GuaranteeType="CC/DC/Voucher">
+                    <GuaranteesAccepted>
+                      <GuaranteeAccepted>
+                        <PaymentCard CardCode="VI" ExpireDate="1018">
+                          <CardType Code="VI">VISA</CardType>
+                          <CardHolderName>Jane Doe</CardHolderName>
+                          <Address>
+                            <StreetNmbr>600 13TH ST NE</StreetNmbr>
+                            <CityName>WASHINGTON</CityName>
+                            <PostalCode>20002</PostalCode>
+                            <StateProv StateCode="DC"></StateProv>
+                            <CountryName>US</CountryName>
+                          </Address>
+                          <SeriesCode>
+                            <PlainText>xxx</PlainText>
+                          </SeriesCode>
+                        </PaymentCard>
+                      </GuaranteeAccepted>
+                    </GuaranteesAccepted>
+                  </Guarantee>
+                </RatePlan>
+              </RatePlans>
+              <TimeSpan Start="2017-01-26" End="2017-01-27"></TimeSpan>
+              <BasicPropertyInfo HotelCode="111222"></BasicPropertyInfo>
+              <Comments>
+                <Comment>
+                  <Text TextFormat="PlainText">ROLLAWAY</Text>
+                </Comment>
+                <Comment>
+                  <Text TextFormat="PlainText">FOAMPILLOWS</Text>
+                </Comment>
+              </Comments>
+            </RoomStay>
+          </RoomStays>
+          <ResGuests>
+            <ResGuest>
+              <Profiles>
+                <ProfileInfo>
+                  <Profile>
+                    <Customer Gender="Female" BirthDate="1987-05-12">
+                      <PersonName Language="de">
+                        <NamePrefix>MRS</NamePrefix>
+                        <GivenName>JANE</GivenName>
+                        <Surname>DOE</Surname>
+                      </PersonName>
+                      <Telephone PhoneNumber="703-837-6100"></Telephone>
+                      <Email>jane.doe@example.com</Email>
+                      <Address>
+                        <AddressLine>209 Madison St Suite 400</AddressLine>
+                        <CityName>Alexandria</CityName>
+                        <PostalCode>22314</PostalCode>
+                        <StateProv StateCode="VA"></StateProv>
+                        <CountryName Code="US">USA</CountryName>
+                      </Address>
+                      <CitizenCountryName Code="US"></CitizenCountryName>
+                    </Customer>
+                    <CompanyInfo>
+                      <CompanyName>SAP Concur</CompanyName>
+                    </CompanyInfo>
+                  </Profile>
+                </ProfileInfo>
+              </Profiles>
+              <GuestCounts>
+                <GuestCount Count="1"></GuestCount>
+              </GuestCounts>
+            </ResGuest>
+          </ResGuests>
+          <ResGlobalInfo>
+            <Memberships>
+              <Membership ProgramCode="HotelLoyaltyProgram" AccountID="1111111"></Membership>
+            </Memberships>
+          </ResGlobalInfo>
+        </HotelReservation>
+        <TPA_Extensions>
+          <NotifyEmails>
+            <NotifyEmails>jane.doe@example.com</NotifyEmails>
+            <NotifyEmails>a@b.cz</NotifyEmails>
+            <NotifyEmails>d@f.cz</NotifyEmails>
+          </NotifyEmails>
+          <CustomFields>
+            <CustomField Name="trip1" Value="value1t"></CustomField>
+            <CustomField Name="trip2" Value="value2t"></CustomField>
+            <CustomField Name="user1" Value="value1u"></CustomField>
+            <CustomField Name="user2"></CustomField>
+          </CustomFields>
+        </TPA_Extensions>
+      </HotelReservations>
+    </OTA_HotelResRQ>
+  </Body>
 </Envelope>
 ```
 
@@ -391,7 +392,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
+    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="6" ResResponseType="Reserved">
       <Success/>
       <HotelReservations>
         <HotelReservation>
@@ -427,31 +428,31 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                     <Rate>
                       <PaymentPolicies>
                         <GuaranteePayment>
-                        <AcceptedPayments>
-                          <AcceptedPayment>
-                            <PaymentCard>
-                              <CardType>VISA</CardType>
-                            </PaymentCard>
-                          </AcceptedPayment>
-                        </AcceptedPayments>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard>
+                                <CardType>VISA</CardType>
+                              </PaymentCard>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
                         </GuaranteePayment>
                         <GuaranteePayment>
-                        <AcceptedPayments>
-                          <AcceptedPayment>
-                          <PaymentCard>
-                            <CardType>Mastercard</CardType>
-                          </PaymentCard>
-                          </AcceptedPayment>
-                        </AcceptedPayments>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard>
+                                <CardType>Mastercard</CardType>
+                              </PaymentCard>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
                         </GuaranteePayment>
                         <GuaranteePayment>
-                        <AcceptedPayments>
-                          <AcceptedPayment>
-                            <PaymentCard>
-                              <CardType>AmericanExpress</CardType>
-                            </PaymentCard>
-                          </AcceptedPayment>
-                        </AcceptedPayments>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard>
+                                <CardType>AmericanExpress</CardType>
+                              </PaymentCard>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
                         </GuaranteePayment>
                       </PaymentPolicies>
                       <Total AmountAfterTax="185.00" AmountBeforeTax="85.00" CurrencyCode="EUR"/>
@@ -462,14 +463,14 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
               <TimeSpan End="2017-01-27" Start="2017-01-26"/>
               <BasicPropertyInfo HotelCode="50709" HotelName="Alexander Plaza">
                 <Address>
-                  <AddressLine>Rosenstr. 1 </AddressLine>
+                  <AddressLine>Rosenstr. 1</AddressLine>
                   <CityName>Berlin</CityName>
                   <CountryName Code="DEU">Federal Republic of Germany</CountryName>
-                  <StateProv StateCode="BE">Berlin Disctrict</StateProv>
+                  <StateProv StateCode="BE">Berlin District</StateProv>
                   <PostalCode>BE123</PostalCode>
                 </Address>
                 <ContactNumbers>
-                  <ContactNumber PhoneNumber="1111111112"  PhoneTechType="1"/>
+                  <ContactNumber PhoneNumber="1111111112" PhoneTechType="1"/>
                 </ContactNumbers>
               </BasicPropertyInfo>
             </RoomStay>
@@ -497,10 +498,13 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                 <Text>Second line of first comment</Text>
               </Comment>
               <Comment>
-                  <Text>Second comment without name</Text>
+                <Text>Second comment without name</Text>
               </Comment>
             </Comments>
           </ResGlobalInfo>
+          <TPA_Extensions>
+            <SearchSessionToken>5EA6C45E55104704E4</SearchSessionToken>
+          </TPA_Extensions>
         </HotelReservation>
       </HotelReservations>
     </OTA_HotelResRS>
@@ -514,6 +518,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |---------|------------|-------------|
 |`ResResponseType`|`stringLength1to32`|**Required** See the list of possible values.|
 |`HotelReservations`|`complex`|**Required** SAP Concur only supports one (1) reservation. All extra reservations will be ignored.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from `Search` response that links the Search results to Availability and Reservation requests.|
 
 #### <a name="res-response-type"></a>ResResponseType
 
@@ -534,7 +539,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 
 |Name|Type|Description|
 |---------|------------|-------------|
-|`UniqueID`|`complex`|**Required** A reference to identify the booking. Maximum occurance: `2`|
+|`UniqueID`|`complex`|**Required** A reference to identify the booking. Maximum occurrences: `2`|
 |`RoomStays`|`complex`|**Required** A collection of details on the room stay including time span of this room stay, and financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties. |
 
 #### <a name="unique-id"></a>UniqueID

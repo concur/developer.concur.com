@@ -17,21 +17,23 @@ Returns detailed information about a hotel reservation. Used in a process of boo
 
 ```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-      <authentication xmlns="http://www.concur.com/webservice/auth">
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <authentication xmlns="http://www.concur.com/webservice/auth">
       <userid>user</userid>
       <password>password</password>
-     </authentication></Header>
-    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-        <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5.002" PrimaryLangID="de" AltLangID="de">
-            <POS>
-                <Source ISOCurrency="USD">
-                    <RequestorID Type="1" ID="123"></RequestorID>
-                </Source>
-            </POS>
-            <UniqueID Type="14" ID="88618333"></UniqueID>
-        </OTA_ReadRQ>
-    </Body>
+    </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5.002"
+                PrimaryLangID="de" AltLangID="de">
+      <POS>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="123"></RequestorID>
+        </Source>
+      </POS>
+      <UniqueID Type="14" ID="88618333"></UniqueID>
+    </OTA_ReadRQ>
+  </Body>
 </Envelope>
 ```
 

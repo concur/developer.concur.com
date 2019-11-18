@@ -1,0 +1,276 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "The SAP Concur Imaging Web service allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.<p>The Imaging web service supports the following image formats:</p><p><li>&nbsp;&nbsp;&nbsp;&nbsp;`application/pdf`<li>&nbsp;&nbsp;&nbsp;&nbsp;`image/jpg`<li>&nbsp;&nbsp;&nbsp;&nbsp;`image/jpeg`<li>&nbsp;&nbsp;&nbsp;&nbsp;`image/png`</p><p>The maximum file size allowed is 10 MB.</p>",
+    "version": "1.0",
+    "title": "Image API Documentation"
+  },
+  "host": "www.concursolutions.com",
+  "basePath": "/api/image/v1.0/",
+  "tags": [
+    {
+      "name": "Post an image",
+      "description": "Add Report and Line Item Images."
+    },
+    { "name": "Get an image URL", "description": "Retrieve Report and Line Item Images." }
+  ],
+  "paths": {
+    "/receipt": {
+      "post": {
+        "tags": ["Post an image"],
+        "summary": "Add Line Item Images.",
+        "operationId": "addReceiptLineItemUsingPOST",
+        "consumes": ["application/pdf", "image/jpg", "image/jpeg", "image/png", "multipart/form-data"],
+        "produces": ["application/xml"],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "Image File",
+            "type": "file",
+            "description": "Receipt Image to Upload",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      }
+    },
+    "/expenseentry/{entryId}": {
+      "post": {
+        "tags": ["Post an image"],
+        "summary": "Add Line Item Images.",
+        "operationId": "addExpenseEntryLineItemUsingPOST",
+        "consumes": ["application/pdf", "image/jpg", "image/jpeg", "image/png", "multipart/form-data"],
+        "produces": ["application/xml"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entryId",
+            "description": "The unique identifier of the image.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Image File",
+            "type": "file",
+            "description": "Receipt Image to Upload",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      },
+      "get": {
+        "tags": ["Get an image URL"],
+        "summary": "Retrieve Report and Line Item Images.",
+        "operationId": "getExpenseEntryImageUsingGET",
+        "produces": ["application/xml"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entryId",
+            "description": "The unique identifier of the image.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Image" }
+          },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      }
+    },
+    "/invoice/{requestId}": {
+      "post": {
+        "tags": ["Post an image"],
+        "summary": "Add Report Images.",
+        "operationId": "addInvoiceImageUsingPOST",
+        "consumes": ["application/pdf", "image/jpg", "image/jpeg", "image/png", "multipart/form-data"],
+        "produces": ["application/xml"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "requestId",
+            "description": "The unique identifier of the image.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Image File",
+            "type": "file",
+            "description": "Receipt Image to Upload",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      },
+      "get": {
+        "tags": ["Get an image URL"],
+        "summary": "Retrieve Report and Line Item Images.",
+        "operationId": "getInvoiceImageUsingGET",
+        "produces": ["application/xml"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "requestId",
+            "description": "The unique identifier of the image.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Image" }
+          },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      }
+    },
+    "/report/{reportId}": {
+      "post": {
+        "tags": ["Post an image"],
+        "summary": "Add Report Images.",
+        "operationId": "addReportImageUsingPOST",
+        "consumes": ["application/pdf", "image/jpg", "image/jpeg", "image/png", "multipart/form-data"],
+        "produces": ["application/xml"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "reportId",
+            "description": "The unique identifier of the image.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Image File",
+            "type": "file",
+            "description": "Receipt Image to Upload",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      },
+      "get": {
+        "tags": ["Get an image URL"],
+        "summary": "Retrieve Report and Line Item Images.",
+        "operationId": "getReportEntryImageUsingGET",
+        "produces": ["application/xml"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "reportId",
+            "description": "The unique identifier of the image.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Image" }
+          },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      }
+    },
+    "/receipt/{imageId}": {
+      "get": {
+        "tags": ["Get an image URL"],
+        "summary": "Retrieve Report and Line Item Images.",
+        "operationId": "getReceiptImageUsingGET",
+        "produces": ["application/xml"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "imageId",
+            "description": "The unique identifier of the image.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Image" }
+          },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Image": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Url": {
+          "type": "string"
+        }
+      },
+      "title": "Image"
+    }
+  }
+}
