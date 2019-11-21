@@ -190,7 +190,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 |Name|Type|Description|
 |------------|--------------|-------------|
 |`Properties`|`complex`|**Required** A collection of individual property information.|
-|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|**Optional** A token that links the Search results to Availability and Reservation requests.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|**Optional** A token that links the [Search](#response) results to [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html) and [Reservation](/api-reference/direct-connects/hotel-service-2/Reservation.html) requests.|
 
 #### <a name="properties"></a>Properties
 
