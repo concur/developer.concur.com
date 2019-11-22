@@ -1,8 +1,8 @@
 {
   "x-sap-shortText": "Manage receipt images for the OAuth consumer.",
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
-  "basePath": "/api/image/v1.0/",
+  "host": "sandbox.api.sap.com",
+  "basePath": "/concur/api",
   "schemes": [
     "https"
   ],
@@ -40,7 +40,7 @@
     { "name": "Get an image URL", "description": "Retrieve image URLs. The URL is valid for 30 minutes after the request." }
   ],
   "paths": {
-    "/receipt": {
+    "/image/v1.0/receipt": {
       "post": {
         "tags": ["Post an image"],
         "summary": "Post receipt image",
@@ -69,7 +69,7 @@
         "deprecated": false
       }
     },
-    "/expenseentry/{entryId}": {
+    "/image/v1.0/expenseentry/{entryId}": {
       "post": {
         "tags": ["Post an image"],
         "summary": "Post expense entry image",
@@ -133,7 +133,7 @@
         "deprecated": false
       }
     },
-    "/invoice/{requestId}": {
+    "/image/v1.0/invoice/{requestId}": {
       "post": {
         "tags": ["Post an image"],
         "summary": "Post invoice image",
@@ -197,7 +197,7 @@
         "deprecated": false
       }
     },
-    "/report/{reportId}": {
+    "/image/v1.0/report/{reportId}": {
       "post": {
         "tags": ["Post an image"],
         "summary": "Post expense report image",
@@ -261,7 +261,7 @@
         "deprecated": false
       }
     },
-    "/receipt/{imageId}": {
+    "/image/v1.0/receipt/{imageId}": {
       "get": {
         "tags": ["Get an image URL"],
         "summary": "Get receipt image URL",
