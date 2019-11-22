@@ -27,7 +27,7 @@ Version 4.0 of Request API works only with the new [Authentication API](/api-ref
 * [Travel Agency](./v4.endpoints.travel-agency-resources.html)
 * [Schema](./v4.endpoints.schemas.html)
 * [HTTP Status Codes](./v4.response-codes.html)
-* [Run in Postman](https://app.getpostman.com/run-collection/19d9c72452e94689cd4f)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
 
 ## <a name="overview"></a>Overview
 

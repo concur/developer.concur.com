@@ -10,31 +10,31 @@ layout: reference
 ### Request
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
- <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>testLogin123</userid>
-    <password>txxxxxxxxxxxx;</password>
-   </authentication>
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+      <userid>testLogin123</userid>
+      <password>txxxxxxxxxxxx;</password>
+    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05"
-                      EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
-                      Version="4" PrimaryLangID="en" AltLangID="en" MaxResponses="100">
-    <POS>
-     <Source ISOCurrency="USD"></Source>
-    </POS>
-    <Criteria>
-     <Criterion>
-      <Position Latitude="52.559720" Longitude="13.287780"></Position>
-      <RefPoint></RefPoint>
-      <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
-      <StayDateRange Start="2018-02-12" End="2018-02-13"></StayDateRange>
-     </Criterion>
-    </Criteria>
-   </OTA_HotelSearchRQ>
+    <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                       EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
+                       Version="4" PrimaryLangID="en" AltLangID="en" MaxResponses="100">
+      <POS>
+        <Source ISOCurrency="USD"></Source>
+      </POS>
+      <Criteria>
+        <Criterion>
+          <Position Latitude="52.559720" Longitude="13.287780"></Position>
+          <RefPoint></RefPoint>
+          <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
+          <StayDateRange Start="2018-02-12" End="2018-02-13"></StayDateRange>
+        </Criterion>
+      </Criteria>
+    </OTA_HotelSearchRQ>
   </Body>
- </Envelope>
+</Envelope>
  ```
 
 ### Response
@@ -84,76 +84,76 @@ The initial Search request (see above) is followed up by an multi-property Avail
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
- <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>testLogin123</userid>
-    <password>txxxxxxxxxxxx;</password>
-   </authentication>
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+      <userid>testLogin123</userid>
+      <password>txxxxxxxxxxxx;</password>
+    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05"
-                     EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
-                     Version="5" PrimaryLangID="en" AltLangID="en">
-    <POS>
-     <Source ISOCurrency="USD"></Source>
-    </POS>
-    <AvailRequestSegments>
-     <AvailRequestSegment>
-      <HotelSearchCriteria>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="50709"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="468159"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="584875"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="765336"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="70346"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="52198"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="697768"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="14411"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="436533"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="459980"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="419430"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="92103"></HotelRef>
-       </Criterion>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="252272"></HotelRef>
-       </Criterion>
-      </HotelSearchCriteria>
-      <StayDateRange Start="2018-02-12" End="2018-02-13"></StayDateRange>
-      <RoomStayCandidates>
-       <RoomStayCandidate>
-        <GuestCounts>
-         <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
-        </GuestCounts>
-       </RoomStayCandidate>
-      </RoomStayCandidates>
-     </AvailRequestSegment>
-    </AvailRequestSegments>
-   </OTA_HotelAvailRQ>
+    <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                      EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
+                      Version="5" PrimaryLangID="en" AltLangID="en">
+      <POS>
+        <Source ISOCurrency="USD"></Source>
+      </POS>
+      <AvailRequestSegments>
+        <AvailRequestSegment>
+          <HotelSearchCriteria>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="50709"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="468159"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="584875"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="765336"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="70346"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="52198"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="697768"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="14411"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="436533"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="459980"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="419430"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="92103"></HotelRef>
+            </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="252272"></HotelRef>
+            </Criterion>
+          </HotelSearchCriteria>
+          <StayDateRange Start="2018-02-12" End="2018-02-13"></StayDateRange>
+          <RoomStayCandidates>
+            <RoomStayCandidate>
+              <GuestCounts>
+                <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
+              </GuestCounts>
+            </RoomStayCandidate>
+          </RoomStayCandidates>
+        </AvailRequestSegment>
+      </AvailRequestSegments>
+    </OTA_HotelAvailRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
 
 ### Response
@@ -197,7 +197,8 @@ The initial Search request (see above) is followed up by an multi-property Avail
               </Guarantee>
               <CancelPenalties>
                 <CancelPenalty NonRefundable="false">
-                  <Deadline AbsoluteDeadline="2019-05-08T23:59:59" OffsetDropTime="BeforeArrival" OffsetTimeUnit="Day" OffsetUnitMultiplier="14"/>
+                  <Deadline AbsoluteDeadline="2019-05-08T23:59:59" OffsetDropTime="BeforeArrival" OffsetTimeUnit="Day"
+                            OffsetUnitMultiplier="14"/>
                 </CancelPenalty>
               </CancelPenalties>
               <MealsIncluded Breakfast="false" Dinner="false" Lunch="false"/>
@@ -206,7 +207,8 @@ The initial Search request (see above) is followed up by an multi-property Avail
           <RoomRates>
             <RoomRate RatePlanID="TOGG3BU" RoomID="b3da298f">
               <Rates>
-                <Rate ChargeType="18" GuaranteedInd="true" NumberOfUnits="1" RateTimeUnit="FullDuration" RoomPricingType="Per stay" UnitMultiplier="1">
+                <Rate ChargeType="18" GuaranteedInd="true" NumberOfUnits="1" RateTimeUnit="FullDuration"
+                      RoomPricingType="Per stay" UnitMultiplier="1">
                   <PaymentPolicies>
                     <GuaranteePayment>
                       <AcceptedPayments>
@@ -291,7 +293,8 @@ The initial Search request (see above) is followed up by an multi-property Avail
           <RoomRates>
             <RoomRate RatePlanID="MB4YV34" RoomID="f7631619">
               <Rates>
-                <Rate ChargeType="18" GuaranteedInd="true" NumberOfUnits="1" RateTimeUnit="FullDuration" RoomPricingType="Per stay" UnitMultiplier="1">
+                <Rate ChargeType="18" GuaranteedInd="true" NumberOfUnits="1" RateTimeUnit="FullDuration"
+                      RoomPricingType="Per stay" UnitMultiplier="1">
                   <PaymentPolicies>
                     <GuaranteePayment>
                       <AcceptedPayments>
@@ -338,7 +341,8 @@ The initial Search request (see above) is followed up by an multi-property Avail
           </BasicPropertyInfo>
         </RoomStay>
         <RoomStay>
-          ... and another RoomStay nodes follow here for all the returned rooms for all the hotels (properties) per Availability request
+          ... and another RoomStay nodes follow here for all the returned rooms for all the hotels (properties) per
+          Availability request
         </RoomStay>
       </RoomStays>
     </OTA_HotelAvailRS>
@@ -367,30 +371,30 @@ WIth Availability response also cancellation information comes which can be disp
 ### Request
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
- <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>testLogin123</userid>
-    <password>txxxxxxxxxxxx;</password>
-   </authentication>
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+      <userid>testLogin123</userid>
+      <password>txxxxxxxxxxxx;</password>
+    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05"
-                               EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9"
-                               Version="3" PrimaryLangID="en" AltLangID="en">
-    <POS>
-     <Source ISOCurrency="USD"></Source>
-    </POS>
-    <HotelDescriptiveInfos>
-     <HotelDescriptiveInfo ChainCode="ZZ" HotelCode="419430"></HotelDescriptiveInfo>
-    </HotelDescriptiveInfos>
-   </OTA_HotelDescriptiveInfoRQ>
+    <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                                EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9"
+                                Version="3" PrimaryLangID="en" AltLangID="en">
+      <POS>
+        <Source ISOCurrency="USD"></Source>
+      </POS>
+      <HotelDescriptiveInfos>
+        <HotelDescriptiveInfo ChainCode="ZZ" HotelCode="419430"></HotelDescriptiveInfo>
+      </HotelDescriptiveInfos>
+    </OTA_HotelDescriptiveInfoRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
 
 ### Response
-``` xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
@@ -402,7 +406,18 @@ WIth Availability response also cancellation information comes which can be disp
         <HotelDescriptiveContent ChainCode="ZZ" HotelCode="419430" HotelName="Courtyard Prague Airport">
           <HotelInfo>
             <Descriptions>
-              <DescriptiveText>Prague (PRG): The Europort building which housed the hotel is located in front of the arrivial and departure halls at Prague-ruzyne Airport. The hotel will have direct access to the airport’s infrastructure and offer connections to both the walkway and transporation routes. The conveniently located Courtyard Prague Airport provides its guests upscale accommodation outside the buzzing city centre. Kept in a cosy elegant design, the comfortable rooms are fitted with coffee and tea maker and nice sitting and working area. The magnificent atrium with its modern structure and nice garden invites to stay and relax. Directly situated at Prague’s international airport, the hotel is about 16 kilometres from the city centre and the historic castle. In the nearby surroundings, guests can enjoy horseback riding, biking or kayaking. Oléo Pazzo Mediterranean Bistro is a contemporary restaurant decorated in warm and coulourful style with a show kitchen and a trendy bar. Other features are a fitness,a business center,meeting rooms.</DescriptiveText>
+              <DescriptiveText>Prague (PRG): The Europort building which housed the hotel is located in front of the
+                arrivial and departure halls at Prague-ruzyne Airport. The hotel will have direct access to the
+                airport’s infrastructure and offer connections to both the walkway and transporation routes. The
+                conveniently located Courtyard Prague Airport provides its guests upscale accommodation outside the
+                buzzing city centre. Kept in a cosy elegant design, the comfortable rooms are fitted with coffee and tea
+                maker and nice sitting and working area. The magnificent atrium with its modern structure and nice
+                garden invites to stay and relax. Directly situated at Prague’s international airport, the hotel is
+                about 16 kilometres from the city centre and the historic castle. In the nearby surroundings, guests can
+                enjoy horseback riding, biking or kayaking. Oléo Pazzo Mediterranean Bistro is a contemporary restaurant
+                decorated in warm and coulourful style with a show kitchen and a trendy bar. Other features are a
+                fitness,a business center,meeting rooms.
+              </DescriptiveText>
             </Descriptions>
           </HotelInfo>
           <MultimediaDescriptions>
@@ -428,11 +443,11 @@ WIth Availability response also cancellation information comes which can be disp
           </MultimediaDescriptions>
           <TPA_Extensions>
             <Description Name="First Description">
-                <Text>First line of first description.</Text>
-                <Text>Second line of first description.</Text>
+              <Text>First line of first description.</Text>
+              <Text>Second line of first description.</Text>
             </Description>
             <Description>
-                <Text>Second description without name.</Text>
+              <Text>Second description without name.</Text>
             </Description>
           </TPA_Extensions>
         </HotelDescriptiveContent>
@@ -459,79 +474,79 @@ WIth Availability response also cancellation information comes which can be disp
 ### Request
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
- <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>testLogin123</userid>
-    <password>txxxxxxxxxxxx;</password>
-   </authentication>
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+      <userid>testLogin123</userid>
+      <password>txxxxxxxxxxxx;</password>
+    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05"
-                   EchoToken="6C85DDBD-EB62-444D-B2C3-F59BDF65BE98"
-                   Version="6" PrimaryLangID="en" AltLangID="en">
-    <POS>
-     <Source ISOCurrency="USD"></Source>
-    </POS>
-    <HotelReservations>
-     <HotelReservation>
-      <RoomStays>
-       <RoomStay>
-        <RatePlans>
-         <RatePlan RatePlanID="XNFYP4I">
-          <Guarantee GuaranteeType="CC/DC/Voucher">
-           <GuaranteesAccepted>
-            <GuaranteeAccepted>
-             <PaymentCard CardCode="VI" ExpireDate="1220">
-              <CardType Code="VI">VISA</CardType>
-              <CardHolderName>HOTELSERVICEAMADEUS TESTUSERMOCK</CardHolderName>
-             </PaymentCard>
-            </GuaranteeAccepted>
-           </GuaranteesAccepted>
-          </Guarantee>
-         </RatePlan>
-        </RatePlans>
-        <TimeSpan Start="2018-02-12" End="2018-02-13"></TimeSpan>
-        <BasicPropertyInfo HotelCode="419430"></BasicPropertyInfo>
-       </RoomStay>
-      </RoomStays>
-      <ResGuests>
-       <ResGuest>
-        <Profiles>
-         <ProfileInfo>
-          <Profile>
-           <Customer Gender="Unknown">
-            <PersonName Language="en">
-             <GivenName>HOTELSERVICEAMADEUS</GivenName>
-             <Surname>TESTUSERMOCK</Surname>
-            </PersonName>
-            <Telephone PhoneNumber="3141011001"></Telephone>
-            <Email>hrs_hs2_amadeus_mock@concurautm3.com</Email>
-            <Address>
-             <AddressLine>123 Sesame St.</AddressLine>
-             <CityName>Alexandria</CityName>
-             <PostalCode>22314</PostalCode>
-             <StateProv></StateProv>
-             <CountryName Code="US">USA</CountryName>
-            </Address>
-            <CitizenCountryName Code="US"></CitizenCountryName>
-           </Customer>
-           <CompanyInfo>
-            <CompanyName>CONCURTECH</CompanyName>
-           </CompanyInfo>
-          </Profile>
-         </ProfileInfo>
-        </Profiles>
-        <GuestCounts>
-         <GuestCount Count="1"></GuestCount>
-        </GuestCounts>
-       </ResGuest>
-      </ResGuests>
-     </HotelReservation>
-    </HotelReservations>
-   </OTA_HotelResRQ>
+    <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                    EchoToken="6C85DDBD-EB62-444D-B2C3-F59BDF65BE98"
+                    Version="6" PrimaryLangID="en" AltLangID="en">
+      <POS>
+        <Source ISOCurrency="USD"></Source>
+      </POS>
+      <HotelReservations>
+        <HotelReservation>
+          <RoomStays>
+            <RoomStay>
+              <RatePlans>
+                <RatePlan RatePlanID="XNFYP4I">
+                  <Guarantee GuaranteeType="CC/DC/Voucher">
+                    <GuaranteesAccepted>
+                      <GuaranteeAccepted>
+                        <PaymentCard CardCode="VI" ExpireDate="1220">
+                          <CardType Code="VI">VISA</CardType>
+                          <CardHolderName>HOTELSERVICEAMADEUS TESTUSERMOCK</CardHolderName>
+                        </PaymentCard>
+                      </GuaranteeAccepted>
+                    </GuaranteesAccepted>
+                  </Guarantee>
+                </RatePlan>
+              </RatePlans>
+              <TimeSpan Start="2018-02-12" End="2018-02-13"></TimeSpan>
+              <BasicPropertyInfo HotelCode="419430"></BasicPropertyInfo>
+            </RoomStay>
+          </RoomStays>
+          <ResGuests>
+            <ResGuest>
+              <Profiles>
+                <ProfileInfo>
+                  <Profile>
+                    <Customer Gender="Unknown">
+                      <PersonName Language="en">
+                        <GivenName>HOTELSERVICEAMADEUS</GivenName>
+                        <Surname>TESTUSERMOCK</Surname>
+                      </PersonName>
+                      <Telephone PhoneNumber="3141011001"></Telephone>
+                      <Email>hrs_hs2_amadeus_mock@concurautm3.com</Email>
+                      <Address>
+                        <AddressLine>123 Sesame St.</AddressLine>
+                        <CityName>Alexandria</CityName>
+                        <PostalCode>22314</PostalCode>
+                        <StateProv></StateProv>
+                        <CountryName Code="US">USA</CountryName>
+                      </Address>
+                      <CitizenCountryName Code="US"></CitizenCountryName>
+                    </Customer>
+                    <CompanyInfo>
+                      <CompanyName>CONCURTECH</CompanyName>
+                    </CompanyInfo>
+                  </Profile>
+                </ProfileInfo>
+              </Profiles>
+              <GuestCounts>
+                <GuestCount Count="1"></GuestCount>
+              </GuestCounts>
+            </ResGuest>
+          </ResGuests>
+        </HotelReservation>
+      </HotelReservations>
+    </OTA_HotelResRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
 
 
@@ -542,7 +557,8 @@ WIth Availability response also cancellation information comes which can be disp
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
     <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05"
-                    xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
+                    xmlns:ns2="http://www.concur.com/webservice/auth"
+                    ResResponseType="Reserved">
       <Success/>
       <HotelReservations>
         <HotelReservation>
@@ -668,24 +684,24 @@ WIth Availability response also cancellation information comes which can be disp
 ### Request
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
- <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>testLogin123</userid>
-    <password>txxxxxxxxxxxx;</password>
-   </authentication>
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+      <userid>testLogin123</userid>
+      <password>txxxxxxxxxxxx;</password>
+    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05"
-               EchoToken="4E1B8BF4-ACBD-4709-9FCC-B59EB2550086"
-               Version="5.002" PrimaryLangID="en" AltLangID="en">
-    <POS>
-     <Source ISOCurrency="USD"></Source>
-    </POS>
-    <UniqueID Type="14" ID="88618333"></UniqueID>
-   </OTA_ReadRQ>
+    <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                EchoToken="4E1B8BF4-ACBD-4709-9FCC-B59EB2550086"
+                Version="5.002" PrimaryLangID="en" AltLangID="en">
+      <POS>
+        <Source ISOCurrency="USD"></Source>
+      </POS>
+      <UniqueID Type="14" ID="88618333"></UniqueID>
+    </OTA_ReadRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
 
 
@@ -775,7 +791,7 @@ WIth Availability response also cancellation information comes which can be disp
               <TimeSpan End="2018-02-23" Start="2018-02-22"/>
               <BasicPropertyInfo ChainCode="1609" HotelCode="10517" HotelName="Radisson Blu Hotel">
                 <Address>
-                  <AddressLine>Karl-Liebknecht-Str. 3 </AddressLine>
+                  <AddressLine>Karl-Liebknecht-Str. 3</AddressLine>
                   <CityName>Berlin</CityName>
                   <CountryName Code="DEU">Federal Republic of Germany</CountryName>
                   <StateProv StateCode="BE">Berlin disctrict</StateProv>
@@ -833,24 +849,24 @@ WIth Availability response also cancellation information comes which can be disp
 ### Request
 
 ```xml
- <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>testLogin123</userid>
-    <password>txxxxxxxxxxxx;</password>
-   </authentication>
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+      <userid>testLogin123</userid>
+      <password>txxxxxxxxxxxx;</password>
+    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" CancelType="Cancel"
-                 EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228"
-                 Version="3" PrimaryLangID="en" AltLangID="en">
-    <POS>
-     <Source ISOCurrency="USD"></Source>
-    </POS>
-    <UniqueID Type="14" ID="88618333"></UniqueID>
-   </OTA_CancelRQ>
+    <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" CancelType="Cancel"
+                  EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228"
+                  Version="3" PrimaryLangID="en" AltLangID="en">
+      <POS>
+        <Source ISOCurrency="USD"></Source>
+      </POS>
+      <UniqueID Type="14" ID="88618333"></UniqueID>
+    </OTA_CancelRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
 
 

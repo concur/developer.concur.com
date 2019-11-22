@@ -49,6 +49,8 @@
         url: /api-reference/common/connection-requests/connection-requests-resource.html
       - title: Extracts v1
         url: /api-reference/common/extracts/v1.extracts.html
+      - title: Lists v3
+        url: /api-reference/common/lists/v3.lists.html
       - title: List Item v3
         url: /api-reference/common/list-item/v3.list-item.html
       - title: Locations v3
@@ -186,7 +188,12 @@
       - title: Response Codes
         url: /api-reference/receipts/response-codes.html
 - title: Receipt Image
-  url: /api-reference/image/v3.image.html
+  url: ''
+  children:
+      - title: Image v1
+        url: /api-reference/image/v1.image.html
+      - title: Image v3
+        url: /api-reference/image/v3.image.html
 - title: Request v3
   url: /api-reference/request/v3.request.html
 - title: Travel Profile

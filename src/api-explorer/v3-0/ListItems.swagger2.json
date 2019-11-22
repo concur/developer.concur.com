@@ -19,6 +19,19 @@
     "description": "Provides an automated solution to clients who would like to manage list items. This API provides methods to view, add, update or delete list items owned by the specified lists. This API supports Concur Expense, Concur Invoice, and Concur Request.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "tags": [
     {
       "name": "Resources",
@@ -26,7 +39,7 @@
     }
   ],
   "paths": {
-    "/common/listitems": {
+    "/common/list items": {
       "get": {
         "tags": [
           "Resources"
@@ -66,7 +79,7 @@
           {
             "name": "parentId",
             "in": "query",
-            "description": "The unique identifier of this item's parent. Is empty when there is no parent.",
+            "description": "The unique identifier of this item's parent. Empty when there is no parent.",
             "required": false,
             "type": "string"
           },
@@ -173,6 +186,12 @@
             "schema": {
               "$ref": "#/definitions/CreateResponse"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -195,7 +214,7 @@
           {
             "name": "listId",
             "in": "query",
-            "description": "The unique identifier for the list this item is a member of.",
+            "description": "The unique identifier for the list this item is a member.",
             "required": false,
             "type": "string"
           }
@@ -239,6 +258,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       },
@@ -267,6 +292,12 @@
         "responses": {
           "200": {
             "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Void"
             }
@@ -342,7 +373,7 @@
         },
         "ParentID": {
           "type": "string",
-          "description": "The unique identifier of this item's parent. Is empty when there is no parent."
+          "description": "The unique identifier of this item's parent. Empty when there is no parent."
         },
         "URI": {
           "type": "string",
@@ -432,5 +463,11 @@
     "Void": {
       "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }
