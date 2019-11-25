@@ -2,7 +2,7 @@
   "x-sap-shortText": "Returns information about the configured form fields for a specified form in SAP Concur.",
   "swagger": "2.0",
   "host": "sandbox.api.sap.com",
-  "basePath": "/api/v1.1",
+  "basePath": "/concur/api",
   "schemes": [
     "https"
   ],
