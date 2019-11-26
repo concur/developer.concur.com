@@ -1,29 +1,53 @@
 {
+  "x-sap-shortText": "Obtain a list of users.",
     "swagger": "2.0",
+    "host": "sandbox.api.sap.com",
+    "basePath": "/concur/api/v3.1",
     "info": {
       "version": "3.1.0",
-      "title": "GET Users Bulk API",
-      "description": "This API takes a company level token, and returns a list of users that match the search criteria\n"
+      "title": "SAP Concur Internal Get Users Bulk API",
+      "description": "Returns the list of users at the company specified in the access token that match the search criteria."
     },
-    "host": "us.api.concursolutions.com",
+    "securityDefinitions": {
+  		"OAuth2": {
+  			"type": "oauth2",
+  			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+  			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+  			"flow": "application"
+  		}
+  	},
+    "security": [
+  		{
+  			"OAuth2": []
+  		}
+  	],
     "schemes": [
       "https"
+    ],
+    "tags": [
+      {
+        "name": "Resources",
+        "description": ""
+      }
     ],
     "paths": {
       "/users/": {
         "get": {
+          "tags": [
+            "Resources"
+          ],
           "parameters": [
             {
               "in": "header",
               "name": "Authorization",
               "type": "string",
-              "description": "Company level access Bearer token"
+              "description": "Company level access bearer token."
             },
             {
               "in": "query",
               "name": "offset",
               "type": "integer",
-              "description": "The number of items to skip before returning result set"
+              "description": "The number of items to skip before returning result set."
             },
             {
               "in": "query",
@@ -41,37 +65,37 @@
               "in": "query",
               "name": "loginid",
               "type": "string",
-              "description": "login_id of the user"
+              "description": "login_id of the user."
             },
             {
               "in": "query",
               "name": "lastname",
               "type": "string",
-              "description": "last name of the user"
+              "description": "Last name of the user."
             },
             {
               "in": "query",
               "name": "employeeid",
               "type": "string",
-              "description": "Employee Id of the user"
+              "description": "Employee Id of the user."
             },
             {
               "in": "query",
               "name": "primaryemail",
               "type": "string",
-              "description": "Primary email of the user"
+              "description": "Primary email of the user."
             },
             {
               "in": "query",
               "name": "countrycode",
               "type": "string",
-              "description": "Country Code of the user"
+              "description": "Country code of the user."
             },
             {
               "in": "query",
               "name": "id",
               "type": "string",
-              "description": "Id of the user"
+              "description": "Id of the user."
             }
           ],
           "responses": {
@@ -85,7 +109,7 @@
               "description": "Authorization Required"
             },
             "404": {
-              "description": "Resoource not found"
+              "description": "Resource not found"
             }
           }
         }
@@ -97,52 +121,64 @@
         "properties": {
           "ID": {
             "type": "string",
+            "description": "The unique identifier of the resource.",
             "example": "99BFFFC3-C0BE-44FF-A441-AE1FFFFFF75B8"
           },
           "Active": {
             "type": "boolean",
+            "description": "Indicates whether the user is currently active or not.",
             "example": true
           },
           "CountryCode": {
             "type": "string",
+            "description": "The user's country code.",
             "example": "US"
           },
           "CellPhoneNumber": {
             "type": "string",
+            "description": "The cell phone number of the user.",
             "example": "425-555-1111"
           },
           "PrimaryEmail": {
             "type": "string",
+            "description": "The primary email of the user.",
             "example": "johndoe@gmail.com"
           },
           "EmployeeID": {
             "type": "string",
+            "description": "The employee ID of the user.",
             "example": "johndoe@gmail.com"
           },
           "OrganizationUnit": {
             "type": "string",
+            "description": "The configured organization unit of the user.",
             "example": "IT"
           },
           "FirstName": {
             "type": "string",
-            "example": "John"
+            "description": "The first name of the user.",
+            "example": "Jane"
           },
           "MiddleName": {
             "type": "string",
+            "description": "The middle name of the user.",
             "example": ""
           },
           "LastName": {
             "type": "string",
+            "description": "The last name of the user.",
             "example": "Doe"
           },
           "LoginID": {
             "type": "string",
-            "example": "johndoe@gmail.com"
+            "description": "The login ID of the user.",
+            "example": "janedoe@gmail.com"
           },
           "Emails": {
             "type": "array",
             "items": {
               "type": "string",
+              "description": "The email address of the user.",
               "example": "johndoe@gmail.com"
             }
           }
@@ -153,14 +189,17 @@
         "properties": {
           "total": {
             "type": "integer",
+            "description": "The total number of users within the company.",
             "example": 10
           },
           "offset": {
             "type": "integer",
+            "description": "The offset to begin returning the list of users.",
             "example": 1
           },
           "limit": {
-            "type": 10,
+            "type": "integer",
+            "description": "The number of user records to return in that call. Maximum: 1000",
             "example": 10
           },
           "company": {
@@ -168,26 +207,32 @@
             "properties": {
               "name": {
                 "type": "string",
+                "description": "The company name.",
                 "example": "Company Name LLC"
               },
               "address": {
                 "type": "string",
+                "description": "The company address",
                 "example": "601 108th ave NE"
               },
               "city": {
                 "type": "string",
+                "description": "The city of the company address.",
                 "example": "Bellevue"
               },
               "state": {
                 "type": "string",
+                "description": "The state/province of the company address.",
                 "example": "WA"
               },
               "zip": {
                 "type": "string",
+                "description": "The zip code of the company address.",
                 "example": "98004"
               },
               "country": {
                 "type": "string",
+                "description": "The country code of the company address.",
                 "example": "US"
               }
             }

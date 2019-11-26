@@ -1,13 +1,19 @@
 {
   "x-sap-shortText": "Returns information about the configured form fields for a specified form in SAP Concur.",
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
-  "basePath": "/api/v1.1",
-  "info": {
-    "description": "Returns the configured fields for the specified expense form.",
-    "version": "1.1",
-    "title": "Expense Report Form Fields"
-  },
+  "host": "sandbox.api.sap.com",
+  "basePath": "/concur/api",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
   "securityDefinitions": {
     "OAuth2": {
       "type": "oauth2",
@@ -21,6 +27,11 @@
       "OAuth2": []
     }
   ],
+  "info": {
+    "description": "Returns the configured fields for the specified expense form.",
+    "version": "1.1",
+    "title": "Expense Report Form Fields"
+  },
   "paths": {
     "/expense/expensereport/v1.1/report/Forms/{FormId}/Fields": {
       "get": {
