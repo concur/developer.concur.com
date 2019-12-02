@@ -116,7 +116,7 @@ Message to retrieved the availability of hotels.
 |---------------------|-----------|-------------|
 |`HotelSearchCriteria`|`complex`|**Required** Specified hotel search criteria. SAP Concur will send only one (1) `HotelSearchCriteria`.|
 |`StayDateRange`|`complex`|Range of dates using ISO 8601.|
-|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from `Search` response that links the Search results to Availability and Reservation requests.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from [Search](/api-reference/direct-connects/hotel-service-2/Search.html) response that links the Search results to [Availability](#request) and [Reservation](/api-reference/direct-connects/hotel-service-2/Reservation.html) requests.|
 
 #### <a name="hotel-search-criteria"></a>HotelSearchCriteria
 
@@ -294,7 +294,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |----------------------|-------------------|-------------|
 |`RatePlanID`|`stringLength1to64`|**Required** A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples: Corporate ID.|
 |`AvailabilityStatus`|`stringLength1to32`|**Required** Used to specify an availability status for the rate plan. Supported values: `AvailableForSale`, `ChangeDuringStay`|
-|`Guarantee`|`complex|**Required** Guarantee information that applies to the rate plan. SAP Concur only expects one (1) Guarantee element per `RatePlan`.|
+|`Guarantee`|`complex`|**Required** Guarantee information that applies to the rate plan. SAP Concur only expects one (1) Guarantee element per `RatePlan`.|
 |`CancelPenalties`|`complex`|**Required** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
 |`MealsIncluded`|`complex`|**Required** Defines which meals are included with this rate program.|
 

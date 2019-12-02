@@ -1,26 +1,37 @@
 {
   "x-sap-shortText": "Manage receipt images for the OAuth consumer.",
   "swagger": "2.0",
-  "info": {
-    "description": "The SAP Concur Image API allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.<p>The Image API supports the following image formats:</p><p><li>`application/pdf`<li>`image/jpg`<li>`image/jpeg`<li>`image/png`</p><p>The maximum file size allowed is 10 MB.</p>",
-    "version": "1.0",
-    "title": "Image API Documentation"
-  },
+  "host": "sandbox.api.sap.com",
+  "basePath": "/concur/api",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
   "securityDefinitions": {
-		"OAuth2": {
-			"type": "oauth2",
-			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
-			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
-			"flow": "application"
-		}
-	},
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
   "security": [
-		{
-			"OAuth2": []
-		}
-	],
-  "host": "www.concursolutions.com",
-  "basePath": "/api/image/v1.0/",
+    {
+      "OAuth2": []
+    }
+  ],
+  "info": {
+    "title": "Image API Documentation",
+    "description": "The SAP Concur Image API allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.<p>The Image API supports the following image formats:</p><p><li>`application/pdf`<li>`image/jpg`<li>`image/jpeg`<li>`image/png`</p><p>The maximum file size allowed is 10 MB.</p>",
+    "version": "1.0"
+  },
   "tags": [
     {
       "name": "Post an image",
@@ -29,7 +40,7 @@
     { "name": "Get an image URL", "description": "Retrieve image URLs. The URL is valid for 30 minutes after the request." }
   ],
   "paths": {
-    "/receipt": {
+    "/image/v1.0/receipt": {
       "post": {
         "tags": ["Post an image"],
         "summary": "Post receipt image",
@@ -58,7 +69,7 @@
         "deprecated": false
       }
     },
-    "/expenseentry/{entryId}": {
+    "/image/v1.0/expenseentry/{entryId}": {
       "post": {
         "tags": ["Post an image"],
         "summary": "Post expense entry image",
@@ -122,7 +133,7 @@
         "deprecated": false
       }
     },
-    "/invoice/{requestId}": {
+    "/image/v1.0/invoice/{requestId}": {
       "post": {
         "tags": ["Post an image"],
         "summary": "Post invoice image",
@@ -186,7 +197,7 @@
         "deprecated": false
       }
     },
-    "/report/{reportId}": {
+    "/image/v1.0/report/{reportId}": {
       "post": {
         "tags": ["Post an image"],
         "summary": "Post expense report image",
@@ -250,7 +261,7 @@
         "deprecated": false
       }
     },
-    "/receipt/{imageId}": {
+    "/image/v1.0/receipt/{imageId}": {
       "get": {
         "tags": ["Get an image URL"],
         "summary": "Get receipt image URL",
