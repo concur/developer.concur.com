@@ -9,6 +9,7 @@ layout: reference
 * [May](#may)
 * [July](#july)
 * [November](#november)
+* [December](#december)
 
 ## <a name="january"></a>January 2019
 
@@ -371,6 +372,37 @@ By connecting SmartRyde with your Concur Expense account, the reservation detail
 SmartRyde works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the SmartRyde integration, visit [https://smart-ryde.com](https://smart-ryde.com).
 
 #### <a href="didi-mobility-november"></a>DiDi Mobility
+
+![DiDi Mobility Logo](./app-center-2019-11-18-didi-mobility-logo.png)
+
+DiDi is the world’s largest taxi hailing app. After connecting DiDi Japan and Concur Expense, your ride receipt will be automatically synced with your Concur Expense account. Receive up to 3% DiDi reward points, redeemable with DiDi coupons.
+
+DiDi Mobility works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the DiDi Mobility integration, visit [https://didimobility.co.jp/](https://didimobility.co.jp/).
+
+## <a name="december"></a>December 2019
+
+* [Apps for Me / User Connection Apps Now Available](#apps-for-me-connection-now-available-december)
+* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-december)
+  * [SmartRyde](#smartryde-december)
+  * [DiDi Mobility](#didi-mobility-december)
+
+### <a href="apps-for-me-connection-now-available-december"></a>Apps for Me / User Connection Apps Now Available
+
+None this month.
+
+## <a name="apps-for-me-connection-coming-soon-december"></a>Apps for Me / User Connection Apps Coming Soon
+
+#### <a href="smartryde-december"></a>SmartRyde
+
+![SmartRyde Logo](./app-center-2019-11-18-smartryde-logo.png)
+
+SmartRyde is an airport transfer service available for overseas business trips, such as moving from a local airport to a hotel (from a hotel to a local airport). Reservations are made in advance, meaning there is no need for local payment.
+
+By connecting SmartRyde with your Concur Expense account, the reservation details (amount, etc.) and receipt data are linked, allowing you to manage and submit expenses in Concur Expense.
+
+SmartRyde works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the SmartRyde integration, visit [https://smart-ryde.com](https://smart-ryde.com).
+
+#### <a href="didi-mobility-december"></a>DiDi Mobility
 
 ![DiDi Mobility Logo](./app-center-2019-11-18-didi-mobility-logo.png)
 
