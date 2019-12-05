@@ -152,6 +152,9 @@ Message to reserve a hotel.
               <Membership ProgramCode="HotelLoyaltyProgram" AccountID="1111111"></Membership>
             </Memberships>
           </ResGlobalInfo>
+          <TPA_Extensions>
+            <SearchSessionToken>5EA6C45E55104704E4</SearchSessionToken>
+          </TPA_Extensions>
         </HotelReservation>
         <TPA_Extensions>
           <NotifyEmails>
@@ -178,13 +181,14 @@ Message to reserve a hotel.
 |-------------------|-----------|-------------|
 |`HotelReservations`|`complex`|**Required** A collection of hotel reservations. SAP Concur will only send one (1) hotel reservation.|
 
-#### <a name="req-hotel-reservation"></a>HotelReservation**
+#### <a name="req-hotel-reservation"></a>HotelReservation
 
 |Name|Type|Description|
 |---------------|-----------|-------------|
 |`RoomStays`|`complex`|**Required** A reference to identify the booking.|
 |`ResGuests`|`complex`|**Required** List of guests. Supported value: `1`|
 |`ResGlobalInfo`|`complex`|Contains information that affects the reservation as a whole, typically a list of reward programs (see `Memberships`) or itinerary remarks (see `Comments`).|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from [Search](/api-reference/direct-connects/hotel-service-2/Search.html) response that links the Search results to [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html) and [Reservation](#request) requests.|
 
 #### <a name="req-room-stays"></a>RoomStays
 
@@ -502,9 +506,6 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
               </Comment>
             </Comments>
           </ResGlobalInfo>
-          <TPA_Extensions>
-            <SearchSessionToken>5EA6C45E55104704E4</SearchSessionToken>
-          </TPA_Extensions>
         </HotelReservation>
       </HotelReservations>
     </OTA_HotelResRS>
@@ -518,7 +519,6 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |---------|------------|-------------|
 |`ResResponseType`|`stringLength1to32`|**Required** See the list of possible values.|
 |`HotelReservations`|`complex`|**Required** SAP Concur only supports one (1) reservation. All extra reservations will be ignored.|
-|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from `Search` response that links the Search results to Availability and Reservation requests.|
 
 #### <a name="res-response-type"></a>ResResponseType
 

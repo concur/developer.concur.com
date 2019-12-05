@@ -108,7 +108,7 @@ If the customer wants invoices paid early in order to take advantage of the Vend
 
 ### <a name="Updating-a-payment-with-status"></a>Updating a payment with status
 
-[Updating a payment with status](/api-reference/invoice/v1.invoice-pay.html#schema-payment-update)
+[Updating a payment with status](/api-reference/invoice/v4.invoice-pay.html#schema-payment-update)
 
 ## <a name="learn"></a>Learn
 

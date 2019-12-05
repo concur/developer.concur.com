@@ -1,26 +1,37 @@
 {
   "x-sap-shortText": "Returns information about the form types and configured forms in SAP Concur.",
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
-  "basePath": "/api/v1.1",
+  "host": "sandbox.api.sap.com",
+  "basePath": "/concur/api",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "info": {
     "description": "Returns the configured Expense form types, or the form IDs for the supplied form type. Clients can have multiple forms configured for each form type.",
     "version": "1.1",
     "title": "Expense Report Forms"
   },
-  "securityDefinitions": {
-		"OAuth2": {
-			"type": "oauth2",
-			"description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
-			"tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
-			"flow": "application"
-		}
-	},
-  "security": [
-		{
-			"OAuth2": []
-		}
-	],
   "tags": [
     {
       "name": "Form Types",
