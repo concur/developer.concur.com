@@ -249,7 +249,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-NationalIDs"></a>NationalIDs
 
-The `NationalID`s parent element contains a `NationalID` child element for each included National ID. The `NationalID` element contains the following child elements:
+The `NationalIDs` parent element contains a `NationalID` child element for each included National ID. The `NationalID` element contains the following child elements:
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
