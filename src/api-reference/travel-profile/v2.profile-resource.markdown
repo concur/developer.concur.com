@@ -649,6 +649,11 @@ W016|Too Many Items|There are too many items in the given list|-
 W017|No Access to VendorCode|The user lacks access to the given vendor code|-
 
 If incorrect API credentials are provided, the service will return the standard response, e.g. 403 Forbidden. 
+In some cases, the API will return additional information when producing a 400, Bad Request, response. It may contain the following codes in the response's body:
+* EC1 : If the user was not found in database
+* EC2: If the user is not a Company admin, if the Company ID does not match the user's Company ID
+* EC3: If the user is not an Agency admin, or if Agency Company ID is null, or if Agency Company ID does not match the users Agency Company ID 
+* EC4: If the Application's uuid is null, or if Application is configured not to have access to the input travel config.
 
 ## <a name="examples-for-travel-suppliers"></a>Examples for Travel Suppliers
 
