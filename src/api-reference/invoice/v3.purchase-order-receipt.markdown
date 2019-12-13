@@ -39,7 +39,7 @@ Name|Type|Format|Description
 
 ```json
 {
-  "Deleted": false,
+  "Deleted": "false",
   "DeliverySlipNumber": "DSN1",
   "GoodsReceiptNumber": "RCPT1",
   "ID": "1000001",
