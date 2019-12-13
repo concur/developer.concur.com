@@ -66,8 +66,8 @@ All request parameters are optional. To identify a specific user by Login ID or 
 
 Parameter Name|Parameter Type|Data Type|Description
 ---|---|---|---
-userid_type|Path|`string`|The type of user identification to use. Possible values are: `login` and `xmlsyncid`
-userid_value|Path|`string`|The user's Login ID or XML Sync ID, depending on which user type is selected. This parameter must be provided in conjunction with the `userid_type` parameter.
+`userid_type`|`Path`|`string`|The type of user identification to use. Possible values are: `login` and `xmlsyncid`
+`userid_value`|`Path`|`string`|The user's Login ID or XML Sync ID, depending on which user type is selected. This parameter must be provided in conjunction with the `userid_type` parameter.
 
 ### Headers
 
@@ -88,12 +88,12 @@ Creating/Updating a Profile uses the same model as what is retrieved.
 ### Helpful Tips
 
 * Minimum elements required to create a new user include:
-	* FirstName
-	* LastName
-	* TravelConfigID _(used to verify Agency and Company access to create user)_
-	* LoginID
-	* Password
-	* _RuleClass (uses Default Rule Class if not provided)_
+	* `FirstName`
+	* `LastName`
+	* `TravelConfigID` (used to verify agency and Company access to create user)
+	* `LoginID`
+	* `Password`
+	* `RuleClass` (uses default rule class if not provided)
 * Omitted elements will be ignored and not updated
 * Empty elements of datatype string will be cleared out; nillable elements will be cleared out if set as nil refer to XSD for nillable elements.
 
@@ -107,7 +107,7 @@ application/xml
 
 Authorization: OAuth {access_token}
 
-Where access_token is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve or update.
+Where  `access_token` is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve or update.
 
 ## <a name="schema"></a>Schema
 
@@ -223,16 +223,16 @@ Name|Data Type|Description|Update|Create|Comments
 **NOTES**
 
 * Telephone Types Other, Pager, Fax, Home, Work, Work2
-	* Ignores CountryCode, DeviceName, DeviceType, ContactOptIn, IsPrimaryMobile
+	* Ignores `CountryCode`, `DeviceName`, `DeviceType`, `ContactOptIn`, `IsPrimaryMobile`
   * Only Work (NOT Work2) uses Extension
 	* Only a single number can be kept for each of these types. If more than one of each type is provided, W016 warning message is returned.
 * Multiple cell phones can be updated, but will sync to the list provided.  Cell phones missing from that list that currently associate with the user will be deleted.
-* PrimaryMobile:
-  * If there is not exactly 1 PrimaryMobile specified in changing cell phones, then all cell phone changes will be rejected. If only 1 Cell Phone is provided, it is marked as Primary.
+* `PrimaryMobile`:
+  * If there is not exactly one (1) `PrimaryMobile` specified in changing cell phones, then all cell phone changes will be rejected. If only one (1) cell phone is provided, it is marked as primary.
 
 #### <a name="schema-addresses"></a>Addresses
 
-The Addresses parent element contains an Address child element for each included address. The Address element has the attributes shown in the Response Class section and contains the following child elements:
+The `Addresses` parent element contains an address child element for each included address. The address element has the attributes shown in the response class section and contains the following child elements:
 
 **NOTE**: The values returned for the Address child elements are as entered by the user. The fields do not enforce formatting and may have a wide variety of values.
 
@@ -249,28 +249,28 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-NationalIDs"></a>NationalIDs
 
-The NationalIDs parent element contains a NationalID child element for each included National ID. The NationalID element contains the following child elements:
+The `NationalIDs` parent element contains a `NationalID` child element for each included National ID. The `NationalID` element contains the following child elements:
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
 `NationalIDNumber`|`string`|The user's national identification number. Format: nvarchar(100)|-|-|No unicode accepted.  Only saves one national ID value. If multiple are provided, W016 warning message is returned.
 `IssuingCountry`|`string`|The country the national ID was issued in. Format: varchar(2)|-|-|-
-`Expiration`|`date`|The expiration date of the national ID. Format: YYYY-MM-DD|-|-|Min - 01/01/1753, Max - 12/31/9999
+`Expiration`|`date`|The expiration date of the national ID. Format: `YYYY-MM-DD`|-|-|Min - 01/01/1753, Max - 12/31/9999
 
 **NOTE**:  Only one National ID can be accepted.
 
 #### <a name="schema-DriversLicenses"></a>DriversLicenses
 
-The DriversLicenses parent element contains a DriversLicense child element for each included licenses.
+The `DriversLicenses` parent element contains a `DriversLicense` child element for each included licenses.
 
-* The DriversLicense element contains the following child elements:
+* The `DriversLicense` element contains the following child elements:
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
 `DriversLicenseNumber`|`string`|The user's driver license identification number. Format: nvarchar(100)|-|-|Only saves one Drivers License Number value. If multiple are provided, W016 warning message is returned.
 `IssuingCountry`|`string`|The country the license was issued in. Format: varchar(2)|-|-|-
 `IssuingState`|`string`|The state the license was issued in. Format: nvarchar(30)|-|-|-
-`Expiration`|`date`|The expiration date of the license. Format: YYYY-MM-DD|-|-|Min - 01/01/1753, Max - 12/31/9999
+`Expiration`|`date`|The expiration date of the license. Format: `YYYY-MM-DD`|-|-|Min - 01/01/1753, Max - 12/31/9999
 
 **NOTE**:  Only one Drivers License can be accepted.
 
@@ -294,8 +294,8 @@ Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
 `PassportNumber`|`string`|The user's passport number. Format: nvarchar(100)|Required|Required|-
 `PassportNationality`|`string`|The user's passport nationality. Format: char(2)|Required|Required|-
-`PassportExpiration`|`date`|The date the user’s passport expires. Format: YYYY-MM-DD|-|-|Min - 01/01/1900, Max - 06/06/2079
-`PassportDateIssued`|`date`|The date the user’s passport was issued. Format: YYYY-MM-DD|-|-|Min - 01/01/1900, Max - 06/06/2079
+`PassportExpiration`|`date`|The date the user’s passport expires. Format: `YYYY-MM-DD`|-|-|Min - 01/01/1900, Max - 06/06/2079
+`PassportDateIssued`|`date`|The date the user’s passport was issued. Format: `YYYY-MM-DD`|-|-|Min - 01/01/1900, Max - 06/06/2079
 `PassportCityIssued`|`string`|The city the user’s passport was issued in. Format: nvarchar(60)|-|-|-
 `PassportCountryIssued`|`string`|The country code in from the [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) specification. Format: char(2)|-|-|-
 
@@ -312,8 +312,8 @@ Name|Data Type|Description|Update|Create|Comments
 `VisaNationality`|`string`|The user's visa nationality. Format: char(2)|Required|Required|-
 `VisaNumber`|`string`|The user's visa nationality. Format: nvarchar(100)|Required|Required|-
 `VisaType`|`string`|The user's visa type. Values are Unknown, SingleEntry, DoubleEntry, MultiEntry, ESTA, ETA, and SchengenVisa.|-|-|-
-`VisaDateIssued`|`date`|The date the user’s visa was issued. Format: YYYY-MM-DD|-|-|Min - 01/01/1900 Max - 06/06/2079
-`VisaExpiration`|`date`|The date the user’s visa expires. Format: YYYY-MM-DD|-|-|Min -01/01/1900 Max - 06/06/2079
+`VisaDateIssued`|`date`|The date the user’s visa was issued. Format: `YYYY-MM-DD`|-|-|Min - 01/01/1900 Max - 06/06/2079
+`VisaExpiration`|`date`|The date the user’s visa expires. Format: `YYYY-MM-DD`|-|-|Min -01/01/1900 Max - 06/06/2079
 `VisaCityIssued`|`string`|The city the user’s visa was issued in. Format: nvarchar(60)|-|-|-
 `VisaCountryIssued`|`string`|The country code in from the [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) specification. Format: char(2)|-|-|-
 
@@ -321,7 +321,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-email-addresses"></a>EmailAddresses
 
-The EmailAddresses parent element contains an EmailAddress child element for each included email address. It contains the following child element:
+The `EmailAddresses` parent element contains an `EmailAddress` child element for each included email address. It contains the following child element:
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
@@ -341,7 +341,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-discount-codes"></a>DiscountCodes
 
-The DiscountCodes parent element contains a DiscountCode child element for each included discount code.
+The `DiscountCodes` parent element contains a `DiscountCode` child element for each included discount code.
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
@@ -352,7 +352,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-air"></a>Air
 
-The Air parent element contains the user's air travel preferences and contains the following child elements:
+The `Air` parent element contains the user's air travel preferences and contains the following child elements:
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
@@ -387,7 +387,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-rail"></a>Rail
 
-The Rail parent element contains the user's rail travel preferences and contains the following child elements:
+The `Rail` parent element contains the user's rail travel preferences and contains the following child elements:
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
@@ -423,7 +423,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-car"></a>Car
 
-The Car parent element contains the user's car travel preferences. It contains the following child elements:
+The `Car` parent element contains the user's car travel preferences. It contains the following child elements:
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
@@ -452,7 +452,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-hotel"></a>Hotel
 
-The Hotel parent element contains the user's hotel travel preferences. It contains the following child elements:
+The `Hotel` parent element contains the user's hotel travel preferences. It contains the following child elements:
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
@@ -485,7 +485,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-custom-fields"></a>CustomFields
 
-The CustomFields parent element contains a CustomField child element for each field.
+The `CustomFields` parent element contains a `CustomField` child element for each field.
 
 * Company Details scope must be enabled to receive the data.
 
@@ -509,10 +509,10 @@ Name|Data Type|Description|Update|Create|Comments
 
 **NOTES**:
 
-* FirstName, LastName, and Email cannot be updated.
-* Managers and Arrangers must be in the same company of the user to be assigned.
-* If the PrimaryIndicatorFlag is sent in as true, the arranger will be marked as primary.
-* New arrangers will be marked as Travel arrangers only.
+* `FirstName`, `LastName`, and `Email` cannot be updated.
+* `Managers` and `Arrangers` must be in the same company of the user to be assigned.
+* If the `PrimaryIndicatorFlag` is sent in as true, the arranger will be marked as primary.
+* New arrangers will be marked as travel arrangers only.
 * If multiple primary arrangers are provided, W016 warning message is returned.
 * If multiple managers are provided, W016 warning message is returned.
 
@@ -524,28 +524,28 @@ Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
 `NonEmployeeUserType`|`string`|The non-employee's user type. Values are: `Contractor`, `Student/Intern`, `Candidate for Hire`, `Invitational Traveler`, `Dependent/Spouse`, `Board Member`, `Other`|Required|Required|-
 `SponsorName`|`string`|The sponsor’s name. Format: varchar(255)|Cannot Update|-|-
-`SponsorshipStartDate`|`date`|The sponsorship start date. Format: YYYY-MM-DD|Required|Required|-
-`SponsorshipEndDate`|`date`|The sponsorship end date. Format: YYYY-MM-DD|Required|Required|-
+`SponsorshipStartDate`|`date`|The sponsorship start date. Format: `YYYY-MM-DD`|Required|Required|-
+`SponsorshipEndDate`|`date`|The sponsorship end date. Format: `YYYY-MM-DD`|Required|Required|-
 `LoginID`|`string`|The sponsor’s name. Format: varchar(255)|Required|Required|-
 
 **NOTES**:
 
-* The Company must allow sponsored users, and the Sponsoring User must have the “Sponsor” role to be added to the list of sponsors
-* The Sponsoring User must be associated with the same company as the Sponsored User.
-* If the association to the Sponsoring User already exists, than the data will be updated
-* SponsorshipEndDate must be after SponsorshipStartDate
+* The company must allow sponsored users, and the sponsoring user must have the “Sponsor” role to be added to the list of sponsors
+* The sponsoring user must be associated with the same company as the sponsored user.
+* If the association to the sponsoring user already exists, than the data will be updated
+* `SponsorshipEndDate` must be after `SponsorshipStartDate`
 
 #### <a name="schema-tsa-info"></a>TSAInfo
 
-The Transportation Security Administration (TSA) Details provided.
+The Transportation Security Administration (TSA) details provided.
 
-* TSA Information scope must be enabled to receive the data.
+* TSA information scope must be enabled to receive the data.
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
 `Gender`|`string`|The user's gender. Values are: `Male`, `Female`|-|-|-
-`DateOfBirth`|`date`|The user’s date of birth. Format: YYYY-MM-DD.  Min - 01/01/1900, Max - 	06/06/2079|-|-|-
-`NoMiddleName`|`boolean`|Format: true/false|-|-|-
+`DateOfBirth`|`date`|The user’s date of birth. Format: `YYYY-MM-DD`.  Min - 01/01/1900, Max - 	06/06/2079|-|-|-
+`NoMiddleName`|`boolean`|Format: `true/false`|-|-|-
 `PreCheckNumber`|`string`|The user’s pre-check number. Format: varchar(255)|-|-|-
 `RedressNumber`|`string`|The user’s redress number. Format: varchar(255)|-|-|-
 
@@ -555,7 +555,7 @@ Name|Data Type|Description|Update|Create|Comments
 
 A list of unused tickets associated to a user
 
-* Unused Tickets scope must be enabled to receive the data.
+* Unused tickets scope must be enabled to receive the data.
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
@@ -567,22 +567,22 @@ Name|Data Type|Description|Update|Create|Comments
 `Fees`|`string`|The fees for the unused ticket. Format: Varchar(255)|-|-|-
 `Currency` |`string`|The currency of the unused ticket. Format: Varchar(3)|-|-|-
 `TicketType`|`string`|The type of unused ticket. Format: Varchar(1)|-|-|-
-`IssueDate`|`date` |The date of issue for the unused ticket. Format: YYYY-MM-DD.|-|-|Min - 01/01/1753, Max - 12/31/9999
-`ExpirationDate`|`date`|The date of expiration for the unused ticket. Format: YYYY-MM-DD.|-|-|Min - 01/01/1753, Max - 12/31/9999
+`IssueDate`|`date` |The date of issue for the unused ticket. Format: `YYYY-MM-DD`.|-|-|Min - 01/01/1753, Max - 12/31/9999
+`ExpirationDate`|`date`|The date of expiration for the unused ticket. Format: `YYYY-MM-DD`.|-|-|Min - 01/01/1753, Max - 12/31/9999
 `Notes`|`string`|Notes associated to the unused ticket. Format: Varchar(255)|-|-|-
 
 #### <a name="schema-southwest-unused-tickets"></a>SouthwestUnusedTickets
 
 A list of unused Southwest tickets associated to a user.
 
-* Unused Tickets scope must be enabled to receive the data.
+* Unused tickets scope must be enabled to receive the data.
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
 `RecordLocator`|`string`|The unused ticket record locator. Format: Varchar(255)|Required|-|-
 `TicketAmount`|`string`|The amount of the unused ticket. Format: Varchar(255)|-|-|-
 `Currency` |`string`|The currency of the unused ticket. Format: Varchar(3)|-|-|-
-`ExpirationDate`|`date`|The date of expiration for the unused ticket. Format: YYYY-MM-DD.|-|-|Min - 01/01/1753, Max - 12/31/9999
+`ExpirationDate`|`date`|The date of expiration for the unused ticket. Format: `YYYY-MM-DD`.|-|-|Min - 01/01/1753, Max - 12/31/9999
 
 #### <a name="schema-advantage-memberships"></a>AdvantageMemberships
 
@@ -596,13 +596,13 @@ Name|Data Type|Description|Update|Create|Comments
 `OriginCode`|`string`|The origin code. Format: Varchar(12)|-|-|-
 `DestinationCode`|`string`|The destination code. Format: Varchar(12)|-|-|-
 `ProgramCode`|`string`|The program code. Format: Varchar(20)|Required|Required|-
-`ExpirationDate`|`date`|Expiration date. Format: YYYY-MM-DD.  Min - 01/01/1900, Max - 06/06/2079|-|-|-
+`ExpirationDate`|`date`|Expiration date. Format: `YYYY-MM-DD`.  Min - 01/01/1900, Max - 06/06/2079|-|-|-
 `OptionCode`|`string`|The option code. Format: Varchar(20)|-|-|-
 `ProgramName`|`string`|The program name. Format: Varchar(20)|Cannot Update|-|-
 
 **NOTES**:
 
-* For List of Available Advantage Memberships [See Reference](./v2.reference-resource.html#advantage-membership-programs)
+* For List of available advantage memberships [See Reference](./v2.reference-resource.html#advantage-membership-programs)
 * Multiple memberships for the same `VendorType`, `VendorCode`, `ProgramCode`, and `CardNumber` are identified and a warning is thrown.
 * `OriginStationCode` and `DestinationStationCode` fields are deprecated and should no longer be used. Use `OriginCode` and `DestinationCode` instead.
 
@@ -628,27 +628,32 @@ The codes and types of messages that can be returned on updates and creates:
 
 CODE|Message Type|Notes|Example
 ---|---|---|---
-S001|Success|Process completed successfully|Success, no errors or warnings reported
-E001|No Access|No access to user data|-
-E002|Required Field Missing|The field noted is required for updates or creates, no changes were made|-
-W001|Invalid Regex|The given data does not match the expected regex|-
-W002|Invalid Length|The given data is too long or too short|-
-W003|Not Found In Company|The given user was not found in the company|-
-W004|Duplicate Entry|The given data is duplicated and not allowed|-
-W005|Duplicate LoginId|The given LoginID is duplicated|-
-W006|Out of Range|The given data is out of range|-
-W007|Field is Required|The given field cannot be cleared|-
-W009|Invalid Account Number|Account Number check failed due to length, Luhn, etc.|-
-W010|Invalid Vendor Code|Vendor Code given is invalid|-
-W011|Cannot Change|The given field cannot be altered|-
-W012|Primary Cell Number Error|Data violates 1 primary cell phone requirement|-
-W013|Invalid Custom Field|The data provided is invalid for the custom field|-
-W014|Invalid Date Range|The data provided is outside of acceptable date range|-
-W015|Invalid GUID|The GUID is invalid|-
-W016|Too Many Items|There are too many items in the given list|-
-W017|No Access to VendorCode|The user lacks access to the given vendor code|-
+S001|Success|Process completed successfully.|Success, no errors or warnings reported.
+E001|No Access|No access to user data.|-
+E002|Required Field Missing|The field noted is required for updates or creates, no changes were made.|-
+W001|Invalid Regex|The given data does not match the expected regex.|-
+W002|Invalid Length|The given data is too long or too short.|-
+W003|Not Found In Company|The given user was not found in the company.|-
+W004|Duplicate Entry|The given data is duplicated and not allowed.|-
+W005|Duplicate LoginId|The given `LoginID` is duplicated.|-
+W006|Out of Range|The given data is out of range.|-
+W007|Field is Required|The given field cannot be cleared.|-
+W009|Invalid Account Number|Account number check failed due to length, Luhn, etc.|-
+W010|Invalid Vendor Code|Vendor code given is invalid.|-
+W011|Cannot Change|The given field cannot be altered.|-
+W012|Primary Cell Number Error|Data violates one primary cell phone requirement.|-
+W013|Invalid Custom Field|The data provided is invalid for the custom field.|-
+W014|Invalid Date Range|The data provided is outside of acceptable date range.|-
+W015|Invalid GUID|The GUID is invalid.|-
+W016|Too Many Items|There are too many items in the given list.|-
+W017|No Access to VendorCode|The user lacks access to the given vendor code.|-
 
-If incorrect API credentials are provided, the service will return the standard response, e.g. 403 Forbidden. 
+If incorrect API credentials are provided, the service will return the standard response, e.g. 403 Forbidden.
+In some cases, the API will return additional information when producing a 400, Bad Request, response. It may contain the following codes in the response's body:
+* EC1 : The user was not found in database.
+* EC2: The user is not a company admin, or the company ID does not match the user's company ID.
+* EC3: The user is not an agency admin, the agency company ID is null, or if agency company ID does not match the user's agency company ID.
+* EC4: If the application's UUID is null, or if the application is configured not to have access to the input travel config.
 
 ## <a name="examples-for-travel-suppliers"></a>Examples for Travel Suppliers
 
@@ -745,11 +750,11 @@ Authorization: OAuth {access token}
 
 #### Request parameters
 
-All request paramenters are optional. Available request parameters are as follows:
+All request parameters are optional. Available request parameters are as follows:
 
 Parameter Name|Required/Optional|Parameter Type|Data Type|Description
 ---|---|---|---|---
-`LastModifiedDate`|Required|path|`string`|The date and time, in UTC, that the profiles must be updated after to be included in the response. Format: YYYY-MM-DDThh:mm:ss
+`LastModifiedDate`|Required|path|`string`|The date and time, in UTC, that the profiles must be updated after to be included in the response. Format: `YYYY-MM-DDThh:mm:ss`
 `Page`|Optional|path|`string`|The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty
 `ItemsPerPage`|Optional|path|`string`|The number of travel profiles per page. The maximum value is 200. The default value is 200.
 
@@ -765,7 +770,7 @@ application/xml
 Authorization: OAuth {access_token}
 ```
 
-Where _access_token_ is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+Where `access_token` is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 ### Schema
 
@@ -798,15 +803,15 @@ The data model of the response for the GET operation. The complete schema defini
 
 #### ConnectResponse root element
 
-The ConnectResponse root element contains the General, Telephones, Addresses, DriversLicenses, EmailAddresses, RatePreferences, DiscountCodes, Air, Car, Hotel, and CustomFields child elements. It has the attributes shown in the Response Class section.
+The `ConnectResponse` root element contains the `General`, `Telephones`, `Addresses`, `DriversLicenses`, `EmailAddresses`, `RatePreferences`, `DiscountCodes`, `Air`, `Car`, `Hotel`, and `CustomFields` child elements. It has the attributes shown in the response class section.
 
 #### Metadata element
 
-The Metadata parent element contains the Paging child element.
+The `Metadata` parent element contains the `Paging` child element.
 
 #### Paging elements
 
-The Paging parent element contains contains the paging information for the response and it contains the following child elements:
+The `Paging` parent element contains contains the paging information for the response and it contains the following child elements:
 
 Element Name|Data Type|Description
 ---|---|---|---
@@ -819,11 +824,11 @@ NextPageURL|`string`|The URI to the next set of results. This element will be em
 
 #### Data element
 
-The Data parent element contains a ProfileSummary child element for each included travel profile.
+The Data parent element contains a `ProfileSummary` child element for each included travel profile.
 
 #### ProfileSummary
 
-The ProfileSummary element contains the profile information for the response and it contains the following child elements:
+The `ProfileSummary` element contains the profile information for the response and it contains the following child elements:
 
 Element Name|Data Type|Description
 ---|---|---
