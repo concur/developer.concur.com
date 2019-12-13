@@ -39,19 +39,19 @@
               "examples": {
                 "password": {
                   "summary": "Password token request",
-                  "value": "client_id=018e5202-748b-4544-b519-1a627a1b809b&client_secret=3a91751f-1429-4b91-9ee6-3372050950a2&grant_type=password&username=<name of user>&password=<password of user>&credtype=password"
+                  "value": "client_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=password&username=<name of user>&password=<password of user>&credtype=password"
                 },
                 "clientCredentials": {
                   "summary": "Client_credentials token request",
-                  "value": "client_id=018e5202-748b-4544-b519-1a627a1b809b&client_secret=3a91751f-1429-4b91-9ee6-3372050950a2&grant_type=client_credentials"
+                  "value": "client_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=client_credentials"
                 },
                 "refreshToken": {
                   "summary": "Refresh_token token request",
-                  "value": "client_id=018e5202-748b-4544-b519-1a627a1b809b&client_secret=3a91751f-1429-4b91-9ee6-3372050950a2&grant_type=refresh_token&refresh_token=22f7f63c-05da-4822-829c-756eab29773c"
+                  "value": "client_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=refresh_token&refresh_token=333333333333333333333333333333333333"
                 },
                 "oneTimePassword": {
                   "summary": "One-time password token request",
-                  "value": "client_id=018e5202-748b-4544-b519-1a627a1b809b&client_secret=3a91751f-1429-4b91-9ee6-3372050950a2&grant_type=otp&otp=d4556069-a439-496a-9b5e-90f552bf45e4&channel_handle=john.smith@company.com@channel_type=email"
+                  "value": "client_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=otp&otp=222222222222222222222222222222222222&channel_handle=john.smith@company.com@channel_type=email"
                 }
               }
             }
@@ -160,12 +160,12 @@
           "client_id": {
             "type": "string",
             "description": "The client_id of the application.",
-            "example": "018e5202-748b-4544-b519-1a627a1b809b"
+            "example": "000000000000000000000000000000000000"
           },
           "client_secret": {
             "type": "string",
-            "description": "The client_id of the application.",
-            "example": "3a91751f-1429-4b91-9ee6-3372050950a2"
+            "description": "The client_secret of the application.",
+            "example": "111111111111111111111111111111111111"
           },
           "grant_type": {
             "type": "string",
@@ -210,12 +210,12 @@
           "client_id": {
             "type": "string",
             "description": "The client_id of the application.",
-            "example": "018e5202-748b-4544-b519-1a627a1b809b"
+            "example": "000000000000000000000000000000000000"
           },
           "client_secret": {
             "type": "string",
-            "description": "The client_id of the application.",
-            "example": "3a91751f-1429-4b91-9ee6-3372050950a2"
+            "description": "The client_secret of the application.",
+            "example": "111111111111111111111111111111111111"
           },
           "grant_type": {
             "type": "string",
@@ -238,12 +238,12 @@
           "client_id": {
             "type": "string",
             "description": "The client_id of the application.",
-            "example": "018e5202-748b-4544-b519-1a627a1b809b"
+            "example": "000000000000000000000000000000000000"
           },
           "client_secret": {
             "type": "string",
-            "description": "The client_id of the application.",
-            "example": "3a91751f-1429-4b91-9ee6-3372050950a2"
+            "description": "The client_secret of the application.",
+            "example": "111111111111111111111111111111111111"
           },
           "grant_type": {
             "type": "string",
@@ -254,7 +254,7 @@
           "refresh_token": {
             "type": "string",
             "description": "An existing valid refresh token to be used to request a new access token.",
-            "example": "22f7f63c-05da-4822-829c-756eab29773c"
+            "example": "333333333333333333333333333333333333"
           },
           "scope": {
             "type": "string",
@@ -278,12 +278,12 @@
           "client_id": {
             "type": "string",
             "description": "The client_id of the application.",
-            "example": "018e5202-748b-4544-b519-1a627a1b809b"
+            "example": "000000000000000000000000000000000000"
           },
           "client_secret": {
             "type": "string",
-            "description": "The client_id of the application.",
-            "example": "3a91751f-1429-4b91-9ee6-3372050950a2"
+            "description": "The client_secret of the application.",
+            "example": "111111111111111111111111111111111111"
           },
           "grant_type": {
             "type": "string",
@@ -311,7 +311,7 @@
           "otp": {
             "type": "string",
             "description": "The one-time token.",
-            "example": "d4556069-a439-496a-9b5e-90f552bf45e4"
+            "example": "222222222222222222222222222222222222"
           }
         },
         "additionalProperties": false
