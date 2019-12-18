@@ -78,8 +78,8 @@ Create or update a Purchase Order. Batch processing is not available using the P
   "CurrencyCode": "USD",
   "OrderDate":"2011-08-12T20:17:46.384Z",
   "ID": "API101",
-  "IsTest": "false",
-  "IsChangeOrder": "false",
+  "IsTest": false,
+  "IsChangeOrder": false,
   "LedgerCode": "23",
   "LineItem": [
     {
@@ -94,7 +94,7 @@ Create or update a Purchase Order. Batch processing is not available using the P
       "Description": "line 1",
       "ExpenseType": "Advertising",
       "ExternalID": "API100line1",
-      "IsReceiptRequired": "true",
+      "IsReceiptRequired": true,
       "LineNumber": "1",
       "PurchaseOrderReceiptType": "WQTY",
       "Quantity": "1.00",
@@ -119,7 +119,7 @@ Create or update a Purchase Order. Batch processing is not available using the P
     "PostalCode": "55426",
     "StateProvince": "MN"
   },
-  "Status": "Pending",
+  "Status": "Transmitted",
   "Tax": "0.00000000",
   "URI": "http://www.concursolutions.com/api/v3.0/invoice/purchaseorders/purchaseorders/API101",
   "VendorCode": "VEN1",
