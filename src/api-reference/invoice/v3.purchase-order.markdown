@@ -78,42 +78,50 @@ Create or update a Purchase Order. Batch processing is not available using the P
   "CurrencyCode": "USD",
   "OrderDate":"2011-08-12T20:17:46.384Z",
   "ID": "API101",
-  "IsTest": "N",
-  "IsChangeOrder": "false",
+  "IsTest": false,
+  "IsChangeOrder": false,
   "LedgerCode": "23",
   "LineItem": [
     {
       "Allocation": [
         {
-          "Amount": "10"
+          "Amount": "106.74",
+          "Percentage":"100.00000000",
+          "GrossAmount":"106.74"
         }
       ],
-      "Description": "lin1",
+      "CreateDate": "2019-12-13 20:00:37.0",
+      "Description": "line 1",
       "ExpenseType": "Advertising",
       "ExternalID": "API100line1",
-      "IsReceiptRequired": "true",
+      "IsReceiptRequired": true,
       "LineNumber": "1",
       "PurchaseOrderReceiptType": "WQTY",
-      "Quantity": "1",
+      "Quantity": "1.00",
       "UnitOfMeasureCode":"DA",
-      "UnitPrice": "10"
+      "UnitPrice": "106.74"
     }
   ],
   "Name": "poName",
   "PolicyExternalID": "PO",
   "PurchaseOrderNumber": "API101",
   "PurchaseRequestNumber": "100001",
+  "RequestedBy": "Deo, John",
+  "Shipping": "0.00000000",
   "ShipToAddress": {
     "Address1": "add1",
     "Address2": "add2",
+    "Address3": "add3",    
     "City": "cityship",
     "CountryCode": "US",
     "ExternalID": "Shiptoapi",
     "Name": "shiptoapi",
     "PostalCode": "55426",
-    "State": "CA",
     "StateProvince": "MN"
   },
+  "Status": "Transmitted",
+  "Tax": "0.00000000",
+  "URI": "http://www.concursolutions.com/api/v3.0/invoice/purchaseorders/purchaseorders/API101",
   "VendorCode": "VEN1",
   "VendorAddressCode": "VEN1ADDR1"
 }
