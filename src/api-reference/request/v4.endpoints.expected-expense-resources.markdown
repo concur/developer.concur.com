@@ -5,7 +5,7 @@ layout: reference
 
 {% include prerelease.html %}
 
-* [Expected Expense Resources](#expense-resource)
+* [Expected Expense Resources](#expected-expense-resource)
   * [Create a new expected expense](#create-new-expected-expense-resource)
   * [Get the list of expected expenses attached to a Request](#get-expected-expense-attached-request-resource)
   * [Get the content of an expected expense](#get-content-expected-expense-resource)
@@ -466,6 +466,14 @@ Authorization: Bearer {token}
       "id": "TAXIX",
       "name": "Taxi"
     },
+    "location": {
+      "id": "34AB34319377456B95F5C2815CC72766",
+      "countryCode": "DE",
+      "countrySubDivisionCode": "DE-BER",
+      "city": "Berlin, GERMANY",
+      "name": "Berlin, GERMANY",
+      "lnKey": 12671
+    },
     "postedAmount": {
       "value": 90,
       "currency": "USD"
@@ -516,6 +524,13 @@ Authorization: Bearer {token}
     "expenseType": {
       "id": "DINNR",
       "name": "Dinner"
+    },
+    "location": {
+      "id": "34AB34319377456B95F5C2815CC72766",
+      "countryCode": "DE",
+      "countrySubDivisionCode": "DE-BER",
+      "city": "Berlin, GERMANY",
+      "name": "Berlin, GERMANY"
     },
     "postedAmount": {
       "value": 80,
@@ -760,6 +775,13 @@ Authorization: Bearer {token}
   "expenseType": {
     "id": "DINNR",
     "name": "Dinner"
+  },
+  "location": {
+    "id": "34AB34319377456B95F5C2815CC72766",
+    "countryCode": "DE",
+    "countrySubDivisionCode": "DE-BER",
+    "city": "Berlin, GERMANY",
+    "name": "Berlin, GERMANY"
   },
   "postedAmount": {
     "value": 80,
@@ -1117,7 +1139,7 @@ Authorization: Bearer {token}
 true
 ```
 
-## <a name="expense-resource-comments"></a>Get the list of comments for an existing expected expense
+## <a name="expected-expense-resource-comments"></a>Get the list of comments for an existing expected expense
 
 ### Scopes
 

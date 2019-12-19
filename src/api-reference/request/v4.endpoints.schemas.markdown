@@ -9,9 +9,13 @@ layout: reference
   * [Request](#schema-request)
   * [Amount](#schema-amount)
   * [ApprovalStatus](#schema-approvalstatus)
+  * [Cash Advance](#schema-cashadvance)
+  * [Cash Advance Approval Status](#schema-cashadvance-approvalstatus)
   * [Comments](#schema-comments)
   * [Customfield](#schema-customfield)
   * [Employee](#schema-employee)
+  * [Exceptions](#schema-exceptions)
+  * [Exception Source](#schema-exceptionsource)
   * [Link](#schema-link)
   * [List of Request](#schema-listofrequest)
   * [List of Request Policies](#schema-requestpolicylist)
@@ -41,9 +45,11 @@ Name|Type|Format|Description
 approvalLimitDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|The date by which the Request must be approved. This element appears only when integrated with Concur Travel
 approvalStatus|object|[Approval Status](#schema-approvalstatus)|The approval status of the Request|
 approved|boolean|-|Indicates whether this Request is approved
+approver|object|[Employee](#schema-employee)|The approver to whom the Request was sent to
 authorizedDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|For approved Request, the date at which the approval process was completed
 businessPurpose|string|-|The business purpose of the Request
 canceledPostApproval|boolean|-|Indicates whether this Request was canceledPostApproval
+cashAdvances|object|[ResourceLink](#schema-resourcelink)|The list of cash advances for this Request
 closed|boolean|-|Indicates whether this Request is closed
 comment|string|-|The last comment attached to this Request
 comments|object|[ResourceLink](#schema-resourcelink)|The list of comments for this Request
@@ -52,8 +58,10 @@ custom1 to custom20|object|[CustomField](#schema-customfield)|The details from t
 endDate|date|[ISO 8601] yyyy-MM-dd|The end date of the Request
 endTime|time|[ISO 8601] yyyy-MM-dd|The end time of the Request
 everSentBack|boolean|-|Indicates whether the Request has ever been sent back to the employee
+exceptions|object|[ResourceLink](#schema-resourcelink)|The list of exceptions that have been raised to this Request
 expenses|array|[ResourceLink](#schema-resourcelink)|Expected expenses attached to this Request
 extensionOf|object|[RequestLink](#schema-requestlink)|The Request that this Request is an extension of, or addendum to
+highestExceptionLevel|string|-|The highest level of exception contained in this Request. <br>Possible values: `WARNING`, `ERROR`
 href|string|[RFC 3986]|Hyperlink to the resource for this Request
 id|string|-|The unique identifier of the Request
 lastModified|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|The date the Request was last modified
@@ -84,8 +92,28 @@ currency|string|[ISO 4217:2015]|**Required** The 3-letter ISO 4217 code for the 
 
 Name|Type|Format|Description
 ---|---|---|---
-code|string|-|The code for the approval status the Request. <br>Possible values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED` or `SENTBACK`
+code|string|-|The code for the approval status of the Request. <br>Possible values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED` or `SENTBACK`
 name|string|-|The approval status of the Request in the current user's language
+
+### <a name="schema-cashadvance"></a>Cash Advance
+
+Name|Type|Format|Description
+---|---|---|---
+amountRequested|object|[Amount](#schema-amount)|The amount of the cash advance in the Request, expressed in the reimbursement currency of the employee at the time they created the cash advance
+approvalStatus|object|[Cash Advance Approval Status](#schema-cashadvance-approvalstatus)|The approval status of the cash advance
+cashAdvanceId|string|-|The unique identifier of the cash advance
+comment|string|-|The last comment related to this cash advance
+exchangeRate|object|[Exchange Rate](#schema-exchangerate)|The exchange rate that applies to the cash advance
+issueDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS|The date the cash advance was issued
+requestDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS|The date the cash advance was submitted (last submit date in case of recall))
+
+### <a name="schema-cashadvance-approvalstatus"></a>Cash Advance Approval Status
+
+Name|Type|Format|Description
+---|---|---|---
+code|string|-|The code for the approval status of the cash advance. <br>Possible values: `C_PEND`, `C_APPR`, `C_COMP`, `C_FILE`, `C_ISSU`, `C_NISU`, `C_NOTF`, `C_PECA` or `C_REJE`
+name|string|-|The approval status of the cash advance in the current user's language
+
 
 ### <a name="schema-comments"></a>Comments
 
@@ -116,6 +144,24 @@ lastName|string|-|The last name of the employee
 middleInitial|string|-|The middle initial of the employee
 template|string|-|Hyperlink template to the resource
 
+### <a name="schema-exceptions"></a>Exceptions
+
+Name|Type|Format|Description
+---|---|---|---
+code|string|-|The system exception code defined for the exception. Example: BADCODE
+isBlocking|boolean|-|Defines whether the exception will prevent the Request from being submitted
+level|integer|-|The numeric level associated with the exception. Example: 99
+message|string|-|The user-facing message defined for the exception
+source|array|[Exception source](#schema-exceptionsource)|The source that has raised the exception
+
+### <a name="schema-exceptionsource"></a>Exception Source
+
+Name|Type|Format|Description
+---|---|---|---
+href|string||[RFC 3986]|Hyperlink to the resource
+id|string|[RFC 4122]|Unique identifier of the source
+type|string|-|Defines the type of the source. <br> Possible values are: `ALLOCATION`, `CASH_ADVANCE`, `EXPENSE`, `HEADER`
+
 ### <a name="schema-link"></a>Link
 
 Name|Type|Format|Description
@@ -140,10 +186,16 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
+airportName|string|-|The airport name of the location
+city|string|-|The city name of the location
 countryCode|string|[ISO 3166-1]|The ISO 3166-1 country code
 countrySubDivisionCode|string|[ISO 3166-2]|The ISO 3166-2 country sub code
-city|string|-|The city name of the location
 iataCode|string|-|The IATA code of the location
+id|string|-|The id of the location
+latitude|number|-|The latitude of the location
+locationCode|string|-|The code of the location
+locationType|string|-|The type of the location
+longitude|number|-|The longitude of the location
 name|string|-|The name of the location
 
 ### <a name="schema-resourcelink"></a>ResourceLink
