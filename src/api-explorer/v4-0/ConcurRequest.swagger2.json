@@ -755,7 +755,7 @@
         }
       }
     },
-    "/v4/requests/{requestUuid}/exceptions": {
+    "/requests/{requestUuid}/exceptions": {
       "get": {
         "tags": [
           "Request Resource"
@@ -1438,7 +1438,7 @@
         }
       }
     },
-    "/v4/cashadvances/{cashAdvanceUuid}": {
+    "/cashadvances/{cashAdvanceUuid}": {
       "get": {
         "tags": [
           "Cash Advance Resource"
