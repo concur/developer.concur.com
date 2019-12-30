@@ -683,7 +683,7 @@
         "tags": [
           "Request Resource"
         ],
-        "summary": "Get the list of cash advances for an existing Request",
+        "summary": "Get the list of cash advances assigned to an existing Request",
         "operationId": "getCashAdvancesByRequestUsingGET",
         "consumes": [
           "application/json"
@@ -707,6 +707,83 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/ResourceLink"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad param: invalid Guid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Invalid or non existent authorization HTTP header",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "You do not have permission to perform this operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "408": {
+            "description": "Time out",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v4/requests/{requestUuid}/exceptions": {
+      "get": {
+        "tags": [
+          "Request Resource"
+        ],
+        "summary": "Get the list of the exceptions linked to a Request",
+        "operationId": "getExceptionsByRequestUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "requestUuid",
+            "in": "path",
+            "description": "The unique identifier of the Request",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RequestException"
               }
             }
           },
@@ -1366,7 +1443,7 @@
         "tags": [
           "Cash Advance Resource"
         ],
-        "summary": "Get the content of an existing Cash Advance",
+        "summary": "Get the content of an existing cash advance",
         "operationId": "getUsingGET_1",
         "consumes": [
           "application/json"
@@ -1378,7 +1455,7 @@
           {
             "name": "cashAdvanceUuid",
             "in": "path",
-            "description": "cashAdvanceUuid",
+            "description": "The unique identifier of the cash advance",
             "required": true,
             "type": "string"
           }
@@ -1998,6 +2075,29 @@
         "vendor": {
           "description": "The vendor of the Expected Expense",
           "$ref": "#/definitions/Vendor"
+        }
+      }
+    },
+    "ExceptionSource": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "The link to the unique identifier of source. Will be empty if source is ALLOCATION or CASH_ADVANCE."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the source"
+        },
+        "type": {
+          "type": "string",
+          "description": "Defines the type of the source which can be one of \"ALLOCATION\", \"CASH_ADVANCE\", \"EXPENSE\", \"HEADER\"",
+          "enum": [
+            "ALLOCATION",
+            "CASH_ADVANCE",
+            "EXPENSE",
+            "HEADER"
+          ]
         }
       }
     },
@@ -2644,6 +2744,43 @@
         "type": {
           "description": "The type of the Request, inherited from the Request policy type",
           "$ref": "#/definitions/RequestType"
+        }
+      }
+    },
+    "RequestException": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The system exception code defined for the exception. Example: BADCODE"
+        },
+        "isBlocking": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether the exception will prevent the Request from being submitted"
+        },
+        "level": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The numeric level associated with the exception. Example: 99"
+        },
+        "message": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception"
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Parameters for the messages of the exception",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "source": {
+          "description": "The source of the exception",
+          "$ref": "#/definitions/ExceptionSource"
         }
       }
     },
