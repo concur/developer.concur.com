@@ -130,7 +130,6 @@ Name|Type|Format|Description
 ---|---|---|---
 code|string|-|The short code for the list item. For non-list fields, this value will be blank
 value|string|-|The value of the non-list item. For list fields, this is the unique id of the item
-listItemId|string|-|The unique id of the item in case of a list field
 href|string|-|The link to get this list item on the list service. Empty for non-list items
 
 ### <a name="schema-employee"></a>Employee
