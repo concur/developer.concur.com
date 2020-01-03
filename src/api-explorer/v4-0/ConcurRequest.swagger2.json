@@ -1696,7 +1696,7 @@
           "description": "Last comment of this Cash Advance"
         },
         "exchangeRate": {
-          "description": "The exchange rate transferring by the reimbursement currency of the employee at the time he created the Request",
+          "description": "The exchange rate that applies to the cash advance",
           "$ref": "#/definitions/ExchangeRate"
         },
         "issueDate": {
@@ -1731,7 +1731,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The approval status of the Cash Advance in English",
+          "description": "The approval status of the Cash Advance",
           "minLength": 1,
           "maxLength": 2147483647
         }
@@ -1768,7 +1768,7 @@
         },
         "href": {
           "type": "string",
-          "description": "The HATEOAS link to get this list item in case of a list. This value will be blank otherwise."
+          "description": "The link to get this list item on the list service."
         },
         "value": {
           "type": "string",
@@ -2288,7 +2288,7 @@
         },
         "authorizedDate": {
           "type": "string",
-          "description": "The date when the Request was authorized"
+          "description": "For approved Request, the date at which the approval process was completed"
         },
         "businessPurpose": {
           "type": "string",
@@ -2401,7 +2401,7 @@
         },
         "endTime": {
           "type": "string",
-          "description": "The start time of the Request (in the format HH:MM)"
+          "description": "The end time of the Request (in the format HH:MM)"
         },
         "everSentBack": {
           "type": "boolean",
@@ -2416,7 +2416,7 @@
           }
         },
         "extensionOf": {
-          "description": "The Request that this Request is an extension of, or adendum to",
+          "description": "The Request that this Request is an extension of, or addendum to",
           "$ref": "#/definitions/RequestLink"
         },
         "highestExceptionLevel": {
@@ -2429,7 +2429,8 @@
           ]
         },
         "href": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink to the resource for this Request"
         },
         "id": {
           "type": "string",
@@ -2482,7 +2483,7 @@
           "description": "The date when the Request was submitted (last submit date in case of recall)"
         },
         "totalApprovedAmount": {
-          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
+          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time they created the Request",
           "$ref": "#/definitions/Amount"
         },
         "totalPostedAmount": {
@@ -2524,7 +2525,7 @@
         },
         "authorizedDate": {
           "type": "string",
-          "description": "The date when the Request was authorized"
+          "description": "For approved Request, the date at which the approval process was completed"
         },
         "businessPurpose": {
           "type": "string",
@@ -2641,7 +2642,7 @@
         },
         "endTime": {
           "type": "string",
-          "description": "The start time of the Request (in the format HH:MM)"
+          "description": "The end time of the Request (in the format HH:MM)"
         },
         "everSentBack": {
           "type": "boolean",
@@ -2660,7 +2661,7 @@
           }
         },
         "extensionOf": {
-          "description": "The Request that this Request is an extension of, or adendum to",
+          "description": "The Request that this Request is an extension of, or addendum to",
           "$ref": "#/definitions/RequestLink"
         },
         "highestExceptionLevel": {
@@ -2673,7 +2674,8 @@
           ]
         },
         "href": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink to the resource for this Request"
         },
         "id": {
           "type": "string",
@@ -2797,13 +2799,16 @@
       "type": "object",
       "properties": {
         "href": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink to the resource"
         },
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Unique identifier of the related object"
         },
         "template": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink template to the resource"
         }
       }
     },
