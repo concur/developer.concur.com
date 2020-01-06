@@ -1,0 +1,65 @@
+---
+title: Expense Reports v4
+layout: reference
+---
+
+Expense Reports is a v4 API for operations related to the creation and processing of Expense Reports. 
+Authorized use of the API requires a valid User JWT with `expense.report.readwrite` scope in the header of each request.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Create a Quick Expense](#create-quick-expense)
+* [Create a Quick Expense with an Image](#create-quick-expense-image)
+* [Schema](#schema)
+  * [Quick Expense Request](#quick-expense-request-schema)
+    * [Location](#location-schema)
+    * [Amount](#amount-schema)
+  * [Quick Expense Response](#quick-expense-response-schema)
+  * [Error](#schema-error)
+  * [Validation Errors](#schema-validation-errors)
+
+## Prior Versions
+
+* Quick Expense v1 (Deprecated) documentation is available [here](./v1.reports.html)
+* Reports v3 (Deprecated) documentation is available [here](./v3.reports.html)
+
+## <a name="products-editions"></a>Products and Editions
+
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Required Scopes:
+
+Name|Description|Endpoints
+---|---|---
+`expense.report.readwrite`|Make changes to expense reports.|POST<br/>PATCH<br/>DELETE
+`expense.report.read`|Get information about expense reports.|GET
+`user.read`|Get User Information, necessary for `userID`.|GET
+
+Optional Scopes:
+
+Name|Description|Endpoint
+---|---|---
+`CONFIG`|Get Expense Configuration information, necessary for `expenseTypeId`.|POST
+
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+
+The partner may use the following SAP Concur APIs to get optional information:
+* [Expense Group Configurations v3.0](/api-reference/expense/expense-report/expense-group-configurations.html), to retrieve the `expenseTypeId`
+* [Locations v3.0](/api-reference/common/locations/v3.locations.html), to retrieve the location `id`
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports user-level access tokens (JWT).
+
+## <a name="access-token-usage"></a>API Documentation
+
+* [Reports V4 API Explorer](/api-explorer/v4-0/Reports.html)

@@ -86,3 +86,5 @@
         url: /api-explorer/v4-0/PurchaseRequest.html
       - title: Quick Expenses
         url: /api-explorer/v4-0/QuickExpenses.html
+      - title: Reports
+        url: /api-explorer/v4-0/Reports.html
