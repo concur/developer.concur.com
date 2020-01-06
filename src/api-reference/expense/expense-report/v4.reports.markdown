@@ -12,19 +12,11 @@ Authorized use of the API requires a valid User JWT with `expense.report.readwri
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
-* [Create a Quick Expense](#create-quick-expense)
-* [Create a Quick Expense with an Image](#create-quick-expense-image)
-* [Schema](#schema)
-  * [Quick Expense Request](#quick-expense-request-schema)
-    * [Location](#location-schema)
-    * [Amount](#amount-schema)
-  * [Quick Expense Response](#quick-expense-response-schema)
-  * [Error](#schema-error)
-  * [Validation Errors](#schema-validation-errors)
+* [API Documentation](#api-documentation)
 
 ## Prior Versions
 
-* Quick Expense v1 (Deprecated) documentation is available [here](./v1.reports.html)
+* Reports v1 (Deprecated) documentation is available [here](./v1.reports.html)
 * Reports v3 (Deprecated) documentation is available [here](./v3.reports.html)
 
 ## <a name="products-editions"></a>Products and Editions
@@ -50,16 +42,12 @@ Name|Description|Endpoint
 
 ## <a name="dependencies"></a>Dependencies
 
-SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
-
-The partner may use the following SAP Concur APIs to get optional information:
-* [Expense Group Configurations v3.0](/api-reference/expense/expense-report/expense-group-configurations.html), to retrieve the `expenseTypeId`
-* [Locations v3.0](/api-reference/common/locations/v3.locations.html), to retrieve the location `id`
+SAP Concur clients must purchase Concur Expense in order to use this API. Please contact your SAP Concur representative for more information.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
 This API supports user-level access tokens (JWT).
 
-## <a name="access-token-usage"></a>API Documentation
+## <a name="api-documentation"></a>API Documentation
 
 * [Reports V4 API Explorer](/api-explorer/v4-0/Reports.html)
