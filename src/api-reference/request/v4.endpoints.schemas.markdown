@@ -43,9 +43,9 @@ layout: reference
 Name|Type|Format|Description
 ---|---|---|---
 approvalLimitDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|The date by which the Request must be approved. This element appears only when integrated with Concur Travel
-approvalStatus|object|[Approval Status](#schema-approvalstatus)|The approval status of the Request|
+approvalStatus|object|[Approval Status](#schema-approvalstatus)|The approval status of the Request
 approved|boolean|-|Indicates whether this Request is approved
-approver|object|[Employee](#schema-employee)|The approver to whom the Request was sent to
+approver|object|[Employee](#schema-employee)|The approver to whom the Request was sent
 authorizedDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|For approved Request, the date at which the approval process was completed
 businessPurpose|string|-|The business purpose of the Request
 canceledPostApproval|boolean|-|Indicates whether this Request was canceledPostApproval
@@ -105,7 +105,7 @@ cashAdvanceId|string|-|The unique identifier of the cash advance
 comment|string|-|The last comment related to this cash advance
 exchangeRate|object|[Exchange Rate](#schema-exchangerate)|The exchange rate that applies to the cash advance
 issueDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS|The date the cash advance was issued
-requestDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS|The date the cash advance was submitted (last submit date in case of recall))
+requestDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS|The date the cash advance was submitted (last submit date in case of recall)
 
 ### <a name="schema-cashadvance-approvalstatus"></a>Cash Advance Approval Status
 
