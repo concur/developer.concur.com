@@ -61,7 +61,7 @@ everSentBack|boolean|-|Indicates whether the Request has ever been sent back to 
 exceptions|object|[ResourceLink](#schema-resourcelink)|The list of exceptions that have been raised to this Request
 expenses|array|[ResourceLink](#schema-resourcelink)|Expected expenses attached to this Request
 extensionOf|object|[RequestLink](#schema-requestlink)|The Request that this Request is an extension of, or addendum to
-highestExceptionLevel|string|-|The highest level of exception contained in this Request. <br>Possible values: `WARNING`, `ERROR`
+highestExceptionLevel|string|-|The highest level of exception contained in this Request. <br>Possible values: `WARNING`, `ERROR`, `NONE`
 href|string|[RFC 3986]|Hyperlink to the resource for this Request
 id|string|-|The unique identifier of the Request
 lastModified|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|The date the Request was last modified
