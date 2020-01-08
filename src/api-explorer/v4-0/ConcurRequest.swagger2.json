@@ -18,7 +18,7 @@
     },
     {
       "name": "Travel Agency Resource",
-      "description": "Get details of Travel Agencies integrated with Concur Request"
+      "description": "Get details of travel agencies integrated with Concur Request"
     },
     {
       "name": "Policy Resource",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Cash Advance Resource",
-      "description": "Retrieve Cash Advance for Concur Request"
+      "description": "Retrieve cash advance for Concur Request"
     }
   ],
   "paths": {
