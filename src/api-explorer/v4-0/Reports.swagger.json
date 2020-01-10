@@ -63,7 +63,7 @@
 					"description": "The code which identifies the persona of the user who is accessing the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER"]
+					"enum": ["TRAVELER", "PROXY"]
 				}],
 				"responses": {
 					"200": {
@@ -149,7 +149,7 @@
 					"description": "The code which identifies the persona of the user who is accessing the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER"]
+					"enum": ["TRAVELER", "PROXY"]
 				}],
 				"responses": {
 					"400": {
@@ -232,7 +232,7 @@
 					"description": "The code which identifies the persona of the user who is accessing the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER"]
+					"enum": ["TRAVELER", "PROXY"]
 				}],
 				"responses": {
 					"200": {
@@ -324,7 +324,7 @@
 					"description": "The code which identifies the persona of the user who is patching the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER"]
+					"enum": ["TRAVELER", "PROXY"]
 				}],
 				"responses": {
 					"400": {
@@ -407,7 +407,7 @@
 					"description": "The code which identifies the persona of the user who is accessing the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER"]
+					"enum": ["TRAVELER", "PROXY"]
 				}],
 				"responses": {
 					"200": {
@@ -496,10 +496,10 @@
 				}, {
 					"name": "contextType",
 					"in": "path",
-					"description": "The access level of the Concur user, which determines the form fields they can view/modify",
+					"description": "The code which identifies the persona of the user who is accessing the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER", "PROXY", "MANAGER", "PROCESSOR"]
+					"enum": ["TRAVELER", "PROXY"]
 				}],
 				"responses": {
 					"400": {
