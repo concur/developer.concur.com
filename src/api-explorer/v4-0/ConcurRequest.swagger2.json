@@ -2234,11 +2234,6 @@
           "type": "number",
           "description": "The latitude of the location"
         },
-        "lnKey": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The key of the location name"
-        },
         "locationCode": {
           "type": "string",
           "description": "The code of the location"
