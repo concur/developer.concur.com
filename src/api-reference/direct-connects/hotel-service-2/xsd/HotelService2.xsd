@@ -368,6 +368,15 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element name="TPA_Extensions" minOccurs="0">
+							<xs:complexType>
+								<xs:attribute name="RateDetailsInd" type="xs:boolean" default="true">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">If not false, the response message should contain room rate details.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 					<xs:element name="Errors" type="ErrorsType">
 						<xs:annotation>
@@ -676,9 +685,57 @@
 							<xs:documentation xml:lang="en">Range of dates using ISO 8601.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="RatePlanCandidates" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Collection of requested rate plans.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="RatePlanCandidatesType">
+									<xs:attribute name="TaxesIncludedInd" type="xs:boolean" use="optional">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">If TRUE, the rates prices in the response message must include all taxes and surcharges.</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="RatePlanCandidatesType">
+		<xs:sequence>
+			<xs:element name="RatePlanCandidate" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Element used to identify available products and rates.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="HotelRefs" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A collection of hotel identifiers to which the rate plan applies.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="HotelRef" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Information to identify one or more hotels.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:attributeGroup ref="HotelReferenceGroup"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attributeGroup ref="RatePlanGroup"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="ItemSearchCriterionType">
