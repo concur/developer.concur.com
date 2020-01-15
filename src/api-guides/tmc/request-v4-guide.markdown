@@ -29,7 +29,7 @@ layout: reference
   * [Traveler Notified of Confirmed Booking and Receives Itinerary](#traveler-notified)
   * [Cancel Itinerary](#cancel)
 
-  The Request v4.0 API provides travel request information for a specified traveler. Request v4.0 allows applications to pull and post information about the traveler’s request for travel.
+The Request v4.0 API provides travel request information for a specified traveler. Request v4.0 allows applications to pull and post information about the traveler’s request for travel.
 
 ## <a name="audience"></a>Target Audience
 
