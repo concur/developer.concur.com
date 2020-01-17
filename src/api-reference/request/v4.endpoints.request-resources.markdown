@@ -13,6 +13,8 @@ layout: reference
   * [Delete an existing Request](#request-resource-delete)
   * [Create an Expense Report linked to an approved Request](#request-resource-create-expense-linked)
   * [Get the list of comments for an existing Request](#request-resource-comments)
+  * [Get the list of cash advances assigned to an existing Request](#request-resource-cashadvances)
+  * [Get the list of exceptions linked to an existing Request](#request-resource-exceptions)
 
 # <a name="request-resource"></a>Request Resources
 
@@ -142,6 +144,7 @@ Authorization: Bearer {token}
   "endTime": "22:00",
   "everSentBack": false,
   "expenses": [],
+  "highestExceptionLevel": "WARNING",
   "lastModified": "2018-05-25T08:08:59.000Z",
   "mainDestination": {
     "countryCode": "FR",
@@ -181,6 +184,10 @@ Authorization: Bearer {token}
     "id": "2EC038D7C3CBBE4ABA0914425064D34F",
     "template": "https://https://us.api.concursolutions.com/travelrequest/v4/travelagencies/{id}"
   },
+  "type": {
+    "code": "TRAVEL",
+    "label": "Travel"
+  }
   "operations": [
     {
       "rel": "submit",
@@ -208,10 +215,12 @@ GET {datacenter}/travelrequest/v4/requests
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-view|query|string|Name of the perimeter defining the Requests to get.<br>Possible values:<br>`ALL`: Get all existing Requests for a user (relevant only for the traveler);<br>`ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than 3 months based on current date and must not be in closed status;<br>`UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler);<br>`PENDING`: Get all the pending Requests (relevant only for the traveler);<br>`VALIDATED`: Get all the approved Requests for a user (relevant only for the traveler). Closed Requests are included in this view;<br>`APPROVED`: Get all the approved Requests by a user (relevant only for the approver). Closed Requests are included in this view;<br>`CANCELED`: Get all the cancelled Requests for a user (relevant only for the traveler). Cancelled could include close/not closed requests;<br>`CLOSED`: Get all the closed Requests for a user (relevant only for the traveler). Includes canceled then closed Request as well as approved then closed Requests;<br>`SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests;<br>`TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver);<br>`PENDINGEBOOKING`: Approved Requests awaiting Concur Travel booking(s).<br>When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`.<br>If no view value is sent, the default view `ALL` will be used
+view|query|string|Name of the view defining the scope of the Requests to get.<br>Possible values:<br>`ALL`: Get all existing Requests for a user (relevant only for the traveler);<br>`ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than 3 months based on current date and must not be in closed status;<br>`UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler);<br>`PENDING`: Get all the Requests that are submitted but not yet approved (relevant only for the traveler);<br>`VALIDATED`: Get all the approved Requests for a user (relevant only for the traveler). Closed Requests are included in this view;<br>`APPROVED`: Get all the approved Requests by a user (relevant only for the approver). Closed Requests are included in this view;<br>`CANCELED`: Get all the cancelled Requests for a user (relevant only for the traveler). Cancelled could include closed/not closed Requests;<br>`CLOSED`: Get all the closed Requests for a user (relevant only for the traveler). Includes canceled then closed Request as well as approved then closed Requests;<br>`SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests;<br>`TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver);<br>`PENDINGEBOOKING`: Approved Requests awaiting Concur Travel booking(s);<br>`PENDINGPROPOSAL`: Get all Requests submitted to a Travel Agency (TMC) step. The userId of the TMC agent user must be provided in the list of parameters, this TMC agent user must have a default Travel Agency assigned in its profile corresponding to the Travel Agency assigned to the Requests.<br>When connecting with a TMC agent User Token, additional values are possible: <br>`PROPOSALAPPROVED`: Get all the approved Requests by a user (relevant only for the TMC agent);<br>`PROPOSALCANCELED`: Get all the cancelled Requests for a user (relevant only for the TMC agent).<br>If no view value is sent, the default view `ALL` will be used
 userId|query|string|The unique identifier of the Request owner to use when searching for Requests
 start|query|Integer|Pagination: index of the first record (default 0)
 limit|query|Integer|Number of records to return per page (default 10) - maximum limit is 100, if higher value or digit value is set, a 400 error code will be displayed
+approvedBefore|query|DateTime|This returns Requests that have been approved before the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
+approvedAfter|query|DateTime|This returns Requests that have been approved after the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
 modifiedBefore|query|DateTime|This returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
 modifiedAfter|query|DateTime|This returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
 sortField|query|string|The name of the field on which to sort.<br> Possible values: `startDate`, `approvalStatus`, `requestId`.<br> If no view value is sent, the default sortField `startDate` will be used
@@ -253,10 +262,17 @@ Authorization: Bearer {token}
       "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/2B19A2438CD6664A9C44E0F4D39E870A",
       "id": "2B19A2438CD6664A9C44E0F4D39E870A",
       "approvalStatus": {
-        "code": "SENTBACK",
-        "name": "Sent Back to Employee"
+        "code": "SUBMITTED",
+        "name": "Submitted & Pending Approval"
       },
       "approved": false,
+      "approver": {
+        "href": "https://us.api.concursolutions.com/profile/v1/users/86ac9588-5032-3fa7-b3cc-20e97d2d7146",
+        "id": "86ac9588-5032-3fa7-b3cc-20e97d2d7146",
+        "template": "https://us.api.concursolutions.com/profile/v1/users/{id}",
+        "firstName": "Jason",
+        "lastName": "McCafee"
+      },
       "businessPurpose": "PMP Training in Nantes",
       "canceledPostApproval": false,
       "closed": false,
@@ -266,7 +282,14 @@ Authorization: Bearer {token}
       "everSentBack": true,
       "expenses": [],
       "name": "PMP Training - OCTOBER",
-      "pendingApproval": false,
+      "owner": {
+        "firstName": "John",
+        "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+        "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+        "lastName": "Doe",
+        "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+      },
+      "pendingApproval": true,
       "requestId": "3AT7",
       "startDate": "2018-10-08",
       "startTime": "05:00",
@@ -292,8 +315,8 @@ Authorization: Bearer {token}
       "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/4CCBAE73F3E14346AE93253480F5C409",
       "id": "4CCBAE73F3E14346AE93253480F5C409",
       "approvalStatus": {
-        "code": "SUBMITTED",
-        "name": "Submitted & Pending Approval"
+        "code": "NOT_SUBMITTED",
+        "name": "Not Submitted"
       },
       "approved": false,
       "businessPurpose": "Client meeting for project KIWI",
@@ -305,7 +328,7 @@ Authorization: Bearer {token}
       "everSentBack": false,
       "expenses": [],
       "name": "Client meeting in Berlin",
-      "pendingApproval": true,
+      "pendingApproval": false,
       "requestId": "3AT6",
       "startDate": "2018-09-18",
       "startTime": "17:30",
@@ -405,11 +428,16 @@ Authorization: Bearer {token}
   "approved": false,
   "businessPurpose": "Client meeting for project KIWI",
   "canceledPostApproval": false,
+  "cashAdvances": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/cashadvances",
+    "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
+    "template": "https://us.api.concursolutions.com/travelrequest/v4/requests/{id}/cashadvances"
+  },
   "closed": false,
   "comment": "Need to arrive the day before for meeting in Company Office",
   "comments": {
-    "href": "http://us.api.concursolutions.com/travelrequest/v4/requests/474AD50230C0B94AAB318D22BB1C4322/comments",
-    "id": "474AD50230C0B94AAB318D22BB1C4322",
+    "href": "http://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/comments",
+    "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
     "template": "http://us.api.concursolutions.com/travelrequest/v4/requests/{id}/comments"
   },
   "creationDate": "2018-05-25T07:31:33.000Z",
@@ -434,6 +462,14 @@ Authorization: Bearer {token}
   "endDate": "2018-07-17",
   "endTime": "19:30",
   "everSentBack": false,
+  "exceptions": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/exceptions",
+    "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
+    "template": "https://us.api.concursolutions.com/travelrequest/v4/requests/{id}/exceptions"
+  },
+  "expensePolicy": {
+    "id": "A6D42A825114472FAF402180E20B3751"
+  },
   "expenses": [
     {
       "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
@@ -672,6 +708,10 @@ Authorization: Bearer {token}
     "id": "2EC038D7C3CBBE4ABA0914425064D34F",
     "template": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/{id}"
   },
+  "type": {
+    "code": "TRAVEL",
+    "label": "Travel"
+  },
   "operations": [
     {
       "rel": "submit",
@@ -860,5 +900,139 @@ Authorization: Bearer {token}
     "isLatest": false,
     "value": "Please review the business meal excepted expense to confirm required amount"
   }
+]
+```
+
+## <a name="request-resource-cashadvances"></a>Get the list of cash advances assigned to an existing Request
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/requests/{requestUuid}/cashadvances
+```
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+requestUuid|path|string|**Required** The unique identifier of the Request
+userId|query|string|The unique identifier of the user getting the list of the cash advances assigned to a Request. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+
+#### Payload
+
+None
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[ResourceLink](./v4.endpoints.schemas.html#schema-resourcelink) - The resource link leading to the created cash advance
+
+### Example
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/cashadvances
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+[
+    {
+        "href": "https://us.api.concursolutions.com/travelrequest/v4/cashadvances/EF3E237ACAA3C449B808BA75BDD049FA",
+        "id": "EF3E237ACAA3C449B808BA75BDD049FA",
+        "template": "https://us.api.concursolutions.com/travelrequest/v4/cashadvances/{id}"
+    },
+    {
+        "href": "https://us.api.concursolutions.com/travelrequest/v4/cashadvances/9DDAB28B89828A4497209062F4AF87D6",
+        "id": "9DDAB28B89828A4497209062F4AF87D6",
+        "template": "https://us.api.concursolutions.com/travelrequest/v4/cashadvances/{id}"
+    }
+]
+```
+
+## <a name="request-resource-exceptions"></a>Get the list of exceptions linked to an existing Request
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/requests/{requestUuid}/exceptions
+```
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+requestUuid|path|string|**Required** The unique identifier of the Request
+userId|query|string|The unique identifier of the user getting the content of the exceptions. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+
+#### Payload
+
+None
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Exceptions](./v4.endpoints.schemas.html#schema-exceptions)
+
+### Example
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/exceptions
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+[
+    {
+        "code": "CALWARN2",
+        "level": 1,
+        "message": "The requested Cash Advance exceeds the limit allowed by your company policy which is defined as the total of Daily Allowances (€0.00). Please update the requested amount accordingly.",
+        "isBlocking": false,
+        "source": {
+            "id": "DAF37B097DB82D4D9A15E9F3F7E460C9",
+            "href": "https://emea.api.concursolutions.com/v4/requests/DAF37B097DB82D4D9A15E9F3F7E460C9?compact=false",
+            "type": "HEADER"
+        },
+        "parameters": {}
+    }
 ]
 ```
