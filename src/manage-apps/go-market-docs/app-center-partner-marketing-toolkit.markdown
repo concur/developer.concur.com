@@ -49,7 +49,7 @@ Acceptable|Branding|Notes
 &#9989;|We are an SAP Concur partner.|-
 &#9989;|![SAP Concur Partner App Center Logo](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-partner.png)|-
 &#9989;|![SAP Concur Partner App Center Logo](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-partner-app-center.png)|-
-&#9989;|![](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-logo.png)|Partners may use the SAP Concur logo; however, you must follow logo guidelines and submit content for review.
+Specific cases only|![](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-logo.png)|Partners may use the SAP Concur logo only in specific situations, such as your integration or connection landing page UI or in a list of all of your partnerships. You must follow logo guidelines and submit content for review.
 &#10060;|![Do Not Use SAP Logo](./app-center-partner-marketing-toolkit-logo-brand-sap-logo.png)|Partners are **not** permitted to use the SAP corporate logo.
 &#10060;|![Do Not Use Concur Logo](./app-center-partner-marketing-toolkit-logo-brand-concur-logo.png)|Do **not** use the outdated “Concur” logo when creating materials.
 
@@ -154,7 +154,7 @@ Acceptable|Branding
 
 ## <a name="sap-concur-logos"></a>SAP Concur Logos
 
-App Center partners may, with approval, use  the  SAP  Concur  logo  in collateral and web pages to represent the partnership and integrations.
+App Center partners may, with approval, use  the  SAP  Concur  logo  in collateral and web pages to represent the partnership and integrations. The SAP Concur logo is currently only accepted for use in specific situations, such as your integration or connection landing page UI or in a list of all of your partnerships.
 
 * [Using the logo](#sap-concur-logos-using)
 * [Clear space and size requirements](#sap-concur-logos-clear-space-and-size)
@@ -173,15 +173,11 @@ Always maintain the logo’s aspect ratio when scaling.
 
 The clear space surrounding the logo should measure 1.5x the height of the “S” in “SAP”.
 
-Acceptable|Branding
-:---:|---
-&#9989;|![Clear space image](./app-center-partner-marketing-toolkit-sap-concur-logo-clear-space.png)
+![Clear space image](./app-center-partner-marketing-toolkit-sap-concur-logo-clear-space.png)
 
 In print, the SAP Concur logo can be reproduced down to 0.92" (23.4mm) wide. For digital applications, the logo can be reduced to 92 pixels wide.
 
-Acceptable|Branding
-:---:|---
-&#9989;|![Logo width image](./app-center-partner-marketing-toolkit-sap-concur-logo-width.png)
+![Logo width image](./app-center-partner-marketing-toolkit-sap-concur-logo-width.png)
 
 ### <a name="sap-concur-logos-available"></a>Available logos
 
@@ -191,13 +187,13 @@ For logo files, please email [concur_AppCenterMarketing@SAP.com](mailto:concur_A
 
 Acceptable|Branding
 :---:|---
-&#9989;|![Full logo image](./app-center-partner-marketing-toolkit-sap-concur-logo-full.png)
+&#9989; (Certain cases and with App Center Marketing approval only.)|![Full logo image](./app-center-partner-marketing-toolkit-sap-concur-logo-full.png)
 
 #### <a name="sap-concur-logos-available-c-dot"></a>C-dot only
 
 Acceptable|Branding
 :---:|---
-&#9989;|![c-dot only image](./app-center-partner-marketing-toolkit-sap-concur-logo-c-dot.png)
+&#9989; (Certain cases and with App Center Marketing approval only. C-dot to be used only when the full logo will not fit the intended space.) |![c-dot only image](./app-center-partner-marketing-toolkit-sap-concur-logo-c-dot.png)
 
 ## <a name="partner-landing-pages"></a>Partner Landing Pages
 
@@ -305,11 +301,11 @@ Adding backlinks from reputable sites helps us increase our search ranking and v
 
 If you are in the below partner categories (more to be added in the future), please help us drive more traffic by linking to the following pages on your website:
 
-* VAT: [https://concur.com/reclaim-vat](https://concur.com/reclaim-vat)
-* Cross-Border Payroll: [https://concur.com/multi-state-payroll](https://concur.com/multi-state-payroll)
-* CFDI: [https://concur.com/cfdi-compliance](https://concur.com/cfdi-compliance)
-* FCPA/Audit: [https://concur.com/fcpa-compliance](https://concur.com/fcpa-compliance)
-* Life Sciences: [https://concur.com/open-payments-compliance](https://concur.com/open-payments-compliance)
+* VAT: [https://www.concur.com/reclaim-vat](https://www.concur.com/reclaim-vat)
+* Cross-Border Payroll: [https://www.concur.com/multi-state-payroll](https://www.concur.com/multi-state-payroll)
+* CFDI: [https://www.concur.com/cfdi-compliance](https://www.concur.com/cfdi-compliance)
+* FCPA/Audit: [https://www.concur.com/fcpa-compliance](https://www.concur.com/fcpa-compliance)
+* Life Sciences: [https://www.concur.com/open-payments-compliance](https://www.concur.com/open-payments-compliance)
 
 If you are in the above categories, we will also add a link to your App Center listing from the SEO pages.
 
@@ -380,7 +376,6 @@ Email content to: [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMar
 
 * App Center Alliances: [concur_AppCenterAlliance@sap.com](mailto:concur_AppCenterAlliance@sap.com)
 * App Center Marketing: [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com)
-* App Center Channel Sales: [aaron.guerra@sap.com (SMN)](mailto:aaron.guerra@sap.com)
 * SAP Concur Event Sponsorships: [concursponsorships@sap.com](mailto:concursponsorships@sap.com)
 * Client Activation: [concur_partnerclientactivation@sap.com ](mailto:concur_partnerclientactivation@sap.com )
 * Partner Technical Support: [Log a support ticket](/tools-support/requesting-partner-support.html)

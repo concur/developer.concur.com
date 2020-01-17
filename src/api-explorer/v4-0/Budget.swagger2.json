@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "The Budget service exposes budget and fiscal year data. Partners may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration. Summary and detailed balance amounts are also available to read, but may not be altered via the API.",
-    "version": "4.0.0",
+    "version": "4.0",
     "title": "Budget Service API Documentation"
   },
   "host": "www.concursolutions.com",
@@ -84,7 +84,7 @@
       },
       "post": {
         "tags": ["Budget Category"],
-        "summary": "Save budget category. Creates a new budget category if one doesn't exist. Any value may be supplied for ",
+        "summary": "Save budget category. Creates a new budget category if one doesn't exist. Any value may be supplied for summary.",
         "operationId": "saveBudgetCategoryUsingPOST",
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -115,7 +115,7 @@
     "/budget/v4/budgetCategory/expenseTypes": {
       "get": {
         "tags": ["Budget Category"],
-        "summary": "Calls the concur midtier to fetches the list of expense types for the given entity.",
+        "summary": "Fetches the list of expense types for the given entity.",
         "operationId": "getExpenseTypesUsingGET",
         "produces": ["application/json"],
         "parameters": [
@@ -537,27 +537,27 @@
         "amount": {
           "type": "number",
           "example": 500.0,
-          "description": "The value of the amount adjusted (+/-)"
+          "description": "The budget currency amount to be adjusted. The amount may be a positive or negative value but it cannot be zero."
         },
         "amountType": {
           "type": "string",
-          "description": "The type of the amount that is being adjusted",
+          "description": "The type of the budget’s balance to adjust. Affects which values in the budget are updated.",
           "enum": ["BUDGET_AMOUNT", "SPENT_AMOUNT", "PENDING_AMOUNT"]
         },
         "budgetItemName": {
           "type": "string",
           "example": "Marketing",
-          "description": "The name of the budget item to which the adjustment is being made"
+          "description": "The name of the budget of the adjustment."
         },
         "budgetOwnerEmail": {
           "type": "string",
           "example": "name@compamy.com",
-          "description": "The owner email Id of the budget item"
+          "description": "The user who is responsible for the budget, as configured."
         },
         "description": {
           "type": "string",
           "example": "Sample description",
-          "description": "The short description of the adjustment"
+          "description": "A user-friendly description of the adjustment."
         },
         "fiscalPeriodName": {
           "type": "string",
@@ -567,13 +567,13 @@
         "fiscalYearName": {
           "type": "string",
           "example": 2018,
-          "description": "The Fiscal year of the budget item"
+          "description": "The name of the budget’s fiscal year."
         },
         "transactionDate": {
           "type": "string",
           "format": "date",
           "example": "2018-07-11",
-          "description": "The transaction date of adjusted spend. Required when the adjustment is made for amount type SPENT_AMOUNT or PENDING_AMOUNT"
+          "description": "The transaction date of adjusted spend. Must be within the fiscal period. Required when the adjustment is made for amount type SPENT_AMOUNT or PENDING_AMOUNT."
         }
       },
       "title": "BudgetAdjustmentsExternalDTO"
@@ -608,11 +608,11 @@
         },
         "unExpensedAmount": {
           "type": "number",
-          "description": "The pending amount accumulated against this budget. **Read only**"
+          "description": "The amount of unexpensed items like travel bookings, quick expenses, or e-receipts. **Read only**"
         },
         "unExpensedSettings": {
           "type": "boolean",
-          "description": "The unexpensed settings is used to decided to show unexpensed balance or not. **Read only**"
+          "description": "The company’s budget setting for unexpensed items. Applies to all budgets for the company. **Read only**"
         }
       },
       "title": "BudgetAmountDTO"
@@ -621,7 +621,10 @@
       "type": "object",
       "required": ["expenseTypes", "name"],
       "properties": {
-        "description": { "type": "string" },
+        "description": {
+          "type": "string",
+          "description": "The friendly name for this category."
+        },
         "expenseTypes": {
           "type": "array",
           "description": "The list of expense types that this budget category matches.",
@@ -633,12 +636,12 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of this budget category."
+          "description": "The admin-facing name for this category."
         },
         "statusType": {
           "type": "string",
-          "description": "The status of this budget category--only open and removed are meaningful for budget category.",
-          "enum": ["OPEN", "CLOSED", "REMOVED", "MERGED"]
+          "description": "The status of this budget category.",
+          "enum": ["OPEN", "REMOVED"]
         },
         "syncGuid": {
           "type": "string",
@@ -686,7 +689,7 @@
         },
         "id": {
           "type": "string",
-          "description": "The unique identifier for this particular budget balance bucket"
+          "description": "The unique identifier for this particular budget balance bucket."
         },
         "syncGuid": {
           "type": "string",
@@ -717,18 +720,18 @@
           "description": "The currency amount allocated to this fiscal period."
         },
         "budgetAmounts": {
-          "description": "The total budget amount and accumulated balances for this budget detail. **READ ONLY**",
+          "description": "The accumulated budget numbers for this budget. **READ ONLY**",
           "$ref": "#/definitions/BudgetAmountDTO"
         },
         "budgetItemBalances": {
           "type": "array",
-          "description": "READONLY",
+          "description": "Shows the break-out of budget spending by product and workflow state. **READ ONLY**",
           "items": { "$ref": "#/definitions/BudgetItemBalanceDTO" }
         },
         "budgetItemDetailStatusType": {
           "type": "string",
-          "description": "The status of the budget item detail. Only open, closed, and removed are valid.",
-          "enum": ["OPEN", "CLOSED", "REMOVED", "MERGED"]
+          "description": "The status of the budget item detail.",
+          "enum": ["OPEN", "CLOSED", "REMOVED"]
         },
         "budgetItemHeaderId": {
           "type": "string",
@@ -741,7 +744,7 @@
         "budgetName": { "type": "string" },
         "currencyCode": {
           "type": "string",
-          "description": "The alpha currency code, e.g. USD or GBP"
+          "description": "The 3-letter ISO 4217 currency code for the budget currency."
         },
         "detailDashboardBudgetItemAdjustmentDTOs": {
           "type": "array",
@@ -771,19 +774,19 @@
       "properties": {
         "active": {
           "type": "boolean",
-          "description": "Indicates if this budget should be displayed on user screens **Read only**"
+          "description": "Indicates if this budget should be displayed on user screens **READ ONLY**"
         },
         "annualBudget": {
           "type": "number",
           "description": "The total budget amount and accumulated balances for this budget header. **READ ONLY**"
         },
         "budgetAmounts": {
-          "description": "The total budget amount and accumulated balances for this budget header. **READ ONLY**",
+          "description": "The accumulated budget amounts for this budget.  **READ ONLY**",
           "$ref": "#/definitions/BudgetAmountDTO"
         },
         "budgetApprovers": {
           "type": "array",
-          "description": "The users who can approve spending for this budget.",
+          "description": "The workflow approvers for this budget.",
           "items": { "$ref": "#/definitions/BudgetPersonDTO" }
         },
         "budgetCategory": {
@@ -796,8 +799,8 @@
         },
         "budgetItemStatusType": {
           "type": "string",
-          "description": "The status of this budget item. Merged is invalid for Budget Items. (Closed means no spending may be attached to this budget.)",
-          "enum": ["OPEN", "CLOSED", "REMOVED", "MERGED"]
+          "description": "The status of this budget item.",
+          "enum": ["OPEN", "CLOSED", "REMOVED"]
         },
         "budgetManagers": {
           "type": "array",
@@ -826,12 +829,12 @@
         },
         "currencyCode": {
           "type": "string",
-          "description": "The currency code of the first budget detail. Moved to this level for convenience since it's very rare for a budget item header to have details with different currency codes."
+          "description": "The 3-letter ISO 4217 currency code for the budget currency. This is the currency code of the budget amount. Spending Items are converted using yesterday’s closing value."
         },
         "dateRange": { "readOnly": true, "$ref": "#/definitions/DateRangeDTO" },
         "description": {
           "type": "string",
-          "description": "The friendly name for a budget item."
+          "description": "The user-friendly name for this budget. This description is displayed to end users on desktop and mobile."
         },
         "fiscalYear": { "$ref": "#/definitions/FiscalYearDTO" },
         "fiscalYearId": { "type": "string" },
@@ -841,7 +844,7 @@
         },
         "isTest": {
           "type": "boolean",
-          "description": "The test flag for the budget item"
+          "description": "The test flag for the budget item. If true, this budget will only match spending submitted by test users."
         },
         "lastModifiedDate": {
           "type": "string",
@@ -850,19 +853,19 @@
         },
         "name": {
           "type": "string",
-          "description": "The admin-facing name of this budget"
+          "description": "The admin-facing name of this budget."
         },
         "owned": {
           "type": "boolean",
-          "description": "Indicates if this budget is owned by the current user **Read only**"
+          "description": "A flag indicating if the current user is the owner of this budget. **READ ONLY**"
         },
         "owner": {
-          "description": "The user who is ultimately responsible for this budget. He/she may approve spending for the budget",
+          "description": "The user who is ultimately responsible for this budget.",
           "$ref": "#/definitions/BudgetPersonDTO"
         },
         "periodType": {
           "type": "string",
-          "description": "The type of period within the fiscal year that this budget uses **Read only**",
+          "description": "The type of period within the fiscal year that this budget uses. **READ ONLY**",
           "enum": ["MONTHLY", "QUARTERLY", "YEARLY", "CUSTOM", "DATE_RANGE"]
         },
         "syncGuid": {
@@ -886,7 +889,8 @@
       "type": "object",
       "required": ["employeeUuid", "externalUserCUUID", "externalUserSyncGuid"],
       "properties": {
-        "email": { "type": "string", "description": "populate user email" },
+        "email": { "type": "string",
+          "description": "populate user email" },
         "employeeUuid": {
           "type": "string",
           "description": "The unique identifier for this user. This must match the UUID from Concur's profile service."
@@ -903,7 +907,9 @@
           "type": "string",
           "description": "The budget service's unique identifier for this user."
         },
-        "name": { "type": "string" },
+        "name": { "type": "string",
+          "description": "The user’s name. Provided for convenience. **READ ONLY**"
+         },
         "syncGuid": {
           "type": "string",
           "description": "The budget service's unique identifier for this user."
@@ -914,14 +920,40 @@
     "CostObjectFieldDTO": {
       "type": "object",
       "properties": {
-        "budgetSequenceNumber": { "type": "integer", "format": "int32" },
-        "budgetTrackingFieldName": { "type": "string" },
-        "connectedListSequenceNumber": { "type": "integer", "format": "int32" },
-        "feildType": { "type": "string" },
-        "fieldDefinitionId": { "type": "string" },
-        "fieldId": { "type": "string" },
-        "fieldSyncGuid": { "type": "string" },
-        "listSyncGuid": { "type": "string" }
+        "budgetSequenceNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The sequence or the order in which the budget tracking field appears in the budget UI."
+         },
+        "budgetTrackingFieldName": {
+          "type": "string",
+          "description": "The budget field tracking name."
+         },
+        "connectedListSequenceNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Indicates the level of the budget tracking field in a connected list. READ ONLY"
+         },
+        "fieldType": {
+          "type": "string",
+          "description": "The data type of this field or field collection.",
+          "enum": ["LIST", "MLIST", "VARCHAR"]
+         },
+        "fieldDefinitionId": {
+          "type": "string",
+          "description": "The budget service’s key for this object’s field definition id."
+        },
+        "fieldId": {
+          "type": "string",
+          "description": "The budget service’s key for this object."
+        },
+        "fieldSyncGuid": {
+          "type": "string"
+        },
+        "listSyncGuid": {
+          "type": "string",
+          "description": "If the dataType of this item is LIST or MLIST, this is the id of the list definition from SAP Concur’s list service."
+        }
       },
       "title": "CostObjectFieldDTO"
     },
@@ -1017,9 +1049,12 @@
         },
         "id": {
           "type": "string",
-          "description": "The unique idenifier for the expense type"
+          "description": "The budget service’s key for this object. If this field is not supplied, the service will use an existing expense type entry if one exists."
         },
-        "name": { "type": "string" },
+        "name": {
+          "type": "string",
+          "description": "READ ONLY. The name for this expense type if it maps to an expense type set up in SAP Concur."
+         },
         "syncGuid": {
           "type": "string",
           "description": "The unique idenifier for the expense type"
@@ -1203,7 +1238,7 @@
         "limit": {
           "type": "integer",
           "format": "int32",
-          "description": "The maximum number of entries a user can receive from this service."
+          "description": "The number of results returned per page. Maximum: 50"
         },
         "next": {
           "description": "The link to the next page of results, if one exists.",

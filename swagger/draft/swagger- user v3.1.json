@@ -1,0 +1,215 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "3.1.0",
+    "title": "GET Users Bulk API",
+    "description": "This API takes a company level token, and returns a list of users that match the search criteria\n"
+  },
+  "host": "us.api.concursolutions.com",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/users/": {
+      "get": {
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Company level access Bearer token"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "description": "The number of items to skip before returning result set"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "description": "The numbers of items to return."
+          },
+          {
+            "in": "query",
+            "name": "isactive",
+            "type": "string",
+            "description": "Whether the user is active"
+          },
+          {
+            "in": "query",
+            "name": "loginid",
+            "type": "string",
+            "description": "login_id of the user"
+          },
+          {
+            "in": "query",
+            "name": "lastname",
+            "type": "string",
+            "description": "last name of the user"
+          },
+          {
+            "in": "query",
+            "name": "employeeid",
+            "type": "string",
+            "description": "Employee Id of the user"
+          },
+          {
+            "in": "query",
+            "name": "primaryemail",
+            "type": "string",
+            "description": "Primary email of the user"
+          },
+          {
+            "in": "query",
+            "name": "countrycode",
+            "type": "string",
+            "description": "Country Code of the user"
+          },
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "description": "Id of the user"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "401": {
+            "description": "Authorization Required"
+          },
+          "404": {
+            "description": "Resoource not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "string",
+          "example": "99BFFFC3-C0BE-44FF-A441-AE1FFFFFF75B8"
+        },
+        "Active": {
+          "type": "boolean",
+          "example": true
+        },
+        "CountryCode": {
+          "type": "string",
+          "example": "US"
+        },
+        "CellPhoneNumber": {
+          "type": "string",
+          "example": "425-555-1111"
+        },
+        "PrimaryEmail": {
+          "type": "string",
+          "example": "johndoe@gmail.com"
+        },
+        "EmployeeID": {
+          "type": "string",
+          "example": "johndoe@gmail.com"
+        },
+        "OrganizationUnit": {
+          "type": "string",
+          "example": "IT"
+        },
+        "FirstName": {
+          "type": "string",
+          "example": "John"
+        },
+        "MiddleName": {
+          "type": "string",
+          "example": ""
+        },
+        "LastName": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "LoginID": {
+          "type": "string",
+          "example": "johndoe@gmail.com"
+        },
+        "Emails": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "example": "johndoe@gmail.com"
+          }
+        }
+      }
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "example": 10
+        },
+        "offset": {
+          "type": "integer",
+          "example": 1
+        },
+        "limit": {
+          "type": "integer",
+          "example": 10
+        },
+        "company": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "Company Name LLC"
+            },
+            "address": {
+              "type": "string",
+              "example": "601 108th ave NE"
+            },
+            "city": {
+              "type": "string",
+              "example": "Bellevue"
+            },
+            "state": {
+              "type": "string",
+              "example": "WA"
+            },
+            "zip": {
+              "type": "string",
+              "example": "98004"
+            },
+            "country": {
+              "type": "string",
+              "example": "US"
+            }
+          }
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Documentation",
+    "url": "https://developer.concur.com/api-reference/authentication/get-users31.html"
+  },
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Manage Expense entries for a user.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -15,9 +16,22 @@
   ],
   "info": {
     "title": "Entries",
-    "description": "",
+    "description": "Get all entries for a user, create new entries, update entries, or delete entries.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "tags": [
     {
       "name": "Resources",
@@ -30,7 +44,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get all expense entries",
+        "summary": "Get expense entries",
         "description": "Gets all expense entries owned by the user.",
         "parameters": [
           {
@@ -50,7 +64,7 @@
           {
             "name": "batchID",
             "in": "query",
-            "description": "The batch ID for the entries to be retrieved. The batch ID identifies the batch that contains the report payee associated with the entries. Use the GET Payment Batch function to learn the Payment Type ID for the desired Payment Type.",
+            "description": "The batch ID for the entries to be retrieved. The batch ID identifies the batch that contains the report payee associated with the entries.",
             "required": false,
             "type": "string"
           },
@@ -132,8 +146,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Create a new expense entry",
-        "description": "Creates a new expense entry.",
+        "summary": "Create expense entry",
+        "description": "Creates a new expense entry for the specified user.",
         "parameters": [
           {
             "name": "content",
@@ -158,6 +172,12 @@
             "schema": {
               "$ref": "#/definitions/CreateResponse"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -167,8 +187,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get a single expense entry by ID",
-        "description": "Gets an expense entry by ID.",
+        "summary": "Get a single expense entry",
+        "description": "Gets the specified expense entry.",
         "parameters": [
           {
             "name": "id",
@@ -198,7 +218,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Update an expense entry by ID",
+        "summary": "Update an expense entry",
         "description": "Updates the specified expense entry. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
         "parameters": [
           {
@@ -231,6 +251,12 @@
             "schema": {
               "$ref": "#/definitions/Void"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       },
@@ -238,7 +264,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Delete an expense entry by ID",
+        "summary": "Delete an expense entry",
         "description": "Deletes the specified expense entry.",
         "parameters": [
           {
@@ -290,16 +316,13 @@
         },
         "Type": {
           "type": "string",
-          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text"
+          "description": "The custom field type. Supported values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text"
         },
         "Value": {
           "type": "string",
           "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
         }
       }
-    },
-    "Decimal": {
-      "properties": {}
     },
     "EntryCollection": {
       "properties": {
@@ -316,7 +339,7 @@
       "properties": {
         "AllocationType": {
           "type": "string",
-          "description": "The type of allocations for the expense. Possible values: P - partial allocation, F - full allocation, N - no allocation."
+          "description": "The type of allocations for the expense. Supported values: P - partial allocation, F - full allocation, N - no allocation."
         },
         "ApprovedAmount": {
           "type": "number",
@@ -325,7 +348,7 @@
         },
         "CompanyCardTransactionID": {
           "type": "string",
-          "description": "The unique identifier for a company card transaction that is associated with this expense. Concur Expense uses the Credit Card Import job to import company card transactions. Use the GET CommpanyCardTransactions function to get information about these card transactions. This element is null when there is no company card transaction associated with this expense."
+          "description": "The unique identifier for a company card transaction that is associated with this expense. This element is null when there is no company card transaction associated with this expense."
         },
         "Custom1": {
           "$ref": "#/definitions/CustomField"
@@ -453,11 +476,11 @@
         },
         "ElectronicReceiptID": {
           "type": "string",
-          "description": "The unique identifier for an eReceipt that is associated with this expense. Use the GET eReceipts function to get information about this eReceipt. This element is null when there is no eReceipt associated with this expense."
+          "description": "The unique identifier for an eReceipt that is associated with this expense. This element is null when there is no eReceipt associated with this expense."
         },
         "EmployeeBankAccountID": {
           "type": "string",
-          "description": "The unique identifier of an employee bank account that is associated with this expense. Typically, this element is used when Expense Pay reimburses the employee for this expense. Use the GET BankAccounts function to get information about this bank account."
+          "description": "The unique identifier of an employee bank account that is associated with this expense. Typically, this element is used when Expense Pay reimburses the employee for this expense."
         },
         "ExchangeRate": {
           "type": "number",
@@ -486,15 +509,15 @@
         },
         "HasComments": {
           "type": "boolean",
-          "description": "Whether the expense has comments. Use the GET ExpenseEntryComments function to get information about this entry's comments. Format: true or false"
+          "description": "Whether the expense has comments. Format: true or false"
         },
         "HasExceptions": {
           "type": "boolean",
-          "description": "Whether the expense has exceptions. Use the GET ExpenseEntryExceptions function to get information about this entry's exceptions. Format: true or false"
+          "description": "Whether the expense has exceptions. Format: true or false"
         },
         "HasImage": {
           "type": "boolean",
-          "description": "Indicates whether there is an entry image attached to the entry. Use the GET Entry Images function to get this entry image. Format: true or false"
+          "description": "Indicates whether there is an entry image attached to the entry. Format: true or false"
         },
         "HasItemizations": {
           "type": "boolean",
@@ -526,7 +549,7 @@
         },
         "IsPersonalCardCharge": {
           "type": "boolean",
-          "description": "Indicates whether the expense entry was imported from a personal card feed. Concur Expense uses the Yodlee API to import these card transactions. Format: true or false"
+          "description": "Indicates whether the expense entry was imported from a personal card feed. Format: true or false"
         },
         "Journey": {
           "$ref": "#/definitions/Journey"
@@ -538,7 +561,7 @@
         },
         "LocationCountry": {
           "type": "string",
-          "description": "The country where the expense was incurred. Format: 2-letter ISO 3166-1 country code"
+          "description": "The 2-letter ISO 3166-1 country code where the expense was incurred."
         },
         "LocationID": {
           "type": "string",
@@ -550,7 +573,7 @@
         },
         "LocationSubdivision": {
           "type": "string",
-          "description": "The state, province, or other country subdivision where the expense was incurred. Format: ISO 3166-2:2007 country subdivision"
+          "description": "The ISO 3166-2:2007 country subdivision state, province, or other country subdivision where the expense was incurred."
         },
         "OrgUnit1": {
           "$ref": "#/definitions/CustomField"
@@ -593,7 +616,7 @@
         },
         "ReportOwnerID": {
           "type": "string",
-          "description": "The login ID of the report owner. Use the GET User Information function to learn details about this user."
+          "description": "The login ID of the report owner."
         },
         "SpendCategoryCode": {
           "type": "string",
@@ -605,12 +628,12 @@
         },
         "TaxReceiptType": {
           "type": "string",
-          "description": "The receipt type for this entry. Possible values: T - tax receipt, R - regular receipt, N - no receipt"
+          "description": "The receipt type for this entry. Supported values: T - tax receipt, R - regular receipt, N - no receipt"
         },
         "TransactionAmount": {
           "type": "number",
           "format": "double",
-          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
         },
         "TransactionCurrencyCode": {
           "type": "string",
@@ -623,7 +646,7 @@
         },
         "TripID": {
           "type": "string",
-          "description": "The unique identifier of a trip in the Itinerary Service that includes a travel booking associated with this expense. Use GET ItineraryDetails to get information about this trip and the travel booking. This element is null when there is no trip associated with the expense."
+          "description": "The unique identifier of a trip in the Itinerary Service that includes a travel booking associated with this expense. This element is null when there is no trip associated with the expense."
         },
         "URI": {
           "type": "string",
@@ -820,7 +843,7 @@
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code for the expense type. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the expense type code for expense types that are active for this report's policy."
+          "description": "The code for the expense type. Use \"GET /expense/expensegroupconfigurations\" to learn the expense type code for expense types that are active for this report's policy."
         },
         "IsBillable": {
           "type": "boolean",
@@ -835,7 +858,7 @@
         },
         "LocationID": {
           "type": "string",
-          "description": "The unique identifier for the location where the expense was incurred. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Locations/Get_offset_limit_name_city_countrySubdivision_country_administrativeRegion_get_0\">GET /common/locations</a> function to get information for this location."
+          "description": "The unique identifier for the location where the expense was incurred. Use the \"GET /common/locations\" function to get information for this location."
         },
         "OrgUnit1": {
           "type": "string",
@@ -871,7 +894,7 @@
         },
         "TaxReceiptType": {
           "type": "string",
-          "description": "The receipt type for this entry. Possible values: T - tax receipt, R - regular receipt, N - no receipt"
+          "description": "The receipt type for this entry. Supported values: T - tax receipt, R - regular receipt, N - no receipt"
         },
         "TransactionAmount": {
           "type": "number",
@@ -1125,12 +1148,12 @@
         },
         "TaxReceiptType": {
           "type": "string",
-          "description": "The receipt type for this entry. Possible values: T - tax receipt, R - regular receipt, N - no receipt"
+          "description": "The receipt type for this entry. Supported values: T - tax receipt, R - regular receipt, N - no receipt"
         },
         "TransactionAmount": {
           "type": "number",
           "format": "double",
-          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
         },
         "TransactionCurrencyCode": {
           "type": "string",
@@ -1156,7 +1179,7 @@
         "BusinessDistance": {
           "type": "integer",
           "format": "int32",
-          "description": "The portion of the journey for business use, in the report owner's unit of measure for distances. This element is required in order to post a personal car mileage expense entry, or to post a company car mileage expense when there is no PersonalDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart."
+          "description": "The portion of the journey for business use, in the report owner's unit of measure for distances. This element is required in order to post a personal car mileage expense entry, or to post a company car mileage expense when there is no PersonalDistance value. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart."
         },
         "EndLocation": {
           "type": "string",
@@ -1165,17 +1188,17 @@
         "NumberOfPassengers": {
           "type": "integer",
           "format": "int32",
-          "description": "The number of people in the vehicle during the journey. Positive Integer. Used with Variable-Rate, Personal or Company Car."
+          "description": "The number of people in the vehicle during the journey. Used with Variable-Rate, Personal or Company Car."
         },
         "OdometerEnd": {
           "type": "integer",
           "format": "int32",
-          "description": "The odometer reading at the end of the journey. Format: positive integer that must be greater than the OdometerStart value. This element is used with Variable-Rate and Company Car configuration types."
+          "description": "The odometer reading at the end of the journey. The value must be greater than the OdometerStart value. This element is used with Variable-Rate and Company Car configuration types."
         },
         "OdometerStart": {
           "type": "integer",
           "format": "int32",
-          "description": "The odometer reading at the start of the journey. Format: positive integer. This element is used with Variable-Rate and Company Car configuration types."
+          "description": "The odometer reading at the start of the journey. This element is used with Variable-Rate and Company Car configuration types."
         },
         "PersonalDistance": {
           "type": "integer",
@@ -1188,7 +1211,7 @@
         },
         "UnitOfMeasure": {
           "type": "string",
-          "description": "The unit of measure for distance and odometer values. Possible values: M - miles, K - kilometers"
+          "description": "The unit of measure for distance and odometer values. Supported values: M - miles, K - kilometers"
         },
         "VehicleID": {
           "type": "string",
@@ -1196,19 +1219,14 @@
         }
       }
     },
-    "Nullable`1": {
-      "properties": {
-        "HasValue": {
-          "type": "boolean",
-          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
-        },
-        "Value": {
-          "$ref": "#/definitions/Decimal"
-        }
-      }
-    },
     "Void": {
       "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }

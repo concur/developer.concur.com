@@ -1,7 +1,8 @@
 {
+  "x-sap-shortText": "View and manage invoice payment requests.",
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
-  "basePath": "/api/v3.0",
+  "host": "sandbox.api.sap.com",
+  "basePath": "/concur/api/v3.0",
   "schemes": [
     "https"
   ],
@@ -18,6 +19,19 @@
     "description": "A payment request is a request for payment (partial or full) of an invoice. This API provides methods to create or update a payment request, or view a payment request by ID.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "tags": [
     {
       "name": "Resources",
@@ -30,8 +44,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Gets all relevant information of a Payment Request.",
-        "description": "This API Gets all relevant information (Payment Request Header, Payment Request Line Item and Payment Request Allocation) of a Payment Request.",
+        "summary": "Gets all Payment Request information.",
+        "description": "Gets all relevant information (Payment Request Header, Payment Request Line Item and Payment Request Allocation) of a Payment Request.",
         "parameters": [
           {
             "name": "id",
@@ -56,7 +70,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Create a new Payment Request.",
+        "summary": "Create a Payment Request.",
         "description": "Creates a new Payment Request with all relevant details including line items and associated allocations.",
         "parameters": [
           {
@@ -75,6 +89,12 @@
             "schema": {
               "$ref": "#/definitions/CreateResponse"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       },
@@ -83,7 +103,7 @@
           "Resources"
         ],
         "summary": "Update a Payment Request.",
-        "description": "Updates a Payment Request with all relevant details including line items and associated allocations.",
+        "description": "Updates a payment request with all relevant details including line items and associated allocations.",
         "parameters": [
           {
             "name": "paymentRequest",
@@ -100,6 +120,12 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CreateResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
             }
           }
         }
@@ -119,7 +145,7 @@
         },
         "Custom10": {
           "type": "string",
-          "description": "A value that can be applied to a custom field 10 that is part of the allocation form."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
@@ -195,11 +221,11 @@
         },
         "IsTestUser": {
           "type": "string",
-          "description": "Indication that the Allocation record was created by a test user (this is a true/false)."
+          "description": "Indication that the Allocation record was created by a test user. Format: true/false."
         },
         "Percentage": {
           "type": "string",
-          "description": "The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100."
+          "description": "The percentage of the request line item that the individual allocation records. All allocations associated to a given line item should add up to 100."
         }
       }
     },
@@ -250,11 +276,11 @@
       "properties": {
         "ID": {
           "type": "string",
-          "description": "The state code."
+          "description": "The ID of the resource."
         },
         "URI": {
           "type": "string",
-          "description": "The state code."
+          "description": "The URI to the resource."
         }
       }
     },
@@ -265,11 +291,11 @@
         },
         "AllocationStatus": {
           "type": "string",
-          "description": "Current amount of allocation performed on the Request Line Item (accepted values: None, Partial, Full)."
+          "description": "Current amount of allocation performed on the Request line item Supported values: None, Partial, Full."
         },
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The net amount of the line item (excluding VAT)."
+          "description": "The net amount of the line item, excluding VAT."
         },
         "ApprovedLineItemAmount": {
           "type": "string",
@@ -365,11 +391,11 @@
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "A code which indicates the Expense Type for the Line Item."
+          "description": "A code which indicates the expense type for the line item."
         },
         "IsMatched": {
           "type": "string",
-          "description": "Indication that the Payment Request Line Item is associated to a Purchase Order Line Item (this is a true/false)."
+          "description": "Indication that the payment request line item is associated to a purchase order line item. Format: true/false."
         },
         "LineItemId": {
           "type": "string",
@@ -377,7 +403,7 @@
         },
         "LineItemIsTestUser": {
           "type": "string",
-          "description": "Indication that the Allocation record was created by a test user (this is a true/false)."
+          "description": "Indication that the allocation record was created by a test user. Format: true/false."
         },
         "MatchedPurchaseOrderLineItemId": {
           "type": "string",
@@ -397,7 +423,7 @@
         },
         "RequestLineItemNumber": {
           "type": "string",
-          "description": "The relative location of the Line Item in relation to other Line Items in the Payment Request."
+          "description": "The relative location of the line item in relation to other line items in the payment request."
         },
         "ShipFromPostalCode": {
           "type": "string",
@@ -417,19 +443,19 @@
         },
         "TaxCode": {
           "type": "string",
-          "description": "The Tax Code  assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code assigned for the line item, based on the tax setting."
         },
         "TaxCode2": {
           "type": "string",
-          "description": "The Tax Code 2 assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 2 assigned for the line item, based on the tax setting."
         },
         "TaxCode3": {
           "type": "string",
-          "description": "The Tax Code 3 assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 3 assigned for the line item, based on the tax setting."
         },
         "TaxCode4": {
           "type": "string",
-          "description": "The Tax Code 4 assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 4 assigned for the line item, based on the tax setting."
         },
         "TotalPrice": {
           "type": "string",
@@ -437,7 +463,7 @@
         },
         "UnitOfMeasure": {
           "type": "string",
-          "description": "The code for the measurement unit used to quantify the good or service. Use GET /invoice/localizeddata to look up codes and descriptions."
+          "description": "The code for the measurement unit used to quantify the good or service. Use \"GET /invoice/localizeddata\" to look up codes and descriptions."
         },
         "UnitPrice": {
           "type": "string",
@@ -488,15 +514,15 @@
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The net amount of the invoice (excluding VAT)."
+          "description": "The net amount of the invoice, excluding VAT."
         },
         "ApprovalStatus": {
           "type": "string",
-          "description": "A code which indicates the Approval Status of the payment request."
+          "description": "A code which indicates the approval status of the payment request."
         },
         "ApprovedByDelegate": {
           "type": "string",
-          "description": "Was the Payment Request approved by a Delegate (true/false)."
+          "description": "Was the Payment Request approved by a delegate. Format: true/false."
         },
         "AssignedByUsername": {
           "type": "string",
@@ -504,15 +530,15 @@
         },
         "AssignedDate": {
           "type": "string",
-          "description": "The date the Payment Request was assigned to the current owner."
+          "description": "The date the payment request was assigned to the current owner."
         },
         "BuyerCostCenter": {
           "type": "string",
-          "description": "The company defined center responsible for the Payment Request."
+          "description": "The company defined center responsible for the payment request."
         },
         "CalculatedAmount": {
           "type": "string",
-          "description": "The sum of all Line Item Amounts plus Shipping Amount and Tax Amount for the payment request."
+          "description": "The sum of all line item amounts plus shipping amount and tax amount for the payment request."
         },
         "CheckNumber": {
           "type": "string",
@@ -530,7 +556,7 @@
         },
         "CreatedByUsername": {
           "type": "string",
-          "description": "Username of the Payment Request creator."
+          "description": "Username of the payment request creator."
         },
         "CurrencyCode": {
           "type": "string",
@@ -634,7 +660,7 @@
         },
         "DataSource": {
           "type": "string",
-          "description": "A code which indicates the method used to created the Payment Request. Use GET /invoice/localizeddata to translate the code into text."
+          "description": "A code which indicates the method used to created the Payment Request. Use \"GET /invoice/localizeddata\" to translate the code into text."
         },
         "DeletedDate": {
           "type": "string",
@@ -686,11 +712,11 @@
         },
         "InvoiceDate": {
           "type": "string",
-          "description": "The date the Vendor issued the Invoice."
+          "description": "The date the vendor issued the invoice."
         },
         "InvoiceNumber": {
           "type": "string",
-          "description": "The Invoice Number from the vendor for the Payment Request."
+          "description": "The invoice Number from the vendor for the payment request."
         },
         "InvoiceReceivedDate": {
           "type": "string",
@@ -698,23 +724,23 @@
         },
         "IsAssigned": {
           "type": "string",
-          "description": "Is the Payment Request assigned (true/false)."
+          "description": "Whether the payment request is assigned. Format: true/false."
         },
         "IsInvoiceConfirmed": {
           "type": "string",
-          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status (true/false)."
+          "description": "Indicates if the payment request invoice is confirmed or in a different status. Format: true/false."
         },
         "IsPaymentRequestDeleted": {
           "type": "string",
-          "description": "Is the Payment Request deleted (true/false)."
+          "description": "Whether the payment request is deleted. Format: true/false."
         },
         "IsPaymentRequestDuplicate": {
           "type": "string",
-          "description": "Is the Payment Request identified as a duplicate of another existing request (true/false)."
+          "description": "Whether the payment request identified as a duplicate of another existing request. Format:true/false."
         },
         "IsTestTransaction": {
           "type": "string",
-          "description": "Is the Payment Request a test transaction (true/false)."
+          "description": "Is the payment request a test transaction (true/false)."
         },
         "LastSubmitDate": {
           "type": "string",
@@ -722,14 +748,14 @@
         },
         "LedgerCode": {
           "type": "string",
-          "description": "A code which indicates which company journal the Payment Request is assigned to. Use GET /invoice/localizeddata to translate the code into text."
+          "description": "A code which indicates which company journal the payment request is assigned to. Use \"GET /invoice/localizeddata\" to translate the code into text."
         },
         "LineItems": {
           "$ref": "#/definitions/LineItemsCollection"
         },
         "LineItemTotalAmount": {
           "type": "string",
-          "description": "The sum of all Line Item Amounts."
+          "description": "The sum of all line item amounts."
         },
         "LineItemVatAmount": {
           "type": "string",
@@ -737,7 +763,7 @@
         },
         "Name": {
           "type": "string",
-          "description": "The Payment Request Name."
+          "description": "The payment request name."
         },
         "NotesToVendor": {
           "type": "string",
@@ -749,35 +775,35 @@
         },
         "OB10TransactionId": {
           "type": "string",
-          "description": "Unique Identifier for the PR transaction (generated by OB10)."
+          "description": "Unique identifier for the PR transaction (generated by OB10)."
         },
         "OrgUnit01": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit02": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit03": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit04": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit05": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit06": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "PaidAmount": {
           "type": "string",
-          "description": "Represents the amount of the payment that will be/has been made for the Invoice."
+          "description": "Represents the amount of the payment that will be/has been made for the invoice."
         },
         "PaidDate": {
           "type": "string",
@@ -793,19 +819,19 @@
         },
         "PaymentMethod": {
           "type": "string",
-          "description": "A code which indicates the method used to reimburse the vendor for the Payment Request. Use GET /invoice/localizeddata to translate the code into text."
+          "description": "A code which indicates the method used to reimburse the vendor for the Payment Request. Use \"GET /invoice/localizeddata\" to translate the code into text."
         },
         "PaymentRequestCreatedByTestUser": {
           "type": "string",
-          "description": "Was the Payment Request created by a Test User (true/false)."
+          "description": "Was the Payment Request created by a Test User. Format: true/false."
         },
         "PaymentRequestDeletedBy": {
           "type": "string",
-          "description": "The user who deleted the Payment Request."
+          "description": "The user who deleted the payment request."
         },
         "PaymentStatus": {
           "type": "string",
-          "description": "A code which indicates the Payment Status of the payment request."
+          "description": "A code which indicates the payment status of the payment request."
         },
         "PaymentTermsDays": {
           "type": "string",
@@ -813,7 +839,7 @@
         },
         "ProvincialTaxId": {
           "type": "string",
-          "description": "The Vendor Provincial Tax ID."
+          "description": "The vendor provincial tax ID."
         },
         "PurchaseOrderNumber": {
           "type": "string",
@@ -821,35 +847,35 @@
         },
         "ReceiptConfirmationType": {
           "type": "string",
-          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text."
+          "description": "A code which indicates the receipt confirmation type for this payment request (Invoice Confirmation, for example). Use \"GET /invoice/localizeddata\" to translate the code into text."
         },
         "ShippingAmount": {
           "type": "string",
-          "description": "The value for the Shipping Amount header field."
+          "description": "The value for the shipping amount header field."
         },
         "SubmittedByDelegate": {
           "type": "string",
-          "description": "Was the Payment Request created by a Delegate (true/false)."
+          "description": "Whether the payment request was created by a delegate. Format: true/false."
         },
         "TaxAmount": {
           "type": "string",
-          "description": "The value for the Tax Amount header field."
+          "description": "The value for the tax amount header field."
         },
         "TaxCode": {
           "type": "string",
-          "description": "The Tax Code assigned for the Request, based on the Tax Setting."
+          "description": "The tax code assigned for the Request, based on the tax setting."
         },
         "TaxCode2": {
           "type": "string",
-          "description": "The Tax Code assigned for the Request, based on the Tax Setting."
+          "description": "The tax code 2 assigned for the request, based on the tax setting."
         },
         "TaxCode3": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PMT_TAX_CODE_3"
+          "description": "The tax code 3 assigned for the request, based on the tax setting."
         },
         "TaxCode4": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PMT_TAX_CODE_4"
+          "description": "The tax code 4 assigned for the request, based on the tax setting."
         },
         "TotalApprovedAmount": {
           "type": "string",
@@ -861,39 +887,39 @@
         },
         "UserCreationDate": {
           "type": "string",
-          "description": "The date the Invoice user first saved the payment request."
+          "description": "The date the Concur Invoice user first saved the payment request."
         },
         "VatAmountFour": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (Fourth of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. Fourth of four VAT amount fields available."
         },
         "VatAmountOne": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (First of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. First of four VAT amount fields available."
         },
         "VatAmountThree": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (Third of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. Third of four VAT amount fields available."
         },
         "VatAmountTwo": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (Second of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. Second of four VAT amount fields available."
         },
         "VatRateFour": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the fourth VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the fourth VAT amount field."
         },
         "VatRateOne": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the first VAT amount field."
         },
         "VatRateThree": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the third VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the third VAT amount field."
         },
         "VatRateTwo": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the second VAT amount field."
         },
         "VendorRemitAddress": {
           "$ref": "#/definitions/VendorAddress"
@@ -903,7 +929,7 @@
         },
         "VendorTaxId": {
           "type": "string",
-          "description": "The Vendor Tax ID."
+          "description": "The vendor tax ID."
         },
         "WorkflowCompleteDate": {
           "type": "string",
@@ -915,43 +941,43 @@
       "properties": {
         "Custom01": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "A value that can be applied to a custom field 8 that is part of the allocation form."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom09": {
           "type": "string",
-          "description": "A value that can be applied to a custom field 9 that is part of the allocation form."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "A value that can be applied to a custom field 10 that is part of the allocation form."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
@@ -995,7 +1021,7 @@
         },
         "Percentage": {
           "type": "string",
-          "description": "The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100."
+          "description": "The percentage of the request line item that the individual allocation records. All allocations associated to a given line item should add up to 100."
         }
       }
     },
@@ -1006,87 +1032,87 @@
         },
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The net amount of the line item (excluding VAT)."
+          "description": "The net amount of the line item, excluding VAT."
         },
         "Custom01": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom09": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Description": {
           "type": "string",
@@ -1094,7 +1120,7 @@
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "A code which indicates the Expense Type for the Line Item."
+          "description": "A code which indicates the expense type for the line item."
         },
         "ItemCode": {
           "type": "string",
@@ -1102,7 +1128,7 @@
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "Purchase Order that is associated to the Line Item ."
+          "description": "Purchase order that is associated to the line item ."
         },
         "Quantity": {
           "type": "string",
@@ -1126,19 +1152,19 @@
         },
         "TaxCode": {
           "type": "string",
-          "description": "The Tax Code  assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code assigned for the line item, based on the tax setting."
         },
         "TaxCode2": {
           "type": "string",
-          "description": "The Tax Code 2 assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 2 assigned for the line item, based on the tax setting."
         },
         "TaxCode3": {
           "type": "string",
-          "description": "The Tax Code 3 assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 3 assigned for the line item, based on the tax setting."
         },
         "TaxCode4": {
           "type": "string",
-          "description": "The Tax Code 4 assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 4 assigned for the line item, based on the tax setting."
         },
         "TotalPrice": {
           "type": "string",
@@ -1146,7 +1172,7 @@
         },
         "UnitOfMeasure": {
           "type": "string",
-          "description": "The code for the measurement unit used to quantify the good or service. Use GET /invoice/localizeddata to look up codes and descriptions."
+          "description": "The code for the measurement unit used to quantify the good or service. Use \"GET /invoice/localizeddata\" to look up codes and descriptions."
         },
         "UnitPrice": {
           "type": "string",
@@ -1190,94 +1216,94 @@
       "properties": {
         "Action": {
           "type": "string",
-          "description": "The operation(INSERT/UPDATE/DELETE) to be performed on the Line Item."
+          "description": "The operation(INSERT/UPDATE/DELETE) to be performed on the line item."
         },
         "Allocations": {
           "$ref": "#/definitions/PaymentRequestAllocationPostPut"
         },
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The net amount of the line item (excluding VAT)."
+          "description": "The net amount of the line item, excluding VAT."
         },
         "Custom01": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom09": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Description": {
           "type": "string",
@@ -1285,7 +1311,7 @@
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "A code which indicates the Expense Type for the Line Item."
+          "description": "A code which indicates the expense type for the line item."
         },
         "ItemCode": {
           "type": "string",
@@ -1293,11 +1319,11 @@
         },
         "LineItemID": {
           "type": "string",
-          "description": "Line Item ID of the Payment Request."
+          "description": "Line item ID of the payment request."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "Purchase Order that is associated to the Line Item ."
+          "description": "Purchase order that is associated to the line item ."
         },
         "Quantity": {
           "type": "string",
@@ -1321,23 +1347,23 @@
         },
         "TaxCode": {
           "type": "string",
-          "description": "The Tax Code  assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 1 assigned for the line item, based on the tax setting."
         },
         "TaxCode2": {
           "type": "string",
-          "description": "The Tax Code 2 assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 2 assigned for the line item, based on the tax setting."
         },
         "TaxCode3": {
           "type": "string",
-          "description": "The Tax Code 3 assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 3 assigned for the line item, based on the tax setting."
         },
         "TaxCode4": {
           "type": "string",
-          "description": "The Tax Code 4 assigned for the Line Item, based on the Tax Setting."
+          "description": "The tax code 4 assigned for the line item, based on the tax setting."
         },
         "UnitOfMeasure": {
           "type": "string",
-          "description": "The code for the measurement unit used to quantify the good or service. Use GET /invoice/localizeddata to look up codes and descriptions."
+          "description": "The code for the measurement unit used to quantify the good or service. Use \"GET /invoice/localizeddata\" to look up codes and descriptions."
         },
         "UnitPrice": {
           "type": "string",
@@ -1381,11 +1407,11 @@
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The net amount of the invoice (excluding VAT)."
+          "description": "The net amount of the invoice, excluding VAT."
         },
         "BuyerCostCenter": {
           "type": "string",
-          "description": "The company defined center responsible for the Payment Request."
+          "description": "The company defined center responsible for the payment request."
         },
         "CheckNumber": {
           "type": "string",
@@ -1409,103 +1435,103 @@
         },
         "Custom01": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom09": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom21": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom22": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom23": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom24": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "DataSource": {
           "type": "string",
-          "description": "A code which indicates the method used to created the Payment Request. Use GET /invoice/localizeddata to translate the code into text."
+          "description": "A code which indicates the method used to created the payment request. Use \"GET /invoice/localizeddata\" to translate the code into text."
         },
         "DeliverySlipNumber": {
           "type": "string",
@@ -1513,7 +1539,7 @@
         },
         "Description": {
           "type": "string",
-          "description": "User entered description of the Payment Request."
+          "description": "User entered description of the payment request."
         },
         "DiscountPercentage": {
           "type": "string",
@@ -1545,11 +1571,11 @@
         },
         "InvoiceDate": {
           "type": "string",
-          "description": "The date the Vendor issued the Invoice."
+          "description": "The date the vendor issued the invoice."
         },
         "InvoiceNumber": {
           "type": "string",
-          "description": "The Invoice Number from the vendor for the Payment Request."
+          "description": "The invoice number from the vendor for the payment request."
         },
         "InvoiceReceivedDate": {
           "type": "string",
@@ -1557,15 +1583,15 @@
         },
         "IsEmergencyCheckRun": {
           "type": "string",
-          "description": "Is an emergency check run required(Y/N)."
+          "description": "Is an emergency check run required. Format: Y/N"
         },
         "IsInvoiceConfirmed": {
           "type": "string",
-          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status (true/false)."
+          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status. Format: true/false."
         },
         "LedgerCode": {
           "type": "string",
-          "description": "A code which indicates which company journal the Payment Request is assigned to. Use GET /invoice/localizeddata to obtain valid codes. This value is <strong>required</strong> if none of the following are provided: EmployeeLoginId; EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId."
+          "description": "A code which indicates which company journal the Payment Request is assigned to. Use \"GET /invoice/localizeddata\" to obtain valid codes. This value is <strong>required</strong> if none of the following are provided: EmployeeLoginId; EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId."
         },
         "LineItems": {
           "$ref": "#/definitions/PaymentRequestLineItemPost"
@@ -1588,27 +1614,27 @@
         },
         "OrgUnit01": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit02": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit03": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit04": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit05": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit06": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "PaymentAdjustmentNotes": {
           "type": "string",
@@ -1616,7 +1642,7 @@
         },
         "PaymentAmount": {
           "type": "string",
-          "description": "Represents the amount of the payment that will be/has been made for the Invoice."
+          "description": "Represents the amount of the payment that will be/has been made for the invoice."
         },
         "PaymentDueDate": {
           "type": "string",
@@ -1628,7 +1654,7 @@
         },
         "ProvincialTaxId": {
           "type": "string",
-          "description": "The Vendor Provincial Tax ID."
+          "description": "The vendor provincial tax ID."
         },
         "PurchaseOrderId": {
           "type": "string",
@@ -1636,7 +1662,7 @@
         },
         "ReceiptConfirmationType": {
           "type": "string",
-          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text."
+          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use \"GET /invoice/localizeddata\" to translate the code into text."
         },
         "ShippingAmount": {
           "type": "string",
@@ -1648,35 +1674,35 @@
         },
         "VatAmountFour": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (Fourth of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. Fourth of four VAT amount fields available."
         },
         "VatAmountOne": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (First of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. First of four VAT amount fields available."
         },
         "VatAmountThree": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (Third of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. Third of four VAT amount fields available."
         },
         "VatAmountTwo": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (Second of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. Second of four VAT amount fields available."
         },
         "VatRateFour": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the fourth VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the fourth VAT amount field."
         },
         "VatRateOne": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the first VAT amount field."
         },
         "VatRateThree": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the third VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the third VAT amount field."
         },
         "VatRateTwo": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the second VAT amount field."
         },
         "VendorRemitToIdentifier": {
           "$ref": "#/definitions/VendorIdentifier"
@@ -1687,7 +1713,7 @@
         },
         "VendorTaxId": {
           "type": "string",
-          "description": "The Vendor Tax ID."
+          "description": "The vendor tax ID."
         }
       }
     },
@@ -1695,11 +1721,11 @@
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The net amount of the invoice (excluding VAT)."
+          "description": "The net amount of the invoice, excluding VAT."
         },
         "BuyerCostCenter": {
           "type": "string",
-          "description": "The company defined center responsible for the Payment Request."
+          "description": "The company defined center responsible for the payment request."
         },
         "CheckNumber": {
           "type": "string",
@@ -1723,99 +1749,99 @@
         },
         "Custom01": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom09": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom21": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom22": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom23": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "Custom24": {
           "type": "string",
-          "description": "The details from the Custom fields. These may not have data, depending on configuration."
+          "description": "The details from the custom fields. These may not have data, depending on configuration."
         },
         "DeliverySlipNumber": {
           "type": "string",
@@ -1823,7 +1849,7 @@
         },
         "Description": {
           "type": "string",
-          "description": "User entered description of the Payment Request."
+          "description": "User entered description of the payment request."
         },
         "DiscountPercentage": {
           "type": "string",
@@ -1835,7 +1861,7 @@
         },
         "DoCopyDown": {
           "type": "string",
-          "description": "Use new Request Owner's employee copydown values in this request"
+          "description": "Use new request owner's employee copydown values in this request"
         },
         "DoCopyDownFromPO": {
           "type": "string",
@@ -1859,11 +1885,11 @@
         },
         "InvoiceDate": {
           "type": "string",
-          "description": "The date the Vendor issued the Invoice."
+          "description": "The date the vendor issued the invoice."
         },
         "InvoiceNumber": {
           "type": "string",
-          "description": "The Invoice Number from the vendor for the Payment Request."
+          "description": "The invoice number from the vendor for the payment request."
         },
         "InvoiceReceivedDate": {
           "type": "string",
@@ -1871,18 +1897,18 @@
         },
         "IsEmergencyCheckRun": {
           "type": "string",
-          "description": "Is an emergency check run required(Y/N)."
+          "description": "Is an emergency check run required. Format: Y/N."
         },
         "IsInvoiceConfirmed": {
           "type": "string",
-          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status (true/false)."
+          "description": "Indicates if the payment request invoice is confirmed or in a different status. Format: true/false."
         },
         "LineItems": {
           "$ref": "#/definitions/PaymentRequestLineItemPut"
         },
         "Name": {
           "type": "string",
-          "description": "The Payment Request Name."
+          "description": "The payment request name."
         },
         "NotesToVendor": {
           "type": "string",
@@ -1894,31 +1920,31 @@
         },
         "OB10TransactionId": {
           "type": "string",
-          "description": "Unique Identifier for the PR transaction (generated by OB10)."
+          "description": "Unique identifier for the PR transaction (generated by OB10)."
         },
         "OrgUnit01": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit02": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit03": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit04": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit05": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit06": {
           "type": "string",
-          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
+          "description": "The details from the organization unit fields. These may not have data, depending on configuration."
         },
         "PaymentAdjustmentNotes": {
           "type": "string",
@@ -1938,59 +1964,59 @@
         },
         "ProvincialTaxId": {
           "type": "string",
-          "description": "The Vendor Provincial Tax ID."
+          "description": "The vendor provincial tax ID."
         },
         "PurchaseOrderId": {
           "type": "string",
-          "description": "The ID of the Purchase Order to which the Payment Request should be matched."
+          "description": "The ID of the purchase order to which the payment request should be matched."
         },
         "ReceiptConfirmationType": {
           "type": "string",
-          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text."
+          "description": "A code which indicates the receipt confirmation type for this payment request (Invoice Confirmation, for example). Use \"GET /invoice/localizeddata\" to translate the code into text."
         },
         "RequestID": {
           "type": "string",
-          "description": "The Request ID of the Payment Request"
+          "description": "The request ID of the payment request"
         },
         "ShippingAmount": {
           "type": "string",
-          "description": "The value for the Shipping Amount header field."
+          "description": "The value for the shipping s amount header field."
         },
         "TaxAmount": {
           "type": "string",
-          "description": "The value for the Tax Amount header field."
+          "description": "The value for the tax amount header field."
         },
         "VatAmountFour": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (Fourth of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. Fourth of four VAT amount fields available."
         },
         "VatAmountOne": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (First of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. First of four VAT amount fields available."
         },
         "VatAmountThree": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (Third of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. Third of four VAT amount fields available."
         },
         "VatAmountTwo": {
           "type": "string",
-          "description": "The amount of VAT included in the invoice total. (Second of four VAT amount fields available.)"
+          "description": "The amount of VAT included in the invoice total. Second of four VAT amount fields available."
         },
         "VatRateFour": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the fourth VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the fourth VAT amount field."
         },
         "VatRateOne": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the first VAT amount field."
         },
         "VatRateThree": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the third VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the third VAT amount field."
         },
         "VatRateTwo": {
           "type": "string",
-          "description": "The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field.)"
+          "description": "The VAT rate applied to the net invoice total. Should relate to the second VAT amount field."
         },
         "VendorRemitToIdentifier": {
           "$ref": "#/definitions/VendorIdentifier"
@@ -2001,7 +2027,7 @@
         },
         "VendorTaxId": {
           "type": "string",
-          "description": "The Vendor Tax ID."
+          "description": "The vendor tax ID."
         }
       }
     },
@@ -2068,6 +2094,15 @@
           "description": "The code which identifies a particular vendor."
         }
       }
+    },
+    "Void": {
+      "properties": {}
     }
-  }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v3.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
 }

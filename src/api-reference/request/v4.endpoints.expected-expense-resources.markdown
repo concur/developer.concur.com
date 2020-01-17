@@ -1,0 +1,1192 @@
+---
+title: Travel Request v4 - Expected Expense Resources
+layout: reference
+---
+
+{% include prerelease.html %}
+
+* [Expected Expense Resources](#expected-expense-resource)
+  * [Create a new expected expense](#create-new-expected-expense-resource)
+  * [Get the list of expected expenses attached to a Request](#get-expected-expense-attached-request-resource)
+  * [Get the content of an expected expense](#get-content-expected-expense-resource)
+  * [Update the content of an expected expense](#update-content-expected-expense-resource)
+  * [Delete an expected expense from the Request](#delete-expected-expense-request-resource)
+  * [Get the list of comments for an existing expected expense](#expected-expense-resource-comments)
+
+# <a name="expected-expense-resource"></a>Expected Expense Resources
+
+Manage expected expense entries attached to a Request document.
+
+## <a name="create-new-expected-expense-resource"></a>Create a new expected expense
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+POST {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
+```
+
+#### Parameters
+
+Name|Parameter Type|Data Type|Description
+---|---|---|---
+requestUuid|path|string|**Required** The unique identifier of the Request to which the expected expense is attached
+userId|query|string|The unique identifier of the user performing the expected expense creation. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+
+#### Payload
+
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense)
+
+### HTTP Response
+
+##### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The created expected expense
+
+### Example
+
+#### HTTP Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "allocations": [
+    {
+      "allocationAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "approvedAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "percentEdited": false,
+      "percentage": 0,
+      "postedAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "systemAllocation": false
+    }
+  ],
+  "approvedAmount": {
+    "currency": "USD",
+    "value": 122.38
+  },
+  "businessPurpose": "additional punctual trip to South of France",
+  "exchangeRate": {
+    "operation": "MULTIPLY",
+    "value": 1
+  },
+  "expenseType": {
+    "id": "RAILF",
+    "name": "Train"
+  },
+  "lastComment": "",
+  "location": {
+    "id": "A168CDBA58AE42868961BC00278A91B3",
+    "countryCode": "FR",
+    "countrySubDivisionCode": "FR-75",
+    "city": "Paris",
+    "name": "Charles De Gaulle Intl"
+  },
+  "postedAmount": {
+    "currency": "USD",
+    "value": 122.38
+  },
+  "remainingAmount": {
+    "currency": "USD",
+    "value": 122.38
+  },
+  "transactionAmount": {
+    "currency": "USD",
+    "value": 122.38
+  },
+  "transactionDate": "2018-07-18T00:00:00Z",
+  "tripData": {
+    "agencyBooked": false,
+    "legs": [
+      {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
+        "endLocation": {
+          "id": "CE4A6DCAC4A14D08803C28F6D5CB20F0",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-06",
+          "city": "Nice",
+          "name": "Cote D Azur"
+        },
+        "returnLeg": false,
+        "startDate": "2018-07-18",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "name": "Charles De Gaulle Intl"
+        },
+        "startTime": "21:00",
+        "startLocationDetail": "none"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_RAILF",
+      "code": "RAILF"
+    },
+    "selfBooked": false,
+    "tripType": "ONE_WAY"
+  }
+}
+```
+
+#### HTTP Response
+
+```shell
+201 Created
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/0465224E14C23D4F8C2BC79A9D694BDD",
+  "id": "0465224E14C23D4F8C2BC79A9D694BDD",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 122.38,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 122.38,
+        "currency": "USD"
+      },
+      "allocationId": "28E1B1F50253CD47BE002DA7B2C218EE",
+      "postedAmount": {
+        "value": 122.38,
+        "currency": "USD"
+      },
+      "expenseId": "0465224E14C23D4F8C2BC79A9D694BDD",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 122.38,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "TRAIN",
+    "name": "Train"
+   },
+  "postedAmount": {
+    "value": 122.38,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 122.38,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 122.38,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-18T00:00:00.000Z",
+  "tripData": {
+    "agencyBooked": false,
+    "selfBooked": false,
+    "tripType": "ONE_WAY",
+    "legs": [
+      {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
+        "endLocation": {
+          "id": "CE4A6DCAC4A14D08803C28F6D5CB20F0",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-06",
+          "name": "Nice",
+          "locationCode": "IATA_NCE",
+          "locationType": "STD"
+        },
+        "id": "59508E1F979B4346AC6B38677ABE6404",
+        "returnLeg": false,
+        "startDate": "2018-07-18",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "name": "Paris",
+          "locationCode": "IATA_CDG",
+          "locationType": "STD"
+        },
+        "startLocationDetail": "none",
+        "startTime": "21:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_RAILF",
+      "code": "RAILF"
+    }
+  }
+}
+```
+
+## <a name="get-expected-expense-attached-request-resource"></a>Get the list of expected expenses attached to a Request
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
+```
+
+#### Parameters
+
+Name|Parameter Type|Data Type|Description
+---|---|---|---
+requestUuid|path|string|**Required** The unique identifier of the Request
+userId|query|string|The unique identifier of the user viewing the expected expenses attached to a Request. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+
+#### Payload
+
+None
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - List of expected expenses attached to a Request.
+
+operations - [RFC 5988] Pagination links to next/prev/first/last page.
+
+### Example
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+[
+  {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+    "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+    "allocations": [
+      {
+        "allocationAmount": {
+          "value": 324.56,
+          "currency": "USD"
+        },
+        "approvedAmount": {
+          "value": 324.56,
+          "currency": "USD"
+        },
+        "allocationId": "79249903DC18464AAAD61062EA383BD4",
+        "postedAmount": {
+          "value": 324.56,
+          "currency": "USD"
+        },
+        "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
+        "percentEdited": false,
+        "systemAllocation": true,
+        "percentage": 100
+      }
+    ],
+    "approvedAmount": {
+      "value": 324.56,
+      "currency": "USD"
+    },
+    "exchangeRate": {
+      "value": 1,
+      "operation": "MULTIPLY"
+    },
+    "expenseType": {
+      "id": "AIRFR",
+      "name": "Airfare"
+    },
+    "postedAmount": {
+      "value": 324.56,
+      "currency": "USD"
+    },
+    "remainingAmount": {
+      "value": 324.56,
+      "currency": "USD"
+    },
+    "transactionAmount": {
+      "value": 324.56,
+      "currency": "USD"
+    },
+    "transactionDate": "2018-07-15T00:00:00.000Z",
+    "tripData": {
+      "agencyBooked": true,
+      "selfBooked": false,
+      "tripType": "ROUND_TRIP",
+      "legs": [
+        {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
+          "endLocation": {
+            "id": "4A33695120254EEC9261B24993DD413B",
+            "countryCode": "DE",
+            "countrySubDivisionCode": "DE-BE",
+            "city": "Berlin",
+            "iataCode": "BER",
+            "name": "Berlin(Alls)"
+          },
+          "id": "B0F356643B38BC419AFE60E050BB79A4",
+          "returnLeg": false,
+          "startDate": "2018-07-15",
+          "startLocation": {
+            "id": "A168CDBA58AE42868961BC00278A91B3",
+            "countryCode": "FR",
+            "countrySubDivisionCode": "FR-75",
+            "city": "Paris",
+            "iataCode": "CDG",
+            "name": "Charles De Gaulle Intl"
+          },
+          "startTime": "08:00"
+        },
+        {
+          "endLocation": {
+            "id": "A168CDBA58AE42868961BC00278A91B3",
+            "countryCode": "FR",
+            "countrySubDivisionCode": "FR-75",
+            "city": "Paris",
+            "iataCode": "CDG",
+            "name": "Charles De Gaulle Intl"
+          },
+          "id": "345475D42A53D948A6D60181759683E8",
+          "returnLeg": true,
+          "startDate": "2018-07-17",
+          "startLocation": {
+            "id": "4A33695120254EEC9261B24993DD413B",
+            "countryCode": "DE",
+            "countrySubDivisionCode": "DE-BE",
+            "city": "Berlin",
+            "iataCode": "BER",
+            "name": "Berlin(Alls)"
+          },
+          "startTime": "17:00"
+        }
+      ],
+      "segmentType": {
+        "category": "REQ_SEG_AIRFR",
+        "code": "AIRFR"
+      }
+    }
+  },
+  {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0",
+    "id": "D65BDBD5D980F6498D67A92B06A457B0",
+    "allocations": [
+      {
+        "allocationAmount": {
+          "value": 90,
+          "currency": "USD"
+        },
+        "approvedAmount": {
+          "value": 90,
+          "currency": "USD"
+        },
+        "allocationId": "FCAA998834A24949B01AC3C1D56AF4E3",
+        "postedAmount": {
+          "value": 90,
+          "currency": "USD"
+        },
+        "expenseId": "D65BDBD5D980F6498D67A92B06A457B0",
+        "percentEdited": false,
+        "systemAllocation": true,
+        "percentage": 100
+      }
+    ],
+    "approvedAmount": {
+      "value": 90,
+      "currency": "USD"
+    },
+    "businessPurpose": "Airport to Office after arrival and before departure",
+    "exchangeRate": {
+      "value": 1,
+      "operation": "MULTIPLY"
+    },
+    "expenseType": {
+      "id": "TAXIX",
+      "name": "Taxi"
+    },
+    "location": {
+      "id": "34AB34319377456B95F5C2815CC72766",
+      "countryCode": "DE",
+      "countrySubDivisionCode": "DE-BER",
+      "city": "Berlin, GERMANY",
+      "name": "Berlin, GERMANY"
+    },
+    "postedAmount": {
+      "value": 90,
+      "currency": "USD"
+    },
+    "remainingAmount": {
+      "value": 90,
+      "currency": "USD"
+    },
+    "transactionAmount": {
+      "value": 90,
+      "currency": "USD"
+    },
+    "transactionDate": "2018-07-17T00:00:00.000Z"
+  },
+  {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
+    "id": "C286A46A2DDF984EA28E41CEA278667D",
+    "allocations": [
+      {
+        "allocationAmount": {
+          "value": 80,
+          "currency": "USD"
+        },
+        "approvedAmount": {
+          "value": 80,
+          "currency": "USD"
+        },
+        "allocationId": "780B3FA5B83EC24F922EBE7B5D4AED63",
+        "postedAmount": {
+          "value": 80,
+          "currency": "USD"
+        },
+        "expenseId": "C286A46A2DDF984EA28E41CEA278667D",
+        "percentEdited": false,
+        "systemAllocation": true,
+        "percentage": 100
+      }
+    ],
+    "approvedAmount": {
+      "value": 80,
+      "currency": "USD"
+    },
+    "businessPurpose": "Estimated costs for 2 dinners in Berlin",
+    "exchangeRate": {
+      "value": 1,
+      "operation": "MULTIPLY"
+    },
+    "expenseType": {
+      "id": "DINNR",
+      "name": "Dinner"
+    },
+    "location": {
+      "id": "34AB34319377456B95F5C2815CC72766",
+      "countryCode": "DE",
+      "countrySubDivisionCode": "DE-BER",
+      "city": "Berlin, GERMANY",
+      "name": "Berlin, GERMANY"
+    },
+    "postedAmount": {
+      "value": 80,
+      "currency": "USD"
+    },
+    "remainingAmount": {
+      "value": 80,
+      "currency": "USD"
+    },
+    "transactionAmount": {
+      "value": 80,
+      "currency": "USD"
+    },
+    "transactionDate": "2018-07-17T00:00:00.000Z"
+  }
+]
+```
+
+## <a name="get-content-expected-expense-resource"></a>Get the content of an expected expense
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}
+```
+
+#### Parameters
+
+Name|Parameter Type|Data Type|Description
+---|---|---|---
+expenseUuid|path|string|**Required** The unique identifier of the expected expense
+userId|query|string|The unique identifier of the user viewing the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+
+#### Payload
+
+None
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier
+
+### Example 1 - for a Request segment
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+  "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 324.56,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 324.56,
+        "currency": "USD"
+      },
+      "allocationId": "79249903DC18464AAAD61062EA383BD4",
+      "postedAmount": {
+        "value": 324.56,
+        "currency": "USD"
+      },
+      "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 324.56,
+    "currency": "USD"
+  },
+  "comments": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/2F9FB5CE3AC2C74C9AC3D4AB3A83C0DA/comments",
+    "id": "2F9FB5CE3AC2C74C9AC3D4AB3A83C0DA",
+    "template": "http://us.api.concursolutions.com/travelrequest/v4/expenses/{id}/comments"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "AIRFR",
+    "name": "Airfare"
+  },
+  "postedAmount": {
+    "value": 324.56,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 324.56,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 324.56,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-15T00:00:00.000Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ROUND_TRIP",
+    "legs": [
+      {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
+        "endLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)"
+        },
+        "id": "B0F356643B38BC419AFE60E050BB79A4",
+        "returnLeg": false,
+        "startDate": "2018-07-15",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl"
+        },
+        "startTime": "08:00"
+      },
+      {
+        "endLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl"
+        },
+        "id": "345475D42A53D948A6D60181759683E8",
+        "returnLeg": true,
+        "startDate": "2018-07-17",
+        "startLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)"
+        },
+        "startTime": "17:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_AIRFR",
+      "code": "AIRFR"
+    }
+  }
+}
+```
+
+### Example 2 - for a Request expected expense
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
+  "id": "C286A46A2DDF984EA28E41CEA278667D",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 80,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 80,
+        "currency": "USD"
+      },
+      "allocationId": "780B3FA5B83EC24F922EBE7B5D4AED63",
+      "postedAmount": {
+        "value": 80,
+        "currency": "USD"
+      },
+      "expenseId": "C286A46A2DDF984EA28E41CEA278667D",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 80,
+    "currency": "USD"
+  },
+  "businessPurpose": "Estimated costs for 2 dinners in Berlin",
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "DINNR",
+    "name": "Dinner"
+  },
+  "location": {
+    "id": "34AB34319377456B95F5C2815CC72766",
+    "countryCode": "DE",
+    "countrySubDivisionCode": "DE-BER",
+    "city": "Berlin, GERMANY",
+    "name": "Berlin, GERMANY"
+  },
+  "postedAmount": {
+    "value": 80,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 80,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 80,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-17T00:00:00.000Z"
+}
+```
+
+## <a name="update-content-expected-expense-resourcee"></a>Update the content of an expected expense
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+PUT {datacenter}/travelrequest/v4/expenses/{expenseUuid}
+```
+
+#### Parameters
+
+Name|Parameter Type|Data Type|Description
+---|---|---|---
+expenseUuid|path|string|**Required** The unique identifier of the expected expense to update
+userId|query|string|The unique identifier of the user performing the expected expense update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+
+#### Payload
+
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense)
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier after update
+
+### Example
+
+#### HTTP Request
+
+```shell
+PUT https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "allocationId": "79249903DC18464AAAD61062EA383BD4",
+      "postedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "AIRFR",
+    "name": "Airfare"
+  },
+  "postedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-16T00:00:00.000Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ROUND_TRIP",
+    "legs": [
+      {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
+        "endLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)"
+        },
+        "id": "B0F356643B38BC419AFE60E050BB79A4",
+        "returnLeg": false,
+        "startDate": "2018-07-16",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl"
+        },
+        "startTime": "07:00"
+      },
+      {
+        "endLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl"
+        },
+        "id": "345475D42A53D948A6D60181759683E8",
+        "returnLeg": true,
+        "startDate": "2018-07-18",
+        "startLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)"
+        },
+        "startTime": "18:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_AIRFR",
+      "code": "AIRFR"
+    }
+  }
+}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+  "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "allocationId": "79249903DC18464AAAD61062EA383BD4",
+      "postedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "AIRFR",
+    "name": "Airfare"
+   },
+  "postedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-16T00:00:00.000Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ROUND_TRIP",
+    "legs": [
+      {
+        "class": {
+          "code": "1ST",
+          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
+          "value": "05F71FA4ED235D479C6C7039F397DA79"
+        },
+        "endLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)"
+        },
+        "id": "B0F356643B38BC419AFE60E050BB79A4",
+        "returnLeg": false,
+        "startDate": "2018-07-16",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl"
+        },
+        "startTime": "07:00"
+      },
+      {
+        "endLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl"
+        },
+        "id": "345475D42A53D948A6D60181759683E8",
+        "returnLeg": true,
+        "startDate": "2018-07-18",
+        "startLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)"
+        },
+        "startTime": "18:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_AIRFR",
+      "code": "AIRFR"
+    }
+  }
+}
+```
+
+## <a name="delete-expected-expense-request-resource"></a>Delete an expected expense from the Request
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+DELETE {datacenter}/travelrequest/v4/expenses/{expenseUuid}
+```
+
+#### Parameters
+
+Name|Parameter Type|Data Type|Description
+---|---|---|---
+expenseUuid|path|string|**Required** The unique identifier of the expected expense to delete
+userId|query|string|The unique identifier of the user performing the deletion of the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+
+#### Payload
+
+None
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+None
+
+### Example
+
+#### HTTP Request
+
+```shell
+DELETE https://us.api.concursolutions.com/travelrequest/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+true
+```
+
+## <a name="expected-expense-resource-comments"></a>Get the list of comments for an existing expected expense
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}/comments
+```
+
+#### Parameters
+
+Name|Parameter Type|Data Type|Description
+---|---|---|---
+expenseUuid|path|string|**Required** The unique identifier of the expected expense
+userId|query|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+
+#### Payload
+
+None
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Comments](./v4.endpoints.schemas.html#schema-comments)
+
+### Example
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1/comments
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+[
+  {
+    "author": {
+      "firstName": "Steve",
+      "lastName": "Smith"
+    },
+    "creationDateTime": "2019-07-12T11:51:14.000Z",
+    "isLatest": true,
+    "value": "I have reviewed the required amount, too expensive. You are allowed to a maximum of 100 USD for a business meal"
+  },
+  {
+    "author": {
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    "creationDateTime": "2019-07-12T11:11:39.000Z",
+    "isLatest": false,
+    "value": "Please review the required amount for approval"
+  }
+]
+```

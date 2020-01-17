@@ -7,6 +7,12 @@ redirect_from:
 
 The Vendor API allows you to develop processes that can be used to manage your Vendor collection for invoicing, adding new Vendors, updating, getting, or deleting information for existing Vendors.
 
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. This API is not available in the China data center.
+
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
 * [Retrieve an existing vendor](#get)
 * [Create vendors](#post)
 * [Update existing vendors](#put)
@@ -16,9 +22,24 @@ The Vendor API allows you to develop processes that can be used to manage your V
 * [Delete Vendor Group](#vendorGroupDelete)
 * [Schema](#schema)
 
-## Version
+## <a name="products-editions"></a>Products and Editions
 
-3.0  
+* Concur Invoice Professional Edition
+* Concur Invoice Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Name|Description|Endpoint
+---|---|---
+`INVVEN`|Retrieves vendor information.|GET
+
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur clients must purchase Concur Invoice in order to use this API.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens.
 
 ## <a name="get"></a>Retrieve an Existing Vendor
 
@@ -255,6 +276,7 @@ Name | Type | Format | Description
 `DiscountPercentage`|`string`|-|The Discount Percentage.
 `DiscountTermsDays`|`string`|-|The Vendor Discount Terms Days.
 `ID`|`string`|-|The unique identifier of the resource.
+`IsLineItemVatIncld`|`string`|-|Line item Unit Price Contains VAT ,
 `IsVisibleForContentExtraction`|`string`|-|Flag that indicates if the vendor will be available for OCR within Brainware
 `PaymentMethodType`|`string`|-|Preferred Payment Type for Vendor.
 `PaymentTerms`|`Integer between 1 and 999`|-|The Vendor Payment Terms. This field represents the number of days by which a payment must be made, for example, 30 days
