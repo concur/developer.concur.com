@@ -26,7 +26,7 @@ Imbric (Taksee) allows you to conveniently manage all of your transportation fro
 
 Imbric offers taxis, on-street & off-street car parking, carpooling, and much more. The Imbric planner even helps you choose the best option to get to your destination.
 
-* **Taxi**: Book and pay for your trips with the app in more than 200 cities in Spain and Europe.
+* **Taxi**: Book and pay for your trips with the app in more than 200 cities in Europe.
 * **Off-Street Car Parking**: Book parking at more than 1,000 airports & urban car parks.
 * **On-Street Car Parking**: Forget coins! Use the parkimeter to park and pay on your mobile in more than 120 Spanish cities.
 * **Expense Management**: Easily send your e-receipts to Concur Expense after you park or ride.
