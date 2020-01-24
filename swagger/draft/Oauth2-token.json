@@ -1,8 +1,8 @@
 {
   "x-sap-shortText": "Request OAuth2 tokens from SAP Concur.",
   "swagger": "2.0",
-  "host": "sandbox.api.sap.com",
-  "basePath": "/concur/oauth2/token",
+  "host": "www.concursolutions.com",
+  "basePath": "/oauth2/token",
   "info": {
     "title": "SAP Concur Authentication",
     "description": "This specification describes how the OAuth2/token endpoints are\nimplemented by the SAP Concur service provider.\n\nThe endpoint in this specification is derived from a number of RFCs and\nexternal documents:\n\n  * The OAuth2 framework - [RFC 6749][rfc6749]\n  * Proof of Key Code Exchange extension for OAuth2 - [RFC 7636][rfc7636]\n\nThe US production APIs can be found at `https://us.api.concursolutions.com/oauth2/token`.\n\n[rfc6749]: https://tools.ietf.org/html/rfc6749\n[rfc7636]: https://tools.ietf.org/html/rfc7636\n",
