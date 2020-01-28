@@ -8,15 +8,12 @@ layout: reference
 ## <a name="january"></a>January 2020
 
 * [Apps for Me / User Connection Apps Now Available](#apps-for-me-connection-now-available-january)
-* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-january)
   * [Imbric (Taksee)](#imbric-january)
+* [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon-january)
   * [HP for SAP Concur](#hp-for-sap-concur-january)
+  * [Meituan](#meituan-january)
 
 ### <a href="apps-for-me-connection-now-available-january"></a>Apps for Me / User Connection Apps Now Available
-
-None at this time.
-
-## <a name="apps-for-me-connection-coming-soon-january"></a>Apps for Me / User Connection Apps Coming Soon
 
 ### <a name="imbric-january"></a>Imbric (Taksee)
 
@@ -33,6 +30,8 @@ Imbric offers taxis, on-street & off-street car parking, carpooling, and much mo
 
 Imbric (Taksee) works with Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Imbric (Taksee) integration, visit [https://www.imbric.com](https://www.imbric.com).
 
+## <a name="apps-for-me-connection-coming-soon-january"></a>Apps for Me / User Connection Apps Coming Soon
+
 ### <a name="hp-for-sap-concur-january"></a>HP for SAP Concur
 
 ![HP Logo](./app-center-2020-01-17-hp-logo.png)
@@ -48,3 +47,17 @@ HP for SAP Concur enables you to:
 Getting started is easy! Launch the “HP for SAP Concur” app from the main screen of your HP multi-function device. Login with your Concur ID and then scan your receipts.
 
 HP for SAP Concur works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the HP for SAP Concur integration, visit [https://www.hp.com/go/digitalworkflow](https://www.hp.com/go/digitalworkflow).
+
+### <a name="meituan-january"></a>Meituan
+
+![Meituan Logo](./app-center-2020-01-28-meituan-logo.png)
+
+Meituan Dianping Shangqitong provides enterprises with easy-to-use meal compliance management services, with wide coverage across China and excellent options and resources. Through the Meituan Dianping platform, companies can reduce catering costs, optimize efficiency, prevent risks, and increase employee satisfaction. And, by connecting Meituan Dianping to SAP Concur, e-receipts for transactions will appear automatically in Concur Expense for easier expense reimbursement and spend tracking.
+
+Meituan Dianping provides services for a variety of business meals:
+  * Business meals: Services for on-site meals for employees’ standard workdays.
+  * Meeting catering: Meal services for daily meetings / training sessions / company conferences and exhibitions.
+  * Working meals: Meal services for corporate overtime meals / internal group building.
+  * Tea breaks: Delivery service for conference tea break or afternoon tea.
+
+Meituan works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Meituan integration, visit [https://www.about.meituan.com/home/](https://www.about.meituan.com/home/).
