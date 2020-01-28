@@ -33,6 +33,8 @@ The ability of a browser to comply by upgrade to TLS v1.2 will depend on the com
 
 A banner will display when a user attempts to log in using a browser that does not support TLS v1.2 and later and thus cannot negotiate a connection. The intent is to alert the user to this change using an informational-only message.
 
+![Example of informational banner](images/tls-image.png)
+
 #### Configuration / Feature Activation
 
 Transitioning to support for TLS v1.2 and later may simply require updating security settings of your browser. In most instances, the company already has the support in place and need only identify non-compliant browsers and upgrade these user’s browsers to newer versions.
