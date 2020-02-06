@@ -207,7 +207,7 @@ Airport
 ```json
 "endLocation": {
        "city": "Moscow",
-       "name": "Sheremetyevo"
+       "name": "Sheremetyevo",
        "countryCode": "RU",
        "iataCode": "SOV"
 }
