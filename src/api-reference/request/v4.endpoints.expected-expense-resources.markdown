@@ -632,6 +632,11 @@ Authorization: Bearer {token}
     "id": "AIRFR",
     "name": "Airfare"
   },
+  "parentRequest": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/request/224AF3CDCC2A5244A37C72FA5770C6F2",
+    "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
+    "template": "http://us.api.concursolutions.com/travelrequest/v4/request/{requestUuid}"
+  },
   "postedAmount": {
     "value": 324.56,
     "currency": "USD"
@@ -768,6 +773,11 @@ Authorization: Bearer {token}
     "countrySubDivisionCode": "DE-BER",
     "city": "Berlin, GERMANY",
     "name": "Berlin, GERMANY"
+  },
+  "parentRequest": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/request/224AF3CDCC2A5244A37C72FA5770C6F2",
+    "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
+    "template": "http://us.api.concursolutions.com/travelrequest/v4/request/{requestUuid}"
   },
   "postedAmount": {
     "value": 80,
@@ -986,6 +996,11 @@ Authorization: Bearer {token}
     "id": "AIRFR",
     "name": "Airfare"
    },
+  "parentRequest": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/request/224AF3CDCC2A5244A37C72FA5770C6F2",
+    "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
+    "template": "http://us.api.concursolutions.com/travelrequest/v4/request/{requestUuid}"
+  },
   "postedAmount": {
     "value": 432.45,
     "currency": "USD"

@@ -132,6 +132,11 @@ code|string|-|The short code for the list item. For non-list fields, this value 
 value|string|-|The value of the non-list item. For list fields, this is the unique id of the item
 href|string|-|The link to get this list item on the list service. Empty for non-list items
 
+List API, which would enable clients to retrieve the list items and corresponding unique id, is currently being worked on for externalisation. Please liaise with the Concur product team in charge of the List APIs for additional information.
+In the meantime, in order to fill in a custom list item for the creation of a Request or an Expected Expense, clients may use one of the following workaround:
+* take advantage of the copy down configuration feature to update by default custom fields from the Employee profile to the Request header, and from the Request header to the Expected expense
+* for limited number of list items part of a custom field, a Request containing those values in the related custom fields may be manually created, the list item unique id will then be retrieved by calling the get detail of this Request - same process for all list items values of the list.
+
 ### <a name="schema-employee"></a>Employee
 
 Name|Type|Format|Description
@@ -185,17 +190,61 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-airportName|string|-|The airport name of the location
-city|string|-|The city name of the location
-countryCode|string|[ISO 3166-1]|The ISO 3166-1 country code
+city|string|-|The city name of the location (required for city)
+countryCode|string|[ISO 3166-1]|The ISO 3166-1 country code (required for city)
 countrySubDivisionCode|string|[ISO 3166-2]|The ISO 3166-2 country sub code
 iataCode|string|-|The IATA code of the location
 id|string|-|The id of the location
 latitude|number|-|The latitude of the location
-locationCode|string|-|The code of the location
-locationType|string|-|The type of the location
+locationCode|string|-|The code of the location (required for Rail)
+locationType|string|-|The type of the location (required for Rail)
 longitude|number|-|The longitude of the location
-name|string|-|The name of the location
+name|string|-|The name of the location (required for rail station)
+
+Below are the different node expected in the POST endpoints by location type (City, Rail station or Airport) - example for endLocation field:
+
+Airport
+```json
+"endLocation": {
+       "city": "Moscow",
+       "name": "Sheremetyevo"
+       "countryCode": "RU",
+       "iataCode": "SOV"
+}
+```
+
+City
+```json
+"endLocation": {
+       "city": "Vienna",
+       "countryCode": "AT"
+}
+```
+
+Rail station (locationCode exists, locationType depends of rail provider)
+```json
+"endLocation": {
+       "name": "MARSEILLE ST CHARLES",
+       "countryCode": "FR",
+       "locationCode": "FRMSC",
+       "locationType": "RAIL_2C"
+}
+```
+Location types for Rail :
+
+Location Type|Railway company
+---|---
+RAIL_0Z|Swiss Federal Railways
+RAIL_2A|Deutsche Bahn AG
+RAIL_2C|SNCF
+RAIL_2H|Thalys International
+RAIL_2R|VIA Rail Canada Inc.
+RAIL_2V|Amtrak
+RAIL_9F|Eurostar International Limited
+RAIL_XH|China Railway
+RAIL_Z0|UK Rail
+STD|Standard rail locations
+
 
 ### <a name="schema-resourcelink"></a>ResourceLink
 
@@ -245,6 +294,7 @@ lastModifiedDate|timestamp|[RFC 3339]|The date when this expected expense was la
 location|object|[Location](#schema-location)|The location of the expected expense entry
 orgUnit1 to orgUnit6|object|[Amount](#amount)|The details from the Custom fields. <br>These fields may not have data, depending on the configuration
 postedAmount|object|[Amount](#schema-amount)|The posted amount of the expected expense entry, in the transaction currency of the Request
+parentRequest|object|[ResourceLink](#schema-resourcelink)|The parent Request of the expected expense
 remainingAmount|object|[Amount](#schema-amount)|The remaining amount of the expected expense entry, in the transaction currency of the Request
 source|enum|-|The source that created the expected expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. <br>This field will be empty in any other case
 transactionAmount|object|[Amount](#schema-amount)|**Required** The amount of the expected expense entry, in the transaction currency paid to the vendor
