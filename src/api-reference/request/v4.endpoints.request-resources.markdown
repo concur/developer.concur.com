@@ -386,6 +386,8 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request
+userId|query|string|The unique identifier of the user getting the content of the Request. <br>If empty when using a Company token the default system user will be assumed to perform the action.
+
 
 #### Payload
 
@@ -848,7 +850,6 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}/comments
 Name|Type|Format|Description
 ---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request
-userId|query|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 #### Payload
 

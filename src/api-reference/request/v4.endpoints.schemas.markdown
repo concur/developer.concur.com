@@ -157,6 +157,7 @@ isBlocking|boolean|-|Defines whether the exception will prevent the Request from
 level|integer|-|The numeric level associated with the exception. Example: 99
 message|string|-|The user-facing message defined for the exception
 source|array|[Exception source](#schema-exceptionsource)|The source that has raised the exception
+parameters|map|missingFields : array of missing field labels<br>missingFieldsIds : array of missing field ids|For missing fields exceptions additional values giving more label and ids of the missing fields.<br> Example : ```parameters : {  "missingFields" : ["Request Name", "Purpose"], "missingFieldsIds" : [ "Name", "Purpose" ] }```
 
 ### <a name="schema-exceptionsource"></a>Exception Source
 

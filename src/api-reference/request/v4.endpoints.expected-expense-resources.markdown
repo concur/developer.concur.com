@@ -15,7 +15,7 @@ layout: reference
 
 # <a name="expected-expense-resource"></a>Expected Expense Resources
 
-Manage expected expense entries attached to a Request document.
+Manage expected expenses attached to a Request
 
 ## <a name="create-new-expected-expense-resource"></a>Create a new expected expense
 
