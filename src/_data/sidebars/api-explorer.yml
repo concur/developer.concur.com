@@ -80,7 +80,9 @@
 - title: v4.0
   url: ''
   children:
-      - title: Quick Expenses
-        url: /api-explorer/v4-0/QuickExpenses.html
+      - title: Invoice Pay
+        url: /api-explorer/v4-0/InvoicePay.html
       - title: Purchase Requests
         url: /api-explorer/v4-0/PurchaseRequest.html
+      - title: Quick Expenses
+        url: /api-explorer/v4-0/QuickExpenses.html

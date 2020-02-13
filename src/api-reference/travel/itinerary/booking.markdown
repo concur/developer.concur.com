@@ -47,7 +47,7 @@ Name | Type | Description
 `WaitListSegments` |`type` |  The segments that the traveler is waitlisted for this booking.
 `Warnings` |`type` |  The warnings associated with the booking.
 `WebAddresses` |`type` |  List of web addresses such as emails, pickup urls, etc.. associated with this bookings.
-`BookingReferrer` |`type` |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with Concur, Supplier Mobile, Supplier Web
+`BookingReferrer` |`type` |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Sign-in with Concur, Supplier Mobile, Supplier Web.
 
 
 ### Response

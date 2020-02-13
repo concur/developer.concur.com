@@ -8,7 +8,7 @@ layout: reference
 Once the customer’s administrator clicks the Connect button within the Partner's App Center Listing page, they will be re-directed to the Partner’s Landing Page. (note: Concur manages the Listing page for the Partner). The Landing page initiates the OAuth2 Flow and will prompt the admin to take one of the following actions depending on how the Partner designed their Landing Page:
 
 1. Sign In or Sign Up
-1. Enter a Verification Code or "Contact Us" option
+1. Enter a Verification Code
 
 > The customer's administrator must have the Web Services Admin permission assigned to their Concur profile in order for the administrator to see the "Connect" button on the App Center Listing page.  All other users within the customer's Concur site will see a disabled Connect button.
 

@@ -3,8 +3,8 @@ title: Trips
 layout: reference
 ---
 
-
 # Trips
+
 The Trips resource represents itineraries in the Concur Travel system. TripLink suppliers use this resource to display a subset of the full booking fields.
 
 ## Version
@@ -22,10 +22,15 @@ In order to obtain itinerary data when making Itinerary API calls, the value of 
 ## Operations
 
 * [Get trip summaries](#getts)
+  * [Schema](#getts-schema)
 * [Get trip details](#gettd)
+  * [Schema](#gettd-schema)
 * [Create a new trip](#postnt)
+  * [Request schema](#postnt-request-schema)
+  * [Response schema](#postnt-response-schema)
 * [Update a trip](#postut)
 * [Cancel a trip](#delete)
+  * [Schema](#delete-schema)
 
 ## <a name="getts"></a>Get Trip Summaries
 
@@ -33,12 +38,12 @@ The Get Itinerary Summaries endpoint is used for retrieving trip summaries for t
 
 ## Best Practices
 
-*	When extracting past data:
+* When extracting past data:
     * Extract a month of trip summaries to gauge volume. If hundreds are returned, then adjust extraction to weekly.
     * Do not extract more than a year of data at any given time regardless of the volume. For longer look backs, extract 6 month segments maximum at a time.
     * Do not multi-thread requests to retrieve multiple pages of data.  Concurrent requests will impact your application’s performance.
-*	Itineraries change frequently. Changes do not necessarily indicate that the traveler modified their trip. If your application works with upcoming or in progress trips, be aware that you must evaluate the individual segments to determine whether it is a material change for your application.
-*	This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites, and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API.
+* Itineraries change frequently. Changes do not necessarily indicate that the traveler modified their trip. If your application works with upcoming or in progress trips, be aware that you must evaluate the individual segments to determine whether it is a material change for your application.
+* This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites, and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API.
 
 ## Request
 
@@ -52,19 +57,19 @@ To identify a specific user by login ID or `XMLSyncID`, you can specify the foll
 
 |Parameter Name|Parameter Type|Data Type|Description|
 |:---------|:---------|:-------|:-----------------------------------------|
-|startDate	|date	|dateTime	|The URL-encoded start date (in Coordinated Universal Time, or UTC) for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the start date is set to today's date - 30 days. The request will only return trips that are ongoing during the provided dates, either starting on the date, or starting before the date and ongoing during the provided date.|
-|endDate	|date	|dateTime|The URL-encoded UTC end date for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the end date is set to today's date + 12 months. The request will only return trips that are ongoing during the provided dates, either ending on the date, or starting before the date and ongoing during the provided date.|
-|createdAfterDate	|date	|dateTime	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or after this date. Used with the `createdBeforeDate` for finding trips created during a date range. Format: YYYY-MM-DD.|
-|createdBeforeDate|date	|dateTime	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or before this date. Used with the `createdAfterDate` for finding trips created during a date range. Format: YYYY-MM-DD.|
-|lastModifiedDate|date|dateTime	|The last modified UTC date of the trips and their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time. The provided date/time can be anytime between now and the first date of trip creation in the database. The format is either the date or the date and time combined.
-|bookingType|type	|string	|The trip includes at least one booking of this type. Format: Air, Car, Dining, Hotel, Parking, Rail, or Ride
-|userid_type=login|userid|string|The `loginID` is the user's SAP Concur login ID. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
-|userid_value|userid|string	|The `userid_value` of ALL can be sent to get trip summaries for all users at the company. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
-|includeMetadata|true/false|string|The `includeMetadata` query parameter combined with the `ItemsPerPage` and `Page` query parameters cause the response to be divided into pages. The response is wrapped in a `ConcurResponse` parent element, with both the response details and the paging metadata included. If the `ItemsPerPage` query parameter is not sent, the response will default to 200 if the `Page` query parameter is sent, or 1000 if the `Page` query parameter is not set. If the `Page` query parameter is not sent, the response will default to page 1.|
-|ItemsPerPage|number|integer|The `includeMetadata` query parameter combined with the `ItemsPerPage` and `Page` query parameters will cause the response to be divided into pages. The response will be wrapped in a `ConcurResponse` parent element, with both the response details and the paging metadata included. If the `ItemsPerPage` query parameter is not sent, the response will default to 200 if the `Page` query parameter is sent, or 1000 if the `Page` query parameter is not set. If the `Page` query parameter is not sent, the response will default to page 1.|
-|includeVirtualTrip|flag|integer	|Virtual trips are segments booked offline through the Concur Request product. Set the `includeVirtualTrip` query parameter to 1 to include those trips in the list.|
-|includeCanceledTrips	|true/false|string|The `includeCanceledTrips` query parameter will cause the request to also return trips with a status of Canceled. When this query parameter is set to true, the response will include the `TripStatus` element.|
-|includeGuestBookings |true/false|string|The `includeGuestBookings` query parameter will cause the request to show guest bookings if set to true. It is set to false by default.|
+|`startDate`	|`date`	|`dateTime`	|The URL-encoded start date (in Coordinated Universal Time, or UTC) for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the start date is set to today's date - 30 days. The request will only return trips that are ongoing during the provided dates, either starting on the date, or starting before the date and ongoing during the provided date.|
+|`endDate`	|`date`	|`dateTime`|The URL-encoded UTC end date for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the end date is set to today's date + 12 months. The request will only return trips that are ongoing during the provided dates, either ending on the date, or starting before the date and ongoing during the provided date.|
+|`createdAfterDate`	|`date`	|`dateTime`	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or after this date. Used with the ``createdBeforeDate`` for finding trips created during a date range. Format: YYYY-MM-DD.|
+|`createdBeforeDate`|`date`	|`dateTime`	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or before this date. Used with the `createdAfterDate` for finding trips created during a date range. Format: YYYY-MM-DD.|
+|`lastModifiedDate`|`date`|`dateTime`	|The last modified UTC date of the trips and their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time. The provided date/time can be anytime between now and the first date of trip creation in the database. The format is either the date or the date and time combined.
+|`bookingType`|`type`	|`string`	|The trip includes at least one booking of this type. Format: `Air`, `Car`, `Dining`, `Hotel`, `Parking`, `Rail`, or `Ride`.
+|`userid_type=login`|`userid`|`string`|The `loginID` is the user's SAP Concur login ID. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
+|`userid_value`|`userid`|`string`	|The `userid_value` of ALL can be sent to get trip summaries for all users at the company. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
+|`includeMetadata`|`true/false`|`string`|The `includeMetadata` query parameter combined with the `ItemsPerPage` and `Page` query parameters cause the response to be divided into pages. The response is wrapped in a `ConcurResponse` parent element, with both the response details and the paging metadata included. If the `ItemsPerPage` query parameter is not sent, the response will default to 200 if the `Page` query parameter is sent, or 1000 if the `Page` query parameter is not set. If the `Page` query parameter is not sent, the response will default to page 1.|
+|`ItemsPerPage`|`number`|`integer`|The `includeMetadata` query parameter combined with the `ItemsPerPage` and `Page` query parameters will cause the response to be divided into pages. The response will be wrapped in a `ConcurResponse` parent element, with both the response details and the paging metadata included. If the `ItemsPerPage` query parameter is not sent, the response will default to 200 if the `Page` query parameter is sent, or 1000 if the `Page` query parameter is not set. If the `Page` query parameter is not sent, the response will default to page 1.|
+|`includeVirtualTrip`|`flag`|`integer`	|Virtual trips are segments booked offline through the Concur Request product. Set the `includeVirtualTrip` query parameter to 1 to include those trips in the list.|
+|`includeCanceledTrips`	|`true/false`|`string`|The `includeCanceledTrips` query parameter will cause the request to also return trips with a status of Canceled. When this query parameter is set to true, the response will include the `TripStatus` element.|
+|`includeGuestBookings` |`true/false`|`string`|The `includeGuestBookings` query parameter will cause the request to show guest bookings if set to true. It is set to false by default.|
 
 Here are some examples of how to format GET requests using a combination of these query parameters:
 
@@ -97,37 +102,38 @@ The access token used to make the API call is associated with the SAP Concur acc
 `Authorization: OAuth {access_token}`
 Where `access_token` is the OAuth 2.0 access token of the user whose itinerary information you want to retrieve. If you want to access company-wide itinerary information, the SAP Concur user account associated with the OAuth 2.0 access token must have one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
-#### Accept header (optional)
+#### Accept Header (optional)
 
 application/xml
 
-## Response
-The response returns an `ItineraryInfoList` parent element with with an `ItineraryInfo` child element for each trip summary for the specified traveler. If the `includeMetadata` and `ItemsPerPage` query parameters are included in the request, the response will include a `ConnectResponse` parent element which contains a `MetaData` element with paging information and a `Data` element with an `ItineraryInfoList` child element. The response for this operation can be divided into pages for easier processing.
+### <a name="getts-schema"></a>Get Trip Summaries Response Schema
+
+The response returns an `ItineraryInfoList` parent element with an `ItineraryInfo` child element for each trip summary for the specified traveler. If the `includeMetadata` and `ItemsPerPage` query parameters are included in the request, the response will include a `ConnectResponse` parent element which contains a `MetaData` element with paging information and a `Data` element with an `ItineraryInfoList` child element. The response for this operation can be divided into pages for easier processing.
 
 ### Data Elements
 
 | Element Name | Data Type | Description
 | --------- | ---------| ---------
-| ItineraryInfoList	| element | Parent element with an `ItineraryInfo` child element for each trip summary for the specified traveler.
+| `ItineraryInfoList`	| `element` | Parent element with an `ItineraryInfo` child element for each trip summary for the specified traveler.
 
 ### ItineraryInfoList Elements
 
 | Element Name | Data Type | Description
 | --------- | ---------| ---------
-| ItineraryInfo	| element  | Parent element with the information about an itinerary for the specified user.
+| `ItineraryInfo`	| `element`  | Parent element with the information about an itinerary for the specified user.
 
 ### ItineraryInfo Elements
 
 | Element Name | Data Type | Description
 | --------- | ---------| ---------
-| TripId |  string  |  Encrypted trip identifier value.
-| TripName |  string  |  Name of the trip.
-| TripStatus  |  string  |  The status of the trip. This element only appears if the `includeCanceledTrips` query parameter is used in the request.
-| StartDateLocal  |  dateTime  |  The start date of the trip in the starting location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
-| EndDateLocal  |  dateTime  |  The end date of the trip in the ending location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
-| DateModifiedUtc  |  dateTime  |  The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.
-| UserLoginId  |  string  | The user's login to SAP Concur. This element appears in the response of the GET /api/travel/trip/v1.1 operation when the OAuth 2.0 is access token is associated with an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
-| id  |  string  |  Trip ID URI with encrypted ID.
+| `TripId` |  `string`  |  Encrypted trip identifier value.
+| `TripName` |  `string`  |  Name of the trip.
+| `TripStatus`  |  `string`  |  The status of the trip. This element only appears if the `includeCanceledTrips` query parameter is used in the request.
+| `StartDateLocal`  |  `dateTime`  |  The start date of the trip in the starting location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
+| `EndDateLocal`  |  `dateTime`  |  The end date of the trip in the ending location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
+| `DateModifiedUtc`  |  `dateTime`  |  The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.
+| `UserLoginId`  |  `string`  | The user's login to SAP Concur. This element appears in the response of the GET /api/travel/trip/v1.1 operation when the OAuth 2.0 is access token is associated with an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+| `id`  |  `string`  |  Trip ID URI with encrypted ID.
 
 ### Metadata Element
 
@@ -137,12 +143,12 @@ The parent element of the paging information.
 
 | Element Name | Data Type | Description
 | --------- | ---------| ---------
-| TotalPages  |  integer  |  The total number of pages the query returned.
-| TotalItems  |  integer  |  The total number of itineraries the query returned.
-| CurrentPage  |  integer   |  The page number for the set of results in the current response.
-| ItemsPerPage  |  integer  |  The number of items set to display per page.
-| PreviousPageURL  |  string  |  The URI to the previous page of results. This element will be empty when there are no previous pages.
-| NextPageURL  |  string  |  The URI to the next set of results. This element will be empty when there are no next pages.
+| `TotalPages`  |  `integer`  |  The total number of pages the query returned.
+| `TotalItems`  |  `integer`  |  The total number of itineraries the query returned.
+| `CurrentPage`  |  `integer`   |  The page number for the set of results in the current response.
+| `ItemsPerPage`  |  `integer`  |  The number of items set to display per page.
+| `PreviousPageURL`  |  `string`  |  The URI to the previous page of results. This element will be empty when there are no previous pages.
+| `NextPageURL`  |  `string`  |  The URI to the next set of results. This element will be empty when there are no next pages.
 
 ## Examples
 
@@ -332,22 +338,24 @@ By default, when calling this API, the SAP Concur account associated with the OA
 
 ## Request
 
-```GET /travel/trip/v1.1/trip_ID?[systemFormat=system_format|&userid_type=login|&user_id=login_ID]```
+```
+GET /travel/trip/v1.1/trip_ID?[systemFormat=system_format|&userid_type=login|&user_id=login_ID]
+```
 
 ## Path Parameters
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
-| trip_ID  | string  |  **Required**: The identifier for the desired trip. This identifier is returned as the value of the ID element when getting trip summaries. For example, if the returned value of the ID element is I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL, then the URI for the request is `/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwi`.
+| `trip_ID`  | `string`  |  **Required**: The identifier for the desired trip. This identifier is returned as the value of the ID element when getting trip summaries. For example, if the returned value of the ID element is I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL, then the URI for the request is `/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwi`.
 
 
 ## Query Parameters
 
 | Parameter Name |Data Type |Description
 | --------- | --------- | -------
-| systemFormat  | string  |  **Optional**: Format of the response for a different system. The supported value is Tripit. The format for the request URI using this query parameter is `/travel/trip/v1.1/trip_ID?systemFormat=Tripit`.
-| userid_type   |  string  |  **Optional**: The type of user identification to use. Possible value is: login.
-| userid_value   | string  |  **Optional**: The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value parameters` can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
+| `systemFormat`  | `string`  |  **Optional**: Format of the response for a different system. The supported value is Tripit. The format for the request URI using this query parameter is `/travel/trip/v1.1/trip_ID?systemFormat=Tripit`.
+| `userid_type`   |  `string`  |  **Optional**: The type of user identification to use. Possible value is: login.
+| `userid_value`   | `string`  |  **Optional**: The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value parameters` can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
 
 ### Headers
 
@@ -360,49 +368,49 @@ Where `access_token` is the OAuth 2.0 access token of the user whose itinerary i
 
 application/xml
 
-## Response
+## <a name="gettd-schema"></a>Get Trip Details Response Schema
 The response returns subset of the elements described in the following tables depending on the parameters used in the request and the status and details for the itinerary. The response can be formatted for TripIt, using the `systemformat` query string.
 
 ### Parent Elements
 
 | Element Name | Data Type |Description
 | --------- | --------- | -------
-| id	|string	|Trip ID URI with encrypted ID.
-|ItinLocator | string	|The itinerary locator. This element is now deprecated and only supported for backward compatibility.
-|ClientLocator	|string	|Represents the unique identifier of the trip in an external (non-Concur) system. Maximum length 32 characters.
-|ItinSourceName	|string	|The itinerary source. Format: TravelSupplier.
-|TripName	|string	|Name of the trip. Maximum length 255 characters.
-|Comments	|string	|Comments for this itinerary. Maximum length 512 characters.
-|StartDateLocal	|dateTime	|The start date of the trip in the starting location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
-|EndDateLocal	|dateTime	|The end date of the trip in the ending location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
-|DateCreatedUtc	|dateTime	|The date that this trip was created, in UTC. Format: YYYY-MM-DDThh:mm:ss.
-|DateModifiedUtc	|dateTime	|The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.
-|BookedVia	|string	|The booking method for the trip.
-|BookedByFirstName	|string	|The first name of the person who booked the trip.
-|BookedByLastName	|string	|The last name of the person who booked the trip.
-|DateBookedLocal	|dateTime	|The date the trip was booked, in the local time of the booking location. Format: YYYY-MM-DDThh:mm:ss.
-|CancelComments	|string	|The comments provided if the itinerary is cancelled. Maximum length: 256 characters.
-|Description	|string	|The trip description. Maximum length: 512 characters.
-|EndDateUtc	|dateTime	|The end date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss.
-|IsPersonal	|boolean	|Whether the trip is a Business or Leisure trip. Format: true/false.
-|ProjectName	|string	|The associated project name for the trip. Maximum length: 255 characters.
-|StartDateUtc	|dateTime	|The start date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss.
-|RuleViolations	|array	|The list of rule violations associated with the itinerary. This parent element contains a `RuleViolation` child element for each associated rule violation.
-|Status	|string	|The status of the itinerary. One of the following: 0- Confirmed; 1- Ticketed by agent; 2- Canceled.
-|Bookings	|array	|A parent element that contains a `Booking` child element for each booking associated with this itinerary.
+| `id`	|`string`	|Trip ID URI with encrypted ID.
+|`ItinLocator` | `string`	|The itinerary locator. This element is now deprecated and only supported for backward compatibility.
+|`ClientLocator`	|`string`	|Represents the unique identifier of the trip in an external (non-Concur) system. Maximum length 32 characters.
+|`ItinSourceName`	|`string`	|The itinerary source. Format: TravelSupplier.
+|`TripName`	|`string`	|Name of the trip. Maximum length 255 characters.
+|`Comments`	|`string`	|Comments for this itinerary. Maximum length 512 characters.
+|`StartDateLocal`	|`dateTime`	|The start date of the trip in the starting location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
+|`EndDateLocal`	|`dateTime`	|The end date of the trip in the ending location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
+|`DateCreatedUtc`	|`dateTime`	|The date that this trip was created, in UTC. Format: YYYY-MM-DDThh:mm:ss.
+|`DateModifiedUtc`	|`dateTime`	|The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.
+|`BookedVia`	|`string`	|The booking method for the trip.
+|`BookedByFirstName`	|`string`	|The first name of the person who booked the trip.
+|`BookedByLastName`	|`string`	|The last name of the person who booked the trip.
+|`DateBookedLocal`	|`dateTime`	|The date the trip was booked, in the local time of the booking location. Format: YYYY-MM-DDThh:mm:ss.
+|`CancelComments`	|`string`	|The comments provided if the itinerary is cancelled. Maximum length: 256 characters.
+|`Description`	|`string`	|The trip description. Maximum length: 512 characters.
+|`EndDateUtc`	|`dateTime`	|The end date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss.
+|`IsPersonal`	|`boolean`	|Whether the trip is a Business or Leisure trip. Format: true/false.
+|`ProjectName`	|`string`	|The associated project name for the trip. Maximum length: 255 characters.
+|`StartDateUtc`	|`dateTime`	|The start date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss.
+|`RuleViolations`	|`array`	|The list of rule violations associated with the itinerary. This parent element contains a `RuleViolation` child element for each associated rule violation.
+|`Status`	|`string`	|The status of the itinerary. One of the following: 0- Confirmed; 1- Ticketed by agent; 2- Canceled.
+|`Bookings`	|`array`	|A parent element that contains a `Booking` child element for each booking associated with this itinerary.
 
 ### Booking Element
 
 | Element Name | Data Type |Description
 | --------- | --------- | -------
-|Segments	|array	|List of segments in this booking. The child elements included in this element vary depending on whether a TMC, SAP Concur client,  third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. **For TripLink suppliers**, the `Segments` element contains one or more Air, Car, Hotel, or Ride parent elements.
-|Passengers	|array	|Contains a `Passenger` child element for each included passenger. For more information on the `Passengers` element, see [Create a New Trip](#postnt).
-|RecordLocator	|string	|The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
-|BookingSource	|string	|The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place.
-|DateModifiedUtc	|dateTime	|The date the booking was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss.
-|DateBookedLocal	|dateTime	|The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss.
-|ItinSourceName	|string	|The itinerary source. Format: TravelSupplier.
-|PassengerCount	|integer	|The number of passengers included in the booking.
+|`Segments`	|`array`	|List of segments in this booking. The child elements included in this element vary depending on whether a TMC, SAP Concur client,  third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Travel` parent elements. **For TripLink suppliers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, or `Ride` parent elements.
+|`Passengers`	|`array`	|Contains a `Passenger` child element for each included passenger. For more information on the `Passengers` element, see [Create a New Trip](#postnt).
+|`RecordLocator`	|`string`	|The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
+|`BookingSource`	|`string`	|The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place.
+|`DateModifiedUtc`	|`dateTime`	|The date the booking was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss.
+|`DateBookedLocal`	|`dateTime`	|The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss.
+|`ItinSourceName`	|`string`	|The itinerary source. Format: TravelSupplier.
+|`PassengerCount`	|`integer`	|The number of passengers included in the booking.
 
 ## Examples
 
@@ -667,8 +675,8 @@ This endpoint is used for creating a new trip. To create a new trip, the specifi
 
 | Parameter Name |Data Type |Description
 | --------- | --------- | -------
-| userid_type  | string	| **Optional**: The type of user identification to use. Possible value is: `login_id`.
-| userid_value  | string	| **Optional**: The value for the user identification type. Currently the only available type is `login_id` so the value is the login credentials. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token is associated with an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
+| `userid_type`  | `string`	| **Optional**: The type of user identification to use. Possible value is: `login_id`.
+| `userid_value`  | `string`	| **Optional**: The value for the user identification type. Currently the only available type is `login_id` so the value is the login credentials. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token is associated with an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
 
 ## Headers
 
@@ -678,57 +686,57 @@ This endpoint is used for creating a new trip. To create a new trip, the specifi
 
 Where `access_token` is the OAuth 2.0 access token of the user whose trip you want to create or update. If you want to access company-wide itinerary information, the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
-### Request
+### <a name="postnt-request-schema"></a>Create New Trip Request Schema
 
 | Element Name | Required or Optional | TripLink | Data Type | Description
 | --------- | --------- | ------- | -------- | ---------
-| Itinerary | required | Y | ItineraryType	| The root element for a trip. For this endpoint, it contains the following elements: `ClientLocator`, `ItinSourceName`, `TripName`, `Comments`, `StartDateLocal`, `EndDateLocal`, `BookedByFirstName`, `BookedByLastName`, `Bookings`.
-| TripName | required | Y | string | Name of the trip. Maximum length: 255 characters.
-| TripStatus | required	| Y | unsignedByte | The status of the trip. One of the following: 0 - Confirmed; 1 - Ticketed; 2 - Canceled; 6 - Proposal; 7 - Booked Proposal. This element only appears if the `includeCanceledTrips` query parameter is used in the request.
-| RecordLocator | required | Y | string	| The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
-| BookingSource | required	| Y | string	| The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. This could be a GDS, OTA, Vendor code for a Supplier website, or Supplier Direct Connect API. For TripLink suppliers, this is the supplier's name.
-| StartDateLocal |	optional | Y | dateTime | The start date of the trip in the starting location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
-| EndDateLocal | optional | Y | dateTime	| The end date of the trip in the ending location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
-| BookedByFirstName	| optional | Y | string	| The first name of the person who booked the trip.
-| BookedByLastName | optional | Y | string	| The last name of the person who booked the trip.
-| Bookings | optional | Y | array	| A parent element that contains a `Booking` child element for each booking associated with this itinerary.
-| Booking | optional | Y | array	| A child element of the `Bookings` element which in turn contains the following child elements: `Segments`, `Passenger`s, `RecordLocator`, `BookingSource`, `DateModifiedUtc`, `DateBookedLocal`, `ItinSourceName`, and `PassengerCount`.
-| Segments | optional	 | Y | array	| List of segments in this booking. The child elements included in this element vary depending on whether a TMC, client, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. For TripLink suppliers, the `Segments` element contains one or more Air, Car, Hotel, or Ride parent elements.
-| Comments | optional	 | Y | string	| Comments for the itinerary. Maximum length: 512 characters.
-| ItinSourceName | optional | N | string	| The itinerary source. Format: TravelSupplier.
-| BookingOwner	| optional	 | Y | string	| Indicates the tool that supplied the booking to Concur Travel.
-| Source | optional | N/A | string	| This element is obsolete. It is supported for backward compatibility only.
-| DateBookedLocal | optional | Y | dateTime	| The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss.
-| FormOfPaymentName | optional | - | string	| The name of the form of payment for the booking.
-| FormOfPaymentType | optional	 | - |string	| The type of the form of payment.
-| TicketMailingAddress | optional | - | - | The mailing address for the booked ticket, if available.
-| TicketPickupLocation | optional | - | - | The pickup location for the booked ticket, if available.
-| TicketPickupNumber | optional	| - |  - |The confirmation number for the booked ticket, if available.
-| AirfareQuotes | optional | - | array | List of stored airfare quotes for this booking.
-| Airline Tickets |optional	| - |array	| List of airline tickets for this booking.
-| Charges |optional | - | array | List of charges for this booking.
-| MiscChargeOrders | optional | - | array |List of miscellaneous air charges for this booking.
-| Passengers | optional | Y | array	| Contains a `Passenger` child element for each included passenger. The `Passenger` child element in turn contains the following **required child elements**: `NameFirst`, `NameLast`, and the following **optional elements**: `NameMiddle`, `NamePrefix`, `NameRemark`, `NameSuffix`, `NameTitle`, `TextName`, and `FrequentTravelerProgram`.
-| PassPrograms | optional | - | array | List of pass programs for this booking. This parent element has a `PassProgram` child element for each pass program associated with the booking. The `PassProgram` parent element has the following child elements: `Amount`, `Name`, `Type`, `UserFirstName`, and `UserLastname`.
-| PhoneNumbers | optional | - | array | List of phone numbers associated with this booking. This parent element has a `PhoneNumberData` child element for each phone number associated with the booking. The `PhoneNumberData` parent element has the following child elements: `PassengerRPH`, `PhoneNumber`, `Type`, and `Description`.
-| RailPayments | optional | - | array	| List of rail payments associated with rail segments in this booking. It has the following child elements: `RailPayment` that represents the payment information for a rail booking and `RailAdjustment` for the amount adjusted for a rail booking.
-| Segments | optional | Y | array | List of segments in this booking. The child elements included in this element vary depending on whether a TMC, client, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. **For TripLink suppliers**, the `Segments` element contains one or more Air, Car, Hotel, or Ride parent elements.
-| Delivery | optional | - | - | The method this booking was delivered.
-| WaitListSegments | optional | - | - | The segments that the traveler is waitlisted for this booking.
-| Warning | optional | - | - | The warnings associated with the booking.
-| WebAddresses |optional | - | - | List of web addresses such as emails, pick-up URLs, and so on associated with this booking.
+| `Itinerary` | required | Y | `ItineraryType`	| The root element for a trip. For this endpoint, it contains the following elements: `ClientLocator`, `ItinSourceName`, `TripName`, `Comments`, `StartDateLocal`, `EndDateLocal`, `BookedByFirstName`, `BookedByLastName`, `Bookings`.
+| `TripName` | required | Y | `string` | Name of the trip. Maximum length: 255 characters.
+| `TripStatus` | required	| Y | `unsignedByte` | The status of the trip. One of the following: 0 - Confirmed; 1 - Ticketed; 2 - Canceled; 6 - Proposal; 7 - Booked Proposal. This element only appears if the `includeCanceledTrips` query parameter is used in the request.
+| `RecordLocator` | required | Y | `string`	| The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
+| `BookingSource` | required	| Y | `string`	| The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. This could be a GDS, OTA, Vendor code for a Supplier website, or Supplier Direct Connect API. For TripLink suppliers, this is the supplier's name.
+| `StartDateLocal` |	optional | Y | `dateTime` | The start date of the trip in the starting location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
+| `EndDateLocal` | optional | Y | `dateTime`	| The end date of the trip in the ending location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
+| `BookedByFirstName`	| optional | Y | `string`	| The first name of the person who booked the trip.
+| `BookedByLastName` | optional | Y | `string`	| The last name of the person who booked the trip.
+| `Bookings` | optional | Y | `array`	| A parent element that contains a `Booking` child element for each booking associated with this itinerary.
+| `Booking` | optional | Y | `array`	| A child element of the `Bookings` element which in turn contains the following child elements: `Segments`, `Passenger`s, `RecordLocator`, `BookingSource`, `DateModifiedUtc`, `DateBookedLocal`, `ItinSourceName`, and `PassengerCount`.
+| `Segments` | optional	 | Y | `array`	| List of segments in this booking. The child elements included in this element vary depending on whether a TMC, client, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Travel` parent elements. For TripLink suppliers, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, or `Ride` parent elements.
+| `Comments` | optional	 | Y | `string`	| Comments for the itinerary. Maximum length: 512 characters.
+| `ItinSourceName` | optional | N | `string`	| The itinerary source. Format: TravelSupplier.
+| `BookingOwner`	| optional	 | Y | `string`	| Indicates the tool that supplied the booking to Concur Travel.
+| `Source` | optional | N/A | `string`	| This element is obsolete. It is supported for backward compatibility only.
+| `DateBookedLocal` | optional | Y | `dateTime`	| The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss.
+| `FormOfPaymentName` | optional | - | `string`	| The name of the form of payment for the booking.
+| `FormOfPaymentType` | optional	 | - |`string`	| The type of the form of payment.
+| `TicketMailingAddress` | optional | - | - | The mailing address for the booked ticket, if available.
+| `TicketPickupLocation` | optional | - | - | The pickup location for the booked ticket, if available.
+| `TicketPickupNumber` | optional	| - |  - |The confirmation number for the booked ticket, if available.
+| `AirfareQuotes` | optional | - | `array` | List of stored airfare quotes for this booking.
+| `Airline Tickets` |optional	| - |`array`	| List of airline tickets for this booking.
+| `Charges` |optional | - | `array` | List of charges for this booking.
+| `MiscChargeOrders` | optional | - | `array` |List of miscellaneous air charges for this booking.
+| `Passengers` | optional | Y | `array`	| Contains a `Passenger` child element for each included passenger. The `Passenger` child element in turn contains the following **required child elements**: `NameFirst`, `NameLast`, and the following **optional elements**: `NameMiddle`, `NamePrefix`, `NameRemark`, `NameSuffix`, `NameTitle`, `TextName`, and `FrequentTravelerProgram`.
+| `PassPrograms` | optional | - | `array` | List of pass programs for this booking. This parent element has a `PassProgram` child element for each pass program associated with the booking. The `PassProgram` parent element has the following child elements: `Amount`, `Name`, `Type`, `UserFirstName`, and `UserLastname`.
+| `PhoneNumbers` | optional | - | `array` | List of phone numbers associated with this booking. This parent element has a `PhoneNumberData` child element for each phone number associated with the booking. The `PhoneNumberData` parent element has the following child elements: `PassengerRPH`, `PhoneNumber`, `Type`, and `Description`.
+| `RailPayments` | optional | - | `array`	| List of rail payments associated with rail segments in this booking. It has the following child elements: `RailPayment` that represents the payment information for a rail booking and `RailAdjustment` for the amount adjusted for a rail booking.
+| `Segments` | optional | Y | `array` | List of segments in this booking. The child elements included in this element vary depending on whether a TMC, client, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Travel` parent elements. **For TripLink suppliers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, or `Ride` parent elements.
+| `Delivery` | optional | - | - | The method this booking was delivered.
+| `WaitListSegments` | optional | - | - | The segments that the traveler is waitlisted for this booking.
+| `Warning` | optional | - | - | The warnings associated with the booking.
+| `WebAddresses` |optional | - | - | List of web addresses such as emails, pick-up URLs, and so on associated with this booking.
 
-### Response
+## <a name="postnt-response-schema"></a>Create New Trip Response Schema
 
 The response returns an HTTP status code and if the trip is created successfully, it also returns the full posted trip details with the following additional elements inside the `Itinerary` parent element:
 
 | Element Name | Data Type | TripLink | Description
 | --------- | --------- | ------- | --------
-|id | string | Y| The URI including the trip ID.
-| ItinLocator | string | Y | The Itinerary Locator value (trip ID without the URL). The `ItinLocator` value is used when updating an existing trip.
-| DateModifiedUtc | dateTime | Y | The UTC formatted date that this booking was last modified.
-| BookedVia | string | Y | The booking method or the GDS the itinerary was booked in.
-| DateBookedLocal | dateTime | Y | The date, in the traveler’s local time, that the booking was made.
+|`id` | `string` | Y| The URI including the trip ID.
+| `ItinLocator` | `string` | Y | The Itinerary Locator value (trip ID without the URL). The `ItinLocator` value is used when updating an existing trip.
+| `DateModifiedUtc` | `dateTime` | Y | The UTC formatted date that this booking was last modified.
+| `BookedVia` | `string` | Y | The booking method or the GDS the itinerary was booked in.
+| `DateBookedLocal` | `dateTime` | Y | The date, in the traveler’s local time, that the booking was made.
 
 ## Examples
 
@@ -1297,15 +1305,15 @@ This endpoint can be used to cancel all segments in a trip. To cancel a trip on 
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
-| cancel | required | string | The URI path modifier for canceling a trip. The format for the request is `/travel/trip/v1.1/cancel?tripid=trip_ID[&userid_type=login&userid_value=login_ID]`.
+| `cancel` | required | `string` | The URI path modifier for canceling a trip. The format for the request is `/travel/trip/v1.1/cancel?tripid=trip_ID[&userid_type=login&userid_value=login_ID]`.
 
 ### Request Parameters
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
-| tripid  | string | **Optional**: The identifier for the trip to be updated. For example, if the value of `tripid` is `I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`, then the request is `POST /travel/trip/v1.1?tripid=I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`.
-| userid_type  |string | **Optional**: The type of user identification to use. Possible value is: `login_id`.
-| userid_value  | string | **Optional**: The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
+| `tripid`  | `string` | **Optional**: The identifier for the trip to be updated. For example, if the value of `tripid` is `I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`, then the request is `POST /travel/trip/v1.1?tripid=I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`.
+| `userid_type`  |`string` | **Optional**: The type of user identification to use. Possible value is: `login_id`.
+| `userid_value`  | `string` | **Optional**: The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
 
 ## Headers
 
@@ -1319,17 +1327,17 @@ Where `access_token` is the OAuth 2.0 access token of the user whose trip you wa
 
 None.
 
-### Response
+### <a name="delete-schema"></a>Cancel Trip Request Schema
 
 The request returns the full trip details for the cancelled trip. If the request is successful, the response trip will not contain any segments because they have been cancelled. The response includes the following additional elements inside the `Itinerary` parent element:
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
-| id | string | The URI including the trip ID.
-| ItinLocator | string | The itinerary locator value (trip ID without the URL). The `ItinLocator` value is used when updating an existing trip.
-|DateModifiedUtc | dateTime | The UTC formatted date that this booking was last modified.
-| BookedVia | string | The GDS the itinerary was booked in.
-| DateBookedLocal | dateTime | The date, in the traveler’s local time, that the booking was made.
+| `id` | `string` | The URI including the trip ID.
+| `ItinLocator` | `string` | The itinerary locator value (trip ID without the URL). The `ItinLocator` value is used when updating an existing trip.
+|`DateModifiedUtc` | `dateTime` | The UTC formatted date that this booking was last modified.
+| `BookedVia` | `string` | The GDS the itinerary was booked in.
+| `DateBookedLocal` | `dateTime` | The date, in the traveler’s local time, that the booking was made.
 
 
 ## Examples

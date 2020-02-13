@@ -1,0 +1,42 @@
+#glossary {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-row-gap: 20px;
+  grid-column-gap: 40px;
+}
+
+#glossary div:nth-child(4) {
+  grid-column: 1;
+  grid-row: 2/4;
+}
+
+#glossary p {
+  margin-top: 6px;
+}
+
+#glossary .term {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#glossary .glossary-icon {
+  background-color: $concur-blue;
+  color: white;
+  font-size: 17px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+  .width-980 {
+    max-width: 980px;
+    margin: auto;
+  }
+}

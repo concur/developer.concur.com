@@ -46,7 +46,6 @@ Name|Type|Format|Description
 `hasBillableExpenses`|`Boolean`|`query`|The IsBillable flag for at least one expense entry in the report. Format: true or false.
 `isTestUser`|`Boolean`|`query`|The report owner is a test user using the report for testing purposes in a non-production environment. Format: true or false.
 `expenseGroupConfigID`|`string`|`query`|The unique identifier for the expense group configuration associated to the report's expense group. Use the ID from the Response of the Expense Group Configurations V3.
-`costObject`|`string`|`query`|The list item code for an allocation field for at least allocation in the report.
 `entryTransactionDateBefore`|`DateTime`|`query`|The entry transaction date for at least one expense entry in the report is before this date. Format: YYYY-MM-DD
 `entryTransactionDateAfter`|`DateTime`|`query`|The entry transaction date for at least one expense entry in the report is after this date. Format: YYYY-MM-DD
 `createDateBefore`|`DateTime`|`query`|The report create date is before this date. Format: YYYY-MM-DD
@@ -297,7 +296,7 @@ Name|Type|Format|Description
 `LastComment`|`string`|-|The text of the most recent comment on the report.
 `LastModifiedDate`|`DateTime`|-|The date the report header was last modified.
 `LedgerName`|`string`|-|The name of the expense report ledger. Maximum 20 characters.
-`Name`|`string`|-|The name of the report.
+`Name`|`string`|-| **Required** The name of the report.
 `OrgUnit1 through OrgUnit6`|`CustomField`|-|The details from the Org Unit fields. These may not have data, depending on configuration.
 `OwnerLoginID`|`string`|-|The Login ID of the user this report belongs to.
 `OwnerName`|`string`|-|The name of the expense report owner.
@@ -305,7 +304,7 @@ Name|Type|Format|Description
 `PaymentStatusCode`|`string`|-|The code for the payment status of the report.
 `PaymentStatusName`|`string`|-|The report's payment status, in the OAuth consumer's language.
 `PersonalAmount`|`Decimal`|-|The total amount of expenses marked as personal. Maximum 23 characters.
-`PolicyID`|`string`|-|The unique identifier of the policy that applies to this report. Maximum 64 characters.
+`PolicyID`|`string`|-|The unique identifier of the policy that applies to this report. Maximum 64 characters. User's default expense policy is being used when creating a new expense report
 `ProcessingPaymentDate`|`DateTime`|-|The date that the report completed all approvals and was ready to be extracted for payment.
 `ReceiptsReceived`|`Boolean`|-|If Y, then this entry has been marked as confirmed by the Expense Processor. Format: Y/N
 `SubmitDate`|`DateTime`|-|The date the report was submitted.
