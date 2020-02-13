@@ -2046,6 +2046,10 @@
           "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
           "$ref": "#/definitions/CustomField"
         },
+        "parentRequest": {
+          "description": "The parent Request of the expected expense",
+          "$ref": "#/definitions/ResourceLink"
+        },
         "postedAmount": {
           "description": "The posted amount of the expected expense",
           "$ref": "#/definitions/Amount"
@@ -2206,10 +2210,6 @@
     "Location": {
       "type": "object",
       "properties": {
-        "airportName": {
-          "type": "string",
-          "description": "The airport name of the location"
-        },
         "city": {
           "type": "string",
           "description": "The city name of the location"
