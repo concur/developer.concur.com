@@ -5,17 +5,29 @@ layout: reference
 
 {% include prerelease.html %}
 
-* [Expected Expense Resources](#expected-expense-resource)
-  * [Create a new expected expense](#create-new-expected-expense-resource)
-  * [Get the list of expected expenses attached to a Request](#get-expected-expense-attached-request-resource)
-  * [Get the content of an expected expense](#get-content-expected-expense-resource)
-  * [Update the content of an expected expense](#update-content-expected-expense-resource)
-  * [Delete an expected expense from the Request](#delete-expected-expense-request-resource)
-  * [Get the list of comments for an existing expected expense](#expected-expense-resource-comments)
+## Menu
+
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
 
 # <a name="expected-expense-resource"></a>Expected Expense Resources
 
-Manage expected expenses attached to a Request
+Manage expected expenses attached to a Request.
+
+* [Create a new expected expense](#create-new-expected-expense-resource)
+* [Get the list of expected expenses attached to a Request](#get-expected-expense-attached-request-resource)
+* [Get the content of an expected expense](#get-content-expected-expense-resource)
+* [Update the content of an expected expense](#update-content-expected-expense-resource)
+* [Delete an expected expense from the Request](#delete-expected-expense-request-resource)
+* [Get the list of comments for an existing expected expense](#expected-expense-resource-comments)
 
 ## <a name="create-new-expected-expense-resource"></a>Create a new expected expense
 
@@ -33,10 +45,10 @@ POST {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request to which the expected expense is attached
-userId|query|string|The unique identifier of the user performing the expected expense creation. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request to which the expected expense is attached.
+`userId`|`string`|-|The unique identifier of the user performing the expected expense creation. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
@@ -50,7 +62,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The created expected expense
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The created expected expense.
 
 ### Example
 
@@ -271,14 +283,14 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
-userId|query|string|The unique identifier of the user viewing the expected expenses attached to a Request. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`userId`|`string`|-|The unique identifier of the user viewing the expected expenses attached to a Request. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -555,14 +567,14 @@ GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-expenseUuid|path|string|**Required** The unique identifier of the expected expense
-userId|query|string|The unique identifier of the user viewing the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`expenseUuid`|`string`|-|**Required** The unique identifier of the expected expense.
+`userId`|`string`|-|The unique identifier of the user viewing the expected expense. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -572,7 +584,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier.
 
 ### Example 1 - for a Request segment
 
@@ -795,7 +807,7 @@ Authorization: Bearer {token}
 }
 ```
 
-## <a name="update-content-expected-expense-resourcee"></a>Update the content of an expected expense
+## <a name="update-content-expected-expense-resource"></a>Update the content of an expected expense
 
 ### Scopes
 
@@ -811,10 +823,10 @@ PUT {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-expenseUuid|path|string|**Required** The unique identifier of the expected expense to update
-userId|query|string|The unique identifier of the user performing the expected expense update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`expenseUuid`|`string`|-|**Required** The unique identifier of the expected expense to update.
+`userId`|`string`|-|The unique identifier of the user performing the expected expense update. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
@@ -828,7 +840,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier after update
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier after update.
 
 ### Example
 
@@ -1093,14 +1105,14 @@ DELETE {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-expenseUuid|path|string|**Required** The unique identifier of the expected expense to delete
-userId|query|string|The unique identifier of the user performing the deletion of the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`expenseUuid`|`string`|-|**Required** The unique identifier of the expected expense to delete.
+`userId`|`string`|-|The unique identifier of the user performing the deletion of the expected expense. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -1110,7 +1122,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-None
+None.
 
 ### Example
 
@@ -1148,14 +1160,14 @@ GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}/comments
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-expenseUuid|path|string|**Required** The unique identifier of the expected expense
-userId|query|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`expenseUuid`|`string`|-|**Required** The unique identifier of the expected expense.
+`userId`|`string`|-|The unique identifier of the user getting the content of the comments. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
