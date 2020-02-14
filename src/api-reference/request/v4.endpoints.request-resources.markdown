@@ -3,20 +3,30 @@ title: Travel Request v4 - Request Resources
 layout: reference
 ---
 
-{% include prerelease.html %}
+## Menu
 
-* [Request Resources](#request-resource)
-  * [Create a new Request](#request-resource-create)
-  * [Get the list of existing Requests](#request-resource-getlist)
-  * [Get the content of an existing Request](#request-resource-get)
-  * [Update the content of an existing Request](#request-resource-update)
-  * [Delete an existing Request](#request-resource-delete)
-  * [Create an Expense Report linked to an approved Request](#request-resource-create-expense-linked)
-  * [Get the list of comments for an existing Request](#request-resource-comments)
-  * [Get the list of cash advances assigned to an existing Request](#request-resource-cashadvances)
-  * [Get the list of exceptions linked to an existing Request](#request-resource-exceptions)
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
 
 # <a name="request-resource"></a>Request Resources
+
+* [Create a new Request](#request-resource-create)
+* [Get the list of existing Requests](#request-resource-getlist)
+* [Get the content of an existing Request](#request-resource-get)
+* [Update the content of an existing Request](#request-resource-update)
+* [Delete an existing Request](#request-resource-delete)
+* [Create an Expense Report linked to an approved Request](#request-resource-create-expense-linked)
+* [Get the list of comments for an existing Request](#request-resource-comments)
+* [Get the list of cash advances assigned to an existing Request](#request-resource-cashadvances)
+* [Get the list of exceptions linked to an existing Request](#request-resource-exceptions)
 
 ## <a name="request-resource-create"></a>Create a new Request
 
@@ -34,16 +44,17 @@ POST {datacenter}/travelrequest/v4/requests
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-userId|query|string|The unique identifier of the Request owner for whom the Request will be created. <br> The corresponding user name will be displayed in the audit trail of the Request <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`userId`|`string`|-|The unique identifier of the Request owner for whom the Request will be created. The corresponding user name will be displayed in the audit trail of the Request. **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
 [Request](./v4.endpoints.schemas.html#schema-request)
 
-Since this endpoint is performing a Request creation, specifying an `id` field in the payload is not allowed.<br>
-A newly allocated `id` value will be returned upon successful Request creation
+Since this endpoint is performing a Request creation, specifying an `id` field in the payload is not allowed.
+
+A newly allocated `id` value will be returned upon successful Request creation.
 
 ### HTTP Response
 
@@ -53,7 +64,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Request](./v4.endpoints.schemas.html#schema-request) - The created Request
+[Request](./v4.endpoints.schemas.html#schema-request) - The created Request.
 
 ### Example
 
@@ -213,22 +224,22 @@ GET {datacenter}/travelrequest/v4/requests
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-view|query|string|Name of the view defining the scope of the Requests to get.<br>Possible values:<br>`ALL`: Get all existing Requests for a user (relevant only for the traveler);<br>`ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than 3 months based on current date and must not be in closed status;<br>`UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler);<br>`PENDING`: Get all the Requests that are submitted but not yet approved (relevant only for the traveler);<br>`VALIDATED`: Get all the approved Requests for a user (relevant only for the traveler). Closed Requests are included in this view;<br>`APPROVED`: Get all the approved Requests by a user (relevant only for the approver). Closed Requests are included in this view;<br>`CANCELED`: Get all the cancelled Requests for a user (relevant only for the traveler). Cancelled could include closed/not closed Requests;<br>`CLOSED`: Get all the closed Requests for a user (relevant only for the traveler). Includes canceled then closed Request as well as approved then closed Requests;<br>`SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests;<br>`TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver);<br>`PENDINGEBOOKING`: Approved Requests awaiting Concur Travel booking(s);<br>`PENDINGPROPOSAL`: Get all Requests submitted to a Travel Agency (TMC) step. The userId of the TMC agent user must be provided in the list of parameters, this TMC agent user must have a default Travel Agency assigned in its profile corresponding to the Travel Agency assigned to the Requests.<br>When connecting with a TMC agent User Token, additional values are possible: <br>`PROPOSALAPPROVED`: Get all the approved Requests by a user (relevant only for the TMC agent);<br>`PROPOSALCANCELED`: Get all the cancelled Requests for a user (relevant only for the TMC agent).<br>If no view value is sent, the default view `ALL` will be used
-userId|query|string|The unique identifier of the Request owner to use when searching for Requests
-start|query|Integer|Pagination: index of the first record (default 0)
-limit|query|Integer|Number of records to return per page (default 10) - maximum limit is 100, if higher value or digit value is set, a 400 error code will be displayed
-approvedBefore|query|DateTime|This returns Requests that have been approved before the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
-approvedAfter|query|DateTime|This returns Requests that have been approved after the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
-modifiedBefore|query|DateTime|This returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
-modifiedAfter|query|DateTime|This returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
-sortField|query|string|The name of the field on which to sort.<br> Possible values: `startDate`, `approvalStatus`, `requestId`.<br> If no view value is sent, the default sortField `startDate` will be used
-sortOrder|query|string|Sort order.<br> Possible values: `ASC`, `DESC`.<br> If no view value is sent, the default sortOrder `DESC` will be used
+`view`|`string`|-|Name of the view defining the scope of the Requests to get. Supported values:`ALL`: Get all existing Requests for a user (relevant only for the traveler).<br>`ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than three months based on current date and must not be in closed status.<br>`UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler).<br>`PENDING`: Get all the Requests that are submitted but not yet approved (relevant only for the traveler).<br>`VALIDATED`: Get all the approved Requests for a user (relevant only for the traveler). Closed Requests are included in this view.<br>`APPROVED`: Get all the approved Requests by a user (relevant only for the approver). Closed Requests are included in this view.<br>`CANCELED`: Get all the cancelled Requests for a user (relevant only for the traveler). Cancelled could include closed/not closed Requests.<br>`CLOSED`: Get all the closed Requests for a user (relevant only for the traveler). Includes canceled then closed Request as well as approved then closed Requests.<br>`SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests.<br>`TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver).<br>`PENDINGEBOOKING`: Approved Requests awaiting Concur Travel booking(s).<br>`PENDINGPROPOSAL`: Get all Requests submitted to a Travel Agency (TMC) step. The `userId` of the TMC agent user must be provided in the list of parameters, this TMC agent user must have a default Travel Agency assigned in its profile corresponding to the Travel Agency assigned to the Requests.<br>When connecting with a TMC agent User Token, additional values are possible: `PROPOSALAPPROVED`: Get all the approved Requests by a user (relevant only for the TMC agent).<br>`PROPOSALCANCELED`: Get all the cancelled Requests for a user (relevant only for the TMC agent).<br>If no view value is sent, the default view `ALL` will be used.
+`userId`|`string`|-|The unique identifier of the Request owner to use when searching for Requests.
+`start`|`integer`|-|Pagination: index of the first record. Default: 0
+`limit`|`integer`|-|Number of records to return per page. Default: 10. Maximum limit: 100, if higher value or digit value is set, a 400 error code will be displayed.
+`approvedBefore`|`dateTime`|`yyyy-MM-dd'T'HH:mm:ss.SSS'Z'` or `yyyy-MM-dd`|Returns Requests that have been approved before the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time should be in UTC. when time is missing it is defaulted to midnight.
+`approvedAfter`|`dateTime`|`yyyy-MM-dd'T'HH:mm:ss.SSS'Z'` or `yyyy-MM-dd`|Returns Requests that have been approved after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time should be in UTC. When time is missing it is defaulted to midnight.
+`modifiedBefore`|`dateTime`|`yyyy-MM-dd'T'HH:mm:ss.SSS'Z'` or `yyyy-MM-dd`|Returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time should be in UTC. When time is missing it is defaulted to midnight.
+`modifiedAfter`|`dateTime`|`yyyy-MM-dd'T'HH:mm:ss.SSS'Z'` or `yyyy-MM-dd`|Returns Requests in which the associated dependents (Header, Expected expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time should be in UTC. When time is missing it is defaulted to midnight.
+`sortField`|`string`|-|The name of the field on which to sort. Supported values: `startDate`, `approvalStatus`, `requestId`. If no view value is sent, the default `sortField` `startDate` will be used.
+`sortOrder`|`string`|-|Sort order. Supported values: `ASC`, `DESC`. If no view value is sent, the default `sortOrder` `DESC` will be used.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -383,15 +394,14 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
-userId|query|string|The unique identifier of the user getting the content of the Request. <br>If empty when using a Company token the default system user will be assumed to perform the action.
-
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`userId`|`string`|-|The unique identifier of the user getting the content of the Request. If empty when using a Company token the default system user will be assumed to perform the action.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -401,7 +411,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Request](./v4.endpoints.schemas.html#schema-request) - The Request having {requestUuid} as unique identifier
+[Request](./v4.endpoints.schemas.html#schema-request) - The Request having {requestUuid} as unique identifier.
 
 ### Example
 
@@ -543,10 +553,11 @@ Authorization: Bearer {token}
 
 ## <a name="request-resource-update"></a>Update the content of an existing Request
 
-Update of the following fields is supported : `policy`, `comment`, `startDate`, `startTime`, `endDate`, `endTime`, `expensePolicy`, `name`, `businessPurpose`, `mainDestination`, `travelAgency`, `custom fields`. Other fields will be ignored.<br>
-This endpoint supports partial update. You may submit only the fields to update in the body, fields not present in the body will remain unchanged.<br>
-To clear a field use the value *null* (without quotes)<br>
-`id` field is not mandatory in the payload, if provided the value must match the requestUuid parameter.<br>
+Update of the following fields is supported : `policy`, `comment`, `startDate`, `startTime`, `endDate`, `endTime`, `expensePolicy`, `name`, `businessPurpose`, `mainDestination`, `travelAgency`, and `custom fields`. Other fields will be ignored.
+
+This endpoint supports partial update. You may submit only the fields to update in the body, fields not present in the body will remain unchanged. To clear a field use the value *null* (without quotes).
+
+`id` field is not mandatory in the payload, if provided the value must match the `requestUuid` parameter.
 
 ### Scopes
 
@@ -562,10 +573,10 @@ PUT {datacenter}/travelrequest/v4/requests/{requestUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
-userId|query|string|The unique identifier of the user performing the update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`userId`|`string`|-|The unique identifier of the user performing the update. **Required** when connecting with a Company token. If empty a 400, `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
@@ -579,7 +590,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Request](./v4.endpoints.schemas.html#schema-request) - The Request having {requestUuid} as unique identifier after update
+[Request](./v4.endpoints.schemas.html#schema-request) - The Request having {requestUuid} as unique identifier after update.
 
 ### Example
 
@@ -739,20 +750,20 @@ DELETE {datacenter}/travelrequest/v4/requests/{requestUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
-userId|query|string|The unique identifier of the user performing the deletion. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`userId`|`string`|-|The unique identifier of the user performing the deletion. **Required** when connecting with a Company token. If empty a 400, `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
 #### Payload
 
-None
+None.
 
 ### Example
 
@@ -790,13 +801,13 @@ POST {datacenter}/travelrequest/v4/requests/{requestUuid}/reports
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -806,7 +817,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[ResourceLink](./v4.endpoints.schemas.html#schema-resourcelink) - The resource link leading to the created report
+[ResourceLink](./v4.endpoints.schemas.html#schema-resourcelink) - The resource link leading to the created report.
 
 ### Example
 
@@ -849,11 +860,11 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}/comments
 
 Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -922,12 +933,12 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}/cashadvances
 
 Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
-userId|query|string|The unique identifier of the user getting the list of the cash advances assigned to a Request. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`userId`|`string`|-|The unique identifier of the user getting the list of the cash advances assigned to a Request. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -937,7 +948,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[ResourceLink](./v4.endpoints.schemas.html#schema-resourcelink) - The resource link leading to the created cash advance
+[ResourceLink](./v4.endpoints.schemas.html#schema-resourcelink) - The resource link leading to the created cash advance.
 
 ### Example
 
@@ -988,12 +999,12 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}/exceptions
 
 Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
-userId|query|string|The unique identifier of the user getting the content of the exceptions. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`userId`|`string`|-|The unique identifier of the user getting the content of the exceptions. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
