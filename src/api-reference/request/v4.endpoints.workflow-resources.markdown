@@ -3,8 +3,6 @@ title: Travel Request v4 - Workflow Resources
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 ## Menu
 
 * [Getting Started](./v4.get-started.html)

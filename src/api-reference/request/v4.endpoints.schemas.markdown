@@ -3,8 +3,6 @@ title: Travel Request v4 - Endpoints - Schemas
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 ## Menu
 
 * [Getting Started](./v4.get-started.html)
@@ -145,7 +143,7 @@ Name|Type|Format|Description
 
 To fill in a custom list item for the creation of a Request or an Expected Expense, clients may use one of the following:
 
-* Use the copy down configuration feature to update by default custom fields from the Employee profile to the Request header, and from the Request header to the Expected expense.
+* Use the copy down configuration feature to update custom fields from the Employee profile to the Request header, and from the Request header to the Expected expense.
 * For a limited number of list items that are part of a custom field, a Request containing those values in the related custom fields may be manually created. The list item unique id will then be retrieved by calling the get detail of this Request. The same process is used for all list items values of the list.
 
 ### <a name="schema-employee"></a>Employee
@@ -319,14 +317,14 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`allocationAmount`|`object`|[`Amount`](#schema-amount)|The amount of the allocation calculated with the percentage value multiplied by the transaction amount on the expected expense. This amount is given in the transaction's currency and rounded to eight decimals after decimal point.
-`approvedAmount`|`object`|[`Amount`](#schema-amount)|The amount of the allocation calculated with the percentage value multiplied by the approved amount on the expected expense. This amount is given in the user's currency and rounded to eight decimals after decimal point.
+`allocationAmount`|`object`|[`Amount`](#schema-amount)|The amount of the allocation calculated with the percentage value multiplied by the transaction amount on the expected expense. This amount is given in the transaction's currency and rounded to eight digits after the decimal point.
+`approvedAmount`|`object`|[`Amount`](#schema-amount)|The amount of the allocation calculated with the percentage value multiplied by the approved amount on the expected expense. This amount is given in the user's currency and rounded to eight digits after the decimal point.
 `allocationId`|`string`|-|The unique allocation identifier.
 `custom1` to `custom20`|`object`|[`CustomField`](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration.
 `expenseId`|`string`|-|The unique identifier of the expected expense associated with the allocation.
 `percentEdited`|`boolean`|-|Whether the allocation percent has been edited.
 `percentage`|`number`|-|The percentage of the total expected expense that this allocation represents.
-`postedAmount`|`object`|[`Amount`](#amount)|The amount of the allocation calculated with the percentage value multiplied by the posted amount on the expected expense. This amount is given in the user's currency and rounded to eight decimals after decimal point.
+`postedAmount`|`object`|[`Amount`](#amount)|The amount of the allocation calculated with the percentage value multiplied by the posted amount on the expected expense. This amount is given in the user's currency and rounded to eight digits after the decimal point.
 `systemAllocation`|`boolean`|-|Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only.
 
 ### <a name="schema-exchangerate"></a>Exchange Rate

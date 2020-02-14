@@ -20,9 +20,10 @@ Concur Request automates the spend request and approval process for both travel 
   * [User Permissions](#userpermissions)
   * [Link](#link)
 
-## Version
+## Versions
 
-* 3.0 (Current)
+* [4.0](./v4.get-started.html) (Current)
+* 3.0
 * [1.0](./v1.request.html)
 
 ## <a name="method1"></a>Retrieve all requests
