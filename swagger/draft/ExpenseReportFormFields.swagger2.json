@@ -1,0 +1,121 @@
+{
+  "x-sap-shortText": "Returns information about the configured form fields for a specified form in SAP Concur.",
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/concur/api",
+  "info": {
+    "description": "Returns the configured fields for the specified expense form.",
+    "version": "1.1",
+    "title": "Expense Report Forms"
+  },
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Form Fields",
+      "description": "Returns the details of the configured form fields for the specified form."
+    }
+  ],
+  "paths": {
+    "/expense/expensereport/v1.1/report/Forms/{FormId}/Fields": {
+      "get": {
+        "tags": [
+          "Form Field Data"
+        ],
+        "summary": "Retrieves the list of configured form fields for the specified form.",
+        "operationId": "getFormFieldsUsingGET",
+        "produces": [ "application/xml" ],
+        "parameters": [
+          {
+            "name": "FormId",
+            "in": "path",
+            "description": "The identifier for the desired form.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/FormFieldsList" }
+          },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "FormFieldsList": {
+      "type": "object",
+      "properties": {
+        "FormField": {
+          "type": "array",
+          "description": "List of configured form fields for the specified form.",
+          "items": {
+            "$ref": "#/definitions/FormField"
+          }
+        }
+      },
+      "title": "FormFieldsList"
+    },
+    "FormField": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Label": {
+          "type": "string"
+        },
+        "ControlType": {
+          "type": "string"
+        },
+        "DataType": {
+          "type": "string",
+          "enum": ["VARCHAR", "INTEGER", "CHAR", "TIMESTAMP", "NUMERIC", "MONEY", "SMALLINT", "BINARY", "LIST", "MLIST", "BOOLEANCHAR"]
+        },
+        "MaxLength": {
+          "type": "integer"
+        },
+        "Required": {
+          "type": "string",
+          "enum": ["N", "Y"]
+        },
+        "Cols": {
+          "type": "integer"
+        },
+        "Access": {
+          "type": "string",
+          "enum": ["RW", "RO", "HD"]
+        },
+        "Width": {
+          "type": "integer"
+        },
+        "Custom": {
+          "type": "string",
+          "enum": ["N", "Y"]
+        },
+        "Sequence": {
+          "type": "integer"
+        }
+      },
+      "title": "FormField"
+    }
+  }
+}

@@ -3,173 +3,177 @@ title: Direct Connect - Hotel v2 - Availability
 layout: reference
 ---
 
-Message to retrieved the availability of hotels
+Message to retrieved the availability of hotels.
 
-| SOAPAction   | OTA name   | Message structure |
+|SOAPAction|OTA Name|Message Structure|
 |--------------|------------|-------------------|
-| availability | HotelAvail | OTA_HotelAvailRQ  |
+|availability|HotelAvail|OTA_HotelAvailRQ|
 
 ---
 
 * [Request](#request)
-  * [Schema](#)
-    * [Available Request Segments](#)
-    * [Available Request Segment](#)
-    * [Hotel Search Criteria](#)
-    * [Criterion](#)
-    * [Stay Date Range](#)
-    * [Room Stay Candidates](#)
-    * [Room Stay Candidate](#)
-    * [Guest Counts](#)
-    * [Guest Count](#)
+  * [Schema](#req-schema)
+    * [Available Request Segments](#available-req-segments)
+    * [Available Request Segment](#available-req-segment)
+    * [Hotel Search Criteria](#hotel-search-criteria)
+    * [Criterion](#criterion)
+    * [Stay Date Range](#stay-date-range)
+    * [Room Stay Candidates](#room-stay-cadidates)
+    * [Room Stay Candidate](#room-stay-candidate)
+    * [Guest Counts](#guest-counds)
+    * [Guest Count](#guest-count)
 * [Response](#response)
-  * [Schema](#)
-    * [Room Stays](#)
-    * [Room Stay](#)
-    * [Room Types](#)
-    * [Room Type](#)
-    * [Room Descriptions](#)
-    * [Rate Plans](#)
-    * [Rate Plan](#)
-    * [Guarantee](#)
-    * [Supported Guarantee Types](#)
-    * [Supported Guarantee Required](#)
-    * [Deadline](#)
-    * [Cancel Penalties](#)
-    * [Cancel Penalty](#)
-    * [Meals Included](#)
-    * [Rooms Rates](#)
-    * [Room Rate](#)
-    * [Rates](#)
-    * [Rate](#)
-    * [Payment Policies](#)
-    * [Guarantee Payment](#)
-    * [Accepted Payments](#)
-    * [Accepted Payment](#)
-    * [Payment Card](#)
-    * [Total](#)
-    * [Rate Descriptions](#)
-    * [TPA Extensions](#)
-    * [Timespan](#)
-    * [Basical Property Info](#)
+  * [Schema](#res-schema)
+    * [Room Stays](#room-stays)
+    * [Room Stay](#room-stay)
+    * [Room Types](#room-types)
+    * [Room Type](#room-type)
+    * [Room Descriptions](#room-descriptions)
+    * [Rate Plans](#rate-plans)
+    * [Rate Plan](#rate-plan)
+    * [Guarantee](#guarantee)
+    * [Supported Guarantee Types](#supported-guarantee-types)
+    * [Supported Guarantee Required](#supported-guarantee-required)
+    * [Deadline](#deadline)
+    * [Cancel Penalties](#cancel-penalties)
+    * [Cancel Penalty](#cancel-penalty)
+    * [Meals Included](#meal-included)
+    * [Rooms Rates](#room-rates)
+    * [Room Rate](#room-rate)
+    * [Rates](#rates)
+    * [Rate](#rate)
+    * [Payment Policies](#payment-policies)
+    * [Guarantee Payment](#guarantee-payment)
+    * [Accepted Payments](#accepted-payments)
+    * [Accepted Payment](#accepted-paytment)
+    * [Payment Card](#payment-card)
+    * [Total](#total)
+    * [Rate Descriptions](#rate-descriptions)
+    * [TPA Extensions](#tpa-extensions)
+    * [Timespan](#timespan)
+    * [Basic Property Info](#basic-property-info)
 * [Relationship Between RoomID and RatePlanID](#relationship-roomid-rateplanid)
 
 ## <a name="request"></a>Request
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
- <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>user</userid>
-    <password>password</password>
+      <userid>user</userid>
+      <password>password</password>
     </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5" PrimaryLangID="de" AltLangID="de">
-    <POS>
-      <Source ISOCurrency="USD"></Source>
-      <RequestorID Type="1" ID="1234567"></RequestorID>
-    </POS>
-    <AvailRequestSegments>
-     <AvailRequestSegment>
-      <HotelSearchCriteria>
-       <Criterion>
-        <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
-       </Criterion>
-      </HotelSearchCriteria>
-      <StayDateRange Start="2018-10-26" End="2018-10-27"></StayDateRange>
-      <RoomStayCandidates>
-       <RoomStayCandidate>
-        <GuestCounts>
-         <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
-        </GuestCounts>
-       </RoomStayCandidate>
-      </RoomStayCandidates>
-     </AvailRequestSegment>
-    </AvailRequestSegments>
-   </OTA_HotelAvailRQ>
+    <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5"
+                      PrimaryLangID="de" AltLangID="de">
+      <POS>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="1234567"></RequestorID>
+        </Source>
+      </POS>
+      <AvailRequestSegments>
+        <AvailRequestSegment>
+          <HotelSearchCriteria>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
+            </Criterion>
+          </HotelSearchCriteria>
+          <StayDateRange Start="2018-10-26" End="2018-10-27"></StayDateRange>
+          <RoomStayCandidates>
+            <RoomStayCandidate>
+              <GuestCounts>
+                <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
+              </GuestCounts>
+            </RoomStayCandidate>
+          </RoomStayCandidates>
+          <TPA_Extensions>
+            <SearchSessionToken>5EA6C45E55104704E4</SearchSessionToken>
+          </TPA_Extensions>
+        </AvailRequestSegment>
+      </AvailRequestSegments>
+    </OTA_HotelAvailRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
-### Schema
+### <a name="req-schema"></a>Schema
 
 #### OTA_HotelAvailRQ
 
-| Element              | Required | Data Type |  Description |
-|----------------------|----------|-----------|--------------|
-| AvailRequestSegments | Y        | Complex   | A collection of AvailRequestSegment. Each segment includes a collection of criteria that requests a book-able entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. SAP Concur will ever only ever send one AvailRequestSegments |
+|Name|Type|Description|
+|----------------------|-----------|--------------|
+|`AvailRequestSegments`|`complex`|**Required** A collection of `AvailRequestSegment`. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services. The request can be used for guest rooms or other inventory items for which availability is sought. Each segment will be presumed to have a unique date range for each request. SAP Concur will only ever send one `AvailRequestSegments`.|
 
-#### AvailRequestSegments
+#### <a name="available-request-segments"></a>AvailRequestSegments
 
-| Element             | Required | Data Type | Description |
-|---------------------|----------|-----------|-------------|
-| AvailRequestSegment | Y        | Complex   | To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, AvailRequestSegment. Each segment includes a collection of criteria that requests a book-able entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. SAP Concur will only ever send one AvailRequestSegment |
+|Name|Type|Description|
+|---------------------|-----------|-------------|
+|`AvailRequestSegment`|`complex`|**Required** To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, `AvailRequestSegment`. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services. The request can be used for guest rooms or other inventory items for which availability is sought. Each segment will be presumed to have a unique date range for each request. SAP Concur will only ever send one `AvailRequestSegment`.|
 
-#### AvailRequestSegment
+#### <a name="available-request-segment"></a>AvailRequestSegment
 
-| Element             | Required | Data Type | Description |
-|---------------------|----------|-----------|-------------|
-| HotelSearchCriteria | Y        | Complex   | Specified hotel search criteria. SAP Concur will send only one HotelSearchCriteria. |
-| StayDateRange       | N        | Complex   | Range of dates using ISO 8601. |
+|Name|Type|Description|
+|---------------------|-----------|-------------|
+|`HotelSearchCriteria`|`complex`|**Required** Specified hotel search criteria. SAP Concur will send only one (1) `HotelSearchCriteria`.|
+|`StayDateRange`|`complex`|Range of dates using ISO 8601.|
+|`TPA_Extensions/SearchSessionToken`|`stringLength1to128`|The token obtained from [Search](/api-reference/direct-connects/hotel-service-2/Search.html) response that links the Search results to [Availability](#request) and [Reservation](/api-reference/direct-connects/hotel-service-2/Reservation.html) requests.|
 
+#### <a name="hotel-search-criteria"></a>HotelSearchCriteria
 
-#### HotelSearchCriteria
+|Name|Type|Description|
+|-----------|-----------|-------------|
+|`Criterion`|`complex`|**Required** Refer to `Criterion` in [Search](/api-reference/direct-connects/hotel-service-2/Search.html). Note that for Availability the `Criterion` will only have the `HotelRef` element. Other elements will not be sent. `HotelSearchCriteria` can contain multiple `Criterion` elements. Each will have a unique `HotelCode` per Availability request.|
 
-| Element   | Required | Data Type | Description |
-|-----------|----------|-----------|-------------|
-| Criterion | Y        | Complex   | Refer to Criterion in Search.  Note that for Availability the Criterion will only have the HotelRef element. Other elements will not be sent. HotelSearchCriteria can contain multiple Criterion elements.  Each will have a unique HotelCode per Availability request.|
+#### <a name="criterion"></a>Criterion
 
-#### Criterion
+|Name|Type|Description|
+|---------|------------------|-------------|
+|`HotelCode`|`stringLength1to16`|The code that uniquely identifies a single hotel property. The hotel code is decided by vendors.|
+|`ChainCode`|`stringLength1to8`|The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the `HotelCode` attribute.|
 
-| Element | Required | Data Type                | Description |
-|---------|----------|-------------------       |-------------|
-| *HotelCode* | N        | StringLength1to16 | The code that uniquely identifies a single hotel property. The hotel code is decided by vendors. |
-| *ChainCode*   | N        | StringLength1to8 | The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the HotelCode attribute. |
+#### <a name="stay-date-range"></a>StayDateRange
 
-#### StayDateRange
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`Start`|`date`, or `time`, or `datetime`|**Required** The starting value of the time span.|
+|`End`|`date`, or `time`, or `datetime`|**Required** The ending value of the time span.|
 
-| Element | Required | Data Type                | Description |
-|---------|----------|-------------------       |-------------|
-| *Start* | Y        | DateOrTimeOrDateTimeType | The starting value of the time span. |
-| *End*   | Y        | DateOrTimeOrDateTimeType | The ending value of the time span. |
+#### <a name="room-stay-candidates"></a>RoomStayCandidates
 
-#### RoomStayCandidates
+|Name|Type|Description|
+|-------------------|-----------|-------------|
+|`RoomStayCandidate`|`complex`|**Required** Element used to identify available room products.|
 
-| Element           | Required | Data Type | Description |
-|-------------------|----------|-----------|-------------|
-| RoomStayCandidate | Y        | Complex   | Element used to identify available room products. |
+#### <a name="room-stay-candidate"></a>RoomStayCandidate
 
-#### RoomStayCandidate
+|Name|Type|Description|
+|-------------|-----------|-------------|
+|`GuestCounts`|`complex`|**Required** A collection of guest counts associated with room stay.|
 
-| Element     | Required | Data Type | Description |
-|-------------|----------|-----------|-------------|
-| GuestCounts | Y        | Complex   | A collection of Guest Counts associated with Room Stay. |
+#### <a name="guest-counts"></a>GuestCounts
 
-#### GuestCounts
+|Name|Type|Description|
+|------------|-----------|-------------|
+|`GuestCount`|`complex`|**Required** A recurring element that identifies the number of guests and ages of the guests. It currently contains hardcoded values only. See `GuestCount` below. |
 
-| Element    | Required | Data Type | Description |
-|------------|----------|-----------|-------------|
-| GuestCount | Y        | Complex   | A recurring element that identifies the number of guests and ages of the guests. It currently contains hardcoded values only - see Guest Count below. |
+#### <a name="guest-count"></a>GuestCount
 
-#### GuestCount
-
-| Element             | Required | Data Type | Description |
-|---------------------|----------|-----------|-------------|
-| Count               | Y        | Int	     | SAP Concur only supports one Guest thus the value is currently hard-coded to '1'. |
-| AgeQualifyingCode   | Y        | Int       | The value is currently hard-coded to '10': AgeQualifyingCode="10" |
+|Name|Type|Description|
+|---------------------|-----------|-------------|
+|`Count`|`integer`|**Required** SAP Concur only supports one guest. Supported values: `1` |
+|`AgeQualifyingCode`|`integer`|**Required** Supported values: `10` |
 
 ---
 
 ## <a name="response"></a>Response
 
-The maximum allowed size of OTA_HotelAvailRS is 5 MB. Any response that exceeds this limit shall be dropped.
+The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceeds this limit shall be dropped.
 
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Version="5">
+    <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="5">
       <Success/>
       <RoomStays>
         <RoomStay>
@@ -213,16 +217,17 @@ The maximum allowed size of OTA_HotelAvailRS is 5 MB. Any response that exceeds 
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                <Total AmountAfterTax="199.00" AmountBeforeTax="99.00" CurrencyCode="EUR" DecimalPlaces="2"/>
-                <RateDescription>
-                  <Text>Test rate description. Both before and after tax.</Text>
-                </RateDescription>
-                <TPA_Extensions>
-							  <RequireSeriesCode>true</RequireSeriesCode>
-						  </TPA_Extensions>
-              </Rate>
-            </Rates>
-          </RoomRate>
+                  <Total AmountAfterTax="199.00" AmountBeforeTax="99.00" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <RateDescription>
+                    <Text>Test rate description. Both before and after tax.</Text>
+                  </RateDescription>
+                  <TPA_Extensions>
+                    <RequireSeriesCode>true</RequireSeriesCode>
+                  </TPA_Extensions>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
           <TimeSpan End="2018-10-27" Start="2018-10-26"/>
           <BasicPropertyInfo ChainCode="ZZ" HotelCode="419430"/>
         </RoomStay>
@@ -232,227 +237,227 @@ The maximum allowed size of OTA_HotelAvailRS is 5 MB. Any response that exceeds 
 </soap:Envelope>
 ```
 
-### Schema
+### <a name="res-schema"></a>Schema
 
 #### OTA_HotelAvailRS
 
-| Element   | Required | Data Type | Description |
-|-----------|----------|-----------|-------------|
-| RoomStays | Y        | Complex   | A collection of details on the Room Stay including Time Span of this Room Stay, and financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. |
+|Name|Type|Description|
+|-----------|-----------|-------------|
+|`RoomStays`|`complex`|**Required** A collection of details on the room stay including time span of this room stay, and financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties.|
 
-#### RoomStays
+#### <a name="room-stays"></a>RoomStays
 
-| Element  | Required | Data Type | Description |
-|----------|----------|-----------|-------------|
-| RoomStay | Y        | Complex   | Details on the Room Stay including Time Span of this Room Stay, and financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. A Room stay represents exactly one hotel. |
+|Name|Type|Description|
+|----------|-----------|-------------|
+|`RoomStay`|`complex`|**Required** Details on the room stay including time span of this room stay, and financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties. A room stay represents one (1) hotel.|
 
-#### RoomStay
+#### <a name="room-stay"></a>RoomStay
 
-For a description of the relationship between the RoomID and RatePlanID refer to "Relationship between RoomID and RatePlanID"
+For a description of the relationship between the `RoomID` and `RatePlanID` refer to "Relationship between RoomID and RatePlanID".
 
-| Element           | Required | Data Type    | Description |
-|-------------------|----------|--------------|-------------|
-| RoomTypes         | Y        | Complex      | Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. |
-| RatePlans         | Y        | Complex      | A collection of Rate Plans associated with a particular Room Stay. The rate plan element is used to contain all the rate information for a single Rate Plan Code (eg RACK) for a given date range. A given Rate Plan may have variable rates, over the effective period of the Rate Plan, this is represented by the child element Rates.|
-| RoomRates         | Y        | Complex      | List of Room Rates. |
-| TimeSpan          | Y        | DateTimeSpan | The Time Span which covers the Room Stay. The attributes of the OTA DateTimeSpan data type are based on the W3C base data types of timeInstant and timeDuration using ISO 8601. |
-| BasicPropertyInfo | N        | Complex      | Property Information for the Room Stay. |
+|Name|Type|Description|
+|-------------------|--------------|-------------|
+|`RoomTypes`|`complex`|**Required** Details on the room stay including guest counts, time span of this room stay, pointers to res guests, guest memberships, comments, and special requests pertaining to this particular room stay. Financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties.|
+|`RatePlans`|`complex`|**Required** A collection of rate plans associated with a particular room stay. The rate plan element is used to contain all the rate information for a single rate plan Code (example: `RACK`) for a given date range. A given rate plan may have variable rates, over the effective period of the rate plan, this is represented by the child element rates.|
+|`RoomRates`|`complex`|**Required** List of room rates.|
+|`TimeSpan`|`datetimespan` |**Required** The time span which covers the room stay. The attributes of the OTA `DateTimeSpan` data type are based on the W3C base data types of `timeInstant` and `timeDuration` using ISO 8601.|
+|`BasicPropertyInfo`|`complex`|Property Information for the room stay.|
 
-#### RoomTypes
+#### <a name="room-types"></a>RoomTypes
 
-| Element  | Required | Data Type | Description |
-|----------|----------|-----------|-------------|
-| RoomType | Y        | Complex   | Provides details regarding rooms, usually guest rooms. The Room Description text will be used for each room (defined as a RoomRate) which specifies the same RoomID.|
+|Name|Type|Description|
+|----------|-----------|-------------|
+|`RoomType`|`complex`|**Required** Provides details regarding rooms, usually guest rooms. The room description text will be used for each room (defined as a `RoomRate`) which specifies the same `RoomID`.|
 
-#### RoomType
+#### <a name="room-type"></a>RoomType
 
-| Element         | Required  | Data Type         | Description |
-|-----------------|-----------|-------------------|-------------|
-| *RoomID*        | Y         | StringLength1to16 | A string value representing the unique identification of a room if the request is looking for a specific room type. |
-| RoomDescription | N         | Complex	          | Textual information regarding the room. |
+|Name|Type|Description|
+|-----------------|-------------------|-------------|
+|`RoomID`|`stringLength1to16`|**Required** A string value representing the unique identification of a room if the request is looking for a specific room type.|
+|`RoomDescription`|`complex`|Textual information regarding the room.|
 
-#### RoomDescription
+#### <a name="room-description"></a>RoomDescription
 
-| Element | Required | Data Type         | Description |
-|---------|----------|-------------------|-------------|
-| Text    | Y        | StringLength1to32 | Only one text element is supported here.  If Multiple Text elements are specified the last one is used and all others are dropped. All text passed is encoded. |
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`Text`|`stringLength1to32`|**Required** Only one (1) text element is supported. If multiple text elements are specified, the last one is used and all others are dropped. All text passed is encoded.|
 
-#### RatePlans
+#### <a name="rate-plans"></a>RatePlans
 
-| Element  | Required | Data Type | Description |
-|----------|----------|-----------|-------------|
-| RatePlan | Y        | Complex   | Defines the details of the rate plan as used in the booking process. Policies and descriptions that apply to a rate plan. Information significant to defining a rate plan. |
+|Name|Type|Description|
+|----------|-----------|-------------|
+|`RatePlan`|`complex`|**Required** Defines the details of the rate plan as used in the booking process. Policies and descriptions that apply to a rate plan. Information significant to defining a rate plan.|
 
-#### RatePlan
+#### <a name="rate-plan"></a>RatePlan
 
-| Element              | Required | Data Type         | Description |
-|----------------------|----------|-------------------|-------------|
-| *RatePlanID*         | Y        | StringLength1to64 | A text field used to indicate a special  ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples are Corporate ID. |
-| *AvailabilityStatus* | Y        | StringLength1to32 | Used to specify an availability status for the rate plan. Currently SAP Concur supports "AvailableForSale" and "ChangeDuringStay" |
-| Guarantee            | Y        | Complex           | Guarantee information that applies to the rate plan. SAP Concur only expects 1 Guarantee element per RatePlan |
-| CancelPenalties      | Y        | Complex           | Collection of cancellation penalties. If the Cancel Penalties are not provided SAP Concur will display "Cancellation policy not provided by vendor" |
-| MealsIncluded        | Y        | Complex           | Defines which meals are included with this rate program. SAP Concur expects this to be set. |
+|Name|Type|Description|
+|----------------------|-------------------|-------------|
+|`RatePlanID`|`stringLength1to64`|**Required** A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples: Corporate ID.|
+|`AvailabilityStatus`|`stringLength1to32`|**Required** Used to specify an availability status for the rate plan. Supported values: `AvailableForSale`, `ChangeDuringStay`|
+|`Guarantee`|`complex`|**Required** Guarantee information that applies to the rate plan. SAP Concur only expects one (1) Guarantee element per `RatePlan`.|
+|`CancelPenalties`|`complex`|**Required** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
+|`MealsIncluded`|`complex`|**Required** Defines which meals are included with this rate program.|
 
-#### Guarantee
+#### <a name="guarantee"></a>Guarantee
 
-| Element         | Required | Data Type | Description |
-|-----------------|----------|-----------|-------------|
-| *GuaranteeType* | Y        | String    | The guarantee information to hold a reservation. |
-| Deadline        | Y        | Complex   | Guarantee deadline, absolute or relative. |
+|Name|Type|Description|
+|-----------------|-----------|-------------|
+|`GuaranteeType`|`string`|**Required** The guarantee information to hold a reservation.|
+|`Deadline`|`complex`|**Required** Guarantee deadline, absolute or relative.|
 
-#### Supported GuranteeTypes
+#### <a name="supported-guarantee-types"></a>Supported GuaranteeTypes
 
-| GuaranteeType     | Description |
+|GuaranteeType|Description|
 |-------------------|-------------|  
-| Deposit           | In SAP Concur this value is seen as RequiredDeposit. |
-| DepositRequired   | In SAP Concur this value is seen as RequiredDeposit .|
-| CC/DC/Voucher       | In SAP Concur this value is seen as RequiredGuarantee. |
-| PrePay            | In SAP Concur this value is seen as RequiredPrepay. |
-| None              | In SAP Concur this value is seen as Never. No guarantee is required if user books a room with this type. |
-| GuaranteeRequired | RequiredGuarantee. If the Guarantee type cannot be mapped to any accepted type, it will be set to RequiredGuarantee, hence this value is the default. |
+|`Deposit`|In SAP Concur this value is seen as `RequiredDeposit`.|
+|`DepositRequired`|In SAP Concur this value is seen as `RequiredDeposit`.|
+|`CC/DC/Voucher`|In SAP Concur this value is seen as `RequiredGuarantee`.|
+|`PrePay`|In SAP Concur this value is seen as `RequiredPrepay`.|
+|`None`|In SAP Concur this value is seen as `Never`. No guarantee is required if user books a room with this type.|
+|`GuaranteeRequired`|`RequiredGuarantee`. If the Guarantee type cannot be mapped to any accepted type, it will be set to `RequiredGuarantee`. This value is the default.|
 
-#### Supported GuaranteeRequired
+#### <a name="supported-gurantee-required"></a>Supported GuaranteeRequired
 
-GuaranteeRequired     | Description |
+|GuaranteeRequired|Description|
 |-------------------|-------------|  
-| always           | Guarantee is required all the time independently on deposit account setting. |
-|never| Guarantee is never required. |
-| default | Guarantee is required if no deposit account is set up. |
+|`always`|Guarantee is required all the time independently on deposit account setting.|
+|`never`|Guarantee is never required.|
+|`default`|Guarantee is required if no deposit account is set up.|
 
-#### Deadline
+#### <a name="deadline"></a>Deadline
 
-| Element                | Required | Data Type          | Description |
-|------------------------|----------|--------------------|-------------|
-| *AbsoluteDeadline*     | Y        | TimeOrDateTimeType | Defines the absolute deadline. Either this or the offset attributes may be used. |
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`AbsoluteDeadline`|`time` or `datetime` |**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
 
-#### CancelPenalties
+#### <a name="cancel-penalties"></a>CancelPenalties
 
-| Element       | Required | Data Type | Description |
-|---------------|----------|-----------|-------------|
-| CancelPenalty | Y        | Complex   | Defines the cancellation penalty of the hotel facility. |
+|Name|Type|Description|
+|---------------|-----------|-------------|
+|`CancelPenalty`|`complex`|**Required** Defines the cancellation penalty of the hotel facility.|
 
-#### CancelPenalty
+#### <a name="cancel-penalty"></a>CancelPenalty
 
-| Element            | Required | Data Type | Description |
-|--------------------|----------|-----------|-------------|
-| PenaltyDescription | N        | Complex   | Text description of the Penalty in a given language. This element may contain a maximum of 9 children Text fields.  Any excess Text elements are dropped. |
-| Deadline           | Y        | Complex   | Cancellation deadline, absolute or relative. See Deadline above |
+|Name|Type|Description|
+|--------------------|-----------|-------------|
+|`PenaltyDescription`|`complex`|Text description of the penalty in a given language. This element may contain a maximum of 9 children text fields. Any excess text elements are dropped.|
+|`Deadline`|`complex`|**Required** Cancellation deadline, absolute or relative. See Deadline above.|
 
-#### PenaltyDescription
+#### <a name="penalty-description"></a>PenaltyDescription
 
-| Element | Required | Data Type             | Description |
-|---------|----------|-----------------------|-------------|
-| Text    | Y        | FormattedTextTextType | Formatted text content in a given language. |
+|Name|Type|Description|
+|---------|----------|-----------------------|
+|`Text`|`formattedText`|**Required** Formatted text content in a given language.|
 
-#### MealsIncluded
+#### <a name="meals-included"></a>MealsIncluded
 
-| Element     | Required | Data Type | Description |
-|-------------|----------|-----------|-------------|
-| *Breakfast* | Y        | Boolean   | When true, indicates breakfast is included, when false, indicates it is excluded. In both cases this information is showed to a customer in the rate description. |
+|Name|Type|Description|
+|-------------|-----------|-------------|
+|`Breakfast`|`boolean`|**Required** If `true`, indicates breakfast is included. If `false`, indicates it is excluded. In both cases this information is shown to a customer in the rate description.|
 
-#### RoomRates
+#### <a name="room-rates"></a>RoomRates
 
-| Element  | Required | Data Type | Description |
-|----------|----------|-----------|-------------|
-| RoomRate | Y        | Complex   | Contains the rate details. |
+|Name|Type|Description|
+|----------|-----------|-------------|
+|`RoomRate`|`complex`|**Required** Contains the rate details.|
 
-#### RoomRate
+#### <a name="room-rate"></a>RoomRate
 
-| Element      | Required | Data Type | Description |
-|--------------|----------|-----------|-------------|
-| *RoomID*     | Y        | Complex   | Room Type ID.  The combination of RoomID and RatePlanID must be unique for a RoomStay. |
-| *RatePlanID* | Y        | Complex   | Rate Plan ID for which this rate is applicable for. |
-| Rates        | Y        | Complex   | Contains the rate for the given room.  SAP Concur only expects one Rate inside the Rates element. |
+|Name|Type|Description|
+|--------------|-----------|-------------|
+|`RoomID`|`complex`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
+|`RatePlanID`|`complex`|**Required** Rate plan ID for which this rate is applicable for.|
+|`Rates`|`complex`|**Required** Contains the rate for the given room.  SAP Concur only expects one (1) rate inside the `Rates` element.|
 
-#### Rates
+#### <a name="rates"></a>Rates
 
-| Element | Required | Data Type | Description |
-|---------|----------|-----------|-------------|
-| Rate    | Y        | Complex   | Contains the rate for the given room. |
+|Name|Type|Description|
+|---------|-----------|-------------|
+|`Rate`|`complex`|**Required** Contains the rate for the given room.|
 
-#### Rate
+#### <a name="rate"></a>Rate
 
-| Element           | Required | Data Type | Description |
-|-------------------|----------|-----------|-------------|
-| PaymentPolicies   | N        | Complex   | Payment Policies for this rate. |
-| Total             | Y        | Complex   | A description of the rate. |
-| RateDescription   | N        | Complex   | A textual description of a rate. At most, only one Rate Description element is expected. |
-| TPA_extensions    | N        | Complex   | TPA extensions  for a rate. |
+|Name|Type|Description|
+|-------------------|-----------|-------------|
+|`PaymentPolicies`|`complex`|Payment policies for this rate.|
+|`Total`|`complex`|**Required** A description of the rate.|
+|`RateDescription`|`complex`|A textual description of a rate. Only one (1) Rate Description element is expected.|
+|`TPA_extensions`|`complex`|TPA extensions for a rate.|
 
-#### PaymentPolicies
+#### <a name="payment-policies"></a>PaymentPolicies
 
-| Element          | Required | Data Type | Description |
-|------------------|----------|-----------|-------------|
-| GuaranteePayment | N        | Complex   | Element containing the Guarantee Payment type |
+|Name|Type|Description|
+|------------------|-----------|-------------|
+|`GuaranteePayment`|`complex`|Element containing the guarantee payment type.|
 
-#### GuaranteePayment
+#### <a name="guarantee-payment"></a>GuaranteePayment
 
-| Element          | Required | Data Type | Description |
-|------------------|----------|-----------|-------------|
-| AcceptedPayments | Y        | Complex   | If used, at least one AcceptedPayment should be present |
+|Name|Type|Description|
+|------------------|-----------|-------------|
+|`AcceptedPayments`|`complex`|**Required** If used, at least one (1) `AcceptedPayment` should be present.|
 
-#### AcceptedPayments
+#### <a name="accepted-payments"></a>AcceptedPayments
 
-| Element         | Required | Data Type | Description |
-|-----------------|----------|-----------|-------------|
-| AcceptedPayment | Y        | Complex   | Accepted Payment type |
+|Name|Type|Description|
+|-----------------|-----------|-------------|
+|`AcceptedPayment`|`complex`|**Required** Accepted payment type.|
 
-#### AcceptedPayment
+#### <a name="accepted-payment"></a>AcceptedPayment
 
-| Element     | Required | Data Type | Description |
-|-------------|----------|-----------|-------------|
-| PaymentCard | Y        | Complex   | Description of payment type. |
+|Name|Type|Description|
+|-------------|-----------|-------------|
+|`PaymentCard`|`complex`|**Required** Description of payment type.|
 
-#### PaymentCard
+#### <a name="payment-card"></a>PaymentCard
 
-| Element  | Required | Data Type | Description |
-|----------|----------|-----------|-------------|
-| CardType | Y        | String    | String representation of a Card Type eg Visa, Master Card, etc. |
+|Name|Type|Description|
+|----------|-----------|-------------|
+|`CardType`|`string`|**Required** String representation of a card type. Examples: `Visa`, `MasterCard`|
 
-#### Total
+#### <a name="total"></a>Total
 
-| Element           | Required | Data Type    | Description |
-|-------------------|----------|--------------|-------------|
-| *AmountBeforeTax* | Y        | String       | The total amount not including any associated tax  (e.g., sales tax, VAT, GST or any associated tax). |
-| *AmountAFterTax*  | Y        | String       | The total amount including all associated taxes  (e.g., sales tax, VAT, GST or any associated tax). |
-| *CurrencyCode*    | Y        | AlphaLength3 | Currency Code. |
-| *DecimalPlaces*   | N        | Int          | Decimal places for currency code. Implementer: This is an ISO 4217 standard "minor unit" for the number of decimal places for a particular currency.|
+|Name|Type|Description|
+|-------------------|--------------|-------------|
+|`AmountBeforeTax`|`string`|**Required** The total amount not including any associated tax. Examples: `sales tax`, `VAT`, `GST`|
+|`AmountAfterTax`|`string`|**Required** The total amount including all associated taxes. Examples: `sales tax`, `VAT`, `GST`|
+|`CurrencyCode`|`alphaLength3`|**Required** Currency code.|
+|`DecimalPlaces`|`integer`|Decimal places for currency code. This is an ISO 4217 standard "minor unit" for the number of decimal places for a particular currency.|
 
-#### RateDescription
+#### <a name="rate-description"></a>RateDescription
 
-| Element |	Required | Data Type         | Description |
-|---------|----------|-------------------|-------------|
-| Text    | Y        | StringLength1to32 | Text field. SAP Concur only expects one text field for the Rate Description. Any excess Text elements will be ignored. |
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`Text`|`stringLength1to32`|**Required** SAP Concur only expects one (1) text field for the rate description. Any excess text elements will be ignored.|
 
-#### TPA_Extensions
+#### <a name="tpa-extensions"></a>TPA_Extensions
 
-| Element           | Required | Data Type | Description |
-|-------------------|----------|-----------|-------------|
-| RequireSeriesCode | Y        | Boolean   | Flag to indicate if the CVV code is required for the given rate. If used it must be set to either "true" or "false" |
+|Name|Type|Description|
+|-------------------|-----------|-------------|
+|`RequireSeriesCode`|`boolean`|**Required** If `true`, the CVV code is required for the given rate.|
 
-#### Timespan
+#### <a name="timespan"></a>Timespan
 
-| Element | Required | Data Type                | Description |
-|---------|----------|--------------------------|-------------|
-| Start   | Y        | DateOrTimeOrDateTimeType | The starting value of the time span. |
-| End     | Y        | DateOrTimeOrDateTimeType | The ending value of the time span. |
+|Name|Type|Description|
+|---------|--------------------------|-------------|
+|`Start`|`date`, `time`, or `datetime`|**Required** The starting value of the time span.|
+|`End`|`date`, `time`, or `datetime`|**Required** The ending value of the time span.|
 
-#### BasicPropertyInfo
+#### <a name="basic-property-info"></a>BasicPropertyInfo
 
-| Element        | Required | Data Type | Description |
-|----------------|----------|-----------|-------------|
-| *HotelCode*    | Y        | Complex   | Refer to the HotelRef element described in Search. |
-| Address        | N        | Complex   | Refer to Search. |
-| ContactNumbers | N        | Complex   | Refer to Search. |
+|Name|Type|Description|
+|----------------|-----------|-------------|
+|`HotelCode`|`complex`|**Required** Refer to the `HotelRef` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
+|`Address`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
+|`ContactNumbers`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
 
 # <a name="relationship-roomid-rateplanid"></a>Relationship between RoomID and RatePlanID
 
-The combination of these IDs must be unique per RoomStay.  IDs with the same values can be redefinined in multiple RoomStays
+The combination of these IDs must be unique per `RoomStay`.  IDs with the same values can be redefined in multiple `RoomStays`.
 
 ```xml
 <OTA_HotelAvailRS>
   <Success/>
-<!-- Hotel #1 with 3 rates -->
+  <!-- Hotel #1 with 3 rates -->
   <RoomStays>
     <RoomStay>
       <RoomTypes>
@@ -471,6 +476,7 @@ The combination of these IDs must be unique per RoomStay.  IDs with the same val
       </RoomRates>
       ...
     </RoomStay>
+  </RoomStays>
 <!-- Hotel #2 with 2 rates -->
   <RoomStays>
     <RoomStay>
@@ -488,6 +494,7 @@ The combination of these IDs must be unique per RoomStay.  IDs with the same val
       </RoomRates>
       ...
     </RoomStay>
-…
+  </RoomStays>
+  ...
 </OTA_HotelAvailRS>
 ```

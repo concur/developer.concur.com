@@ -267,7 +267,7 @@ Name |  Description
 `WaitListSegments` |  Information will appear in this element if the segment is on a waiting list. |
 `Warnings` |  The warnings associated with the booking.
 `WebAddresses` |  List of web addresses. This parent element includes [**Web Address Data** child elements](#web) for each associated web address.
-`BookingReferrer` |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with SAP Concur, Supplier Mobile, Supplier Web
+`BookingReferrer` |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Sign-in with SAP Concur, Supplier Mobile, Supplier Web.
 
 ### <a name="afchild"></a>Airfare Quotes Child Elements
 

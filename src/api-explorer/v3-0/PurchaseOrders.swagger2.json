@@ -1,4 +1,5 @@
 {
+  "x-sap-shortText": "Manages your purchase orders and purchase order related data.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
@@ -15,9 +16,22 @@
   ],
   "info": {
     "title": "Purchase Orders",
-    "description": "Purchase orders are requests for a vendor to supply goods or services. This API provides methods to create a new purchase order, or view or update an existing purchase order.",
+    "description": "In Concur Invoice, purchase orders are requests for a vendor to supply goods or services. This API provides methods to create a new purchase order, or view or update an existing purchase order.",
     "version": "3.0"
   },
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "tags": [
     {
       "name": "Resources",
@@ -30,7 +44,7 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Create a new purchase order",
+        "summary": "Create a purchase order",
         "description": "Creates a purchase order and returns the status of the creation request.",
         "parameters": [
           {
@@ -49,6 +63,12 @@
             "schema": {
               "$ref": "#/definitions/PurchaseOrderResult"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       },
@@ -56,8 +76,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Update an existing purchase order.",
-        "description": "Updates an existing purchase order and returns the status of the update request.",
+        "summary": "Update a purchase order.",
+        "description": "Updates the specified purchase order and returns the status of the update request.",
         "parameters": [
           {
             "name": "purchaseOrder",
@@ -75,6 +95,12 @@
             "schema": {
               "$ref": "#/definitions/PurchaseOrderResult"
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
           }
         }
       }
@@ -84,8 +110,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get an existing purchase order.",
-        "description": "Gets an existing purchase order.",
+        "summary": "Get a purchase order.",
+        "description": "Retrieves information about the specified purchase order.",
         "parameters": [
           {
             "name": "id",
@@ -108,11 +134,13 @@
   },
   "definitions": {
     "Allocation": {
-      "required":["Amount"],
+      "required": [
+        "Amount"
+      ],
       "properties": {
         "Amount": {
           "type": "string",
-          "description": "The total amount of the allocation."
+          "description": "Required. The total amount of the allocation."
         },
         "Custom1": {
           "type": "string",
@@ -196,20 +224,26 @@
         },
         "GrossAmount": {
           "type": "string",
-          "description": "The allocation gross amount."
+          "description": "Required. The allocation gross amount."
         },
         "Percentage": {
           "type": "string",
-          "description": "The allocation percentage."
+          "description": "Required. The allocation percentage."
         }
       }
     },
     "BillToAddress": {
-      "required":["Address1", "City", "CountryCode", "ExternalID", "PostalCode"],
+      "required": [
+        "Address1",
+        "City",
+        "CountryCode",
+        "ExternalID",
+        "PostalCode"
+      ],
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "Address line 1 of the shipping or billing address."
+          "description": "Required. Address line 1 of the shipping or billing address."
         },
         "Address2": {
           "type": "string",
@@ -221,15 +255,15 @@
         },
         "City": {
           "type": "string",
-          "description": "The city of the shipping or billing address."
+          "description": "Required. The city of the shipping or billing address."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The code of the country for the shipping or billing address."
+          "description": "Required. The code of the country for the shipping or billing address."
         },
         "ExternalID": {
           "type": "string",
-          "description": "A unique value supplied by the customer to identify a particular shipping or billing address."
+          "description": "Required. A unique value supplied by the customer to identify a particular shipping or billing address."
         },
         "Name": {
           "type": "string",
@@ -237,7 +271,7 @@
         },
         "PostalCode": {
           "type": "string",
-          "description": "The postal code of the shipping or billing address."
+          "description": "Required. The postal code of the shipping or billing address."
         },
         "State": {
           "type": "string",
@@ -245,12 +279,17 @@
         },
         "StateProvince": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Required. The state or province of the shipping or billing address."
         }
       }
     },
     "LineItem": {
-      "required":["LineNumber", "ExternalID", "Quantity", "UnitPrice"],
+      "required": [
+        "LineNumber",
+        "ExternalID",
+        "Quantity",
+        "UnitPrice"
+      ],
       "properties": {
         "AccountCode": {
           "type": "string",
@@ -356,11 +395,11 @@
         },
         "ExpenseType": {
           "type": "string",
-          "description": "The expense type of the line item.  A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an AccountCode value is not supplied."
+          "description": "The expense type of the line item. A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an AccountCode value is not supplied."
         },
         "ExternalID": {
           "type": "string",
-          "description": "A customer-supplied value that uniquely identifies the line item within the purchase order."
+          "description": "Required. A customer-supplied value that uniquely identifies the line item within the purchase order."
         },
         "IsReceiptRequired": {
           "type": "string",
@@ -368,15 +407,15 @@
         },
         "LineNumber": {
           "type": "string",
-          "description": "The line item number within the purchase order."
+          "description": "Required. The line item number within the purchase order."
         },
         "PurchaseOrderReceiptType": {
           "type": "string",
-          "description": "Purchase order ReceiptType of the line item. Accepted values are QUANTITY_RECEIPT or NONE. If a value is not provided, it will default to NONE.  If you are using Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT. "
+          "description": "Purchase order ReceiptType of the line item. Accepted values are QUANTITY_RECEIPT or NONE. If a value is not provided, it will default to NONE. If you are using Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT. "
         },
         "Quantity": {
           "type": "string",
-          "description": "The quantity associated with the line item."
+          "description": "Required. The quantity associated with the line item."
         },
         "RequestedBy": {
           "type": "string",
@@ -400,31 +439,40 @@
         },
         "UnitPrice": {
           "type": "string",
-          "description": "The price of each item of the line item."
+          "description": "Required. The price of each item of the line item."
         },
         "VatAmount": {
           "type": "string",
-          "description": "This field has not been implemented by Purchase Request yet. Any data in this field will be ignored."
+          "description": "This field has not been implemented by purchase request yet. Any data in this field will be ignored."
         },
         "VatRate": {
           "type": "string",
-          "description": "This field has not been implemented by Purchase Request yet. Any data in this field will be ignored."
+          "description": "This field has not been implemented by purchase request yet. Any data in this field will be ignored."
         }
       }
     },
     "PurchaseOrder": {
-      "required":["BillToAddress", "LineItem", "PolicyExternalID", "ShipToAddress", "CurrencyCode", "OrderDate", "VendorAddressCode", "VendorCode"],
+      "required": [
+        "BillToAddress",
+        "LineItem",
+        "PolicyExternalID",
+        "ShipToAddress",
+        "CurrencyCode",
+        "OrderDate",
+        "VendorAddressCode",
+        "VendorCode"
+      ],
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The net amount of the Purchase Order (excluding VAT)."
+          "description": "The net amount of the purchase order, excluding VAT."
         },
         "BillToAddress": {
           "$ref": "#/definitions/BillToAddress"
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The 3-letter ISO 4217 <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\"> currency code</a> of the currency that is associated with the purchase order."
+          "description": "Required. The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order."
         },
         "Custom1": {
           "type": "string",
@@ -548,17 +596,17 @@
         },
         "LedgerCode": {
           "type": "string",
-          "description": "A code which indicates which company journal the Purchase Order is assigned to. Use GET /purchase order/localizeddata to translate the code into text."
+          "description": "A code which indicates which company journal the Purchase Order is assigned to. Use \"GET /purchase order/localizeddata\" to translate the code into text."
         },
         "LineItem": {
-          "type":"array",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/LineItem"
           }
         },
         "Name": {
           "type": "string",
-          "description": "A name for the purchase order."
+          "description": "Required. A name for the purchase order."
         },
         "NeededByDate": {
           "type": "string",
@@ -566,7 +614,7 @@
         },
         "OrderDate": {
           "type": "string",
-          "description": "The date when goods were ordered. Format: YYYY-MM-DD"
+          "description": "Required. The date when goods were ordered. Format: YYYY-MM-DD"
         },
         "PaymentTerms": {
           "type": "string",
@@ -574,15 +622,15 @@
         },
         "PolicyExternalID": {
           "type": "string",
-          "description": " The external identifier of the policy that should be associated with the purchase order. The external Id is a property of the policy configuration screen. Clients will need to get these ID’s from the Implementation team if using professional version. For standard version the value is always 'PO'"
+          "description": "Required. The external identifier of the policy that should be associated with the purchase order. The external Id is a property of the policy configuration screen. Clients will need to get these ID’s from the Implementation team if using professional version. For standard version the value is always 'PO'"
         },
         "PoVendorTaxId": {
           "type": "string",
-          "description": "The Vendor Tax ID"
+          "description": "The vendor tax ID"
         },
         "ProvincialTaxId": {
           "type": "string",
-          "description": "The Vendor Provincial Tax ID."
+          "description": "The vendor provincial tax ID."
         },
         "PurchaseOrderNumber": {
           "type": "string",
@@ -594,7 +642,7 @@
         },
         "ReceiptType": {
           "type": "string",
-          "description": "The Purchase Order Receipt type (Deprecated.) Use the PurchaseOrderReceiptType at line item level instead."
+          "description": "Deprecated, use the PurchaseOrderReceiptType at line item level instead."
         },
         "RequestedBy": {
           "type": "string",
@@ -625,7 +673,7 @@
         },
         "Status": {
           "type": "string",
-          "description": "The current status of the purchase order."
+          "description": "The current status of the purchase order. Status should be either Closed or Transmitted. If a value is not provided, it will default to Transmitted."
         },
         "Tax": {
           "type": "string",
@@ -657,11 +705,11 @@
         },
         "VendorAddressCode": {
           "type": "string",
-          "description": "The code that identifies the vendor's remit address for the purchase order."
+          "description": "Required. The code that identifies the vendor's remit address for the purchase order."
         },
         "VendorCode": {
           "type": "string",
-          "description": "The code that identifies the vendor for the purchase order."
+          "description": "Required. The code that identifies the vendor for the purchase order."
         }
       }
     },
@@ -698,11 +746,17 @@
       }
     },
     "ShipToAddress": {
-      "required":["Address1", "City", "CountryCode", "ExternalID", "PostalCode"],
+      "required": [
+        "Address1",
+        "City",
+        "CountryCode",
+        "ExternalID",
+        "PostalCode"
+      ],
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "Address line 1 of the shipping or billing address."
+          "description": "Required. Address line 1 of the shipping or billing address."
         },
         "Address2": {
           "type": "string",
@@ -714,15 +768,15 @@
         },
         "City": {
           "type": "string",
-          "description": "The city of the shipping or billing address."
+          "description": "Required. The city of the shipping or billing address."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The code of the country for the shipping or billing address."
+          "description": "Required. The code of the country for the shipping or billing address."
         },
         "ExternalID": {
           "type": "string",
-          "description": "A unique value supplied by the customer to identify a particular shipping or billing address."
+          "description": "Required. A unique value supplied by the customer to identify a particular shipping or billing address."
         },
         "Name": {
           "type": "string",
@@ -730,7 +784,7 @@
         },
         "PostalCode": {
           "type": "string",
-          "description": "The postal code of the shipping or billing address."
+          "description": "Required. The postal code of the shipping or billing address."
         },
         "State": {
           "type": "string",
@@ -738,9 +792,12 @@
         },
         "StateProvince": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Required. The state or province of the shipping or billing address."
         }
       }
+    },
+    "Void": {
+      "properties": {}
     }
   }
 }

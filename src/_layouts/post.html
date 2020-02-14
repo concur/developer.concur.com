@@ -15,7 +15,7 @@ comments: true
     </p>
     {% if page.tags.size > 0 %}
       <p>
-        <i class="fa fa-tags" aria-hidden="true"></i>&nbsp;
+        <i class="fas fa-tags" aria-hidden="true"></i>&nbsp;
         {% for tag in page.tags %}
           {% if forloop.index == page.tags.size %}
             <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}</a></span>

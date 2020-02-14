@@ -49,6 +49,7 @@ creditcardaccount.read|Read credit card account data
 expense.report.read|Read only access to report resource within the Concur Expense service
 expense.report.readwrite|Read write access to report resource within the Concur Expense Report service
 expense.report.delete|Delete only access to report resource within the Concur Expense Report service
+quickexpense.writeonly|Write quick expense
 fiscalcalendar.read|Access to fiscal calendar
 fiscalcalendar.write|Read and write access to fiscal calendar.
 mileage.journey.read|Read-only access to mileage journey resources.

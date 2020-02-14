@@ -13,6 +13,7 @@ This callout differs from the standard SAP Concur web services in the following 
 * The client SAP Concur Administrator must select the attendee types that will use this functionality during application connector registration. Once the attendee types are selected, they will be automatically configured to not allow users to create new attendees manually.
 
 ## Contents
+* [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
 * [Concur Connect Callout Details](#concur-connect-callout-details)
@@ -23,6 +24,10 @@ This callout differs from the standard SAP Concur web services in the following 
 * [Installation Process](#installation-process)
   * [SAP Concur Configuration](#concur-config)
   * [Responses and Errors](#responses-errors)
+
+### <a name="process-flow"></a>Process Flow
+
+![A process flow diagram showing flow between SAP Concur, an application connector, and client's data source](./fetch-attendee.png)
 
 ### <a name="products-editions"></a>Products and Editions
 
@@ -94,7 +99,7 @@ The client then registers the application connector with SAP Concur:
 5. Fill out the fields according to the **Application Connector Fields** table shown below.
 6. In the Services section, select Fetch Attendee.  
 7. Click Configure. The Configure Service window appears.  
-8. Enter the endpoint that the SAP Concur will connect to on your server. Example: `/attendee/v2.0/fetch`  
+8. Enter the endpoint that the SAP Concur will connect to on your server. Example: `/attendee/v2.0/fetch`. **Note:** The endpoint name should contain 'v2.0', otherwise the API defaults to v1.0 and returns a different set of fields.
 9. Select the Active check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.  
 10. Select the attendee types that will use the application connector. These attendee types will be automatically configured to not allow users to create new attendees manually.  
 11. Click OK.
