@@ -3,14 +3,24 @@ title: Travel Request v4 - Workflow Resources
 layout: reference
 ---
 
-{% include prerelease.html %}
+## Menu
 
-* [Workflow Resources](#workflow-resource)
-  * [Move an existing Request in the approval workflow](#Move-existing-request-in-approval-workflow)
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
 
 # <a name="workflow-resource"></a>Workflow Resources
 
 Manage workflow transitions for a Request.
+
+* [Move an existing Request in the approval workflow](#Move-existing-request-in-approval-workflow)
 
 ## <a name="Move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
 
@@ -22,15 +32,17 @@ Manage workflow transitions for a Request.
 
 The HATEOAS links for actions available given the current user and state are listed in the operations of the Request resource.
 
-* Traveler actions
-  * submit: initiate the approval workflow
-  * recall: get back the Request, usually to modify the content
-  * cancel: cancel the Request and attached itineraries
-  * close: archive the Request
-  * reopen: get back an archived Request
-* Non traveler actions (Approver / Processor / External Validation / TMC Agent)
-  * approve: move the Request to the next approval step
-  * sendback: reject the Request and send back to the traveler
+**Traveler actions**
+* `submit`: initiate the approval workflow.
+* `recall`: get back the Request, usually to modify the content.
+* `cancel`: cancel the Request and attached itineraries.
+* `close`: archive the Request.
+* `reopen`: get back an archived Request.
+
+**Non traveler actions (Approver / Processor / External Validation / TMC Agent)**
+
+* `approve`: move the Request to the next approval step.
+* `sendback`: reject the Request and send back to the traveler.
 
 ##### URI Template
 
@@ -40,25 +52,23 @@ POST {datacenter}/travelrequest/v4/requests/{requestUuid}/{action}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
-action|path|string|**Required** The state transition to be executed (`submit`, `approve`, `recall`, `sendback`, `cancel`, `close` or `reopen`)
-comment|path|string|Only works with when the workflow action is ‘sendback’. This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
-userId|path|string|The unique identifier of the user performing the status transition. <br> **Required** when connecting with a Company token for **traveler** actions only, if empty a 400 `missingRequiredParam` error code will be displayed. <br> For non traveler actions, if not provided, "System, Concur" will be displayed in the Audit Trail of the Request
-companyID|path|string|The unique identifier of the company
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`action`|`string`|-|**Required** The state transition to be executed. Supported values: `submit`, `approve`, `recall`, `sendback`, `cancel`, `close`, or `reopen`
+`comment`|`string`|-|Only works with when the workflow action is `sendback`. This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator.
+`userId`|`string`|-|The unique identifier of the user performing the status transition. **Required** when connecting with a Company token for *traveler* actions only. If empty, a 400 `missingRequiredParam` error code will be displayed. For *non traveler* actions, if not provided, "System, Concur" will be displayed in the Audit Trail of the Request.
+`companyID`|`string`|-|The unique identifier of the company.
 
 #### Payload
 
-None
-
-Except when the workflow action is ‘sendback’ where an optional comment may be submitted
+None, except when the workflow action is `sendback` where an optional comment may be submitted
 
 ```json
 { "comment" : "My Comment" }
 ```
 
-This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
+This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator.
 
 
 ### HTTP Response
@@ -69,7 +79,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Request](./v4.endpoints.schemas.html#schema-request) - The Request having {requestUuid} as unique identifier
+[Request](./v4.endpoints.schemas.html#schema-request) - The Request having {requestUuid} as unique identifier.
 
 ### Example
 

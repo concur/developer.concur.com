@@ -3,12 +3,22 @@ title: Travel Request v4 - Request Cash Advance Resources
 layout: reference
 ---
 
-{% include prerelease.html %}
+## Menu
 
-* [Request Cash Advance Resources](#request-cash-advance-resource)
-  * [Get the list of existing cash advances within a Request](#get-request-cash-advance-resource)
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
 
 # <a name="request-cash-advance-resource"></a>Request Cash Advance Resources
+
+* [Get the list of existing cash advances within a Request](#get-request-cash-advance-resource)
 
 ## <a name="get-request-cash-advance-resource"></a>Get the content of an existing cash advances
 
@@ -26,13 +36,13 @@ GET {datacenter}/travelrequest/v4/cashadvances/{cashAdvanceUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-cashAdvanceUuid|path|string|**Required** The unique identifier of the cash advance
+`cashAdvanceUuid`|`string`|-|**Required** The unique identifier of the cash advance.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
