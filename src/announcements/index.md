@@ -2,29 +2,16 @@
 title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
+### 2020-02-14 :: February 2020 Release Notes Published
 
-### 2019-05-31 :: June 2019 Release Notes Published
+SAP Concur has published release notes for the Quick Expense, Budget v4, and Request APIs in the February 2020 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
 
-SAP Concur has published release notes for the Quick Expense v3, Quick Expense v4, Budget v4, and Invoice Pay v4 APIs in the June 2019 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
-
-### 2019-05-09 :: Expense API Release Notes Published
-
-SAP Concur has published release notes for the Quick Expense v3 and Quick Expense v4 APIs in the May 2019 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
-
-### 2019-04-08 :: SAP Concur Developer Center Forum Retirement
-
-SAP Concur will be retiring the Developer Forum on the SAP Concur Developer Center on April 14, 2019. All developers building an integration with the SAP Concur platform should contact their assigned SAP Concur technical contacts with questions.
-
-Clients who need assistance related to an App Center Partner app should first contact the Partner's Support team. The Partner will then contact the SAP Concur Support team if they need assistance. [Support Options](https://developer.concur.com/tools-support/support.html)
-
-Clients who need assistance related to their own external App should contact SAP Concur Support.
-
-### 2019-03-05 :: New SSL Certificate for concursolutions.com
+### 2020-02-14 :: New SSL Certificate for concursolutions.com
 
 #### Overview
-In an effort to ensure the ongoing security of our products and services, SAP Concur has issued a new concursolutions.com SSL certificate. ***The current certificate will expire on March 16, 2019.***
+In an effort to ensure the ongoing security of our products and services, SAP Concur will issue a new concursolutions.com SSL certificate. The new certificate date will be provided as soon as it is available.
 
-Any customer who has pinned this expiring certificate will need to update to the new certificate prior to March 16, 2019. If the pinned certificate is not updated prior to March 16, 2019, your organization and users will experience disruption to SAP Concur products and services.
+Any customer who has pinned this expiring certificate will need to update to the new certificate. If the pinned certificate is not updated, your organization and users will experience disruption to SAP Concur products and services.
 
 Customers who have not pinned the certificate do not need to take any action as the new certificate is updated automatically. Most customers do not pin the certificate.
 
@@ -43,3 +30,7 @@ The new SSL certificate can be accessed here: [http://assets.concur.com/concurtr
 Supply this URL to your IT department.
 
 To save the certificate, click the link above, select all the text in the browser, copy it to a file, then name the file concursolutions.cert.pem.
+
+### 2020-01-17 :: January 2020 Release Notes Published
+
+SAP Concur has published release notes for the Quick Expense, Budget v4, and Request APIs in the January 2020 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.

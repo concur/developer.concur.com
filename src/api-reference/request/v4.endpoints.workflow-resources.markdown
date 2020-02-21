@@ -1,0 +1,193 @@
+---
+title: Travel Request v4 - Workflow Resources
+layout: reference
+---
+
+## Menu
+
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
+
+# <a name="workflow-resource"></a>Workflow Resources
+
+Manage workflow transitions for a Request.
+
+* [Move an existing Request in the approval workflow](#Move-existing-request-in-approval-workflow)
+
+## <a name="Move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+The HATEOAS links for actions available given the current user and state are listed in the operations of the Request resource.
+
+**Traveler actions**
+* `submit`: initiate the approval workflow.
+* `recall`: get back the Request, usually to modify the content.
+* `cancel`: cancel the Request and attached itineraries.
+* `close`: archive the Request.
+* `reopen`: get back an archived Request.
+
+**Non traveler actions (Approver / Processor / External Validation / TMC Agent)**
+
+* `approve`: move the Request to the next approval step.
+* `sendback`: reject the Request and send back to the traveler.
+
+##### URI Template
+
+```
+POST {datacenter}/travelrequest/v4/requests/{requestUuid}/{action}
+```
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`action`|`string`|-|**Required** The state transition to be executed. Supported values: `submit`, `approve`, `recall`, `sendback`, `cancel`, `close`, or `reopen`
+`comment`|`string`|-|Only works with when the workflow action is `sendback`. This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator.
+`userId`|`string`|-|The unique identifier of the user performing the status transition. **Required** when connecting with a Company token for *traveler* actions only. If empty, a 400 `missingRequiredParam` error code will be displayed. For *non traveler* actions, if not provided, "System, Concur" will be displayed in the Audit Trail of the Request.
+`companyID`|`string`|-|The unique identifier of the company.
+
+#### Payload
+
+None, except when the workflow action is `sendback` where an optional comment may be submitted
+
+```json
+{ "comment" : "My Comment" }
+```
+
+This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator.
+
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Request](./v4.endpoints.schemas.html#schema-request) - The Request having {requestUuid} as unique identifier.
+
+### Example
+
+#### HTTP Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B",
+  "id": "053A479B3C9DD847B02A203C657AE26B",
+  "approvalStatus": {
+    "code": "SUBMITTED",
+    "name": "Submitted & Pending Approval"
+  },
+  "approved": false,
+  "businessPurpose": "Trip to Lyon for company training - Modification of dates and Cost center + Custom Field",
+  "canceledPostApproval": false,
+  "closed": false,
+  "creationDate": "2018-05-25T09:17:25.000Z",
+  "custom1": {
+    "value": "Training part of IT Service"
+  },
+  "custom2": {
+    "code": "CEN1",
+    "value": "54F0CBD8833CB348BD45A6C7C621C951",
+    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+  },
+  "custom3": {
+    "code": "CEN1PRO2",
+    "value": "441D6FC50766A044ACC07FF780F1BAD9",
+    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+  },
+  "custom4": {
+    "code": "TRAINING",
+    "value": "3F54AE68BA66EF49A5984E5197202A4D",
+    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+  },
+  "endDate": "2018-07-09",
+  "endTime": "19:00",
+  "everSentBack": false,
+  "expenses": [
+    {
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/47C8AD9E382B5143BB54DC3090577C60",
+      "id": "47C8AD9E382B5143BB54DC3090577C60",
+      "template": "https://us.api.concursolutions.com/travelrequest/v4/expenses/{id}"
+    }
+  ],
+  "lastModified": "2018-05-25T09:38:02.000Z",
+  "mainDestination": {
+    "countryCode": "FR",
+    "countrySubDivisionCode": "FR-69",
+    "city": "Lyon, FRANCE",
+    "name": "Lyon, FRANCE"
+  },
+  "name": "Company Training - JULY 2018",
+  "owner": {
+    "firstName": "John",
+    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "lastName": "Doe",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": true,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "333X",
+  "startDate": "2018-07-07",
+  "startTime": "06:15",
+  "submitDate": "2018-05-25T09:38:02.000Z",
+  "totalApprovedAmount": {
+    "value": 123.56,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 123.56,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 123.56,
+    "currency": "USD"
+  },
+  "travelAgency": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
+    "id": "2EC038D7C3CBBE4ABA0914425064D34F",
+    "template": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/{id}"
+  },
+  "operations": [
+    {
+      "rel": "recall",
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/recall"
+    },
+    {
+      "rel": "cancel",
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/cancel"
+    }
+  ]
+}
+```

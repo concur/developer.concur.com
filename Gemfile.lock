@@ -260,7 +260,7 @@ DEPENDENCIES
   therubyracer
 
 RUBY VERSION
-   ruby 2.2.5p319
+   ruby 2.5.1p57
 
 BUNDLED WITH
-   1.15.1
+   1.16.6

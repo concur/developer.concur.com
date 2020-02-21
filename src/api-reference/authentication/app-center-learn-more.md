@@ -38,8 +38,8 @@ EXPRPT|Get, add, approve, or update expense reports|[Allocations v3](./api-refer
 CCARD|Credit Card|[Company Card Transactions](/api-reference/expense/expense-report/company-card-transaction-resource.html), [Company Card Transaction Elements](/api-reference/expense/expense-report/expense-report-get.html#cardtransaction-elements)
 BANK|Employee Banking|[Employee Bank Account Elements](/api-reference/expense/expense-report/expense-report-get.html#employeebankaccount-elements)
 EXTRCT|Extract expense data|[Extracts v1](/api-reference/common/extracts/v1.extracts.html)
-FOP|Access and update user form of payment information|[Form of Payment](/api-reference/travel-profile/v2.form-payment-resource.html)
-GHOST|Ghost Cards|[Form of Payment](/api-reference/travel-profile/v2.form-payment-resource.html)
+FOP|Access and update user form of payment information|NOT AVAILABLE
+GHOST|Ghost Cards|NOT AVAILABLE
 IMAGE|Add or get invoice and receipt images|[Receipt Image v3](/api-reference/image/v3.image.html), [Image v1](/api-reference/image/v1.image.html)
 INSGHT|Access itineraries and identify missing trip segments|[Latest Bookings](/api-reference/insights/latest-bookings-resource.html), [Opportunities](/api-reference/insights/opportunities-resource.html)
 INVPMT|Create, Retrieve and Update for Payment Requests|[Payment Request v3](/api-reference/invoice/v3.payment-request.html), [Retrieve Payment Request Digests](/api-reference/invoice/v3.payment-request-digest.html), [Payment Request Swagger](/api-explorer/v3-0/PaymentRequest.html), [Payment Request Digest Swagger](/api-explorer/v3-0/PaymentRequestDigest.html)
