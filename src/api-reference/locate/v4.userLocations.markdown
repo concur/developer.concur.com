@@ -8,13 +8,11 @@ layout: reference
 # User Locations
 
 * [Overview](#overview)
-* [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
 * [POST](#post)
-* [Prerequisites](#prerequisites)
 * [Schema](#schema)
   * [Client](#client)
   * [Users](#users)
@@ -30,8 +28,6 @@ The goal of this API is to allow customers and third party vendors to add their 
 This API supports POST only.
 
 > **Limitations**: This API is available only in the North America and EMEA Data Centers.
-
-## <a name="process-flow"></a>Process Flow
 
 ## <a name="products-editions"></a>Products and Editions
 
