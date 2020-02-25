@@ -27,11 +27,11 @@ In general, browsers using TLS to establish inbound / outbound communication cha
 * SAP Integrations
 * Other
 
-The ability of a browser to comply by upgrade to TLS v1.2 will depend on the company’s support for the specific browser, for example Microsoft (Edge), Google (Chrome), and others.
+The ability of a browser to upgrade to TLS v1.2 will depend on the company’s support for the specific browser, for example Microsoft (Edge), Google (Chrome), and others.
 
-## informational Banner Displayed
+## Informational Banner Displayed
 
-A banner will display when a user attempts to log in using a browser that does not support TLS v1.2 and later and thus cannot negotiate a connection. The intent is to alert the user to this change using an informational-only message.
+An informational banner (below) now displays when a user attempts to log in using a browser that does not support TLS v 1.2 and later and thus cannot negotiate a connection.
 
 ![Example of informational banner](images/tls-image.png)
 
