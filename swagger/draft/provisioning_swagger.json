@@ -1,0 +1,1226 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "User Provisioning API",
+    "version": "2.0.0",
+    "title": "Concur User Provisioning API",
+    "termsOfService": ""
+  },
+  "host": "us.api.concursolutions.com",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "scimv2Bulk"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/provisioning/v1/provisions": {
+      "post": {
+        "tags": [
+          "scimv2Bulk"
+        ],
+        "summary": "Bulk Operation",
+        "description": "SCIM Bulk Operation (https://tools.ietf.org/html/draft-ietf-scim-api-19#section-3.7)",
+        "operationId": "bulkOperation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "BulkRequest",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/BulkRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            }
+          },
+          "401": {
+            "description": "authorization failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "permissions denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "too many requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}": {
+      "get": {
+        "summary": "get a provisioning request by ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "in": "path",
+            "description": "provisioning request",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ProvisionResponse"
+            }
+          },
+          "401": {
+            "description": "authorization failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "permissions denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "too many requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}/status": {
+      "get": {
+        "summary": "Get status by request ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "ID of the request",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/BulkRequestStatus"
+            }
+          },
+          "401": {
+            "description": "authorization failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "permissions denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "too many requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}/operations": {
+      "get": {
+        "summary": "get operation list in a provisioning request by ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "ID of the request",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/OperationsListResponse"
+            }
+          },
+          "401": {
+            "description": "authorization failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "permissions denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "too many requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}/operations/{operationId}": {
+      "get": {
+        "summary": "get operation list in a provisioning request by operating ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Provisioning ID",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "description": "Operation ID",
+            "name": "operationId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/OperationsResponse"
+            }
+          },
+          "401": {
+            "description": "authorization failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "permissions denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "too many requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}/operations/{operationId}/Status": {
+      "get": {
+        "summary": "get operation status by operating ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Numeric ID of the user",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "description": "Operation ID",
+            "name": "operationId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/OperationsResponse"
+            }
+          },
+          "401": {
+            "description": "authorization failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "permissions denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "too many requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BulkResponse": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "resourceSubType": {
+          "type": "string"
+        },
+        "createdby": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    },
+    "ProvisionResponse": {
+      "properties": {
+        "resourceSubType": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "originalRequest": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/BulkRequest"
+          }
+        }
+      }
+    },
+    "BulkOperation": {
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        }
+      }
+    },
+    "BulkRequest": {
+      "properties": {
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "failOnErrors": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkOperation"
+          }
+        }
+      }
+    },
+    "BulkRequestStatus": {
+      "properties": {
+        "completed": {
+          "type": "string"
+        },
+        "status": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StatusResponse"
+          }
+        }
+      }
+    },
+    "StatusResponse": {
+      "properties": {
+        "operationId": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtensionResponse"
+          }
+        },
+        "completed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ExtensionResponse": {
+      "properties": {
+        "message": {
+          "type": "array"
+        },
+        "completed": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "OperationsListResponse": {
+      "properties": {
+        "operationId": {
+          "type": "string"
+        },
+        "operations": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/BulkOperation"
+          }
+        }
+      }
+    },
+    "OperationsResponse": {
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "operationId": {
+          "type": "integer"
+        },
+        "originalRequest": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkOperation"
+          }
+        }
+      }
+    },
+    "OperationsStatusResonse": {
+      "properties": {
+        "completed": {
+          "type": "string"
+        },
+        "extentions": {
+          "$ref": "StatusResponse"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "detail": {
+          "type": "string",
+          "description": "detail error message"
+        },
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "urn:ietf:params:scim:api:messages:2.0:Error"
+            ]
+          }
+        },
+        "scimType": {
+          "type": "string",
+          "description": "bad request type when status code is 400",
+          "enum": [
+            "uniqueness",
+            "tooMany",
+            "mutability",
+            "sensitive",
+            "invalidSyntax",
+            "invalidFilter",
+            "invalidPath",
+            "invalidValue",
+            "invalidVers",{
+  "swagger": "2.0",
+  "info": {
+    "description": "User Provisioning API",
+    "version": "2.0.0",
+    "title": "Concur User Provisioning API",
+    "termsOfService": ""
+  },
+  "host": "us.api.concursolutions.com",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "scimv2Bulk"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/provisioning/v1/provisions": {
+      "post": {
+        "tags": [
+          "scimv2Bulk"
+        ],
+        "summary": "Bulk Operation",
+        "description": "SCIM Bulk Operation (https://tools.ietf.org/html/draft-ietf-scim-api-19#section-3.7)",
+        "operationId": "bulkOperation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "BulkRequest",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/BulkRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            }
+          },
+          "401": {
+            "description": "Authorization Failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Permissions Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}": {
+      "get": {
+        "summary": "get a provisioning request by ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "in": "path",
+            "description": "Provisioning Request",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/ProvisionResponse"
+            }
+          },
+          "401": {
+            "description": "Authorization Failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Permissions Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}/status": {
+      "get": {
+        "summary": "Get status by request ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "ID of the request",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/BulkRequestStatus"
+            }
+          },
+          "401": {
+            "description": "Authorization Failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Permissions Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}/operations": {
+      "get": {
+        "summary": "get operation list in a provisioning request by ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "ID of the request",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/OperationsListResponse"
+            }
+          },
+          "401": {
+            "description": "Authorization Failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Permissions Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}/operations/{operationId}": {
+      "get": {
+        "summary": "get operation list in a provisioning request by operating ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Provisioning ID",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "description": "Operation ID",
+            "name": "operationId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/OperationsResponse"
+            }
+          },
+          "401": {
+            "description": "Authorization Failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Permissions Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/provisioning/v1/provisions/{provisioningId}/operations/{operationId}/Status": {
+      "get": {
+        "summary": "get operation status by operating ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Numeric ID of the user",
+            "name": "provisioningId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "description": "Operation ID",
+            "name": "operationId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/OperationsResponse"
+            }
+          },
+          "401": {
+            "description": "Authorization Failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Permissions Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BulkResponse": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "resourceSubType": {
+          "type": "string"
+        },
+        "createdby": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    },
+    "ProvisionResponse": {
+      "properties": {
+        "resourceSubType": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "originalRequest": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/BulkRequest"
+          }
+        }
+      }
+    },
+    "BulkOperation": {
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        }
+      }
+    },
+    "BulkRequest": {
+      "properties": {
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "failOnErrors": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkOperation"
+          }
+        }
+      }
+    },
+    "BulkRequestStatus": {
+      "properties": {
+        "completed": {
+          "type": "string"
+        },
+        "status": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StatusResponse"
+          }
+        }
+      }
+    },
+    "StatusResponse": {
+      "properties": {
+        "operationId": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtensionResponse"
+          }
+        },
+        "completed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ExtensionResponse": {
+      "properties": {
+        "message": {
+          "type": "object"
+        },
+        "completed": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "OperationsListResponse": {
+      "properties": {
+        "operationId": {
+          "type": "string"
+        },
+        "operations": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/BulkOperation"
+          }
+        }
+      }
+    },
+    "OperationsResponse": {
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "operationId": {
+          "type": "integer"
+        },
+        "originalRequest": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkOperation"
+          }
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "detail": {
+          "type": "string",
+          "description": "detail error message"
+        },
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "urn:ietf:params:scim:api:messages:2.0:Error"
+            ]
+          }
+        },
+        "scimType": {
+          "type": "string",
+          "description": "bad request type when status code is 400",
+          "enum": [
+            "uniqueness",
+            "tooMany",
+            "mutability",
+            "sensitive",
+            "invalidSyntax",
+            "invalidFilter",
+            "invalidPath",
+            "invalidValue",
+            "invalidVers",
+            "noTarget"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "description": "same as HTTP status code, e.g. 400, 401, etc."
+        }
+      }
+    }
+  }
+}
+            "noTarget"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "description": "same as HTTP status code, e.g. 400, 401, etc."
+        }
+      }
+    }
+  }
+}
