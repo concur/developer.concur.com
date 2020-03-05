@@ -196,6 +196,8 @@
         url: /api-reference/image/v3.image.html
 - title: Request v3
   url: /api-reference/request/v3.request.html
+- title: Request v4
+  url: /api-reference/request/v4.get-started.html
 - title: Travel Profile
   url: ''
   children:

@@ -3,19 +3,29 @@ title: Travel Request v4 - Expected Expense Resources
 layout: reference
 ---
 
-{% include prerelease.html %}
+## Menu
 
-* [Expected Expense Resources](#expense-resource)
-  * [Create a new expected expense](#create-new-expected-expense-resource)
-  * [Get the list of expected expenses attached to a Request](#get-expected-expense-attached-request-resource)
-  * [Get the content of an expected expense](#get-content-expected-expense-resource)
-  * [Update the content of an expected expense](#update-content-expected-expense-resource)
-  * [Delete an expected expense from the Request](#delete-expected-expense-request-resource)
-  * [Get the list of comments for an existing expected expense](#expected-expense-resource-comments)
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
 
 # <a name="expected-expense-resource"></a>Expected Expense Resources
 
-Manage expected expense entries attached to a Request document.
+Manage expected expenses attached to a Request.
+
+* [Create a new expected expense](#create-new-expected-expense-resource)
+* [Get the list of expected expenses attached to a Request](#get-expected-expense-attached-request-resource)
+* [Get the content of an expected expense](#get-content-expected-expense-resource)
+* [Update the content of an expected expense](#update-content-expected-expense-resource)
+* [Delete an expected expense from the Request](#delete-expected-expense-request-resource)
+* [Get the list of comments for an existing expected expense](#expected-expense-resource-comments)
 
 ## <a name="create-new-expected-expense-resource"></a>Create a new expected expense
 
@@ -33,10 +43,10 @@ POST {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request to which the expected expense is attached
-userId|query|string|The unique identifier of the user performing the expected expense creation. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request to which the expected expense is attached.
+`userId`|`string`|-|The unique identifier of the user performing the expected expense creation. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
@@ -50,7 +60,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The created expected expense
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The created expected expense.
 
 ### Example
 
@@ -103,8 +113,7 @@ Authorization: Bearer {token}
     "countryCode": "FR",
     "countrySubDivisionCode": "FR-75",
     "city": "Paris",
-    "name": "Charles De Gaulle Intl",
-    "lnKey": 83745
+    "name": "Charles De Gaulle Intl"
   },
   "postedAmount": {
     "currency": "USD",
@@ -133,8 +142,7 @@ Authorization: Bearer {token}
           "countryCode": "FR",
           "countrySubDivisionCode": "FR-06",
           "city": "Nice",
-          "name": "Cote D Azur",
-          "lnKey": 84228
+          "name": "Cote D Azur"
         },
         "returnLeg": false,
         "startDate": "2018-07-18",
@@ -143,8 +151,7 @@ Authorization: Bearer {token}
           "countryCode": "FR",
           "countrySubDivisionCode": "FR-75",
           "city": "Paris",
-          "name": "Charles De Gaulle Intl",
-          "lnKey": 83745
+          "name": "Charles De Gaulle Intl"
         },
         "startTime": "21:00",
         "startLocationDetail": "none"
@@ -232,7 +239,6 @@ Authorization: Bearer {token}
           "countryCode": "FR",
           "countrySubDivisionCode": "FR-06",
           "name": "Nice",
-          "lnKey": 84228,
           "locationCode": "IATA_NCE",
           "locationType": "STD"
         },
@@ -244,7 +250,6 @@ Authorization: Bearer {token}
           "countryCode": "FR",
           "countrySubDivisionCode": "FR-75",
           "name": "Paris",
-          "lnKey": 83745,
           "locationCode": "IATA_CDG",
           "locationType": "STD"
         },
@@ -276,14 +281,14 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-requestUuid|path|string|**Required** The unique identifier of the Request
-userId|query|string|The unique identifier of the user viewing the expected expenses attached to a Request. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`userId`|`string`|-|The unique identifier of the user viewing the expected expenses attached to a Request. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -381,8 +386,7 @@ Authorization: Bearer {token}
             "countrySubDivisionCode": "DE-BE",
             "city": "Berlin",
             "iataCode": "BER",
-            "name": "Berlin(Alls)",
-            "lnKey": 86727
+            "name": "Berlin(Alls)"
           },
           "id": "B0F356643B38BC419AFE60E050BB79A4",
           "returnLeg": false,
@@ -393,8 +397,7 @@ Authorization: Bearer {token}
             "countrySubDivisionCode": "FR-75",
             "city": "Paris",
             "iataCode": "CDG",
-            "name": "Charles De Gaulle Intl",
-            "lnKey": 83745
+            "name": "Charles De Gaulle Intl"
           },
           "startTime": "08:00"
         },
@@ -405,8 +408,7 @@ Authorization: Bearer {token}
             "countrySubDivisionCode": "FR-75",
             "city": "Paris",
             "iataCode": "CDG",
-            "name": "Charles De Gaulle Intl",
-            "lnKey": 83745
+            "name": "Charles De Gaulle Intl"
           },
           "id": "345475D42A53D948A6D60181759683E8",
           "returnLeg": true,
@@ -417,8 +419,7 @@ Authorization: Bearer {token}
             "countrySubDivisionCode": "DE-BE",
             "city": "Berlin",
             "iataCode": "BER",
-            "name": "Berlin(Alls)",
-            "lnKey": 86727
+            "name": "Berlin(Alls)"
           },
           "startTime": "17:00"
         }
@@ -465,6 +466,13 @@ Authorization: Bearer {token}
     "expenseType": {
       "id": "TAXIX",
       "name": "Taxi"
+    },
+    "location": {
+      "id": "34AB34319377456B95F5C2815CC72766",
+      "countryCode": "DE",
+      "countrySubDivisionCode": "DE-BER",
+      "city": "Berlin, GERMANY",
+      "name": "Berlin, GERMANY"
     },
     "postedAmount": {
       "value": 90,
@@ -517,6 +525,13 @@ Authorization: Bearer {token}
       "id": "DINNR",
       "name": "Dinner"
     },
+    "location": {
+      "id": "34AB34319377456B95F5C2815CC72766",
+      "countryCode": "DE",
+      "countrySubDivisionCode": "DE-BER",
+      "city": "Berlin, GERMANY",
+      "name": "Berlin, GERMANY"
+    },
     "postedAmount": {
       "value": 80,
       "currency": "USD"
@@ -550,14 +565,14 @@ GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-expenseUuid|path|string|**Required** The unique identifier of the expected expense
-userId|query|string|The unique identifier of the user viewing the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`expenseUuid`|`string`|-|**Required** The unique identifier of the expected expense.
+`userId`|`string`|-|The unique identifier of the user viewing the expected expense. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -567,7 +582,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier.
 
 ### Example 1 - for a Request segment
 
@@ -627,6 +642,11 @@ Authorization: Bearer {token}
     "id": "AIRFR",
     "name": "Airfare"
   },
+  "parentRequest": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/request/224AF3CDCC2A5244A37C72FA5770C6F2",
+    "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
+    "template": "http://us.api.concursolutions.com/travelrequest/v4/request/{requestUuid}"
+  },
   "postedAmount": {
     "value": 324.56,
     "currency": "USD"
@@ -657,8 +677,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "DE-BE",
           "city": "Berlin",
           "iataCode": "BER",
-          "name": "Berlin(Alls)",
-          "lnKey": 86727
+          "name": "Berlin(Alls)"
         },
         "id": "B0F356643B38BC419AFE60E050BB79A4",
         "returnLeg": false,
@@ -669,8 +688,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "FR-75",
           "city": "Paris",
           "iataCode": "CDG",
-          "name": "Charles De Gaulle Intl",
-          "lnKey": 83745
+          "name": "Charles De Gaulle Intl"
         },
         "startTime": "08:00"
       },
@@ -681,8 +699,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "FR-75",
           "city": "Paris",
           "iataCode": "CDG",
-          "name": "Charles De Gaulle Intl",
-          "lnKey": 83745
+          "name": "Charles De Gaulle Intl"
         },
         "id": "345475D42A53D948A6D60181759683E8",
         "returnLeg": true,
@@ -693,8 +710,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "DE-BE",
           "city": "Berlin",
           "iataCode": "BER",
-          "name": "Berlin(Alls)",
-          "lnKey": 86727
+          "name": "Berlin(Alls)"
         },
         "startTime": "17:00"
       }
@@ -761,6 +777,18 @@ Authorization: Bearer {token}
     "id": "DINNR",
     "name": "Dinner"
   },
+  "location": {
+    "id": "34AB34319377456B95F5C2815CC72766",
+    "countryCode": "DE",
+    "countrySubDivisionCode": "DE-BER",
+    "city": "Berlin, GERMANY",
+    "name": "Berlin, GERMANY"
+  },
+  "parentRequest": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/request/224AF3CDCC2A5244A37C72FA5770C6F2",
+    "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
+    "template": "http://us.api.concursolutions.com/travelrequest/v4/request/{requestUuid}"
+  },
   "postedAmount": {
     "value": 80,
     "currency": "USD"
@@ -777,7 +805,7 @@ Authorization: Bearer {token}
 }
 ```
 
-## <a name="update-content-expected-expense-resourcee"></a>Update the content of an expected expense
+## <a name="update-content-expected-expense-resource"></a>Update the content of an expected expense
 
 ### Scopes
 
@@ -793,10 +821,10 @@ PUT {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-expenseUuid|path|string|**Required** The unique identifier of the expected expense to update
-userId|query|string|The unique identifier of the user performing the expected expense update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`expenseUuid`|`string`|-|**Required** The unique identifier of the expected expense to update.
+`userId`|`string`|-|The unique identifier of the user performing the expected expense update. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
@@ -810,7 +838,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier after update
+[Expected Expense](./v4.endpoints.schemas.html#schema-expected-expense) - The expected expense having {expenseUuid} as unique identifier after update.
 
 ### Example
 
@@ -889,8 +917,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "DE-BE",
           "city": "Berlin",
           "iataCode": "BER",
-          "name": "Berlin(Alls)",
-          "lnKey": 86727
+          "name": "Berlin(Alls)"
         },
         "id": "B0F356643B38BC419AFE60E050BB79A4",
         "returnLeg": false,
@@ -901,8 +928,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "FR-75",
           "city": "Paris",
           "iataCode": "CDG",
-          "name": "Charles De Gaulle Intl",
-          "lnKey": 83745
+          "name": "Charles De Gaulle Intl"
         },
         "startTime": "07:00"
       },
@@ -913,8 +939,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "FR-75",
           "city": "Paris",
           "iataCode": "CDG",
-          "name": "Charles De Gaulle Intl",
-          "lnKey": 83745
+          "name": "Charles De Gaulle Intl"
         },
         "id": "345475D42A53D948A6D60181759683E8",
         "returnLeg": true,
@@ -925,8 +950,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "DE-BE",
           "city": "Berlin",
           "iataCode": "BER",
-          "name": "Berlin(Alls)",
-          "lnKey": 86727
+          "name": "Berlin(Alls)"
         },
         "startTime": "18:00"
       }
@@ -982,6 +1006,11 @@ Authorization: Bearer {token}
     "id": "AIRFR",
     "name": "Airfare"
    },
+  "parentRequest": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/request/224AF3CDCC2A5244A37C72FA5770C6F2",
+    "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
+    "template": "http://us.api.concursolutions.com/travelrequest/v4/request/{requestUuid}"
+  },
   "postedAmount": {
     "value": 432.45,
     "currency": "USD"
@@ -1012,8 +1041,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "DE-BE",
           "city": "Berlin",
           "iataCode": "BER",
-          "name": "Berlin(Alls)",
-          "lnKey": 86727
+          "name": "Berlin(Alls)"
         },
         "id": "B0F356643B38BC419AFE60E050BB79A4",
         "returnLeg": false,
@@ -1024,8 +1052,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "FR-75",
           "city": "Paris",
           "iataCode": "CDG",
-          "name": "Charles De Gaulle Intl",
-          "lnKey": 83745
+          "name": "Charles De Gaulle Intl"
         },
         "startTime": "07:00"
       },
@@ -1036,8 +1063,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "FR-75",
           "city": "Paris",
           "iataCode": "CDG",
-          "name": "Charles De Gaulle Intl",
-          "lnKey": 83745
+          "name": "Charles De Gaulle Intl"
         },
         "id": "345475D42A53D948A6D60181759683E8",
         "returnLeg": true,
@@ -1048,8 +1074,7 @@ Authorization: Bearer {token}
           "countrySubDivisionCode": "DE-BE",
           "city": "Berlin",
           "iataCode": "BER",
-          "name": "Berlin(Alls)",
-          "lnKey": 86727
+          "name": "Berlin(Alls)"
         },
         "startTime": "18:00"
       }
@@ -1078,14 +1103,14 @@ DELETE {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-expenseUuid|path|string|**Required** The unique identifier of the expected expense to delete
-userId|query|string|The unique identifier of the user performing the deletion of the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`expenseUuid`|`string`|-|**Required** The unique identifier of the expected expense to delete.
+`userId`|`string`|-|The unique identifier of the user performing the deletion of the expected expense. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
@@ -1095,7 +1120,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-None
+None.
 
 ### Example
 
@@ -1117,7 +1142,7 @@ Authorization: Bearer {token}
 true
 ```
 
-## <a name="expense-resource-comments"></a>Get the list of comments for an existing expected expense
+## <a name="expected-expense-resource-comments"></a>Get the list of comments for an existing expected expense
 
 ### Scopes
 
@@ -1133,14 +1158,14 @@ GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}/comments
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-expenseUuid|path|string|**Required** The unique identifier of the expected expense
-userId|query|string|The unique identifier of the user getting the content of the comments. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+`expenseUuid`|`string`|-|**Required** The unique identifier of the expected expense.
+`userId`|`string`|-|The unique identifier of the user getting the content of the comments. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 

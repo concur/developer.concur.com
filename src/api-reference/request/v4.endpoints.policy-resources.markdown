@@ -3,12 +3,22 @@ title: Travel Request v4 - Request Policy Resources
 layout: reference
 ---
 
-{% include prerelease.html %}
+## Menu
 
-* [Request Policy Resources](#request-policy-resource)
-  * [Get the list of existing Request policies for a given user](#get-user-request-policy-resource)
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
 
 # <a name="request-policy-resource"></a>Request Policy Resources
+
+* [Get the list of existing Request policies for a given user](#get-user-request-policy-resource)
 
 ## <a name="get-user-request-policy-resource"></a>Get the list of existing Request policies for a given user
 
@@ -26,13 +36,13 @@ GET {datacenter}/travelrequest/v4/userpolicies
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-userId|path|string|The unique identifier of the user for whom the list of Request policies will be retrieved. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error
+`userId`|`string`|-|The unique identifier of the user for whom the list of Request policies will be retrieved. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error.
 
 #### Payload
 
-None
+None.
 
 ### HTTP Response
 
