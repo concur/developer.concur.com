@@ -3,11 +3,21 @@ title: Base URIs
 layout: reference
 ---
 
-## What is the Base URI?
+* [What Is the Base URI](#base)
+* [Production](#production)
+* [Implementation](#implementation)
+* [Pre-2017 Legacy URIs (Deprecated)](#deprecated)
 
-The Base URI (also known as the Instance URL) is the domain where the SAP Concur entity resides. The APIs will work with all entities, but to specify which you are trying to work with you must make a change to the end point declaration before you make your API call. There will be a different domain for each of the following locations: Production, Implementation (copy of the product environment not available for all clients), EMEA (the European data center), and the China data center.
+## <a name="base"></a>What Is the Base URI?
 
-### Production
+The Base URI (also known as the Instance URL) is the domain where the SAP Concur entity resides. You must specify which location you are trying to work with by making a change to the end point declaration before you make your API call.
+
+There will be a different domain for each of the following locations:
+
+* Production in the North America data center, EMEA data center, China data center, and PSCC data center.
+* Implementation (copy of the production environment not available for all clients) in the North America data center and EMEA data center.
+
+### <a name="production"></a>Production
 
 SAP Concur customer entities are hosted in various locations based on the client location, government regulations, and other special requirements. As a result, the correct Base URI must be used to reach a particular entity.
 
@@ -22,7 +32,7 @@ China|Production|https://www-cn.api.concurcdc.cn |Default for all API calls (Doe
 PSCC|Production|https://usg.api.concursolutions.com |Default for all API calls (Optionally request certs)
 PSCC|Production|https://www-usg.api.concursolutions.com |Default for all API calls (Does not request certs)
 
-### Implementation
+### <a name="implementation"></a>Implementation
 
 The implementation base domains are used for implementation sites. An implementation site is a copy of an SAP Concur entity made from a backup of a client’s production site. This feature is only available for the Professional and Premium editions of SAP Concur products. Clients have the option to have a permanent implementation site established, contact your Client Executive or Account Manager for details.
 
@@ -33,7 +43,7 @@ US|Implementation|https://www-us-impl.api.concursolutions.com |Default for all A
 EMEA|Implementation|https://emea-impl.api.concursolutions.com |Default for all API calls (Optionally request certs)
 EMEA|Implementation|https://www-emea-impl.api.concursolutions.com |Default for all API calls (Does not request certs)
 
-### Pre-2017 Legacy URIs (Deprecated)
+### <a name="deprecated"></a>Pre-2017 Legacy URIs (Deprecated)
 
 The following base URIs have been used for APIs that are authenticating using the legacy [authentication method](/authentication/authorization-pre-2017.html). The new base URIs have been adapted to become backwards compatible with the legacy authentication methods. As such, these legacy base URIs should not be used unless necessary. JWT calls are not compatible with the legacy base URIs.
 
