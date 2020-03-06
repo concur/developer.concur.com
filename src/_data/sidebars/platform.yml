@@ -1,5 +1,5 @@
 - title: Platform Information
-  url: /platform/
+  url: /platform-information/
 - title: Base URIs
   url: /platform/base-uris.html
 - title: Callout Security Standards
@@ -9,4 +9,4 @@
 - title: correlationid
   url: /platform/correlation-id.html
 - title: Transport Layer Security (TLS)
-  url: /transport-layer-security.html
+  url: /platform/transport-layer-security.html
