@@ -1,0 +1,12 @@
+- title: Platform Information
+  url: /platform/
+- title: Base URIs
+  url: /platform/base-uris.html
+- title: Callout Security Standards
+  url: /platform/callout-security-standards.html
+- title: Concur Travel & Expense Supported Configurations
+  url: https://www.concurtraining.com/customers/tech_pubs/Docs/Z_SuppConfig/Supported_Configurations_for_Concur_Travel_and_Expense_Client-Facing.pdf
+- title: correlationid
+  url: /platform/correlation-id.html
+- title: Transport Layer Security (TLS)
+  url: /platform/transport-layer-security.html
