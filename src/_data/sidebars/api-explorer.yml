@@ -49,8 +49,6 @@
         url: /api-explorer/v3-0/Receipts.html
       - title: Reports
         url: /api-explorer/v3-0/Reports.html
-      - title: Requests
-        url: /api-explorer/v3-0/Requests.html
       - title: Sales Tax Validation Request
         url: /api-explorer/v3-0/SalesTaxValidationRequest.html
       - title: Suppliers
@@ -70,8 +68,6 @@
         url: /api-explorer/v3-1/ConnectionRequests.html
       - title: Request Group Configurations
         url: /api-explorer/v3-1/RequestGroupConfigurations.html
-      - title: Requests
-        url: /api-explorer/v3-1/Requests.html
 - title: v3.2
   url: ''
   children:
