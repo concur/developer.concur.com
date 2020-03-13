@@ -3,14 +3,24 @@ title: Travel Request v4 - Travel Agency Resources
 layout: reference
 ---
 
-{% include prerelease.html %}
+## Menu
 
-* [Travel Agency Resources](#travel-agency-resource)
-  * [Get the description of a travel Agency](#get-travel-agency-description-resource)
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
 
 # <a name="travel-agency-resource"></a>Travel Agency Resources
 
 Manage the configuration for Travel Agencies integrated with Concur Request.
+
+* [Get the description of a travel Agency](#get-travel-agency-description-resource)
 
 ## <a name="get-travel-agency-description-resource"></a>Get the description of a Travel Agency
 
@@ -28,9 +38,9 @@ GET {datacenter}/travelrequest/v4/travelagencies/{agencyUuid}
 
 #### Parameters
 
-Name|Parameter Type|Data Type|Description
+Name|Type|Format|Description
 ---|---|---|---
-agencyUuid|path|string|**Required** The unique identifier of the Travel Agency
+`agencyUuid`|`string`|-|**Required** The unique identifier of the Travel Agency.
 
 #### Payload
 
