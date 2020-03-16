@@ -123,10 +123,10 @@ Whether you choose pickup or delivery, save money with Grubhub Perks and
 get exclusive deals on the food you crave. Plus e-receipts are sent directly to
 Concur Expense to make expensing orders easy. Download the app today!
 
-* Choose from the largest selection of restaurants in the nation
-* Track your order with real-time updates
-* Express reorder your favorite meals
-* Count on Grubhub’s 24/7 customer support
+* Choose from the largest selection of restaurants in the nation.
+* Track your order with real-time updates.
+* Express reorder your favorite meals.
+* Count on Grubhub’s 24/7 customer support.
 
 To get started, create an account or link an existing one to your Concur Expense account by clicking ‘Connect’ on this listing page in the SAP Concur App Center. Enter your current address on the site or mobile app to see every business nearby for delivery or pickup and start ordering!
 
