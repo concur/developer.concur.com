@@ -41,8 +41,6 @@
         url: /api-explorer/v3-0/PurchaseOrderReceipts.html
       - title: Purchase Orders
         url: /api-explorer/v3-0/PurchaseOrders.html
-      - title: Quick Expenses
-        url: /api-explorer/v3-0/QuickExpenses.html
       - title: Receipt Images
         url: /api-explorer/v3-0/ReceiptImages.html
       - title: Receipts
