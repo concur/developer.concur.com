@@ -195,11 +195,11 @@ Connection: Close
 
 **4. Retrieve User Profile information**
 
-Once the partner completes the oauth2 flow, they receive an `access_token` and `refresh_token`. Using the `access_token` and within the hour lifetime of the token, the partner has the ability to call SAP Concur's APIs.  Your application may call SAP Concur's Profile API to obtain user information in order to provision an account in the partner's application.
+Once the partner completes the oauth2 flow, they receive an `access_token` and `refresh_token`. Using the `access_token` and within the hour lifetime of the token, the partner has the ability to call SAP Concur APIs.  Your application may call the Profile API to obtain user information in order to provision an account in the partner's application.
 
 *TripLink Suppliers see the appendix for more details.*
 
-Here's an example to retrieve profile information for a User in the Production environment using cURL ( [Base URIs for other Environments](/api-reference/authentication/apidoc.html#base_uri)):
+Here's an example to retrieve profile information for a User in the Production environment using cURL ( [Base URIs for other Environments](/platform/base-uris.html)):
 
 ```
 curl -k -v -H "Accept: application/json"\
@@ -290,7 +290,7 @@ When an application supports enterprise integrations, the user's account should 
 In addition, the administrator will need to identify the users which should have access to your application. Given that, the administrator must first add users to your service. An example of the set up and sign in process are documented below.
 
 ### Sign in with Concur Set Up
-The below diagram illustrates the initial set up process. To set up the connection, the administrator must identify the users of your service. 
+The below diagram illustrates the initial set up process. To set up the connection, the administrator must identify the users of your service.
 
 Note that, in addition to identifying users of the service, your application may also require that roles/permissions be assigned to individual users to determine access to various features and functionality of your service. Role and permissions assignment are not depicted in the diagram below as the requirements may differ for each client application.
 
@@ -300,7 +300,7 @@ Once added to the service, users must then verify their identity before first si
 
 ### Signing in to the Client Application
 When a user first navigates to your application, you may offer multiple sign in options, including Sign in with Concur.
-Once signed in, your application must validate that users have completed the one-time verification. 
+Once signed in, your application must validate that users have completed the one-time verification.
 
 If the user has not completed the one-time verification when visiting your site, the [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) should be initiated on the user's behalf.
 
