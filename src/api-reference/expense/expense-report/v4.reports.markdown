@@ -40,6 +40,21 @@ Name|Description|Endpoint
 ---|---|---
 `CONFIG`|Get Expense Configuration information, necessary for `expenseTypeId`.|POST
 
+## <a name="headers"></a>Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+## <a name="restDesign"></a>RESTful design approach
+
+PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specification:
+* [RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
+
 ## <a name="dependencies"></a>Dependencies
 
 SAP Concur clients must purchase Concur Expense in order to use this API. Please contact your SAP Concur representative for more information.
