@@ -198,10 +198,6 @@
         url: /api-reference/travel-profile/v2.profile-resource.html
       - title: Travel Profile v1 - Loyalty Program
         url: /api-reference/travel-profile/v1.loyalty-program-resource.html
-      - title: Travel Profile v1 - Company Notification
-        url: /api-reference/travel-profile/v1.notification-company-resource.html
-      - title: Travel Profile v1 - User Notification
-        url: /api-reference/travel-profile/v1.notification-user-resource.html
 - title: Travel
   url: ''
   children:
