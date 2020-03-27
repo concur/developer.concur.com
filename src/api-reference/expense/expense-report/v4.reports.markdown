@@ -1,22 +1,29 @@
 ---
-title: Expense Reports v4
+title: Reports v4
 layout: reference
 ---
 
-Expense Reports is a v4 API for operations related to the creation and processing of Expense Reports. 
-Authorized use of the API requires a valid User JWT with `expense.report.readwrite` scope in the header of each request.
+The Reports v4 API can be used to read and modify an expense report header of an existing expense report. This API can be used to change attributes like report name, business purpose, etc
 
-> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. 
 
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
-* [API Documentation](#api-documentation)
+* [Retrieve a Report by ID](#retrieve-report-header) 
+* [Update a Report](#update-report-header)
+* [Schema](#schema)
+  * [Report Header Request](#report-header-request-schema)
+    * [Location](#location-schema)
+    * [Amount](#amount-schema)
+  * [Report Header Response](#report-header-response-schema)
+  * [Error](#schema-error)
+  * [Validation Errors](#schema-validation-errors)
 
 ## Prior Versions
 
-* Reports v1 (Deprecated) documentation is available [here](./v1.reports.html)
+* Report Header v1 (Deprecated) documentation is available [here](./api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html)
 * Reports v3 (Deprecated) documentation is available [here](./v3.reports.html)
 
 ## <a name="products-editions"></a>Products and Editions
@@ -28,41 +35,313 @@ Authorized use of the API requires a valid User JWT with `expense.report.readwri
 
 Required Scopes:
 
-Name|Description|Endpoints
----|---|---
-`expense.report.readwrite`|Make changes to expense reports.|POST<br/>PATCH<br/>DELETE
-`expense.report.read`|Get information about expense reports.|GET
-`user.read`|Get User Information, necessary for `userID`.|GET
+| Name                       | Description                                   | Endpoint |
+| -------------------------- | --------------------------------------------- | -------- |
+| `expense.report.read`      | Get information about expense reports         | GET      |
+| `expense.report.readwrite` | Read and write expense report headers.        | PATCH    |
+| `user.read`                | Get User Information, necessary for `userID`. | POST     |
 
-Optional Scopes:
+Optional Scope:
 
-Name|Description|Endpoint
----|---|---
-`CONFIG`|Get Expense Configuration information, necessary for `expenseTypeId`.|POST
+| Name                  | Description                                         | Endpoint |
+| --------------------- | --------------------------------------------------- | -------- |
+| `spend.listitem.read` | Read only access to spend list items `listItemId`.  | GET      |
+| `spend.list.read`     | Read only access to spend list and category details | GET      |
 
-## <a name="headers"></a>Headers
+## <a name="dependencies"></a>Dependencies
 
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens.
+
+## <a name="retrieve-report-header"></a>Retrieve a Report by ID
+
+Retrieves the details of the specific report header
+
+### Scopes
+
+`expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}
+```
+
+##### Parameters
+
+| Name          | Type     | Format | Description                                                  |
+| ------------- | -------- | ------ | ------------------------------------------------------------ |
+| `userID`      | `string` | -      | **Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+| `contextType` | `string` | -      | **Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: TRAVELER, PROXY |
+| `reportId`    | string   | -      | **Required** The unique identifier of the report that is being read |
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
 * [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
 * [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
 * [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
-* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 
-## <a name="restDesign"></a>RESTful design approach
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Report Header Response](#report-header-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Report-test' \
+--header 'Content-Type: application/json'
+```
+
+#### Response
+
+```shell
+200 OK
+
+{
+    "approvalStatus": "Not Submitted",
+    "approvalStatusId": "A_NOTF",
+    "concurAuditStatus": "NOTR",
+    "customData": [
+        {
+            "id": "custom15",
+            "value": "4366A89A916F074099A971B000989A94",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=4366A89A916F074099A971B000989A94"
+        },
+        {
+            "id": "custom16",
+            "value": "Test33224ASDF",
+            "isValid": true,
+            "listItemUrl": null
+        },
+        {
+            "id": "custom3",
+            "value": "582AE31D0F506C4BAA97573F2A90F03B",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=582AE31D0F506C4BAA97573F2A90F03B"
+        },
+        {
+            "id": "custom4",
+            "value": "79AE45D0F6757946AC2B01CDFA6CA326",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=79AE45D0F6757946AC2B01CDFA6CA326"
+        }
+    ],
+    "ledger": "DEFAULT",
+    "ledgerId": "2703E3FBD393DA4484ED3CB07303407C",
+    "paymentStatus": "Not Paid",
+    "paymentStatusId": "P_NOTP",
+    "submitDate": null,
+    "approvedAmount": {
+        "value": 525.00000000,
+        "currencyCode": "USD"
+    },
+    "claimedAmount": {
+        "value": 525.00000000,
+        "currencyCode": "USD"
+    },
+    "amountCompanyPaid": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "paymentConfirmedAmount": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "amountDueCompany": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "amountDueCompanyCard": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "amountDueEmployee": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "personalAmount": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "reportTotal": {
+        "value": 525.00000000,
+        "currencyCode": "USD"
+    },
+    "amountNotApproved": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "isFinancialIntegrationEnabled": false,
+    "canReopen": false,
+    "isReopened": false,
+    "isReceiptImageAvailable": false,
+    "isReceiptImageRequired": true,
+    "isPaperReceiptsReceived": false,
+    "reportId": "764428DD6A664AF0BFCB",
+    "currency": "US, Dollar",
+    "currencyCode": "USD",
+    "analyticsGroupId": "C8CB395275EC4FE9AF6CD5B535EA2B17",
+    "hierarchyNodeId": "0F941E0B0A2C974EB2B06CDA67973052",
+    "allocationFormId": "FD7E9C6389EF495B85042319D58CAE53",
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null,
+            "method": "GET",
+            "isTemplated": false
+        }
+    ],
+    "reportDate": "2020-03-25",
+    "reportFormId": "674B67F0C6BD4E9CA5D91AFB82CC8ABB",
+    "businessPurpose": "Facility cleaning and renovation",
+    "countryCode": "US",
+    "countrySubDivisionCode": "US-WA",
+    "policyId": "EE095F66AEF52B4A9CE62952601E5CB1",
+    "startDate": "2020-03-10",
+    "endDate": "2020-03-14",
+    "name": "March Expenses",
+    "policy": "JH - US Expense Policy",
+    "country": "UNITED STATES",
+    "userId": "32c2fcc3-b2e8-4907-9672-5b3f49b1c643",
+    "reportType": "Regular",
+    "redirectFund": null,
+    "creationDate": "2020-03-25T20:42:39Z",
+    "canRecall": false,
+    "reportVersion": 0
+}
+```
+
+## <a name="update-report-header"></a>Update a specific Report 
+
+Updates the attributes of a specific Report 
+
+### Scopes
+
+`expense.report.readwrite` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}
+```
+
+##### Parameters
+
+| Name          | Type     | Format | Description                                                  |
+| ------------- | -------- | ------ | ------------------------------------------------------------ |
+| `userID`      | `string` | -      | **Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+| `contextType` | `string` | -      | **Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: TRAVELER, PROXY |
+| `reportId`    | string   | -      | **Required** The unique identifier of the report that is being modified |
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### REST design specification 
 
 PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specification:
-* [RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
 
-## <a name="dependencies"></a>Dependencies
+[RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
 
-SAP Concur clients must purchase Concur Expense in order to use this API. Please contact your SAP Concur representative for more information.
+#### Payload
 
-## <a name="access-token-usage"></a>Access Token Usage
+* [Patch Report Request](#patch-report-request-schema)
 
-This API supports user-level access tokens (JWT).
+### Response
 
-## <a name="api-documentation"></a>API Documentation
+#### Status Codes
 
-* [Reports V4 API Explorer](/api-explorer/v4-0/Reports.html)
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1) 
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Patch Report Response](#patch-report-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Viswa test' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"customData": [
+        {
+            "id": "custom15",
+            "value": "E31CB42509F9FF408BA7DD6713AB49BD",
+            "isValid": true
+        }
+    ],
+    "businessPurpose":"Office Facility Supplies",
+    "reportSource":"OTHER"
+}'
+```
+
+#### Response
+
+```shell
+204 No Content
+```
+
+## <a name="schema"></a>Schema
+
+### 
