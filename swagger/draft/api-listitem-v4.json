@@ -7,7 +7,7 @@
     "https"
   ],
   "info": {
-    "title": "List Items",
+    "title": "List Item",
     "description": "Provides an automated solution to clients who would like to manage list items. This API provides methods to view, add, update or delete list items owned by the specified lists.",
     "version": "4.0"
   },

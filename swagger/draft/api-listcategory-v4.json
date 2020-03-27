@@ -7,7 +7,7 @@
     "https"
   ],
   "info": {
-    "title": "List Categories",
+    "title": "List Category",
     "description": "Provides an automated solution to clients who would like to manage list categories. This API provides methods to view, add, update or delete list categories.",
     "version": "4.0"
   },
