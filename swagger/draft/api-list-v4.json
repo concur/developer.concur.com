@@ -1120,24 +1120,6 @@
         "isDeleted": {
           "type": "boolean",
           "description": "Whether the list item has been deleted"
-        },
-        "legacyListItemKey": {
-          "type": "integer",
-          "format": "int32",
-          "example": 1040,
-          "description": "Legacy list item key, hidden by default"
-        },
-        "legacyParentKey": {
-          "type": "integer",
-          "format": "int32",
-          "example": 1,
-          "description": "Legacy list item parent key, hidden by default"
-        },
-        "legacyListKey": {
-          "type": "integer",
-          "format": "int32",
-          "example": 8,
-          "description": "Legacy list  key, hidden by default"
         }
       },
       "title": "ListItem"
@@ -1149,12 +1131,6 @@
           "type": "string",
           "format": "uuid",
           "description": "The unique identifier of the list that contains the list item"
-        },
-        "legacyListKey": {
-          "type": "integer",
-          "format": "int32",
-          "example": 8,
-          "description": "Legacy list  key , hidden by default"
         }
       },
       "title": "ListItemMemberList"
@@ -1231,12 +1207,6 @@
         "isDeleted": {
           "type": "boolean",
           "description": "Whether the list has been deleted"
-        },
-        "legacyListKey": {
-          "type": "integer",
-          "format": "int32",
-          "example": 8,
-          "description": "Legacy list key, hidden by default"
         }
       },
       "title": "ListResponse"
