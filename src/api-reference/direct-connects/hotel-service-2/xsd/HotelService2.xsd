@@ -2049,6 +2049,16 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
+    <xs:attributeGroup ref="EffectiveExpireOptionalDateGroup">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">The effective date range for a charge. The EffectiveDate is used by Dynamic Packaging as the date the service is offered at the specified rate (used in conjunction with RateTimeUnit and UnitMultiplier attributes to denote a rate for a duration.)</xs:documentation>
+      </xs:annotation>
+    </xs:attributeGroup>
+    <xs:attribute name="RateTimeUnit" type="TimeUnitType" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">Indicates the time unit for the rate.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="AlternateCurrencyInd" type="xs:boolean" use="optional">
       <xs:annotation>
         <xs:documentation xml:lang="en">When true, indicates the amounts are provided in an alternate currency. When
@@ -4366,13 +4376,6 @@
     <xs:attribute name="ExpireDate" type="xs:date" use="optional">
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">Indicates the ending date.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="ExpireDateExclusiveInd" type="xs:boolean" use="optional">
-      <xs:annotation>
-        <xs:documentation source="Description" xml:lang="en">When true, indicates that the ExpireDate is the first day
-          after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
-        </xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
