@@ -63,7 +63,7 @@
 					"description": "The code which identifies the persona of the user who is accessing the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER", "PROXY"]
+					"enum": ["TRAVELER"]
 				}],
 				"responses": {
 					"200": {
@@ -149,7 +149,7 @@
 					"description": "The code which identifies the persona of the user who is accessing the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER", "PROXY"]
+					"enum": ["TRAVELER"]
 				}],
 				"responses": {
 					"400": {
@@ -232,7 +232,7 @@
 					"description": "The code which identifies the persona of the user who is accessing the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER", "PROXY"]
+					"enum": ["TRAVELER"]
 				}],
 				"responses": {
 					"200": {
@@ -324,7 +324,7 @@
 					"description": "The code which identifies the persona of the user who is patching the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER", "PROXY"]
+					"enum": ["TRAVELER"]
 				}],
 				"responses": {
 					"400": {
@@ -363,18 +363,18 @@
 				}
 			}
 		},
-		"/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}": {
+		"/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses": {
 			"get": {
 				"tags": ["Expenses"],
-				"summary": "Gets details for the specified expense",
-				"description": "Returns details for the specified expense.",
-				"operationId": "getReportExpenseDetailUsingGET",
+				"summary": "Gets all expense summaries for the specified report",
+				"description": "Returns all expense summaries for the specified report. Includes a link to expense details for each expense and a link to itemizations for each parent expense.",
+				"operationId": "getReportExpensesSummaryUsingGET",
 				"consumes": ["application/json"],
 				"produces": ["application/json"],
 				"parameters": [{
 					"name": "concur-correlationid",
 					"in": "header",
-					"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+					"description": "A unique identifier of the request (Minimum length: 6) - If not provided, a correlation ID will be generated",
 					"required": false,
 					"type": "string"
 				}, {
@@ -386,7 +386,90 @@
 				}, {
 					"name": "reportId",
 					"in": "path",
-					"description": "The unique identifier of the report",
+					"description": "The unique identifier of the report that contains the expenses",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "userId",
+					"in": "path",
+					"description": "The unique identifier of the Concur user who owns the report",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "contextType",
+					"in": "path",
+					"description": "The code which identifies the persona of the user who is patching the resource",
+					"required": true,
+					"type": "string",
+					"enum": ["TRAVELER", "MANAGER", "PROCESSOR", "PROXY"]
+				}],
+				"responses": {
+					"200": {
+						"description": "Expense summaries successfully retrieved",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ReportExpenseSummary"
+							}
+						}
+					},
+					"400": {
+						"description": "Specified context not supported",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					},
+					"401": {
+						"description": "Missing or invalid authorization header",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					},
+					"500": {
+						"description": "Internal server error. Retry your request again",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					},
+					"403": {
+						"description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nUser is not allowed to access this report ",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					},
+					"404": {
+						"description": "reportId not found",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					}
+				}
+			}
+		},
+		"/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}": {
+			"get": {
+				"tags": ["Expenses"],
+				"summary": "Gets details for the specified expense",
+				"description": "Returns details for the specified expense.",
+				"operationId": "getReportExpenseDetailUsingGET",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "concur-correlationid",
+					"in": "header",
+					"description": "A unique identifier of the request (Minimum length: 6) - If not provided, a correlation ID will be generated",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "accept-language",
+					"in": "header",
+					"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "reportId",
+					"in": "path",
+					"description": "The unique identifier of the report that contains the expense",
 					"required": true,
 					"type": "string"
 				}, {
@@ -407,7 +490,7 @@
 					"description": "The code which identifies the persona of the user who is accessing the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER", "PROXY"]
+					"enum": ["TRAVELER"]
 				}],
 				"responses": {
 					"200": {
@@ -458,7 +541,7 @@
 				"parameters": [{
 					"name": "concur-correlationid",
 					"in": "header",
-					"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+					"description": "A unique identifier of the request (Minimum length: 6) - If not provided, a correlation ID will be generated",
 					"required": false,
 					"type": "string"
 				}, {
@@ -470,7 +553,7 @@
 				}, {
 					"name": "reportId",
 					"in": "path",
-					"description": "The unique identifier of the report",
+					"description": "The unique identifier of the report that contains the expenses",
 					"required": true,
 					"type": "string"
 				}, {
@@ -490,16 +573,16 @@
 				}, {
 					"name": "userId",
 					"in": "path",
-					"description": "TThe unique identifier of the Concur user who owns the report",
+					"description": "The unique identifier of the Concur user who owns the report",
 					"required": true,
 					"type": "string"
 				}, {
 					"name": "contextType",
 					"in": "path",
-					"description": "The code which identifies the persona of the user who is accessing the resource",
+					"description": "The code which identifies the persona of the user who is patching the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER", "PROXY"]
+					"enum": ["TRAVELER", "PROXY", "MANAGER", "PROCESSOR"]
 				}],
 				"responses": {
 					"400": {
@@ -531,6 +614,95 @@
 					},
 					"404": {
 						"description": "reportId not found,\nexpenseId not found",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					}
+				}
+			}
+		},
+		"/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/allocations": {
+			"get": {
+				"tags": ["Allocations"],
+				"summary": "Gets all allocations for the specified expense",
+				"description": "Returns all allocations for the specified expense.",
+				"operationId": "getAllocationsUsingGET",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "concur-correlationid",
+					"in": "header",
+					"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "accept-language",
+					"in": "header",
+					"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "reportId",
+					"in": "path",
+					"description": "The unique identifier of the report that contains the allocations",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "expenseId",
+					"in": "path",
+					"description": "The unique identifier of the expense",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "userId",
+					"in": "path",
+					"description": "The unique identifier of the Concur user who owns the report",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "contextType",
+					"in": "path",
+					"description": "The code which identifies the persona of the user who is accessing the allocations",
+					"required": true,
+					"type": "string",
+					"enum": ["TRAVELER", "MANAGER", "PROCESSOR", "PROXY"]
+				}],
+				"responses": {
+					"200": {
+						"description": "Allocations successfully retrieved",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Allocation"
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid expenseId",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					},
+					"401": {
+						"description": "Missing or invalid authorization header",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					},
+					"500": {
+						"description": "Internal server error. Retry your request again",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					},
+					"403": {
+						"description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nUser is not authorized to access this report with this context type",
+						"schema": {
+							"$ref": "#/definitions/ErrorMessage"
+						}
+					},
+					"404": {
+						"description": "reportId not found",
 						"schema": {
 							"$ref": "#/definitions/ErrorMessage"
 						}
