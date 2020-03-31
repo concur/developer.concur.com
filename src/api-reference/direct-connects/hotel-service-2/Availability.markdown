@@ -31,6 +31,7 @@ Message to retrieved the availability of hotels.
     * [Room Descriptions](#room-descriptions)
     * [Rate Plans](#rate-plans)
     * [Rate Plan](#rate-plan)
+    * [Rate Plan Description](#rate-plan-description)
     * [Guarantee](#guarantee)
     * [Supported Guarantee Types](#supported-guarantee-types)
     * [Supported Guarantee Required](#supported-guarantee-required)
@@ -65,7 +66,7 @@ Message to retrieved the availability of hotels.
     </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-    <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5"
+    <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" RateDetailsInd="false" EchoToken="test_request_id" Version="5"
                       PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
@@ -207,7 +208,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
           <RoomRates>
             <RoomRate RoomID="1" RatePlanID="XNFYP4I">
               <Rates>
-                <Rate>
+                <Rate RateTimeUnit="FullDuration">
                   <PaymentPolicies>
                     <GuaranteePayment>
                       <AcceptedPayments>
@@ -280,7 +281,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`stringLength1to32`|**Required** Only one (1) text element is supported. If multiple text elements are specified, the last one is used and all others are dropped. All text passed is encoded.|
+|`Text`|`stringLength1to32`|**Required** Only one (1) text element is supported. If multiple text elements are specified, the last one is used and all others are dropped. All text passed is HTML encoded.|
 
 #### <a name="rate-plans"></a>RatePlans
 
@@ -297,6 +298,13 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`Guarantee`|`complex`|**Required** Guarantee information that applies to the rate plan. SAP Concur only expects one (1) Guarantee element per `RatePlan`.|
 |`CancelPenalties`|`complex`|**Required** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
 |`MealsIncluded`|`complex`|**Required** Defines which meals are included with this rate program.|
+|`RatePlanDescription`|`complex`|Textual information regarding the Rate Plan.|
+
+#### <a name="rate-plan-description"></a>RatePlanDescription
+
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`Text`|`stringLength1to32`|**Required** Only one (1) text element is supported. If multiple text elements are specified, the last one is used and all others are dropped. All text passed is HTML encoded.|
 
 #### <a name="guarantee"></a>Guarantee
 
@@ -347,7 +355,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|----------|-----------------------|
-|`Text`|`formattedText`|**Required** Formatted text content in a given language.|
+|`Text`|`formattedText`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
 
 #### <a name="meals-included"></a>MealsIncluded
 
@@ -427,7 +435,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`stringLength1to32`|**Required** SAP Concur only expects one (1) text field for the rate description. Any excess text elements will be ignored.|
+|`Text`|`stringLength1to32`|**Required** SAP Concur only expects one (1) text field for the rate description. Any excess text elements will be ignored. All text passed is HTML encoded.|
 
 #### <a name="tpa-extensions"></a>TPA_Extensions
 
