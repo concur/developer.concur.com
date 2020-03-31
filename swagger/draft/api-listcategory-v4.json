@@ -112,7 +112,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -204,7 +203,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -296,7 +294,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -410,7 +407,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -489,7 +485,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -591,7 +586,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -658,7 +652,6 @@
       ],
       "properties": {
         "error": {
-          "description": "The detail of the error",
           "$ref": "#/definitions/Message"
         },
         "httpStatus": {
@@ -750,6 +743,48 @@
       },
       "title": "Link"
     },
+    "ListResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Unique identifier of a List"
+        },
+        "value": {
+          "type": "string",
+          "description": "Name of the list"
+        },
+        "categoryId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Unique identifier of a Category"
+        },
+        "levelCount": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "Number of levels in the list"
+        },
+        "searchCriteria": {
+          "type": "string",
+          "description": "What attribute to search by"
+        },
+        "displayFormat": {
+          "type": "string",
+          "description": "Whether we display code or value first"
+        },
+        "isReadOnly": {
+          "type": "boolean",
+          "description": "Whether the list is read only"
+        },
+        "isDeleted": {
+          "type": "boolean",
+          "description": "Whether the list has been deleted"
+        }
+      },
+      "title": "ListResponse"
+    },
     "Message": {
       "type": "object",
       "properties": {
@@ -836,6 +871,33 @@
         "attribute": false,
         "wrapped": false
       }
+    },
+    "PagedResources«ListResponse»": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ListResponse"
+          }
+        },
+        "links": {
+          "type": "array",
+          "xml": {
+            "name": "link",
+            "namespace": "http://www.w3.org/2005/Atom",
+            "attribute": false,
+            "wrapped": false
+          },
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/PageMetadata"
+        }
+      },
+      "title": "PagedResources«ListResponse»"
     },
     "ValidationError": {
       "type": "object",

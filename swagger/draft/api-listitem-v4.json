@@ -130,7 +130,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -222,7 +221,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -336,7 +334,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -415,7 +412,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -589,7 +585,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -681,7 +676,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -776,7 +770,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -870,7 +863,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -962,7 +954,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -1060,7 +1051,6 @@
         "security": [
           {
             "JWT Token": [
-              "global"
             ]
           }
         ],
@@ -1079,7 +1069,6 @@
       ],
       "properties": {
         "error": {
-          "description": "The detail of the error",
           "$ref": "#/definitions/Message"
         },
         "httpStatus": {
