@@ -12,7 +12,7 @@
 			"name": "SAP Concur"
 		}
 	},
-	"host": "https://api.concursolutions.com/expensereports/v4",
+	"host": "https://api.concursolutions.com",
 	"basePath": "/",
 	"tags": [{
 		"name": "Reports",
@@ -401,7 +401,7 @@
 					"description": "The code which identifies the persona of the user who is patching the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER", "MANAGER", "PROCESSOR", "PROXY"]
+					"enum": ["TRAVELER"]
 				}],
 				"responses": {
 					"200": {
@@ -582,7 +582,7 @@
 					"description": "The code which identifies the persona of the user who is patching the resource",
 					"required": true,
 					"type": "string",
-					"enum": ["TRAVELER", "PROXY", "MANAGER", "PROCESSOR"]
+					"enum": ["TRAVELER"]
 				}],
 				"responses": {
 					"400": {
