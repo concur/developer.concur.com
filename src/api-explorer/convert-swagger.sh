@@ -36,3 +36,4 @@ LOGGER_LEVEL=info node ../build/swagger-converter/ ./v3.1/Requests.swagger.json 
 
 # 4.0 APIs
 LOGGER_LEVEL=info node ../build/swagger-converter/ ./v4.0/QuickExpenses.swagger.json | jq '.' > ./v4.0/QuickExpenses.swagger2.json
+LOGGER_LEVEL=info node ../build/swagger-converter/ ./v4.0/Reports.swagger.json | jq '.' > ./v4.0/Reports.swagger2.json
