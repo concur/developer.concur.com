@@ -3,270 +3,381 @@ title: Travel Request v4 - Endpoints - Schemas
 layout: reference
 ---
 
-{% include prerelease.html %}
+## Menu
 
-* [Schema](#schema)
-  * [Request](#schema-request)
-  * [Amount](#schema-amount)
-  * [ApprovalStatus](#schema-approvalstatus)
-  * [Comments](#schema-comments)
-  * [Customfield](#schema-customfield)
-  * [Employee](#schema-employee)
-  * [Link](#schema-link)
-  * [List of Request](#schema-listofrequest)
-  * [List of Request Policies](#schema-requestpolicylist)
-  * [Location](#schema-location)
-  * [ResourceLink](#schema-resourcelink)
-  * [RequestLink](#schema-requestlink)
-  * [Request Policy](#schema-requestpolicy)
-  * [Request Type](#schema-requesttype)
-  * [Expected Expense](#schema-expected-expense)
-  * [Allocation](#schema-allocation)
-  * [Exchange Rate](#schema-exchangerate)
-  * [Expense Type](#schema-expensetype)
-  * [List Item Field](#schema-listitemfield)
-  * [Segment Leg](#schema-segmentleg)
-  * [Segment Type](#schema-segmenttype)
-  * [Travel Agency](#schema-travelagency)
-  * [Travel Allowance](#schema-travelallowance)
-  * [Trip Data](#schema-tripdata)
-  * [Vendor](#schema-vendor)
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
 
 ## <a name="schema"></a>Schema
+
+* [Request](#schema-request)
+* [Amount](#schema-amount)
+* [ApprovalStatus](#schema-approvalstatus)
+* [Cash Advance](#schema-cashadvance)
+* [Cash Advance Approval Status](#schema-cashadvance-approvalstatus)
+* [Comments](#schema-comments)
+* [Customfield](#schema-customfield)
+* [Employee](#schema-employee)
+* [Exceptions](#schema-exceptions)
+* [Exception Source](#schema-exceptionsource)
+* [Link](#schema-link)
+* [List of Request](#schema-listofrequest)
+* [List of Request Policies](#schema-requestpolicylist)
+* [Location](#schema-location)
+* [ResourceLink](#schema-resourcelink)
+* [RequestLink](#schema-requestlink)
+* [Request Policy](#schema-requestpolicy)
+* [Request Type](#schema-requesttype)
+* [Expected Expense](#schema-expected-expense)
+* [Allocation](#schema-allocation)
+* [Exchange Rate](#schema-exchangerate)
+* [Expense Type](#schema-expensetype)
+* [List Item Field](#schema-listitemfield)
+* [Segment Leg](#schema-segmentleg)
+* [Segment Type](#schema-segmenttype)
+* [Travel Agency](#schema-travelagency)
+* [Travel Allowance](#schema-travelallowance)
+* [Trip Data](#schema-tripdata)
+* [Vendor](#schema-vendor)
 
 ### <a name="schema-request"></a>Request
 
 Name|Type|Format|Description
 ---|---|---|---
-approvalLimitDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|The date by which the Request must be approved. This element appears only when integrated with Concur Travel
-approvalStatus|object|[Approval Status](#schema-approvalstatus)|The approval status of the Request|
-approved|boolean|-|Indicates whether this Request is approved
-authorizedDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|For approved Request, the date at which the approval process was completed
-businessPurpose|string|-|The business purpose of the Request
-canceledPostApproval|boolean|-|Indicates whether this Request was canceledPostApproval
-closed|boolean|-|Indicates whether this Request is closed
-comment|string|-|The last comment attached to this Request
-comments|object|[ResourceLink](#schema-resourcelink)|The list of comments for this Request
-creationDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|The date the Request was created
-custom1 to custom20|object|[CustomField](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration
-endDate|date|[ISO 8601] yyyy-MM-dd|The end date of the Request
-endTime|time|[ISO 8601] yyyy-MM-dd|The end time of the Request
-everSentBack|boolean|-|Indicates whether the Request has ever been sent back to the employee
-expenses|array|[ResourceLink](#schema-resourcelink)|Expected expenses attached to this Request
-extensionOf|object|[RequestLink](#schema-requestlink)|The Request that this Request is an extension of, or addendum to
-href|string|[RFC 3986]|Hyperlink to the resource for this Request
-id|string|-|The unique identifier of the Request
-lastModified|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|The date the Request was last modified
-mainDestination|object|[Location](#location)|The main destination of the Request
-name|string|-|The name of the Request
-owner|object|[Employee](#schema-employee)|The employee who owns the Request
-pendingApproval|boolean|-|Indicates whether this Request is pending approval
-policy|object|[ResourceLink](#schema-resourcelink)|The policy that applies to the Request
-requestId|string|4 to 6 alphanumeric characters|The public key of the Request (unique per customer)
-startDate|date|[ISO 8601] yyyy-MM-dd|The start date of the Request
-startTime|time|[ISO 8601] yyyy-MM-dd|The start time of the Request
-submitDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|The date the Request was submitted (last submit date in case of recall)
-totalApprovedAmount|object|[Amount](#amount)|The total amount of approved expected expenses in the Request, expressed in the reimbursement currency of the employee at the time they created the Request
-totalPostedAmount|object|[Amount](#amount)|The total amount of the Request, expressed in the reimbursement currency of the employee at the time they created the Request
-totalRemainingAmount|object|[Amount](#amount)|The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time they created the Request
-travelAgency|object|[ResourceLink](#schema-resourcelink)|The travel agency office that is managing the trip associated to this Request
-operations|array|[Link](#schema-link)|Links to operations available for the Request, depends on the current workflow status
-type|object|[RequestType](#schema-requesttype)|The type of the Request, inherited from the Request Policy Type
+`approvalLimitDate`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|The date by which the Request must be approved. This element appears only when integrated with Concur Travel.
+`approvalStatus`|`object`|[`Approval Status`](#schema-approvalstatus)|The approval status of the Request.
+`approved`|`boolean`|-|Indicates whether this Request is approved.
+`approver`|`object`|[`Employee`](#schema-employee)|The approver to whom the Request was sent.
+`authorizedDate`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|For approved Request, the date at which the approval process was completed.
+`businessPurpose`|`string`|-|The business purpose of the Request.
+`canceledPostApproval`|`boolean`|-|Indicates whether this Request was `canceledPostApproval`.
+`cashAdvances`|`object`|[`ResourceLink`](#schema-resourcelink)|The list of cash advances for this Request.
+`closed`|`boolean`|-|Indicates whether this Request is closed.
+`comment`|`string`|-|The last comment attached to this Request.
+`comments`|`object`|[`ResourceLink`](#schema-resourcelink)|The list of comments for this Request.
+`creationDate`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|The date the Request was created.
+`custom1` to `custom20`|`object`|[`CustomField`](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration.
+`endDate`|`date`|[ISO 8601] `yyyy-MM-dd`|The end date of the Request.
+`endTime`|`time`|[ISO 8601] `yyyy-MM-dd`|The end time of the Request.
+`everSentBack`|`boolean`|-|Indicates whether the Request has ever been sent back to the employee.
+`exceptions`|`object`|[`ResourceLink`](#schema-resourcelink)|The list of exceptions that have been raised to this Request.
+`expenses`|`array`|[`ResourceLink`](#schema-resourcelink)|Expected expenses attached to this Request.
+`extensionOf`|`object`|[`RequestLink`](#schema-requestlink)|The Request that this Request is an extension of, or addendum to.
+`highestExceptionLevel`|`string`|-|The highest level of exception contained in this Request. Supported values: `WARNING`, `ERROR`, and `NONE`
+`href`|`string`|[RFC 3986]|Hyperlink to the resource for this Request.
+`id`|`string`|-|The unique identifier of the Request.
+`lastModified`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|The date the Request was last modified.
+`mainDestination`|`object`|[`Location`](#location)|The main destination of the Request.
+`name`|`string`|-|The name of the Request.
+`owner`|`object`|[`Employee`](#schema-employee)|The employee who owns the Request.
+`pendingApproval`|`boolean`|-|Indicates whether this Request is pending approval.
+`policy`|`object`|[`ResourceLink`](#schema-resourcelink)|The policy that applies to the Request.
+`requestId`|`string`|4 to 6 alphanumeric characters|The public key of the Request (unique per customer).
+`startDate`|`date`|[ISO 8601] `yyyy-MM-dd`|The start date of the Request.
+`startTime`|`time`|[ISO 8601] `yyyy-MM-dd`|The start time of the Request.
+`submitDate`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|The date the Request was submitted (last submit date in case of recall).
+`totalApprovedAmount`|`object`|[`Amount`](#amount)|The total amount of approved expected expenses in the Request, expressed in the reimbursement currency of the employee at the time they created the Request.
+`totalPostedAmount`|`object`|[`Amount`](#amount)|The total amount of the Request, expressed in the reimbursement currency of the employee at the time they created the Request.
+`totalRemainingAmount`|`object`|[`Amount`](#amount)|The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time they created the Request.
+`travelAgency`|`object`|[`ResourceLink`](#schema-resourcelink)|The travel agency office that is managing the trip associated to this Request.
+`operations`|`array`|[`Link`](#schema-link)|Links to operations available for the Request, depends on the current workflow status.
+`type`|`object`|[`RequestType`](#schema-requesttype)|The type of the Request, inherited from the Request Policy Type.
 
 ### <a name="schema-amount"></a>Amount
 
 Name|Type|Format|Description
 ---|---|---|---
-value|number|-|**Required** The amount in the defined currency
-currency|string|[ISO 4217:2015]|**Required** The 3-letter ISO 4217 code for the currency in which the amount is expressed
+`value`|`number`|-|**Required** The amount in the defined currency.
+`currency`|`string`|[ISO 4217:2015]|**Required** The 3-letter ISO 4217 code for the currency in which the amount is expressed.
 
 ### <a name="schema-approvalstatus"></a>Approval Status
 
 Name|Type|Format|Description
 ---|---|---|---
-code|string|-|The code for the approval status the Request. <br>Possible values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED` or `SENTBACK`
-name|string|-|The approval status of the Request in the current user's language
+`code`|`string`|-|The code for the approval status of the Request. Supported values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED`, or `SENTBACK`
+`name`|`string`|-|The approval status of the Request in the current user's language.
+
+### <a name="schema-cashadvance"></a>Cash Advance
+
+Name|Type|Format|Description
+---|---|---|---
+`amountRequested`|`object`|[`Amount`](#schema-amount)|The amount of the cash advance in the Request, expressed in the reimbursement currency of the employee at the time they created the cash advance.
+`approvalStatus`|`object`|[`Cash Advance Approval Status`](#schema-cashadvance-approvalstatus)|The approval status of the cash advance.
+`cashAdvanceId`|`string`|-|The unique identifier of the cash advance.
+`comment`|`string`|-|The last comment related to this cash advance.
+`exchangeRate`|`object`|[`Exchange Rate`](#schema-exchangerate)|The exchange rate that applies to the cash advance.
+`issueDate`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS`|The date the cash advance was issued.
+`requestDate`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS`|The date the cash advance was submitted (last submit date in case of recall).
+
+### <a name="schema-cashadvance-approvalstatus"></a>Cash Advance Approval Status
+
+Name|Type|Format|Description
+---|---|---|---
+`code`|`string`|-|The code for the approval status of the cash advance. Supported values: `C_PEND`, `C_APPR`, `C_COMP`, `C_FILE`, `C_ISSU`, `C_NISU`, `C_NOTF`, `C_PECA`, or `C_REJE`
+`name`|`string`|-|The approval status of the cash advance in the current user's language.
 
 ### <a name="schema-comments"></a>Comments
 
 Name|Type|Format|Description
 ---|---|---|---
-author|object|[Employee](#schema-employee)|The employee who has created the comment in the expected expense
-creationDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS|Creation date of the comment
-isLatest|boolean|-|True when the comment has been edited since the last workflow transition
-value|string|-|The value of the comment
+`author`|`object`|[`Employee`](#schema-employee)|The employee who has created the comment in the expected expense.
+`creationDate`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS`|Creation date of the comment.
+`isLatest`|`boolean`|-|If `true`, the comment has been edited since the last workflow transition.
+`value`|`string`|-|The value of the comment.
 
 ### <a name="schema-customfield"></a>CustomField
 
 Name|Type|Format|Description
 ---|---|---|---
-code|string|-|The short code for the list item. For non-list fields, this value will be blank
-value|string|-|The value of the non-list item. For list fields, this is the unique id of the item
-listItemId|string|-|The unique id of the item in case of a list field
-href|string|-|The link to get this list item on the list service. Empty for non-list items
+`code`|`string`|-|The short code for the list item. For non-list fields, this value will be blank.
+`value`|`string`|-|The value of the non-list item. For list fields, this is the unique id of the item.
+`href`|`string`|-|The link to get this list item on the list service. Empty for non-list items.
+
+To fill in a custom list item for the creation of a Request or an Expected Expense, clients may use one of the following:
+
+* Use the copy down configuration feature to update custom fields from the Employee profile to the Request header, and from the Request header to the Expected expense.
+* For a limited number of list items that are part of a custom field, a Request containing those values in the related custom fields may be manually created. The list item unique id will then be retrieved by calling the get detail of this Request. The same process is used for all list items values of the list.
 
 ### <a name="schema-employee"></a>Employee
 
 Name|Type|Format|Description
 ---|---|---|---
-firstName|string|-|The first name of the employee
-href|string|[RFC 3986]|Hyperlink to the resource
-id|string|[RFC 4122]|Unique identifier of the related object
-lastName|string|-|The last name of the employee
-middleInitial|string|-|The middle initial of the employee
-template|string|-|Hyperlink template to the resource
+`firstName`|`string`|-|The first name of the employee.
+`href`|`string`|[RFC 3986]|Hyperlink to the resource.
+`id`|`string`|[RFC 4122]|Unique identifier of the related object.
+`lastName`|`string`|-|The last name of the employee.
+`middleInitial`|`string`|-|The middle initial of the employee.
+`template`|`string`|-|Hyperlink template to the resource.
+
+### <a name="schema-exceptions"></a>Exceptions
+
+Name|Type|Format|Description
+---|---|---|---
+`code`|`string`|-|The system exception code defined for the exception. Example: `BADCODE`
+`isBlocking`|`boolean`|-|Defines whether the exception will prevent the Request from being submitted.
+`level`|`integer`|-|The numeric level associated with the exception. Example: `99`
+`message`|`string`|-|The user facing message defined for the exception.
+`source`|`array`|[`Exception source`](#schema-exceptionsource)|The source that has raised the exception.
+`parameters`|`map`|`missingFields`: array of missing field labels<br>`missingFieldsIds`: array of missing field ids|For missing fields exceptions, additional values giving more label and ids of the missing fields. Example : ```parameters : {  "missingFields" : ["Request Name", "Purpose"], "missingFieldsIds" : [ "Name", "Purpose" ] }```
+
+### <a name="schema-exceptionsource"></a>Exception Source
+
+Name|Type|Format|Description
+---|---|---|---
+`href`|`string`|[RFC 3986]|Hyperlink to the resource.
+`id`|`string`|[RFC 4122]|Unique identifier of the source.
+`type`|`string`|-|Defines the type of the source. Supported values: `ALLOCATION`, `CASH_ADVANCE`, `EXPENSE`, and `HEADER`
 
 ### <a name="schema-link"></a>Link
 
 Name|Type|Format|Description
 ---|---|---|---
-rel|string|[RFC 5988]|Relation type as defined by the server. There are registered relation types listed in RFC 5988 6.2.2. Initial Registry Contents including pagination relation types of next, prev, first and last
-href|string|[RFC 3986]|Hyperlink to the resource
+`rel`|`string`|[RFC 5988]|Relation type as defined by the server. There are registered relation types listed in RFC 5988 6.2.2. Initial Registry Contents including pagination relation types of next, prev, first and last.
+`href`|`string`|[RFC 3986]|Hyperlink to the resource.
 
 ### <a name="schema-listofrequest"></a>List of Request
 
 Name|Type|Format|Description
 ---|---|---|---
-data|array|[Request](#schema-request)|List of Requests in the page requested
-operations|array|[Link](#schema-link)|Links to next, prev, first and last pages
+`data`|`array`|[`Request`](#schema-request)|List of Requests in the page requested.
+`operations`|`array`|[Link](#schema-link)|Links to next, prev, first and last pages.
 
 ### <a name="schema-requestpolicylist"></a>List of Request Policies
 
 Name|Type|Format|Description
 ---|---|---|---
--|array|[Request Policy](#schema-requestpolicy)|List of active Requests policies for a given user
+-|`array`|[`Request Policy`](#schema-requestpolicy)|List of active Requests policies for a given user.
 
 ### <a name="schema-location"></a>Location
 
 Name|Type|Format|Description
 ---|---|---|---
-countryCode|string|[ISO 3166-1]|The ISO 3166-1 country code
-countrySubDivisionCode|string|[ISO 3166-2]|The ISO 3166-2 country sub code
-city|string|-|The city name of the location
-iataCode|string|-|The IATA code of the location
-name|string|-|The name of the location
+`city`|`string`|-|**Required if `city` is used** The city name of the location.
+`countryCode`|`string`|[ISO 3166-1]|**Required if `city` is used** The ISO 3166-1 country code.
+`countrySubDivisionCode`|`string`|[ISO 3166-2]|The ISO 3166-2 country sub code.
+`iataCode`|`string`|-|The IATA code of the location.
+`id`|`string`|-|The id of the location.
+`latitude`|`number`|-|The latitude of the location.
+`locationCode`|`string`|-|**Required if `rail` is used** The code of the location.
+`locationType`|`string`|-|**Required if `rail` is used** The type of the location.
+`longitude`|`number`|-|The longitude of the location.
+`name`|`string`|-|**Required for rail station** The name of the location.
+
+Below are the different node expected in the POST endpoints by location type (City, Rail station, or Airport) - example for `endLocation` field:
+
+Airport
+```json
+"endLocation": {
+       "city": "Moscow",
+       "name": "Sheremetyevo",
+       "countryCode": "RU",
+       "iataCode": "SOV"
+}
+```
+
+City
+```json
+"endLocation": {
+       "city": "Vienna",
+       "countryCode": "AT"
+}
+```
+
+Rail station (`locationCode` exists, `locationType` depends of rail provider)
+```json
+"endLocation": {
+       "name": "MARSEILLE ST CHARLES",
+       "countryCode": "FR",
+       "locationCode": "FRMSC",
+       "locationType": "RAIL_2C"
+}
+```
+Location types for Rail :
+
+Location Type|Railway company
+---|---
+`RAIL_0Z`|Swiss Federal Railways
+`RAIL_2A`|Deutsche Bahn AG
+`RAIL_2C`|SNCF
+`RAIL_2H`|Thalys International
+`RAIL_2R`|VIA Rail Canada Inc.
+`RAIL_2V`|Amtrak
+`RAIL_9F`|Eurostar International Limited
+`RAIL_XH`|China Railway
+`RAIL_Z0`|UK Rail
+`STD`|Standard rail locations
+
 
 ### <a name="schema-resourcelink"></a>ResourceLink
 
 Name|Type|Format|Description
 ---|---|---|---
-href|string|[RFC 3986]|Hyperlink to the resource
-id|string|[RFC 4122]|Unique identifier of the related object
-template|string|-|Hyperlink template to the resource
+`href`|`string`|[RFC 3986]|Hyperlink to the resource.
+`id`|`string`|[RFC 4122]|Unique identifier of the related object.
+`template`|`string`|-|Hyperlink template to the resource.
 
 ### <a name="schema-requestlink"></a>RequestLink
 
 Name|Type|Format|Description
 ---|---|---|---
-requestId|string|4 to 6 alphanumeric characters|The public key of the Request (unique per customer)
+`requestId`|`string`|4 to 6 alphanumeric characters|The public key of the Request (unique per customer).
 
 ### <a name="schema-requestpolicy"></a>Request Policy
 
 Name|Type|Format|Description
 ---|---|---|---
-href|string|[RFC 3986]|Hyperlink to the resource for this Request policy
-id|string|-|The Request policy unique identifier
-name|string|-|The name of the Request policy
+`href`|`string`|[RFC 3986]|Hyperlink to the resource for this Request policy.
+`id`|`string`|-|The Request policy unique identifier.
+`name`|`string`|-|The name of the Request policy.
 
 ### <a name="schema-requesttype"></a>Request Type
 
 Name|Type|Format|Description
 ---|---|---|---
-code|string|-|The code of the type inherited from the Request Policy type
-label|string|-|The label of the type inherited from the Request Policy Type
+`code`|`string`|-|The code of the type inherited from the Request Policy type.
+`label`|`string`|-|The label of the type inherited from the Request Policy Type.
 
 ### <a name="schema-expected-expense"></a>Expected Expense
 
 Name|Type|Format|Description
 ---|---|---|---
-allocations|object|[Allocation](#schema-allocation)|The details of the allocations for this expected expense.
-approvedAmount|object|[Amount](#schema-amount)|The approved amount of the expected expense entry, in the transaction currency of the Request
-budgetAccrualDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|The date to determine which budgets are affected
-businessPurpose|string|-|The business purpose of the Request entry
-comments|object|[ResourceLink](#schema-resourcelink)|The list of comments for this expected expense
-custom1 to custom40|object|[CustomField](#schema-customfield)|The details from the Custom fields. <br>These fields may not have data, depending on the configuration
-exchangeRate|object|[Exchange Rate](#schema-exchangerate)|The exchange rate that applies to the entry
-expenseType|object|[Expense Type](#schema-expensetype)|The expense type of the entry. <br>**Required** for expected expenses, automatically set for segments depending on the SegmentType code.
-href|string|[RFC 3986]|Hyperlink to the resource for this Request entry
-id|string|-|The unique identifier of the expected expense entry
-lastComment|string|-|The last comment (most recent) of the expected expense entry
-lastModifiedDate|timestamp|[RFC 3339]|The date when this expected expense was last modified
-location|object|[Location](#schema-location)|The location of the expected expense entry
-orgUnit1 to orgUnit6|object|[Amount](#amount)|The details from the Custom fields. <br>These fields may not have data, depending on the configuration
-postedAmount|object|[Amount](#schema-amount)|The posted amount of the expected expense entry, in the transaction currency of the Request
-remainingAmount|object|[Amount](#schema-amount)|The remaining amount of the expected expense entry, in the transaction currency of the Request
-source|enum|-|The source that created the expected expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. <br>This field will be empty in any other case
-transactionAmount|object|[Amount](#schema-amount)|**Required** The amount of the expected expense entry, in the transaction currency paid to the vendor
-transactionDate|timestamp|[RFC 3339] yyyy-MM-dd'T'HH:mm:ss.SSS'Z'|**Required** The date of the transaction
-travelAllowance|object|[Travel Allowance](#schema-travelallowance)|The Travel allowance
-tripData|object|[Trip Data](#schema-tripdata)|The description of the trip
-vendor|object|[Vendor](#schema-vendor)|The vendor of the expected expense entry
+`allocations`|`object`|[`Allocation`](#schema-allocation)|The details of the allocations for this expected expense.
+`approvedAmount`|`object`|[`Amount`](#schema-amount)|The approved amount of the expected expense entry, in the transaction currency of the Request.
+`budgetAccrualDate`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|The date to determine which budgets are affected.
+`businessPurpose`|`string`|-|The business purpose of the Request entry.
+`comments`|`object`|[`ResourceLink`](#schema-resourcelink)|The list of comments for this expected expense.
+`custom1` to `custom40`|`object`|[`CustomField`](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration.
+`exchangeRate`|`object`|[`Exchange Rate`](#schema-exchangerate)|The exchange rate that applies to the entry.
+`expenseType`|`object`|[`Expense Type`](#schema-expensetype)|The expense type of the entry. **Required** for expected expenses, automatically set for segments depending on the `SegmentType` code.
+`href`|`string`|[RFC 3986]|Hyperlink to the resource for this Request entry.
+`id`|`string`|-|The unique identifier of the expected expense entry.
+`lastComment`|`string`|-|The last comment (most recent) of the expected expense entry.
+`lastModifiedDate`|`timestamp`|[RFC 3339]|The date when this expected expense was last modified.
+`location`|`object`|[`Location`](#schema-location)|The location of the expected expense entry.
+`orgUnit1` to `orgUnit6`|`object`|[`Amount`](#amount)|The details from the Custom fields. These fields may not have data, depending on the configuration.
+`postedAmount`|`object`|[`Amount`](#schema-amount)|The posted amount of the expected expense entry, in the transaction currency of the Request.
+`parentRequest`|`object`|[`ResourceLink`](#schema-resourcelink)|The parent Request of the expected expense.
+`remainingAmount`|`object`|[`Amount`](#schema-amount)|The remaining amount of the expected expense entry, in the transaction currency of the Request.
+`source`|`enum`|-|The source that created the expected expense. Supported values: `CASH_ADVANCE` or `TRAVEL_ALLOWANCE`. This field will be empty in any other case
+`transactionAmount`|`object`|[`Amount`](#schema-amount)|**Required** The amount of the expected expense entry, in the transaction currency paid to the vendor.
+`transactionDate`|`timestamp`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|**Required** The date of the transaction.
+`travelAllowance`|`object`|[`Travel Allowance`](#schema-travelallowance)|The Travel allowance.
+`tripData`|`object`|[`Trip Data`](#schema-tripdata)|The description of the trip.
+`vendor`|`object`|[`Vendor`](#schema-vendor)|The vendor of the expected expense entry.
 
 ### <a name="schema-allocation"></a>Allocation
 
 Name|Type|Format|Description
 ---|---|---|---
-allocationAmount|object|[Amount](#schema-amount)|The amount of the allocation calculated with the percentage value multiplied by the transaction amount on the expected expense. This amount is given in the transaction's currency and rounded to 8 decimals after decimal point.
-approvedAmount|object|[Amount](#schema-amount)|The amount of the allocation calculated with the percentage value multiplied by the approved amount on the expected expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
-allocationId|string|-|The unique allocation identifier
-custom1 to custom20|object|[CustomField](#schema-customfield)|The details from the Custom fields. <br>These fields may not have data, depending on the configuration
-expenseId|string|-|The unique identifier of the expected expense associated with the allocation
-percentEdited|boolean|-|Whether the allocation percent has been edited
-percentage|number|-|The percentage of the total expected expense that this allocation represents
-postedAmount|object|[Amount](#amount)|The amount of the allocation calculated with the percentage value multiplied by the posted amount on the expected expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
-systemAllocation|boolean|-|Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only
+`allocationAmount`|`object`|[`Amount`](#schema-amount)|The amount of the allocation calculated with the percentage value multiplied by the transaction amount on the expected expense. This amount is given in the transaction's currency and rounded to eight digits after the decimal point.
+`approvedAmount`|`object`|[`Amount`](#schema-amount)|The amount of the allocation calculated with the percentage value multiplied by the approved amount on the expected expense. This amount is given in the user's currency and rounded to eight digits after the decimal point.
+`allocationId`|`string`|-|The unique allocation identifier.
+`custom1` to `custom20`|`object`|[`CustomField`](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration.
+`expenseId`|`string`|-|The unique identifier of the expected expense associated with the allocation.
+`percentEdited`|`boolean`|-|Whether the allocation percent has been edited.
+`percentage`|`number`|-|The percentage of the total expected expense that this allocation represents.
+`postedAmount`|`object`|[`Amount`](#amount)|The amount of the allocation calculated with the percentage value multiplied by the posted amount on the expected expense. This amount is given in the user's currency and rounded to eight digits after the decimal point.
+`systemAllocation`|`boolean`|-|Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only.
 
 ### <a name="schema-exchangerate"></a>Exchange Rate
 
 Name|Type|Format|Description
 ---|---|---|---
-operation|string|-|Exchange rate operation. Possible values are: `MULTIPLY` or `DIVIDE`
-value|number|-|Exchange rate value
+`operation`|`string`|-|Exchange rate operation. Supported values: `MULTIPLY`, `DIVIDE`
+`value`|`number`|-|Exchange rate value.
 
 ### <a name="schema-expensetype"></a>Expense Type
 
 Name|Type|Format|Description
 ---|---|---|---
-id|string|-|**Required** Unique identifier of the expense type
-name|string|-|Name of the expense type
+`id`|`string`|-|**Required** Unique identifier of the expense type.
+`name`|`string`|-|Name of the expense type.
 
 ### <a name="schema-listitemfield"></a>List Item Field
 
 Name|Type|Format|Description
 ---|---|---|---
-code|string|-|The short code of the list item
-value|string|-|Unique identifier of the list item
-href|string|[RFC 3986]|Hyperlink to the resource for the list item
+`code`|`string`|-|The short code of the list item.
+`value`|`string`|-|Unique identifier of the list item.
+`href`|`string`|[RFC 3986]|Hyperlink to the resource for the list item.
 
 ### <a name="schema-segmentleg"></a>Segment Leg
 
 Name|Type|Format|Description
 ---|---|---|---
-class|list|[List Item Field](#schema-listitemfield)|The booking class of the segment leg.
-classOfService|string|-|The class of service of the segment leg. For example, in the case of an air segment, this field would contain the one-letter booking code: Y for economy class, or F for first class...
-comment|string|-|Contains the last comment saved in this segment leg.
-custom1 to custom40|object|[CustomField](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration
-endDate|date|[ISO 8601] YYYY-MM-DD|The date of the end of this segment leg. It represents the arrival date of AIRFR and TRAIN segments, check out date for HOTEL or drop off for CARRT
-endLocation|object|[ResourceLink](#schema-resourcelink)|The location where this segment leg arrives. This would be the arrival location for an air segment for example.
-endLocationDetail|string|-|Details about the end location. This would contain details about the name of a hotel, or some details about a car rental agency for example.
-endTime|time|[ISO 8601] HH:MM|The time for the end of this segment leg
-id|string|-|The unique identifier of the segment leg
-returnLeg|boolean|-|Indicates whether this leg is the return leg of a round trip. In case of a ROUND_TRIP, if not explicitly set, the second segment leg will be considered as the return leg.
-startDate|date|[ISO 8601] YYYY-MM-DD|The date of the beginning of this segment leg
-startLocation|object|[ResourceLink](#schema-resourcelink)|The start location of this segment leg. This would be the departure location for an air segment for example.
-startLocationDetail|string|-|Details about the start location. This would contain details about the name of a hotel, or some details about a car rental agency for example.
-startTime|time|[ISO 8601] HH:MM|The time for the beginning of this segment leg
-segmentLocator|string|-|This is the identifier for ConcurTravel segments (if applicable)
-vendorName|string|-|Contains the vendor description of the segment leg.
+`class`|`list`|[`List Item Field`](#schema-listitemfield)|The booking class of the segment leg.
+`classOfService`|`string`|-|The class of service of the segment leg. For example, in the case of an air segment, this field would contain the one-letter booking code: `Y` for economy class, or `F` for first class.
+`comment`|`string`|-|Contains the last comment saved in this segment leg.
+`custom1` to `custom40`|`object`|[`CustomField`](#schema-customfield)|The details from the Custom fields. These fields may not have data, depending on the configuration.
+`endDate`|`date`|[ISO 8601] `YYYY-MM-DD`|The date of the end of this segment leg. It represents the arrival date of `AIRFR` and `TRAIN` segments, check out date for `HOTEL`, or drop off for `CARRT`.
+`endLocation`|`object`|[`ResourceLink`](#schema-resourcelink)|The location where this segment leg arrives. For example, the arrival location for an air segment.
+`endLocationDetail`|`string`|-|Details about the end location. This would contain details about the name of a hotel, or some details about a car rental agency for example.
+`endTime`|`time`|[ISO 8601] `HH:MM`|The time for the end of this segment leg.
+`id`|`string`|-|The unique identifier of the segment leg.
+`returnLeg`|`boolean`|-|Indicates whether this leg is the return leg of a round trip. In case of a `ROUND_TRIP`, if not explicitly set, the second segment leg will be considered as the return leg.
+`startDate`|`date`|[ISO 8601] `YYYY-MM-DD`|The date of the beginning of this segment leg.
+`startLocation`|`object`|[`ResourceLink`](#schema-resourcelink)|The start location of this segment leg. This would be the departure location for an air segment for example.
+`startLocationDetail`|`string`|-|Details about the start location. This would contain details about the name of a hotel, or some details about a car rental agency for example.
+`startTime`|`time`|[ISO 8601] `HH:MM`|The time for the beginning of this segment leg.
+`segmentLocator`|`string`|-|This is the identifier for Concur Travel segments (if applicable).
+`vendorName`|`string`|-|Contains the vendor description of the segment leg.
 
 ### <a name="schema-segmenttype"></a>Segment Type
 
 Name|Type|Format|Description
 ---|---|---|---
-category|enum|-|Describes the category of this segment type. Possible values are: `REQ_SEG_AIRFR`, `REQ_SEG_CARRT`, `REQ_SEG_HOTEL`, `REQ_SEG_LIMOF`, `REQ_SEG_RAILF`, `REQ_SEG_TAXIF`, `REQ_SEG_MISC`, `REQ_SEG_PARKG`, `REQ_SEG_DININ`, `REQ_SEG_EVENT`
-code|string|-|**Required** The code of the segment type. Possible values are: `AIRFR`, `CARRT`, `HOTEL`, `LIMOF`, `RAILF`, `TAXIF`, `MISC`, `PARKG`, `DININ`, `EVENT` or custom codes
+`category`|`enum`|-|Describes the category of this segment type. Supported values: `REQ_SEG_AIRFR`, `REQ_SEG_CARRT`, `REQ_SEG_HOTEL`, `REQ_SEG_LIMOF`, `REQ_SEG_RAILF`, `REQ_SEG_TAXIF`, `REQ_SEG_MISC`, `REQ_SEG_PARKG`, `REQ_SEG_DININ`, `REQ_SEG_EVENT`
+`code`|`string`|-|**Required** The code of the segment type. Supported values: `AIRFR`, `CARRT`, `HOTEL`, `LIMOF`, `RAILF`, `TAXIF`, `MISC`, `PARKG`, `DININ`, `EVENT` or custom codes
 
-It can be REQ_SEG_AIRFR / AIRFR for a regular air segment, or REQ_SEG_AIRFR / 10325 for a custom air segment.
+It can be `REQ_SEG_AIRFR` / `AIRFR` for a regular air segment, or `REQ_SEG_AIRFR` / `10325` for a custom air segment.
 
 Example:
 
@@ -281,30 +392,30 @@ Example:
 
 Name|Type|Format|Description
 ---|---|---|---
-emailAddress|string|-|The travel agency email address
-id|string|-|The travel agency unique identifier
-name|string|-|The travel agency office name
-proposalType|string|-|The travel agency proposal type. Possible value: `CWTF`, `AEBT` or `API`
+`emailAddress`|`string`|-|The travel agency email address.
+`id`|`string`|-|The travel agency unique identifier.
+`name`|`string`|-|The travel agency office name.
+`proposalType`|`string`|-|The travel agency proposal type. Supported values: `CWTF`, `AEBT`, `API`
 
 ### <a name="schema-travelallowance"></a>Travel Allowance
 
 Name|Type|Format|Description
 ---|---|---|---
-dailyTravelAllowanceId|string|-|The fixed daily travel allowance id associated with the expected expense
+`dailyTravelAllowanceId`|`string`|-|The fixed daily travel allowance id associated with the expected expense.
 
 ### <a name="schema-tripdata"></a>Trip Data
 
 Name|Type|Format|Description
 ---|---|---|---
-agencyBooked|boolean|-|True if this travel is (or has to be) handled by a travel agency
-legs|list|[Segment Leg](#schema-segmentleg)|The list of the legs of the travel
-tripType|string|-|Indicates the type of this trip. Should be one of `ONE_WAY`, `ROUND_TRIP` or `MULTI_STOPS`. If not provided, will be detected from the given legs.
-segmentType|object|[Segment Type](#schema-segmenttype)|**Required** The type of the segment
-selfBooked|boolean|-|True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS
+`agencyBooked`|`boolean`|-|If `true`, this travel is (or has to be) handled by a travel agency.
+`legs`|`list`|[`Segment Leg`](#schema-segmentleg)|The list of the legs of the travel.
+`tripType`|`string`|-|Indicates the type of this trip. Supported values: `ONE_WAY`, `ROUND_TRIP`, or `MULTI_STOPS`. If not provided, will be detected from the given legs.
+`segmentType`|`object`|[`Segment Type`](#schema-segmenttype)|**Required** The type of the segment.
+`selfBooked`|`boolean`|-|If `true`, this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS.
 
 ### <a name="schema-vendor"></a>Vendor
 
 Name|Type|Format|Description
 ---|---|---|---
-id|string|-|The vendor identifier of the entry
-name|string|-|The vendor description of the entry
+`id`|`string`|-|The vendor identifier of the entry.
+`name`|`string`|-|The vendor description of the entry.

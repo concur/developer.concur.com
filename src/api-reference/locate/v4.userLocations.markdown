@@ -1,5 +1,5 @@
 ---
-title: User Locations V4
+title: User Locations v4
 layout: reference
 ---
 
@@ -8,36 +8,55 @@ layout: reference
 # User Locations
 
 * [Overview](#overview)
-* [Prerequisites](#prerequisites)
-* [Service Details](#serviceDetails)
-* [Regional Availability](#regionalAvailability)
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [POST](#post)
 * [Schema](#schema)
   * [Client](#client)
   * [Users](#users)
   * [Locations](#locations)
-  * [Source Partner](#sourcePartner)
+  * [Source Partner](#source-partner)
   * [Transaction](#transaction)
-* [Request Headers](#requestHeaders)
-* [Response Headers](#responseHeaders)
-* [Status Codes](#statusCodes)
-* [Example](#example)
+* [Examples](#example)
 
-## Overview
+## <a name="overview"></a>Overview
 
-The goal of this API is to allow customers and 3rd party vendors to add their traveler's location data to Concur Locate so it can be utilized locate and contact travelers to address their duty of care requirements.
+The goal of this API is to allow customers and third party vendors to add their traveler's location data to Concur Locate so it can be utilized locate and contact travelers to address their duty of care requirements.
 
 This API supports POST only.
 
-## Prerequisites
+> **Limitations**: This API is available only in the North America and EMEA Data Centers.
 
-1. [Obtain a client ID, secret and sandbox environment](/manage-apps/partner-applications.html) if you don't already have one.
-2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
-3. This API supports all valid authorization tokens, specifically those with the client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
+## <a name="products-editions"></a>Products and Editions
 
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+* Concur Travel Professional Edition
+* Concur Travel Standard Edition
 
-## Service Details
- The service is a POST call adhering to the following steps:
- 
+## <a name="scope-usage"></a>Scope Usage
+
+Required Scopes:
+
+Name|Description|Endpoint
+---|---|---
+`locate.location.read`|Get user location information.|POST
+`locate.location.write`|Post user location information.|POST
+
+## <a name="dependencies"></a>Dependencies
+
+None.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports company level access tokens.
+
+## <a name="post"></a>POST Endpoint
+
+The service is a POST call adhering to the following steps:
+
 * Vendor onboarding has been completed prior to invoking the API. All the authentication and authorization credentials have been set up at this point.
 * Third party vendors invoke the User Location API using the client credentials (JWT)
 * Since the new service is registered with API gateway, the call is intercepted by the API Gateway and basic authentication and authorization for the given client credentials (JWT) is done
@@ -45,106 +64,25 @@ This API supports POST only.
 * If the checks pass, then the request is forwarded to the load balancer which routes the request to the appropriate node for processing
 * The selected node processes the request which is in JSON format. Validations are performed the data conversion takes place. If any of the validations fail, then the appropriate error response is returned to the client (HTTP 400 Bad Request / HTTP 403 Unauthorized)
 * If the validations pass, then the request is processed, and the data is persisted to the backend (DB) in the following ways:
-    * Direct persistence
-    * Persistence via queues
+   * Direct persistence
+   * Persistence via queues
 * If the persistence is successful, then an HTTP 200 OK is returned to the caller
 * If there are any issues with the persistence, then the appropriate codes are returned to the caller (HTTP 500 Application exception)
 * Note that the error messages are intentionally ambiguous to prevent exploitation
 
-## Regional Availability
+### Request
+
+#### URI
+
+##### Template
 
 ```
-https://us.api.concursolutions.com/locate/api/v4/user/locations
-```
-```
-https://emea.api.concursolutions.com/locate/api/v4/user/locations
+POST https://us.api.concursolutions.com//locate/api/v4/user/locations
 ```
 
-## Schema
+#### Headers
 
-_POST /locate/api/v4/user/locations_
-
-See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema.
-
-The user locations API includes users and itineraries (locations) in addition to information about the company and post type (add or cancel).
-
-Property Name|Type|Format|Description
----|---|---|---
-UserLocations|Object|JSON|**Required** Contains the Client, Users, Locations, Source Partner and Transaction.
-Client|Object|JSON|**Required** This indicates which entity within the organization the traveler belongs to.
-Users|Object|JSON|**Required** This is the users' information. This will be used to either create a new traveler or to match with an existing traveler.
-Locations|Object|JSON|**Required** This is the users' location information. Multiple locations can be passed for a single user.
-SourcePartner|Object|JSON|**Required** This is used to identify your application. This information will be provided to you in advance.
-Transaction|Object|JSON|**Required** Whether this transaction adds or cancels itineraries/locations.
-
-### Client
-
-This indicates which entity within the organization the traveler belongs to. This will vary by client. You will be provided with a list of the applicable agencies for each customer.
-
-Property Name|Values/Length|Type|Description
----|---|---|---
-Id|36|String|**Required**  Id: This maps to the top-level corporation
-firstSubLevel|36|String|This is the child corporation i.e one level below the top level corporation.
-secondSubLevel|36|String|This is the sub level of the child corporation (firstsublevel).
-
-### Users
-
-This information will be used to match or create a new user. Either login ID or email address must be provided. If an existing user is not found for the login ID or email, one will be created.                 
-
-Property Name|Values/Length|Type|Description
----|---|---|---
-visitorId|10|Long|**Required** This is a unique identifier for the user generated by your application.
-firstName|100|String| **Required** The first name of the user.
-lastName|100|String|**Required** The last name of the user.
-email|255|String|**Either email or concurLoginId must be provided**
-employeeId|19|String|Optional field to indicate the employee id of the user
-mobileCountryCode|4|String|Either ISO Alpha-2 code or International Calling Codes (4 digits). As a reference the full set can be found at [Country Codes](http://www.mcc-mnc.com/). 
-mobile|10|String|The contact number of the user
-optedIn|'True' / 'False'|String|Indicates if the user has chosen to receive messages via SMS or Text
-concurLoginId|128|String|**Either email or concurLoginId must be provided**
-affiliation|255|String|Used to indicate the type of traveler (e.g. employee, student, faculty)  
-
-### Locations
-
-This section includes information about the traveler's future or current location. Either the location latitude and longitude OR the IATA (airport) code must be present. If both are present, the latitude and longitude take precedence.
-
-Property Name|Values/Length|Type|Description
----|---|---|---
-locationId|-|String|Identifier of the travel location
-locationAddress|512|String|Address of the travel location
-locationName|100|String|Name of the travel location
-locationDescription|100|String|A short description of the travel location
-locationPhone|50|String|Contact details of the travel location
-locationLatitude|-|String|**Either the airport or latitude/longitude must be provided**
-locationLongitude|-|String|**Either the airport or latitude/longitude must be provided**
-locationIATACode|3|String|[IATA Airport Codes](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A) Either the airport or latitude/longitude must be provided.
-startDate|16|String (format YYYY-MM-DDTHH:MM)|**Required** Traveler's arrival date
-endDate|16|String (format YYYY-MM-DDTHH:MM)|**Required** Traveler's departure date
-timezoneId|60|String|**Required** As a reference the full set of timezones can be found at <http://joda-time.sourceforge.net/timezones.html>
-visitorID|10|-|This corresponds to the visitorId provided in the [Users](#users) schema.Ids present in this array must be present in the [Users](#users) schema.
-
-### Source partner
-
-This information will be provided to you along with your client ID and secret.
-
-Property Name|Values/Length|Type|Description
----|---|---|---
-Id|2|String|**Required** This will provide to clients similar to the Client ID
-name|100|String|The name of the source provider e.g Source Provider1
-description|100|String|A short description of the source provider
-
-### Transaction
-
-Itineraries can be added or cancelled. This section allows you to indicate whether this is an addition of a new itinerary or cancellation of an existing itinerary. A cancellation request is for canceling the itinerary completely in our system and if there are any updates to the existing itineraries then it needs to be resent using the same booking or transaction id.
-
-Property Name|Values/Length|Type|Description
----|---|---|---
-transactionId|5|String|**Required** This is a unique identifier generated by your application for the request.
-createdDate|16|String (format YYYY-MM-DDTHH:MM)|**Required**
-transactionType|10|**Required** 'Add' or 'Cancel'| Add is indicative of creating a new itinerary or updating an existing itinerary. Cancel means removing the itinerary. Cancel works only on future dated itineraries
-
-## Request Headers
-
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 * [RFC 7230 Host](https://tools.ietf.org/html/rfc7230#section-5.4)
 * [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
 * [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
@@ -153,15 +91,13 @@ transactionType|10|**Required** 'Add' or 'Cancel'| Add is indicative of creating
 * [RFC 7231 Referer](https://tools.ietf.org/html/rfc7231#section-5.5.2)
 * [RFC 7231 User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3)
 
-## Response Headers
+#### Payload
 
-* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
-* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
-* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
-* [RFC 7230 Transfer-Encoding](https://tools.ietf.org/html/rfc7230#section-3.3.1)
-* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)
+-
 
-## Status Codes
+### Response
+
+#### Status Codes
 
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
 * [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
@@ -169,14 +105,23 @@ transactionType|10|**Required** 'Add' or 'Cancel'| Add is indicative of creating
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
 
-Exceptions from the service will be mapped to one of the aforementioned
-error codes.
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7230 Transfer-Encoding](https://tools.ietf.org/html/rfc7230#section-3.3.1)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)
+
+#### Payload
+
+-
 
 ## Example
 
-
-### Mobile and Mobile Country Code valid combinations
-Example with Country code for South Africa (Country Code:ZA)
+### Mobile and Mobile Country Code Valid Combinations
+Example with country code for South Africa (country Code: ZA)
 
 Country Code|Mobile Number
 ---|---
@@ -186,15 +131,15 @@ JP|800122334
 
 * When `mobileCountryCode` is non-blank it will validate the mobile number against that country’s market. It will accept the country letters (in this case JP) or the country code (in this case 81)
 * When `mobileCountryCode` is blank, it will default to the client country (client id defined in the client section of the JSON)
-* Mobile is validated against the `mobileCountryCode` or default country (as mentioned in point 1 above) if this field is blank. When a mobile number is provided there are no issues as long as it follows the appropriate format and is a valid mobile in the country where it is registered. For e.g If the `mobileCountryCode` provided in the JSON is 81 (JP - Japan) then the subsequent mobile number must be valid in JP. 
+* Mobile is validated against the `mobileCountryCode` or default country (as mentioned in point 1 above) if this field is blank. When a mobile number is provided there are no issues as long as it follows the appropriate format and is a valid mobile in the country where it is registered. For e.g If the `mobileCountryCode` provided in the JSON is 81 (JP - Japan) then the subsequent mobile number must be valid in JP.
 * If the `mobileCountryCode` is not provided in the JSON and the client country is US then the mobile number provided must be valid in US because of the default behaviour mentioned above.
 * `mobileCountryCode` can be of the following two variants
     * A 2-letter ISO code (e.g US, JP, IT)
     * A 4 digit International Calling Code.
-    Please ensure that there are no special characters and spaces in the `mobile` or `mobileCountryCode` fields. Also ensure that the above limits and datatypes are strictly followed to prevent unwanted behaviour of the system. 
+    Please ensure that there are no special characters and spaces in the `mobile` or `mobileCountryCode` fields. Also ensure that the above limits and datatypes are strictly followed to prevent unwanted behaviour of the system.
 
 A new field `partiallyProcessedTransactions` is introduced in the response to cater to the following invalid mobile scenarios.
-    * Mobile number is not valid for the country derived based on details provided for traveller 
+    * Mobile number is not valid for the country derived based on details provided for traveller
     * A well formed mobile number could not be derived using the mobile provided
 
 ### Request
@@ -246,7 +191,7 @@ content-type: application/json
     },
     "partiallyProcessedTransactions": {
     }
-} 
+}
 ```
 
 ### Request
@@ -345,7 +290,7 @@ content-type: application/json
     },
     "partiallyProcessedTransactions": {
     }
-} 
+}
 ```
 
 ### Request
@@ -444,7 +389,7 @@ content-type: application/json
     },
     "partiallyProcessedTransactions": {
     }
-} 
+}
 ```
 
 ### Request
@@ -543,7 +488,7 @@ content-type: application/json
     "partiallyProcessedTransactions": {
         "ASDFGH": "Partially processed the transactions : [Incorrect mobile for [23] ]"
     }
-} 
+}
 ```
 
 ### Request
@@ -642,7 +587,82 @@ content-type: application/json
     },
     "partiallyProcessedTransactions": {
     }
-} 
+}
 ```
 
+## <a name="schema"></a>Schema
 
+Name|Type|Format|Description
+---|---|---|---
+`UserLocations`|`object`|[`UserLocations`](#user-locations)|**Required** Contains the `Client`, `Users`, `Locations`, `SourcePartner` and `Transaction`.
+`Client`|`object`|[`Client`](#client)|**Required** This indicates which entity within the organization the traveler belongs to.
+`Users`|`object`|[`Users`](#users)|**Required** This is the users' information. This will be used to either create a new traveler or to match with an existing traveler.
+`Locations`|`object`|[`Locations`](#locations)|**Required** This is the users' location information. Multiple locations can be passed for a single user.
+`SourcePartner`|`object`|[`SourcePartner`](#source-partner)|**Required** This is used to identify your application. This information will be provided to you in advance.
+`Transaction`|`object`|[`Transaction`](#transaction)|**Required** Whether this transaction adds or cancels itineraries/locations.
+
+### <a name="client"></a>Client
+
+This indicates which entity within the organization the traveler belongs to. This will vary by client. You will be provided with a list of the applicable agencies for each customer.
+
+Name|Type|Format|Description
+---|---|---|---
+`Id`|`string`|-|**Required** This maps to the top level corporation. Maximum length: 36
+`firstSubLevel`|`string`|-|This is the child corporation i.e one level below the top level corporation. Maximum length: 36
+`secondSubLevel`|`string`|-|This is the sub level of the child corporation (`firstsubleve`l). Maximum length: 36
+
+### <a name="users"></a>Users
+
+This information will be used to match or create a new user. Either login ID or email address must be provided. If an existing user is not found for the login ID or email, one will be created.
+
+Name|Type|Format|Description
+---|---|---|---
+`visitorId`|`long`|-|**Required** This is a unique identifier for the user generated by your application. Maximum length: 10
+`firstName`|`string`|-| **Required** The first name of the user. Maximum length: 100
+`lastName`|`string`|-|**Required** The last name of the user. Maximum length: 100
+`email`|`string`|-|**Either `email` or `concurLoginId` must be provided** Maximum length: 255
+`employeeId`|`string`|-|Optional field to indicate the employee ID of the user. Maximum length: 19
+`mobileCountryCode`|`string`|-|Either ISO Alpha-2 code or International Calling Codes (4 digits). Maximum length: 4
+`mobile`|`string`|-|The contact number of the user. Maximum length: 10
+`optedIn`|`boolean`|-|If `true`, indicates if the user has chosen to receive messages via SMS or text.
+`concurLoginId`|`string`|-|**Either `email` or `concurLoginId` must be provided**
+`affiliation`|`string`|-|Used to indicate the type of traveler (e.g. `employee`, `student`, `faculty`). Maximum length: 128  
+
+### <a name="locations"></a>Locations
+
+This section includes information about the traveler's future or current location. Either the location latitude and longitude or the IATA (airport) code must be present. If both are present, the latitude and longitude take precedence.
+
+Name|Type|Format|Description
+---|---|---|---
+`locationId`|`string`|-|Identifier of the travel location.
+`locationAddress`|`string`|-|Address of the travel location. Maximum length: 512
+`locationName`|`string`|-|Name of the travel location. Maximum length: 100
+`locationDescription`|`string`|-|A short description of the travel location. Maximum length: 100
+`locationPhone`|`string`|-|Contact details of the travel location. Maximum length: 50
+`locationLatitude`|`string`|-|**Either `locationIATACode` or `locationLatitude/locationLongitude` must be provided**
+`locationLongitude`|`string`|-|**Either `locationIATACode` or `locationLatitude/locationLongitude` must be provided**
+`locationIATACode`|`string`|-|**Either `locationIATACode` or `locationLatitude/locationLongitude` must be provided** The three character IATA airport code. Maximum length: 3
+`startDate`|`string`|`YYYY-MM-DDTHH:MM`|**Required** Traveler's arrival date. Maximum length: 16
+`endDate`|`string`|`YYYY-MM-DDTHH:MM`|**Required** Traveler's departure date. Maximum length: 16
+`timezoneId`|`string`|-|**Required** Maximum length: 60
+`visitorID`|`string`|-|This corresponds to the `visitorId` provided in the [`Users`](#users) schema. IDs present in this array must be present in the [`Users`](#users) schema. Maximum length: 10
+
+### <a name="source-partner"></a>Source Partner
+
+This information will be provided to you along with your client ID and secret.
+
+Name|Type|Format|Description
+---|---|---|---
+`Id`|`string`|-|**Required** This will provide to clients similar to the Client ID. Maximum length: 2
+`name`|`string`|-|The name of the source provider. Example: Source Provider1. Maximum length: 100
+`description`|`string`|-|A short description of the source provider. Maximum length: 100
+
+### <a name="transaction"></a>Transaction
+
+Itineraries can be added or cancelled. This section allows you to indicate whether this is an addition of a new itinerary or cancellation of an existing itinerary. A cancellation request is for canceling the itinerary completely in our system and if there are any updates to the existing itineraries then it needs to be resent using the same booking or transaction ID.
+
+Name|Type|Format|Description
+---|---|---|---
+`transactionId`|`string`|-|**Required** This is a unique identifier generated by your application for the request. Maximum length: 5
+`createdDate`|`string`|`YYYY-MM-DDTHH:MM`|**Required** Maximum length: 16
+`transactionType`|`string`|-|**Required** `Add` is indicative of creating a new itinerary or updating an existing itinerary. `Cancel` means removing the itinerary. `Cancel` works only on future dated itineraries. Supported values: `Add`, `Cancel`

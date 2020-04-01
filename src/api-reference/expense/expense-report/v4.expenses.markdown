@@ -1,0 +1,617 @@
+---
+title: Expenses v4
+layout: reference
+
+---
+
+The Expenses API can be used to read the expenses that belong to a specific expense report and modify an expense on an existing expense report. This API can be used to change attributes like transaction date, transaction amount, location, etc
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. 
+
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Retrieve expenses on a specific Report ID](#specific-report-expenses)
+* [Retrieve an Expense by ID](#retrieve-expense-entry) 
+* [Update an Expense](#update-expense-entry)
+* [Schema](#schema)
+  * [Expense Request](#expense-request-schema)
+  * [Expense Response](#expense-response-schema)
+  * [Error](#schema-error)
+  * [Validation Errors](#schema-validation-errors)
+
+## Prior Versions
+
+* Expense entry v1.1 (Deprecated) documentation is available [here](./api-reference/expense/expense-report/v1dot1.expense-entry.html)
+* Expense Entry v3 documentation is available [here](./expense-entry.html)
+
+## <a name="products-editions"></a>Products and Editions
+
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Required Scopes:
+
+| Name                       | Description                                   | Endpoint |
+| -------------------------- | --------------------------------------------- | -------- |
+| `expense.report.read`      | Get information about expense reports         | GET      |
+| `expense.report.readwrite` | Read and write expense report headers.        | PATCH    |
+| `user.read`                | Get User Information, necessary for `userID`. | POST     |
+
+Optional Scope:
+
+| Name                  | Description                                         | Endpoint |
+| --------------------- | --------------------------------------------------- | -------- |
+| `spend.listitem.read` | Read only access to spend list items `listItemId`.  | GET      |
+| `spend.list.read`     | Read only access to spend list and category details | GET      |
+
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens.
+
+## <a name="specific-report-expenses"></a>Retrieve expenses on a specific Report ID
+
+Retrieves the expenses that belong to a specific Report ID
+
+### Scopes
+
+`expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses
+```
+
+##### Parameters
+
+| Name          | Type     | Format | Description                                                  |
+| ------------- | -------- | ------ | ------------------------------------------------------------ |
+| `userID`      | `string` | -      | **Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+| `contextType` | `string` | -      | **Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: TRAVELER |
+| `reportId`    | string   | -      | **Required** The unique identifier of the report that is being read |
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Expenses Response](#expenses-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB/expenses' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Report-test' \
+--header 'Content-Type: application/json'
+```
+
+#### Response
+
+```shell
+200 OK
+
+[
+    {
+        "expenseId": "84FCBB92BD4E5342B849DAC29FD163A1",
+        "approverAdjustedAmount": {
+            "value": 25.00000000,
+            "currencyCode": "USD"
+        },
+        "allocationState": "NOT_ALLOCATED",
+        "allocationSetId": null,
+        "approvedAmount": {
+            "value": 25.00000000,
+            "currencyCode": "USD"
+        },
+        "businessPurpose": "test",
+        "claimedAmount": {
+            "value": 25.00000000,
+            "currencyCode": "USD"
+        },
+        "ereceiptImageId": null,
+        "exchangeRate": {
+            "value": 1.00000000000000,
+            "operation": "MULTIPLY"
+        },
+        "expenseSourceIdentifiers": null,
+        "expenseType": {
+            "id": "LUNCH",
+            "name": "Lunch",
+            "code": "OTHER",
+            "isDeleted": false
+        },
+        "hasBlockingExceptions": false,
+        "hasExceptions": false,
+        "hasMissingReceiptDeclaration": false,
+        "isAutoCreated": false,
+        "imageCertificationStatus": null,
+        "isImageRequired": true,
+        "isPaperReceiptRequired": false,
+        "isPersonalExpense": false,
+        "location": {
+            "id": "04F3ED00D0884F4681628E3337A5B515",
+            "name": "Bellevue, Washington",
+            "city": "Bellevue",
+            "countrySubDivisionCode": "US-WA",
+            "countryCode": "US"
+        },
+        "paymentType": {
+            "id": "CASH",
+            "name": "Cash",
+            "code": "CASH"
+        },
+        "postedAmount": {
+            "value": 25.00000000,
+            "currencyCode": "USD"
+        },
+        "receiptImageId": null,
+        "ticketNumber": null,
+        "transactionAmount": {
+            "value": 25.00000000,
+            "currencyCode": "USD"
+        },
+        "transactionDate": "2020-03-11",
+        "travelAllowance": {
+            "dailyLimitAmount": null,
+            "dailyTravelAllowanceId": null,
+            "isExpensePartOfTravelAllowance": false
+        },
+        "vendor": null,
+        "attendeeCount": 1,
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://us.api.concursolutions.com/expensereports/v4/users/32c2fcc3-b2e8-4907-9672-5b3f49b1c643/context/TRAVELER/reports/764428DD6A664AF0BFCB/expenses/84FCBB92BD4E5342B849DAC29FD163A1",
+                "hreflang": null,
+                "media": null,
+                "title": null,
+                "type": null,
+                "deprecation": null,
+                "method": "GET",
+                "isTemplated": false
+            }
+        ]
+    },
+    {
+        "expenseId": "29EE3C62F5D844458828A5C1086072D1",
+        "approverAdjustedAmount": {
+            "value": 500.00000000,
+            "currencyCode": "USD"
+        },
+        "allocationState": "NOT_ALLOCATED",
+        "allocationSetId": null,
+        "approvedAmount": {
+            "value": 500.00000000,
+            "currencyCode": "USD"
+        },
+        "businessPurpose": "Facility supplies",
+        "claimedAmount": {
+            "value": 500.00000000,
+            "currencyCode": "USD"
+        },
+        "ereceiptImageId": null,
+        "exchangeRate": {
+            "value": 1.00000000000000,
+            "operation": "MULTIPLY"
+        },
+        "expenseSourceIdentifiers": null,
+        "expenseType": {
+            "id": "OFCSP",
+            "name": "Office Supplies",
+            "code": "OTHER",
+            "isDeleted": false
+        },
+        "hasBlockingExceptions": false,
+        "hasExceptions": false,
+        "hasMissingReceiptDeclaration": false,
+        "isAutoCreated": false,
+        "imageCertificationStatus": null,
+        "isImageRequired": true,
+        "isPaperReceiptRequired": false,
+        "isPersonalExpense": false,
+        "location": {
+            "id": "0BC6B782B77349898E2CA814F5B57C08",
+            "name": "Seattle, Washington",
+            "city": "Seattle",
+            "countrySubDivisionCode": "US-WA",
+            "countryCode": "US"
+        },
+        "paymentType": {
+            "id": "1022",
+            "name": "Mastercard",
+            "code": "CBCP"
+        },
+        "postedAmount": {
+            "value": 500.00000000,
+            "currencyCode": "USD"
+        },
+        "receiptImageId": null,
+        "ticketNumber": null,
+        "transactionAmount": {
+            "value": 500.00000000,
+            "currencyCode": "USD"
+        },
+        "transactionDate": "2020-03-11",
+        "travelAllowance": {
+            "dailyLimitAmount": null,
+            "dailyTravelAllowanceId": null,
+            "isExpensePartOfTravelAllowance": false
+        },
+        "vendor": {
+            "id": null,
+            "name": null,
+            "description": "Antioch Construction"
+        },
+        "attendeeCount": 0,
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://us.api.concursolutions.com/expensereports/v4/users/32c2fcc3-b2e8-4907-9672-5b3f49b1c643/context/TRAVELER/reports/764428DD6A664AF0BFCB/expenses/29EE3C62F5D844458828A5C1086072D1",
+                "hreflang": null,
+                "media": null,
+                "title": null,
+                "type": null,
+                "deprecation": null,
+                "method": "GET",
+                "isTemplated": false
+            }
+        ]
+    }
+]
+```
+
+## <a name="retrieve-expense-entry"></a>Retrieve an Expense by ID
+
+Retrieves the details of the specific expense entry on a report
+
+### Scopes
+
+`expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses/{expenseId}
+```
+
+##### Parameters
+
+| Name          | Type     | Format | Description                                                  |
+| ------------- | -------- | ------ | ------------------------------------------------------------ |
+| `userID`      | `string` | -      | **Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+| `contextType` | `string` | -      | **Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: TRAVELER, PROXY |
+| `reportId`    | string   | -      | **Required** The unique identifier of the report to which this expense entry belongs |
+| `expenseId`   | string   | -      | **Required** The unique identifier of the expense entry that is being read |
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Expense Entry Response](#expense-entry-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB/expenses/84FCBB92BD4E5342B849DAC29FD163A1' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Report-test' \
+--header 'Content-Type: application/json'
+```
+
+#### Response
+
+```shell
+200 OK
+
+{
+    "expenseId": "84FCBB92BD4E5342B849DAC29FD163A1",
+    "approverAdjustedAmount": {
+        "value": 25.00000000,
+        "currencyCode": "USD"
+    },
+    "allocationState": "NOT_ALLOCATED",
+    "allocationSetId": null,
+    "approvedAmount": {
+        "value": 25.00000000,
+        "currencyCode": "USD"
+    },
+    "businessPurpose": "test",
+    "claimedAmount": {
+        "value": 25.00000000,
+        "currencyCode": "USD"
+    },
+    "ereceiptImageId": null,
+    "exchangeRate": {
+        "value": 1.00000000000000,
+        "operation": "MULTIPLY"
+    },
+    "expenseSourceIdentifiers": null,
+    "expenseType": {
+        "id": "ONLIN",
+        "name": "Online Fees",
+        "code": "OTHER",
+        "isDeleted": false
+    },
+    "hasBlockingExceptions": false,
+    "hasExceptions": false,
+    "hasMissingReceiptDeclaration": false,
+    "isAutoCreated": false,
+    "imageCertificationStatus": null,
+    "isImageRequired": true,
+    "isPaperReceiptRequired": false,
+    "isPersonalExpense": false,
+    "location": {
+        "id": "04F3ED00D0884F4681628E3337A5B515",
+        "name": "Bellevue, Washington",
+        "city": "Bellevue",
+        "countrySubDivisionCode": "US-WA",
+        "countryCode": "US"
+    },
+    "paymentType": {
+        "id": "CASH",
+        "name": "Cash",
+        "code": "CASH"
+    },
+    "postedAmount": {
+        "value": 25.00000000,
+        "currencyCode": "USD"
+    },
+    "receiptImageId": null,
+    "ticketNumber": null,
+    "transactionAmount": {
+        "value": 25.00000000,
+        "currencyCode": "USD"
+    },
+    "transactionDate": "2020-03-11",
+    "travelAllowance": {
+        "dailyLimitAmount": null,
+        "dailyTravelAllowanceId": null,
+        "isExpensePartOfTravelAllowance": false
+    },
+    "vendor": null,
+    "attendeeCount": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://us.api.concursolutions.com/expensereports/v4/users/32c2fcc3-b2e8-4907-9672-5b3f49b1c643/context/TRAVELER/reports/764428DD6A664AF0BFCB/expenses/84FCBB92BD4E5342B849DAC29FD163A1",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null,
+            "method": "GET",
+            "isTemplated": false
+        }
+    ],
+    "budgetAccrualDate": null,
+    "authorizationRequestExpenseId": null,
+    "customData": [
+        {
+            "id": "custom9",
+            "value": "AB8596D91C994F4DBBD820D6DCBDC599",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=AB8596D91C994F4DBBD820D6DCBDC599"
+        }
+    ],
+    "expenseTaxSummary": {
+        "totalTaxPostedAmount": {
+            "value": 0E-8,
+            "currencyCode": "USD"
+        },
+        "totalTaxAdjustedAmount": {
+            "value": 0E-8,
+            "currencyCode": "USD"
+        },
+        "totalReclaimPostedAmount": {
+            "value": 0E-8,
+            "currencyCode": "USD"
+        },
+        "totalReclaimAdjustedAmount": {
+            "value": 0E-8,
+            "currencyCode": "USD"
+        },
+        "netTaxAmount": {
+            "value": 25.00000000,
+            "currencyCode": "USD"
+        },
+        "netAdjustedTaxAmount": {
+            "value": 25.00000000,
+            "currencyCode": "USD"
+        },
+        "netReclaimAmount": {
+            "value": 25.00000000,
+            "currencyCode": "USD"
+        },
+        "netReclaimAdjustedAmount": {
+            "value": 25.00000000,
+            "currencyCode": "USD"
+        },
+        "vatTaxTotal": null
+    },
+    "isExcludedFromCashAdvanceByUser": false,
+    "isExpenseBillable": false,
+    "isExpenseRejected": false,
+    "isPaperReceiptReceived": false,
+    "merchantTaxId": null,
+    "mileage": null,
+    "parentExpenseId": null,
+    "receiptType": {
+        "id": "N",
+        "status": "No Receipt"
+    },
+    "taxRateLocation": "HOME",
+    "travel": null,
+}
+```
+
+## <a name="update-expense-entry"></a>Update a specific Expense Entry 
+
+Updates the attributes of a specific Expense Entry 
+
+### Scopes
+
+`expense.report.readwrite` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses/{expenseId}
+```
+
+##### Parameters
+
+| Name          | Type     | Format | Description                                                  |
+| ------------- | -------- | ------ | ------------------------------------------------------------ |
+| `userID`      | `string` | -      | **Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+| `contextType` | `string` | -      | **Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: TRAVELER, PROXY |
+| `reportId`    | string   | -      | **Required** The unique identifier of the report to which this expense entry belongs |
+| `expenseId`   | string   | -      | **Required** The unique identifier of the expense entry that is being modified |
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### REST design specification 
+
+PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specification:
+
+[RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
+
+#### Payload
+
+* [Patch Expense Request](#patch-expense-request-schema)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1) 
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Patch Expense Response](#patch-expense-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB/expenses/84FCBB92BD4E5342B849DAC29FD163A1' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Test' \
+--header 'Content-Type: application/json' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+	"customData": [
+        {
+            "id": "custom09",
+            "value": "81188b39-605d-2d4f-b80b-43efa84a7b49",
+            "isValid": true
+        }
+    ],
+    "businessPurpose":"Office Facility Supplies",
+    "transactionAmount":{
+        "value": 50.00000000,
+        "currencyCode": "USD"
+    },
+    "expenseSource":"OTHER"
+}'
+```
+
+#### Response
+
+```shell
+204 No Content
+```
+
+## <a name="schema"></a>Schema
+
+### 

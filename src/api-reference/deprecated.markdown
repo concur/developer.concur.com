@@ -41,8 +41,14 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [Quick Expense Resource](/api-reference/expense/quick-expense/v1.quick-expense-resource.html)
   * [Get quick expenses](/api-reference/expense/quick-expense/v1.quick-expense-resource-get.html)
   * [Post a quick expense](/api-reference/expense/quick-expense/v1.quick-expense-resource-post.html)
-* [Quick Expense v3](/api-reference/expense/quick-expense/v3.quick-expense.html)
+* Quick Expense v3
+  * [Quick Expense v3 Reference](/api-reference/expense/quick-expense/v3.quick-expense.html)
+  * [Quick Expense v3 Explorer](/api-explorer/v3-0/QuickExpenses.html)
 * [Receipts v3](/api-reference/receipts/v3.receipts.html)
+* Request v3
+  * [Request v3 Reference](/api-reference/request/v3.request.html)
+  * [Request v3 Explorer](/api-explorer/v3-0/Requests.html)
+  * [Request v3.1 Explorer](/api-explorer/v3-1/Requests.html)
 * Travel Web Service v1
   * [Profile Resource](/api-reference/travel-profile/v1.profile-resource.html)
 * [Trip Approval v1](/api-reference/travel/trip-approval/v1.trip-approval-resource.html)
