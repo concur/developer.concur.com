@@ -11,12 +11,7 @@ Existing applications that use the [Pre-2017 Authorization (Deprecated)](/api-re
 
 ## <a name="base_uris"></a>Base URIs
 
-When making API calls, the appropriate base URI for the user's geolocation should be used. The following are the available base URIs:
-
-Environment | URI | Description
------|------|------
-US Production |`https://us.api.concursolutions.com` | Default for all API calls
-EU Production |`https://emea.api.concursolutions.com` | Default for EU users
+When making API calls, the appropriate base URI for the user's geolocation should be used. See the [Base URIs](/platform/base-uris.html) page for the full list.
 
 ## <a name="exchangetoken"></a>Exchanging a Token
 

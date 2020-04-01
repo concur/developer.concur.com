@@ -51,7 +51,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJhdWQiOiIqIiwic
 
 When you receive the `accessToken`, store it with the token's `geolocation`. That `geolocation` will be the base URI for all subsequent calls.
 
-Armed with the `accessToken` you can start making calls to SAP Concur's API. Here's an example to retrieve profile information for a User in the Production environment using cURL (utilize the appropriate base URI geolocation for the token). [Base URIs Reference](/api-reference/authentication/apidoc.html#base_uri):
+Armed with the `accessToken` you can start making calls to SAP Concur's API. Here's an example to retrieve profile information for a User in the Production environment using cURL (utilize the appropriate base URI geolocation for the token). [Base URIs Reference](/platform/base-uris.html):
 
 ```shell
 curl -k -v -H "Accept: application/json" \
