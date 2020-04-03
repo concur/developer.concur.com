@@ -5,14 +5,14 @@ layout: reference
 
 SAP Concur will send the user-name and password in both the HTTP header and the SOAP header. If the username and password generates an authentication error, then SAP Concur expects an HTTP 403 response.
 
-* [HTTP Headers](#http-headers)
+* [HTTP Headers](#http)
   * [Troubleshooting](#troubleshooting)
-* [Soap Header](#soap-header)
-* [OTA Message Headers](#ota-message-headers)
-  * [Request Message Headers](#request-message-headers)
-  * [Response Message Headers](#response-message-headers)
+* [Soap Header](#soap)
+* [OTA Message Headers](#ota-message)
+  * [Request Message Headers](#request-message)
+  * [Response Message Headers](#response-message)
 
-# HTTP Headers
+# <a name="http"></a>HTTP Headers
 
 SAP Concur will send the following HTTP headers in every request.  The contents of the Authentication header will be repeated in the SOAP payload. Please note that some libraries used to handle the requests may be case sensitive.
 
@@ -36,7 +36,7 @@ Supported Soapactions:
 |`read`|Used to perform Read Itinerary |
 |`cancel`|Used to perform Cancel |
 
-## Troubleshooting
+## <a name="troubleshooting"></a>Troubleshooting
 
 In order to assist with troubleshooting, SAP Concur requests with a unique correlationId in the request header. The key to look for is `correlationid`. This unique code can be used during troubleshooting as it identifies the API call in the log files. You should record this information in your own API call logs as well so that you can pass this information on to the SAP Concur support team.
 
@@ -52,7 +52,7 @@ Soapaction: search
 Accept-Encoding: gzip
 ```
 
-# Soap Header
+# <a name="soap"></a>Soap Header
 
 The Soap header nested in the Envelope will contain an authentication element.
 
@@ -75,11 +75,11 @@ Sample:
 ```
 Login and password are provided by the Hotel supplier for SAP Concur as API consumer, not per customer.
 
-# OTA Message Headers
+# <a name="ota-message"></a>OTA Message Headers
 
 Every message must contain the following required attributes and elements.  On top of these each message may specify extra attributes and elements. Refer to a specific messages' page for details.
 
-## Request Message Headers
+## <a name="request-message"></a>Request Message Headers
 
 |Name|Type|Description|
 |-----------------|--------------------|-------------|
@@ -113,7 +113,7 @@ SAP Concur will always send the ISO Currency.
 
 ---
 
-## Response Message Headers
+## <a name="response-message"></a>Response Message Headers
 
 The supplier is required to respond with the following attributes and elements in the root of any message. Each message may specify extra attributes and elements. Refer to a specific messages' page for details.
 
