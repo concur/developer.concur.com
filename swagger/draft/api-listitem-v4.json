@@ -20,16 +20,125 @@
   },
   "tags": [
     {
-      "name": "External API",
-      "description": "External Controller"
-    },
-    {
       "name": "List Item API",
       "description": "List Item Controller"
     }
   ],
   "paths": {
     "/list/v4/items": {
+      "get": {
+        "tags": [
+          "List Item API"
+        ],
+        "summary": "Gets list items by query on id, long code or legacy item key. Supports batch get list items by ids or legacy item keys. Required query parameters: a single code OR one or more id(s) OR one or more legacyKey(s). Query parameters code, id, legacyKey cannot be combined in a single request.",
+        "description": "Returns list items",
+        "operationId": "getListItemsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "description": "List item long code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The unique identifier of the list item. Maximum number of ids is 100",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "legacyKey",
+            "in": "query",
+            "description": "The legacy unique identifier of the list item. Maximum number of the legacy keys is 100",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get list items",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ListItem"
+              }
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "listItem not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": [
+            ]
+          }
+        ],
+        "deprecated": false
+      },
       "post": {
         "tags": [
           "List Item API"
@@ -423,7 +532,7 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Get children of list item",
+        "summary": "Get direct children of list item",
         "description": "Returns list item children",
         "operationId": "getChildrenUsingGET",
         "produces": [
@@ -591,103 +700,12 @@
         "deprecated": false
       }
     },
-    "/list/v4/items/{itemId}/children?isExternal={isExternal}": {
-      "get": {
-        "tags": [
-          "External API"
-        ],
-        "summary": "Gets children items external state",
-        "description": "Returns if children match isExternal request type",
-        "operationId": "getAreChildrenExternalUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "isExternal",
-            "in": "query",
-            "description": "The expected external status of the request",
-            "required": true,
-            "type": "boolean",
-            "default": true
-          },
-          {
-            "name": "itemId",
-            "in": "path",
-            "description": "The unique identifier of the list item",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List Item are children external result",
-            "schema": {
-              "$ref": "#/definitions/ExternalResponse"
-            }
-          },
-          "400": {
-            "description": "Entity does not exist",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "401": {
-            "description": "Access Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "404": {
-            "description": "listItem not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          }
-        },
-        "security": [
-          {
-            "JWT Token": [
-            ]
-          }
-        ],
-        "deprecated": false
-      }
-    },
     "/list/v4/items/{itemId}/path": {
       "get": {
         "tags": [
           "List Item API"
         ],
-        "summary": "Gets list item path using its id",
+        "summary": "Get list item path using its id",
         "description": "Returns a list of listItem nodes sorted in ascending order of their level",
         "operationId": "getListItemPathUsingGET",
         "produces": [
@@ -776,14 +794,187 @@
         "deprecated": false
       }
     },
-    "/list/v4/items?code={code}": {
+    "/list/v4/lists/{listId}/children": {
       "get": {
         "tags": [
           "List Item API"
         ],
-        "summary": "Gets list items by long code",
-        "description": "Returns list items",
-        "operationId": "getListItemsByCodeUsingGET",
+        "summary": "Get the first level list items for a given list id",
+        "description": "Returns first level list items",
+        "operationId": "getFirstLevelListItemsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Filter capabilities for EndDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "hasChildren",
+            "in": "query",
+            "description": "Show items with children",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "Show deleted items",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number starting from 1",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32",
+            "x-example": 1
+          },
+          {
+            "name": "shortCode",
+            "in": "query",
+            "description": "Filter capabilities for ShortCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "shortCodeOrValue",
+            "in": "query",
+            "description": "Filter capabilities for Value OR ShortCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Field to sort by, {value, shortcode}",
+            "required": false,
+            "type": "string",
+            "default": "value",
+            "enum": [
+              "value",
+              "shortcode"
+            ]
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "description": "Sort direction, {asc, desc}",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Filter capabilities for StartDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "Filter capabilities for Value",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully got first level list items of list",
+            "schema": {
+              "$ref": "#/definitions/PagedResources«ListItem»"
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "List not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": [
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/list/v4/lists/{listId}/items": {
+      "get": {
+        "tags": [
+          "List Item API"
+        ],
+        "summary": "Get list item by long code for a specific list",
+        "description": "Returns a list item",
+        "operationId": "getListItemByCodeForListUsingGET",
         "produces": [
           "application/json"
         ],
@@ -823,204 +1014,21 @@
             "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
             "required": false,
             "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully get list items",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ListItem"
-              }
-            }
-          },
-          "400": {
-            "description": "Entity does not exist",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "401": {
-            "description": "Access Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "404": {
-            "description": "listItem not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          }
-        },
-        "security": [
-          {
-            "JWT Token": [
-            ]
-          }
-        ],
-        "deprecated": false
-      }
-    },
-    "/list/v4/items?id={id}": {
-      "get": {
-        "tags": [
-          "List Item API"
-        ],
-        "summary": "Batch get list items by ids",
-        "description": "Returns list items, excluding the ones that are not found.",
-        "operationId": "getListItemsByIdsUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Accept-Language",
-            "in": "header",
-            "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "id",
-            "in": "query",
-            "description": "The unique identifier of the list item. Maximum number of ids is 100",
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list",
             "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully get list items",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ListItem"
-              }
-            }
-          },
-          "400": {
-            "description": "Entity does not exist",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "401": {
-            "description": "Access Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          }
-        },
-        "security": [
-          {
-            "JWT Token": [
-            ]
-          }
-        ],
-        "deprecated": false
-      }
-    },
-    "/list/v4/items?legacyKey={legacyKey}": {
-      "get": {
-        "tags": [
-          "List Item API"
-        ],
-        "summary": "Batch get list items by item keys",
-        "description": "Return the list items, excluding the ones that are not found.",
-        "operationId": "getListItemsKeysUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Accept-Language",
-            "in": "header",
-            "description": "Language code",
-            "required": false,
             "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "legacyKey",
-            "in": "query",
-            "description": "The legacy unique identifier of the list item. Maximum number of the legacy keys is 100",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
+            "format": "uuid"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successfully get list items",
+            "description": "Successfully get list item",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ListItem"
-              }
+              "$ref": "#/definitions/ListItem"
             }
           },
           "400": {
@@ -1094,15 +1102,6 @@
         }
       },
       "title": "ErrorMessage"
-    },
-    "ExternalResponse": {
-      "type": "object",
-      "properties": {
-        "result": {
-          "type": "boolean"
-        }
-      },
-      "title": "ExternalResponse"
     },
     "Link": {
       "type": "object",
