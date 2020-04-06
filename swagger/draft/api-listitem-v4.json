@@ -133,8 +133,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -238,8 +237,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -329,8 +327,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -442,8 +439,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -520,8 +516,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -663,7 +658,7 @@
           "200": {
             "description": "Successfully got children of list item",
             "schema": {
-              "$ref": "#/definitions/PagedResources«ListItem»"
+              "$ref": "#/definitions/PagedResourcesListItem"
             }
           },
           "400": {
@@ -693,8 +688,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -787,8 +781,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -930,7 +923,7 @@
           "200": {
             "description": "Successfully got first level list items of list",
             "schema": {
-              "$ref": "#/definitions/PagedResources«ListItem»"
+              "$ref": "#/definitions/PagedResourcesListItem"
             }
           },
           "400": {
@@ -960,8 +953,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -1058,8 +1050,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -1335,7 +1326,7 @@
       },
       "title": "PageMetadata"
     },
-    "PagedResources«ListItem»": {
+    "PagedResourcesListItem": {
       "type": "object",
       "properties": {
         "content": {
@@ -1360,7 +1351,7 @@
           "$ref": "#/definitions/PageMetadata"
         }
       },
-      "title": "PagedResources«ListItem»"
+      "title": "PagedResourcesListItem"
     },
     "ValidationError": {
       "type": "object",
