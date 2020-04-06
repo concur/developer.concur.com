@@ -1,5 +1,5 @@
 {
-  "x-sap-shortText": "Manage your configured SAP Concur lists.",
+  "x-sap-shortText": "Manage list categories for your configured SAP Concur lists.",
   "swagger": "2.0",
   "host": "www.concursolutions.com",
   "basePath": "/",
@@ -7,25 +7,216 @@
     "https"
   ],
   "info": {
-    "title": "List",
-    "description": "Provides an automated solution to clients who would like to manage lists. This API provides methods to view, add, update or delete lists.",
+    "title": "List Category",
+    "description": "Provides an automated solution to clients who would like to manage list categories. This API provides methods to view, add, update or delete list categories.",
     "version": "4.0"
   },
   "tags": [
     {
-      "name": "List API",
-      "description": "List Controller"
+      "name": "List Category API",
+      "description": "List Category Controller"
     }
   ],
   "paths": {
-    "/list/v4/categories/{categoryId}/lists": {
+    "/list/v4/categories": {
       "get": {
         "tags": [
-          "List API"
+          "List Category API"
         ],
-        "summary": "Get the lists for a given category id",
-        "description": "Returns lists for the category",
-        "operationId": "getListsForCategoryUsingGET",
+        "summary": "Gets all categories for the given company.",
+        "description": "Returns all categories",
+        "operationId": "getAllCategoriesUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number starting from 1",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32",
+            "x-example": 1
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter capabilities for List Category type",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get all categories",
+            "schema": {
+              "$ref": "#/definitions/PagedResources«CategoryResponse»"
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "List category not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": [
+            ]
+          }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "List Category API"
+        ],
+        "summary": "Create a category with provided request body",
+        "description": "Returns a new category",
+        "operationId": "createCategoryUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "categoryRequest",
+            "description": "List Category that is created for the company",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CategoryRequest"
+            }
+          },
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully created a category",
+            "schema": {
+              "$ref": "#/definitions/CategoryResponse"
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "415": {
+            "description": "The specified media type is not supported",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "The list category could not be created",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": [
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/list/v4/categories/{categoryId}": {
+      "get": {
+        "tags": [
+          "List Category API"
+        ],
+        "summary": "Get a list category with provided id",
+        "description": "Returns an existing category",
+        "operationId": "getListCategoryUsingGET",
         "produces": [
           "application/json"
         ],
@@ -66,23 +257,13 @@
             "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Page number starting from 1",
-            "required": false,
-            "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "x-example": 1
           }
         ],
         "responses": {
           "200": {
-            "description": "Successfully got all lists of list category",
+            "description": "Successfully get list category",
             "schema": {
-              "$ref": "#/definitions/PagedResources«ListResponse»"
+              "$ref": "#/definitions/CategoryResponse"
             }
           },
           "400": {
@@ -117,283 +298,14 @@
           }
         ],
         "deprecated": false
-      }
-    },
-    "/list/v4/lists": {
-      "get": {
-        "tags": [
-          "List API"
-        ],
-        "summary": "Gets all lists for the given company",
-        "description": "Returns all lists",
-        "operationId": "getAllListsUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Accept-Language",
-            "in": "header",
-            "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Page number starting from 1",
-            "required": false,
-            "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "x-example": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully get all lists",
-            "schema": {
-              "$ref": "#/definitions/PagedResources«ListResponse»"
-            }
-          },
-          "400": {
-            "description": "Entity does not exist",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "401": {
-            "description": "Access Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          }
-        },
-        "security": [
-          {
-            "JWT Token": [
-            ]
-          }
-        ],
-        "deprecated": false
-      },
-      "post": {
-        "tags": [
-          "List API"
-        ],
-        "summary": "Create a list with provided request body",
-        "description": "Returns a new list",
-        "operationId": "createListUsingPOST",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "listRequest",
-            "description": "List object that is created for the company",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListRequest"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Successfully created a list",
-            "schema": {
-              "$ref": "#/definitions/ListResponse"
-            }
-          },
-          "400": {
-            "description": "Entity does not exist",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "401": {
-            "description": "Access Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "415": {
-            "description": "The specified media type is not supported",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "500": {
-            "description": "List could not be created",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          }
-        },
-        "security": [
-          {
-            "JWT Token": [
-            ]
-          }
-        ],
-        "deprecated": false
-      }
-    },
-    "/list/v4/lists/{listId}": {
-      "get": {
-        "tags": [
-          "List API"
-        ],
-        "summary": "Get a list with provided list id",
-        "description": "Returns an existing list",
-        "operationId": "getListUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Accept-Language",
-            "in": "header",
-            "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "listId",
-            "in": "path",
-            "description": "The unique identifier of the list",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully get list",
-            "schema": {
-              "$ref": "#/definitions/ListResponse"
-            }
-          },
-          "400": {
-            "description": "Entity does not exist",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "401": {
-            "description": "Access Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "404": {
-            "description": "List not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          }
-        },
-        "security": [
-          {
-            "JWT Token": [
-            ]
-          }
-        ],
-        "deprecated": false
       },
       "put": {
         "tags": [
-          "List API"
+          "List Category API"
         ],
-        "summary": "Update a list with provided request body",
-        "description": "Returns updated list",
-        "operationId": "putListUsingPUT",
+        "summary": "Updates the specified category with provided request body",
+        "description": "Returns an updated category",
+        "operationId": "updateCategoryUsingPUT",
         "consumes": [
           "application/json"
         ],
@@ -408,6 +320,23 @@
             "required": false,
             "type": "string",
             "default": "en"
+          },
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "The unique identifier of the category",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "body",
+            "name": "categoryRequest",
+            "description": "List Category that is updated for the company",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CategoryRequest"
+            }
           },
           {
             "name": "company-uuid",
@@ -429,34 +358,17 @@
             "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "listId",
-            "in": "path",
-            "description": "The unique identifier of the list",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "body",
-            "name": "listUpdate",
-            "description": "List object that is updated for the company",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListUpdate"
-            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successfully updated the list",
+            "description": "Successfully updated the list category",
             "schema": {
-              "$ref": "#/definitions/ListResponse"
+              "$ref": "#/definitions/CategoryResponse"
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "This List Category name is already in use",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -474,7 +386,7 @@
             }
           },
           "404": {
-            "description": "List not found",
+            "description": "List category not found",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -486,7 +398,7 @@
             }
           },
           "500": {
-            "description": "Internal server error",
+            "description": "List category not updated",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -502,15 +414,23 @@
       },
       "delete": {
         "tags": [
-          "List API"
+          "List Category API"
         ],
-        "summary": "Delete a list",
-        "description": "Returns status code result",
-        "operationId": "deleteListUsingDELETE",
+        "summary": "Delete a list category",
+        "description": "Deletes list category",
+        "operationId": "deleteListCategoryUsingDELETE",
         "produces": [
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "The unique identifier of the category",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
           {
             "name": "company-uuid",
             "in": "header",
@@ -531,22 +451,14 @@
             "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "listId",
-            "in": "path",
-            "description": "The unique identifier of the list",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
           }
         ],
         "responses": {
           "204": {
-            "description": "List resource no longer in system."
+            "description": "Successfully deleted list category"
           },
           "400": {
-            "description": "List could not be deleted",
+            "description": "There are list associated with the list category",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -588,6 +500,47 @@
     }
   },
   "definitions": {
+    "CategoryRequest": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "List category value"
+        }
+      },
+      "title": "CategoryRequest"
+    },
+    "CategoryResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The unique identifier of the list category"
+        },
+        "value": {
+          "type": "string",
+          "description": "List category value"
+        },
+        "type": {
+          "type": "string",
+          "description": "List category type"
+        },
+        "isSystemRecord": {
+          "type": "boolean",
+          "description": "Whether the list category is a system record"
+        },
+        "isDeleted": {
+          "type": "boolean",
+          "description": "Whether the list category has been deleted"
+        },
+        "isReadOnly": {
+          "type": "boolean",
+          "description": "Whether the list category is read only"
+        }
+      },
+      "title": "CategoryResponse"
+    },
     "ErrorMessage": {
       "type": "object",
       "required": [
@@ -689,111 +642,6 @@
       },
       "title": "Link"
     },
-    "ListRequest": {
-      "type": "object",
-      "required": [
-        "value"
-      ],
-      "properties": {
-        "searchCriteria": {
-          "type": "string",
-          "description": "What attribute to search by",
-          "enum": [
-            "TEXT",
-            "CODE"
-          ]
-        },
-        "value": {
-          "type": "string",
-          "description": "Name of the list"
-        },
-        "categoryId": {
-          "type": "string",
-          "format": "uuid",
-          "description": "The unique identifier of the category that the list belongs to"
-        },
-        "displayFormat": {
-          "type": "string",
-          "description": "Whether we display code or value first",
-          "enum": [
-            "(CODE) TEXT",
-            "TEXT (CODE)"
-          ]
-        }
-      },
-      "title": "ListRequest"
-    },
-    "ListResponse": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "uuid",
-          "description": "Unique identifier of a List"
-        },
-        "value": {
-          "type": "string",
-          "description": "Name of the list"
-        },
-        "categoryId": {
-          "type": "string",
-          "format": "uuid",
-          "description": "Unique identifier of a Category"
-        },
-        "levelCount": {
-          "type": "integer",
-          "format": "int32",
-          "example": 1,
-          "description": "Number of levels in the list"
-        },
-        "searchCriteria": {
-          "type": "string",
-          "description": "What attribute to search by"
-        },
-        "displayFormat": {
-          "type": "string",
-          "description": "Whether we display code or value first"
-        },
-        "isReadOnly": {
-          "type": "boolean",
-          "description": "Whether the list is read only"
-        },
-        "isDeleted": {
-          "type": "boolean",
-          "description": "Whether the list has been deleted"
-        }
-      },
-      "title": "ListResponse"
-    },
-    "ListUpdate": {
-      "type": "object",
-      "required": [
-        "value"
-      ],
-      "properties": {
-        "value": {
-          "type": "string",
-          "description": "Name of the list"
-        },
-        "searchCriteria": {
-          "type": "string",
-          "description": "What attribute to search by",
-          "enum": [
-            "TEXT",
-            "CODE"
-          ]
-        },
-        "displayFormat": {
-          "type": "string",
-          "description": "Whether we display code or value first",
-          "enum": [
-            "(CODE) TEXT",
-            "TEXT (CODE)"
-          ]
-        }
-      },
-      "title": "ListUpdate"
-    },
     "Message": {
       "type": "object",
       "properties": {
@@ -849,13 +697,13 @@
       },
       "title": "PageMetadata"
     },
-    "PagedResources«ListResponse»": {
+    "PagedResources«CategoryResponse»": {
       "type": "object",
       "properties": {
         "content": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ListResponse"
+            "$ref": "#/definitions/CategoryResponse"
           }
         },
         "links": {
@@ -874,7 +722,12 @@
           "$ref": "#/definitions/PageMetadata"
         }
       },
-      "title": "PagedResources«ListResponse»"
+      "title": "PagedResources«CategoryResponse»",
+      "xml": {
+        "name": "pagedEntities",
+        "attribute": false,
+        "wrapped": false
+      }
     },
     "ValidationError": {
       "type": "object",
