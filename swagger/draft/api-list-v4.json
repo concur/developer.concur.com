@@ -82,7 +82,7 @@
           "200": {
             "description": "Successfully got all lists of list category",
             "schema": {
-              "$ref": "#/definitions/PagedResources«ListResponse»"
+              "$ref": "#/definitions/PagedResourcesListResponse"
             }
           },
           "400": {
@@ -112,8 +112,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -175,7 +174,7 @@
           "200": {
             "description": "Successfully get all lists",
             "schema": {
-              "$ref": "#/definitions/PagedResources«ListResponse»"
+              "$ref": "#/definitions/PagedResourcesListResponse"
             }
           },
           "400": {
@@ -199,8 +198,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -290,8 +288,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -381,8 +378,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -494,8 +490,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -572,8 +567,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -849,7 +843,7 @@
       },
       "title": "PageMetadata"
     },
-    "PagedResources«ListResponse»": {
+    "PagedResourcesListResponse": {
       "type": "object",
       "properties": {
         "content": {
@@ -874,7 +868,7 @@
           "$ref": "#/definitions/PageMetadata"
         }
       },
-      "title": "PagedResources«ListResponse»"
+      "title": "PagedResourcesListResponse"
     },
     "ValidationError": {
       "type": "object",

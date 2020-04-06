@@ -81,7 +81,7 @@
           "200": {
             "description": "Successfully get all categories",
             "schema": {
-              "$ref": "#/definitions/PagedResources«CategoryResponse»"
+              "$ref": "#/definitions/PagedResourcesCategoryResponse"
             }
           },
           "400": {
@@ -111,8 +111,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -202,8 +201,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -293,8 +291,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -406,8 +403,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -484,8 +480,7 @@
         },
         "security": [
           {
-            "JWT Token": [
-            ]
+            "JWT Token": []
           }
         ],
         "deprecated": false
@@ -697,7 +692,7 @@
       },
       "title": "PageMetadata"
     },
-    "PagedResources«CategoryResponse»": {
+    "PagedResourcesCategoryResponse": {
       "type": "object",
       "properties": {
         "content": {
@@ -722,7 +717,7 @@
           "$ref": "#/definitions/PageMetadata"
         }
       },
-      "title": "PagedResources«CategoryResponse»",
+      "title": "PagedResourcesCategoryResponse",
       "xml": {
         "name": "pagedEntities",
         "attribute": false,
