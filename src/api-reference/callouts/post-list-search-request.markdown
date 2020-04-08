@@ -33,13 +33,17 @@ The request will contain a **fetch-list-request** parent element, containing the
 
 |  Element |  Description |
 |--------------|--------------|
-|  long-code |  The long code is a concatenated string containing the parent list item keys separated by a hyphen (-). |
-|  short-code |  The short code is the key of the parent list item. |
-|  query |  It is possible that the asterisk wildcard will be passed from Expense to the application connector. <ul><li>Asterisk only (\*) - Return all items in the list represented by the long code.</li><li>Text followed by asterisk (West\*) - Return all items beginning with the text.</li><li>Asterisk followed by text - Return all items ending with the text.</li></ul> |
-|  search-by |  Indicates which list item attribute should be searched. Possible values are TEXT or CODE.<br/>**NOTE**: The application connector must support both attributes in order to properly handle wildcard searches. |
-|  lang-code |  The two character code for the language of the user. |
-|  num-to-return |  Expense will specify the number of items to return. The application connector must use this value to ensure that it does not return more results than requested. There is a system limit of 1000 items. |
-|  code-by-level |  Indicates the code at each level in the case of a multi-level list. |
+|`long-code`|The long code is a concatenated string containing the parent list item keys separated by a hyphen (-).|
+|`short-code`|The short code is the key of the parent list item. |
+|`query`|It is possible that the asterisk wildcard will be passed from Expense to the application connector. <ul><li>Asterisk only (\*) - Return all items in the list represented by the long code.</li><li>Text followed by asterisk (West\*) - Return all items beginning with the text.</li><li>Asterisk followed by text - Return all items ending with the text.</li></ul>|
+|`search-by`|Indicates which list item attribute should be searched. Supported values: `TEXT`, `CODE`.<br/>**NOTE**: The application connector must support both attributes in order to properly handle wildcard searches.|
+|`lang-code`|The two character code for the language of the user.|
+|`num-to-return`|Expense will specify the number of items to return. The application connector must use this value to ensure that it does not return more results than requested. There is a system limit of 1000 items.|
+|`protected-list-key`|Internal connector information, not used by customers.|
+|`list-name`|Internal connector information, not used by customers.|
+|`connector-version`|Internal connector information, not used by customers.|
+|`config-options`|Internal connector information, not used by customers.|
+|`code-by-level`|Indicates the code at each level in the case of a multi-level list.|
 
 ####  <a name="req-examples"></a>XML Example Request for Single Level List
 
@@ -59,7 +63,11 @@ Content-Length: {length of content body}
     <query>Alph*</query>
     <search-by>TEXT</search-by>
     <lang-code>EN</lang-code>
-    <num-to-return>500</num-to-return>		
+    <num-to-return>500</num-to-return>
+    <protected-list-key />
+    <list-name />
+    <connector-version />
+    <config-options />
 </fetch-list-request>
 ```
 
@@ -82,12 +90,16 @@ Content-Length: {length of content body}
     <search-by>TEXT</search-by>
     <lang-code>EN</lang-code>
     <num-to-return>500</num-to-return>
+    <protected-list-key />
+    <list-name />
+    <connector-version />
+    <config-options />
     <code-by-level>
         <level1>US</level1>
         <level2>W</level2>
         <level3>CA</level3>      
     </code-by-level>
-</fetch-list-request>
+ </fetch-list-request>
 ```
 
 ## <a name="response"></a>Response
@@ -104,10 +116,10 @@ The response will include a **fetch-list-response** parent element, with an **it
 
 |  Element |  Description |
 |---------------|--------------|
-| code |  The long code for the list item, consisting of the long code from the request combined with the short code from the response, separated by a hyphen (-). |
-| short-code |  The short code for the list item. |
-| text |  The list item text. |
-| match-value |  The value that matched the search term. |
+|`code` |**Required** The long code for the list item, consisting of the long code from the request combined with the short code from the response, separated by a hyphen (-). |
+| `short-code` |**Required** The short code for the list item.|
+| `text` |**Required** The list item text.|
+| `match-value` |**Required** The value that matched the search term.|
 
 ####  <a name="res-examples"></a>XML Example of Response with Results
 
