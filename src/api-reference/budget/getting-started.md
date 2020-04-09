@@ -3,8 +3,6 @@ title: Budget v4 - Getting Started
 layout: reference
 ---
 
-{% include prerelease-web-services.html %}
-
 ## Menu
 
 * [Getting Started](./getting-started.html)
