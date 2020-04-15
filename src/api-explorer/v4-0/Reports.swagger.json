@@ -2636,7 +2636,7 @@
 			"properties": {
 				"currencyCode": {
 					"type": "string",
-					"description": "The 3-letter ISO 4217 currency code for the expense report currency, based on the user's assigned reimbursement currency when the report was created. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona"
+					"description": "The 3-letter ISO 4217 currency code for the expense report currency, based on the user's assigned reimbursement currency when the report was created. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong-China dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona"
 				},
 				"value": {
 					"type": "number",
@@ -4106,7 +4106,7 @@
 				},
 				"currencyCode": {
 					"type": "string",
-					"description": "The 3-letter ISO 4217 currency code (https://en.wikipedia.org/wiki/ISO_4217) for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong"
+					"description": "The 3-letter ISO 4217 currency code (https://en.wikipedia.org/wiki/ISO_4217) for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong-China"
 				},
 				"customData": {
 					"type": "array",
