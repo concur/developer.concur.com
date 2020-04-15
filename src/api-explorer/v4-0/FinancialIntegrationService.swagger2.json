@@ -1,7 +1,8 @@
 {
+  "x-sap-shortText": "Manages your finanacial transactions.",
   "swagger": "2.0",
   "info": {
-    "description": "Financial Integration APIs help Concur clients move extract data from Concur into their systems of record.",
+    "description": "Financial Integration APIs help SAP Concur clients move extract data from SAP Concur into their systems of record.",
     "version": "4",
     "title": "Financial Integration API"
   },
@@ -11,10 +12,23 @@
     "description": "Financial Documents Schema Documentation",
     "url": "https://developer.concur.com/api-reference/financial-integration/v4.financial-documents-schema.html"
   },
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "tags": [
     {
       "name": "Financial Transactions",
-      "description": "Interacting with financial documents generated from Concur."
+      "description": "Interacting with financial documents generated from SAP Concur."
     }
   ],
   "paths": {
@@ -194,7 +208,7 @@
           "Financial Transactions"
         ],
         "summary": "Confirms results of financial transactions payment posting.",
-        "description": "This API allows financial posting results to be sent to Concur.",
+        "description": "This API allows financial posting results to be sent to SAP Concur.",
         "operationId": "postErpPaymentConfirmationsUsingPOST",
         "consumes": [
           "application/json"
@@ -259,7 +273,7 @@
           "Financial Transactions"
         ],
         "summary": "Confirms results of financial transactions posting.",
-        "description": "This API allows financial posting results to be sent to Concur.",
+        "description": "This API allows financial posting results to be sent to SAP Concur.",
         "operationId": "postErpPostingConfirmationsUsingPOST",
         "consumes": [
           "application/json"
@@ -317,13 +331,6 @@
           }
         }
       }
-    }
-  },
-  "securityDefinitions": {
-    "mykey": {
-      "type": "apiKey",
-      "name": "mykey",
-      "in": "header"
     }
   },
   "definitions": {

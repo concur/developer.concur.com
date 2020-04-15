@@ -111,6 +111,7 @@
         }
       },
       "put": {
+        "deprecated": true,
         "tags": [
           "Resources"
         ],

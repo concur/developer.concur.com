@@ -101,7 +101,7 @@ Name|Type|Format|Description
 ---|---|---|---
 `docType`|`string`|`path`|**Required** The financial document type to return. Only one type of transaction can be retrieved at a time. Supported values are: `expense`, `invoice`, `cashadvance`, `payroll`, `obligation`.
 `page`|`int32`|`query`|Starting page number.
-`limit`|`int32`|`query`|Number of records to return per page (default 100).
+`limit`|`int32`|`query`|Number of records to return per page (default 25).
 `docId`|`string`|`query`|The transaction unique identifier, it could be expense report ID, payment request ID or cash advance ID. If specified, a single document that matches docId is returned.
 `ignoreDocumentStatus`|`string`|`query`|Ignores the financial documents status. Supported values are: `yes` or `no`. If yes, a document is returned regardless of status. If no, only documents that have not been acknowledged/confirmed are returned.
 `systemId`|`string`|`query`|The external system ID that processed the document.

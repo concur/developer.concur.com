@@ -15,6 +15,21 @@
         url: /api-reference/authentication/oauth2-migration-best-practices.html
       - title: Scopes
         url: /api-reference/authentication/scopes.html
+- title: Budget v4
+  url: ''
+  children:
+      - title: Getting Started
+        url: /api-reference/budget/getting-started.html
+      - title: Fiscal Year
+        url: /api-reference/budget/v4.fiscal-year.html
+      - title: Budget Category
+        url: /api-reference/budget/v4.budget-category.html
+      - title: Budget Item
+        url: /api-reference/budget/v4.budget-header.html
+      - title: Budget Tracking Field
+        url: /api-reference/budget/v4.budget-trackingfield.html
+      - title: Budget Adjustments
+        url: /api-reference/budget/v4.budget-adjustments.html
 - title: Callouts
   url: ''
   children:
@@ -49,6 +64,8 @@
         url: /api-reference/common/connection-requests/connection-requests-resource.html
       - title: Extracts v1
         url: /api-reference/common/extracts/v1.extracts.html
+      - title: Lists v3
+        url: /api-reference/common/lists/v3.lists.html
       - title: List Item v3
         url: /api-reference/common/list-item/v3.list-item.html
       - title: Locations v3
@@ -186,9 +203,14 @@
       - title: Response Codes
         url: /api-reference/receipts/response-codes.html
 - title: Receipt Image
-  url: /api-reference/image/v3.image.html
-- title: Request v3
-  url: /api-reference/request/v3.request.html
+  url: ''
+  children:
+      - title: Image v1
+        url: /api-reference/image/v1.image.html
+      - title: Image v3
+        url: /api-reference/image/v3.image.html
+- title: Request v4
+  url: /api-reference/request/v4.get-started.html
 - title: Travel Profile
   url: ''
   children:

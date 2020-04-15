@@ -38,8 +38,8 @@ EXPRPT|Get, add, approve, or update expense reports|[Allocations v3](./api-refer
 CCARD|Credit Card|[Company Card Transactions](/api-reference/expense/expense-report/company-card-transaction-resource.html), [Company Card Transaction Elements](/api-reference/expense/expense-report/expense-report-get.html#cardtransaction-elements)
 BANK|Employee Banking|[Employee Bank Account Elements](/api-reference/expense/expense-report/expense-report-get.html#employeebankaccount-elements)
 EXTRCT|Extract expense data|[Extracts v1](/api-reference/common/extracts/v1.extracts.html)
-FOP|Access and update user form of payment information|[Form of Payment](/api-reference/travel-profile/v2.form-payment-resource.html)
-GHOST|Ghost Cards|[Form of Payment](/api-reference/travel-profile/v2.form-payment-resource.html)
+FOP|Access and update user form of payment information|NOT AVAILABLE
+GHOST|Ghost Cards|NOT AVAILABLE
 IMAGE|Add or get invoice and receipt images|[Receipt Image v3](/api-reference/image/v3.image.html), [Image v1](/api-reference/image/v1.image.html)
 INSGHT|Access itineraries and identify missing trip segments|[Latest Bookings](/api-reference/insights/latest-bookings-resource.html), [Opportunities](/api-reference/insights/opportunities-resource.html)
 INVPMT|Create, Retrieve and Update for Payment Requests|[Payment Request v3](/api-reference/invoice/v3.payment-request.html), [Retrieve Payment Request Digests](/api-reference/invoice/v3.payment-request-digest.html), [Payment Request Swagger](/api-explorer/v3-0/PaymentRequest.html), [Payment Request Digest Swagger](/api-explorer/v3-0/PaymentRequestDigest.html)
@@ -47,7 +47,7 @@ INVPO|Create or update purchase orders|[Purchase Orders v3](/api-reference/invoi
 INVTV|View tax invoices and update validation status|[Sales Tax Validation Request](/api-explorer/v3-0/SalesTaxValidationRequest.html)
 INVVEN|Vendors search and retrieve list of vendors|[Invoice Vendor v3](/api-reference/invoice/v3.vendor.html), [Invoice Vendor Swagger](/api-explorer/v3-0/Vendors.html), [Invoice Vendor Group Swagger](/api-explorer/v3-0/VendorGroup.html), [Invoice Vendor Bank Swagger](/api-explorer/v3-0/VendorBank.html)
 ITINER|Get, add, or update travel itineraries and bookings|[Itinerary Web Service](/api-reference/travel/itinerary-tmc-thirdparty/), [Booking Resource](/api-reference/travel/itinerary/booking/booking-resource.html), [Itinerary Service Overview](/api-reference/travel/itinerary/itinerary.html), [Trips](/api-reference/travel/itinerary/trip/trip-resource.html), [Travel Service](/api-reference/travel/travel.html), [Trip Approval](/api-reference/travel/trip-approval/trip-approval-resource.html)
-LIST|Use and update drop-down lists configured by your company|[List v3](/api-reference/common/list-item/v3.list-item.html), [List v3 Swagger](/api-explorer/v3-0/Lists.html), [List Item v3 Swagger](/api-explorer/v3-0/ListItems.html), [List v1](/api-reference/common/list-item/v1.list-item.html), [List v1 Resource](/api-reference/common/list-item/v1.list-resource.html), [Get List of List v1](/api-reference/common/list-item/v1.list-resource-get.html), [Post New List v1](/api-reference/common/list-item/v1.list-resource-post.html)
+LIST|Use and update drop-down lists configured by your company|[List v3](/api-reference/common/list-item/v3.list-item.html), [List v3 Swagger](/api-explorer/v3-0/Lists.html), [List Item v3 Swagger](/api-explorer/v3-0/ListItems.html), [List v1](/api-reference/common/list-item/v1.list-item.html), [List v1 Resource](/api-reference/common/list-item/v1.list-resource.html), [Get List of List v1](/api-reference/common/list-item/v1.list-resource-get.html), [Post New List v1](/api-reference/common/list-item/v1.list-resource-post.html), [Budget v4 API](/api-reference/budget/getting-started.html)
 NOTIF|Receive notifications when expense reports change|[Event Notification Callout](/api-reference/callouts/event-notification.html), [Get Notification](/api-reference/callouts/get-notifications-status.html), [Delete Notification](/api-reference/callouts/delete-notification.html), [Post Notification](/api-reference/callouts/post-event-notification.html)
 PAYBAT|Close and export payment batches|[Payment Batches](/api-reference/expense/payment-batch/v1.payment-batches.html)
 RCTIMG|Add or update receipt and OCR images|[Receipt Image](/api-reference/image/)
@@ -72,3 +72,7 @@ purchaserequest.read|Allows you to retrieve purchase requests|[Purchase Request 
 purchaserequest.write|Allows you to create new purchase requests|[Purchase Request API](/api-reference/invoice/v4.purchase-request-get-started.html)
 travelallowance.allowancedays.read|View the allowance days in an expense report|[Travel Allowance API](/api-reference/expense/travelallowance/travelallowance-days.html)
 expense.report.read|Retrieve the report ID from the Expense Report API to supply to the Travel Allowance API|[Travel Allowance API](/api-reference/expense/travelallowance/travelallowance-days.html)
+budgetitem.read|Grants read access to the budget resources|[Budget v4 API](/api-reference/budget/getting-started.html)
+budgetitem.write|Grants read and write access to the budget resources|[Budget v4 API](/api-reference/budget/getting-started.html)
+fiscalcalendar.read|Grants read access to the fiscal calendar|[Budget v4 API](/api-reference/budget/getting-started.html)
+fiscalcalendar.write|Grants read and write access to the fiscal calendar|[Budget v4 API](/api-reference/budget/getting-started.html)

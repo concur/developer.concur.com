@@ -1,0 +1,160 @@
+{
+  "x-sap-shortText": "Returns information about the form types and configured forms in SAP Concur.",
+  "swagger": "2.0",
+  "host": "sandbox.api.sap.com",
+  "basePath": "/concur/api",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
+  "info": {
+    "description": "Returns the configured Expense form types, or the form IDs for the supplied form type. Clients can have multiple forms configured for each form type.",
+    "version": "1.1",
+    "title": "Expense Report Forms"
+  },
+  "tags": [
+    {
+      "name": "Form Types",
+      "description": "Returns the active form types for the company specified in the access token. Expense clients always have multiple form types."
+    },
+    {
+      "name": "Form Data",
+      "description": "Retrieves the IDs of configured forms for the specified form type. The FormCode is returned in the FormCode element in the Get Form Types response."
+    }
+  ],
+  "paths": {
+    "/expense/expensereport/v1.1/report/Forms/": {
+      "get": {
+        "tags": [
+          "Form Types"
+        ],
+        "summary": "Get all form types",
+        "description": "Retrieves the list of configured form types for the company.",
+        "operationId": "getFormTypesUsingGET",
+        "produces": [ "application/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/FormTypesList" }
+          },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      }
+    },
+    "/expense/expensereport/v1.1/report/Forms/{FormCode}": {
+      "get": {
+        "tags": [
+          "Form Data"
+        ],
+        "summary": "Get all forms by form type.",
+        "description": "Retrieves the list of configured forms for the specified form type.",
+        "operationId": "getFormDataUsingGET",
+        "produces": [ "application/xml" ],
+        "parameters": [
+          {
+            "name": "FormCode",
+            "in": "path",
+            "description": "The identifier for the desired form.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/FormDataList" }
+          },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal error" }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "FormTypesList": {
+      "type": "object",
+      "description": "List of configured form types.",
+      "properties": {
+        "FormType": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FormType"
+          }
+        }
+      }
+    },
+    "FormType": {
+      "type": "object",
+      "description":"The form type name.",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "FormCode": {
+          "type": "string",
+          "description":"The form type code."
+        }
+      }
+    },
+    "FormDataList": {
+      "type": "object",
+      "properties": {
+        "FormData": {
+          "type": "array",
+          "description": "List of configured forms for the specified form type.",
+          "items": {
+            "$ref": "#/definitions/FormData"
+          }
+        }
+      }
+    },
+    "FormData": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description":"The form name."
+        },
+        "FormId": {
+          "type": "string",
+          "description":"The form identifier."
+        }
+      }
+    }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/expense/expensereport/v1.1",
+      "description": "Concur Expense Report API endpoint"
+    }
+  ]
+}

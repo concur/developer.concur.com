@@ -51,7 +51,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJhdWQiOiIqIiwic
 
 When you receive the `accessToken`, store it with the token's `geolocation`. That `geolocation` will be the base URI for all subsequent calls.
 
-Armed with the `accessToken` you can start making calls to SAP Concur's API. Here's an example to retrieve profile information for a User in the Production environment using cURL (utilize the appropriate base URI geolocation for the token). [Base URIs Reference](/api-reference/authentication/apidoc.html#base_uri):
+Armed with the `accessToken` you can start making calls to SAP Concur's API. Here's an example to retrieve profile information for a User in the Production environment using cURL (utilize the appropriate base URI geolocation for the token). [Base URIs Reference](/platform/base-uris.html):
 
 ```shell
 curl -k -v -H "Accept: application/json" \
@@ -199,7 +199,7 @@ Access Tokens have a default __One hour__ lifetime. In order to obtain a fresh `
 Utilizing the `geolocation` for the token, here's an example of a cURL call to obtain a new `accessToken`
 
 ```shell
-curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' --data "client_id=$client_id&client_secret=$client_secret&grant_type=refresh&refresh_token=<old refresh token>"
+curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' --data "client_id=$client_id&client_secret=$client_secret&grant_type=refresh_token&refresh_token=<old refresh token>"
 ```
 
 Full docs: <https://developer.concur.com/api-reference/authentication/apidoc.html#refresh_token>

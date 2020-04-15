@@ -29,6 +29,7 @@ The SAP Concur Expense Entries API is used to manage expense reports and their e
 Name | Type | Format | Description
 -----|------|--------|------------
 `content`|````body````|-|**Required** The expense entry object to create.
+`user`|````string````|`query`|The login ID of the user who owns the entries.
 
 ### Request URL
 
@@ -99,7 +100,7 @@ Name | Type | Format | Description
 `EmployeeBankAccountID`	|	`string`	|	-	|	The unique identifier of an employee bank account that is associated with this expense. Typically, this element is used when Expense Pay reimburses the employee for this expense. Use the GET BankAccounts function to get information about this bank account.
 `ExchangeRate`	|	`decimal`	|	-	|	The currency conversion rate that converts the transaction amount that is in the transaction currency into the posted amount that is in the report currency. This element is typically not provided. If this element is empty for transactions in a currency different than the user's reimbursement currency, Expense will use the company's configured exchange rates to determine the posted amount for the transaction. If the system is not able to determine the exchange rate, a value of 1.0 will be used.
 `ExpenseTypeCode`	|	`string`	|	-	|	**Required** The code for the expense type. Use GET /expense/expensegroupconfigurations to learn the expense type code for expense types that are active for this report's policy.
-`ExpenseTypeName`	|	`string`	|	-	|	**Required** The name of the expense type, localized to the user's language.
+`ExpenseTypeName`	|	`string`	|	-	|	The name of the expense type, localized to the user's language.
 `FormID`	|	`string`	|	-	|	The ID of the form used by this expense entry.
 `HasAppliedCashAdvance`	|	`boolean`	|	`true` / `false`	|	Whether the entry has a cash advance applied to it.
 `HasAttendees`	|	`boolean`	|	`true` / `false`	|	Indicates whether the expense has attendees. Use the GET /expense/entryattendeeassociations function to get information about this entry's attendees.
@@ -121,17 +122,17 @@ Name | Type | Format | Description
 `LocationName`	|	`string`	|	-	|	The location where the expense was incurred, usually the city name.
 `LocationSubdivision`	|	`string`	|	-	|	The ISO 3166-2:2007 country subdivision state, province, or other country subdivision where the expense was incurred.
 `OrgUnit1 through OrgUnit6`	|	`customField`	|	-	|	The details from the Org Unit fields. These fields may not have data, depending on the configuration.
-`PaymentTypeID`	|	`string`	|	-	|	The ID of the payment type for the entry. Use GET /expense/expensegroupconfigurations to learn the payment type ID for payment types that are active for this report's expense group. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type.
+`PaymentTypeID`	|	`string`	|	-	|	**Required** The ID of the payment type for the entry. Use GET /expense/expensegroupconfigurations to learn the payment type ID for payment types that are active for this report's expense group. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type.
 `PaymentTypeName`	|	`string`	|	-	|	The name of the payment type, localized to the user's language.
 `PostedAmount`	|	`decimal`	|	-	|	The amount of the expense entry, in the report currency.
 `ReceiptReceived`	|	`boolean`	|	`true` / `false`	|	Indicates whether this entry has been reviewed by a processor. Format: true or false
 `ReportID`	|	`string`	|	-	|	**Required** The report ID of the report where the entry will be added.
-`ReportOwnerID`	|	`string`	|	-	|	**Required** The login ID of the report owner. Use the GET User Information function to learn details about this user.
-`SpendCategoryCode`	|	`string`	|	-	|	**Required** The ID of the spending category that is specified for this expense entry.
-`SpendCategoryName`	|	`string`	|	-	|	**Required** The name of the spending category that is specified for this expense entry, localized to the user's language.
+`ReportOwnerID`	|	`string`	|	-	|	The login ID of the report owner. Use the GET User Information function to learn details about this user.
+`SpendCategoryCode`	|	`string`	|	-	|	The ID of the spending category that is specified for this expense entry.
+`SpendCategoryName`	|	`string`	|	-	|	The name of the spending category that is specified for this expense entry, localized to the user's language.
 `TaxReceiptType`	|	`string`	|	-	|	The receipt type for this entry. Supported values: `T` - tax receipt, `R` - regular receipt, `N` - no receipt
-`TransactionAmount`	|	`decimal`	|	-	|	The amount of the expense entry, in the transaction currency paid to the vendor.
-`TransactionCurrencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency.
+`TransactionAmount`	|	`decimal`	|	-	|	**Required** The amount of the expense entry, in the transaction currency paid to the vendor.
+`TransactionCurrencyCode`	|	`string`	|	-	|	**Required** The 3-letter ISO 4217 currency code for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency.
 `TransactionDate`	|	`dateTime`	|	`YYYY-MM-DD`	|	**Required** The date when the good or service associated with this expense entry was provided.
 `TripID`	|	`string`	|	-	|	The unique identifier of a trip in the Itinerary Service that includes a travel booking associated with this expense. Use GET ItineraryDetails to get information about this trip and the travel booking. This element is null when there is no trip associated with the expense.
 `URI`	|	`string`	|	-	|	The URI to the resource.

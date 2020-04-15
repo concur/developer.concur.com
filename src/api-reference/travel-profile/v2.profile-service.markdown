@@ -34,6 +34,4 @@ Available to Travel suppliers.
 
 ##  Configuration
 
-The developer should email [ConcurConnectTech@concur.com](mailto:ConcurConnectTech@concur.com) and ask to be registered as a supplier. The Travel Profile API verifies that the request is coming from a registered supplier before allowing access to the full information.
-
 Travel supplier or TMC partner applications must complete the [Concur application review process](/manage-apps/app-certification.html) before they can access production user data. Suppliers can only update Loyalty Program information for the programs that they manage. TMCs can access all the user's Travel Profile data, regardless of vendor.

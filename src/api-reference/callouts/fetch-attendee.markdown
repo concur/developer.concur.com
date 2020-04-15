@@ -99,7 +99,7 @@ The client then registers the application connector with SAP Concur:
 5. Fill out the fields according to the **Application Connector Fields** table shown below.
 6. In the Services section, select Fetch Attendee.  
 7. Click Configure. The Configure Service window appears.  
-8. Enter the endpoint that the SAP Concur will connect to on your server. Example: `/attendee/v2.0/fetch`  
+8. Enter the endpoint that the SAP Concur will connect to on your server. Example: `/attendee/v2.0/fetch`. **Note:** The endpoint name should contain 'v2.0', otherwise the API defaults to v1.0 and returns a different set of fields.
 9. Select the Active check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.  
 10. Select the attendee types that will use the application connector. These attendee types will be automatically configured to not allow users to create new attendees manually.  
 11. Click OK.
