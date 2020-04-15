@@ -74,6 +74,8 @@
 - title: v4.0
   url: ''
   children:
+      - title: Budget
+        url: /api-explorer/v4-0/Budget.html
       - title: Invoice Pay
         url: /api-explorer/v4-0/InvoicePay.html
       - title: Purchase Requests
