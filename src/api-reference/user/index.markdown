@@ -106,7 +106,7 @@ Name|Type|Format|Description
 
 Updates one or more users. The batch can contain up to 500 users.
 
->**NOTE**: The User API can be used to add new users, however the user accounts will not be fully configured and ready for use. Additional work to the user profiles must be completed, either with manual edits or updates via the user import, in order to complete the user profiles. There is a high degree of variability in customer configuration that is not all supported by this API. Manual edits or updates via a file import are most likely required to complete the User profiles started with this API.
+>**NOTE**: The User API can be used to add new users, however the user accounts will not be fully configured and ready for use. Additional work to the user profiles must be completed, either with manual edits or updates via the user import, in order to complete the user profiles. There is a high degree of variability in customer configuration that is not all supported by this API. Manual edits or updates via a file import are most likely required to complete the User profiles started with this API. Only POST is supported. Please use the [Employee Import](https://www.concurtraining.com/customers/tech_pubs/Docs/_Current/SPC/Spc_Shr/Shr_SPEC_Emp_Imp.pdf) feature if the User API does not meet your needs.
 
     POST api/user/v1.0/users
 
@@ -119,7 +119,7 @@ Name|Type|Format|Description
 `EmpId`|`string`|-|Required. The unique identifier for the user. The default value is the user's email address. Maximum 48 characters.
 `FeedRecordNumber`|`string`|-|Required. The record number in the current batch.
 `LoginId`|`string`|-|Required. The user's login ID. The default value is the user's email address. Maximum 128 characters.
-`LocaleName`|`string`|-|The user's language locale code. Maximum 5 characters. One of the Supported Locales. Example: United States English is en_US. The supported languages vary by company but always include en_US. Maximum 5 characters.
+`LocaleName`|`string`|-|The user's language locale code. List of locale codes are available in the [Employee Import](https://www.concurtraining.com/customers/tech_pubs/Docs/_Current/SPC/Spc_Shr/Shr_SPEC_Emp_Imp.pdf) Appendix. One of the Supported Locales. Example: United States English is en_US. The supported languages vary by company but always include en_US. Maximum: 5 characters.
 `Active`|`Boolean`|Y/N|Whether the user is currently active.
 `Password`|`string`|-|Required. The user's password. This element can be used to enter the password for a new user, but cannot be used to update the password for an existing user. Maximum 255 characters.
 `FirstName`|`string`|-|The user's first name. Maximum 32 characters.

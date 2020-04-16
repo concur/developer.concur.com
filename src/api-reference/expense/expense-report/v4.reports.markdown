@@ -1,0 +1,660 @@
+---
+title: Reports v4
+layout: reference
+---
+
+The Reports v4 API can be used to read and modify an expense report header of an existing expense report. This API can be used to change attributes like report name, business purpose, etc
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Retrieve a Report by ID](#retrieve-report-header)
+* [Update a Report](#update-report-header)
+* [Schema](#schema)
+  * [Report Header Request](#report-header-request-schema)
+    * [Location](#location-schema)
+    * [Amount](#amount-schema)
+  * [Report Header Response](#report-header-response-schema)
+  * [Error](#schema-error)
+  * [Validation Errors](#schema-validation-errors)
+
+## Prior Versions
+
+* Report Header v1 (Deprecated) documentation is available [here](./api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html)
+* Reports v3 (Deprecated) documentation is available [here](./v3.reports.html)
+
+## <a name="products-editions"></a>Products and Editions
+
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Required Scopes:
+
+| Name                       | Description                                   | Endpoint |
+| -------------------------- | --------------------------------------------- | -------- |
+| `expense.report.read`      | Get information about expense reports         | GET      |
+| `expense.report.readwrite` | Read and write expense report headers.        | PATCH    |
+| `user.read`                | Get User Information, necessary for `userID`. | POST     |
+
+Optional Scope:
+
+| Name                  | Description                                         | Endpoint |
+| --------------------- | --------------------------------------------------- | -------- |
+| `spend.listitem.read` | Read only access to spend list items `listItemId`.  | GET      |
+| `spend.list.read`     | Read only access to spend list and category details | GET      |
+
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens.
+
+## <a name="retrieve-report-header"></a>Retrieve a Report by ID
+
+Retrieves the details of the specific report header
+
+### Scopes
+
+`expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}
+```
+
+##### Parameters
+
+| Name          | Type     | Format | Description                                                  |
+| ------------- | -------- | ------ | ------------------------------------------------------------ |
+| `userID`      | `string` | -      | **Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+| `contextType` | `string` | -      | **Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: TRAVELER, PROXY |
+| `reportId`    | string   | -      | **Required** The unique identifier of the report that is being read |
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Report Header Response](#report-header-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Report-test' \
+--header 'Content-Type: application/json'
+```
+
+#### Response
+
+```shell
+200 OK
+
+{
+    "approvalStatus": "Not Submitted",
+    "approvalStatusId": "A_NOTF",
+    "concurAuditStatus": "NOTR",
+    "customData": [
+        {
+            "id": "custom15",
+            "value": "4366A89A916F074099A971B000989A94",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=4366A89A916F074099A971B000989A94"
+        },
+        {
+            "id": "custom16",
+            "value": "Test33224ASDF",
+            "isValid": true,
+            "listItemUrl": null
+        },
+        {
+            "id": "custom3",
+            "value": "582AE31D0F506C4BAA97573F2A90F03B",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=582AE31D0F506C4BAA97573F2A90F03B"
+        },
+        {
+            "id": "custom4",
+            "value": "79AE45D0F6757946AC2B01CDFA6CA326",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=79AE45D0F6757946AC2B01CDFA6CA326"
+        }
+    ],
+    "ledger": "DEFAULT",
+    "ledgerId": "2703E3FBD393DA4484ED3CB07303407C",
+    "paymentStatus": "Not Paid",
+    "paymentStatusId": "P_NOTP",
+    "submitDate": null,
+    "approvedAmount": {
+        "value": 525.00000000,
+        "currencyCode": "USD"
+    },
+    "claimedAmount": {
+        "value": 525.00000000,
+        "currencyCode": "USD"
+    },
+    "amountCompanyPaid": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "paymentConfirmedAmount": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "amountDueCompany": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "amountDueCompanyCard": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "amountDueEmployee": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "personalAmount": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "reportTotal": {
+        "value": 525.00000000,
+        "currencyCode": "USD"
+    },
+    "amountNotApproved": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "isFinancialIntegrationEnabled": false,
+    "canReopen": false,
+    "isReopened": false,
+    "isReceiptImageAvailable": false,
+    "isReceiptImageRequired": true,
+    "isPaperReceiptsReceived": false,
+    "reportId": "764428DD6A664AF0BFCB",
+    "currency": "US, Dollar",
+    "currencyCode": "USD",
+    "analyticsGroupId": "C8CB395275EC4FE9AF6CD5B535EA2B17",
+    "hierarchyNodeId": "0F941E0B0A2C974EB2B06CDA67973052",
+    "allocationFormId": "FD7E9C6389EF495B85042319D58CAE53",
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null,
+            "method": "GET",
+            "isTemplated": false
+        }
+    ],
+    "reportDate": "2020-03-25",
+    "reportFormId": "674B67F0C6BD4E9CA5D91AFB82CC8ABB",
+    "businessPurpose": "Facility cleaning and renovation",
+    "countryCode": "US",
+    "countrySubDivisionCode": "US-WA",
+    "policyId": "EE095F66AEF52B4A9CE62952601E5CB1",
+    "startDate": "2020-03-10",
+    "endDate": "2020-03-14",
+    "name": "March Expenses",
+    "policy": "JH - US Expense Policy",
+    "country": "UNITED STATES",
+    "userId": "32c2fcc3-b2e8-4907-9672-5b3f49b1c643",
+    "reportType": "Regular",
+    "redirectFund": null,
+    "creationDate": "2020-03-25T20:42:39Z",
+    "canRecall": false,
+    "reportVersion": 0
+}
+```
+
+## <a name="update-report-header"></a>Update a specific Report
+
+Updates the attributes of a specific Report
+
+### Scopes
+
+`expense.report.readwrite` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}
+```
+
+##### Parameters
+
+| Name          | Type     | Format | Description                                                  |
+| ------------- | -------- | ------ | ------------------------------------------------------------ |
+| `userID`      | `string` | -      | **Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+| `contextType` | `string` | -      | **Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: TRAVELER, PROXY |
+| `reportId`    | string   | -      | **Required** The unique identifier of the report that is being modified |
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### REST design specification
+
+PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specification:
+
+[RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
+
+#### Payload
+
+* [Patch Report Request](#patch-report-request-schema)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Patch Report Response](#patch-report-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Viswa test' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"customData": [
+        {
+            "id": "custom15",
+            "value": "E31CB42509F9FF408BA7DD6713AB49BD",
+            "isValid": true
+        }
+    ],
+    "businessPurpose":"Office Facility Supplies",
+    "reportSource":"OTHER"
+}'
+```
+
+#### Response
+
+```shell
+204 No Content
+```
+
+## <a name="schema"></a>Schema
+
+### <a name="expense-attendee-response"></a>ExpenseAttendeeResponse
+
+| Name | Type | Format | Description |
+---|---|---|---|
+| uri | string | - | **Required** Uri of the Expense Attendee association. |
+
+### <a name="hotel-ereceipt"></a>HotelEReceipt
+
+| Name | Type | Format | Description |
+|---|---|---|---|
+| calculatedDailyRate | number(double) | double | The calculated hotel daily rate |
+| endDate | string(date) | date | The hotel checkout date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
+| locationId  | string | - | The unique identifier of the location for this hotel |
+| startDate | string(date) | date | The hotel checkin date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD. |
+| totalAmountPaid | [Amount](#schemaamount) | - | - |
+| vendorName | string | - | The name of the hotel vendor. Maximum length: 255 characters. Examples: 'Hilton', 'Four Points by Sheraton, Seattle' |
+
+### <a name="company-disbursements"></a>CompanyDisbursements
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| cashAdvanceUtilized | [Amount](#schemaamount) | - | false | - |
+| dueEmployee | [Amount](#schemaamount) | - | true | - |
+| otherDisbursements | [[Disbursement](#schemadisbursement)] | - | false | Other company disbursements |
+| totalUtilizedBalanceDue | [Amount](#schemaamount) | - | false | - |
+
+### <a name="associate-image-to-expense"></a>AssociateImageToExpense
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| isImageAppend | boolean | - | false | Whether the image should be appended to the existing image that is already on the expense, if there is one |
+| receiptImageId | string | - | true | The unique identifier of the image that needs to be associated to the expense. |
+
+### <a name="new-report-response"></a>NewReportResponse
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| uri | string | - | true | Uri of the report. |
+
+### <a name="expense-attendee-with-amounts"></a>ExpenseAttendeesWithAmounts
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| expenseAttendeeList | [ExpenseAttendeeWithAmounts](#schemaexpenseattendeewithamounts) | - | false | The list of attendees associated with the expense. Maximum attendees: 500 |
+| noShowAttendeeCount | integer(int32) | int32 | false | The number of attendees that were planned but did not show up. Default value: 0 |
+
+### <a name="allocation-form-field"></a>AllocationFormField
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| controlType | string | - | true | The control type for the form field |
+| dataType | string | - | true | The data type for the form field |
+| defaultValue | [CustomField](#schemacustomfield) | - | false |
+| fieldAccess | string | - | true | The supplied user’s access to the form field |
+| fieldId | string | - | true | The field id |
+| fieldName | string | - | true | The label of the form field |
+| fieldSequence | integer(int32) | int32 | true | The field location in the numerical order of the form fields on the form |
+| formFieldId | string | - | true | The unique identifier of the form field |
+| isRequired | boolean | - | true | Whether a value is required for the form field  |
+| itemizationCopyDownAction | string | - | false | Itemization Copy Down Action Only used by the child entries of itemizations. = ['ParentExpense', 'ChildExpense', 'None'] |
+| listId | string | - | false | The unique identifier of the source list to be used for this form field |
+| listLevel | integer(int32) | int32 | false | For connected list, the hierarchical position of this field in the list. For simple list or non-list items, this value will be blank |
+| maximumLength | integer(int32) | int32 | false | The maximum length allowed for the form field |
+| parentFieldId | string | - | false | For connected list, the form field of the previous segment. For simple list or non-list items, this value will be blank |
+| requiredForAutoSave | boolean | - | true | A boolean value which indicates if this field is required to be populated to perform a save even if all required field values are not provided. |
+| targetFieldSettings | [TargetFieldSetting](#schematargetfieldsetting) | - | false | - |
+| tooltip | string | - | false | The tool tip value of the form field |
+| validationExpression | string | - | false | The validation expression (Regular Expression) associated with the form field |
+| validationMessage | string | - | false | The failure message for the form field validation |
+
+### <a name="report-expense-summary"></a>ReportExpenseSummary
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| allocationSetId | string | - | false | The identifier of the Allocation set associated with the expense. Allocations which belong to the same set were created at the same time. |
+| allocationState | string | - | true | Allocation state for the expense. Possible values: 'FULLY_ALLOCATED', 'NOT_ALLOCATED', 'PARTIALLY_ALLOCATED' |
+| approvedAmount | [Amount](#schemaamount) | - | false | - |
+| approverAdjustedAmount | [Amount](#schemaamount) | - | false | - |
+| attendeeCount | integer(int32) | int32 | false | The total number of attendees associated with the expense |
+| businessPurpose | string | - | false | The text input for the business purpose by the user |
+| claimedAmount | [Amount](#schemaamount) | - | false | - |
+| ereceiptImageId | string | - | false | The unique identifier of the eReceipt image associated with the expense |
+| exchangeRate | [ExchangeRate](#schemaexchangerate) | - | true | - |
+| expenseId | string | - | true | The unique identifier for the expense |
+| expenseSourceIdentifiers | [ExpenseSourceIdentifiers](#schemaexpensesourceidentifiers) | - | false | - |
+| expenseType | [ExpenseType](#schemaexpensetype) | - | true | - |
+| hasBlockingExceptions | boolean | - | true | Whether the expense has any exceptions that blocks it from being submitted |
+| hasExceptions | boolean  | - | true | Whether the expense has any exceptions |
+| hasMissingReceiptDeclaration | boolean | - | true | Whether the expense has an affidavit declaration for missing receipt |
+| imageCertificationStatus | string | - | false | The final status of the receipt image associated with the expense. Possible values: Refer [Receipts Status V4 API](https://github.concur.com/receipts/receipt-service/wiki/GRDC-API-Docs#possible-digitizationstatus-codes) |
+| isAutoCreated | boolean | - | true | Whether the expense is auto created |
+| isImageRequired | boolean | - | true | Whether the image is required for the expense |
+| isPaperReceiptRequired | boolean | - | true | Whether the paper receipt is required for the expense to be submitted |
+| isPersonalExpense | boolean | - | true | Whether the expense is marked as personal (that is, non-reimbursable) by the user |
+| links | [[Link](#schemalink)] | - | false | Resource links related to this call |
+| location | [Location](#schemalocation) | - | false | - |
+| paymentType | [PaymentType](#schemapaymenttype) | - | true | - |
+| postedAmount | [Amount](#schemaamount)  | - | true | - |
+| receiptImageId | string | - | false | The unique identifier of the image associated with the expense |
+| ticketNumber | string | - | false | The ticket number associated with the travel |
+| transactionAmount | [Amount](#schemaamount) | - | true | - |
+| transactionDate | string(date)  | date | false | The transaction date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
+| travelAllowance | [TravelAllowance](#schematravelallowance) | - | false    | - |
+| vendor | [Vendor](#schemavendor)                                     |- | false | - |
+
+### <a name="allocation-favorite-entry"></a>AllocationFavoriteEntry
+
+An Allocation Entry which comprises a percentage of the Allocation Favorite
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| customData | [[CustomData](#schemacustomdata)] | - | false | This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured |
+| percentage | number(double) | double | true | Percentage of the total expense that the allocation represents |
+
+### <a name="report-totals"></a>ReportTotals
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| approvedAmount | [Amount](#schemaamount) | - | false    | - |
+| cashAdvanceReturnsAmount | [Amount](#schemaamount) | - | false | - |
+| claimedAmount | [Amount](#schemaamount) | - | true | - |
+| companyDisbursements | [CompanyDisbursements](#schemacompanydisbursements) | - | true | - |
+| employeeDisbursements | [EmployeeDisbursements](#schemaemployeedisbursements) | - | true | - |
+| isCashAdvanceReturnedOnCard | boolean | - | true | Whether the attribute determines if the user returned the remaining cash advance to the card directly. |
+| personalAmount | [Amount](#schemaamount) | - | true | - |
+| redirectFund | [RedirectFund](#schemaredirectfund) | - | false | - |
+| rejectedAmount | [Amount](#schemaamount) | - | true | - |
+| reportTotal | [Amount](#schemaamount) | - | true | - |
+| utilizedBalanceDues | [[UtilizedBalanceDue](#schemautilizedbalancedue)]     | - | false | List of utilized amount due company from prior reports |
+
+### <a name="smart-expense"></a>SmartExpense
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| creditCardTransactionId | string | - | false | The unique identifier of the credit card transaction (indexed transactionId) associated with the expense |
+| ereceipt | [EReceipt](#schemaereceipt) | - | false | - |
+| expenseAttendees | [ExpenseAttendees](#schemaexpenseattendees) | - | false | - |
+| isAutoCreated | boolean | - | false| Whether this expense is auto created. This element only applies to POST expense request. Default value: false |
+| personalCardTransactionId | string | - | false | The unique identifier of the personal card transaction associated with the expense |
+| quickExpenseId | string | - | false | The unique identifier of the mobile expense associated with the expense. When 'quickExpenseId' is specified, 'exchangeRate.value' field value will be ignored and it's value will be read from exchange rate currency service but 'exchangeRate.operation' will still be honored |
+| trip | [Trip](#schematrip) | - | false | - |
+
+### <a name="report-to-approve"></a>ReportToApprove
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| amountDueEmployee | [Amount](#schemaamount) | - | true | - |
+| claimedAmount | [Amount](#schemaamount) | - | true | - |
+| employee | [Employee](#schemaemployee) | - | true | - |
+| hasExceptions | boolean | - | true | Whether the Report has any exceptions |
+| link | [Link](#schemalink) | - | true | - |
+| name | string | - | true | The name of the expense report |
+| reportDate | string(date) | date | true | The date (ISO-8601) assigned to the report by the user (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
+| reportId | string | - | true | The unique identifier for the report resource |
+| reportType | string | - | true | This value identifies the method used to create the report. Statement refers to company billed statement reports and Auto-created refers to reports created by Expense Assistant. |
+| submitDate | string(date) | date | true | The date (ISO-8601) the report was submitted by the user (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
+
+### <a name="move-expense"></a>MoveExpense
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| targetReportId | string | - | true | ReportId of the destination report |
+
+### <a name="tax-data"></a>TaxData
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| expenseTax1 | [ExpenseTaxData](#schemaexpensetaxdata) | - | true | - |
+| expenseTax2 | [ExpenseTaxData](#schemaexpensetaxdata) | - | false | - |
+
+### <a name="validation-error"></a>ValidationError
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| id | string | - | false | The id of the validation error |
+| message | string | - | false | The detailed message of the validation error |
+| source | string | - | false | The type of validation which failed |
+
+### <a name="audit-trail"></a>AuditTrail
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| action | string | - | true | - |
+| author | [Employee](#schemaemployee) | - | false | - |
+| date | string(date-time) | date-time | true | The UTC datetime of when the audit was recorded (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DDTHH:mm:ssZ |
+| description | [Description](#schemadescription) | - | true | - |
+| externalUpdate | string | - | false | - |
+| type | string | - | true | - |
+
+### <a name="expense-tax"></a>ExpenseTax
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| customData | [[CustomData](#schemacustomdata)] | - | false | This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured |
+| reclaimCode | string | - | false | The tax reclaim code. Maximum length: 20 characters |
+| reclaimTransactionAmount | number(double) | double | false | The tax reclaim transaction amount |
+| taxAuthorityId | string | - | true | The unique identifier of the tax authority |
+| taxAuthorityName | string | - | false | The name of the tax authority |
+| taxCode | string | - | false | The tax code. Maximum length: 20 characters |
+| taxFormId | string | - | false | The unique identifier of the tax form associated with the expense |
+| taxRateTypeId | string | - | false | The unique identifier of the tax rate type |
+| taxRateTypeName | string | - | false | The name of the tax rate type |
+| taxReclaimConfigurationId | string | - | false | The unique identifier of the tax reclaim configuration |
+| taxTransactionAmount | number(double) | double | false | The tax transaction amount |
+
+### <a name="allocations-post-response"></a>AllocationsPostResponse
+
+| Name| Type | Format | Required | Description |
+|---|---|---|---|---|
+| hasExpenseExceptions | boolean | - | false | Indicates whether this expense has any exceptions. Format: true or false |
+| uri | string  | - | true | Uri of the allocations for the expense |
+
+### <a name="cost-object-expense-id"></a>CostObjectExpenseId
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| alloctionIds | [string] | - | false | The list of unique allocation identifiers for the expense |
+| expenseId | string | - | true | The unique identifier for the expense |
+
+### <a name="new-workflow-step-instance"></a>NewWorkflowStepInstance
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| approverId | string | - | false | Approver employee identifier |
+| isDeleted | boolean | - | false | Boolean indicating if this step has been deleted |
+| isUserAdded  | boolean | - | false | Boolean indicating if this step is added by user |
+| sequenceOrder | integer(int32) | int32  | true | Sequence of this step in the workflow |
+| stepId | string | - | true | Identifier of the step that this is an instance of |
+| subWorkflowInstances | [[NewWorkflowInstance](#schemanewworkflowinstance)] | - | false | List of sub workflow instances, for example, cost object workflows |
+
+### <a name="update-workflow-step-instance"></a>UpdateWorkflowStepInstance
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| approverId | string | - | false | Approver employee identifier |
+| isDeleted | boolean | - | false | Boolean indicating if this step has been deleted |
+| isUserAdded | boolean | - | false | Boolean indicating if this step is added by user |
+| sequenceOrder | integer(int32) | int32 | true | Sequence of this step in the workflow |
+| stepId | string | - | true | Identifier of the step that this is an instance of |
+| stepInstanceId | string  | - | false | Step instance identifier, may be null for a user added step |
+| subWorkflowInstances | [[UpdateWorkflowInstance](#schemaupdateworkflowinstance)] | - | false | List of sub workflow instances, for example, cost object workflows |
+
+### <a name="mileage"></a>Mileage
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| odometerEnd | integer(int32) | int32 | false | The odometer reading at the end of the journey |
+| odometerStart | integer(int32) | int32 | false | The odometer reading at the start of the journey |
+| passengerCount | integer(int32) | int32 | false | The number of passengers in the vehicle during the journey |
+| personalDistance | integer(int32) | int32 | false | The portion of the journey attributed to personal use. Default value: 0 |
+| routeId | string | - | false | The unique identifier of the route for this journey |
+| totalDistance | integer(int32) | int32 | true | The total distance for this journey |
+| vehicleId | string | - | true | The unique identifier for the vehicle used for this journey |
+
+### <a name="expense-type"></a>ExpenseType
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| code | string  | - | false | The code of the expense type |
+| id | string | - | true | The unique identifier of the expense type. Maximum length: 5 characters. Example: 'BRKFT' |
+| isDeleted | boolean | - | false | Whether the expense type returned is deleted or not. |
+| name | string  | - | false | The name of the expense type (localized as per `accept-language` header)
+
+### <a name="expense-attendee-with-amounts"></a>ExpenseAttendeeWithAmounts
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| approvedAmount | [Amount](#schemaamount) | - | true | - |
+| associatedAttendeeCount | integer(int32) | int32  | false | The count of total attendees. A count greater than 1 means there are unnamed attendees associated with this expense-attendee record. Default value: 1 |
+| attendeeId | string | - | true | The unique identifier of the associated expense attendee within Concur |
+| customData | [[CustomData](#schemacustomdata)] | - | false| The set of data the custom fields contain for the attendee based on the configuration. This set might be empty if no custom fields are configured |
+| isAmountUserEdited | boolean | - | false | This field indicates if the amount value for the attendee on this expense was ever manually edited by the end user. Default value: false |
+| isTraveling | boolean | - | false | Whether the attendee was traveling when the expense was incurred, used for FBT tax calculations |
+| transactionAmount | [Amount](#schemaamount) | - | true | - |
+| versionNumber | integer(int32) | int32 | false | The version number of the attendee. This field value may always be 1, depending on the configuration. Default value: 1
+
+### <a name="associate-image"></a>AssociateImage
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| receiptImageId | string | - | true | The Id of the image to associate to the report header |
+
+### <a name="update-workflow-instance"></a>UpdateWorkflowInstance
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| processInstanceId | string | - | true | Workflow instance id |
+| stepInstances | [[UpdateWorkflowStepInstance](#schemaupdateworkflowstepinstance)] | - | true | Steps in the workflow instance |
+
+### <a name="travel-diary"></a>TravelDiary
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| activityEndDate | string(date-time) | date-time | true | The end date (ISO-8601) of the traveldiary as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
+| activityLocation | string | - | true | Location of the travel diary |
+| activityPurpose | string | - | true | Purpose of the travel |
+| activityStartDate | string(date-time) | date-time | true | The start date (ISO-8601) of the traveldiary as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
+| link | [Link](#schemalink) | - | true | - |
+| travelDiaryId | string | - | false | - |
+
+### <a name="employee"></a>Employee
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| firstName | string | - | false | First name |
+| lastName | string | - | false | Last name |
+| middleInitial | string | - | false | Middle initial |
+
+### <a name="report-allocations"></a>ReportAllocations
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| allocations | [[NewReportAllocation](#schemanewreportallocation)] |        | false | This is an array of allocation objects to be created or updated. Maximum allocations: 500 |
+| expenseIds | string | - | true | This is an array of unique identifiers of expenses within this report that are being allocated |
