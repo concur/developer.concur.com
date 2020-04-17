@@ -198,7 +198,7 @@
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The 3-letter ISO 4217 currency code for the request currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong-China dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
+          "description": "The 3-letter ISO 4217 currency code for the request currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
         },
         "ID": {
           "type": "string",
