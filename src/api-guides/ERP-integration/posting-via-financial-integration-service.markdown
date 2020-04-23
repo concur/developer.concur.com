@@ -5,7 +5,12 @@ layout: reference
 
 ## ERP Integration Methods and Customer Onboarding
 
-When using SAP Concur Financial Integration Service (FIS) data should you choose a JSON response or the SAP Concur extract files? Some ERP systems will require a file import to book Spend journal entries. You should plan to create a file based on the data returned from SAP Concur FIS when necessary. SAP Concur extract files are not always necessary.
+As an ERP Partner you have two options to obtain data for financial journal entries into the ERP:
+
+*  Financial Integration Service (FIS) – data is returned via APIs.
+*  Extract files – data is written to a flat file on a batched schedule.
+
+We recommend using data from FIS whenever possible due to the efficiency and advantages it has over batched extract files. If a customer’s ERP requires a file then create your own file based on FIS data, not the extract.
 
 FIS data should be used in the following situations:
 
