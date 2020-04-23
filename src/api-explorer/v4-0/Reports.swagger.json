@@ -120,12 +120,12 @@
                         "description": "Page Size",
                         "required": false,
                         "type": "integer",
-                        "default": "100",
+                        "default": 100,
                         "format": "int32",
                         "enum": [
-                            "25",
-                            "50",
-                            "100"
+                            25,
+                            50,
+                            100
                         ]
                     },
                     {
