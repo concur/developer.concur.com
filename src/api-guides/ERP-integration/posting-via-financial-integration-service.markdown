@@ -22,8 +22,8 @@ Using FIS data for either of the above situations will simplify processes and en
 FIS has these benefits over the Extract file process:
 
 * Maintains consistency between SAP Concur solutions and the ERP:
-  * FIS requires a post of the status of the ERP integration to the SAP Concur solution, per report or invoice. If there is a failure at the ERP, the app will update the affected report or invoice with an error message. The customer will initiate corrective action from within the SAP Concur processor tool. The result is that no expense report or invoice will advance until it can be integrated into the ERP.
-  * For existing customers, enabling FIS also requires change management discussions regarding expense reports and invoices in process during the switch. Any report created after FIS is enabled will flow to FIS and not the extract file. Reports still in process when FIS is enabled will be accounted for only via the extract file. Customers and partners should plan accordingly.
+  * FIS requires a post of the status of the ERP integration back into the SAP Concur solution, per report or invoice. If there is a failure at the ERP, the app will update the affected report or invoice with an error message. The customer will initiate corrective action from within the SAP Concur processor tool. The result is that no expense report or invoice will advance until it can be integrated into the ERP.
+  * For existing customers, enabling FIS also requires change management discussions regarding expense reports and invoices in process during the switch. Any report created after FIS is enabled will flow to FIS and not the extract file. Reports still in process when FIS is enabled will be accounted for only via the extract file. Customers need to manage their existing integration until those reports or invoices are completely processed.
 
 >   **Note**: This process is a change for existing customers who are not accustomed to this awareness between their ERP and SAP Concur solutions.
 
