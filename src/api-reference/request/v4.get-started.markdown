@@ -67,10 +67,10 @@ Name|Description|Endpoint
 
 ## <a name="dependencies"></a>Dependencies
 
-SAP Concur clients must purchase Concur Request in order to use this API. This API requires the following additional SAP Concur APIs:
+SAP Concur clients must purchase Concur Request in order to use this API. This API requires the following additional SAP Concur APIs to be called by the SAP Concur Clients:
 
-* [List](/api-reference/common/list-item/v3.list-item.html), to retrieve the `listId`
-* [User profile](/api-reference/profile/v1.user.html), to retrieve the `userId`
+* [User profile](/api-reference/profile/v1.user.html), to retrieve the `userId` - required in most of the endpoints when accessed via a Company Token
+* [List], to retrieve the `listId` - required in the management of custom fiels related to list items. In externalisation process, please liaise with List API owner team for further update
 * [Expense Report](/api-reference/expense/expense-report/expense-report-get.html), to retrieve the `reportId`
 
 ## <a name="access-token-usage"></a>Access Token Usage

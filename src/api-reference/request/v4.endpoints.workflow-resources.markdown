@@ -116,18 +116,15 @@ Authorization: Bearer {token}
   },
   "custom2": {
     "code": "CEN1",
-    "value": "54F0CBD8833CB348BD45A6C7C621C951",
-    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+    "value": "54F0CBD8833CB348BD45A6C7C621C951"
   },
   "custom3": {
     "code": "CEN1PRO2",
-    "value": "441D6FC50766A044ACC07FF780F1BAD9",
-    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+    "value": "441D6FC50766A044ACC07FF780F1BAD9"
   },
   "custom4": {
     "code": "TRAINING",
-    "value": "3F54AE68BA66EF49A5984E5197202A4D",
-    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+    "value": "3F54AE68BA66EF49A5984E5197202A4D"
   },
   "endDate": "2018-07-09",
   "endTime": "19:00",
@@ -149,10 +146,8 @@ Authorization: Bearer {token}
   "name": "Company Training - JULY 2018",
   "owner": {
     "firstName": "John",
-    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
-    "lastName": "Doe",
-    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+    "lastName": "Doe"
   },
   "pendingApproval": true,
   "policy": {

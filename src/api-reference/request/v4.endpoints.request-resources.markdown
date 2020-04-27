@@ -137,18 +137,15 @@ Authorization: Bearer {token}
   },
   "custom2": {
     "code": "CEN3",
-    "value": "8422A66A9B0142458020D9BCD4351D38",
-    "href": "https://us.api.concursolutions.com/list/v1/items/8422A66A9B0142458020D9BCD4351D38"
+    "value": "8422A66A9B0142458020D9BCD4351D38"
   },
   "custom3": {
     "code": "CEN3PRO1",
-    "value": "5A0F9AF6B92E34468698040C915688BF",
-    "href": "https://us.api.concursolutions.com/list/v1/items/5A0F9AF6B92E34468698040C915688BF"
+    "value": "5A0F9AF6B92E34468698040C915688BF"
   },
   "custom4": {
     "code": "TRAINING",
-    "value": "3F54AE68BA66EF49A5984E5197202A4D",
-    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+    "value": "3F54AE68BA66EF49A5984E5197202A4D"
   },
   "endDate": "2018-07-03",
   "endTime": "22:00",
@@ -165,10 +162,8 @@ Authorization: Bearer {token}
   "name": "Company Training - JULY 2018",
   "owner": {
     "firstName": "John",
-    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
-    "lastName": "Doe",
-    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+    "lastName": "Doe"
   },
   "pendingApproval": false,
   "policy": {
@@ -225,8 +220,8 @@ GET {datacenter}/travelrequest/v4/requests
 
 Name|Type|Format|Description
 ---|---|---|---
-`view`|`string`|-|Name of the view defining the scope of the Requests to get. Supported values:`ALL`: Get all existing Requests for a user (relevant only for the traveler).<br>`ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than three months based on current date and must not be in closed status.<br>`UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler).<br>`PENDING`: Get all the Requests that are submitted but not yet approved (relevant only for the traveler).<br>`VALIDATED`: Get all the approved Requests for a user (relevant only for the traveler). Closed Requests are included in this view.<br>`APPROVED`: Get all the approved Requests by a user (relevant only for the approver). Closed Requests are included in this view.<br>`CANCELED`: Get all the cancelled Requests for a user (relevant only for the traveler). Cancelled could include closed/not closed Requests.<br>`CLOSED`: Get all the closed Requests for a user (relevant only for the traveler). Includes canceled then closed Request as well as approved then closed Requests.<br>`SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests.<br>`TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver).<br>`PENDINGEBOOKING`: Approved Requests awaiting Concur Travel booking(s).<br>`PENDINGPROPOSAL`: Get all Requests submitted to a Travel Agency (TMC) step. The `userId` of the TMC agent user must be provided in the list of parameters, this TMC agent user must have a default Travel Agency assigned in its profile corresponding to the Travel Agency assigned to the Requests.<br>When connecting with a TMC agent User Token, additional values are possible: `PROPOSALAPPROVED`: Get all the approved Requests by a user (relevant only for the TMC agent).<br>`PROPOSALCANCELED`: Get all the cancelled Requests for a user (relevant only for the TMC agent).<br>If no view value is sent, the default view `ALL` will be used.
-`userId`|`string`|-|The unique identifier of the Request owner to use when searching for Requests.
+`view`|`string`|-|Name of the view defining the scope of the Requests to get. Supported values:`ALL`: Get all existing Requests for a user (relevant only for the traveler).<br>`ACTIVE`Get all active Requests. Does not include cancelled Requests. Approved Requests included are aged less than three months based on current date and must not be in closed status.<br>`UNSUBMITTED`: Get all the unsubmitted Requests (relevant only for the traveler).<br>`PENDING`: Get all the Requests that are submitted but not yet approved (relevant only for the traveler).<br>`VALIDATED`: Get all the approved Requests for a user (relevant only for the traveler). Closed Requests are included in this view.<br>`APPROVED`: Get all the approved Requests by a user (relevant only for the approver). Closed Requests are included in this view.<br>`CANCELED`: Get all the cancelled Requests for a user (relevant only for the traveler). Cancelled could include closed/not closed Requests.<br>`CLOSED`: Get all the closed Requests for a user (relevant only for the traveler). Includes canceled then closed Request as well as approved then closed Requests.<br>`SUBMITTED`: Get all the submitted Requests for a user (relevant only for the traveler). Submitted does not include cancelled requests.<br>`TOAPPROVE`: Get all Requests to be approved by the user (relevant only for the approver).<br>`PENDINGEBOOKING`: Approved Requests awaiting Concur Travel booking(s).<br>`PENDINGPROPOSAL`: Get all Requests submitted to a Travel Agency (TMC) step (relevant only for the TMC agent). The `userId` of the TMC agent user must be provided in the list of parameters, this TMC agent user must have a default Travel Agency assigned in its profile corresponding to the Travel Agency assigned to the Requests.<br>When connecting with a TMC agent User Token, additional values are possible: `PROPOSALAPPROVED`: Get all the approved Requests by a user (relevant only for the TMC agent).<br>`PROPOSALCANCELED`: Get all the cancelled Requests for a user (relevant only for the TMC agent).<br>If no view value is sent, the default view `ALL` will be used.
+`userId`|`string`|-|Associated with a traveler view: the unique identifier of the Request owner to use when searching for Requests.<br> Associated with an approver view: the unique identifier of the approver to user when searching for Requests. <br> Associated with a TMC agent view, the unique identifier of the TMC agent to use. **Required** for the `PENDINGPROPOSAL` view.
 `start`|`integer`|-|Pagination: index of the first record. Default: 0
 `limit`|`integer`|-|Number of records to return per page. Default: 10. Maximum limit: 100, if higher value or digit value is set, a 400 error code will be displayed.
 `approvedBefore`|`dateTime`|`yyyy-MM-dd'T'HH:mm:ss.SSS'Z'` or `yyyy-MM-dd`|Returns Requests that have been approved before the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time should be in UTC. when time is missing it is defaulted to midnight.
@@ -277,9 +272,7 @@ Authorization: Bearer {token}
       },
       "approved": false,
       "approver": {
-        "href": "https://us.api.concursolutions.com/profile/v1/users/86ac9588-5032-3fa7-b3cc-20e97d2d7146",
         "id": "86ac9588-5032-3fa7-b3cc-20e97d2d7146",
-        "template": "https://us.api.concursolutions.com/profile/v1/users/{id}",
         "firstName": "Jason",
         "lastName": "McCafee"
       },
@@ -294,10 +287,8 @@ Authorization: Bearer {token}
       "name": "PMP Training - OCTOBER",
       "owner": {
         "firstName": "John",
-        "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
         "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
-        "lastName": "Doe",
-        "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+        "lastName": "Doe"
       },
       "pendingApproval": true,
       "requestId": "3AT7",
@@ -338,6 +329,11 @@ Authorization: Bearer {token}
       "everSentBack": false,
       "expenses": [],
       "name": "Client meeting in Berlin",
+      "owner": {
+        "firstName": "John",
+        "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
+        "lastName": "Doe"
+      },
       "pendingApproval": false,
       "requestId": "3AT6",
       "startDate": "2018-09-18",
@@ -457,18 +453,15 @@ Authorization: Bearer {token}
   },
   "custom2": {
     "code": "CEN1",
-    "value": "54F0CBD8833CB348BD45A6C7C621C951",
-    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+    "value": "54F0CBD8833CB348BD45A6C7C621C951"
   },
   "custom3": {
     "code": "CEN1PRO2",
-    "value": "441D6FC50766A044ACC07FF780F1BAD9",
-    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+    "value": "441D6FC50766A044ACC07FF780F1BAD9"
   },
   "custom4": {
     "code": "CLIENTPROJECT",
-    "value": "050BE16A7BF72948810AFDBC9069BD8E",
-    "href": "https://us.api.concursolutions.com/list/v1/items/050BE16A7BF72948810AFDBC9069BD8E"
+    "value": "050BE16A7BF72948810AFDBC9069BD8E"
   },
   "endDate": "2018-07-17",
   "endTime": "19:30",
@@ -508,10 +501,8 @@ Authorization: Bearer {token}
   "name": "Client meeting in Berlin - JULY",
   "owner": {
     "firstName": "John",
-    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
-    "lastName": "Doe",
-    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+    "lastName": "Doe"
   },
   "pendingApproval": false,
   "policy": {
@@ -552,7 +543,7 @@ Authorization: Bearer {token}
 
 ## <a name="request-resource-update"></a>Update the content of an existing Request
 
-Update of the following fields is supported : `policy`, `comment`, `startDate`, `startTime`, `endDate`, `endTime`, `expensePolicy`, `name`, `businessPurpose`, `mainDestination`, `travelAgency`, and `custom fields`. Other fields will be ignored.
+Update of the following fields is supported : `comment`, `startDate`, `startTime`, `endDate`, `endTime`, `expensePolicy`, `name`, `businessPurpose`, `mainDestination`, `travelAgency`, and `custom fields`. Other fields will be ignored.
 
 This endpoint supports partial update. You may submit only the fields to update in the body, fields not present in the body will remain unchanged. To clear a field use the value *null* (without quotes).
 
@@ -664,18 +655,15 @@ Authorization: Bearer {token}
   },
   "custom2": {
     "code": "CEN1",
-    "value": "54F0CBD8833CB348BD45A6C7C621C951",
-    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+    "value": "54F0CBD8833CB348BD45A6C7C621C951"
   },
   "custom3": {
     "code": "CEN1PRO2",
-    "value": "441D6FC50766A044ACC07FF780F1BAD9",
-    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+    "value": "441D6FC50766A044ACC07FF780F1BAD9"
   },
   "custom4": {
     "code": "TRAINING",
-    "value": "3F54AE68BA66EF49A5984E5197202A4D",
-    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+    "value": "3F54AE68BA66EF49A5984E5197202A4D"
   },
   "endDate": "2018-07-09",
   "endTime": "19:00",
@@ -691,10 +679,8 @@ Authorization: Bearer {token}
   "name": "Company Training - JULY 2018",
   "owner": {
     "firstName": "John",
-    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
-    "lastName": "Doe",
-    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+    "lastName": "Doe"
   },
   "pendingApproval": false,
   "policy": {

@@ -141,8 +141,7 @@ Name|Type|Format|Description
 `value`|`string`|-|The value of the non-list item. For list fields, this is the unique id of the item.
 `href`|`string`|-|The link to get this list item on the list service. Empty for non-list items.
 
-To fill in a custom list item for the creation of a Request or an Expected Expense, clients may use one of the following:
-
+Retrieving the `listId` requires to call the List API, which is currently being worked on for externalisation. In the meanwhile, to fill in a custom list item for the creation of a Request or an Expected Expense, clients may use one of the following workaround:
 * Use the copy down configuration feature to update custom fields from the Employee profile to the Request header, and from the Request header to the Expected expense.
 * For a limited number of list items that are part of a custom field, a Request containing those values in the related custom fields may be manually created. The list item unique id will then be retrieved by calling the get detail of this Request. The same process is used for all list items values of the list.
 
@@ -200,7 +199,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`city`|`string`|-|**Required if `city` is used** The city name of the location.
+`city`|`string`|-|**Required if `city` is used** The city name of the location. Always provide the `countryCode` value in addition to the `city`.
 `countryCode`|`string`|[ISO 3166-1]|**Required if `city` is used** The ISO 3166-1 country code.
 `countrySubDivisionCode`|`string`|[ISO 3166-2]|The ISO 3166-2 country sub code.
 `iataCode`|`string`|-|The IATA code of the location.
@@ -209,7 +208,7 @@ Name|Type|Format|Description
 `locationCode`|`string`|-|**Required if `rail` is used** The code of the location.
 `locationType`|`string`|-|**Required if `rail` is used** The type of the location.
 `longitude`|`number`|-|The longitude of the location.
-`name`|`string`|-|**Required for rail station** The name of the location.
+`name`|`string`|-|**Required for rail station** The name of the location. Always provide the `countryCode` value in addition to the `name`.
 
 Below are the different node expected in the POST endpoints by location type (City, Rail station, or Airport) - example for `endLocation` field:
 
