@@ -27,7 +27,7 @@ Use the following resources to get familiar with SAP Concur products and then su
 
 ### <a name="quick-connect"></a>Quick Connect
 
-[Quick Connect Scope for Enterprise Apps](/quick-connect-scope-for-enterprise-apps.html)
+[Quick Connect Scope for Enterprise Apps](/api-guides/ERP-integration/quick-connect-scope-for-enterprise-apps.html)
 
 **Quick Connect** describes the process customers use to connect their SAP Concur site with an App Center Partner's Enterprise application. See the Quick Connect scope document for details to guide you through the development of this required piece to your certified application.
 
