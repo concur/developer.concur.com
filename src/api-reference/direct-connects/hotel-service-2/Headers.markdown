@@ -38,7 +38,7 @@ Supported Soapactions:
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
-In order to assist with troubleshooting, SAP Concur requests with a unique correlationId in the request header. The key to look for is `correlationid`. This unique code can be used during troubleshooting as it identifies the API call in the log files. You should record this information in your own API call logs as well so that you can pass this information on to the SAP Concur support team.
+In order to assist with troubleshooting, SAP Concur provides a unique correlationId in the request header. The key to look for is `correlationid`. This unique code can be used during troubleshooting as it identifies the API call in the log files. You should record this information in your own API call logs as well so that you can pass this information on to the SAP Concur support team.
 
 Example HTTP Header from network capture:
 

@@ -46,7 +46,7 @@ Message to retrieved the availability of hotels.
     * [Payment Policies](#payment-policies)
     * [Guarantee Payment](#guarantee-payment)
     * [Accepted Payments](#accepted-payments)
-    * [Accepted Payment](#accepted-paytment)
+    * [Accepted Payment](#accepted-payment)
     * [Payment Card](#payment-card)
     * [Card Type](#card-type)
     * [Total](#total)
@@ -424,7 +424,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |----------|-----------|-------------|
-|`CardType`|`complext`|**Required** String representation of a card type. Allowed values: `AmericanExpress`, `BankOfAmerica`, `BritishAirways`, `CapitalOne`, `Chase`, `Citibank`, `ContinentalAirlines`, `DeltaAirlines`, `DiscoverCard`, `Disney`, `Eurocard`, `Hilton`, `Hyatt`, `Mariott`, `Mastercard`, `RitzCarlton`, `SouthwestAirlines`, `StarwoodHotels`, `UnitedAirlines`, `USAirways`, `VISA`, `Other_`. See `Code` and `Description` if card type is `other_`.|
+|`CardType`|`complex`|**Required** String representation of a card type. Allowed values: `AmericanExpress`, `BankOfAmerica`, `BritishAirways`, `CapitalOne`, `Chase`, `Citibank`, `ContinentalAirlines`, `DeltaAirlines`, `DiscoverCard`, `Disney`, `Eurocard`, `Hilton`, `Hyatt`, `Mariott`, `Mastercard`, `RitzCarlton`, `SouthwestAirlines`, `StarwoodHotels`, `UnitedAirlines`, `USAirways`, `VISA`, `Other_`. See `Code` and `Description` if card type is `other_`.|
 
 #### <a name="cardtype"></a>CardType
 

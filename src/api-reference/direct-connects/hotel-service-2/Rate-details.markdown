@@ -48,7 +48,7 @@ Message to retrieved the details of a hotel rate.
     * [Payment Policies](#payment-policies)
     * [Guarantee Payment](#guarantee-payment)
     * [Accepted Payments](#accepted-payments)
-    * [Accepted Payment](#accepted-paytment)
+    * [Accepted Payment](#accepted-payment)
     * [Payment Card](#payment-card)
     * [Card Type](#card-type)
     * [Total](#total)
@@ -282,7 +282,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |-------------------|--------------|-------------|
-|`RoomTypes`|`complex`|**Required** Details on the room stay including guest counts, time span of this room stay, pointers to res guests, guest memberships, comments, and special requests pertaining to this particular room stay. Financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties.|
+|`RoomTypes`|`complex`|**Required** Details on the room stay including guest counts, time span of this room stay, guest memberships, comments, and special requests pertaining to this particular room stay. Financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties.|
 |`RatePlans`|`complex`|**Required** A collection of rate plans associated with a particular room stay. The rate plan element is used to contain all the rate information for a single rate plan Code (example: `RACK`) for a given date range. A given rate plan may have variable rates, over the effective period of the rate plan, this is represented by the child element rates.|
 |`RoomRates`|`complex`|**Required** List of room rates.|
 |`TimeSpan`|`datetimespan` |**Required** The time span which covers the room stay. The attributes of the OTA `DateTimeSpan` data type are based on the W3C base data types of `timeInstant` and `timeDuration` using ISO 8601.|
@@ -454,7 +454,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |----------|-----------|-------------|
-|`CardType`|`complext`|**Required** String representation of a card type. Allowed values: `AmericanExpress`, `BankOfAmerica`, `BritishAirways`, `CapitalOne`, `Chase`, `Citibank`, `ContinentalAirlines`, `DeltaAirlines`, `DiscoverCard`, `Disney`, `Eurocard`, `Hilton`, `Hyatt`, `Mariott`, `Mastercard`, `RitzCarlton`, `SouthwestAirlines`, `StarwoodHotels`, `UnitedAirlines`, `USAirways`, `VISA`, `Other_`. See `Code` and `Description` if card type is `other_`.|
+|`CardType`|`complex`|**Required** String representation of a card type. Allowed values: `AmericanExpress`, `BankOfAmerica`, `BritishAirways`, `CapitalOne`, `Chase`, `Citibank`, `ContinentalAirlines`, `DeltaAirlines`, `DiscoverCard`, `Disney`, `Eurocard`, `Hilton`, `Hyatt`, `Mariott`, `Mastercard`, `RitzCarlton`, `SouthwestAirlines`, `StarwoodHotels`, `UnitedAirlines`, `USAirways`, `VISA`, `Other_`. See `Code` and `Description` if card type is `other_`.|
 
 #### <a name="cardtype"></a>CardType
 
