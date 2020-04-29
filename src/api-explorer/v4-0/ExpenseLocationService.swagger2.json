@@ -1,0 +1,3536 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Service providing cities/towns, administrative regions, subdivisions (e.g states/regions) and countries.",
+    "version": "v4",
+    "title": "Localities",
+    "contact": {
+      "name": "springfox.documentation.service.Contact@156cfa20"
+    },
+    "license": {}
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Locality",
+      "description": "Locality Service"
+    },
+    {
+      "name": "Country",
+      "description": "Locality Service"
+    },
+    {
+      "name": "AdminRegion",
+      "description": "Locality Service"
+    },
+    {
+      "name": "Subdivision",
+      "description": "Locality Service"
+    }
+  ],
+  "paths": {
+    "/localities/v0.1/company/{companyId}/adminRegionId/{adminRegionId}": {
+      "get": {
+        "tags": [
+          "AdminRegion"
+        ],
+        "summary": "Retrieve admin region details given by their id",
+        "description": "Usually used to display admin region for display purposes.",
+        "operationId": "getAdminRegionByIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "adminRegionId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Admin region details found or empty",
+            "schema": {
+              "$ref": "#/definitions/AdminRegionResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found, Invalid adminRegionId"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v0.1/company/{companyId}/countries": {
+      "get": {
+        "tags": [
+          "Country"
+        ],
+        "summary": "Retrieve countries list along with currency codes",
+        "description": "Mainly used to return list of country names for display, or to determine currency code for a country. Full currency details (name/symbol etc) are not included in this API and must be retrieved separately",
+        "operationId": "getCountriesUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was successful",
+            "schema": {
+              "$ref": "#/definitions/CountryList"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v0.1/company/{companyId}/countryCode/{countryCode}": {
+      "get": {
+        "tags": [
+          "Country"
+        ],
+        "summary": "Retrieve country details given a country code",
+        "description": "Mainly used to return country names for display, or to determine currency code for a country. Full currency details (name/symbol etc) are not included in this API and must be retrieved separately",
+        "operationId": "getCountryByAlphaTwoCodeUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was successful",
+            "schema": {
+              "$ref": "#/definitions/CountryResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found, Invalid countryCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v0.1/company/{companyId}/countryCode/{countryCode}/subdivisionCode/{subdivisionCode}": {
+      "get": {
+        "tags": [
+          "Subdivision"
+        ],
+        "summary": "Retrieve subdivision details given country and subdivision codes",
+        "description": "Usually used to display subdivision names for display purposes.",
+        "operationId": "getSubdivisionByCompanyCountryAndCodeUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "subdivisionCode",
+            "in": "path",
+            "description": "ISO 3166-2 Subdivision code",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subdivision found",
+            "schema": {
+              "$ref": "#/definitions/SubdivisionResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found,  Invalid countryCode or Invalid subdivisionCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v0.1/company/{companyId}/countryCode/{countryCode}/subdivisionCode/{subdivisionCode}/adminRegions": {
+      "get": {
+        "tags": [
+          "AdminRegion"
+        ],
+        "summary": "Retrieve list of admin regions given country and subdivision codes",
+        "description": "Usually used to display admin region list for display purposes.",
+        "operationId": "getAdminRegionListByCompanyCountryAndCodeUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "subdivisionCode",
+            "in": "path",
+            "description": "ISO 3166-2 Subdivision code",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Admin region list found or an empty list",
+            "schema": {
+              "$ref": "#/definitions/AdminRegionList"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found,  Invalid countryCode or Invalid subdivisionCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v0.1/company/{companyId}/countryCode/{countryCode}/subdivisions": {
+      "get": {
+        "tags": [
+          "Subdivision"
+        ],
+        "summary": "Retrieve list of subdivisions given country code",
+        "description": "Usually used to display subdivisions of a country for display purposes.",
+        "operationId": "getSubdivisionsByCompanyCountryUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subdivisions found",
+            "schema": {
+              "$ref": "#/definitions/SubdivisionList"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found,  Invalid countryCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v0.1/company/{companyId}/localityCode/{localityCode}": {
+      "get": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "Return details of a locality given a locality code",
+        "description": "Locality codes are usually from the <a href=\"https://www.unece.org/cefact/locode/service/location\">UN/LOCODE standard</a> e.g. GBLON. Custom locality codes can also be inserted by customers or by Concur, usually when the locality doesn't existing in the UN/LOCODE list. In the future, not all localities are expected to have a locality code, preferably use the LocalityId as the unique identifier. Does return inactive localities.",
+        "operationId": "getDetailsByCodeUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "localityCode",
+            "in": "path",
+            "description": "UN/LOCODE or Concur defined up to 11 characters e.g.GBLON,CN001-CM",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Locality details retrieved",
+            "schema": {
+              "$ref": "#/definitions/LocationDetailsResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found or Invalid localityCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v0.1/company/{companyId}/localityId/{localityId}": {
+      "get": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "Return details of a locality given a LocalityId or legacy location name key(ct_location_name.ln_key) for a given company",
+        "description": "The ideal usage of this API is using the LocalityId identifier. However a backwards compatible feature is available to use this same endpoint with the legacy name key (ln_key). Whichever identifier is used, the same locality details object is returned. If a locality has multiple names and the exact NAME that is being requested is required then the legacy name key must again be looked for in the response to identify that name. The preferred name chosen is not based on the legacy name key provided. Returns active and inactive localities.",
+        "operationId": "getDetailsByIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "localityId",
+            "in": "path",
+            "description": "Valid UUID of the Locality Or Locality Name Key as as Integer",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Locality details retrieved",
+            "schema": {
+              "$ref": "#/definitions/LocationDetailsResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found or Invalid UUID localityId"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v0.1/company/{companyId}/searchtext/{searchText}": {
+      "get": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "Return a list of localities matching the given search text for a given company",
+        "description": "This is mainly used for auto-complete use cases. Localities that start with the search text will be returned. Passing 1 character for search text will result in a 404 error. We suggest consuming teams still send the requests to our service but display a 404 as an empty list. This is to enable future improvements where we aim to reduce the number of characters we support. If the search text contains % or / an error will be returned. Consuming teams are suggested to catch these scenarios and only send the preceding text to our service. e.g. if a user types 'Name before / text after slash' the search string that should be sent to the service would be 'Name before ' regardless of what is typed after the slash. Returns active localities only.",
+        "operationId": "getLocalitiesByCompanyIdAndSearchTextUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchText",
+            "in": "path",
+            "description": "Full or partial name of the Locality with minimum 2 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "subdivisionCode",
+            "in": "query",
+            "description": "ISO 3166-2 Subdivision code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "adminRegionId",
+            "in": "query",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Size (number) as optional Query Parameter - ALL for entire result set. Default is 25",
+            "required": false,
+            "type": "string",
+            "default": "25"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationEntryWrapper"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found or searchText empty or 1 char"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v0.1/lookup/company/{companyId}": {
+      "post": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "Return a locality given a full name and optional subdivision and/or country for a given company",
+        "description": "Usually used to turn location text (e.g. from a credit card feed) into a Concur locality. The top matching locality will be returned if there are multiple results. If a locality can't be found with the full combination  provided (e.g. name, subdivision and country) it will look for partial matches (e.g. name and country only) ultimately looking for just the name. A complete match for the name must be present for a a locality to be returned e.g. 'London' (not partial matches like 'Lon'). The grade in the response can be used to determine whether a match was found for the full combination or only a subset. If multiple lookups are performed in the same request, only the top entry of the payload will be considered. Returns active localities only.",
+        "operationId": "searchLocalitiesUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "RequestBody",
+            "description": "Payload for the request body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TripletRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One or more localities found",
+            "schema": {
+              "$ref": "#/definitions/LocationWrapperList"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "companyId in incorrect format"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/company/{companyId}/adminRegionId/{adminRegionId}": {
+      "get": {
+        "tags": [
+          "AdminRegion"
+        ],
+        "summary": "Retrieve admin region details given by their id",
+        "description": "Usually used to display admin region for display purposes.",
+        "operationId": "getAdminRegionByIdUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "adminRegionId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Admin region details found or empty",
+            "schema": {
+              "$ref": "#/definitions/AdminRegionResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found, Invalid adminRegionId"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/company/{companyId}/countries": {
+      "get": {
+        "tags": [
+          "Country"
+        ],
+        "summary": "Retrieve countries list along with currency codes",
+        "description": "Mainly used to return list of country names for display, or to determine currency code for a country. Full currency details (name/symbol etc) are not included in this API and must be retrieved separately",
+        "operationId": "getCountriesUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was successful",
+            "schema": {
+              "$ref": "#/definitions/CountryList"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/company/{companyId}/countryCode/{countryCode}": {
+      "get": {
+        "tags": [
+          "Country"
+        ],
+        "summary": "Retrieve country details given a country code",
+        "description": "Mainly used to return country names for display, or to determine currency code for a country. Full currency details (name/symbol etc) are not included in this API and must be retrieved separately",
+        "operationId": "getCountryByAlphaTwoCodeUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was successful",
+            "schema": {
+              "$ref": "#/definitions/CountryResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found, Invalid countryCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/company/{companyId}/countryCode/{countryCode}/subdivisionCode/{subdivisionCode}": {
+      "get": {
+        "tags": [
+          "Subdivision"
+        ],
+        "summary": "Retrieve subdivision details given country and subdivision codes",
+        "description": "Usually used to display subdivision names for display purposes.",
+        "operationId": "getSubdivisionByCompanyCountryAndCodeUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "subdivisionCode",
+            "in": "path",
+            "description": "ISO 3166-2 Subdivision code",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subdivision found",
+            "schema": {
+              "$ref": "#/definitions/SubdivisionResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found,  Invalid countryCode or Invalid subdivisionCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/company/{companyId}/countryCode/{countryCode}/subdivisionCode/{subdivisionCode}/adminRegions": {
+      "get": {
+        "tags": [
+          "AdminRegion"
+        ],
+        "summary": "Retrieve list of admin regions given country and subdivision codes",
+        "description": "Usually used to display admin region list for display purposes.",
+        "operationId": "getAdminRegionListByCompanyCountryAndCodeUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "subdivisionCode",
+            "in": "path",
+            "description": "ISO 3166-2 Subdivision code",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Admin region list found or an empty list",
+            "schema": {
+              "$ref": "#/definitions/AdminRegionList"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found,  Invalid countryCode or Invalid subdivisionCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/company/{companyId}/countryCode/{countryCode}/subdivisions": {
+      "get": {
+        "tags": [
+          "Subdivision"
+        ],
+        "summary": "Retrieve list of subdivisions given country code",
+        "description": "Usually used to display subdivisions of a country for display purposes.",
+        "operationId": "getSubdivisionsByCompanyCountryUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subdivisions found",
+            "schema": {
+              "$ref": "#/definitions/SubdivisionList"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found,  Invalid countryCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/company/{companyId}/localityCode/{localityCode}": {
+      "get": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "Return details of a locality given a locality code",
+        "description": "Locality codes are usually from the <a href=\"https://www.unece.org/cefact/locode/service/location\">UN/LOCODE standard</a> e.g. GBLON. Custom locality codes can also be inserted by customers or by Concur, usually when the locality doesn't existing in the UN/LOCODE list. In the future, not all localities are expected to have a locality code, preferably use the LocalityId as the unique identifier. Does return inactive localities.",
+        "operationId": "getDetailsByCodeUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "localityCode",
+            "in": "path",
+            "description": "UN/LOCODE or Concur defined up to 11 characters e.g.GBLON,CN001-CM",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Locality details retrieved",
+            "schema": {
+              "$ref": "#/definitions/LocationDetailsResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found or Invalid localityCode"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/company/{companyId}/localityId/{localityId}": {
+      "get": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "Return details of a locality given a LocalityId or legacy location name key(ct_location_name.ln_key) for a given company",
+        "description": "The ideal usage of this API is using the LocalityId identifier. However a backwards compatible feature is available to use this same endpoint with the legacy name key (ln_key). Whichever identifier is used, the same locality details object is returned. If a locality has multiple names and the exact NAME that is being requested is required then the legacy name key must again be looked for in the response to identify that name. The preferred name chosen is not based on the legacy name key provided. Returns active and inactive localities.",
+        "operationId": "getDetailsByIdUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "localityId",
+            "in": "path",
+            "description": "Valid UUID of the Locality Or Locality Name Key as as Integer",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Locality details retrieved",
+            "schema": {
+              "$ref": "#/definitions/LocationDetailsResponse"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found or Invalid UUID localityId"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/company/{companyId}/searchtext/{searchText}": {
+      "get": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "Return a list of localities matching the given search text for a given company",
+        "description": "This is mainly used for auto-complete use cases. Localities that start with the search text will be returned. Passing 1 character for search text will result in a 404 error. We suggest consuming teams still send the requests to our service but display a 404 as an empty list. This is to enable future improvements where we aim to reduce the number of characters we support. If the search text contains % or / an error will be returned. Consuming teams are suggested to catch these scenarios and only send the preceding text to our service. e.g. if a user types 'Name before / text after slash' the search string that should be sent to the service would be 'Name before ' regardless of what is typed after the slash. Returns active localities only.",
+        "operationId": "getLocalitiesByCompanyIdAndSearchTextUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchText",
+            "in": "path",
+            "description": "Full or partial name of the Locality with minimum 2 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Two letter country code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "subdivisionCode",
+            "in": "query",
+            "description": "ISO 3166-2 Subdivision code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "adminRegionId",
+            "in": "query",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Size (number) as optional Query Parameter - ALL for entire result set. Default is 25",
+            "required": false,
+            "type": "string",
+            "default": "25"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationEntryWrapper"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Invalid UUID for companyId, companyId not found or searchText empty or 1 char"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/localities/v4/lookup/company/{companyId}": {
+      "post": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "Return a locality given a full name and optional subdivision and/or country for a given company",
+        "description": "Usually used to turn location text (e.g. from a credit card feed) into a Concur locality. The top matching locality will be returned if there are multiple results. If a locality can't be found with the full combination  provided (e.g. name, subdivision and country) it will look for partial matches (e.g. name and country only) ultimately looking for just the name. A complete match for the name must be present for a a locality to be returned e.g. 'London' (not partial matches like 'Lon'). The grade in the response can be used to determine whether a match was found for the full combination or only a subset. If multiple lookups are performed in the same request, only the top entry of the payload will be considered. Returns active localities only.",
+        "operationId": "searchLocalitiesUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "(Deprecated, please use 'Accept-Language' instead) Language code in the format of [langCode]_[locale] e.g. en, es, zh_CN, zh_TW. en_GB etc",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "loggingEnabled",
+            "in": "header",
+            "description": "LoggingEnabled. e.g. true, false",
+            "required": false,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Valid UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "RequestBody",
+            "description": "Payload for the request body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TripletRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One or more localities found",
+            "schema": {
+              "$ref": "#/definitions/LocationWrapperList"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "companyId in incorrect format"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "locality.read"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "JWT_implicit": {
+      "type": "oauth2",
+      "authorizationUrl": "NOTSETauthorize",
+      "flow": "implicit",
+      "scopes": {
+        "locality.read": "locality.read",
+        "locality.write": "locality.write"
+      }
+    }
+  },
+  "definitions": {
+    "AbstractLocation": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/Name"
+          }
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "id": {
+          "type": "string"
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "AdminRegion": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "AdminRegionList": {
+      "type": "object",
+      "required": [
+        "adminRegions",
+        "validationResults"
+      ],
+      "properties": {
+        "adminRegions": {
+          "type": "array",
+          "description": "Collection of AdminRegions",
+          "items": {
+            "$ref": "#/definitions/ResourceOfAdminRegion"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "validationResults": {
+          "description": "validationResults",
+          "$ref": "#/definitions/ValidationResults"
+        }
+      }
+    },
+    "AdminRegionResponse": {
+      "type": "object",
+      "required": [
+        "adminRegion",
+        "validationResults"
+      ],
+      "properties": {
+        "adminRegion": {
+          "description": "Details of Admin Region",
+          "$ref": "#/definitions/ResourceOfAdminRegion"
+        },
+        "validationResults": {
+          "description": "validationResults",
+          "$ref": "#/definitions/ValidationResults"
+        }
+      }
+    },
+    "Country": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "CountryCurrency": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "currencies": {
+          "type": "array",
+          "description": "Collection of Currencies",
+          "items": {
+            "$ref": "#/definitions/ResourceOfCurrency"
+          }
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/CountryName"
+        }
+      }
+    },
+    "CountryDetails": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": false,
+          "description": "active"
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/CountryName"
+          }
+        },
+        "alpha3Code": {
+          "type": "string",
+          "description": "alpha3Code"
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "currencies": {
+          "type": "array",
+          "description": "Collection of Currencies",
+          "items": {
+            "$ref": "#/definitions/ResourceOfCurrency"
+          }
+        },
+        "distanceUnitCode": {
+          "type": "string",
+          "description": "Distance Unit Code"
+        },
+        "numCode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "numCode"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/CountryName"
+        }
+      }
+    },
+    "CountryList": {
+      "type": "object",
+      "required": [
+        "countries",
+        "validationResults"
+      ],
+      "properties": {
+        "countries": {
+          "type": "array",
+          "description": "Collection of Countries",
+          "items": {
+            "$ref": "#/definitions/ResourceOfCountryCurrency"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "validationResults": {
+          "description": "validationResults",
+          "$ref": "#/definitions/ValidationResults"
+        }
+      }
+    },
+    "CountryName": {
+      "type": "object",
+      "required": [
+        "id",
+        "languageCode",
+        "legacyKey",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Location Name ID"
+        },
+        "languageCode": {
+          "type": "string",
+          "description": "Language of the Name"
+        },
+        "legacyKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Key for the Location"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name for the Location"
+        }
+      }
+    },
+    "CountryResponse": {
+      "type": "object",
+      "required": [
+        "country",
+        "validationResults"
+      ],
+      "properties": {
+        "country": {
+          "description": "Details of Country",
+          "$ref": "#/definitions/ResourceOfCountryDetails"
+        },
+        "validationResults": {
+          "description": "validationResults",
+          "$ref": "#/definitions/ValidationResults"
+        }
+      }
+    },
+    "Currency": {
+      "type": "object",
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Currency Code"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "exception": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "deprecation": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "hreflang": {
+          "type": "string"
+        },
+        "media": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "templated": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "LocalityResponseType": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "description": "Further details on the success or failure of the response"
+    },
+    "Location": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/Name"
+          }
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "id": {
+          "type": "string"
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "LocationDetails": {
+      "type": "object",
+      "required": [
+        "legacyKey",
+        "type"
+      ],
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": false,
+          "description": "Is the Location active?"
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/Name"
+          }
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "id": {
+          "type": "string"
+        },
+        "legacyKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Location Key. Taken from the entity DB. e.g. loc_key from ct_location"
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "point": {
+          "description": "Geo Co-ordinates",
+          "$ref": "#/definitions/Point"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "timeZoneOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Time Zone Offset"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "LocationDetailsResponse": {
+      "type": "object",
+      "required": [
+        "locationDetails",
+        "validationResults"
+      ],
+      "properties": {
+        "locationDetails": {
+          "description": "Details of Location",
+          "$ref": "#/definitions/ResourceOfLocationDetails"
+        },
+        "validationResults": {
+          "description": "validationResults",
+          "$ref": "#/definitions/ValidationResults"
+        }
+      }
+    },
+    "LocationEntryWrapper": {
+      "type": "object",
+      "required": [
+        "localities",
+        "validationResults"
+      ],
+      "properties": {
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "localities": {
+          "type": "array",
+          "description": "Collection of Localities",
+          "items": {
+            "$ref": "#/definitions/ResourceOfLocation"
+          }
+        },
+        "validationResults": {
+          "description": "validationResults",
+          "$ref": "#/definitions/ValidationResults"
+        }
+      }
+    },
+    "LocationWrapper": {
+      "type": "object",
+      "required": [
+        "validationResults"
+      ],
+      "properties": {
+        "localityResponseType": {
+          "description": "(description , grade), e.g. WRONG_COMPANY_ID(\"Wrong Company Id\", -1),\n    INPUT_VALIDATION_FAILED(\"Input validation failed in payload\", -2),\n    INTERNAL_SERVER_ERROR(\"Internal server error\", -3),\n    GATEWAY_TIMEOUT_ERROR(\"Did not receive a timely response from EMT server\", -4), \n    SERVICE_UNAVAILABLE(\"server unavailable error\", -5), \n    BAD_REQUEST_ERROR(\"Bad request error from EMT server\", -6), \n    LOCATION_NOT_FOUND(\"Locality not found\", 0),\n    NAME_SUBDIV_COUNTRY_MATCH(\"Name, subdivision and country match\", 1),\n    NAME_SUBDIVISION_MATCH(\"Name and subdivision match\", 2),\n    NAME_COUNTRY_MATCH(\"Name and country match\", 3),\n    NAME_NO_SUBDIV_COUNTRY_MATCH(\"Name and country match but subdivision does not match\", 4),\n    NAME_MATCH(\"Only name matches\", 5);\n\n",
+          "$ref": "#/definitions/LocalityResponseType"
+        },
+        "location": {
+          "$ref": "#/definitions/Location"
+        },
+        "validationResults": {
+          "description": "validationResults",
+          "$ref": "#/definitions/ValidationResults"
+        }
+      },
+      "description": "localityResponseType, location and validation results"
+    },
+    "LocationWrapperList": {
+      "type": "object",
+      "required": [
+        "locationWrappers"
+      ],
+      "properties": {
+        "locationWrappers": {
+          "type": "array",
+          "description": "Collection of Localities",
+          "items": {
+            "$ref": "#/definitions/LocationWrapper"
+          }
+        }
+      }
+    },
+    "Name": {
+      "type": "object",
+      "required": [
+        "id",
+        "languageCode",
+        "legacyKey",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Location Name ID"
+        },
+        "languageCode": {
+          "type": "string",
+          "description": "Language of the Name"
+        },
+        "legacyKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Key for the Location"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name for the Location"
+        }
+      }
+    },
+    "PairInfo": {
+      "type": "object",
+      "required": [
+        "columnName",
+        "message"
+      ],
+      "properties": {
+        "columnName": {
+          "type": "string",
+          "description": "Column Name"
+        },
+        "message": {
+          "type": "string",
+          "description": "message"
+        }
+      }
+    },
+    "Point": {
+      "type": "object",
+      "required": [
+        "latitude",
+        "longitude"
+      ],
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "format": "double",
+          "description": "Latitude"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double",
+          "description": "Longitude"
+        }
+      }
+    },
+    "ResourceOfAbstractLocation": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/Name"
+          }
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "ResourceOfAdminRegion": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "ResourceOfCountry": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "ResourceOfCountryCurrency": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "currencies": {
+          "type": "array",
+          "description": "Collection of Currencies",
+          "items": {
+            "$ref": "#/definitions/ResourceOfCurrency"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/CountryName"
+        }
+      }
+    },
+    "ResourceOfCountryDetails": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": false,
+          "description": "active"
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/CountryName"
+          }
+        },
+        "alpha3Code": {
+          "type": "string",
+          "description": "alpha3Code"
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "currencies": {
+          "type": "array",
+          "description": "Collection of Currencies",
+          "items": {
+            "$ref": "#/definitions/ResourceOfCurrency"
+          }
+        },
+        "distanceUnitCode": {
+          "type": "string",
+          "description": "Distance Unit Code"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "numCode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "numCode"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/CountryName"
+        }
+      }
+    },
+    "ResourceOfCurrency": {
+      "type": "object",
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Currency Code"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        }
+      }
+    },
+    "ResourceOfLocation": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/Name"
+          }
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "ResourceOfLocationDetails": {
+      "type": "object",
+      "required": [
+        "legacyKey",
+        "type"
+      ],
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": false,
+          "description": "Is the Location active?"
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/Name"
+          }
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "id": {
+          "type": "string"
+        },
+        "legacyKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Location Key. Taken from the entity DB. e.g. loc_key from ct_location"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "point": {
+          "description": "Geo Co-ordinates",
+          "$ref": "#/definitions/Point"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "timeZoneOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Time Zone Offset"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "ResourceOfSubdivision": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "ResourceOfSubdivisionDetails": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": false,
+          "description": "active"
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/SubdivisionName"
+          }
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "parent": {
+          "description": "Parent of this Subdivsion ",
+          "$ref": "#/definitions/ResourceOfCountry"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/SubdivisionName"
+        }
+      }
+    },
+    "Subdivision": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "parent": {
+          "description": "Parent of this Location - (ADMIN REGION/SUB DIVISION/COUNTRY)",
+          "$ref": "#/definitions/ResourceOfAbstractLocation"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Location(LOCALITY,ADMINREGION,SUBDIVISION,COUNTRY)",
+          "enum": [
+            "LOCALITY",
+            "ADMINREGION",
+            "SUBDIVISION",
+            "COUNTRY"
+          ]
+        }
+      }
+    },
+    "SubdivisionDetails": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": false,
+          "description": "active"
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Collection of Location Name Aliases",
+          "items": {
+            "$ref": "#/definitions/SubdivisionName"
+          }
+        },
+        "code": {
+          "type": "string",
+          "description": "Location Code(UNLOCODE/Subdivision/Country ISO Code)"
+        },
+        "parent": {
+          "description": "Parent of this Subdivsion ",
+          "$ref": "#/definitions/ResourceOfCountry"
+        },
+        "preferredName": {
+          "description": "default Location Name",
+          "$ref": "#/definitions/SubdivisionName"
+        }
+      }
+    },
+    "SubdivisionList": {
+      "type": "object",
+      "required": [
+        "subdivisions",
+        "validationResults"
+      ],
+      "properties": {
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "subdivisions": {
+          "type": "array",
+          "description": "Collection of Subdivisions",
+          "items": {
+            "$ref": "#/definitions/ResourceOfSubdivision"
+          }
+        },
+        "validationResults": {
+          "description": "validationResults",
+          "$ref": "#/definitions/ValidationResults"
+        }
+      }
+    },
+    "SubdivisionName": {
+      "type": "object",
+      "required": [
+        "id",
+        "languageCode",
+        "legacyKey",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Location Name ID"
+        },
+        "languageCode": {
+          "type": "string",
+          "description": "Language of the Name"
+        },
+        "legacyKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Key for the Location"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name for the Location"
+        }
+      }
+    },
+    "SubdivisionResponse": {
+      "type": "object",
+      "required": [
+        "subdivision",
+        "validationResults"
+      ],
+      "properties": {
+        "subdivision": {
+          "description": "Details of Country",
+          "$ref": "#/definitions/ResourceOfSubdivisionDetails"
+        },
+        "validationResults": {
+          "description": "validationResults",
+          "$ref": "#/definitions/ValidationResults"
+        }
+      }
+    },
+    "TripletFilter": {
+      "type": "object",
+      "required": [
+        "localityName"
+      ],
+      "properties": {
+        "countryCode": {
+          "type": "string",
+          "description": "Country code in ISO 3166-1 alpha-2 format (e.g. US or GB)"
+        },
+        "localityName": {
+          "type": "string",
+          "description": "Locality Name"
+        },
+        "subdivisionCode": {
+          "type": "string",
+          "description": "Subdivision code in ISO 3166-2 format (e.g. WA, 01, ARA or A). Will also accept subdivisions prepended with ISO 3166-1 alpha-2 format country codes and a hyphen (e.g. US-WA)"
+        }
+      }
+    },
+    "TripletRequest": {
+      "type": "object",
+      "required": [
+        "payloads"
+      ],
+      "properties": {
+        "payloads": {
+          "type": "array",
+          "description": "Locality name and optional subdivision code and/or country code",
+          "items": {
+            "$ref": "#/definitions/TripletFilter"
+          }
+        }
+      },
+      "description": "Payload containing search parameters"
+    },
+    "ValidationResults": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "description": "errors",
+          "items": {
+            "$ref": "#/definitions/PairInfo"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "message"
+        },
+        "warnings": {
+          "type": "array",
+          "description": "warnings",
+          "items": {
+            "$ref": "#/definitions/PairInfo"
+          }
+        }
+      }
+    }
+  }
+}
