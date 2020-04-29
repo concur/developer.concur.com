@@ -1,0 +1,563 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Identity API",
+        "version": "v4",
+        "description": "Identity API",
+        "termsOfService": "http://us.api.concursolutions.com/terms",
+        "contact": {
+            "email": "profile@concur.com"
+        },
+        "license": {
+            "name": "Concur",
+            "url": "https://developer.concur.com/Terms-of-Use.html"
+        }
+    },
+    "host": "us.api.concursolutions.com",
+    "basePath": "/profile/identity/",
+    "produces": [
+        "application/json",
+        "application/scim+json"
+    ],
+    "consumes": [
+        "application/json",
+        "application/scim+json"
+    ],
+    "paths": {
+        "/v4/users": {
+            "post": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Create User Identity",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "required": true,
+                        "description": "the user identity to create",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:user:2.0"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "identity": [
+                            "user.identity.write"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "created User Identity",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:user:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "409": {
+                        "description": "Request conflicts with existing identity"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            }
+        },
+        "/v4/users/lookup/": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Lookup User Identity",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "userName",
+                        "description": "username to find",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "companyId",
+                        "description": "companyId that user belongs to (used along with employeeNumber)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "employeeNumber",
+                        "description": "user's employeeNumber (used along with companyId)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "identity": [
+                            "user.identity.read",
+                            "user.identity.write"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Identity",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:user:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "User identity Not found"
+                    },
+                    "409": {
+                        "description": "Request conflicts with existing identity"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            }
+        },
+        "/v4/users/{id}/": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Find User Identity",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "user's uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "identity": [
+                            "user.identity.read",
+                            "user.identity.write"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Identity",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:user:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "User identity Not found"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Replace User Identity",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "user's uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "required": true,
+                        "description": "the user identity to update",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:user:2.0"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "identity": [
+                            "user.identity.write"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated User Identity",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:user:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "User identity Not found"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Patch User Identity",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "user's uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "patch operations",
+                        "required": true,
+                        "description": "patch operations to apply on the user identity",
+                        "schema": {
+                            "description": "https://tools.ietf.org/html/rfc7644#section-3.5.2",
+                            "type": "object"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "identity": [
+                            "user.identity.write"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated User Identity",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:user:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "User identity Not found"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            }
+        },
+        "/v4/companies/": {
+            "post": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "Create Company",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "company",
+                        "description": "the company to create",
+                        "required": true,
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:company:2.0"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Created Company",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:company:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "409": {
+                        "description": "Request conflicts with existing company"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            }
+        },
+        "/v4/companies/lookup/": {
+            "get": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "Lookup Company",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "outtaskCompanyId",
+                        "description": "company's outtaskCompanyId (one of outtaskCompanyId or entityId must be specified)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "entityId",
+                        "description": "company's entityId (one of outtaskCompanyId or entityId must be specified)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Company",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:company:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            }
+        },
+        "/v4/companies/{id}/": {
+            "get": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "Find Company by Id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "company's uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Company",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:company:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "Replace Company",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "company's uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "company",
+                        "description": "the company to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:company:2.0"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated Company",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:company:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "Patch Company",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Company's uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "company",
+                        "description": "the company to update",
+                        "required": true,
+                        "schema": {
+                            "description": "https://tools.ietf.org/html/rfc7644#section-3.5.2",
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated Company",
+                        "schema": {
+                            "$ref": "v4/schema/com:concur:cte:company:2.0"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            }
+        },
+        "/v4/schema/{id}": {
+            "get": {
+                "tags": [
+                    "schema"
+                ],
+                "summary": "Get Schema",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "schema id",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "com:concur:cte:user:2.0",
+                            "com:concur:cte:company:2.0"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Schema"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Schema not found"
+                    },
+                    "503": {
+                        "description": "Unexpected response from service"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "identity": {
+            "type": "oauth2",
+            "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0/token",
+            "flow": "password",
+            "scopes": {
+                "user.identity.read": "Read access",
+                "user.identity.write": "Write access"
+            }
+        }
+    }
+}
