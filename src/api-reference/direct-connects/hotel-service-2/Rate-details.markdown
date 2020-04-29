@@ -3,11 +3,11 @@ title: Direct Connect - Hotel v2 - Availability
 layout: reference
 ---
 
-Message to retrieved the availability of hotels.
+Message to retrieved the details of a hotel rate.
 
 |SOAPAction|OTA Name|Message Structure|
 |--------------|------------|-------------------|
-|availability|HotelAvail|OTA_HotelAvailRQ|
+|ratedetails|HotelAvail|OTA_HotelAvailRQ|
 
 ---
 
@@ -17,6 +17,7 @@ Message to retrieved the availability of hotels.
     * [Available Request Segment](#available-req-segment)
     * [Hotel Search Criteria](#hotel-search-criteria)
     * [Criterion](#criterion)
+    * [RatePlanCandidate](#rate-plan-candidate)
     * [Stay Date Range](#stay-date-range)
     * [Room Stay Candidates](#room-stay-cadidates)
     * [Room Stay Candidate](#room-stay-candidate)
@@ -43,6 +44,7 @@ Message to retrieved the availability of hotels.
     * [Room Rate](#room-rate)
     * [Rates](#rates)
     * [Rate](#rate)
+    * [RoomRateDescription](#room-rate-description)
     * [Payment Policies](#payment-policies)
     * [Guarantee Payment](#guarantee-payment)
     * [Accepted Payments](#accepted-payments)
@@ -54,7 +56,6 @@ Message to retrieved the availability of hotels.
     * [TPA Extensions](#tpa-extensions)
     * [Timespan](#timespan)
     * [Basic Property Info](#basic-property-info)
-* [Relationship Between RoomID and RatePlanID](#relationship-roomid-rateplanid)
 
 ## <a name="request"></a>Request
 
@@ -68,7 +69,7 @@ Message to retrieved the availability of hotels.
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="5"
-                      PrimaryLangID="de" AltLangID="de">
+                      PrimaryLangID="de" AltLangID="de" RateDetailsInd="true">
       <POS>
         <Source ISOCurrency="USD">
           <RequestorID Type="1" ID="1234567"></RequestorID>
@@ -78,7 +79,13 @@ Message to retrieved the availability of hotels.
         <AvailRequestSegment>
           <HotelSearchCriteria>
             <Criterion>
-              <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
+              <RatePlanCandidates>
+                <RatePlanCandidate RatePlanID="XNFYP4I">
+                  <HotelRefs>
+                    <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
+                  </HotelRefs>
+                </RatePlanCandidate>
+              </RatePlanCandidates>
             </Criterion>
           </HotelSearchCriteria>
           <StayDateRange Start="2018-10-26" End="2018-10-28"></StayDateRange>
@@ -104,6 +111,7 @@ Message to retrieved the availability of hotels.
 
 |Name|Type|Description|
 |----------------------|-----------|--------------|
+|`RateDetailsInd`|`boolean`|**Required** Always set to `true` for `ratedetails`.|
 |`AvailRequestSegments`|`complex`|**Required** A collection of `AvailRequestSegment`. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services. The request can be used for guest rooms or other inventory items for which availability is sought. Each segment will be presumed to have a unique date range for each request. SAP Concur will only ever send one `AvailRequestSegments`.|
 
 #### <a name="available-request-segments"></a>AvailRequestSegments
@@ -124,14 +132,21 @@ Message to retrieved the availability of hotels.
 
 |Name|Type|Description|
 |-----------|-----------|-------------|
-|`Criterion`|`complex`|**Required** Refer to `Criterion` in [Search](/api-reference/direct-connects/hotel-service-2/Search.html). Note that for Availability the `Criterion` will only have the `HotelRef` element. Other elements will not be sent. `HotelSearchCriteria` can contain multiple `Criterion` elements. Each will have a unique `HotelCode` per Availability request.|
+|`Criterion`|`complex`|**Required** Refer to `Criterion` in [Search](/api-reference/direct-connects/hotel-service-2/Search.html). Note that for Rate Details the `Criterion` will only have one `RatePlanCandidate` element.
 
 #### <a name="criterion"></a>Criterion
 
 |Name|Type|Description|
 |---------|------------------|-------------|
-|`HotelRef/HotelCode`|`stringLength1to16`|The code that uniquely identifies a single hotel property. The hotel code is decided by vendors.|
-|`HotelRef/ChainCode`|`stringLength1to8`|The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the `HotelCode` attribute.|
+|`RatePlanCandidates/RatePlanCandidate`|`complex`|**Required** Specified rate plan candidate.|
+
+#### <a name="rate-plan-candidate"></a>RatePlanCandidate
+
+|Name|Type|Description|
+|---------|------------------|-------------|
+|`RatePlanID`|`StringLength1to64`|**Required** The code that uniquely identifies the rate plan.|
+|`HotelRefs/HotelRef/HotelCode`|`stringLength1to16`|The code that uniquely identifies a single hotel property. The hotel code is decided by vendors.|
+|`HotelRefs/HotelRef/ChainCode`|`stringLength1to8`|The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the `HotelCode` attribute.|
 
 #### <a name="stay-date-range"></a>StayDateRange
 
@@ -208,8 +223,11 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
           </RatePlans>
           <RoomRates>
             <RoomRate RoomID="1" RatePlanID="XNFYP4I">
+              <RoomRateDescription>
+                <Text>Basic Wifi Included.</Text>
+              </RoomRateDescription>
               <Rates>
-                <Rate RateTimeUnit="FullDuration">
+                <Rate RateTimeUnit="FullDuration" EffectiveDate="2018-10-26" ExpireDate="2018-10-27">
                   <PaymentPolicies>
                     <GuaranteePayment>
                       <AcceptedPayments>
@@ -219,13 +237,16 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                  <Total AmountAfterTax="348.00" AmountBeforeTax="248.00" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <Total AmountAfterTax="199.00" AmountBeforeTax="149.00" CurrencyCode="EUR" DecimalPlaces="2"/>
                   <RateDescription>
                     <Text>Test rate description. Both before and after tax.</Text>
                   </RateDescription>
                   <TPA_Extensions>
                     <RequireSeriesCode>true</RequireSeriesCode>
                   </TPA_Extensions>
+                </Rate>
+                <Rate RateTimeUnit="FullDuration" EffectiveDate="2018-10-27" ExpireDate="2018-10-28">
+                    <Total AmountAfterTax="149.00" AmountBeforeTax="99.00" CurrencyCode="EUR" DecimalPlaces="2"/>
                 </Rate>
               </Rates>
             </RoomRate>
@@ -234,7 +255,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
           <BasicPropertyInfo ChainCode="ZZ" HotelCode="419430"/>
         </RoomStay>
       </RoomStays>
-      <TPA_Extensions RateDetailsInd="false"></TPA_Extensions>
+      <TPA_Extensions RateDetailsInd="true"></TPA_Extensions>
     </OTA_HotelAvailRS>
   </soap:Body>
 </soap:Envelope>
@@ -247,7 +268,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
 |Name|Type|Description|
 |-----------|-----------|-------------|
 |`RoomStays`|`complex`|**Required** A collection of details on the room stay including time span of this room stay, and financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties.|
-|`TPA_Extensions/RateDetailsInd`|`boolean`|If `true` or omitted, `ratedetails` will **not** be called to retrieve the cancellation policy and rate change details; if `false`, `ratedetails` will be called.|
+|`TPA_Extensions/RateDetailsInd`|`boolean`|Always set to `true` for `ratedetails`.|
 
 #### <a name="room-stays"></a>RoomStays
 
@@ -261,7 +282,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |-------------------|--------------|-------------|
-|`RoomTypes`|`complex`|**Required** Details on the room stay including guest counts, time span of this room stay, pointers to res guests, guest memberships, comments, and special requests pertaining to this particular room stay. Financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties.|
+|`RoomTypes`|`complex`|**Required** Details on the room stay including guest counts, time span of this room stay, guest memberships, comments, and special requests pertaining to this particular room stay. Financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties.|
 |`RatePlans`|`complex`|**Required** A collection of rate plans associated with a particular room stay. The rate plan element is used to contain all the rate information for a single rate plan Code (example: `RACK`) for a given date range. A given rate plan may have variable rates, over the effective period of the rate plan, this is represented by the child element rates.|
 |`RoomRates`|`complex`|**Required** List of room rates.|
 |`TimeSpan`|`datetimespan` |**Required** The time span which covers the room stay. The attributes of the OTA `DateTimeSpan` data type are based on the W3C base data types of `timeInstant` and `timeDuration` using ISO 8601.|
@@ -299,8 +320,8 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`RatePlanID`|`stringLength1to64`|**Required** A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples: Corporate ID.|
 |`AvailabilityStatus`|`stringLength1to32`|**Required** Used to specify an availability status for the rate plan. Supported values: `AvailableForSale`, `ChangeDuringStay`.|
 |`Guarantee`|`complex`|**Required** Guarantee information that applies to the rate plan. SAP Concur only expects one (1) Guarantee element per `RatePlan`.|
-|`CancelPenalties`|`complex`|**Required if `RateDetailsInd` is `true` or not present** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
-|`MealsIncluded`|`complex`|**Required if `RateDetailsInd` is `true` or not present** Defines which meals are included with this rate program.|
+|`CancelPenalties`|`complex`|**Required if `RateDetailsInd` is `true`** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
+|`MealsIncluded`|`complex`|**Required if `RateDetailsInd` is `true`** Defines which meals are included with this rate program.|
 |`RatePlanDescription`|`complex`|Textual information regarding the Rate Plan.|
 
 #### <a name="rate-plan-description"></a>RatePlanDescription
@@ -378,23 +399,32 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |--------------|-----------|-------------|
 |`RoomID`|`complex`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
 |`RatePlanID`|`complex`|**Required** Rate plan ID for which this rate is applicable for.|
-|`Rates`|`complex`|**Required** Contains the rate for the given room.  SAP Concur only expects one (1) rate inside the `Rates` element. Refer to [Rate Details](/api-reference/direct-connects/hotel-service-2/Rate-details.html) for rate change details.|
+|`Rates`|`complex`|**Required** Contains the rate for the given room.  SAP Concur only expects one (1) `Rate` inside the `Rates` element if `AvailabilityStatus` is `AvailableForSale`. It is optional to include multiple `Rate` for `ChangeDuringStay`|
+|`RoomRateDescription`|`complex`|The description or name of a room rate.|
 
 #### <a name="rates"></a>Rates
 
 |Name|Type|Description|
 |---------|-----------|-------------|
-|`Rate`|`complex`|**Required** Contains the rate for the given room. Only one (1) Rate element is expected.  Refer to [Rate Details](/api-reference/direct-connects/hotel-service-2/Rate-details.html) for rate change details.|
+|`Rate`|`complex`|**Required** Contains the rate for the given room. Only one (1) Rate element is expected if `AvailabilityStatus` is `AvailableForSale`. It is optional to include multiple `Rate` for `ChangeDuringStay`|
 
 #### <a name="rate"></a>Rate
 
 |Name|Type|Description|
 |-------------------|-----------|-------------|
 |`RateTimeUnit`|`string`|Indicates the time unit for the rate. Supported values: `FullDuration`, `Day`. Default: `FullDuration`|
+|`EffectiveDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. The starting value of the time span.|
+|`ExpireDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. The starting value of the time span.|
 |`PaymentPolicies`|`complex`|Payment policies for this rate.|
 |`Total`|`complex`|**Required** A description of the rate.|
 |`RateDescription`|`complex`|A textual description of a rate. Only one (1) Rate Description element is expected.|
 |`TPA_extensions`|`complex`|TPA extensions for a rate.|
+
+#### <a name="room-rate-description"></a>RoomRateDescription
+
+|Name|Type|Description|
+|------------------|-----------|-------------|
+|`Text`|`formattedText`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
 
 #### <a name="payment-policies"></a>PaymentPolicies
 
@@ -468,52 +498,3 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`HotelCode`|`complex`|**Required** Refer to the `HotelRef` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
 |`Address`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
 |`ContactNumbers`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
-
-# <a name="relationship-roomid-rateplanid"></a>Relationship between RoomID and RatePlanID
-
-The combination of these IDs must be unique per `RoomStay`.  IDs with the same values can be redefined in multiple `RoomStays`.
-
-```xml
-<OTA_HotelAvailRS>
-  <Success/>
-  <!-- Hotel #1 with 3 rates -->
-  <RoomStays>
-    <RoomStay>
-      <RoomTypes>
-        <RoomType RoomID="RT1">...</RoomType>
-        <RoomType RoomID="RT2">...</RoomType>
-      </RoomTypes>
-      <RatePlans> <!-- Contains cancellation policy info, guarantee type etc. -->
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP3">...</RatePlan>
-      </RatePlans>
-      <RoomRates> <!-- Represents unique rate (hotel room), contains description part 1, rate cost & supported credit card etc. -->
-        <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>
-        <RoomRate RatePlanID="RP2" RoomID="RT2">...</RoomRate> <!-- Note: RT2 is reused in two Room Rates -->
-        <RoomRate RatePlanID="RP3" RoomID="RT2">...</RoomRate>
-      </RoomRates>
-      ...
-    </RoomStay>
-  </RoomStays>
-<!-- Hotel #2 with 2 rates -->
-  <RoomStays>
-    <RoomStay>
-      <RoomTypes>
-        <RoomType RoomID="RT1">...</RoomType>
-        <RoomType RoomID="RT2">...</RoomType>
-      </RoomTypes>
-      <RatePlans>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
-      </RatePlans>
-      <RoomRates>
-        <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>
-        <RoomRate RatePlanID="RP2" RoomID="RT2">...</RoomRate>
-      </RoomRates>
-      ...
-    </RoomStay>
-  </RoomStays>
-  ...
-</OTA_HotelAvailRS>
-```
