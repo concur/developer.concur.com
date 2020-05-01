@@ -52,16 +52,6 @@ Name|Description|Endpoint
 `fiscalcalendar.read`|Grants read access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year
 `fiscalcalendar.write`|Grants read and write access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year, POST a Fiscal Year, DELETE a Fiscal Year
 
-This API uses this optional scope:
-
-Name|Description|Endpoint
----|---|---
-`LIST` |GET List Items, necessary for budget tracking value `listKey` if using list fields for budget tracking. |POST Budget Item
-
-## <a name="dependencies"></a>Dependencies
-
-SAP Concur clients must purchase Budget in order to use this API. The developer may use the following SAP Concur API to get optional information:
-* List Item v3.0, to retrieve the budget tracking value `listKey`
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
