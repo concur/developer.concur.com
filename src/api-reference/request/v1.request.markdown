@@ -3,7 +3,9 @@ title: Travel Request v1
 layout: reference
 ---
 
-Concur Travel Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses.The Travel Request resource provides the ability to view requests and update the workflow for travel requests.
+{% include deprecation-alert.html %}
+
+Concur Travel Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses. The Travel Request resource provides the ability to view requests and update the workflow for travel requests.
 
 Requests version 1.0 retrieves a list of up to 1000 travel requests. The request can include one or multiple search terms. This resource supports the following operations:
 
@@ -13,8 +15,6 @@ Requests version 1.0 retrieves a list of up to 1000 travel requests. The request
 * [Post a travel request workflow action](#a5)
 
 ## Version
-
-> If a new project please use version [3.0](./v3.request.html) of this API.
 
 1.0
 

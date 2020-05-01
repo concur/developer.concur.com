@@ -18,7 +18,7 @@
     },
     {
       "name": "Travel Agency Resource",
-      "description": "Get details of Travel Agencies integrated with Concur Request"
+      "description": "Get details of travel agencies integrated with Concur Request"
     },
     {
       "name": "Policy Resource",
@@ -26,7 +26,11 @@
     },
     {
       "name": "Expected Expense Resource",
-      "description": "Manage Expected Expenses attached to a Request"
+      "description": "Manage expected expenses attached to a Request"
+    },
+    {
+      "name": "Cash Advance Resource",
+      "description": "Retrieve cash advance for Concur Request"
     }
   ],
   "paths": {
@@ -71,14 +75,14 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user",
+            "description": "The unique identifier of the Request owner to use when searching for Requests",
             "required": false,
             "type": "string"
           },
           {
             "name": "limit",
             "in": "query",
-            "description": "Pagination : number of records per page",
+            "description": "Pagination : number of records to return per page - maximum limit is 100, if higher value or digit value is set, a 400 error code will be displayed",
             "required": false,
             "type": "string",
             "default": "10"
@@ -131,6 +135,22 @@
               "ASC",
               "DESC"
             ]
+          },
+          {
+            "name": "approvedAfter",
+            "in": "query",
+            "description": "Lower bound of approval date. Format: yyyy-MM-ddTHH:mm:ss",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "approvedBefore",
+            "in": "query",
+            "description": "Upper bound of approval date. Format: yyyy-MM-ddTHH:mm:ss",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
           }
         ],
         "responses": {
@@ -147,7 +167,7 @@
             }
           },
           "401": {
-            "description": "Invalid or non existent authorization HTTP header",
+            "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -209,7 +229,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user",
+            "description": "The unique identifier of the Request owner for whom the Request will be created",
             "required": false,
             "type": "string"
           }
@@ -228,7 +248,7 @@
             }
           },
           "401": {
-            "description": "Invalid or non existent authorization HTTP header",
+            "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -292,7 +312,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Request"
+              "$ref": "#/definitions/RequestDetails"
             }
           },
           "400": {
@@ -302,7 +322,7 @@
             }
           },
           "401": {
-            "description": "Invalid or non existent authorization HTTP header",
+            "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -390,7 +410,7 @@
             }
           },
           "401": {
-            "description": "Invalid or non existent authorization HTTP header",
+            "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -469,7 +489,7 @@
             }
           },
           "401": {
-            "description": "Invalid or non existent authorization HTTP header",
+            "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -546,7 +566,7 @@
             }
           },
           "401": {
-            "description": "Invalid or non existent authorization HTTP header",
+            "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -584,13 +604,13 @@
         }
       }
     },
-    "/requests/{requestUuid}/reports": {
-      "post": {
+    "/requests/{requestUuid}/cashadvances": {
+      "get": {
         "tags": [
           "Request Resource"
         ],
-        "summary": "Create an Expense Report linked to an approved Request",
-        "operationId": "createReportFromRequestUsingPOST",
+        "summary": "Get the list of cash advances assigned to an existing Request",
+        "operationId": "getCashAdvancesByRequestUsingGET",
         "consumes": [
           "application/json"
         ],
@@ -607,10 +627,13 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created",
+          "200": {
+            "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ResourceLink"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResourceLink"
+              }
             }
           },
           "400": {
@@ -620,13 +643,13 @@
             }
           },
           "401": {
-            "description": "Invalid or non existent authorization HTTP header",
+            "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -644,7 +667,84 @@
             }
           },
           "500": {
-            "description": "Internal server error",
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/requests/{requestUuid}/exceptions": {
+      "get": {
+        "tags": [
+          "Request Resource"
+        ],
+        "summary": "Get the list of exceptions linked to an existing Request",
+        "operationId": "getExceptionsByRequestUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "requestUuid",
+            "in": "path",
+            "description": "The unique identifier of the Request",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RequestException"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad param: invalid Guid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Invalid or nonexistent authorization HTTP header",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "You do not have permission to perform this operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "408": {
+            "description": "Time out",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -758,7 +858,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Get the list of Expected Expenses attached to a Request",
+        "summary": "Get the list of expected expenses attached to a Request",
         "operationId": "listUsingGET",
         "consumes": [
           "application/json"
@@ -777,7 +877,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user viewing the Expected Expenses attached to a Request",
+            "description": "The unique identifier of the user viewing the expected expenses attached to a Request",
             "required": false,
             "type": "string"
           }
@@ -822,7 +922,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Create a new Expected Expense",
+        "summary": "Create a new expected expense",
         "operationId": "createUsingPOST_2",
         "consumes": [
           "application/json"
@@ -834,7 +934,7 @@
           {
             "name": "requestUuid",
             "in": "path",
-            "description": "The unique identifier of the Request to which the Expected Expense is attached",
+            "description": "The unique identifier of the Request to which the expected expense is attached",
             "required": true,
             "type": "string"
           },
@@ -850,7 +950,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user performing the Expected Expense creation",
+            "description": "The unique identifier of the user performing the expected expense creation",
             "required": false,
             "type": "string"
           }
@@ -894,7 +994,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Get an existing Expected Expense",
+        "summary": "Get the content of an expected expense",
         "operationId": "getUsingGET_2",
         "consumes": [
           "application/json"
@@ -906,14 +1006,14 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the Expected Expense",
+            "description": "The unique identifier of the expected expense",
             "required": true,
             "type": "string"
           },
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user viewing the Expected Expense",
+            "description": "The unique identifier of the user viewing the expected expense",
             "required": false,
             "type": "string"
           }
@@ -955,7 +1055,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Update the content of an existing Expected Expense",
+        "summary": "Update the content of an expected expense",
         "operationId": "updateUsingPUT",
         "consumes": [
           "application/json"
@@ -967,7 +1067,7 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the Expected Expense",
+            "description": "The unique identifier of the expected expense to update",
             "required": true,
             "type": "string"
           },
@@ -983,7 +1083,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user performing the Expected Expense update",
+            "description": "The unique identifier of the user performing the expected expense update",
             "required": false,
             "type": "string"
           }
@@ -1025,7 +1125,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Delete an Expected Expense from the Request",
+        "summary": "Delete an expected expense from the Request",
         "operationId": "deleteUsingDELETE",
         "consumes": [
           "application/json"
@@ -1037,14 +1137,14 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the Expected Expense",
+            "description": "The unique identifier of the expected expense to delete",
             "required": true,
             "type": "string"
           },
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user performing the deletion of the Expected Expense",
+            "description": "The unique identifier of the user performing the deletion of the expected expense",
             "required": false,
             "type": "string"
           }
@@ -1088,7 +1188,7 @@
         "tags": [
           "Expected Expense Resource"
         ],
-        "summary": "Get the list of comments for an existing Expected Expense",
+        "summary": "Get the list of comments for an existing expected expense",
         "operationId": "getCommentsByExpenseUsingGET",
         "consumes": [
           "application/json"
@@ -1100,14 +1200,14 @@
           {
             "name": "expenseUuid",
             "in": "path",
-            "description": "The unique identifier of the Expected Expense",
+            "description": "The unique identifier of the expected expense",
             "required": true,
             "type": "string"
           },
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user",
+            "description": "The unique identifier of the user getting the content of the comments",
             "required": false,
             "type": "string"
           }
@@ -1166,7 +1266,7 @@
           {
             "name": "userId",
             "in": "query",
-            "description": "The unique identifier of the user for whom the list of Request Policies will be retrieved",
+            "description": "The unique identifier of the user for whom the list of Request policies will be retrieved",
             "required": false,
             "type": "string"
           }
@@ -1248,6 +1348,77 @@
           },
           "403": {
             "description": "You do not have permission to perform this operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/cashadvances/{cashAdvanceUuid}": {
+      "get": {
+        "tags": [
+          "Cash Advance Resource"
+        ],
+        "summary": "Get the content of an existing cash advance",
+        "operationId": "getUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cashAdvanceUuid",
+            "in": "path",
+            "description": "The unique identifier of the cash advance",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CashAdvance"
+            }
+          },
+          "400": {
+            "description": "Bad param: invalid Guid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Invalid or nonexistent authorization HTTP header",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "408": {
+            "description": "Time out",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -1431,6 +1602,67 @@
         }
       }
     },
+    "CashAdvance": {
+      "type": "object",
+      "properties": {
+        "amountRequested": {
+          "description": "The amount of the cash advance in the Request, expressed in the reimbursement currency of the employee at the time they created the cash advance",
+          "$ref": "#/definitions/Amount"
+        },
+        "approvalStatus": {
+          "description": "The approval status of the cash advance",
+          "$ref": "#/definitions/CashAdvanceApprovalStatus"
+        },
+        "cashAdvanceId": {
+          "type": "string",
+          "description": "The unique identifier of the cash advance"
+        },
+        "comment": {
+          "type": "string",
+          "description": "The last comment related to this cash advance"
+        },
+        "exchangeRate": {
+          "description": "The exchange rate that applies to the cash advance",
+          "$ref": "#/definitions/ExchangeRate"
+        },
+        "issueDate": {
+          "type": "string",
+          "description": "The date the cash advance was issued"
+        },
+        "requestDate": {
+          "type": "string",
+          "description": "The date the cash advance was submitted (last submit date in case of recall)"
+        }
+      }
+    },
+    "CashAdvanceApprovalStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The code of the approval status of the cash advance",
+          "minLength": 1,
+          "maxLength": 2147483647,
+          "enum": [
+            "C_APPR",
+            "C_COMP",
+            "C_FILE",
+            "C_ISSU",
+            "C_NISU",
+            "C_NOTF",
+            "C_PECA",
+            "C_PEND",
+            "C_REJE"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The approval status of the Cash Advance",
+          "minLength": 1,
+          "maxLength": 2147483647
+        }
+      }
+    },
     "Comment": {
       "type": "object",
       "properties": {
@@ -1445,7 +1677,7 @@
         "isLatest": {
           "type": "boolean",
           "example": false,
-          "description": "Is set to true if the comment was edited after the last workflow transition"
+          "description": "True when the comment has been edited since the last workflow transition"
         },
         "value": {
           "type": "string",
@@ -1462,7 +1694,7 @@
         },
         "href": {
           "type": "string",
-          "description": "The HATEOAS link to get this list item in case of a list. This value will be blank otherwise."
+          "description": "The link to get this list item on the list service."
         },
         "value": {
           "type": "string",
@@ -1477,18 +1709,25 @@
           "type": "string",
           "description": "The first name of the employee"
         },
+        "middleInitial": {
+          "type": "string",
+          "description": "The middle initial of the employee"
+        },
         "href": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink to the resource"
         },
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Unique identifier of the related object"
         },
         "lastName": {
           "type": "string",
           "description": "The last name of the employee"
         },
         "template": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink template to the resource"
         }
       }
     },
@@ -1506,7 +1745,7 @@
           }
         },
         "approvedAmount": {
-          "description": "The approved amount of the Expected Expense",
+          "description": "The approved amount of the expected expense",
           "$ref": "#/definitions/Amount"
         },
         "budgetAccrualDate": {
@@ -1516,10 +1755,10 @@
         },
         "businessPurpose": {
           "type": "string",
-          "description": "The purpose of the Expected Expense"
+          "description": "The purpose of the expected expense"
         },
         "comments": {
-          "description": "Comment history of the Expected Expense",
+          "description": "Comment history of the expected expense",
           "$ref": "#/definitions/ResourceLink"
         },
         "custom1": {
@@ -1683,11 +1922,11 @@
           "$ref": "#/definitions/CustomField"
         },
         "exchangeRate": {
-          "description": "The exchange rate that applies to the Expected Expense",
+          "description": "The exchange rate that applies to the expected expense",
           "$ref": "#/definitions/ExchangeRate"
         },
         "expenseType": {
-          "description": "The expense type of the Expected Expense",
+          "description": "The expense type of the expected expense",
           "$ref": "#/definitions/ExpenseType"
         },
         "href": {
@@ -1695,18 +1934,18 @@
         },
         "id": {
           "type": "string",
-          "description": "The unique identifier of the Expected Expense"
+          "description": "The unique identifier of the expected expense"
         },
         "lastComment": {
           "type": "string",
-          "description": "The last comment of the Expected Expense"
+          "description": "The last comment of the expected expense"
         },
         "lastModifiedDate": {
           "type": "string",
           "description": "The date when this expense was last modified"
         },
         "location": {
-          "description": "The location of the Expected Expense",
+          "description": "The location of the expected expense",
           "$ref": "#/definitions/Location"
         },
         "orgUnit1": {
@@ -1733,17 +1972,21 @@
           "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
           "$ref": "#/definitions/CustomField"
         },
+        "parentRequest": {
+          "description": "The parent Request of the expected expense",
+          "$ref": "#/definitions/ResourceLink"
+        },
         "postedAmount": {
-          "description": "The posted amount of the Expected Expense",
+          "description": "The posted amount of the expected expense",
           "$ref": "#/definitions/Amount"
         },
         "remainingAmount": {
-          "description": "The remaining amount of the Expected Expense",
+          "description": "The remaining amount of the expected expense",
           "$ref": "#/definitions/Amount"
         },
         "source": {
           "type": "string",
-          "description": "The source that created the Expected Expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. This field will be empty in any other case.",
+          "description": "The source that created the expected expense. It can be CASH_ADVANCE or TRAVEL_ALLOWANCE. This field will be empty in any other case.",
           "enum": [
             "CASH_ADVANCE",
             "TRAVEL_ALLOWANCE",
@@ -1751,7 +1994,7 @@
           ]
         },
         "transactionAmount": {
-          "description": "The amount of the Expected Expense, in the transaction currency paid to the vendor",
+          "description": "The amount of the expected expense, in the transaction currency paid to the vendor",
           "$ref": "#/definitions/Amount"
         },
         "transactionDate": {
@@ -1763,12 +2006,35 @@
           "$ref": "#/definitions/TravelAllowance"
         },
         "tripData": {
-          "description": "This property is non empty if this Expected Expense represents a travel Segment (AIR, CAR, HOTEL, ...)",
+          "description": "This property is non empty if this expected expense represents a travel Segment (AIR, CAR, HOTEL, ...)",
           "$ref": "#/definitions/TripData"
         },
         "vendor": {
-          "description": "The vendor of the Expected Expense",
+          "description": "The vendor of the expected expense",
           "$ref": "#/definitions/Vendor"
+        }
+      }
+    },
+    "ExceptionSource": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "The link to the unique identifier of source. Will be empty if source is ALLOCATION or CASH_ADVANCE."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the source"
+        },
+        "type": {
+          "type": "string",
+          "description": "Defines the type of the source which can be one of \"ALLOCATION\", \"CASH_ADVANCE\", \"EXPENSE\", \"HEADER\"",
+          "enum": [
+            "ALLOCATION",
+            "CASH_ADVANCE",
+            "EXPENSE",
+            "HEADER"
+          ]
         }
       }
     },
@@ -1870,25 +2136,21 @@
     "Location": {
       "type": "object",
       "properties": {
-        "airportName": {
-          "type": "string",
-          "description": "The airport name of the location"
-        },
         "city": {
           "type": "string",
-          "description": "The city of the location"
+          "description": "The city name of the location"
         },
         "countryCode": {
           "type": "string",
-          "description": "The code of the country"
+          "description": "The ISO 3166-1 country code"
         },
         "countrySubDivisionCode": {
           "type": "string",
-          "description": "The country sub code"
+          "description": "The ISO 3166-2 country sub code"
         },
         "iataCode": {
           "type": "string",
-          "description": "The IATA code of the location"
+          "description": "The IATA code for the location"
         },
         "id": {
           "type": "string",
@@ -1897,11 +2159,6 @@
         "latitude": {
           "type": "number",
           "description": "The latitude of the location"
-        },
-        "lnKey": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The key of the location name"
         },
         "locationCode": {
           "type": "string",
@@ -1953,9 +2210,13 @@
           "type": "boolean",
           "description": "Indicates whether this Request is approved"
         },
+        "approver": {
+          "description": "The approver of this Request. Null when Request is in an approval status different from SUBMITTED",
+          "$ref": "#/definitions/Employee"
+        },
         "authorizedDate": {
           "type": "string",
-          "description": "The date when the Request was authorized"
+          "description": "For an approved Request, the date the approval process was completed"
         },
         "businessPurpose": {
           "type": "string",
@@ -2068,7 +2329,7 @@
         },
         "endTime": {
           "type": "string",
-          "description": "The start time of the Request (in the format HH:MM)"
+          "description": "The end time of the Request (in the format HH:MM)"
         },
         "everSentBack": {
           "type": "boolean",
@@ -2077,17 +2338,27 @@
         },
         "expenses": {
           "type": "array",
-          "description": "Expected Expenses attached to this Request",
+          "description": "Expected expenses attached to this Request",
           "items": {
             "$ref": "#/definitions/ResourceLink"
           }
         },
         "extensionOf": {
-          "description": "The Request that this Request is an extension of, or adendum to",
+          "description": "The Request that this Request is an extension of, or addendum to",
           "$ref": "#/definitions/RequestLink"
         },
+        "highestExceptionLevel": {
+          "type": "string",
+          "description": "The highest level of exception contained in this Request. One of { NONE, WARNING, ERROR }",
+          "enum": [
+            "NONE",
+            "WARNING",
+            "ERROR"
+          ]
+        },
         "href": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink to the resource for this Request"
         },
         "id": {
           "type": "string",
@@ -2140,7 +2411,7 @@
           "description": "The date when the Request was submitted (last submit date in case of recall)"
         },
         "totalApprovedAmount": {
-          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
+          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time they created the Request",
           "$ref": "#/definitions/Amount"
         },
         "totalPostedAmount": {
@@ -2161,6 +2432,288 @@
         }
       }
     },
+    "RequestDetails": {
+      "type": "object",
+      "properties": {
+        "approvalLimitDate": {
+          "type": "string",
+          "description": "The date by which the Request must be approved. This element appears only when integrated with Concur Travel"
+        },
+        "approvalStatus": {
+          "description": "The approval status of the Request",
+          "$ref": "#/definitions/ApprovalStatus"
+        },
+        "approved": {
+          "type": "boolean",
+          "description": "Indicates whether this Request is approved"
+        },
+        "approver": {
+          "description": "The approver of this Request. Null when Request is in an approval status different from SUBMITTED",
+          "$ref": "#/definitions/Employee"
+        },
+        "authorizedDate": {
+          "type": "string",
+          "description": "For an approved Request, the date the approval process was completed"
+        },
+        "businessPurpose": {
+          "type": "string",
+          "description": "The business purpose of the Request"
+        },
+        "canceledPostApproval": {
+          "type": "boolean",
+          "description": "Indicates whether this Request was canceled post approval"
+        },
+        "cashAdvances": {
+          "description": "The cash advances attached to this Request",
+          "$ref": "#/definitions/ResourceLink"
+        },
+        "closed": {
+          "type": "boolean",
+          "example": false,
+          "description": "Indicates whether the Request is closed"
+        },
+        "comment": {
+          "type": "string",
+          "description": "The last comment attached to this Request"
+        },
+        "comments": {
+          "description": "Comment history of this Request",
+          "$ref": "#/definitions/ResourceLink"
+        },
+        "creationDate": {
+          "type": "string",
+          "description": "The date when the Request was created (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')"
+        },
+        "custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration",
+          "$ref": "#/definitions/CustomField"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "The end date of the Request (in the format YYYY-MM-DD)"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "The end time of the Request (in the format HH:MM)"
+        },
+        "everSentBack": {
+          "type": "boolean",
+          "example": false,
+          "description": "Indicates whether the Request has ever been sent back to the employee"
+        },
+        "exceptions": {
+          "description": "List of exceptions of this Request",
+          "$ref": "#/definitions/ResourceLink"
+        },
+        "expenses": {
+          "type": "array",
+          "description": "Expected expenses attached to this Request",
+          "items": {
+            "$ref": "#/definitions/ResourceLink"
+          }
+        },
+        "extensionOf": {
+          "description": "The Request that this Request is an extension of, or addendum to",
+          "$ref": "#/definitions/RequestLink"
+        },
+        "highestExceptionLevel": {
+          "type": "string",
+          "description": "The highest level of exception contained in this Request. One of { NONE, WARNING, ERROR }",
+          "enum": [
+            "NONE",
+            "WARNING",
+            "ERROR"
+          ]
+        },
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to the resource for this Request"
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the Request"
+        },
+        "lastModified": {
+          "type": "string",
+          "description": "The date when the Request was last modified"
+        },
+        "mainDestination": {
+          "description": "The main destination of the Request",
+          "$ref": "#/definitions/Location"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the Request"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "owner": {
+          "description": "The employee who owns the Request",
+          "$ref": "#/definitions/Employee"
+        },
+        "pendingApproval": {
+          "type": "boolean",
+          "description": "Indicates whether this Request is pending approval"
+        },
+        "policy": {
+          "description": "The policy that applies to the Request",
+          "$ref": "#/definitions/ResourceLink"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The public key of the Request (unique per customer)"
+        },
+        "startDate": {
+          "type": "string",
+          "description": "The start date of the Request (in the format YYYY-MM-DD)"
+        },
+        "startTime": {
+          "type": "string",
+          "description": "The start time of the Request (in the format HH:MM)"
+        },
+        "submitDate": {
+          "type": "string",
+          "description": "The date when the Request was submitted (last submit date in case of recall)"
+        },
+        "totalApprovedAmount": {
+          "description": "The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time they created the Request",
+          "$ref": "#/definitions/Amount"
+        },
+        "totalPostedAmount": {
+          "description": "The total amount of the Request, expressed in the reimbursement currency of the employee at the time he created the Request",
+          "$ref": "#/definitions/Amount"
+        },
+        "totalRemainingAmount": {
+          "description": "The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the Request",
+          "$ref": "#/definitions/Amount"
+        },
+        "travelAgency": {
+          "description": "The travel agency office that is managing the trip associated to this Request",
+          "$ref": "#/definitions/ResourceLink"
+        },
+        "type": {
+          "description": "The type of the Request, inherited from the Request policy type",
+          "$ref": "#/definitions/RequestType"
+        }
+      }
+    },
+    "RequestException": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The system exception code defined for the exception. Example: BADCODE"
+        },
+        "isBlocking": {
+          "type": "boolean",
+          "example": false,
+          "description": "Defines whether the exception will prevent the Request from being submitted"
+        },
+        "level": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The numeric level associated with the exception. Example: 99"
+        },
+        "message": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception"
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Parameters for the messages of the exception",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "source": {
+          "description": "The source of the exception",
+          "$ref": "#/definitions/ExceptionSource"
+        }
+      }
+    },
     "RequestLink": {
       "type": "object",
       "properties": {
@@ -2174,13 +2727,16 @@
       "type": "object",
       "properties": {
         "href": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink to the resource"
         },
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Unique identifier of the related object"
         },
         "template": {
-          "type": "string"
+          "type": "string",
+          "description": "Hyperlink template to the resource"
         }
       }
     },
@@ -2505,7 +3061,7 @@
       "properties": {
         "dailyTravelAllowanceId": {
           "type": "string",
-          "description": "The fixed daily travel allowance id associated with the Expected Expense"
+          "description": "The fixed daily travel allowance id associated with the expected expense"
         }
       }
     },
@@ -2552,11 +3108,11 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "The vendor identifier of the Expected Expense"
+          "description": "The vendor identifier of the expected expense"
         },
         "name": {
           "type": "string",
-          "description": "The vendor description of the Expected Expense"
+          "description": "The vendor description of the expected expense"
         }
       }
     },

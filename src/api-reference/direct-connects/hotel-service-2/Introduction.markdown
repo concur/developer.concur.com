@@ -35,6 +35,7 @@ Hotel Service 2 API inventory is not accessible from the SAP Concur mobile app. 
 
 * Search
 * Availability
+* Rate Details
 * Hotel Description
 * Reservation
 * Read-Itinerary

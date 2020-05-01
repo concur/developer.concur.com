@@ -15,6 +15,21 @@
         url: /api-reference/authentication/oauth2-migration-best-practices.html
       - title: Scopes
         url: /api-reference/authentication/scopes.html
+- title: Budget v4
+  url: ''
+  children:
+      - title: Getting Started
+        url: /api-reference/budget/getting-started.html
+      - title: Fiscal Year
+        url: /api-reference/budget/v4.fiscal-year.html
+      - title: Budget Category
+        url: /api-reference/budget/v4.budget-category.html
+      - title: Budget Item
+        url: /api-reference/budget/v4.budget-header.html
+      - title: Budget Tracking Field
+        url: /api-reference/budget/v4.budget-trackingfield.html
+      - title: Budget Adjustments
+        url: /api-reference/budget/v4.budget-adjustments.html
 - title: Callouts
   url: ''
   children:
@@ -194,8 +209,8 @@
         url: /api-reference/image/v1.image.html
       - title: Image v3
         url: /api-reference/image/v3.image.html
-- title: Request v3
-  url: /api-reference/request/v3.request.html
+- title: Request v4
+  url: /api-reference/request/v4.get-started.html
 - title: Travel Profile
   url: ''
   children:

@@ -41,16 +41,12 @@
         url: /api-explorer/v3-0/PurchaseOrderReceipts.html
       - title: Purchase Orders
         url: /api-explorer/v3-0/PurchaseOrders.html
-      - title: Quick Expenses
-        url: /api-explorer/v3-0/QuickExpenses.html
       - title: Receipt Images
         url: /api-explorer/v3-0/ReceiptImages.html
       - title: Receipts
         url: /api-explorer/v3-0/Receipts.html
       - title: Reports
         url: /api-explorer/v3-0/Reports.html
-      - title: Requests
-        url: /api-explorer/v3-0/Requests.html
       - title: Sales Tax Validation Request
         url: /api-explorer/v3-0/SalesTaxValidationRequest.html
       - title: Suppliers
@@ -70,8 +66,6 @@
         url: /api-explorer/v3-1/ConnectionRequests.html
       - title: Request Group Configurations
         url: /api-explorer/v3-1/RequestGroupConfigurations.html
-      - title: Requests
-        url: /api-explorer/v3-1/Requests.html
 - title: v3.2
   url: ''
   children:
@@ -80,9 +74,13 @@
 - title: v4.0
   url: ''
   children:
+      - title: Budget
+        url: /api-explorer/v4-0/Budget.html
       - title: Invoice Pay
         url: /api-explorer/v4-0/InvoicePay.html
       - title: Purchase Requests
         url: /api-explorer/v4-0/PurchaseRequest.html
       - title: Quick Expenses
         url: /api-explorer/v4-0/QuickExpenses.html
+      - title: Request
+        url: /api-explorer/v4-0/ConcurRequest.html

@@ -1,0 +1,93 @@
+---
+title: Travel Request v4 - Request Cash Advance Resources
+layout: reference
+---
+
+## Menu
+
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
+
+# <a name="request-cash-advance-resource"></a>Request Cash Advance Resources
+
+* [Get the list of existing cash advances within a Request](#get-request-cash-advance-resource)
+
+## <a name="get-request-cash-advance-resource"></a>Get the content of an existing cash advances
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/cashadvances/{cashAdvanceUuid}
+```
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`cashAdvanceUuid`|`string`|-|**Required** The unique identifier of the cash advance.
+
+#### Payload
+
+None.
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Cash Advance](./v4.endpoints.schemas.html#schema-cashadvance)
+
+### Example
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/cashadvances/{cashAdvanceUuid}
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json.
+[
+{
+  "amountRequested": {
+    "value": 1.000000,
+    "currency": "USD"
+  },
+  "approvalStatus": {
+    "code": "C_PEND",
+    "name": "Pending Approval"
+  },
+  "cashAdvanceId: EF3E237ACAA3C449B808BA75BDD049FA,
+  "exchangeRate": {
+    "value": 1.00000000000000,
+    "operation": "MULTIPLY"
+  },
+  "requestDate": 2019-11-14:T10:39:00.000Z"
+}
+]
+
+```

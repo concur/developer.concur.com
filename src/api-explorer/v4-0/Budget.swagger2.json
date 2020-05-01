@@ -1196,6 +1196,7 @@
         "displayName": { "type": "string" },
         "listKey": { "type": "string" },
         "listName": { "type": "string" },
+        "fieldDefinitionId": { "type": "string" },
         "operator": {
           "type": "string",
           "enum": [
