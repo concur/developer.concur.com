@@ -1,0 +1,5963 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Mileage standalone service",
+    "version": "v1",
+    "title": "mileage",
+    "contact": {
+      "name": "springfox.documentation.service.Contact@46188a89"
+    },
+    "license": {
+      "name": "Concur Internal Use Only"
+    }
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Journeylog",
+      "description": "Individual journeys taken by employees and reimbursed by their company"
+    },
+    {
+      "name": "GovernmentMileageRateConfig",
+      "description": "Assignable set of rates to be reimbursed to an employee for journeys taken in a vehicle mandated by a government authority"
+    },
+    {
+      "name": "Vehicle",
+      "description": "Employee's vehicles that are to be used on journey's that need to be reimbursed"
+    },
+    {
+      "name": "AvailableExpense",
+      "description": "Available Expense Resource"
+    },
+    {
+      "name": "GDPR",
+      "description": "Purging the data based on data retention/right to be forgotten(RTBF)"
+    },
+    {
+      "name": "MileageRateConfig",
+      "description": "Assignable set of rates to be reimbursed to an employee for journeys taken in a vehicle"
+    },
+    {
+      "name": "Route",
+      "description": "Route descriptions for journey's that need to be reimbursed"
+    },
+    {
+      "name": "CompanyMileageRateConfigOverride",
+      "description": "Assignable set of rates to be reimbursed to an employee for journeys taken in a vehicle specific to a single company"
+    },
+    {
+      "name": "Accumulation",
+      "description": "Accumulated mileage values for the user for the criteria defined in an accumulation configuration"
+    },
+    {
+      "name": "AccumulationConfig",
+      "description": "Configurations defining accumulation"
+    },
+    {
+      "name": "JourneyLog",
+      "description": "Journey Log Resource"
+    }
+  ],
+  "paths": {
+    "/accumulation/v1.0/{companyID}/{userID}/{accumulationConfigID}": {
+      "get": {
+        "tags": [
+          "Accumulation"
+        ],
+        "summary": "Get a client accumulation",
+        "operationId": "getUserAccumulationForAccumulationConfigIDUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accumulationConfigID",
+            "in": "path",
+            "description": "A UUID identifier for the specific AccumulationConfig",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Accumulation found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfUserAccumulation"
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Accumulation not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.vehicle.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/accumulation/v1.0/{companyID}/{userID}/{vehicleID}/initialdistance": {
+      "put": {
+        "tags": [
+          "Accumulation"
+        ],
+        "summary": "Update initial business distance",
+        "operationId": "setUserInitialDistanceUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier of the Company of the User",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the User",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vehicleID",
+            "in": "path",
+            "description": "Unique identifier of the vehicle",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "initialDistance",
+            "description": "initialDistance",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InitialDistance"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User initial business distance updated",
+            "schema": {
+              "$ref": "#/definitions/InitialDistance"
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Vehicle details not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.vehicle.writeonly"
+            ]
+          }
+        ]
+      }
+    },
+    "/accumulationconfig/v1.0/{accumulationConfigID}": {
+      "get": {
+        "tags": [
+          "AccumulationConfig"
+        ],
+        "summary": "Accumulation Configuration",
+        "operationId": "getAccumulationForAccumulationConfigIDUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accumulationConfigID",
+            "in": "path",
+            "description": "An UUID identifier for the specific AccumulationConfig",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Accumulation Configuration found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfAccumulationConfig"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/journeylog/v1.0/{companyID}/{userID}/{reportId}/{entryId}": {
+      "get": {
+        "tags": [
+          "JourneyLog"
+        ],
+        "summary": "Retrieve a singular journey along with the calculated reimbursement amount and how it was calculated",
+        "operationId": "getUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "reportId",
+            "in": "path",
+            "description": "Unique identifier for the group of entries",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entryId",
+            "in": "path",
+            "description": "Unique identifier for the journey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Journey Log found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfJourneyLogResponse"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Journey Log not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.journey.read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "JourneyLog"
+        ],
+        "summary": "Creates or updates a log of a journey, calculating the amount that a employee should be reimbursed for it",
+        "operationId": "saveUsingPUT_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "reportId",
+            "in": "path",
+            "description": "Unique identifier for the group of entries",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entryId",
+            "in": "path",
+            "description": "Unique identifier for the journey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "journeyLog",
+            "description": "Details of a singular journey in a vehicle that an employee wants reimbursement for",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JourneyLog"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The etag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Journey Log updated",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfJourneyLogResponse"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "201": {
+            "description": "Journey Log created",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfJourneyLogResponse"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.journey.writeonly"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "JourneyLog"
+        ],
+        "summary": "Delete a Journey Log entry, removing it from any aggregations used for accumulation calculations",
+        "operationId": "deleteUsingDELETE_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "reportId",
+            "in": "path",
+            "description": "Unique identifier for the group of entries",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entryId",
+            "in": "path",
+            "description": "Unique identifier for the journey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The etag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Journey Log deleted",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Journey Log not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.journey.read",
+              "mileage.journey.writeonly",
+              "mileage.vehicle.writeonly",
+              "mileage.vehicle.read",
+              "mileage.rate.read",
+              "mileage.rate.writeonly",
+              "mileage.route.read",
+              "mileage.route.writeonly"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileageavailableexpense/v1.0/{companyID}/{userID}": {
+      "get": {
+        "tags": [
+          "AvailableExpense"
+        ],
+        "summary": "Retrieve a list of links of Available Expenses that are not in use",
+        "operationId": "getListUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Available Expenses found",
+            "schema": {
+              "$ref": "#/definitions/ResourcesOfLink"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.journey.read",
+              "mileage.journey.writeonly",
+              "mileage.vehicle.writeonly",
+              "mileage.vehicle.read",
+              "mileage.rate.read",
+              "mileage.rate.writeonly",
+              "mileage.route.read",
+              "mileage.route.writeonly"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileageavailableexpense/v1.0/{companyID}/{userID}/{availableExpenseID}": {
+      "get": {
+        "tags": [
+          "AvailableExpense"
+        ],
+        "summary": "Retrieve an available expense",
+        "operationId": "getUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "availableExpenseID",
+            "in": "path",
+            "description": "Unique identifier of available expense",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Available Expense found",
+            "schema": {
+              "$ref": "#/definitions/AvailableExpense"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Available Expense not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.journey.read",
+              "mileage.journey.writeonly",
+              "mileage.vehicle.writeonly",
+              "mileage.vehicle.read",
+              "mileage.rate.read",
+              "mileage.rate.writeonly",
+              "mileage.route.read",
+              "mileage.route.writeonly"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "AvailableExpense"
+        ],
+        "summary": "Create or update an available expense",
+        "operationId": "saveUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "availableExpenseID",
+            "in": "path",
+            "description": "Unique identifier of available expense",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "availableExpense",
+            "description": "availableExpense",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AvailableExpense"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Available Expense updated",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Available Expense created",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.journey.read",
+              "mileage.journey.writeonly",
+              "mileage.vehicle.writeonly",
+              "mileage.vehicle.read",
+              "mileage.rate.read",
+              "mileage.rate.writeonly",
+              "mileage.route.read",
+              "mileage.route.writeonly"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "AvailableExpense"
+        ],
+        "summary": "Remove an available expense that is not in use",
+        "operationId": "deleteUsingDELETE",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "availableExpenseID",
+            "in": "path",
+            "description": "Unique identifier of available expense",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Delete Available Expense",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Available Expense not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "405": {
+            "description": "Available Expense in use",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.journey.read",
+              "mileage.journey.writeonly",
+              "mileage.vehicle.writeonly",
+              "mileage.vehicle.read",
+              "mileage.rate.read",
+              "mileage.rate.writeonly",
+              "mileage.route.read",
+              "mileage.route.writeonly"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileageavailableexpense/v1.0/{companyID}/{userID}/{availableExpenseID}/state/{state}": {
+      "put": {
+        "tags": [
+          "AvailableExpense"
+        ],
+        "summary": "Update the state of an available expense",
+        "operationId": "saveStateUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "availableExpenseID",
+            "in": "path",
+            "description": "Unique identifier of available expense",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "path",
+            "description": "State of the Available expense",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "CONSUMED"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Available Expense updated",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Available Expense created",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.journey.read",
+              "mileage.journey.writeonly",
+              "mileage.vehicle.writeonly",
+              "mileage.vehicle.read",
+              "mileage.rate.read",
+              "mileage.rate.writeonly",
+              "mileage.route.read",
+              "mileage.route.writeonly"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagegdpr/v1.0/dataretention": {
+      "post": {
+        "tags": [
+          "GDPR"
+        ],
+        "summary": "Purge requested data",
+        "operationId": "deleteUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "gdprRequestMessage",
+            "description": "gdprRequestMessage",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GDPRRequestMessage"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Data Deletion Accepted",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Request invalid.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized to access this resource.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden to access this resource.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal error, not able to perform the operation.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.journey.read",
+              "mileage.journey.writeonly",
+              "mileage.vehicle.writeonly",
+              "mileage.vehicle.read",
+              "mileage.rate.read",
+              "mileage.rate.writeonly",
+              "mileage.route.read",
+              "mileage.route.writeonly"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/change/{diffID}": {
+      "get": {
+        "tags": [
+          "MileageRateConfig"
+        ],
+        "summary": "Finds a rate change difference document",
+        "operationId": "getChangesUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "diffID",
+            "in": "path",
+            "description": "The UUID identifier of the rate change document",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate change found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateDiff"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate change not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{companyID}": {
+      "get": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Find all Company Rate Configuration Overrides",
+        "operationId": "listForEntityUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Only return a single page of data starting at record ((pageNumber - 1) * pageSize) until (pageNumber * pageSize)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of records to return in a paged request",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration found",
+            "schema": {
+              "$ref": "#/definitions/ResourcesOfResourceOfRateConfig"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{companyID}/{country}": {
+      "get": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Find all Company Rate Configuration Overrides for a specific country",
+        "operationId": "listForEntityCountryUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Only return a single page of data starting at record ((pageNumber - 1) * pageSize) until (pageNumber * pageSize)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of records to return in a paged request",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration found",
+            "schema": {
+              "$ref": "#/definitions/ResourcesOfResourceOfRateConfig"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{companyID}/{country}/{configCode}": {
+      "get": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Retrieve a singular Company Rate Configuration Override applicable to the whole country",
+        "operationId": "getEntityRateConfigUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Create or update a singular Company Rate Configuration Override applicable to the whole country",
+        "operationId": "saveEntityUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "RateConfig",
+            "description": "rateConfig",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RateConfig"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The etag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration updated",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "201": {
+            "description": "Rate Configuration created",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration not found"
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.writeonly"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Remove a singular Company Rate Configuration Override applicable to the whole country",
+        "operationId": "deleteEntityRateConfigUsingDELETE",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The ETag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Rate Configuration Deleted",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "405": {
+            "description": "Rate Configuration in use",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.writeonly"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{companyID}/{country}/{configCode}/{criteriaCode}": {
+      "get": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Retrieve a singular Company Rate Configuration Override Criteria applicable to the whole country. Returned as a HATEOAS link on applicable vehicles",
+        "operationId": "getEntityIndividualCriteriaUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific RateConfig",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "criteriaCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific RateConfig criteria",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration Criteria found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration Criteria not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{companyID}/{country}/{countrySubDivision}": {
+      "get": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Find all Company Rate Configuration Overrides for a specific country region",
+        "operationId": "listForEntityCountrySubDivisionUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "countrySubDivision",
+            "in": "path",
+            "description": "An ISO 3166-2 region code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Only return a single page of data starting at record ((pageNumber - 1) * pageSize) until (pageNumber * pageSize)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of records to return in a paged request",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration found",
+            "schema": {
+              "$ref": "#/definitions/ResourcesOfResourceOfRateConfig"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{companyID}/{country}/{countrySubDivision}/{configCode}": {
+      "get": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Retrieve a singular Company Rate Configuration Override applicable to a single region in a country",
+        "operationId": "getEntityRateConfigUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "countrySubDivision",
+            "in": "path",
+            "description": "An ISO 3166-2 region code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Create or update a singular Company Rate Configuration Override  applicable to a single region in a country",
+        "operationId": "saveEntityUsingPUT_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "countrySubDivision",
+            "in": "path",
+            "description": "An ISO 3166-2 region code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "RateConfig",
+            "description": "rateConfig",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RateConfig"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The etag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration updated",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "201": {
+            "description": "Rate Configuration created",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration not found"
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.writeonly"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Remove a singular Company Rate Configuration Override applicable to a single region in a country",
+        "operationId": "deleteEntityRateConfigUsingDELETE_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "countrySubDivision",
+            "in": "path",
+            "description": "An ISO 3166-2 region code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The ETag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Rate Configuration Deleted",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "405": {
+            "description": "Rate Configuration in use",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.writeonly"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{companyID}/{country}/{countrySubDivision}/{configCode}/{criteriaCode}": {
+      "get": {
+        "tags": [
+          "CompanyMileageRateConfigOverride",
+          "MileageRateConfig"
+        ],
+        "summary": "Retrieve a singular Company Rate Configuration Override Criteria applicable to a single region in a country. Returned as a HATEOAS link on applicable vehicles",
+        "operationId": "getEntityIndividualCriteriaUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "The UUID identifier of the company",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "countrySubDivision",
+            "in": "path",
+            "description": "An ISO 3166-2 region code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific RateConfig",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "criteriaCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific RateConfig criteria",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration Criteria found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration Criteria not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{country}": {
+      "get": {
+        "tags": [
+          "GovernmentMileageRateConfig",
+          "MileageRateConfig"
+        ],
+        "summary": "Find all Government Rate Configurations for a specific country",
+        "operationId": "listForCountryUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Only return a single page of data starting at record ((pageNumber - 1) * pageSize) until (pageNumber * pageSize)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of records to return in a paged request",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration found",
+            "schema": {
+              "$ref": "#/definitions/ResourcesOfResourceOfRateConfig"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{country}/{configCode}": {
+      "get": {
+        "tags": [
+          "GovernmentMileageRateConfig",
+          "MileageRateConfig"
+        ],
+        "summary": "Retrieve a singular Government Rate Configuration applicable to the whole country",
+        "operationId": "getCountryRateConfigUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration Criteria not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{country}/{configCode}/{criteriaCode}": {
+      "get": {
+        "tags": [
+          "GovernmentMileageRateConfig",
+          "MileageRateConfig"
+        ],
+        "summary": "Retrieve a singular Government Rate Configuration Criteria applicable to the whole country. Returned as a HATEOAS link on applicable vehicles",
+        "operationId": "getCountryIndividualCriteriaUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "criteriaCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig criteria",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration Criteria found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration Criteria not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{country}/{countrySubDivision}": {
+      "get": {
+        "tags": [
+          "GovernmentMileageRateConfig",
+          "MileageRateConfig"
+        ],
+        "summary": "Find all Government Rate Configurations for a specific country region",
+        "operationId": "listForCountryCountrySubDivisionUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "countrySubDivision",
+            "in": "path",
+            "description": "An ISO 3166-2 region code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Only return a single page of data starting at record ((pageNumber - 1) * pageSize) until (pageNumber * pageSize)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of records to return in a paged request",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration found",
+            "schema": {
+              "$ref": "#/definitions/ResourcesOfResourceOfRateConfig"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{country}/{countrySubDivision}/{configCode}": {
+      "get": {
+        "tags": [
+          "GovernmentMileageRateConfig",
+          "MileageRateConfig"
+        ],
+        "summary": "Retrieve a singular Government Rate Configuration applicable to a single region in a country",
+        "operationId": "getCountryCountrySubDivisionRateConfigUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "countrySubDivision",
+            "in": "path",
+            "description": "An ISO 3166-2 region code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration Criteria found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration Criteria not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/mileagerateconfig/v1.0/{country}/{countrySubDivision}/{configCode}/{criteriaCode}": {
+      "get": {
+        "tags": [
+          "GovernmentMileageRateConfig",
+          "MileageRateConfig"
+        ],
+        "summary": "Retrieve a singular Government Rate Configuration Criteria applicable to a single region in a country. Returned as a HATEOAS link on applicable vehicles",
+        "operationId": "getCountryCountrySubDivisionIndividualCriteriaUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "description": "An ISO 3166-1 Alpha3 country code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "countrySubDivision",
+            "in": "path",
+            "description": "An ISO 3166-2 region code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "criteriaCode",
+            "in": "path",
+            "description": "An UUID identifier for the specific for the RateConfig criteria",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rate Configuration Criteria found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRateConfig"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Rate Configuration not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.rate.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/route/v1.0/{userID}/{routeID}": {
+      "get": {
+        "tags": [
+          "Route"
+        ],
+        "summary": "Retrieve a singular route associated with a user",
+        "operationId": "getUsingGET_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "routeID",
+            "in": "path",
+            "description": "The unique identifier for a route",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Route found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRoute"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Route not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.route.read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Route"
+        ],
+        "summary": "Create or update a route associated with a user",
+        "operationId": "saveUsingPUT_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "routeID",
+            "in": "path",
+            "description": "The unique identifier for a route",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "route",
+            "description": "route",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Route"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The etag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Route updated",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Route created",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.route.writeonly"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Route"
+        ],
+        "summary": "Remove a route",
+        "operationId": "deleteUsingDELETE_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "routeID",
+            "in": "path",
+            "description": "The unique identifier for a route",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The etag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Route deleted",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Route not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.route.writeonly"
+            ]
+          }
+        ]
+      }
+    },
+    "/route/v1.0/{userID}/{routeID}/restricted": {
+      "get": {
+        "tags": [
+          "Route"
+        ],
+        "summary": "Retrieve a singular route associated with a user with restricted information",
+        "operationId": "getRestrictedUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "routeID",
+            "in": "path",
+            "description": "The unique identifier for a route",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Route found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfRoute"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Route not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.route.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/vehicle/v1.0/{companyID}/{userID}": {
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "summary": "Retrieve a list of links and names of an employee's defined vehicles",
+        "operationId": "listForLoginUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Only return a single page of data starting at record ((pageNumber - 1) * pageSize) until (pageNumber * pageSize)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of records to return in a paged request",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "filterProperty",
+            "in": "query",
+            "description": "The vehicle property to filter the list on.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "OWNERSHIP_TYPE",
+              "ENGINE_SIZE",
+              "ENGINE_POWER",
+              "CO2_EMMISSION_RATE",
+              "CV",
+              "VEHICLE_TYPE",
+              "FUEL_TYPE",
+              "NONE"
+            ]
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The value of the filter. It must match the type of the property.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "deleted",
+            "in": "query",
+            "description": "If true returns deleted vehicles otherwise (false or not present) returns only active vehicles",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Vehicles found",
+            "schema": {
+              "$ref": "#/definitions/ResourcesOfLink"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.vehicle.read"
+            ]
+          }
+        ]
+      }
+    },
+    "/vehicle/v1.0/{companyID}/{userID}/{vehicleId}": {
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "summary": "Retrieve a singular vehicle for an employee with a link to the rates applicable to it",
+        "operationId": "getUsingGET_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vehicleId",
+            "in": "path",
+            "description": "The unique identifier for a vehicle",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Vehicle found",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfVehicle"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Vehicle not found"
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.vehicle.read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Vehicle"
+        ],
+        "summary": "Create or update a employee vehicle with properties of that vehicle so that the appropriate rates can be found",
+        "operationId": "saveUsingPUT_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vehicleId",
+            "in": "path",
+            "description": "The unique identifier for a vehicle",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "vehicle",
+            "description": "vehicle",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Vehicle"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The etag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Vehicle updated",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfVehicle"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "201": {
+            "description": "Vehicle created",
+            "schema": {
+              "$ref": "#/definitions/ResourceOfVehicle"
+            },
+            "headers": {
+              "ETag": {
+                "type": "string",
+                "description": "Contains the version number used on save for optimistic locking"
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.vehicle.writeonly"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Vehicle"
+        ],
+        "summary": "Remove a vehicle that is not in active use in journey entries",
+        "operationId": "deleteUsingDELETE_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "Unique identifier for the company of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "Unique identifier of the employee",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vehicleId",
+            "in": "path",
+            "description": "The unique identifier for a vehicle",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "The etag version to update or fail if the entity is a different version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Delete Vehicle",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "The request is invalid",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Request is not authenticated"
+          },
+          "403": {
+            "description": "Principal is not allowed to perform operation"
+          },
+          "404": {
+            "description": "Vehicle not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "405": {
+            "description": "Vehicle in use",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "412": {
+            "description": "ETag version mismatch",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "An unexpected error has prevented the operation",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT_implicit": [
+              "mileage.vehicle.writeonly"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "JWT_implicit": {
+      "type": "oauth2",
+      "authorizationUrl": "NOTSETauthorize",
+      "flow": "implicit",
+      "scopes": {
+        "mileage.journey.read": "mileage.journey.read",
+        "mileage.journey.writeonly": "mileage.journey.writeonly",
+        "mileage.vehicle.writeonly": "mileage.vehicle.writeonly",
+        "mileage.vehicle.read": "mileage.vehicle.read",
+        "mileage.rate.read": "mileage.rate.read",
+        "mileage.rate.writeonly": "mileage.rate.writeonly",
+        "mileage.route.read": "mileage.route.read",
+        "mileage.route.writeonly": "mileage.route.writeonly"
+      }
+    }
+  },
+  "definitions": {
+    "ASTNode": {
+      "type": "object",
+      "required": [
+        "label",
+        "type"
+      ],
+      "properties": {
+        "booleanValue": {
+          "type": "boolean",
+          "example": false,
+          "description": "The boolean value of this node, if any"
+        },
+        "children": {
+          "type": "array",
+          "description": "The child nodes of this node",
+          "items": {
+            "$ref": "#/definitions/ASTNode"
+          }
+        },
+        "decimalValue": {
+          "type": "number",
+          "description": "The decimal value of this node, if any"
+        },
+        "label": {
+          "type": "string",
+          "description": "The node label"
+        },
+        "type": {
+          "type": "string",
+          "description": "The node type e.g. DECIMAL_VALUE, MULTIPLY",
+          "enum": [
+            "MULTIPLY",
+            "ADD",
+            "SUBTRACT",
+            "DECIMAL_VALUE",
+            "BOOLEAN_VALUE",
+            "CONDITIONAL",
+            "FUNCTION"
+          ]
+        }
+      },
+      "description": "A node in the calculation"
+    },
+    "AccumulationConfig": {
+      "type": "object",
+      "required": [
+        "accumulateBy",
+        "groupBy",
+        "location",
+        "period"
+      ],
+      "properties": {
+        "accumulateBy": {
+          "type": "string",
+          "description": "What should the journeys be accumulated by",
+          "enum": [
+            "DISTANCE",
+            "AMOUNT"
+          ]
+        },
+        "accumulationConfigID": {
+          "type": "string",
+          "description": "accumulationConfigID"
+        },
+        "groupBy": {
+          "type": "string",
+          "description": "lorem ipsum",
+          "enum": [
+            "ACCUMULATIONCONFIG",
+            "VEHICLE"
+          ]
+        },
+        "location": {
+          "description": "Location that this accumulation should be used for",
+          "$ref": "#/definitions/Location"
+        },
+        "period": {
+          "type": "string",
+          "description": "Over what period should journeys be accumulated",
+          "enum": [
+            "MONTHLY",
+            "QUARTERLY",
+            "YEARLY"
+          ]
+        },
+        "starting": {
+          "type": "string",
+          "description": "On what day should the accumulation be reset"
+        }
+      },
+      "description": "A set of accumulations to calculate how much to pay for journeys"
+    },
+    "AccumulationEntry": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "format": "date"
+        },
+        "value": {
+          "$ref": "#/definitions/Bands"
+        }
+      }
+    },
+    "AdditionalRate": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "enum": [
+            "PERSONAL_DISTANCE",
+            "EXTRA_PASSENGER",
+            "TRAILER",
+            "CARAVAN",
+            "CANTEEN_OR_HEAVY_LOAD",
+            "MACHINERY",
+            "DOG",
+            "FOREST_OR_CONSTRUCTION_SITE_ROAD",
+            "FOREST_ROAD",
+            "HIGHER_RATE"
+          ]
+        },
+        "value": {
+          "type": "number"
+        }
+      }
+    },
+    "AvailableExpense": {
+      "type": "object",
+      "required": [
+        "businessDistance",
+        "distanceUnit",
+        "expenseTypeKey",
+        "state",
+        "transactionDate"
+      ],
+      "properties": {
+        "businessDistance": {
+          "type": "number",
+          "description": "The distance travelled"
+        },
+        "comment": {
+          "type": "string",
+          "description": "User comments"
+        },
+        "currencyCode": {
+          "type": "string",
+          "description": "Code of the currency"
+        },
+        "distanceUnit": {
+          "type": "string",
+          "description": "Distance unit for the distance travelled",
+          "enum": [
+            "KM",
+            "MILE"
+          ]
+        },
+        "expenseTypeKey": {
+          "type": "string",
+          "description": "The expense type key is required"
+        },
+        "fromLocation": {
+          "type": "string",
+          "description": "Journey start location"
+        },
+        "routeURL": {
+          "type": "string",
+          "description": "Route URL"
+        },
+        "state": {
+          "type": "string",
+          "description": "State of the mileage available expense entry",
+          "enum": [
+            "AVAILABLE",
+            "CONSUMED"
+          ]
+        },
+        "toLocation": {
+          "type": "string",
+          "description": "Journey to location"
+        },
+        "transactionAmount": {
+          "type": "number",
+          "description": "Transaction Amount of the Expense"
+        },
+        "transactionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Transaction date of available expense entry"
+        },
+        "vehicleID": {
+          "type": "string",
+          "description": "The vehicle id used in journey"
+        }
+      },
+      "description": "A record of Mileage Available Expense"
+    },
+    "BandAccumulation": {
+      "type": "object",
+      "required": [
+        "accumulation",
+        "lowerBound"
+      ],
+      "properties": {
+        "accumulation": {
+          "type": "number",
+          "description": "The accumulated distance for the band",
+          "readOnly": true
+        },
+        "lowerBound": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The lower bound of band",
+          "readOnly": true
+        }
+      },
+      "description": "The band and its accumulated distance"
+    },
+    "Bands": {
+      "type": "object",
+      "required": [
+        "bands"
+      ],
+      "properties": {
+        "bands": {
+          "type": "array",
+          "description": "List of band accumulation",
+          "items": {
+            "$ref": "#/definitions/BandAccumulation"
+          }
+        }
+      },
+      "description": "The List of band and their accumulated distance with initial business distance"
+    },
+    "BooleanExactMatch": {
+      "type": "object",
+      "required": [
+        "propertyType",
+        "value"
+      ],
+      "properties": {
+        "propertyType": {
+          "type": "string",
+          "description": "The vehicle property to match against",
+          "enum": [
+            "OWNERSHIP_TYPE",
+            "ENGINE_SIZE",
+            "ENGINE_POWER",
+            "CO2_EMMISSION_RATE",
+            "CV",
+            "VEHICLE_TYPE",
+            "FUEL_TYPE",
+            "NONE"
+          ]
+        },
+        "value": {
+          "type": "boolean",
+          "example": false,
+          "description": "The value to match against, matching if the vehicle property is exactly the same"
+        }
+      },
+      "description": "A property match that will match if the vehicle property is equal to the boolean value"
+    },
+    "BusinessDistanceBand": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "number"
+        }
+      }
+    },
+    "CalculationValues": {
+      "type": "object",
+      "required": [
+        "totalDistance"
+      ],
+      "properties": {
+        "canteenOrHeavyLoad": {
+          "type": "boolean",
+          "example": false,
+          "description": "Canteen or Heavy Load, if any"
+        },
+        "caravan": {
+          "type": "boolean",
+          "example": false,
+          "description": "Caravan, if any"
+        },
+        "commuteDistance": {
+          "description": "The commute portion of the journey, if any",
+          "$ref": "#/definitions/Distance"
+        },
+        "dog": {
+          "type": "boolean",
+          "example": false,
+          "description": "Dog, if any"
+        },
+        "extraPassenger": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of extra passengers carried, if any"
+        },
+        "forestOrConstructionSiteRoad": {
+          "type": "boolean",
+          "example": false,
+          "description": "Forest or Construction Road, if any"
+        },
+        "forestRoad": {
+          "type": "boolean",
+          "example": false,
+          "description": "Forest Road, if any"
+        },
+        "higherRate": {
+          "type": "boolean",
+          "example": false,
+          "description": "Higher Rate, if any"
+        },
+        "machinery": {
+          "type": "boolean",
+          "example": false,
+          "description": "Machinery, if any"
+        },
+        "personalDistance": {
+          "description": "The personal portion of the journey, if any",
+          "$ref": "#/definitions/Distance"
+        },
+        "totalDistance": {
+          "description": "The total distance for the journey",
+          "$ref": "#/definitions/Distance"
+        },
+        "trailer": {
+          "type": "boolean",
+          "example": false,
+          "description": "Trailer, if any"
+        }
+      },
+      "description": "The values used in mileage calculations for a journey"
+    },
+    "DateRangeMatch": {
+      "type": "object",
+      "required": [
+        "begin",
+        "end",
+        "propertyType"
+      ],
+      "properties": {
+        "begin": {
+          "type": "string",
+          "format": "date",
+          "description": "The beginning of the range to match against the vehicle property"
+        },
+        "end": {
+          "type": "string",
+          "format": "date",
+          "description": "The end of the range to match against the vehicle property"
+        },
+        "propertyType": {
+          "type": "string",
+          "description": "The vehicle property to match against",
+          "enum": [
+            "OWNERSHIP_TYPE",
+            "ENGINE_SIZE",
+            "ENGINE_POWER",
+            "CO2_EMMISSION_RATE",
+            "CV",
+            "VEHICLE_TYPE",
+            "FUEL_TYPE",
+            "NONE"
+          ]
+        }
+      },
+      "description": "A property match that will match if the vehicle property is between the begin and end dates inclusively"
+    },
+    "Distance": {
+      "type": "object",
+      "required": [
+        "distance"
+      ],
+      "properties": {
+        "distance": {
+          "type": "number",
+          "description": "The distance travelled"
+        },
+        "unit": {
+          "type": "string",
+          "description": "The units used to record this distance",
+          "enum": [
+            "KM",
+            "MILE"
+          ]
+        }
+      },
+      "description": "A journey distance in either Miles or Kilometers"
+    },
+    "EnumExactMatch": {
+      "type": "object",
+      "required": [
+        "propertyType",
+        "value"
+      ],
+      "properties": {
+        "propertyType": {
+          "type": "string",
+          "description": "The vehicle property to match against",
+          "enum": [
+            "OWNERSHIP_TYPE",
+            "ENGINE_SIZE",
+            "ENGINE_POWER",
+            "CO2_EMMISSION_RATE",
+            "CV",
+            "VEHICLE_TYPE",
+            "FUEL_TYPE",
+            "NONE"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "The value to match against, matching if the vehicle property is exactly the same"
+        }
+      },
+      "description": "A property match that will match if the vehicle property is equal to the enumeration value"
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "exception": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "GDPRRequestMessage": {
+      "type": "object",
+      "required": [
+        "correlationId",
+        "eventType",
+        "facts",
+        "id",
+        "subtopic",
+        "timeStamp",
+        "topic"
+      ],
+      "properties": {
+        "correlationId": {
+          "type": "string",
+          "description": "correlation id"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "event type"
+        },
+        "facts": {
+          "description": "facts",
+          "$ref": "#/definitions/RequestFacts"
+        },
+        "id": {
+          "type": "string",
+          "description": "some id"
+        },
+        "subtopic": {
+          "type": "string",
+          "description": "topic"
+        },
+        "timeStamp": {
+          "type": "string",
+          "description": "local date time"
+        },
+        "topic": {
+          "type": "string",
+          "description": "topic"
+        }
+      },
+      "description": "Purge request from PubSub"
+    },
+    "GeojsonLineString": {
+      "type": "object",
+      "required": [
+        "coordinates",
+        "type"
+      ],
+      "properties": {
+        "coordinates": {
+          "type": "array",
+          "description": "Line coordinates",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        },
+        "type": {
+          "type": "string",
+          "description": "Geojson feature type",
+          "enum": [
+            "Feature",
+            "Point",
+            "LineString"
+          ]
+        }
+      }
+    },
+    "GeojsonLineStringFeature": {
+      "type": "object",
+      "required": [
+        "geometry",
+        "properties",
+        "type"
+      ],
+      "properties": {
+        "geometry": {
+          "description": "Geometry of feature",
+          "$ref": "#/definitions/GeojsonLineString"
+        },
+        "properties": {
+          "description": "Properties of feature",
+          "$ref": "#/definitions/LineStringProperties"
+        },
+        "type": {
+          "type": "string",
+          "description": "Geojson feature type",
+          "enum": [
+            "Feature",
+            "Point",
+            "LineString"
+          ]
+        }
+      }
+    },
+    "GeojsonPoint": {
+      "type": "object",
+      "required": [
+        "coordinates",
+        "type"
+      ],
+      "properties": {
+        "coordinates": {
+          "type": "array",
+          "description": "Point coordinates",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "type": {
+          "type": "string",
+          "description": "Geojson feature type",
+          "enum": [
+            "Feature",
+            "Point",
+            "LineString"
+          ]
+        }
+      }
+    },
+    "GeojsonPointFeature": {
+      "type": "object",
+      "required": [
+        "geometry",
+        "properties",
+        "type"
+      ],
+      "properties": {
+        "geometry": {
+          "description": "Geometry of feature",
+          "$ref": "#/definitions/GeojsonPoint"
+        },
+        "properties": {
+          "description": "Properties of feature",
+          "$ref": "#/definitions/PointProperties"
+        },
+        "type": {
+          "type": "string",
+          "description": "Geojson feature type",
+          "enum": [
+            "Feature",
+            "Point",
+            "LineString"
+          ]
+        }
+      }
+    },
+    "GeojsonSingleSegment": {
+      "type": "object",
+      "required": [
+        "from",
+        "segment",
+        "to"
+      ],
+      "properties": {
+        "from": {
+          "description": "Segment source location",
+          "$ref": "#/definitions/GeojsonPointFeature"
+        },
+        "segment": {
+          "description": "Segment line descriptor",
+          "$ref": "#/definitions/GeojsonLineStringFeature"
+        },
+        "to": {
+          "description": "Segment target location",
+          "$ref": "#/definitions/GeojsonPointFeature"
+        }
+      }
+    },
+    "InitialDistance": {
+      "type": "object",
+      "required": [
+        "period"
+      ],
+      "properties": {
+        "distance": {
+          "description": "The distance",
+          "$ref": "#/definitions/Distance"
+        },
+        "period": {
+          "type": "string",
+          "format": "date",
+          "description": "The period"
+        }
+      },
+      "description": "Initial Distance"
+    },
+    "JourneyLog": {
+      "type": "object",
+      "required": [
+        "calculationValues",
+        "journeyDate",
+        "vehicle"
+      ],
+      "properties": {
+        "calculationValues": {
+          "description": "The values about this journey used to calculate the reimbursement amount. The required information is derived from the applicable RateConfigCriteria for the vehicle",
+          "$ref": "#/definitions/CalculationValues"
+        },
+        "journeyDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The starting date that the journey was taken"
+        },
+        "odometer": {
+          "description": "The odometer readings for this journey",
+          "$ref": "#/definitions/OdometerEntry"
+        },
+        "route": {
+          "type": "string",
+          "description": "The href to a rfc7946 (GeoJson) LineString describing the route taken for this journey"
+        },
+        "status": {
+          "type": "string",
+          "description": "The workflow status of this journey",
+          "enum": [
+            "SUBMIT"
+          ]
+        },
+        "vehicle": {
+          "type": "string",
+          "description": "The href of the vehicle used for the journey"
+        }
+      },
+      "description": "A record of a journey by an employee in a specified vehicle"
+    },
+    "JourneyLogDetail": {
+      "type": "object",
+      "required": [
+        "amount",
+        "calculation",
+        "currency"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "The reimbursement amount for this journey",
+          "readOnly": true
+        },
+        "calculation": {
+          "description": "The calculation used to generate the reimbursement amount",
+          "readOnly": true,
+          "$ref": "#/definitions/ASTNode"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency that the reimbursement amount is denominated in",
+          "readOnly": true
+        }
+      },
+      "description": "The reimbursement amount calculated for a journey"
+    },
+    "JourneyLogResponse": {
+      "type": "object",
+      "required": [
+        "calculationValues",
+        "clientAmount",
+        "journeyDate",
+        "vehicle"
+      ],
+      "properties": {
+        "calculationValues": {
+          "description": "The values about this journey used to calculate the reimbursement amount. The required information is derived from the applicable RateConfigCriteria for the vehicle",
+          "$ref": "#/definitions/CalculationValues"
+        },
+        "clientAmount": {
+          "description": "The amount that the employee should be reimbursed as well as the calculation used to generate the amount",
+          "readOnly": true,
+          "$ref": "#/definitions/JourneyLogDetail"
+        },
+        "governmentAmount": {
+          "description": "The amount that the government suggested amount that employee should be reimbursed as well as the calculation used to generate the amount",
+          "readOnly": true,
+          "$ref": "#/definitions/JourneyLogDetail"
+        },
+        "journeyDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The starting date that the journey was taken"
+        },
+        "odometer": {
+          "description": "The odometer readings for this journey",
+          "$ref": "#/definitions/OdometerEntry"
+        },
+        "route": {
+          "type": "string",
+          "description": "The href to a rfc7946 (GeoJson) LineString describing the route taken for this journey"
+        },
+        "status": {
+          "type": "string",
+          "description": "The workflow status of this journey",
+          "enum": [
+            "SUBMIT"
+          ]
+        },
+        "vehicle": {
+          "type": "string",
+          "description": "The href of the vehicle used for the journey"
+        }
+      },
+      "description": "A JourneyLog that includes the calculated amounts for the user reimbursement and for any government suggested value"
+    },
+    "LineStringProperties": {
+      "type": "object",
+      "required": [
+        "distance",
+        "roundtrip",
+        "type"
+      ],
+      "properties": {
+        "distance": {
+          "type": "number",
+          "description": "Total distance covered by line string"
+        },
+        "roundtrip": {
+          "type": "boolean",
+          "example": false,
+          "description": "Is the commute a roundtrip"
+        },
+        "type": {
+          "type": "string",
+          "description": "Journey type",
+          "enum": [
+            "PERSONAL",
+            "BUSINESS",
+            "COMMUTE"
+          ]
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "templated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ListMatch": {
+      "type": "object",
+      "required": [
+        "matches",
+        "propertyType"
+      ],
+      "properties": {
+        "matches": {
+          "type": "array",
+          "description": "The set of values that cause this property match to be true",
+          "items": {
+            "type": "string"
+          }
+        },
+        "propertyType": {
+          "type": "string",
+          "description": "The vehicle property to match against",
+          "enum": [
+            "OWNERSHIP_TYPE",
+            "ENGINE_SIZE",
+            "ENGINE_POWER",
+            "CO2_EMMISSION_RATE",
+            "CV",
+            "VEHICLE_TYPE",
+            "FUEL_TYPE",
+            "NONE"
+          ]
+        }
+      },
+      "description": "A property match that will match if the vehicle property is contained within the matches array"
+    },
+    "Location": {
+      "type": "object",
+      "required": [
+        "country"
+      ],
+      "properties": {
+        "country": {
+          "type": "string",
+          "description": "ISO 3166-1 Alpha3 country code",
+          "pattern": "[A-Z][A-Z][A-Z]"
+        },
+        "subDivision": {
+          "type": "string",
+          "description": "ISO 3166-2 region code",
+          "pattern": "[A-Z]{2}-[A-Z0-9]{1,3}"
+        }
+      },
+      "description": "The location that a set of rates or vehicle applies too"
+    },
+    "NumberRangeMatch": {
+      "type": "object",
+      "required": [
+        "begin",
+        "end",
+        "propertyType"
+      ],
+      "properties": {
+        "begin": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The beginning of the range to match against the vehicle property"
+        },
+        "end": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The end of the range to match against the vehicle property"
+        },
+        "propertyType": {
+          "type": "string",
+          "description": "The vehicle property to match against",
+          "enum": [
+            "OWNERSHIP_TYPE",
+            "ENGINE_SIZE",
+            "ENGINE_POWER",
+            "CO2_EMMISSION_RATE",
+            "CV",
+            "VEHICLE_TYPE",
+            "FUEL_TYPE",
+            "NONE"
+          ]
+        }
+      },
+      "description": "A property match that will match if the vehicle property is between the begin and end values inclusively"
+    },
+    "OdometerEntry": {
+      "type": "object",
+      "required": [
+        "end",
+        "start"
+      ],
+      "properties": {
+        "end": {
+          "type": "number",
+          "description": "The odometer entry after the journey ended",
+          "minimum": 0,
+          "exclusiveMinimum": false
+        },
+        "start": {
+          "type": "number",
+          "description": "The odometer entry before the journey started",
+          "minimum": 0,
+          "exclusiveMinimum": false
+        }
+      },
+      "description": "A record of the odometer readings before and after a journey"
+    },
+    "PointProperties": {
+      "type": "object",
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Point description property"
+        }
+      }
+    },
+    "PropertyMatch": {
+      "type": "object",
+      "properties": {
+        "bool": {
+          "description": "Match if the property matches a specified boolean value",
+          "$ref": "#/definitions/BooleanExactMatch"
+        },
+        "date": {
+          "description": "Match if the property is within a date range",
+          "$ref": "#/definitions/DateRangeMatch"
+        },
+        "enumExactMatch": {
+          "description": "Match if the property exactly matches a singular enumeration value",
+          "$ref": "#/definitions/EnumExactMatch"
+        },
+        "list": {
+          "description": "Match if the property is one of a list of entries",
+          "$ref": "#/definitions/ListMatch"
+        },
+        "number": {
+          "description": "Match if the property is within a numerical range",
+          "$ref": "#/definitions/NumberRangeMatch"
+        },
+        "string": {
+          "description": "Match if the property exactly matches a singular value",
+          "$ref": "#/definitions/StringExactMatch"
+        },
+        "unit": {
+          "description": "Always match",
+          "$ref": "#/definitions/UnitMatch"
+        }
+      },
+      "description": "An expression matching to a vehicle property. Only one of the fields must be set"
+    },
+    "RateChange": {
+      "type": "object",
+      "required": [
+        "begin",
+        "changed",
+        "configType",
+        "criteria",
+        "newValue",
+        "oldValue",
+        "type"
+      ],
+      "properties": {
+        "begin": {
+          "type": "string",
+          "description": "When changed was applicable from"
+        },
+        "changed": {
+          "type": "string",
+          "description": "Description of what was changed, e.g. additionalRates, businessDistanceLimitRates",
+          "enum": [
+            "undefined",
+            "noop",
+            "deleted",
+            "readOnly",
+            "allowMapIntegration",
+            "mappingProvider",
+            "currency",
+            "allowCommuteDeduction",
+            "allowAdministratorAddCar",
+            "criteria",
+            "additionalRateTypes",
+            "criterion",
+            "criterionKey",
+            "rates",
+            "ratesKey",
+            "additionalRates",
+            "additionalRates_personal_distance",
+            "additionalRates_extra_passenger",
+            "additionalRatesKey",
+            "businessDistanceLimitRates",
+            "propertyValue",
+            "propertyType"
+          ]
+        },
+        "configType": {
+          "type": "string",
+          "description": "Description of what the criteria pertains to. E.g. Rate, Map Setting etc",
+          "enum": [
+            "rates",
+            "header",
+            "properties",
+            "criteria",
+            "undefined"
+          ]
+        },
+        "criteria": {
+          "description": "Criteria describing one set of rates",
+          "$ref": "#/definitions/RateConfigCriteria"
+        },
+        "newValue": {
+          "type": "string",
+          "description": "New value"
+        },
+        "oldValue": {
+          "type": "string",
+          "description": "Original value"
+        },
+        "type": {
+          "type": "string",
+          "description": "Description of what change was performed, e.g.  UPDATE,ADD,REMOVE",
+          "enum": [
+            "add",
+            "remove",
+            "replace",
+            "move",
+            "copy",
+            "test"
+          ]
+        }
+      },
+      "description": "A container to describe a single change between two rate documents"
+    },
+    "RateConfig": {
+      "type": "object",
+      "required": [
+        "allowMapIntegration",
+        "criterion",
+        "currency",
+        "location",
+        "previousConfig"
+      ],
+      "properties": {
+        "allowAdministratorAddCar": {
+          "type": "boolean",
+          "example": false,
+          "description": "Are administrators allowed to create vehicles for employees"
+        },
+        "allowCommuteDeduction": {
+          "type": "boolean",
+          "example": false,
+          "description": "Should the employee be able to deduct their daily commute from the distance logged"
+        },
+        "allowMapIntegration": {
+          "type": "string",
+          "description": "Is a mapping provider provided route required, optional or not wanted",
+          "enum": [
+            "NO",
+            "YES",
+            "REQUIRED"
+          ]
+        },
+        "criterion": {
+          "type": "array",
+          "description": "The rates for different types of vehicles. Key is the unique id for a criteria and value is the set of rates and which vehicles match to this criteria",
+          "items": {
+            "$ref": "#/definitions/RateConfigCriteriaEntry"
+          }
+        },
+        "currency": {
+          "type": "string",
+          "description": "The ISO 4217 currency that the reimbursement amount is denominated in",
+          "pattern": "[A-Z][A-Z][A-Z]"
+        },
+        "deleted": {
+          "type": "boolean",
+          "example": false,
+          "description": "Indicates if a RateConfig has been removed from usage",
+          "readOnly": true
+        },
+        "distanceUnit": {
+          "type": "string",
+          "description": "distanceUnit",
+          "enum": [
+            "KM",
+            "MILE"
+          ]
+        },
+        "location": {
+          "description": "Location that these rates should be used for, used as a discriminator when multiple RateConfigs apply to a vehicle",
+          "$ref": "#/definitions/Location"
+        },
+        "mappingProvider": {
+          "type": "string",
+          "description": "If mapping integration is enabled which mapping provider should be used. If mapping integration is disabled then this must be none",
+          "enum": [
+            "NONE",
+            "GOOGLE",
+            "GPS",
+            "OTHER"
+          ]
+        },
+        "previousConfig": {
+          "type": "string",
+          "description": "The URL of the rate configuration that this rate configuration overrides"
+        },
+        "readOnly": {
+          "type": "boolean",
+          "example": false,
+          "description": "Indicates if a RateConfig is not modifiable",
+          "readOnly": true
+        }
+      },
+      "description": "A set of rates to pay for journeys"
+    },
+    "RateConfigCriteria": {
+      "type": "object",
+      "required": [
+        "properties",
+        "rates"
+      ],
+      "properties": {
+        "accumulationConfigID": {
+          "type": "string",
+          "description": "accumulationId"
+        },
+        "additionalRateTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "PERSONAL_DISTANCE",
+              "EXTRA_PASSENGER",
+              "TRAILER",
+              "CARAVAN",
+              "CANTEEN_OR_HEAVY_LOAD",
+              "MACHINERY",
+              "DOG",
+              "FOREST_OR_CONSTRUCTION_SITE_ROAD",
+              "FOREST_ROAD",
+              "HIGHER_RATE"
+            ]
+          }
+        },
+        "businessDistanceLimits": {
+          "type": "array",
+          "description": "Overridden business distance limits where they are different to the rest of the configuration",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "properties": {
+          "type": "array",
+          "description": "A set of rules that describes what types of vehicles these rates should be payable for",
+          "items": {
+            "$ref": "#/definitions/PropertyMatch"
+          }
+        },
+        "rates": {
+          "type": "array",
+          "description": "A set of date bound rates that should be paid if properties matches the vehicle. When matching the newest entry that is before the date of the journey is used",
+          "items": {
+            "$ref": "#/definitions/RateEntryDate"
+          }
+        }
+      },
+      "description": "A set of rates that are applicable to a class of vehicles"
+    },
+    "RateConfigCriteriaEntry": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/RateConfigCriteria"
+        }
+      }
+    },
+    "RateDiff": {
+      "type": "object",
+      "required": [
+        "changes",
+        "location",
+        "user"
+      ],
+      "properties": {
+        "changes": {
+          "type": "array",
+          "description": "Set of all changes applying between two rate documents",
+          "items": {
+            "$ref": "#/definitions/RateChange"
+          }
+        },
+        "location": {
+          "description": "The location the vehicle/employee is registered",
+          "$ref": "#/definitions/Location"
+        },
+        "user": {
+          "type": "string",
+          "description": "User requesting rate document change"
+        }
+      },
+      "description": "A container to describe a set of changes changes between two rate documents"
+    },
+    "RateEntry": {
+      "type": "object",
+      "required": [
+        "additionalRates",
+        "businessDistanceLimitRates"
+      ],
+      "properties": {
+        "additionalRates": {
+          "type": "array",
+          "description": "Additional payment rates, for instance for extra passengers",
+          "items": {
+            "$ref": "#/definitions/AdditionalRate"
+          }
+        },
+        "businessDistanceLimitRates": {
+          "type": "array",
+          "description": "The rate to pay for each distance unit in a journey, the key is the lower bound of any accumulation limits and the value is the rate to pay per distance unit",
+          "items": {
+            "$ref": "#/definitions/BusinessDistanceBand"
+          }
+        },
+        "calculation": {
+          "description": "The abstract syntax tree representing the rate calculation",
+          "$ref": "#/definitions/ASTNode"
+        }
+      },
+      "description": "The rates to reimburse an employee for a journey"
+    },
+    "RateEntryDate": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "format": "date"
+        },
+        "value": {
+          "$ref": "#/definitions/RateEntry"
+        }
+      }
+    },
+    "RequestFacts": {
+      "type": "object",
+      "required": [
+        "companyId"
+      ],
+      "properties": {
+        "companyId": {
+          "type": "string",
+          "description": "company id"
+        },
+        "dataRetentionDate": {
+          "description": "data retention date",
+          "$ref": "#/definitions/LocalDateTime"
+        },
+        "dataRetentionPolicyId": {
+          "type": "string",
+          "description": "data retention policy id"
+        },
+        "userExceptionHref": {
+          "type": "string",
+          "description": "user should not be deleted"
+        },
+        "userId": {
+          "type": "string",
+          "description": "user UUID"
+        }
+      },
+      "description": "information about the data to be purged"
+    },
+    "ResourceOfAccumulationConfig": {
+      "type": "object",
+      "required": [
+        "accumulateBy",
+        "groupBy",
+        "location",
+        "period"
+      ],
+      "properties": {
+        "accumulateBy": {
+          "type": "string",
+          "description": "What should the journeys be accumulated by",
+          "enum": [
+            "DISTANCE",
+            "AMOUNT"
+          ]
+        },
+        "accumulationConfigID": {
+          "type": "string",
+          "description": "accumulationConfigID"
+        },
+        "groupBy": {
+          "type": "string",
+          "description": "lorem ipsum",
+          "enum": [
+            "ACCUMULATIONCONFIG",
+            "VEHICLE"
+          ]
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "location": {
+          "description": "Location that this accumulation should be used for",
+          "$ref": "#/definitions/Location"
+        },
+        "period": {
+          "type": "string",
+          "description": "Over what period should journeys be accumulated",
+          "enum": [
+            "MONTHLY",
+            "QUARTERLY",
+            "YEARLY"
+          ]
+        },
+        "starting": {
+          "type": "string",
+          "description": "On what day should the accumulation be reset"
+        }
+      }
+    },
+    "ResourceOfJourneyLogResponse": {
+      "type": "object",
+      "required": [
+        "calculationValues",
+        "clientAmount",
+        "journeyDate",
+        "vehicle"
+      ],
+      "properties": {
+        "calculationValues": {
+          "description": "The values about this journey used to calculate the reimbursement amount. The required information is derived from the applicable RateConfigCriteria for the vehicle",
+          "$ref": "#/definitions/CalculationValues"
+        },
+        "clientAmount": {
+          "description": "The amount that the employee should be reimbursed as well as the calculation used to generate the amount",
+          "readOnly": true,
+          "$ref": "#/definitions/JourneyLogDetail"
+        },
+        "governmentAmount": {
+          "description": "The amount that the government suggested amount that employee should be reimbursed as well as the calculation used to generate the amount",
+          "readOnly": true,
+          "$ref": "#/definitions/JourneyLogDetail"
+        },
+        "journeyDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The starting date that the journey was taken"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "odometer": {
+          "description": "The odometer readings for this journey",
+          "$ref": "#/definitions/OdometerEntry"
+        },
+        "route": {
+          "type": "string",
+          "description": "The href to a rfc7946 (GeoJson) LineString describing the route taken for this journey"
+        },
+        "status": {
+          "type": "string",
+          "description": "The workflow status of this journey",
+          "enum": [
+            "SUBMIT"
+          ]
+        },
+        "vehicle": {
+          "type": "string",
+          "description": "The href of the vehicle used for the journey"
+        }
+      }
+    },
+    "ResourceOfRateConfig": {
+      "type": "object",
+      "required": [
+        "allowMapIntegration",
+        "criterion",
+        "currency",
+        "location",
+        "previousConfig"
+      ],
+      "properties": {
+        "allowAdministratorAddCar": {
+          "type": "boolean",
+          "example": false,
+          "description": "Are administrators allowed to create vehicles for employees"
+        },
+        "allowCommuteDeduction": {
+          "type": "boolean",
+          "example": false,
+          "description": "Should the employee be able to deduct their daily commute from the distance logged"
+        },
+        "allowMapIntegration": {
+          "type": "string",
+          "description": "Is a mapping provider provided route required, optional or not wanted",
+          "enum": [
+            "NO",
+            "YES",
+            "REQUIRED"
+          ]
+        },
+        "criterion": {
+          "type": "array",
+          "description": "The rates for different types of vehicles. Key is the unique id for a criteria and value is the set of rates and which vehicles match to this criteria",
+          "items": {
+            "$ref": "#/definitions/RateConfigCriteriaEntry"
+          }
+        },
+        "currency": {
+          "type": "string",
+          "description": "The ISO 4217 currency that the reimbursement amount is denominated in",
+          "pattern": "[A-Z][A-Z][A-Z]"
+        },
+        "deleted": {
+          "type": "boolean",
+          "example": false,
+          "description": "Indicates if a RateConfig has been removed from usage",
+          "readOnly": true
+        },
+        "distanceUnit": {
+          "type": "string",
+          "description": "distanceUnit",
+          "enum": [
+            "KM",
+            "MILE"
+          ]
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "location": {
+          "description": "Location that these rates should be used for, used as a discriminator when multiple RateConfigs apply to a vehicle",
+          "$ref": "#/definitions/Location"
+        },
+        "mappingProvider": {
+          "type": "string",
+          "description": "If mapping integration is enabled which mapping provider should be used. If mapping integration is disabled then this must be none",
+          "enum": [
+            "NONE",
+            "GOOGLE",
+            "GPS",
+            "OTHER"
+          ]
+        },
+        "previousConfig": {
+          "type": "string",
+          "description": "The URL of the rate configuration that this rate configuration overrides"
+        },
+        "readOnly": {
+          "type": "boolean",
+          "example": false,
+          "description": "Indicates if a RateConfig is not modifiable",
+          "readOnly": true
+        }
+      }
+    },
+    "ResourceOfRateDiff": {
+      "type": "object",
+      "required": [
+        "changes",
+        "location",
+        "user"
+      ],
+      "properties": {
+        "changes": {
+          "type": "array",
+          "description": "Set of all changes applying between two rate documents",
+          "items": {
+            "$ref": "#/definitions/RateChange"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "location": {
+          "description": "The location the vehicle/employee is registered",
+          "$ref": "#/definitions/Location"
+        },
+        "user": {
+          "type": "string",
+          "description": "User requesting rate document change"
+        }
+      }
+    },
+    "ResourceOfRoute": {
+      "type": "object",
+      "required": [
+        "avoidHighways",
+        "avoidTolls",
+        "polyline",
+        "routeSource",
+        "segments",
+        "unit"
+      ],
+      "properties": {
+        "avoidHighways": {
+          "type": "boolean",
+          "example": false,
+          "description": "Flag to indicate route should avoid highways, or not"
+        },
+        "avoidTolls": {
+          "type": "boolean",
+          "example": false,
+          "description": "Flag to indicate route should avoid tolls, or not"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "polyline": {
+          "description": "Complete route polyline data set",
+          "$ref": "#/definitions/GeojsonLineStringFeature"
+        },
+        "routeSource": {
+          "type": "string",
+          "description": "The route mapping source application",
+          "enum": [
+            "NONE",
+            "GOOGLE",
+            "GPS",
+            "OTHER"
+          ]
+        },
+        "segments": {
+          "type": "array",
+          "description": "Route segments (to, from and segment)",
+          "items": {
+            "$ref": "#/definitions/GeojsonSingleSegment"
+          }
+        },
+        "unit": {
+          "type": "string",
+          "description": "The units used to record this distance",
+          "enum": [
+            "KM",
+            "MILE"
+          ]
+        }
+      }
+    },
+    "ResourceOfUserAccumulation": {
+      "type": "object",
+      "required": [
+        "accumulation"
+      ],
+      "properties": {
+        "accumulation": {
+          "type": "array",
+          "description": "Accumulated values",
+          "items": {
+            "$ref": "#/definitions/AccumulationEntry"
+          }
+        },
+        "initialDistance": {
+          "description": "Initial Business Distance",
+          "$ref": "#/definitions/InitialDistance"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        }
+      }
+    },
+    "ResourceOfVehicle": {
+      "type": "object",
+      "required": [
+        "description",
+        "location",
+        "properties"
+      ],
+      "properties": {
+        "deleted": {
+          "type": "boolean",
+          "example": false,
+          "description": "Has the vehicle been deleted and not to be used on new journey entries",
+          "readOnly": true
+        },
+        "description": {
+          "type": "string",
+          "description": "The text displayed when selecting a vehicle from a list",
+          "pattern": "^.*\\w+.*$"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "location": {
+          "description": "The location the vehicle/employee is registered",
+          "$ref": "#/definitions/Location"
+        },
+        "preferred": {
+          "type": "boolean",
+          "example": false,
+          "description": "This vehicle will be the default used on journey entries"
+        },
+        "properties": {
+          "type": "array",
+          "description": "The properties of the vehicle that are used to match against a RateConfig criteria",
+          "items": {
+            "$ref": "#/definitions/VehicleProperty"
+          }
+        }
+      }
+    },
+    "ResourcesOfLink": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        }
+      }
+    },
+    "ResourcesOfResourceOfRateConfig": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceOfRateConfig"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        }
+      }
+    },
+    "Route": {
+      "type": "object",
+      "required": [
+        "avoidHighways",
+        "avoidTolls",
+        "polyline",
+        "routeSource",
+        "segments",
+        "unit"
+      ],
+      "properties": {
+        "avoidHighways": {
+          "type": "boolean",
+          "example": false,
+          "description": "Flag to indicate route should avoid highways, or not"
+        },
+        "avoidTolls": {
+          "type": "boolean",
+          "example": false,
+          "description": "Flag to indicate route should avoid tolls, or not"
+        },
+        "polyline": {
+          "description": "Complete route polyline data set",
+          "$ref": "#/definitions/GeojsonLineStringFeature"
+        },
+        "routeSource": {
+          "type": "string",
+          "description": "The route mapping source application",
+          "enum": [
+            "NONE",
+            "GOOGLE",
+            "GPS",
+            "OTHER"
+          ]
+        },
+        "segments": {
+          "type": "array",
+          "description": "Route segments (to, from and segment)",
+          "items": {
+            "$ref": "#/definitions/GeojsonSingleSegment"
+          }
+        },
+        "unit": {
+          "type": "string",
+          "description": "The units used to record this distance",
+          "enum": [
+            "KM",
+            "MILE"
+          ]
+        }
+      },
+      "description": "A record of a route"
+    },
+    "StringExactMatch": {
+      "type": "object",
+      "required": [
+        "propertyType",
+        "value"
+      ],
+      "properties": {
+        "propertyType": {
+          "type": "string",
+          "description": "The vehicle property to match against",
+          "enum": [
+            "OWNERSHIP_TYPE",
+            "ENGINE_SIZE",
+            "ENGINE_POWER",
+            "CO2_EMMISSION_RATE",
+            "CV",
+            "VEHICLE_TYPE",
+            "FUEL_TYPE",
+            "NONE"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "The value to match against, matching if the vehicle property is exactly the same"
+        }
+      },
+      "description": "A property match that will match if the vehicle property is equal to the string value"
+    },
+    "UnitMatch": {
+      "type": "object",
+      "description": "A property match that always matches as true"
+    },
+    "UserAccumulation": {
+      "type": "object",
+      "required": [
+        "accumulation"
+      ],
+      "properties": {
+        "accumulation": {
+          "type": "array",
+          "description": "Accumulated values",
+          "items": {
+            "$ref": "#/definitions/AccumulationEntry"
+          }
+        },
+        "initialDistance": {
+          "description": "Initial Business Distance",
+          "$ref": "#/definitions/InitialDistance"
+        }
+      },
+      "description": "User accumulations to calculate how much to pay for journeys"
+    },
+    "Vehicle": {
+      "type": "object",
+      "required": [
+        "description",
+        "location",
+        "properties"
+      ],
+      "properties": {
+        "deleted": {
+          "type": "boolean",
+          "example": false,
+          "description": "Has the vehicle been deleted and not to be used on new journey entries",
+          "readOnly": true
+        },
+        "description": {
+          "type": "string",
+          "description": "The text displayed when selecting a vehicle from a list",
+          "pattern": "^.*\\w+.*$"
+        },
+        "location": {
+          "description": "The location the vehicle/employee is registered",
+          "$ref": "#/definitions/Location"
+        },
+        "preferred": {
+          "type": "boolean",
+          "example": false,
+          "description": "This vehicle will be the default used on journey entries"
+        },
+        "properties": {
+          "type": "array",
+          "description": "The properties of the vehicle that are used to match against a RateConfig criteria",
+          "items": {
+            "$ref": "#/definitions/VehicleProperty"
+          }
+        }
+      },
+      "description": "An employee's vehicle that they want to log journeys against"
+    },
+    "VehicleProperty": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "enum": [
+            "OWNERSHIP_TYPE",
+            "ENGINE_SIZE",
+            "ENGINE_POWER",
+            "CO2_EMMISSION_RATE",
+            "CV",
+            "VEHICLE_TYPE",
+            "FUEL_TYPE",
+            "NONE"
+          ]
+        },
+        "value": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
