@@ -1,5 +1,5 @@
 ---
-title: Financial Integration Service
+title: MileageService
 layout: reference
 reference-type: swagger
 ---
