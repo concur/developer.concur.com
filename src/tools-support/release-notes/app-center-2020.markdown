@@ -207,14 +207,14 @@ Simply select Concur as the destination for your receipts in ScanSnap Cloud, pre
 
 The ScanSnap integration for Concur Expense allows you to:
   * Quickly digitize receipts at the source
-  * Access and manage expenses anywhere, anytime and from any device
+  * Access and manage expenses anywhere, anytime, and from any device
   * Submit reports on the go and get reimbursed faster
 
 Get started now!
 
 **Requirements**: To use ScanSnap Cloud with Concur Expense, the following items are required:
 - ScanSnap Home (for Windows and Mac) or ScanSnap Cloud App (for Android and iOS)
-- ScanSnap iX1500, iX500 or iX100 scanner
+- ScanSnap iX1500, iX500, or iX100 scanner
 - Wi-Fi environment with internet connection
 - Your Concur Expense account information
 - Optional: Smartphone with camera
@@ -233,9 +233,9 @@ Register in only one minute and pay with PayPay right away.
 
 Choose from three available payment methods:
 
-  1. Top up from your bank account.
-  2. Top up from a Seven Bank ATM.
-  3. Charge to your credit card.
+  * Top up from your bank account.
+  * Top up from a Seven Bank ATM.
+  * Charge to your credit card.
 
 Now, you can submit your business expenses to Concur Expense in the PayPay app for easier reimbursement. Just follow these three simple steps:
 
@@ -262,7 +262,7 @@ Orbi was designed to enable corporate clients to easily search, view and book ap
 
 Monitor, view or change your bookings, select favourite apartments and locations, run reports, track your spend, and make sure your programme is working as efficiently as possible, all via a secure closed platform that is only visible to you.
 
-You can make instant online bookings utilising Orbi’s live availability, see all of your upcoming reservations in one place and request extensions or cancellations. From Orbi’s reporting dashboard, you can see a snapshot of how your programme is performing. You can also create your own bespoke reports based on the stats that are important to you.
+You can make instant online bookings utilising Orbi’s live availability, see all of your upcoming reservations in one place, and request extensions or cancellations. From Orbi’s reporting dashboard, you can see a snapshot of how your programme is performing. You can also create your own bespoke reports based on the stats that are important to you.
 
 Every aspect of Orbi is completely customisable to ensure the apartments you and your team book are compliant with your programme and suitable for your travellers. If you manage travel for others, you can highlight preferred properties or set budgets for specific user groups.
 
