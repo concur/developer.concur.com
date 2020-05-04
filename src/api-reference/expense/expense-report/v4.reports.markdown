@@ -344,317 +344,528 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 
 ## <a name="schema"></a>Schema
 
-### <a name="expense-attendee-response"></a>ExpenseAttendeeResponse
+### <a name="hotel-ereceipt-schema"></a>HotelEReceipt
 
-| Name | Type | Format | Description |
----|---|---|---|
-| uri | string | - | **Required** Uri of the Expense Attendee association. |
-
-### <a name="hotel-ereceipt"></a>HotelEReceipt
-
-| Name | Type | Format | Description |
+|Name|Type|Format|Description|
 |---|---|---|---|
-| calculatedDailyRate | number(double) | double | The calculated hotel daily rate |
-| endDate | string(date) | date | The hotel checkout date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
-| locationId  | string | - | The unique identifier of the location for this hotel |
-| startDate | string(date) | date | The hotel checkin date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD. |
-| totalAmountPaid | [Amount](#schemaamount) | - | - |
-| vendorName | string | - | The name of the hotel vendor. Maximum length: 255 characters. Examples: 'Hilton', 'Four Points by Sheraton, Seattle' |
+|`calculatedDailyRate`|`number`|`double`|The calculated hotel daily rate.|
+|`endDate`|`string`|`YYYY-MM-DD`|The hotel checkout date.|
+|`locationId`|`string`|-|The unique identifier of the location for this hotel.|
+|`startDate`|`string`|`YYYY-MM-DD`|The hotel check-in date.|
+|`totalAmountPaid`|[`Amount`](#amount-schema)|-|
+|`vendorName`|`string`|-|The name of the hotel vendor. Maximum length: 255 characters. Examples: `Hilton`, `Four Points by Sheraton, Seattle`|
 
-### <a name="company-disbursements"></a>CompanyDisbursements
+### <a name="paged-resource-report-list-schema"></a>PagedResourcesReportList
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| cashAdvanceUtilized | [Amount](#schemaamount) | - | false | - |
-| dueEmployee | [Amount](#schemaamount) | - | true | - |
-| otherDisbursements | [[Disbursement](#schemadisbursement)] | - | false | Other company disbursements |
-| totalUtilizedBalanceDue | [Amount](#schemaamount) | - | false | - |
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`content`|[`ReportList`](#report-list-schema)|-|
+|`links`|[`Link`](#link-schema)|-|
+|`page`|[`PageMetadata`](#page-metadata-schema)|-|
 
-### <a name="associate-image-to-expense"></a>AssociateImageToExpense
+### <a name="repost-expense-summary-schema"></a>ReportExpenseSummary
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| isImageAppend | boolean | - | false | Whether the image should be appended to the existing image that is already on the expense, if there is one |
-| receiptImageId | string | - | true | The unique identifier of the image that needs to be associated to the expense. |
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`allocationSetId`|`string`|-|The identifier of the allocation set associated with the expense. Allocations which belong to the same set were created at the same time.|
+|`allocationState`|`string`|-|**Required** Allocation state for the expense. Supported values: `FULLY_ALLOCATED`, `NOT_ALLOCATED`, `PARTIALLY_ALLOCATED`|
+|`approvedAmount`|[`Amount`](#amount-schema)|-|-|
+|`approverAdjustedAmount`|[`Amount`](#amount-schema)|-|-|
+|`attendeeCount`|`integer`|`int32`|The total number of attendees associated with the expense.|
+|`businessPurpose`|`string`|-|The text input for the business purpose by the user.|
+|`claimedAmount`|[`Amount`](#amount-schema)|-|-|
+|`ereceiptImageId`|`string`|-|The unique identifier of the eReceipt image associated with the expense.|
+|`exchangeRate`|[`ExchangeRate`](#exchange-rate-schema)|-|**Required.**|
+|`expenseId`|`string`|-|**Required** The unique identifier for the expense.|
+|`expenseSourceIdentifiers`|[`ExpenseSourceIdentifiers`](#schemaexpensesourceidentifiers)|-|-|
+|`expenseType`|[`ExpenseType`](#expense-type-schema)|-|**Required.**|
+|`hasBlockingExceptions`|`boolean`|-|**Required** Whether the expense has any exceptions that block it from being submitted.|
+|`hasExceptions`|`boolean`|`true`/`false`|**Required** Whether the expense has any exceptions.|
+|`hasMissingReceiptDeclaration`|`boolean`|`true`/`false`|**Required** Whether the expense has an affidavit declaration for missing receipt.|
+|`imageCertificationStatus`|`string`|-|The final status of the receipt image associated with the expense.|
+|`isAutoCreated`|`boolean`|`true`/`false`|**Required** Whether the expense is auto-created.|
+|`isImageRequired`|`boolean`|`true`/`false`|**Required** Whether the image is required for the expense.|
+|`isPaperReceiptRequired`|`boolean`|`true`/`false`|**Required** Whether the paper receipt is required for the expense to be submitted.|
+|`isPersonalExpense`|`boolean`|`true`/`false`|**Required** Whether the expense is marked as personal (non-reimbursable) by the user.|
+|`jptRouteId`|`string`|-|The unique route ID to identify a Japan rail route.|
+|`links`|[`Link`](#link-schema)|-|Resource links related to this call.|
+|`location`|[`Location`](#location-schema)|-|-|
+|`paymentType`|[`PaymentType`](#payment-type-schema)|-|**Required.**|
+|`postedAmount`|[`Amount`](#amount-schema)|-|**Required.**|
+|`receiptImageId`|`string`|-|The unique identifier of the image associated with the expense.|
+|`ticketNumber`|`string`|-|The ticket number associated with the travel.|
+|`transactionAmount`|[`Amount`](#amount-schema)|-|**Required.**|
+|`transactionDate`|`string`|`YYYY-MM-DD`|The transaction date.|
+|`travelAllowance`|[`TravelAllowance`](#travel-allowance-schema)|-|-|
+|`vendor`|[`Vendor`](#vendor-schema)|-|-|
 
-### <a name="new-report-response"></a>NewReportResponse
+### <a name="smart-expense-schema"></a>SmartExpense
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| uri | string | - | true | Uri of the report. |
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`creditCardTransactionId`|`string`|-|The unique identifier of the credit card transaction (indexed `transactionId`) associated with the expense.|
+|`ereceipt`|[`EReceipt`](#ereceipt-schema)|-|-|
+|`expenseAttendees`|[`ExpenseAttendees`](#expense-attendees-schema)|-|-|
+|`isAutoCreated`|`boolean`|`true`/`false`|Whether this expense is auto-created. This element only applies to POST expense request. Default: `false`|
+|`personalCardTransactionId`|`string`|-|The unique identifier of the personal card transaction associated with the expense.|
+|`quickExpenseId`|`string`|-|The unique identifier of the mobile expense associated with the expense. When `quickExpenseId` is specified, the `exchangeRate.value` field value will be ignored and its value will be read from exchange rate currency service. `exchangeRate.operation` will still be honored.|
+|`trip`|[`Trip`](#schematrip)|-|-|
 
-### <a name="expense-attendee-with-amounts"></a>ExpenseAttendeesWithAmounts
+### <a name="validation-error-schema"></a>ValidationError
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| expenseAttendeeList | [ExpenseAttendeeWithAmounts](#schemaexpenseattendeewithamounts) | - | false | The list of attendees associated with the expense. Maximum attendees: 500 |
-| noShowAttendeeCount | integer(int32) | int32 | false | The number of attendees that were planned but did not show up. Default value: 0 |
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|The ID of the validation error.|
+|`message`|`string`|-|The detailed message of the validation error.|
+|`source`|`string`|-|The type of validation which failed.|
 
-### <a name="allocation-form-field"></a>AllocationFormField
+### <a name="expense-tax-schema"></a>ExpenseTax
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| controlType | string | - | true | The control type for the form field |
-| dataType | string | - | true | The data type for the form field |
-| defaultValue | [CustomField](#schemacustomfield) | - | false |
-| fieldAccess | string | - | true | The supplied user’s access to the form field |
-| fieldId | string | - | true | The field id |
-| fieldName | string | - | true | The label of the form field |
-| fieldSequence | integer(int32) | int32 | true | The field location in the numerical order of the form fields on the form |
-| formFieldId | string | - | true | The unique identifier of the form field |
-| isRequired | boolean | - | true | Whether a value is required for the form field  |
-| itemizationCopyDownAction | string | - | false | Itemization Copy Down Action Only used by the child entries of itemizations. = ['ParentExpense', 'ChildExpense', 'None'] |
-| listId | string | - | false | The unique identifier of the source list to be used for this form field |
-| listLevel | integer(int32) | int32 | false | For connected list, the hierarchical position of this field in the list. For simple list or non-list items, this value will be blank |
-| maximumLength | integer(int32) | int32 | false | The maximum length allowed for the form field |
-| parentFieldId | string | - | false | For connected list, the form field of the previous segment. For simple list or non-list items, this value will be blank |
-| requiredForAutoSave | boolean | - | true | A boolean value which indicates if this field is required to be populated to perform a save even if all required field values are not provided. |
-| targetFieldSettings | [TargetFieldSetting](#schematargetfieldsetting) | - | false | - |
-| tooltip | string | - | false | The tool tip value of the form field |
-| validationExpression | string | - | false | The validation expression (Regular Expression) associated with the form field |
-| validationMessage | string | - | false | The failure message for the form field validation |
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`customData`|[CustomData](#custom-data-schema)|-|This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured.|
+|`reclaimCode`|`string`|-|The tax reclaim code. Maximum length: 20 characters|
+|`reclaimTransactionAmount`|`number`|`double`|The tax reclaim transaction amount.|
+|`taxAuthorityId`|`string`|-|**Required** The unique identifier of the tax authority.|
+|`taxAuthorityName`|`string`|-|The name of the tax authority.|
+|`taxCode`|`string`|-|The tax code. Maximum length: 20 characters|
+|`taxFormId`|`string`|-|The unique identifier of the tax form associated with the expense.|
+|`taxLabel`|`string`|-|The localized label of the tax authority.|
+|`taxRateTypeId`|`string`|-|The unique identifier of the tax rate type ID.|
+|`taxRateTypeName`|`string`|-|The name of the tax rate type.|
+|`taxReclaimConfigurationId`|`string`|-|The unique identifier of the tax reclaim configuration ID.|
+|`taxTransactionAmount`|`number`|`double`|-|The tax transaction amount.|
 
-### <a name="report-expense-summary"></a>ReportExpenseSummary
+### <a name="mileage-schema"></a>Mileage
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| allocationSetId | string | - | false | The identifier of the Allocation set associated with the expense. Allocations which belong to the same set were created at the same time. |
-| allocationState | string | - | true | Allocation state for the expense. Possible values: 'FULLY_ALLOCATED', 'NOT_ALLOCATED', 'PARTIALLY_ALLOCATED' |
-| approvedAmount | [Amount](#schemaamount) | - | false | - |
-| approverAdjustedAmount | [Amount](#schemaamount) | - | false | - |
-| attendeeCount | integer(int32) | int32 | false | The total number of attendees associated with the expense |
-| businessPurpose | string | - | false | The text input for the business purpose by the user |
-| claimedAmount | [Amount](#schemaamount) | - | false | - |
-| ereceiptImageId | string | - | false | The unique identifier of the eReceipt image associated with the expense |
-| exchangeRate | [ExchangeRate](#schemaexchangerate) | - | true | - |
-| expenseId | string | - | true | The unique identifier for the expense |
-| expenseSourceIdentifiers | [ExpenseSourceIdentifiers](#schemaexpensesourceidentifiers) | - | false | - |
-| expenseType | [ExpenseType](#schemaexpensetype) | - | true | - |
-| hasBlockingExceptions | boolean | - | true | Whether the expense has any exceptions that blocks it from being submitted |
-| hasExceptions | boolean  | - | true | Whether the expense has any exceptions |
-| hasMissingReceiptDeclaration | boolean | - | true | Whether the expense has an affidavit declaration for missing receipt |
-| imageCertificationStatus | string | - | false | The final status of the receipt image associated with the expense. Possible values: Refer [Receipts Status V4 API](https://github.concur.com/receipts/receipt-service/wiki/GRDC-API-Docs#possible-digitizationstatus-codes) |
-| isAutoCreated | boolean | - | true | Whether the expense is auto created |
-| isImageRequired | boolean | - | true | Whether the image is required for the expense |
-| isPaperReceiptRequired | boolean | - | true | Whether the paper receipt is required for the expense to be submitted |
-| isPersonalExpense | boolean | - | true | Whether the expense is marked as personal (that is, non-reimbursable) by the user |
-| links | [[Link](#schemalink)] | - | false | Resource links related to this call |
-| location | [Location](#schemalocation) | - | false | - |
-| paymentType | [PaymentType](#schemapaymenttype) | - | true | - |
-| postedAmount | [Amount](#schemaamount)  | - | true | - |
-| receiptImageId | string | - | false | The unique identifier of the image associated with the expense |
-| ticketNumber | string | - | false | The ticket number associated with the travel |
-| transactionAmount | [Amount](#schemaamount) | - | true | - |
-| transactionDate | string(date)  | date | false | The transaction date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
-| travelAllowance | [TravelAllowance](#schematravelallowance) | - | false    | - |
-| vendor | [Vendor](#schemavendor)                                     |- | false | - |
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`odometerEnd`|`integer`|`int32`|The odometer reading at the end of the journey.|
+|`odometerStart`|`integer`|`int32`|The odometer reading at the start of the journey.|
+|`passengerCount`|`integer`|`int32`|The number of passengers in the vehicle during the journey.|
+|`personalDistance`|`integer`|`int32`|The portion of the journey attributed to personal use. Default: `0`|
+|`routeId`|`string`|-|The unique identifier of the route for this journey.|
+|`totalDistance`|`integer`|`int32`|**Required** The total distance for this journey.|
+|`vehicleId`|`string`|-|**Required** The unique identifier for the vehicle used for this journey.|
 
-### <a name="allocation-favorite-entry"></a>AllocationFavoriteEntry
+### <a name="expense-type-schema"></a>ExpenseType
 
-An Allocation Entry which comprises a percentage of the Allocation Favorite
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`code`|`string`|-|The code of the expense type.|
+|`id`|`string`|-|**Required** The unique identifier of the expense type. Maximum length: 5 characters. Example: `BRKFT`|
+|`isDeleted`|`boolean`|`true`/`false`|Whether the expense type returned is deleted or not.|
+|`name`|`string`|-|The name of the expense type (localized as per `accept-language` header).|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| customData | [[CustomData](#schemacustomdata)] | - | false | This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured |
-| percentage | number(double) | double | true | Percentage of the total expense that the allocation represents |
+### <a name="employee-schema"></a>Employee
 
-### <a name="report-totals"></a>ReportTotals
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`emailAddress`|`string`|-|**Required** Email address.|
+|`employeeId`|`string`|-|**Required** Employee ID.|
+|`firstName`|`string`|-|**Required** First name.|
+|`lastName`|`string`|-|**Required** Last name.|
+|`loginId`|`string`|-|**Required** Login ID.|
+|`middleInitial`|`string`|-|Middle initial.|
+|`userId`|`string`|-|User ID.|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| approvedAmount | [Amount](#schemaamount) | - | false    | - |
-| cashAdvanceReturnsAmount | [Amount](#schemaamount) | - | false | - |
-| claimedAmount | [Amount](#schemaamount) | - | true | - |
-| companyDisbursements | [CompanyDisbursements](#schemacompanydisbursements) | - | true | - |
-| employeeDisbursements | [EmployeeDisbursements](#schemaemployeedisbursements) | - | true | - |
-| isCashAdvanceReturnedOnCard | boolean | - | true | Whether the attribute determines if the user returned the remaining cash advance to the card directly. |
-| personalAmount | [Amount](#schemaamount) | - | true | - |
-| redirectFund | [RedirectFund](#schemaredirectfund) | - | false | - |
-| rejectedAmount | [Amount](#schemaamount) | - | true | - |
-| reportTotal | [Amount](#schemaamount) | - | true | - |
-| utilizedBalanceDues | [[UtilizedBalanceDue](#schemautilizedbalancedue)]     | - | false | List of utilized amount due company from prior reports |
+### <a name="link-schema"></a>Link
 
-### <a name="smart-expense"></a>SmartExpense
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`deprecation`|`string`|-|-|
+|`href`|`string`|-|**Required** The URL of the related `HATEOAS` link that you can use for subsequent calls.|
+|`hreflang`|`string`|-|-|
+|`isTemplated`|`boolean`|`true`/`false`|**Required** Whether the `href` is parameterized.|
+|`media`|`string`|-|-|
+|`method`|`string`|-|**Required** The HTTP method required for the related call.|
+|`rel`|`string`|-|**Required** The link relationship that describes how the `href` relates to the API call.|
+|`title`|`string`|-|-|
+|`type`|`string`|-|-|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| creditCardTransactionId | string | - | false | The unique identifier of the credit card transaction (indexed transactionId) associated with the expense |
-| ereceipt | [EReceipt](#schemaereceipt) | - | false | - |
-| expenseAttendees | [ExpenseAttendees](#schemaexpenseattendees) | - | false | - |
-| isAutoCreated | boolean | - | false| Whether this expense is auto created. This element only applies to POST expense request. Default value: false |
-| personalCardTransactionId | string | - | false | The unique identifier of the personal card transaction associated with the expense |
-| quickExpenseId | string | - | false | The unique identifier of the mobile expense associated with the expense. When 'quickExpenseId' is specified, 'exchangeRate.value' field value will be ignored and it's value will be read from exchange rate currency service but 'exchangeRate.operation' will still be honored |
-| trip | [Trip](#schematrip) | - | false | - |
+### <a name="page-metadata-schema"></a>PageMetadata
 
-### <a name="report-to-approve"></a>ReportToApprove
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`number`|`integer`|`int64`|-|
+|`size`|`integer`|`int64`|-|
+|`totalElements`|`integer`|`int64`|-|
+|`totalPages`|`integer`|`int64`|-|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| amountDueEmployee | [Amount](#schemaamount) | - | true | - |
-| claimedAmount | [Amount](#schemaamount) | - | true | - |
-| employee | [Employee](#schemaemployee) | - | true | - |
-| hasExceptions | boolean | - | true | Whether the Report has any exceptions |
-| link | [Link](#schemalink) | - | true | - |
-| name | string | - | true | The name of the expense report |
-| reportDate | string(date) | date | true | The date (ISO-8601) assigned to the report by the user (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
-| reportId | string | - | true | The unique identifier for the report resource |
-| reportType | string | - | true | This value identifies the method used to create the report. Statement refers to company billed statement reports and Auto-created refers to reports created by Expense Assistant. |
-| submitDate | string(date) | date | true | The date (ISO-8601) the report was submitted by the user (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
+### <a name="update-report-schema"></a>UpdateReport
 
-### <a name="move-expense"></a>MoveExpense
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`businessPurpose`|`string`|-|The text input for the business purpose by the user.|
+|`comment`|`string`|-|The expense report comment added by the user.|
+|`country`|`string`|-|The country name associated with the report (localized as per `accept-language` header).|
+|`countryCode`|`string`|-|The location country ISO 3166-1 code.|
+|`countrySubDivisionCode`|`string`|-|The location country sub division ISO 3166-2 code.|
+|`customData`|[`CustomData`](#custom-data-schema)|-|This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured.|
+|`endDate`|`string`|`YYYY-MM-DD`|The end date (ISO-8601) of the report as used for trip-based reporting.|
+|`isCopyDownInherited`|`boolean`|`true`/`false`|If this flag is set to `true`, any change in the report header fields will be copied down to expenses, itemizations and allocations, as per the configuration. Usage of this flag should be deliberate as data corruption could result.|
+|`isPaperReceiptsReceived`|`boolean`|`true`/`false`|Whether paper receipts have been received for the report.|
+|`name`|`string`|-|The expense report name input by the user.|
+|`policy`|`string`|-|The policy name to which the report adheres to.|
+|`policyId`|`string`|-|The unique identifier of the policy that applies to this report.|
+|`redirectFund`|[`RedirectFund`](#redirect-fund-schema)|-|-|
+|`reportDate`|`string`|`YYYY-MM-DD`|The date (ISO-8601) assigned to the report by the user.|
+|`reportSource`|`string`|-|**Required** The source of the report. Supported values: `EA` - Expense Assistant, `MOB` - Mobile, `OTHER` - Unknown, `SE` - Smart Expense, `TR` - Travel Request, `UI` - Web UI|
+|`startDate`|`string`|`YYYY-MM-DD`|The start date (ISO-8601) of the report as used for trip-based reporting.|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| targetReportId | string | - | true | ReportId of the destination report |
+#### Enumerated Values
 
-### <a name="tax-data"></a>TaxData
+|Property|Value|
+|---|---|
+|reportSource|EA|
+|reportSource|MOB|
+|reportSource|OTHER|
+|reportSource|SE|
+|reportSource|TR|
+|reportSource|UI|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| expenseTax1 | [ExpenseTaxData](#schemaexpensetaxdata) | - | true | - |
-| expenseTax2 | [ExpenseTaxData](#schemaexpensetaxdata) | - | false | - |
+### <a name="expense-source-identifiers-schema"></a>ExpenseSourceIdentifiers
 
-### <a name="validation-error"></a>ValidationError
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`creditCardTransactionId`|`string`|-|The unique identifier of the credit card transaction (indexed `transactionId`) associated with the expense.|
+|`ereceiptId`|`string`|-|-|
+|`expenseCaptureImageId`|`string`|-|The unique identifier of the expense capture image associated with the expense.|
+|`jptRouteId`|`string`|-|The unique identifier to identify a Japan rail route.|
+|`personalCardTransactionId`|`string`|-|The unique identifier of the personal card transaction associated with the expense.|
+|`quickExpenseId`|`string`|-|The unique identifier of the mobile expense associated with the expense.|
+|`segmentId`|`integer`|`int64`|The unique identifier of the segment associated with the expense.|
+|`segmentTypeId`|`string`|-|Segment type ID associated with the trip. Supported values: `AIRFR` - Air Ticket, `AIRSU` - Air Subscription, `CARRT` - Car Rental, `DININ` - Dining, `EVENT` - Event, `HOTEL` - Hotel Reservation, `INSUR` - Insurance, `LIMOF` - Limousine Reservation, `MISC` - Miscellaneous, `PARKG` - Parking Fee, `RAILF` - Train Ticket, `RAISU` - Train Subscription, `TAXIF` - Taxi Fare, `VISA` - Visa|
+|`tripId`|`integer`|`int64`|The unique identifier of the trip ID associated with the expense.|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| id | string | - | false | The id of the validation error |
-| message | string | - | false | The detailed message of the validation error |
-| source | string | - | false | The type of validation which failed |
+### <a name="custom-data-schema"></a>CustomData
 
-### <a name="audit-trail"></a>AuditTrail
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|**Required** The unique identifier of the custom field. Examples: `custom1`, `orgUnit1`|
+|`isValid`|`boolean`|`true`/`false`|Whether the value returned is valid or not. This value is returned for custom fields of all data types and is specifically evaluated for list items to represent the current status. Default: `true`|
+|`value`|`string`|-|The value of the custom field. This field can have values for all the supported data types such as `text`, `integer`, `boolean` and `listItemId`. Maximum length: 48 characters|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| action | string | - | true | - |
-| author | [Employee](#schemaemployee) | - | false | - |
-| date | string(date-time) | date-time | true | The UTC datetime of when the audit was recorded (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DDTHH:mm:ssZ |
-| description | [Description](#schemadescription) | - | true | - |
-| externalUpdate | string | - | false | - |
-| type | string | - | true | - |
+### <a name="ereceipt-schema"></a>EReceipt
 
-### <a name="expense-tax"></a>ExpenseTax
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`carEReceipt`|[`CarEReceipt`](#car-receipt-schema)|-|-|
+|`hotelEReceipt`|[`HotelEReceipt`](#hotel-receipt-schema)|-|-|
+|`id`|`string`|-|**Required** The unique identifier of the eReceipt with the expense.|
+|`imageId`|`string`|-|The unique identifier of the eReceipt image associated with the expense.|
+|`templateURL`|`string`|-|The URL of the eReceipt template. Maximum length: 512 characters|
+|`type`|`string`|-|**Required** The type of eReceipt associated with the expense. Supported values: `AIR`, `CAR`, `GASXX`, `GENERAL`, `GRTRN`, `HOTEL`, `JPT`, `MEALS`, `OFFIC`, `PRKNG`, `RAIL`, `RIDE`, `SHIPG`, `TELEC`|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| customData | [[CustomData](#schemacustomdata)] | - | false | This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured |
-| reclaimCode | string | - | false | The tax reclaim code. Maximum length: 20 characters |
-| reclaimTransactionAmount | number(double) | double | false | The tax reclaim transaction amount |
-| taxAuthorityId | string | - | true | The unique identifier of the tax authority |
-| taxAuthorityName | string | - | false | The name of the tax authority |
-| taxCode | string | - | false | The tax code. Maximum length: 20 characters |
-| taxFormId | string | - | false | The unique identifier of the tax form associated with the expense |
-| taxRateTypeId | string | - | false | The unique identifier of the tax rate type |
-| taxRateTypeName | string | - | false | The name of the tax rate type |
-| taxReclaimConfigurationId | string | - | false | The unique identifier of the tax reclaim configuration |
-| taxTransactionAmount | number(double) | double | false | The tax transaction amount |
+### <a name="trip-schema"></a>Trip
 
-### <a name="allocations-post-response"></a>AllocationsPostResponse
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`airTrip`|[`AirTrip`](#Air-trip-schema)|-|-|
+|`bookingOrigin`|`string`|-|Booking origin of the trip. Supported values: `AETM` - Amadeus E-Travel, `CLIQ` - Concur Travel, `PANM` - Open Booking, `TRPT` - TripIt, `TSUP` - Travel Supplier|
+|`bookingSource`|`string`|-|Booking source of the trip. Maximum length: 48 characters. Examples: `Expedia`, `Travelocity`, `Manual`|
+|`carTrip`|[`CarTrip`](#car-trip-schema)|-|-|
+|`cliqbookPaymentId`|`integer`|`int32`|Cliqbook payment ID associated with the trip.|
+|`cliqbookPaymentMethod`|`string`|-|Cliqbook payment method associated with the trip. Supported values: `GHOST_CARD` or `FLGHT_PASS`|
+|`hotelTrip`|[`HotelTrip`](#hotel-trip-schema)|-|-|
+|`merchantCode`|`string`|-|Merchant code associated with the trip. Maximum length: 4 characters|
+|`rideTrip`|[`RideTrip`](#ride-trip-schema)|-|-|
+|`segmentId`|`integer`|`int64`|**Required** The unique identifier of the segment associated with the expense.|
+|`segmentTypeId`|`string`|-|**Required** Segment type ID associated with the trip. Supported values: `AIRFR` - Air Ticket, `AIRSU` - Air Subscription, `CARRT` - Car Rental, `DININ` - Dining, `EVENT` - Event, `HOTEL` - Hotel Reservation, `INSUR` - Insurance, `LIMOF` - Limousine Reservation, `MISC` - Miscellaneous, `PARKG` - Parking Fee, `RAILF` - Train Ticket, `RAISU` - Train Subscription, `TAXIF` - Taxi Fare, `VISA` - Visa|
+|`startLocationId`|`string`|-|The unique identifier of the start location associated with the trip.|
+|`tripId`|`integer`|`int64`|**Required** The unique identifier of the trip ID associated with the expense.|
 
-| Name| Type | Format | Required | Description |
-|---|---|---|---|---|
-| hasExpenseExceptions | boolean | - | false | Indicates whether this expense has any exceptions. Format: true or false |
-| uri | string  | - | true | Uri of the allocations for the expense |
+### <a name="amount-schema"></a>Amount
 
-### <a name="cost-object-expense-id"></a>CostObjectExpenseId
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`currencyCode`|`string`|-|**Required** The 3-letter ISO 4217 currency code for the expense report currency, based on the user's assigned reimbursement currency when the report was created. Examples: `USD` - US dollars; `BRL` - Brazilian real; `CAD` - Canadian dollar; `CHF` - Swiss franc; `EUR` - Euro; `GBO` - Pound sterling; `HKD` - Hong Kong dollar; `INR` - Indian rupee; `MXN` - Mexican peso; `NOK` - Norwegian krone; `SEK` - Swedish krona|
+|`value`|`number`|`double`|**Required** The amount in the defined currency.|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| alloctionIds | [string] | - | false | The list of unique allocation identifiers for the expense |
-| expenseId | string | - | true | The unique identifier for the expense |
+### <a name="car-ereceipt-schema"></a>CarEReceipt
 
-### <a name="new-workflow-step-instance"></a>NewWorkflowStepInstance
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`calculatedDailyRate`|`number`|`double`|The calculated car rental daily rate.|
+|`carClass`|`string`|-|The car class. Maximum length: 4 characters. Examples: `IDAD`, `ECMZ`, `PCAV`, `IGDV`|
+|`currencyCode`|`string`|-|The 3-letter ISO 4217 currency code. Examples: `USD` - US dollars, `BRL` - Brazilian real, `CAD` - Canadian dollar|
+|`endDate`|`string`|`YYYY-MM-DD`|The car rental end date (ISO-8601).|
+|`fuelServiceCharge`|`number`|`double`|The fuel service charge. Minimum value: 0|
+|`numberOfRentalDays`|`integer`|`int32`|The number of car rental calculated days. Minimum value: 0|
+|`startDate`|`string`|`YYYY-MM-DD`|The car rental start date (ISO-8601).|
+|`unitsDriven`|`integer`|`int32`|The total units driven. Minimum value: 0|
+|`vendorName`|`string`|-|The name of the car vendor. Maximum length: 255 characters. Example: `ABC Rent A Car`|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| approverId | string | - | false | Approver employee identifier |
-| isDeleted | boolean | - | false | Boolean indicating if this step has been deleted |
-| isUserAdded  | boolean | - | false | Boolean indicating if this step is added by user |
-| sequenceOrder | integer(int32) | int32  | true | Sequence of this step in the workflow |
-| stepId | string | - | true | Identifier of the step that this is an instance of |
-| subWorkflowInstances | [[NewWorkflowInstance](#schemanewworkflowinstance)] | - | false | List of sub workflow instances, for example, cost object workflows |
+### <a name="error-message-schema"></a>ErrorMessage
 
-### <a name="update-workflow-step-instance"></a>UpdateWorkflowStepInstance
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`errorId`|`string`|-|The unique identifier of the error associated with the response.|
+|`errorMessage`|`string`|-|**Required** The detailed error message.|
+|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response.|
+|`path`|`string`|-|**Required** The URI of the attempted request.|
+|`timestamp`|`string`|`date-time`|**Required** The time when the error was captured.|
+|`validationErrors`|[ValidationError](#validation-error-schema)|-|The validation error messages.|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| approverId | string | - | false | Approver employee identifier |
-| isDeleted | boolean | - | false | Boolean indicating if this step has been deleted |
-| isUserAdded | boolean | - | false | Boolean indicating if this step is added by user |
-| sequenceOrder | integer(int32) | int32 | true | Sequence of this step in the workflow |
-| stepId | string | - | true | Identifier of the step that this is an instance of |
-| stepInstanceId | string  | - | false | Step instance identifier, may be null for a user added step |
-| subWorkflowInstances | [[UpdateWorkflowInstance](#schemaupdateworkflowinstance)] | - | false | List of sub workflow instances, for example, cost object workflows |
+### <a name="hotel-trip-schema"></a>HotelTrip
 
-### <a name="mileage"></a>Mileage
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`calculatedDailyRate`|`number`|`double`|The calculated hotel daily rate.|
+|`endDate`|`string`|`YYYY-MM-DD`|The hotel checkout date (ISO-8601).|
+|`numberOfNights`|`integer`|`int32`|The number of nights. Minimum value: 1|
+|`numberOfRooms`|`integer`|`int32`|The number of hotel rooms. Minimum value: 1|
+|`startDate`|`string`|`YYYY-MM-DD`|The hotel check-in date (ISO-8601).|
+|`totalAmountPaid`|[`Amount`](#amount-schema)|-|-|
+|`vendorName`|`string`|-|The name of the hotel vendor. Maximum length: 255 characters. Examples: `Hilton`, `Four Points by Sheraton, Seattle`|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| odometerEnd | integer(int32) | int32 | false | The odometer reading at the end of the journey |
-| odometerStart | integer(int32) | int32 | false | The odometer reading at the start of the journey |
-| passengerCount | integer(int32) | int32 | false | The number of passengers in the vehicle during the journey |
-| personalDistance | integer(int32) | int32 | false | The portion of the journey attributed to personal use. Default value: 0 |
-| routeId | string | - | false | The unique identifier of the route for this journey |
-| totalDistance | integer(int32) | int32 | true | The total distance for this journey |
-| vehicleId | string | - | true | The unique identifier for the vehicle used for this journey |
+### <a name="air-trip-schema"></a>AirTrip
 
-### <a name="expense-type"></a>ExpenseType
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`airlineName`|`string`|-|The name of the airline vendor. Maximum length: 255 characters. Example: `Alaska Airlines`|
+|`endDate`|`string`|`YYYY-MM-DD`|The last travel date or the travel end date (ISO-8601).|
+|`numberOfTravelDays`|`integer`|`int32`|The number of days of travel. Minimum value: 1|
+|`startDate`|`string`|`YYYY-MM-DD`|The first travel date or the travel start date (ISO-8601).|
+|`ticketType`|`string`|-|The airline class of service. Maximum length: 10 characters. Example: `Economy`|
+|`totalAmountPaid`|[`Amount`](#amount-schema)|-|-|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| code | string  | - | false | The code of the expense type |
-| id | string | - | true | The unique identifier of the expense type. Maximum length: 5 characters. Example: 'BRKFT' |
-| isDeleted | boolean | - | false | Whether the expense type returned is deleted or not. |
-| name | string  | - | false | The name of the expense type (localized as per `accept-language` header)
+### <a name="tax-schema"></a>Tax
 
-### <a name="expense-attendee-with-amounts"></a>ExpenseAttendeeWithAmounts
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`expenseTax1`|[`ExpenseTax`](#expense-tax-schema)|-|**Required.**|
+|`expenseTax2`|[`ExpenseTax`](#expense-tax-schema)|-|-|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| approvedAmount | [Amount](#schemaamount) | - | true | - |
-| associatedAttendeeCount | integer(int32) | int32  | false | The count of total attendees. A count greater than 1 means there are unnamed attendees associated with this expense-attendee record. Default value: 1 |
-| attendeeId | string | - | true | The unique identifier of the associated expense attendee within Concur |
-| customData | [[CustomData](#schemacustomdata)] | - | false| The set of data the custom fields contain for the attendee based on the configuration. This set might be empty if no custom fields are configured |
-| isAmountUserEdited | boolean | - | false | This field indicates if the amount value for the attendee on this expense was ever manually edited by the end user. Default value: false |
-| isTraveling | boolean | - | false | Whether the attendee was traveling when the expense was incurred, used for FBT tax calculations |
-| transactionAmount | [Amount](#schemaamount) | - | true | - |
-| versionNumber | integer(int32) | int32 | false | The version number of the attendee. This field value may always be 1, depending on the configuration. Default value: 1
+### <a name="update-report-expense-schema"></a>UpdateReportExpense
 
-### <a name="associate-image"></a>AssociateImage
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`approverAdjustedAmount`|[`Amount`](#amount-schema)|-|-|
+|`authorizationRequestExpenseId`|`string`|-|The authorization request expense ID associated with the expense.|
+|`budgetAccrualDate`|`string`|`YYYY-MM-DD`|The budget accrual date.|
+|`businessPurpose`|`string`|-|The text input for the business purpose by the user. Maximum length: 64 characters|
+|`comment`|`string`|-|A comment that describes the expense. Maximum length: 2000 characters|
+|`customData`|[CustomData](#custom-data-schema)|-|false|This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured.|
+|`exchangeRate`|[`ExchangeRate`](#exchange-rate-schema)|-|-|
+|`expenseSource`|`string`|-|**Required** The source of the expense. Supported values: `EA` - Expense Assistant, `MOB` - Mobile, `OTHER` - Unknown, `SE` - Smart Expense, `TA` - Travel Allowance, `TR` - Travel Request, `UI` - Web UI|
+|`expenseType`|[`ExpenseType`](#expense-type-schema)|-|-|
+|`hasMissingReceiptDeclaration`|`boolean`|`true`/`false`|Whether the expense has an affidavit declaration for missing receipt.|
+|`isCopyDownInherited`|`boolean`|`true`/`false`||If this flag is set to `true`, any change in the report expense fields will be copied down to itemizations and allocations, as per the configuration.|
+|`isExcludedFromCashAdvanceByUser`|`boolean`|`true`/`false`|Whether the user has excluded the expense from cash advance.|
+|`isExpenseBillable`|`boolean`|`true`/`false`|Whether the expense is billable.|
+|`isExpenseRejected`|`boolean`|`true`/`false`|Whether the approver or processor has rejected this expense in the report. If `true`, then this expense will be sent back to the report submitted in an addendum (split) report.|
+|`isPaperReceiptReceived`|`boolean`|`true`/`false`|Whether paper receipts have been received for the expense.|
+|`isPersonalExpense`|`boolean`|`true`/`false`|Whether the expense is marked as personal (non-reimbursable) by the user.|
+|`jptRouteId`|`string`|-|The unique route ID to identify a Japan rail route.|
+|`location`|[`Location`](#location-schema)|-|-|
+|`merchantTaxId`|`string`|-||The merchant tax ID for the expense. Maximum length: 64 characters|
+|`mileage`|[`Mileage`](#mileage-schema)|-|-|
+|`paymentType`|[`PaymentType`](#payment-type-schema)|-|-|
+|`receiptImageId`|`string`|-|The unique identifier of the image associated with the expense.|
+|`receiptType`|[`ReceiptType`](#receipt-type-schema)|-|-|
+|`smartExpense`|[`SmartExpense`](#smart-expense-schema)|-|-|
+|`tax`|[`Tax`](#tax-schema)|-|-|
+|`taxRateLocation`|`string`|-|Transaction location relative to the employee's home location as defined by their user profile. Supported values: `FOREIGN` - The expense transaction took place in foreign currency, `HOME` - The expense transaction took place in the reimbursement currency, `OUT_OF_PROVINCE` - The expense transaction took place outside the state jurisdiction|
+|`transactionAmount`|[`Amount`](#amount-schema)|-|-|
+|`transactionDate`|`string`|`YYYY-MM-DD`|The transaction date (ISO-8601) of the expense.|
+|`travel`|[`Travel`](#travel-schema)|-|-|
+|`travelAllowance`|[`TravelAllowance`](#travel-allowance-schema)|-|-|
+|`vendor`|[`Vendor`](#vendor-schema)|-|-|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| receiptImageId | string | - | true | The Id of the image to associate to the report header |
+#### Enumerated Values
 
-### <a name="update-workflow-instance"></a>UpdateWorkflowInstance
+|Property|Value|
+|---|---|
+|expenseSource|EA|
+|expenseSource|MOB|
+|expenseSource|OTHER|
+|expenseSource|SE|
+|expenseSource|TA|
+|expenseSource|TR|
+|expenseSource|UI|
+|taxRateLocation|FOREIGN|
+|taxRateLocation|HOME|
+|taxRateLocation|OUT_OF_PROVINCE|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| processInstanceId | string | - | true | Workflow instance id |
-| stepInstances | [[UpdateWorkflowStepInstance](#schemaupdateworkflowstepinstance)] | - | true | Steps in the workflow instance |
+### <a name="redirect-fund-schema"></a>RedirectFund
 
-### <a name="travel-diary"></a>TravelDiary
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`amount`|[`Amount`](#amount-schema)|-|**Required.**|
+|`creditCardId`|`string`|-|**Required** The unique identifier of the IBCP card account to which funds need to be redirected.|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| activityEndDate | string(date-time) | date-time | true | The end date (ISO-8601) of the traveldiary as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
-| activityLocation | string | - | true | Location of the travel diary |
-| activityPurpose | string | - | true | Purpose of the travel |
-| activityStartDate | string(date-time) | date-time | true | The start date (ISO-8601) of the traveldiary as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD |
-| link | [Link](#schemalink) | - | true | - |
-| travelDiaryId | string | - | false | - |
+### <a name="report-allocation-response-schema"></a>ReportAllocationResponse
 
-### <a name="employee"></a>Employee
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`accountCode`|`string`|-|The ledger account code associated with the allocation.|
+|`allocationAmount`|[`Amount`](#amount-schema)|-|-|
+|`allocationId`|`string`|-|**Required** The unique identifier of the allocation.|
+|`approvedAmount`|[`Amount`](#amount-schema)|-|-|
+|`claimedAmount`|[`Amount`](#amount-schema)|-|-|
+|`customData`|[`CustomData`](#custom-data-schema)|-|This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured.|
+|`expenseId`|`string`|-|**Required** The unique identifier of the expense associated with the allocation.|
+|`isPercentEdited`|`boolean`|`true`/`false`|**Required** Whether the allocation percent has been edited.|
+|`isSystemAllocation`|`boolean`|`true`/`false`|**Required** Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only.|
+|`overLimitAccountCode`|`string`|-|The ledger account code associated with the allocation if it exceeds a pre-defined threshold, for example, the user’s travel allowance limit.|
+|`percentage`|`number`|`double`|**Required** The percentage of the total expense that this allocation represents.|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| firstName | string | - | false | First name |
-| lastName | string | - | false | Last name |
-| middleInitial | string | - | false | Middle initial |
+### <a name="ride-trip-schema"></a>RideTrip
 
-### <a name="report-allocations"></a>ReportAllocations
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`startDate`|`string`|`YYYY-MM-DD`|The start date for the ride (ISO-8601).|
+|`totalAmountPaid`|[`Amount`](#amount-schema)|-|-|
+|`vendorName`|`string`|-|The name of the vendor. Maximum length: 255 characters. Example: `Yellow Cab`|
 
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-| allocations | [[NewReportAllocation](#schemanewreportallocation)] |        | false | This is an array of allocation objects to be created or updated. Maximum allocations: 500 |
-| expenseIds | string | - | true | This is an array of unique identifiers of expenses within this report that are being allocated |
+### <a name="exchange-rate-schema"></a>ExchangeRate
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`operation`|`string`|-|**Required** Exchange rate operation. Supported values: `MULTIPLY` or `DIVIDE`|
+|`value`|`number`|`double`|**Required** Exchange rate value.|
+
+### <a name="car-trip-schema"></a>CarTrip
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`calculatedDailyRate`|`number`|`double`|The calculated car rental daily rate.|
+|`carClass`|`string`|-|The car class. Maximum length: 10 characters. Examples: `IDAD`, `ECMZ`, `PCAV`, IGDV`|
+|`endDate`|`string`|`YYYY-MM-DD`|The car rental end date (ISO-8601).|
+|`numberOfCars`|`integer`|`int32`|The number of cars rented. Minimum value: 1|
+|`numberOfRentalDays`|`integer`|`int32`|The number of car rental calculated days. Minimum value: 0|
+|`startDate`|`string`|`YYYY-MM-DD`|The car rental start date (ISO-8601).|
+|`totalAmountPaid`|[`Amount`](#amount-schema)|-|-|
+|`vendorName`|`string`|-|The name of the car vendor. Maximum length: 255 characters. Example: `ABC Rent A Car`|
+
+### <a name="receipt-type-schema"></a>ReceiptType
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|**Required** The unique identifier for the receipt type. Supported values: `N` - No Receipt, `R` - Regular Receipt, `T` - Tax Receipt. Default value: `N`|
+|`status`|`string`|-|Receipt status (localized as per `accept-language` header).|
+
+### <a name="update-report-allocation-schema"></a>UpdateReportAllocation
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`allocation`|[`UpdateAllocation`](#allocation-schema)|-|**Required.**|
+|`expenseIds`|`string`|-|**Required** This is an array of unique identifiers of expenses within this report that are being updated.|
+
+### <a name="payment-type-schema"></a>PaymentType
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`code`|`string`|-|The code of the payment type.|
+|`id`|`string`|-|**Required** The unique identifier of the payment type. Maximum length: 4 characters. Example: `CASH`|
+|`name`|`string`|-|The name of the payment type (localized as per `accept-language` header).|
+
+### <a name="travel-allowance-schema"></a>TravelAllowance
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`dailyLimitAmount`|`number`|`double`|The allowed amount based on government travel allowance rates.|
+|`dailyTravelAllowanceId`|`string`|-|The fixed daily travel allowance ID associated with the expense. Maximum length: 32 characters|
+|`isExpensePartOfTravelAllowance`|`boolean`|`true`/`false`|Whether the expense is part of travel allowance. Default value: `false`|
+
+### <a name="expense-attendees-schema"></a>ExpenseAttendees
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`expenseAttendeeList`|[`ExpenseAttendee`](#expense-attendee-schema)||false|The list of attendees associated with the expense. Maximum attendees: 500|
+|`noShowAttendeeCount`|`integer`|`int32`|The number of attendees that were planned but did not show up. Default value: 0|
+
+### <a name="update-allocation-schema"></a>UpdateAllocation
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`customData`|[CustomData](#custom-data-schema)|-|This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured.|
+
+### <a name="expense-attendee-schema"></a>ExpenseAttendee
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`associatedAttendeeCount`|`integer`|`int32`|The count of total attendees. A count greater than one (1) means there are unnamed attendees associated with this expense-attendee record. Default : `1`|
+|`attendeeId`|`string`|-|**Required** The unique identifier of the associated expense attendee within SAP Concur solutions.|
+|`customData`|[`CustomData`](#custom-data-schema)|-|The set of data the custom fields contain for the attendee based on the configuration. This set might be empty if no custom fields are configured.|
+|`isAmountUserEdited`|`boolean`|`true`/`false`|This field indicates if the amount value for the attendee on this expense was ever manually edited by the end user. Default: `false`|
+|`isTraveling`|`boolean`|`true`/`false`|Whether the attendee was traveling when the expense was incurred. Used for FBT tax calculations.|
+|`transactionAmount`|`number`|`double`|The portion of the expense transaction amount assigned to this attendee for both individual expense tracking and attendee totals across time periods.|
+|`versionNumber`|`integer`|`int32`|The version number of the attendee. This field value may always be one (1), depending on the configuration. Default: `1`|
+
+### <a name="vendor-schema"></a>Vendor
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`description`|`string`|-|The description of the vendor. Maximum length: 64 characters|
+|`id`|`string`|-|The unique identifier of the vendor.|
+|`name`|`string`|-|The name of the vendor (localized as per `accept-language` header).|
+
+### <a name="travel-schema"></a>Travel
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`airlineFeeTypeCode`|`string`|-|Airline fee type code. Supported values: `BAGGS`, `BUSIN`, `OBENT`, `ONBRD`, `OTHER`, `PRACC`, `SEATS`, `TKCHG`, `UPGRD`|
+|`airlineFeeTypeName`|`string`|-|The localized airline fee type name.|
+|`airlineServiceClassCode`|`string`|-|The airline service class code. Supported values: `BUSIN`, `COACH`, `FIRST`|
+|`airlineServiceClassName`|`string`|-|The localized airline service class name.|
+|`carRentalDays`|`integer`|`int32`|The number of days car was rented. Minimum value: 0|
+|`endLocation`|`string`|-|Location where the travel ended. Maximum length: 100 characters|
+|`hotelCheckinDate`|`string`|`YYYY-MM-DD`|The hotel checkin date (ISO-8601) of the expense.|
+|`hotelCheckoutDate`|`string`|`YYYY-MM-DD`|The hotel checkout date (ISO-8601) of the expense.|
+|`startLocation`|`string`|-|Location where the travel started. Maximum length: 100 characters|
+|`ticketNumber`|`string`|-|The ticket number associated with the travel. Maximum length: 32 characters|
+
+### <a name="report-list-schema"></a>ReportList
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`approvalStatus`|`string`|-|**Required** The report’s approval status (localized as per `accept-language` header).|
+|`approvedAmount`|[`Amount`](#amount-schema)|-|**Required.**|
+|`approver`|[`Employee`](#employee-schema)|-|-|
+|`cardProgramStatementPeriodId`|`string`|-|The unique identifier of card program statement period on the report.|
+|`claimedAmount|[`Amount`](#amount-schema)|-|**Required.**|
+|`endDate`|`string`|`YYYY-MM-DD`|The report end date (ISO-8601).|
+|`hasBlockingExceptions`|`boolean`|`true`/`false`|**Required** Whether the report has any exceptions that block it from being submitted.|
+|`hasExceptions`|`boolean`|`true`/`false`|**Required** Whether the Report has any exceptions.|
+|`isApproved`|`boolean`|`true`/`false`|**Required** Whether the report has been approved.|
+|`isEnabledForFinancialIntegration`|`boolean`|`true`/`false`|**Required** Whether a report is enabled for financial integration.|
+|`isEnabledForReopen`|`boolean`|`true`/`false`|Whether a report is enabled for reopen.|
+|`isPaymentConfirmed`|`boolean`|`true`/`false`|**Required** Whether the report is past the payment confirmation workflow step.|
+|`isPendingApproval`|`boolean`|`true`/`false`|**Required** Whether the report is pending any approval.|
+|`isPendingDelegatorReview`|`boolean`|`true`/`false`|**Required** Whether a report created by a delegate is pending review by the employee.|
+|`isPendingProcessor`|`boolean`|`true`/`false`|**Required** Whether the report is pending the processor status.|
+|`isPendingProcessorReview`|`boolean`|`true`/`false`|**Required** Whether the report is pending the processor's review.|
+|`isReopened`|`boolean`|`true`/`false`|Whether the report is reopened.|
+|`isSentBack`|`boolean`|`true`/`false`|**Required** Whether the report is in sent back status.|
+|`isSentForPayment`|`boolean`|`true`/`false`|**Required** Whether the report is past the sent for payment workflow step.|
+|`isSubmitted`|`boolean`|`true`/`false`|**Required** Whether the report has been submitted by the employee.|
+|`link`|[`Link`](#link-schema)|-|**Required.**|
+|`name`|`string`|-|**Required** The expense report name input by the user.|
+|`paidDate`|`string`|`YYYY-MM-DDTHH:mm:ssZ`|The UTC datetime when the report got paid.|
+|`paymentStatus`|`string`|-|**Required** The report's payment status (localized as per `accept-language` header).|
+|`reportDate`|`string`|`YYYY-MM-DD`|The date (ISO-8601) assigned to the report by the user.|
+|`reportId`|`string`|-|**Required** The unique identifier for the report resource.|
+|`reportNumber`|`string`|-|User friendly unique identifier for the report.|
+|`reportTotal`|[`Amount`](#amount-schema)|-|**Required.**|
+|`reportType`|`string`|-|This value identifies the method used to create the report. Statement refers to company billed statement reports and auto-created refers to reports created by Expense Assistant.|
+|`sentBackDate`|`string`|`YYYY-MM-DDTHH:mm:ssZ`|The UTC datetime on which the report was sent back to the employee.|
+|`startDate`|`string`|`YYYY-MM-DD`|The report start date (ISO-8601).|
+|`submitDate`|`string`|`YYYY-MM-DDTHH:mm:ssZ`|The UTC datetime when the user submitted the report.|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|reportType|'Regular'or'Reconciliation'or'Statement'or'AutoCreated'|
+
+### <a name="location-schema"></a>Location
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`city`|`string`|-|The location city.|
+|`countryCode`|`string`|-|The location country ISO 3166-1 code.|
+|`countrySubDivisionCode`|`string`|-|The location country sub division ISO 3166-2 code.|
+|`id`|`string`|-|The unique identifier of the location. When location id is specified (when creating or updating a resource), other location object fields will be ignored.|
+|`name`|`string`|-|The location name (localized as per `accept-language` header).|
