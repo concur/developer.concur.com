@@ -5,7 +5,12 @@ layout: reference
 
 ## ERP Integration Methods and Customer Onboarding
 
-When using SAP Concur Financial Integration Service (FIS) data should you choose a JSON response or the SAP Concur extract files? Some ERP systems will require a file import to book Spend journal entries. You should plan to create a file based on the data returned from SAP Concur FIS when necessary. SAP Concur extract files are not always necessary.
+As an ERP Partner you have two options to obtain data for financial journal entries into the ERP:
+
+*  Financial Integration Service (FIS) – data is returned via APIs.
+*  Extract files – data is written to a flat file on a batched schedule.
+
+We recommend using data from FIS whenever possible due to the efficiency and advantages it has over batched extract files. If a customer’s ERP requires a file then create your own file based on FIS data, not the extract.
 
 FIS data should be used in the following situations:
 
@@ -13,6 +18,19 @@ FIS data should be used in the following situations:
 * File import into the ERP. You should be ready to create this file based on data received from FIS.
 
 Using FIS data for either of the above situations will simplify processes and enable FIS benefits.
+
+FIS has these benefits over the Extract file process:
+
+* Maintains consistency between SAP Concur solutions and the ERP:
+  * FIS requires a post of the status of the ERP integration back into the SAP Concur solution, per report or invoice. If there is a failure at the ERP, the app will update the affected report or invoice with an error message. The customer will initiate corrective action from within the SAP Concur processor tool. The result is that no expense report or invoice will advance until it can be integrated into the ERP.
+  * For existing customers, enabling FIS also requires change management discussions regarding expense reports and invoices in process during the switch. Any report created after FIS is enabled will flow to FIS and not the extract file. Reports still in process when FIS is enabled will be accounted for only via the extract file. Customers need to manage their existing integration until those reports or invoices are completely processed.
+
+>   **Note**: This process is a change for existing customers who are not accustomed to this awareness between their ERP and SAP Concur solutions.
+
+* Real-time integration into the ERP:
+  * You will obtain final approved spend data throughout the day and post it to the ERP instead of waiting for the file-based interval to occur once per day.
+* Payment Confirmation:
+  * ERP partners have the ability to post a payment status of reports into SAP Concur solutions (Expense only at this time).
 
 ### New Customers
 
@@ -30,7 +48,7 @@ By default, SAP Concur extract files are disabled when FIS is enabled. Your revi
 * Payment Request Accounting Extract (PRAE) - same as above.
 * Attendee Details Extract
   * Used for compliance reporting purposes. This file can still be created even if FIS is used.
-  * You will submit a case for this file to be continued as an "informational extract." SAP Concur will need to setup this informational extract based on the customer's request.
+  * You will submit a case for this file to be continued as an "informational extract." We will need to setup this informational extract based on the customer's request.
 * Expense Pay Confirmation Extract
 
 ## API Sequence Flow
@@ -39,17 +57,17 @@ The flow consists of calling the API in this sequence:
 
 1. [Get Financial Transactions](/api-reference/financial-integration/v4.financial-integration.html#get-transactions) - Obtain final-approved reports (or invoices) from the FIS queue.
 1. [Post Financial Transaction Acknowledgements](/api-reference/financial-integration/v4.financial-integration.html#post-acknowledgements) - Acknowledge each report or invoice has been obtained.
-1. [Post Financial Transactions Confirmations](/api-reference/financial-integration/v4.financial-integration.html#post-confirmations) - Post the status of the ERP integration for each report (success or failure) back into SAP Concur after integrating into the customer's ERP.
-1. [Post Financial Payment Confirmations](/api-reference/financial-integration/v4.financial-integration.html#payment-confirmations) - Post the financial payment results into SAP Concur.
+1. [Post Financial Transactions Confirmations](/api-reference/financial-integration/v4.financial-integration.html#post-confirmations) - Post the status of the ERP integration for each report (success or failure) back into the SAP Concur solution after integrating into the customer's ERP.
+1. [Post Financial Payment Confirmations](/api-reference/financial-integration/v4.financial-integration.html#payment-confirmations) - Post the financial payment results into the SAP Concur solution.
 
 The following are the recommended steps when you create a file based on FIS data prior to importing into the ERP:
 
 1. You will remove any report (or invoice) from your file if it is rejected at the ERP.
-1. You will then post a rejected status for that report back into SAP Concur via FIS post confirmation endpoint. (see step 3 above)
-1. The customer will then address any rejected reports directly in SAP Concur where they will be re-processed at a later date and eventually included in FIS.
-1. You will re-try your file without the rejected reports. Upon 100% successful import of the remaining reports, you will post successful statuses of those reports back into SAP Concur via FIS.
+1. You will then post a rejected status for that report back into the SAP Concur solution via FIS post confirmation endpoint. (see step 3 above)
+1. The customer will then address any rejected reports directly in the SAP Concur solution where they will be re-processed at a later date and eventually included in FIS.
+1. You will re-try your file without the rejected reports. Upon 100% successful import of the remaining reports, you will post successful statuses of those reports back into the SAP Concur solution via FIS.
 
-The above steps will maintain consistency between the customer's ERP and their SAP Concur Spend Management service. If they cannot be performed due to error-handling logistics between you and customer, then you can post successes for the file content back into SAP Concur. The customer will handle the errors directly with the ERP. However, their ERP and SAP Concur will not be in sync at this point.
+The above steps will maintain consistency between the customer's ERP and their SAP Concur Spend Management service. If they cannot be performed due to error-handling logistics between you and customer, then you can post successes for the file content back into the SAP Concur solution. The customer will handle the errors directly with the ERP. However, their ERP and the SAP Concur data will not be in sync at this point.
 
 ## Timing to Run FIS
 

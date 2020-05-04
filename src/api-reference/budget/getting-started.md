@@ -28,8 +28,6 @@ Summary and detailed balance amounts are also available to read, but may not be 
 
 The sequence to configure budgets is to first setup the fiscal year and then the budget categories (if applicable) before creating budget items. Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application UI. Also budget owner, approver, and budget viewer permissions have to be assigned to users prior to configuring budgets.
 
-> **Limitations**: This API is currently only available to Web Services clients. If you are a Partner that would like access, please contact your SAP Concur Representative.
-
 ## Process Flow
 
 ![A process flow diagram of getting started with Budget APIs](./v4-budget-getting-started-process-flow.png)
