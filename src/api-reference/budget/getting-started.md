@@ -52,6 +52,9 @@ Name|Description|Endpoint
 `fiscalcalendar.read`|Grants read access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year
 `fiscalcalendar.write`|Grants read and write access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year, POST a Fiscal Year, DELETE a Fiscal Year
 
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur clients must purchase Budget in order to use this API.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
