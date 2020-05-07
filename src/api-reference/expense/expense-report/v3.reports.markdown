@@ -226,6 +226,8 @@ https://www.concursolutions.com/api/v3.0/expense/reports/39BD9F7C5C3F4986A6A5
 
 ## <a name="post"></a>Create a new report
 
+>**Note**: Expense reports will be created under the user's default expense policy. If a user has two expense policies - default and purchasing card - passing the PolicyKey on the post body will be ignored by Expense. That is, the expense report will always be under the default expense policy.
+
     POST  /api/v3.0/expense/reports
 
 
