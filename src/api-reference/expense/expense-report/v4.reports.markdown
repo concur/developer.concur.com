@@ -20,6 +20,7 @@ The Reports v4 API can be used to read and modify an expense report header of an
     * [Report Expense Summary](#report-expense-summary-schema)
     * [Smart Expense](#smart-expense-schema)
     * [Expense Tax](#expense-tax-schema)
+    * [Tax](#tax-schema)
     * [Mileage](#mileage-schema)
     * [Expense Type](#expense-type-schema)
     * [Link](#link-schema)
@@ -29,11 +30,10 @@ The Reports v4 API can be used to read and modify an expense report header of an
     * [Trip](#trip-schema)
     * [Report Expense Detail](#report-expense-detail-schema)
     * [Amount](#amount-schema)
-    * [Hote Trip](#hotel-trip-schema)
+    * [Hotel Trip](#hotel-trip-schema)
     * [Air Trip](#air-trip-schema)
     * [Ride Trip](#ride-trip-schema)
     * [Car Trip](#car-trip-schema)
-    * [Tax](#tax-schema)
     * [Update Report Expense](#update-report-expense-schema)
     * [Report Send Back Request](#report-send-back-request-schema)
     * [Redirect Fund](#redirect-fund-schema)
@@ -47,9 +47,9 @@ The Reports v4 API can be used to read and modify an expense report header of an
     * [Payment Type](#payment-type-schema)
     * [Travel Allowance](#travel-allowance-schema)
     * [Expense Tax Summary](#expense-tax-summary-schema)
-    * [Expense Attendee](#link-schema)
+    * [Expense Attendee](#expense-attendee-schema)
     * [Expense Attendees](#expense-attendees-schema)
-    * [Update Allocation](#link-schema)
+    * [Update Allocation](#update-allocation-schema)
     * [Vendor](#vendor-schema)
     * [Travel](#travel-schema)
     * [Location](#location-schema)
@@ -480,6 +480,13 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 |`taxReclaimConfigurationId`|`string`|-|The unique identifier of the tax reclaim configuration ID.|
 |`taxTransactionAmount`|`number`|`double`|The tax transaction amount.|
 
+### <a name="tax-schema"></a>Tax
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`expenseTax1`|[`ExpenseTax`](#expense-tax-schema)|-|**Required** The tax data for the expense.|
+|`expenseTax2`|[`ExpenseTax`](#expense-tax-schema)|-|The tax data for the expense.|
+
 ### <a name="mileage-schema"></a>Mileage
 
 |Name|Type|Format|Description|
@@ -683,13 +690,6 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 |`startDate`|`string`|`YYYY-MM-DD`|The car rental start date.|
 |`totalAmountPaid`|[`Amount`](#amount-schema)|-|The total amount paid.|
 |`vendorName`|`string`|-|The name of the car vendor. Maximum length: 255 characters. Example: `ABC Rent A Car`|
-
-### <a name="tax-schema"></a>Tax
-
-|Name|Type|Format|Description|
-|---|---|---|---|
-|`expenseTax1`|[`ExpenseTax`](#expense-tax-schema)|-|**Required** The tax data for the expense.|
-|`expenseTax2`|[`ExpenseTax`](#expense-tax-schema)|-|The tax data for the expense.|
 
 ### <a name="update-report-expense-schema"></a>UpdateReportExpense
 
