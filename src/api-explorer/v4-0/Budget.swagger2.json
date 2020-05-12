@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "The Budget service exposes budget and fiscal year data. Partners may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration. Summary and detailed balance amounts are also available to read, but may not be altered via the API.",
-    "version": "4.0",
+    "version": "4.0.0",
     "title": "Budget Service API Documentation"
   },
   "host": "www.concursolutions.com",
@@ -12,31 +12,52 @@
       "name": "Budget Adjustments",
       "description": "Object defines the adjustments made to a budget header"
     },
-    { "name": "Budget Category", "description": "Groups of expense types" },
+    {
+      "name": "Budget Category",
+      "description": "Groups of expense types"
+    },
     {
       "name": "Budget Item",
-      "description": "The base object that defines a budget for a fiscal year"
+      "description": "Budget Item Controller"
     },
-    { "name": "Cost Object Field", "description": "Cost Object Field" },
-    { "name": "Fiscal Year", "description": "Fiscal Year" }
+    {
+      "name": "Cost Object Field",
+      "description": "Cost Object Field"
+    },
+    {
+      "name": "Fiscal Year",
+      "description": "Fiscal Year"
+    },
+    {
+      "name": "Usage Metrics",
+      "description": "Save and get usage metrics for a given user"
+    }
   ],
   "paths": {
     "/budget/v4/adjustments": {
       "post": {
-        "tags": ["Budget Adjustments"],
+        "tags": [
+          "Budget Adjustments"
+        ],
         "summary": "Saves a list of adjustments",
         "operationId": "saveAdjustmentsUsingPOST",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
-            "name": "budgetAdjustmentsExternalDTOList",
-            "description": "budgetAdjustmentsExternalDTOList",
-            "required": true,
+            "name": "budgetAdjustments",
+            "description": "The adjustments to save",
+            "required": false,
             "schema": {
               "type": "array",
-              "items": { "$ref": "#/definitions/BudgetAdjustmentsExternalDTO" }
+              "items": {
+                "$ref": "#/definitions/BudgetAdjustmentsExternal"
+              }
             }
           },
           {
@@ -49,75 +70,134 @@
           }
         ],
         "responses": {
-          "200": { "description": "OK", "schema": { "type": "string" } },
-          "201": { "description": "Created" },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       }
     },
     "/budget/v4/budgetCategory": {
       "get": {
-        "tags": ["Budget Category"],
+        "tags": [
+          "Budget Category"
+        ],
         "summary": "Fetches all of the budget categories in the system for an entity.",
         "operationId": "getBudgetCategoryByEntityIdUsingGET",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
               "type": "array",
-              "items": { "$ref": "#/definitions/BudgetCategoryDTO" }
+              "items": {
+                "$ref": "#/definitions/BudgetCategory"
+              }
             }
           },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not found" },
-          "500": { "description": "Internal error" }
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       },
       "post": {
-        "tags": ["Budget Category"],
-        "summary": "Save budget category. Creates a new budget category if one doesn't exist. Any value may be supplied for summary.",
+        "tags": [
+          "Budget Category"
+        ],
+        "summary": "Save budget category. Creates a new budget category if one doesn't exist.",
         "operationId": "saveBudgetCategoryUsingPOST",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "budgetCategory",
             "description": "budgetCategory",
             "required": true,
-            "schema": { "$ref": "#/definitions/BudgetCategoryDTO" }
+            "schema": {
+              "$ref": "#/definitions/BudgetCategory"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/BudgetCategoryDTO" }
+            "schema": {
+              "$ref": "#/definitions/BudgetCategory"
+            }
           },
-          "201": { "description": "Created" },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       }
     },
     "/budget/v4/budgetCategory/expenseTypes": {
       "get": {
-        "tags": ["Budget Category"],
-        "summary": "Fetches the list of expense types for the given entity.",
+        "tags": [
+          "Budget Category"
+        ],
+        "summary": "Calls the concur midtier to fetches the list of expense types for the given entity.",
         "operationId": "getExpenseTypesUsingGET",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "userLanguage",
@@ -132,27 +212,43 @@
             "description": "OK",
             "schema": {
               "type": "array",
-              "items": { "$ref": "#/definitions/ExpenseTypeDTO" }
+              "items": {
+                "$ref": "#/definitions/ExpenseType"
+              }
             }
           },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       }
     },
-    "/budget/v4/budgetCategory/{syncguid}": {
+    "/budget/v4/budgetCategory/{id}": {
       "get": {
-        "tags": ["Budget Category"],
+        "tags": [
+          "Budget Category"
+        ],
         "summary": "Fetches an individual budget category by the guid.",
         "operationId": "getBudgetCategoryUsingGET",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "name": "syncguid",
+            "name": "id",
             "in": "path",
             "description": "Budget category guid",
             "required": true,
@@ -162,24 +258,40 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/BudgetCategoryDTO" }
+            "schema": {
+              "$ref": "#/definitions/BudgetCategory"
+            }
           },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not found" },
-          "500": { "description": "Internal error" }
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       },
       "delete": {
-        "tags": ["Budget Category"],
+        "tags": [
+          "Budget Category"
+        ],
         "summary": "Remove budget category by sync guid.",
         "operationId": "deleteBudgetCategoryUsingDELETE",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "name": "syncguid",
+            "name": "id",
             "in": "path",
             "description": "Budget category guid",
             "required": true,
@@ -187,23 +299,44 @@
           }
         ],
         "responses": {
-          "200": { "description": "OK", "schema": { "type": "string" } },
-          "204": { "description": "No Content" },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not found" },
-          "500": { "description": "Internal error" }
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       }
     },
     "/budget/v4/budgetItemHeader": {
       "get": {
-        "tags": ["Budget Item"],
+        "tags": [
+          "Budget Item"
+        ],
         "summary": "Fetch all budget items for an entity. Defaults adminView to false and offset to zero.",
         "operationId": "searchBudgetItemsPagedUsingGET",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "adminView",
@@ -224,52 +357,143 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/PagedBudgetItemHeaderResult" }
+            "schema": {
+              "$ref": "#/definitions/PagedBudgetItemHeaderResult"
+            }
           },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "InternalError" }
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "InternalError"
+          }
         },
         "deprecated": false
       },
       "post": {
-        "tags": ["Budget Item"],
+        "tags": [
+          "Budget Item"
+        ],
         "summary": "Save budget item. Creates a new budget item if one doesn't exist.",
         "operationId": "saveBudgetItemUsingPOST",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "budgetItemHeader",
             "description": "budgetItemHeader",
             "required": true,
-            "schema": { "$ref": "#/definitions/BudgetItemHeaderDTO" }
+            "schema": {
+              "$ref": "#/definitions/BudgetItemHeader"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/BudgetItemHeaderResponse" }
+            "schema": {
+              "$ref": "#/definitions/BudgetItemHeaderResponse"
+            }
           },
-          "201": { "description": "Created" },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/budget/v4/budgetItemHeader/export": {
+      "get": {
+        "tags": [
+          "Budget Item"
+        ],
+        "summary": "exportByFilter",
+        "operationId": "exportByFilterUsingGET",
+        "produces": [
+          "text/html"
+        ],
+        "parameters": [
+          {
+            "name": "entityId",
+            "in": "query",
+            "description": "entityId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "fyId",
+            "in": "query",
+            "description": "fyId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
         },
         "deprecated": false
       }
     },
     "/budget/v4/budgetItemHeader/{id}": {
       "get": {
-        "tags": ["Budget Item"],
+        "tags": [
+          "Budget Item"
+        ],
         "summary": "Fetches a budget item by guid.",
-        "operationId": "getBudgetItemUsingGET",
-        "produces": ["application/json"],
+        "operationId": "getBudgetItemV4UsingGET",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -282,21 +506,37 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/BudgetItemHeaderDTO" }
+            "schema": {
+              "$ref": "#/definitions/BudgetItemHeader"
+            }
           },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       },
       "delete": {
-        "tags": ["Budget Item"],
+        "tags": [
+          "Budget Item"
+        ],
         "summary": "Remove budget item",
         "operationId": "removeBudgetItemUsingDELETE",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -309,47 +549,78 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/BudgetItemHeaderResponse" }
+            "schema": {
+              "$ref": "#/definitions/BudgetItemHeaderResponse"
+            }
           },
-          "204": { "description": "No Content" },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "500": { "description": "Internal error" }
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       }
     },
     "/budget/v4/budgetTrackingField": {
       "get": {
-        "tags": ["Cost Object Field"],
+        "tags": [
+          "Cost Object Field"
+        ],
         "summary": "Fetches the list of cost object fields in the system for an entity",
         "operationId": "getFieldListByEntityIdUsingGET",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
               "type": "array",
-              "items": { "$ref": "#/definitions/CostObjectFieldDTO" }
+              "items": {
+                "$ref": "#/definitions/CostObjectField"
+              }
             }
           },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       }
     },
     "/budget/v4/delete/budgetItemHeader/{syncGuid}": {
-      "post": {
-        "tags": ["Budget Item"],
+      "delete": {
+        "tags": [
+          "Budget Item"
+        ],
         "summary": "Remove budget item permanently",
-        "operationId": "deleteBudgetItemUsingPOST",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
+        "operationId": "deleteBudgetItemUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "syncGuid",
@@ -362,24 +633,39 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/BudgetItemHeaderResponse" }
+            "schema": {
+              "$ref": "#/definitions/BudgetItemHeaderResponse"
+            }
           },
-          "201": { "description": "Created" },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       }
     },
     "/budget/v4/fiscalYear": {
       "get": {
-        "tags": ["Fiscal Year"],
+        "tags": [
+          "Fiscal Year"
+        ],
         "summary": "Fetches the list of fiscal years in the system for an entity.",
         "operationId": "getFiscalYearByEntityIdAndBylastModifiedAfterUsingGET",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "includeRemoved",
@@ -401,23 +687,41 @@
             "description": "OK",
             "schema": {
               "type": "array",
-              "items": { "$ref": "#/definitions/FiscalYearDTO" }
+              "items": {
+                "$ref": "#/definitions/FiscalYear"
+              }
             }
           },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       },
       "post": {
-        "tags": ["Fiscal Year"],
+        "tags": [
+          "Fiscal Year"
+        ],
         "summary": "Save fiscal year. Creates a new fiscal year if one doesn't exist.",
         "operationId": "saveFiscalYearUsingPOST",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -426,7 +730,9 @@
             "required": true,
             "schema": {
               "type": "array",
-              "items": { "$ref": "#/definitions/FiscalYearDTO" }
+              "items": {
+                "$ref": "#/definitions/FiscalYear"
+              }
             }
           },
           {
@@ -442,25 +748,43 @@
             "description": "OK",
             "schema": {
               "type": "array",
-              "items": { "$ref": "#/definitions/FiscalYearDTO" }
+              "items": {
+                "$ref": "#/definitions/FiscalYear"
+              }
             }
           },
-          "201": { "description": "Created" },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       }
     },
     "/budget/v4/fiscalYear/{syncguid}": {
       "get": {
-        "tags": ["Fiscal Year"],
+        "tags": [
+          "Fiscal Year"
+        ],
         "summary": "Fetches an individual fiscal year from the system by guid.",
         "operationId": "getFiscalYearUsingGET",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "syncguid",
@@ -473,21 +797,37 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/FiscalYearDTO" }
+            "schema": {
+              "$ref": "#/definitions/FiscalYear"
+            }
           },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" },
-          "500": { "description": "Internal error" }
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       },
       "delete": {
-        "tags": ["Fiscal Year"],
+        "tags": [
+          "Fiscal Year"
+        ],
         "summary": "Remove fiscal year",
         "operationId": "removeFiscalYearUsingDELETE",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "syncguid",
@@ -498,19 +838,235 @@
           }
         ],
         "responses": {
-          "200": { "description": "OK", "schema": { "type": "string" } },
-          "204": { "description": "No Content" },
-          "400": { "description": "Invalid request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "500": { "description": "Internal error" }
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/budget/v4/metrics": {
+      "post": {
+        "tags": [
+          "Usage Metrics"
+        ],
+        "summary": "Save a metric",
+        "operationId": "saveInteractionUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "metricType",
+            "in": "query",
+            "description": "metricType",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/budget/v4/metrics/aggregate": {
+      "post": {
+        "tags": [
+          "Usage Metrics"
+        ],
+        "summary": "Aggregate all metrics within given dates",
+        "operationId": "aggregateUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "fromDate",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "toDate",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/budget/v4/metrics/entity": {
+      "get": {
+        "tags": [
+          "Usage Metrics"
+        ],
+        "summary": "Get metrics for an entity",
+        "operationId": "getEntityInteractionsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "entityId",
+            "in": "query",
+            "description": "entityId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/budget/v4/metrics/user": {
+      "get": {
+        "tags": [
+          "Usage Metrics"
+        ],
+        "summary": "Get metrics for a user",
+        "operationId": "getInteractionsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userUuid",
+            "in": "query",
+            "description": "userUuid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal error"
+          }
         },
         "deprecated": false
       }
     }
   },
   "definitions": {
-    "BudgetAdjustmentsExternalDTO": {
+    "BudgetAdjustmentsExternal": {
       "type": "object",
       "required": [
         "amount",
@@ -537,27 +1093,31 @@
         "amount": {
           "type": "number",
           "example": 500.0,
-          "description": "The budget currency amount to be adjusted. The amount may be a positive or negative value but it cannot be zero."
+          "description": "The value of the amount adjusted (+/-)"
         },
         "amountType": {
           "type": "string",
-          "description": "The type of the budget’s balance to adjust. Affects which values in the budget are updated.",
-          "enum": ["BUDGET_AMOUNT", "SPENT_AMOUNT", "PENDING_AMOUNT"]
+          "description": "The type of the amount that is being adjusted",
+          "enum": [
+            "BUDGET_AMOUNT",
+            "SPENT_AMOUNT",
+            "PENDING_AMOUNT"
+          ]
         },
         "budgetItemName": {
           "type": "string",
           "example": "Marketing",
-          "description": "The name of the budget of the adjustment."
+          "description": "The name of the budget item to which the adjustment is being made"
         },
         "budgetOwnerEmail": {
           "type": "string",
           "example": "name@compamy.com",
-          "description": "The user who is responsible for the budget, as configured."
+          "description": "The owner email Id of the budget item"
         },
         "description": {
           "type": "string",
           "example": "Sample description",
-          "description": "A user-friendly description of the adjustment."
+          "description": "The short description of the adjustment"
         },
         "fiscalPeriodName": {
           "type": "string",
@@ -567,18 +1127,18 @@
         "fiscalYearName": {
           "type": "string",
           "example": 2018,
-          "description": "The name of the budget’s fiscal year."
+          "description": "The Fiscal year of the budget item"
         },
         "transactionDate": {
           "type": "string",
           "format": "date",
           "example": "2018-07-11",
-          "description": "The transaction date of adjusted spend. Must be within the fiscal period. Required when the adjustment is made for amount type SPENT_AMOUNT or PENDING_AMOUNT."
+          "description": "The transaction date of adjusted spend. Required when the adjustment is made for amount type SPENT_AMOUNT or PENDING_AMOUNT"
         }
       },
-      "title": "BudgetAdjustmentsExternalDTO"
+      "title": "BudgetAdjustmentsExternal"
     },
-    "BudgetAmountDTO": {
+    "BudgetAmount": {
       "type": "object",
       "properties": {
         "adjustedBudgetAmount": {
@@ -604,31 +1164,40 @@
         "threshold": {
           "type": "string",
           "description": "The indicator of whether this budget is under the alert limit (UNDER), equal to or over the alert limit, but under the control limit (ALERT), or equal to or over the control limit (OVER). **Read only**",
-          "enum": ["UNDER", "ALERT", "OVER", "UNKNOWN"]
+          "enum": [
+            "UNDER",
+            "ALERT",
+            "OVER",
+            "UNKNOWN"
+          ]
         },
         "unExpensedAmount": {
           "type": "number",
-          "description": "The amount of unexpensed items like travel bookings, quick expenses, or e-receipts. **Read only**"
+          "description": "The pending amount accumulated against this budget. **Read only**"
         },
         "unExpensedSettings": {
           "type": "boolean",
-          "description": "The company’s budget setting for unexpensed items. Applies to all budgets for the company. **Read only**"
+          "description": "The unexpensed settings is used to decided to show unexpensed balance or not. **Read only**"
         }
       },
-      "title": "BudgetAmountDTO"
+      "title": "BudgetAmount"
     },
-    "BudgetCategoryDTO": {
+    "BudgetCategory": {
       "type": "object",
-      "required": ["expenseTypes", "name"],
+      "required": [
+        "expenseTypes",
+        "name"
+      ],
       "properties": {
         "description": {
-          "type": "string",
-          "description": "The friendly name for this category."
+          "type": "string"
         },
         "expenseTypes": {
           "type": "array",
           "description": "The list of expense types that this budget category matches.",
-          "items": { "$ref": "#/definitions/ExpenseTypeDTO" }
+          "items": {
+            "$ref": "#/definitions/ExpenseType"
+          }
         },
         "id": {
           "type": "string",
@@ -636,24 +1205,31 @@
         },
         "name": {
           "type": "string",
-          "description": "The admin-facing name for this category."
+          "description": "The name of this budget category."
         },
         "statusType": {
           "type": "string",
-          "description": "The status of this budget category.",
-          "enum": ["OPEN", "REMOVED"]
+          "description": "The status of this budget category--only open and removed are meaningful for budget category.",
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "REMOVED",
+            "MERGED"
+          ]
         },
         "syncGuid": {
           "type": "string",
           "description": "The unique identifier for the budget category."
         }
       },
-      "title": "BudgetCategoryDTO"
+      "title": "BudgetCategory"
     },
-    "BudgetItemBalanceDTO": {
+    "BudgetItemBalance": {
       "type": "object",
       "properties": {
-        "amount": { "type": "number" },
+        "amount": {
+          "type": "number"
+        },
         "featureTypeCode": {
           "type": "string",
           "description": "The feature type for this balance.",
@@ -689,7 +1265,7 @@
         },
         "id": {
           "type": "string",
-          "description": "The unique identifier for this particular budget balance bucket."
+          "description": "The unique identifier for this particular budget balance bucket"
         },
         "syncGuid": {
           "type": "string",
@@ -709,29 +1285,39 @@
           ]
         }
       },
-      "title": "BudgetItemBalanceDTO"
+      "title": "BudgetItemBalance"
     },
-    "BudgetItemDetailDTO": {
+    "BudgetItemDetail": {
       "type": "object",
-      "required": ["currencyCode", "fiscalPeriod"],
+      "required": [
+        "currencyCode",
+        "fiscalPeriod"
+      ],
       "properties": {
         "amount": {
           "type": "number",
           "description": "The currency amount allocated to this fiscal period."
         },
         "budgetAmounts": {
-          "description": "The accumulated budget numbers for this budget. **READ ONLY**",
-          "$ref": "#/definitions/BudgetAmountDTO"
+          "description": "The total budget amount and accumulated balances for this budget detail. **READ ONLY**",
+          "$ref": "#/definitions/BudgetAmount"
         },
         "budgetItemBalances": {
           "type": "array",
-          "description": "Shows the break-out of budget spending by product and workflow state. **READ ONLY**",
-          "items": { "$ref": "#/definitions/BudgetItemBalanceDTO" }
+          "description": "READONLY",
+          "items": {
+            "$ref": "#/definitions/BudgetItemBalance"
+          }
         },
         "budgetItemDetailStatusType": {
           "type": "string",
-          "description": "The status of the budget item detail.",
-          "enum": ["OPEN", "CLOSED", "REMOVED"]
+          "description": "The status of the budget item detail. Only open, closed, and removed are valid.",
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "REMOVED",
+            "MERGED"
+          ]
         },
         "budgetItemHeaderId": {
           "type": "string",
@@ -741,10 +1327,12 @@
           "type": "string",
           "description": "The unique id of the header that contains this budget item detail."
         },
-        "budgetName": { "type": "string" },
+        "budgetName": {
+          "type": "string"
+        },
         "currencyCode": {
           "type": "string",
-          "description": "The 3-letter ISO 4217 currency code for the budget currency."
+          "description": "The alpha currency code, e.g. USD or GBP"
         },
         "detailDashboardBudgetItemAdjustmentDTOs": {
           "type": "array",
@@ -754,9 +1342,11 @@
         },
         "fiscalPeriod": {
           "description": "The specific fiscal period when this budget amount will be used.",
-          "$ref": "#/definitions/FiscalPeriodDTO"
+          "$ref": "#/definitions/FiscalPeriod"
         },
-        "fiscalPeriodId": { "type": "string" },
+        "fiscalPeriodId": {
+          "type": "string"
+        },
         "id": {
           "type": "string",
           "description": "The unique identifier for this budget item detail"
@@ -766,61 +1356,85 @@
           "description": "The unique identifier for this budget item detail"
         }
       },
-      "title": "BudgetItemDetailDTO"
+      "title": "BudgetItemDetail"
     },
-    "BudgetItemHeaderDTO": {
+    "BudgetItemHeader": {
       "type": "object",
-      "required": ["budgetItemStatusType", "description", "name", "owner"],
+      "required": [
+        "budgetItemStatusType",
+        "description",
+        "name",
+        "owner"
+      ],
       "properties": {
         "active": {
           "type": "boolean",
-          "description": "Indicates if this budget should be displayed on user screens **READ ONLY**"
+          "description": "Indicates if this budget should be displayed on user screens **Read only**"
         },
         "annualBudget": {
           "type": "number",
           "description": "The total budget amount and accumulated balances for this budget header. **READ ONLY**"
         },
         "budgetAmounts": {
-          "description": "The accumulated budget amounts for this budget.  **READ ONLY**",
-          "$ref": "#/definitions/BudgetAmountDTO"
+          "description": "The total budget amount and accumulated balances for this budget header. **READ ONLY**",
+          "$ref": "#/definitions/BudgetAmount"
         },
         "budgetApprovers": {
           "type": "array",
-          "description": "The workflow approvers for this budget.",
-          "items": { "$ref": "#/definitions/BudgetPersonDTO" }
+          "description": "The users who can approve spending for this budget.",
+          "items": {
+            "$ref": "#/definitions/BudgetPerson"
+          }
         },
         "budgetCategory": {
           "description": "The budget category for this budget item. If a budget category is present, spending items must match one of the expense types in the budget category in order to match this budget.",
-          "$ref": "#/definitions/BudgetCategoryDTO"
+          "$ref": "#/definitions/BudgetCategory"
         },
         "budgetItemDetails": {
           "type": "array",
-          "items": { "$ref": "#/definitions/BudgetItemDetailDTO" }
+          "items": {
+            "$ref": "#/definitions/BudgetItemDetail"
+          }
         },
         "budgetItemStatusType": {
           "type": "string",
-          "description": "The status of this budget item.",
-          "enum": ["OPEN", "CLOSED", "REMOVED"]
+          "description": "The status of this budget item. Merged is invalid for Budget Items. (Closed means no spending may be attached to this budget.)",
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "REMOVED",
+            "MERGED"
+          ]
         },
         "budgetManagers": {
           "type": "array",
           "description": "If managers exist, spend items only matches this budget if one of the managers is in the manager hierarchy of the submitter or approver for the given spend item.",
-          "items": { "$ref": "#/definitions/BudgetPersonDTO" }
+          "items": {
+            "$ref": "#/definitions/BudgetPerson"
+          }
         },
         "budgetType": {
           "type": "string",
           "description": "The budget type indicates if the budget item is personal or not",
-          "enum": ["PERSONAL_USE", "BUDGET", "RESTRICTED"]
+          "enum": [
+            "PERSONAL_USE",
+            "BUDGET",
+            "RESTRICTED"
+          ]
         },
         "budgetViewers": {
           "type": "array",
           "description": "The users who can view this budget.",
-          "items": { "$ref": "#/definitions/BudgetPersonDTO" }
+          "items": {
+            "$ref": "#/definitions/BudgetPerson"
+          }
         },
         "costObjects": {
           "type": "array",
           "description": "The cost object list for matching spending items.",
-          "items": { "$ref": "#/definitions/HierarchyValueDTO" }
+          "items": {
+            "$ref": "#/definitions/HierarchyValue"
+          }
         },
         "createdDate": {
           "type": "string",
@@ -829,22 +1443,29 @@
         },
         "currencyCode": {
           "type": "string",
-          "description": "The 3-letter ISO 4217 currency code for the budget currency. This is the currency code of the budget amount. Spending Items are converted using yesterday’s closing value."
+          "description": "The currency code of the first budget detail. Moved to this level for convenience since it's very rare for a budget item header to have details with different currency codes."
         },
-        "dateRange": { "readOnly": true, "$ref": "#/definitions/DateRangeDTO" },
+        "dateRange": {
+          "readOnly": true,
+          "$ref": "#/definitions/DateRange"
+        },
         "description": {
           "type": "string",
-          "description": "The user-friendly name for this budget. This description is displayed to end users on desktop and mobile."
+          "description": "The friendly name for a budget item."
         },
-        "fiscalYear": { "$ref": "#/definitions/FiscalYearDTO" },
-        "fiscalYearId": { "type": "string" },
+        "fiscalYear": {
+          "$ref": "#/definitions/FiscalYear"
+        },
+        "fiscalYearId": {
+          "type": "string"
+        },
         "id": {
           "type": "string",
           "description": "The unique identifier for the budget item."
         },
         "isTest": {
           "type": "boolean",
-          "description": "The test flag for the budget item. If true, this budget will only match spending submitted by test users."
+          "description": "The test flag for the budget item"
         },
         "lastModifiedDate": {
           "type": "string",
@@ -853,44 +1474,65 @@
         },
         "name": {
           "type": "string",
-          "description": "The admin-facing name of this budget."
+          "description": "The admin-facing name of this budget"
         },
         "owned": {
           "type": "boolean",
-          "description": "A flag indicating if the current user is the owner of this budget. **READ ONLY**"
+          "description": "Indicates if this budget is owned by the current user **Read only**"
         },
         "owner": {
-          "description": "The user who is ultimately responsible for this budget.",
-          "$ref": "#/definitions/BudgetPersonDTO"
+          "description": "The user who is ultimately responsible for this budget. He/she may approve spending for the budget",
+          "$ref": "#/definitions/BudgetPerson"
         },
         "periodType": {
           "type": "string",
-          "description": "The type of period within the fiscal year that this budget uses. **READ ONLY**",
-          "enum": ["MONTHLY", "QUARTERLY", "YEARLY", "CUSTOM", "DATE_RANGE"]
+          "description": "The type of period within the fiscal year that this budget uses **Read only**",
+          "enum": [
+            "MONTHLY",
+            "QUARTERLY",
+            "YEARLY",
+            "CUSTOM",
+            "DATE_RANGE"
+          ]
         },
         "syncGuid": {
           "type": "string",
           "description": "The unique identifier for the budget item."
         },
-        "test": { "type": "boolean" }
+        "test": {
+          "type": "boolean"
+        }
       },
-      "title": "BudgetItemHeaderDTO"
+      "title": "BudgetItemHeader"
     },
     "BudgetItemHeaderResponse": {
       "type": "object",
       "properties": {
-        "budgetItemHeaderSyncGuid": { "type": "string" },
-        "id": { "type": "string" },
-        "success": { "type": "boolean" }
+        "budgetItemHeaderSyncGuid": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
       },
       "title": "BudgetItemHeaderResponse"
     },
-    "BudgetPersonDTO": {
+    "BudgetPerson": {
       "type": "object",
-      "required": ["employeeUuid", "externalUserCUUID", "externalUserSyncGuid"],
+      "required": [
+        "employeeUuid",
+        "externalUserCUUID",
+        "externalUserSyncGuid"
+      ],
       "properties": {
-        "email": { "type": "string",
-          "description": "populate user email" },
+        "email": {
+          "type": "string",
+          "description": "populate user email"
+        },
+        "employeeId": {
+          "type": "string",
+          "description": "populate user employeeId"
+        },
         "employeeUuid": {
           "type": "string",
           "description": "The unique identifier for this user. This must match the UUID from Concur's profile service."
@@ -907,57 +1549,48 @@
           "type": "string",
           "description": "The budget service's unique identifier for this user."
         },
-        "name": { "type": "string",
-          "description": "The user’s name. Provided for convenience. **READ ONLY**"
-         },
+        "name": {
+          "type": "string"
+        },
         "syncGuid": {
           "type": "string",
           "description": "The budget service's unique identifier for this user."
         }
       },
-      "title": "BudgetPersonDTO"
+      "title": "BudgetPerson"
     },
-    "CostObjectFieldDTO": {
+    "CostObjectField": {
       "type": "object",
       "properties": {
         "budgetSequenceNumber": {
           "type": "integer",
-          "format": "int32",
-          "description": "The sequence or the order in which the budget tracking field appears in the budget UI."
-         },
+          "format": "int32"
+        },
         "budgetTrackingFieldName": {
-          "type": "string",
-          "description": "The budget field tracking name."
-         },
+          "type": "string"
+        },
         "connectedListSequenceNumber": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Indicates the level of the budget tracking field in a connected list. READ ONLY"
-         },
-        "fieldType": {
-          "type": "string",
-          "description": "The data type of this field or field collection.",
-          "enum": ["LIST", "MLIST", "VARCHAR"]
-         },
+          "type": "integer"
+        },
+        "feildType": {
+          "type": "string"
+        },
         "fieldDefinitionId": {
-          "type": "string",
-          "description": "The budget service’s key for this object’s field definition id."
+          "type": "string"
         },
         "fieldId": {
-          "type": "string",
-          "description": "The budget service’s key for this object."
+          "type": "string"
         },
         "fieldSyncGuid": {
           "type": "string"
         },
         "listSyncGuid": {
-          "type": "string",
-          "description": "If the dataType of this item is LIST or MLIST, this is the id of the list definition from SAP Concur’s list service."
+          "type": "string"
         }
       },
-      "title": "CostObjectFieldDTO"
+      "title": "CostObjectField"
     },
-    "DateRangeDTO": {
+    "DateRange": {
       "type": "object",
       "properties": {
         "endDate": {
@@ -971,12 +1604,18 @@
           "description": "The start date for the budget."
         }
       },
-      "title": "DateRangeDTO"
+      "title": "DateRange"
     },
     "DetailDashboardBudgetItemAdjustmentDTO": {
       "type": "object",
-      "required": ["amount"],
+      "required": [
+        "amount"
+      ],
       "properties": {
+        "adjustedBy": {
+          "type": "string",
+          "description": "The User who added or updated this adjustment"
+        },
         "adjustmentType": {
           "type": "string",
           "description": "The type of adjustment being made. Only a user reference field",
@@ -1026,9 +1665,11 @@
       },
       "title": "DetailDashboardBudgetItemAdjustmentDTO"
     },
-    "ExpenseTypeDTO": {
+    "ExpenseType": {
       "type": "object",
-      "required": ["name"],
+      "required": [
+        "name"
+      ],
       "properties": {
         "expenseTypeCode": {
           "type": "string",
@@ -1049,20 +1690,19 @@
         },
         "id": {
           "type": "string",
-          "description": "The budget service’s key for this object. If this field is not supplied, the service will use an existing expense type entry if one exists."
+          "description": "The unique idenifier for the expense type"
         },
         "name": {
-          "type": "string",
-          "description": "READ ONLY. The name for this expense type if it maps to an expense type set up in SAP Concur."
-         },
+          "type": "string"
+        },
         "syncGuid": {
           "type": "string",
           "description": "The unique idenifier for the expense type"
         }
       },
-      "title": "ExpenseTypeDTO"
+      "title": "ExpenseType"
     },
-    "FiscalPeriodDTO": {
+    "FiscalPeriod": {
       "type": "object",
       "required": [
         "currentPeriod",
@@ -1085,9 +1725,16 @@
         "fiscalPeriodStatus": {
           "type": "string",
           "description": "The status of the fiscal period. Open, closed, and removed are valid.",
-          "enum": ["OPEN", "CLOSED", "REMOVED", "MERGED"]
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "REMOVED",
+            "MERGED"
+          ]
         },
-        "fiscalYearSyncGuid": { "type": "string" },
+        "fiscalYearSyncGuid": {
+          "type": "string"
+        },
         "id": {
           "type": "string",
           "description": "The unique identifier for the fiscal period."
@@ -1099,7 +1746,13 @@
         "periodType": {
           "type": "string",
           "description": "The type of fiscal period",
-          "enum": ["MONTHLY", "QUARTERLY", "YEARLY", "CUSTOM", "DATE_RANGE"]
+          "enum": [
+            "MONTHLY",
+            "QUARTERLY",
+            "YEARLY",
+            "CUSTOM",
+            "DATE_RANGE"
+          ]
         },
         "spendDate": {
           "type": "string",
@@ -1116,11 +1769,16 @@
           "description": "The unique identifier for the fiscal period."
         }
       },
-      "title": "FiscalPeriodDTO"
+      "title": "FiscalPeriod"
     },
-    "FiscalYearDTO": {
+    "FiscalYear": {
       "type": "object",
-      "required": ["currentYear", "endDate", "name", "startDate"],
+      "required": [
+        "currentYear",
+        "endDate",
+        "name",
+        "startDate"
+      ],
       "properties": {
         "currentYear": {
           "type": "boolean",
@@ -1128,7 +1786,9 @@
         },
         "customFiscalPeriods": {
           "type": "array",
-          "items": { "$ref": "#/definitions/FiscalPeriodDTO" }
+          "items": {
+            "$ref": "#/definitions/FiscalPeriod"
+          }
         },
         "displayName": {
           "type": "string",
@@ -1141,7 +1801,9 @@
         },
         "fiscalPeriods": {
           "type": "array",
-          "items": { "$ref": "#/definitions/FiscalPeriodDTO" }
+          "items": {
+            "$ref": "#/definitions/FiscalPeriod"
+          }
         },
         "id": {
           "type": "string",
@@ -1154,7 +1816,9 @@
         },
         "monthlyFiscalPeriods": {
           "type": "array",
-          "items": { "$ref": "#/definitions/FiscalPeriodDTO" }
+          "items": {
+            "$ref": "#/definitions/FiscalPeriod"
+          }
         },
         "name": {
           "type": "string",
@@ -1162,11 +1826,15 @@
         },
         "openAndClosedFiscalPeriods": {
           "type": "array",
-          "items": { "$ref": "#/definitions/FiscalPeriodDTO" }
+          "items": {
+            "$ref": "#/definitions/FiscalPeriod"
+          }
         },
         "quarterlyFiscalPeriods": {
           "type": "array",
-          "items": { "$ref": "#/definitions/FiscalPeriodDTO" }
+          "items": {
+            "$ref": "#/definitions/FiscalPeriod"
+          }
         },
         "startDate": {
           "type": "string",
@@ -1176,7 +1844,12 @@
         "status": {
           "type": "string",
           "description": "The status of this fiscal year. Open, closed, and removed are valid.",
-          "enum": ["OPEN", "CLOSED", "REMOVED", "MERGED"]
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "REMOVED",
+            "MERGED"
+          ]
         },
         "syncGuid": {
           "type": "string",
@@ -1184,19 +1857,31 @@
         },
         "yearlyFiscalPeriods": {
           "type": "array",
-          "items": { "$ref": "#/definitions/FiscalPeriodDTO" }
+          "items": {
+            "$ref": "#/definitions/FiscalPeriod"
+          }
         }
       },
-      "title": "FiscalYearDTO"
+      "title": "FiscalYear"
     },
-    "HierarchyValueDTO": {
+    "HierarchyValue": {
       "type": "object",
       "properties": {
-        "code": { "type": "string" },
-        "displayName": { "type": "string" },
-        "listKey": { "type": "string" },
-        "listName": { "type": "string" },
-        "fieldDefinitionId": { "type": "string" },
+        "code": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "fieldDefinitionId": {
+          "type": "string"
+        },
+        "listKey": {
+          "type": "string"
+        },
+        "listName": {
+          "type": "string"
+        },
         "operator": {
           "type": "string",
           "enum": [
@@ -1212,25 +1897,34 @@
             "ISNOTFALSE"
           ]
         },
-        "value": { "type": "string" }
+        "value": {
+          "type": "string"
+        }
       },
-      "title": "HierarchyValueDTO"
+      "title": "HierarchyValue"
     },
-    "HrefDTO": {
+    "Href": {
       "type": "object",
       "properties": {
-        "href": { "type": "string", "description": "The fully qualified url" }
+        "href": {
+          "type": "string",
+          "description": "The fully qualified url"
+        }
       },
-      "title": "HrefDTO"
+      "title": "Href"
     },
     "PagedBudgetItemHeaderResult": {
       "type": "object",
-      "required": ["href"],
+      "required": [
+        "href"
+      ],
       "properties": {
         "budgetItemHeaders": {
           "type": "array",
           "description": "List of budget item headers. Each budget item header represents a single budget for a fiscal year.",
-          "items": { "$ref": "#/definitions/BudgetItemHeaderDTO" }
+          "items": {
+            "$ref": "#/definitions/BudgetItemHeader"
+          }
         },
         "href": {
           "type": "string",
@@ -1239,11 +1933,11 @@
         "limit": {
           "type": "integer",
           "format": "int32",
-          "description": "The number of results returned per page. Maximum: 50"
+          "description": "The maximum number of entries a user can receive from this service."
         },
         "next": {
           "description": "The link to the next page of results, if one exists.",
-          "$ref": "#/definitions/HrefDTO"
+          "$ref": "#/definitions/Href"
         },
         "offset": {
           "type": "integer",
@@ -1252,7 +1946,7 @@
         },
         "previous": {
           "description": "The link to the previous page of results, if one exists.",
-          "$ref": "#/definitions/HrefDTO"
+          "$ref": "#/definitions/Href"
         },
         "totalRows": {
           "type": "integer",
