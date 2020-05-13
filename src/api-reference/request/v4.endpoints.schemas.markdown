@@ -199,8 +199,8 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`city`|`string`|-|The city name of the location. Always provide the `countryCode` value in addition to the `city`.
-`countryCode`|`string`|[ISO 3166-1]|**Required if `city` is used** The ISO 3166-1 country code.
+`city`|`string`|-|**Required for all city location type (not airport, or rail station)** The city name of the location.
+`countryCode`|`string`|[ISO 3166-1]|**Required if `city` or `name` is used** The ISO 3166-1 country code.
 `countrySubDivisionCode`|`string`|[ISO 3166-2]|The ISO 3166-2 country sub code.
 `iataCode`|`string`|-|The IATA code of an airport location.
 `id`|`string`|-|The id of the location.
