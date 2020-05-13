@@ -134,24 +134,21 @@ Authorization: Bearer {token}
       {
         "class": {
           "code": "1ST",
-          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
           "value": "05F71FA4ED235D479C6C7039F397DA79"
         },
         "endLocation": {
-          "id": "CE4A6DCAC4A14D08803C28F6D5CB20F0",
           "countryCode": "FR",
-          "countrySubDivisionCode": "FR-06",
+          "locationCode": "FRNCE",
           "city": "Nice",
           "name": "Cote D Azur"
         },
         "returnLeg": false,
         "startDate": "2018-07-18",
         "startLocation": {
-          "id": "A168CDBA58AE42868961BC00278A91B3",
           "countryCode": "FR",
-          "countrySubDivisionCode": "FR-75",
+          "locationCode": "FRCDG",
           "city": "Paris",
-          "name": "Charles De Gaulle Intl"
+          "name": "ROISSY"
         },
         "startTime": "21:00",
         "startLocationDetail": "none"
@@ -231,7 +228,6 @@ Authorization: Bearer {token}
       {
         "class": {
           "code": "1ST",
-          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
           "value": "05F71FA4ED235D479C6C7039F397DA79"
         },
         "endLocation": {
@@ -284,7 +280,7 @@ GET {datacenter}/travelrequest/v4/requests/{requestUuid}/expenses
 Name|Type|Format|Description
 ---|---|---|---
 `requestUuid`|`string`|-|**Required** The unique identifier of the Request.
-`userId`|`string`|-|The unique identifier of the user viewing the expected expenses attached to a Request. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
+`userId`|`string`|-|The unique identifier of the user viewing the expected expenses attached to a Request. If empty when using a Company token the default system user will be assumed to perform the action.
 
 #### Payload
 
@@ -377,7 +373,6 @@ Authorization: Bearer {token}
         {
         "class": {
           "code": "1ST",
-          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
           "value": "05F71FA4ED235D479C6C7039F397DA79"
         },
           "endLocation": {
@@ -568,7 +563,7 @@ GET {datacenter}/travelrequest/v4/expenses/{expenseUuid}
 Name|Type|Format|Description
 ---|---|---|---
 `expenseUuid`|`string`|-|**Required** The unique identifier of the expected expense.
-`userId`|`string`|-|The unique identifier of the user viewing the expected expense. **Required** when connecting with a Company token. If empty, a 400 `missingRequiredParam` error code will be displayed.
+`userId`|`string`|-|The unique identifier of the user viewing the expected expense. If empty when using a Company token the default system user will be assumed to perform the action.
 
 #### Payload
 
@@ -668,7 +663,6 @@ Authorization: Bearer {token}
       {
         "class": {
           "code": "1ST",
-          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
           "value": "05F71FA4ED235D479C6C7039F397DA79"
         },
         "endLocation": {
@@ -908,13 +902,10 @@ Authorization: Bearer {token}
       {
         "class": {
           "code": "1ST",
-          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
           "value": "05F71FA4ED235D479C6C7039F397DA79"
         },
         "endLocation": {
-          "id": "4A33695120254EEC9261B24993DD413B",
           "countryCode": "DE",
-          "countrySubDivisionCode": "DE-BE",
           "city": "Berlin",
           "iataCode": "BER",
           "name": "Berlin(Alls)"
@@ -923,9 +914,7 @@ Authorization: Bearer {token}
         "returnLeg": false,
         "startDate": "2018-07-16",
         "startLocation": {
-          "id": "A168CDBA58AE42868961BC00278A91B3",
           "countryCode": "FR",
-          "countrySubDivisionCode": "FR-75",
           "city": "Paris",
           "iataCode": "CDG",
           "name": "Charles De Gaulle Intl"
@@ -934,9 +923,7 @@ Authorization: Bearer {token}
       },
       {
         "endLocation": {
-          "id": "A168CDBA58AE42868961BC00278A91B3",
           "countryCode": "FR",
-          "countrySubDivisionCode": "FR-75",
           "city": "Paris",
           "iataCode": "CDG",
           "name": "Charles De Gaulle Intl"
@@ -945,9 +932,7 @@ Authorization: Bearer {token}
         "returnLeg": true,
         "startDate": "2018-07-18",
         "startLocation": {
-          "id": "4A33695120254EEC9261B24993DD413B",
           "countryCode": "DE",
-          "countrySubDivisionCode": "DE-BE",
           "city": "Berlin",
           "iataCode": "BER",
           "name": "Berlin(Alls)"
@@ -1032,7 +1017,6 @@ Authorization: Bearer {token}
       {
         "class": {
           "code": "1ST",
-          "href": "https://us.api.concursolutions.com/list/v1/items/05F71FA4ED235D479C6C7039F397DA79",
           "value": "05F71FA4ED235D479C6C7039F397DA79"
         },
         "endLocation": {
