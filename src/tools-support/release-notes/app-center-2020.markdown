@@ -7,6 +7,7 @@ layout: reference
 * [February](#february)
 * [March](#march)
 * [April](#april)
+* [May](#may)
 
 ## <a name="january"></a>January 2020
 
@@ -179,7 +180,7 @@ HP for SAP Concur works with Expense for Concur Standard and Expense for Concur 
   * [PayPay](#paypay-april)
   * [Orbi by SilverDoor](#orbi-by-silverdoor-april)
 
-### <a href="user-connection-now-available-march"></a>User Connection Apps Now Available
+### <a href="user-connection-now-available-april"></a>User Connection Apps Now Available
 
 ### <a name="#hp-for-sap-concur-april"></a>HP for SAP Concur
 
@@ -253,6 +254,68 @@ Please follow the rules provided by your organization regarding how to handle th
 PayPay works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the PayPay integration, visit [https://paypay.ne.jp/](https://paypay.ne.jp/).
 
 ### <a name="orbi-by-silverdoor-april"></a>Orbi by Silverdoor
+
+![orbi Logo](./app-center-2020-05-04-orbi-logo.png)
+
+When it comes to booking accommodation for corporate travel, it’s important to be equipped with tools and services that help make your job easier. That’s why SilverDoor developed Orbi, the intelligent way to manage your serviced apartment programme.
+
+Orbi was designed to enable corporate clients to easily search, view and book apartments around the world at the touch of a button and make reservations for stays of any duration.
+
+Monitor, view or change your bookings, select favourite apartments and locations, run reports, track your spend, and make sure your programme is working as efficiently as possible, all via a secure closed platform that is only visible to you.
+
+You can make instant online bookings utilising Orbi’s live availability, see all of your upcoming reservations in one place, and request extensions or cancellations. From Orbi’s reporting dashboard, you can see a snapshot of how your programme is performing. You can also create your own bespoke reports based on the stats that are important to you.
+
+Every aspect of Orbi is completely customisable to ensure the apartments you and your team book are compliant with your programme and suitable for your travellers. If you manage travel for others, you can highlight preferred properties or set budgets for specific user groups.
+
+Duty of Care is one of the number one concerns for travel managers. That’s why it’s at the heart of Orbi. Not only has SilverDoor partnered with the leading traveller tracking providers to offer security monitoring services, travel managers can also see where all of your business travellers are staying at the click of a button with the detailed interactive map.
+
+With the integration to Concur Expense, your transactions and e-receipts for Orbi bookings will automatically appear in your Concur Expense account as available expenses. Click “Connect” to connect your Orbi and Concur Expense accounts and enable the integration.
+
+Orbi works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Orbi integration, visit [https://www.silverdoorapartments.com/orbi/](https://www.silverdoorapartments.com/orbi/).
+
+## <a name="May"></a>May 2020
+
+* [User Connection Apps Now Available](#user-connection-now-available-may)
+* [User Connection Apps Coming Soon](#user-connection-coming-soon-may)
+  * [PayPay](#paypay-may)
+  * [Orbi by SilverDoor](#orbi-by-silverdoor-may)
+
+### <a href="user-connection-now-available-may"></a>User Connection Apps Now Available
+
+None.
+
+## <a name="user-connection-coming-soon-may"></a>User Connection Apps Coming Soon
+
+### <a name="paypay-may"></a>PayPay
+
+![PayPay Logo](./app-center-2020-05-04-paypay-logo.png)
+
+PayPay enables easy and discounted payments directly from your smartphone. The PayPay mobile app can be used to pay at over 2 million locations across Japan, including convenience stores, drug stores, and restaurants. No cash or wallet required.
+
+Register in only one minute and pay with PayPay right away.
+
+Choose from three available payment methods:
+
+  * Top up from your bank account.
+  * Top up from a Seven Bank ATM.
+  * Charge to your credit card.
+
+Now, you can submit your business expenses to Concur Expense in the PayPay app for easier reimbursement. Just follow these three simple steps:
+
+1. Connect PayPay and Concur Expense.
+  * Click the "Connect" or “Login to Connect” button on this page.
+  * Follow the instructions on the screen and login to PayPay to complete the connection.
+2. Take a photo of the receipt for your purchases with PayPay.
+  * Tap on "Register Receipt" in "Transaction History" and take a photo.
+3. Confirm the details and send to Concur Expense.
+  * Check the details on payee, date, and amount, add a comment, and submit.
+  * Your transaction information, receipt image, and an electronic receipt (e-receipt) will be automatically sent to Concur Expense for easy expensing.
+
+Please follow the rules provided by your organization regarding how to handle the receipt photo attached to the expense item submitted from the PayPay app and e-receipt issued by SAP Concur.
+
+PayPay works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the PayPay integration, visit [https://paypay.ne.jp/](https://paypay.ne.jp/).
+
+### <a name="orbi-by-silverdoor-may"></a>Orbi by Silverdoor
 
 ![orbi Logo](./app-center-2020-05-04-orbi-logo.png)
 
