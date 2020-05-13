@@ -40,6 +40,8 @@ HTTP Status Code|Response Body|Description
 -|`unsupportedParam` the request has unsupported parameter(s)|Some parameter(s) of the request are not supported
 -|`missingRequiredParam` the request is missing required parameter(s)|The request is missing some required parameter(s)
 -|`companyNotFound` the company for this request has not been found|The company for this request has not been found
+-|`userNotFound` user {id} not found|The user Id for this request has not been found
+-|`invalidUuid` invalid {Uuid} for the userId|The unique identifier for this userId is not valid
 -|`-` Limit must be less than or equal to 100|limit must be less than or equal to 100
 -|`-` Limit must be greater than or equal to 1|limit must be greater than or equal to 1
 -|`-` Limit must contains only digits|Limit must contains only digits|
