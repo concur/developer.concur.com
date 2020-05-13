@@ -180,7 +180,7 @@ HP for SAP Concur works with Expense for Concur Standard and Expense for Concur 
   * [PayPay](#paypay-april)
   * [Orbi by SilverDoor](#orbi-by-silverdoor-april)
 
-### <a href="user-connection-now-available-mapril"></a>User Connection Apps Now Available
+### <a href="user-connection-now-available-april"></a>User Connection Apps Now Available
 
 ### <a name="#hp-for-sap-concur-april"></a>HP for SAP Concur
 
