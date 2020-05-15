@@ -2,6 +2,10 @@
 title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
+### 2020-05-15 :: May 2020 Update Published
+
+SAP Concur has published an update for the Request and Travel Profile Notification APIs, with additional information about TLS ciphers and connecting to the US database, in the May 2020 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
+
 ### 2020-04-17 :: April 2020 Update Published
 
 SAP Concur has published An update for the Quick Expense, Budget v4, and Request APIs in the April 2020 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
