@@ -276,13 +276,31 @@ Orbi works with Expense for Concur Standard and Expense for Concur Professional.
 ## <a name="May"></a>May 2020
 
 * [User Connection Apps Now Available](#user-connection-now-available-may)
+  * [Orbi by SilverDoor](#orbi-by-silverdoor-may)
 * [User Connection Apps Coming Soon](#user-connection-coming-soon-may)
   * [PayPay](#paypay-may)
-  * [Orbi by SilverDoor](#orbi-by-silverdoor-may)
 
 ### <a href="user-connection-now-available-may"></a>User Connection Apps Now Available
 
-None.
+### <a name="orbi-by-silverdoor-may"></a>Orbi by Silverdoor
+
+![orbi Logo](./app-center-2020-05-04-orbi-logo.png)
+
+When it comes to booking accommodation for corporate travel, it’s important to be equipped with tools and services that help make your job easier. That’s why SilverDoor developed Orbi, the intelligent way to manage your serviced apartment programme.
+
+Orbi was designed to enable corporate clients to easily search, view and book apartments around the world at the touch of a button and make reservations for stays of any duration.
+
+Monitor, view or change your bookings, select favourite apartments and locations, run reports, track your spend, and make sure your programme is working as efficiently as possible, all via a secure closed platform that is only visible to you.
+
+You can make instant online bookings utilising Orbi’s live availability, see all of your upcoming reservations in one place, and request extensions or cancellations. From Orbi’s reporting dashboard, you can see a snapshot of how your programme is performing. You can also create your own bespoke reports based on the stats that are important to you.
+
+Every aspect of Orbi is completely customisable to ensure the apartments you and your team book are compliant with your programme and suitable for your travellers. If you manage travel for others, you can highlight preferred properties or set budgets for specific user groups.
+
+Duty of Care is one of the number one concerns for travel managers. That’s why it’s at the heart of Orbi. Not only has SilverDoor partnered with the leading traveller tracking providers to offer security monitoring services, travel managers can also see where all of your business travellers are staying at the click of a button with the detailed interactive map.
+
+With the integration to Concur Expense, your transactions and e-receipts for Orbi bookings will automatically appear in your Concur Expense account as available expenses. Click “Connect” to connect your Orbi and Concur Expense accounts and enable the integration.
+
+Orbi works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Orbi integration, visit [https://www.silverdoorapartments.com/orbi/](https://www.silverdoorapartments.com/orbi/).
 
 ## <a name="user-connection-coming-soon-may"></a>User Connection Apps Coming Soon
 
@@ -314,23 +332,3 @@ Now, you can submit your business expenses to Concur Expense in the PayPay app f
 Please follow the rules provided by your organization regarding how to handle the receipt photo attached to the expense item submitted from the PayPay app and e-receipt issued by SAP Concur.
 
 PayPay works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the PayPay integration, visit [https://paypay.ne.jp/](https://paypay.ne.jp/).
-
-### <a name="orbi-by-silverdoor-may"></a>Orbi by Silverdoor
-
-![orbi Logo](./app-center-2020-05-04-orbi-logo.png)
-
-When it comes to booking accommodation for corporate travel, it’s important to be equipped with tools and services that help make your job easier. That’s why SilverDoor developed Orbi, the intelligent way to manage your serviced apartment programme.
-
-Orbi was designed to enable corporate clients to easily search, view and book apartments around the world at the touch of a button and make reservations for stays of any duration.
-
-Monitor, view or change your bookings, select favourite apartments and locations, run reports, track your spend, and make sure your programme is working as efficiently as possible, all via a secure closed platform that is only visible to you.
-
-You can make instant online bookings utilising Orbi’s live availability, see all of your upcoming reservations in one place, and request extensions or cancellations. From Orbi’s reporting dashboard, you can see a snapshot of how your programme is performing. You can also create your own bespoke reports based on the stats that are important to you.
-
-Every aspect of Orbi is completely customisable to ensure the apartments you and your team book are compliant with your programme and suitable for your travellers. If you manage travel for others, you can highlight preferred properties or set budgets for specific user groups.
-
-Duty of Care is one of the number one concerns for travel managers. That’s why it’s at the heart of Orbi. Not only has SilverDoor partnered with the leading traveller tracking providers to offer security monitoring services, travel managers can also see where all of your business travellers are staying at the click of a button with the detailed interactive map.
-
-With the integration to Concur Expense, your transactions and e-receipts for Orbi bookings will automatically appear in your Concur Expense account as available expenses. Click “Connect” to connect your Orbi and Concur Expense accounts and enable the integration.
-
-Orbi works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Orbi integration, visit [https://www.silverdoorapartments.com/orbi/](https://www.silverdoorapartments.com/orbi/).

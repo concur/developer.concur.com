@@ -1052,7 +1052,7 @@ Content-Type: application/xml
 ```xml
 <WorkflowAction xmlns="http://www.concursolutions.com/api/travelrequest/2012/06">
     <Action>Approve</Action>
-    <Comment>Approved via Concur Connect</Comment>
+    <Comment>Approved via SAP Concur</Comment>
 </WorkflowAction>
 ```
 

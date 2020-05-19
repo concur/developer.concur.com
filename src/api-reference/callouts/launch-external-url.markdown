@@ -20,7 +20,7 @@ This callout differs from the standard SAP Concur web services in the following 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
-* [Concur Connect Callout Details](#concur-connect-callout-details)
+* [Callout Details](#concur-connect-callout-details)
 * [Launch URL Process Overview](#launch-url-process-overview)
 * [Security](#security)
 * [Authentication](#authentication)
@@ -46,7 +46,7 @@ Partner developers must determine which configurations are required for their so
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
-### <a name="concur-connect-callout-details"></a>Concur Connect Callout Details
+### <a name="concur-connect-callout-details"></a>Callout Details
 
 Information on how to download, install, and configure the application connector is included in [Callouts and Application Connectors](/api-reference/callouts/callouts-application-connectors.html).
 
