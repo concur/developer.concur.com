@@ -3,7 +3,7 @@ title: SAP Concur App Center - User Connection / Apps for Me Release Schedule
 layout: reference
 ---
 
-Last Update Nov. 21, 2017
+Last Update May 2020
 
 ## Listing Requirements
 

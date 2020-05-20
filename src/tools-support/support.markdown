@@ -9,6 +9,8 @@ redirect_from:
 
 ## Support Scenarios
 
+>**Note**: For issues with a partner app, please contact the partner’s support desk. If they can’t resolve the issue they will file an SAP Concur support ticket.
+
 * **Partners** have two choices depending on the scenario.
   * Non-technical issues contact your Alliance Manager or the [Alliance Team](mailto:concur_AppCenterAlliance@sap.com).
   * For technical issues [log a support case](#log-a-support-case).

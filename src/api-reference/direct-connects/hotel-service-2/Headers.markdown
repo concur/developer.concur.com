@@ -6,6 +6,7 @@ layout: reference
 SAP Concur will send the user-name and password in both the HTTP header and the SOAP header. If the username and password generates an authentication error, then SAP Concur expects an HTTP 403 response.
 
 * [HTTP Headers](#http)
+  * [Troubleshooting](#troubleshooting)
 * [Soap Header](#soap)
 * [OTA Message Headers](#ota-message)
   * [Request Message Headers](#request-message)
@@ -22,6 +23,7 @@ SAP Concur will send the following HTTP headers in every request.  The contents 
 |`Content-Type`|`string`|All communication with the HS2 API is by way of a `application/xml` content type.|
 |`Accept`|`string`|SAP Concur will always set the `Accept` header to `application/xml`.|
 |`Accept-Charset`|`string`|SAP Concur will always set the `Accept-Charset` header to `utf-8`.|
+|`Concur-Correlationid`|`string`|This unique code can be used during troubleshooting as it identifies the API call in the log files.|
 
 Supported Soapactions:
 
@@ -34,26 +36,20 @@ Supported Soapactions:
 |`read`|Used to perform Read Itinerary |
 |`cancel`|Used to perform Cancel |
 
+## <a name="troubleshooting"></a>Troubleshooting
+
+In order to assist with troubleshooting, SAP Concur provides a unique correlationId in the request header. The key to look for is `correlationid`. This unique code can be used during troubleshooting as it identifies the API call in the log files. You should record this information in your own API call logs as well so that you can pass this information on to the SAP Concur support team.
+
 Example HTTP Header from network capture:
 
-```bash
-Header: (http.Header) (len=4) {
-  (string) (len=13) "Authorization": ([]string) (len=1 cap=1) {
-  (string) (len=38) "*************************
-	},
-  (string) (len=12) "Content-Type": ([]string) (len=1 cap=1) {
-  (string) (len=32) "application/xml; charset=\"utf-8\""
-	},
-  (string) (len=10) "Soapaction": ([]string) (len=1 cap=1) {
-  (string) (len=6) "search"
-	},
-  (string) (len=6) "Accept": ([]string) (len=1 cap=1) {
-  (string) (len=15) "application/xml"
-	},
-  (string) (len=14) "Accept-Charset": ([]string) (len=1 cap=1) {
-  (string) (len=5) "utf-8"
-	}
-}
+```http
+Accept: application/xml
+Accept-Charset: utf-8
+Authorization: *******************
+Concur-Correlationid: A75CE5BC-90BA-4BF8-8DEA-69FA2E66E936
+Content-Type: application/xml; charset="utf-8"
+Soapaction: search
+Accept-Encoding: gzip
 ```
 
 # <a name="soap"></a>Soap Header

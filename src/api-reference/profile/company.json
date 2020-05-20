@@ -189,24 +189,6 @@
                     "_comment": "If this element states 'CTE', then the client is using 'Professional Edition'"
                 }
             ]
-        },
-        {
-            "id": "com:concur:PasswordPolicy:1.0",
-            "description": "Company password policies",
-            "required": false,
-            "attributes": [
-                {
-                    "name": "mobileAuthenticationLifetime",
-                    "type": "integer",
-                    "multiValued": false,
-                    "required": false,
-                    "mutability": "readWrite",
-                    "returned": "default",
-                    "uniqueness": "none",
-                    "description": "Mobile session timeout in seconds.",
-                    "CompanyRules": "gt-eq 0"
-                }
-            ]
         }
     ]
 }

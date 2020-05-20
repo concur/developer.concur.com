@@ -6,7 +6,7 @@ redirect_from:
   - /tools-support/reference/custom-list-items.html
 ---
 
-Custom list fields are included in many of the web services calls throughout Concur Connect, and they require some special consideration.
+Custom list fields are included in many of the web services calls and they require some special consideration.
 
 ## Value
 
@@ -26,4 +26,4 @@ Example: If your connected list uses Custom5 for the first level, Custom10 for t
 
 ## Common Issues
 
-Developers that post custom list item values can encounter errors when they post a list item that does not exist in the Concur database. This can happen when the list item import hasn't been completed or hasn't run recently. If the posted list item code does not match an existing list item, the post may result in bad data. Use the [List Item](/api-reference/common/list-item/v3.list-item.html) web service to ensure that the list items you are posting are present in the Concur database.
+Developers that post custom list item values can encounter errors when they post a list item that does not exist in the SAP Concur database. This can happen when the list item import hasn't been completed or hasn't run recently. If the posted list item code does not match an existing list item, the post may result in bad data. Use the [List Item](/api-reference/common/list-item/v3.list-item.html) web service to ensure that the list items you are posting are present in the Concur database.
