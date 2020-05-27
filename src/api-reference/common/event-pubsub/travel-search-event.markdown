@@ -9,8 +9,6 @@ layout: reference
 * [Schema](#schema)
 	* [Air](#schema-air-request)
 	* [Hotel](#schema-hotel-request)
-	* [Car](#schema-car-request)
-	* [Rail](#schema-rail-request)
 * [Sample Events](#sample-events)
 
 ## <a name="overview"></a>Overview
@@ -93,86 +91,6 @@ Name|Type|Format|Description
 `distanceUnit`|`string`|-|Unit for radius distance. Supported values: `Mile`, `Kilometer`
 `checkInDate`|`string`|`YYYY-MM-DD`|Check in date, in local time.
 `checkOutDate`|`string`|`YYYY-MM-DD`|Check out date, in local time.
-
-### <a name="schema-car-request"></a>Car
-
-Name|Type|Format|Description
----|---|---|---
-`id`|`string`|`GUID`|Uniquely identifies the event.
-`correlationId`|`string`|`GUID`|Uniquely identifies the car search request.
-`eventType`|`string`|-|Identifies the search event type. Supported  values: `travelSearchCar`
-`topic`|`string`|-|Topic for subscription. Supported values: `concur.travel.search`
-`subTopic`|`string`|-|Identifies sub-topic. Supported values: `carshop.v1.price`
-`timeStamp`|`string`|`date/time`|Search event time in UTC.
-`facts`|`object`|[Car Search Facts](#schema-car-search-facts)|Facts for car search.
-
-### <a name="schema-car-search-facts"></a>Car Search Facts
-
-Name|Type|Format|Description
----|---|---|---
-`companyId`|`string`|`GUID`|Uniquely identifies the company of the traveler.
-`userId`|`string`|`GUID`|Uniquely identifies the user performing the search. Note: In the event travel is booked by an arranger, this will be the traveler’s ID. In cases where a profiled user is booking on behalf of a non-profiled guest, this will be the user performing the search.
-`pickupIata`|`string`|-|The IATA code of the airport for pickup.
-`pickupLocationStreet`|`string`|-|The pickup location street address, included only if pickup location is not an airport.
-`pickupLocationCity`|`string`|-|-
-`pickupLocationZip`|`string`|-|-
-`pickupLocationState`|`string`|-|-
-`pickupLocationCountry`|`string`|-|-
-`dropoffIata`|`string`|-|The IATA code of the airport for dropoff.
-`dropoffLocationStreet`|`string`|-|The dropoff location street address, included only if dropoff location is not an airport.
-`dropoffLocationCity`|`string`|-|-
-`dropoffLocationZip`|`string`|-|-
-`dropoffLocationState`|`string`|-|-
-`dropoffLocationCountry`|`string`|-|-
-`categories`|`string`|-|List of selected car categories. Supported values: `M*`, `E*`, `C*`, `I*`, `S*`, `F*`, `P*`, `L*`, `Z*`, `IF*`, `MV`, `SF`, `FF`, `FP`
-`startDate`|`string`|`YYYY-MM-DD`|-
-`startTime`|`string`|`HH:MM AM/PM`|-
-`endDate`|`string`|`YYYY-MM-DD`|-
-`endTime`|`string`|`HH:MM AM/PM`|-
-`vendors`|`string`|-|If the user filters for individual vendors, this list will be populated with the vendors. Example: Enterprise, Hertz
-
-### <a name="schema-rail-request"></a>Rail
-
-Name|Type|Format|Description
----|---|---|---
-`id`|`string`|`GUID`|Uniquely identifies the event.
-`correlationId`|`string`|`GUID`|Uniquely identifies the rail search request.
-`eventType`|`string`|-|Identifies the search event type. Supported  values: `travelSearchRail`
-`topic`|`string`|-|Topic for subscription. Supported values: `concur.travel.search`
-`subTopic`|`string`|-|Identifies sub-topic. Supported values: `railshop.v1.price`
-`timeStamp`|`string`|`date/time`|Search event time in UTC.
-`facts`|`object`|[Rail Search Facts](#schema-rail-search-facts)|Facts for rail search.
-
-### <a name="schema-rail-search-facts"></a>Rail Search Facts
-
-Name|Type|Format|Description
----|---|---|---
-`companyId`|`string`|`GUID`|Uniquely identifies the company of the traveler.
-`userId`|`string`|`GUID`|Uniquely identifies the user performing the search. Note: In the event travel is booked by an arranger, this will be the traveler’s ID. In cases where a profiled user is booking on behalf of a non-profiled guest, this will be the user performing the search.
-`searchLegs`|`string`|-|Type of rail search. Supported values: `RoundTrip`, `MultiSeg`, `OneWay`
-`segments`|`object`|[Rail Search Segment](#schema-rail-search-segment)|List of segments for search.
-`numberOfTravelers`|`integer`|-|Number of travelers.
-`classOfTrip`|`string`|-|Selected cabin class. Supported values: `F` = First Class, `C` = Business Class, `W` = Premium Economy, `Y` = Economy Class
-`vendors`|`string`|-|If the user filters for individual vendors, this list will be populated with the vendor codes. Example: SNCF
-
-### <a name="schema-rail-search-segment"></a>Rail Search Segment
-
-Name|Type|Format|Description
----|---|---|---
-`departureStation`|`string`|-|Name of the rail departure station.
-`departureCity`|`string`|-|City of the rail departure.
-`departureState`|`string`|-|State of the rail departure.
-`departureCountry`|`string`|-|Country of the rail departure.
-`arrivalStation`|`string`|-|Name of the rail arrival station.
-`arrivalCity`|`string`|-|City of the rail arrival.
-`arrivalState`|`string`|-|State of the rail arrival.
-`arrivalCountry`|`string`|-|Country of the rail arrival.
-`departureDate`|`string`|`YYYY-MM-DD`|Date traveler will depart from the point of departure, in local time. Either the departure date/time, or the arrival date/time will be populated.
-`departureTime`|`string`|`HH:MM AM/PM`|Departure time, local time.  Either the departure date/time, or the arrival date/time will be populated.
-`departureTimeWindow`|`integer`|-|Time window (+/-) around selected departure time, in hours. Either the departure date/time, or the arrival date/time will be populated.
-`arrivalDate`|`string`|`YYYY-MM-DD`|Date on which the traveler will arrive at the destination, in local time. Either the departure date/time, or the arrival date/time will be populated.
-`arrivalTime`|`string`|`HH:MM AM/PM`|Time at which the traveler will arrive at the destination, in local time. Either the departure date/time, or the arrival date/time will be populated.
-`arrivalTimeWindow`|`integer`|-|Time window (+/-) around selected arrival time, in hours.  Either the departure date/time, or the arrival date/time will be populated.
 
 ## <a name="sample-events"></a>Sample Events
 

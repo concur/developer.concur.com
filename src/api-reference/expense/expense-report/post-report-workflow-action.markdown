@@ -104,7 +104,7 @@ Authorization: OAuth {access token}
 
 <WorkflowAction xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
     <Action>Approve</Action>
-    <Comment>Approved via Concur Connect</Comment>
+    <Comment>Approved via SAP Concur</Comment>
 </WorkflowAction>
 ```
 

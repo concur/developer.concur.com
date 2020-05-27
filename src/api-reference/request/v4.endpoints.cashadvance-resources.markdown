@@ -18,9 +18,11 @@ layout: reference
 
 # <a name="request-cash-advance-resource"></a>Request Cash Advance Resources
 
-* [Get the list of existing cash advances within a Request](#get-request-cash-advance-resource)
+Note: This cash advance detail endpoint is provided within the Concur Request API for feature parity purpose only. It is highly recommended to rely only on the list of cash advances link available in the Request payload response, and not on this cash advance detail URI presented below, which will be deprecated in the future.
 
-## <a name="get-request-cash-advance-resource"></a>Get the content of an existing cash advances
+* [Get the detail of existing cash advances within a Request](#get-request-cash-advance-resource)
+
+## <a name="get-request-cash-advance-resource"></a>Get the content of an existing cash advance
 
 ### Scopes
 
