@@ -45,7 +45,7 @@ A Company access token (JWT) is required for this endpoint.
 
 ## <a name="send-message"></a>Send a message
 
-The endpoint provides a way for SAP Concur partners to message users and notify them. Partners will provide details about the message they want to send, along with data to apply to the message.
+The endpoint provides a way for SAP Concur partners to message users and notify them. Partners will provide template details about the message they want to send, along with data to apply to the message.
 
 ### Scopes
 
