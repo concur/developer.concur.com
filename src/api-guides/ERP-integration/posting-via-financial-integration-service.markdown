@@ -51,6 +51,67 @@ By default, SAP Concur extract files are disabled when FIS is enabled. Your revi
   * You will submit a case for this file to be continued as an "informational extract." We will need to setup this informational extract based on the customer's request.
 * Expense Pay Confirmation Extract
 
+## Configuration Tips
+
+Product Configuration is required to ensure reports route properly through FIS instead of Extract process:
+
+* FI Service is enabled at the Expense group level.
+* This value is copied down to the Report Header as a hidden field.
+* The “enabled” value at the Report Header will not change even as the feature may be toggled on/off.
+* This ensures no cross pollination – inclusion of a report in both posting document and extract.
+
+ Any report or invoice created after enablement will flow through to FIS.  Existing reports or invoices with a Create Date prior to enablement will continue to flow through the extract file process. Existing customers need to manage the in-flight reports and invoices but your team needs to raise this topic to ensure everyone is agreement. Does the customer prefer a parallel process of their existing, file-based process plus the FIS process? Or will the customer want to process all reports and invoices prior to enabling FIS? The latter option will require prohibiting users from creating a new report or invoice until all existing reports and invoices are processed and FIS is enabled.
+
+### Accounting Extracts
+
+*	Reports configured for the FIS flow will not be included in the traditional accounting extract.
+*	Reports NOT enabled for FIS flow will continue to be included in the SAE.
+*	Informational extracts are always available and typically managed by Implementation and Support services.
+*	Informational extracts are not intended for financial integration purposes.
+  *	They lack the level of control to eliminate duplicates or missing data.
+	* You should rely on a single source of truth for your posting information: either SAE or FIS posting documents.
+  *	Informational extracts supplement the SAE or FIS posting documents (Attendee, VAT, Expense Pay).
+  *	Output is based on new transactions since last run and reports in p_paid status.
+
+### Expense Pay
+
+*	Batch close process calls FIS to confirm if expense report is successfully posted.
+*	Demand is processed and is not sent to the bank if status in FIS = SUCCESS.
+*	Demand is not processed and sent to the bank if status in FIS = FAILED.
+*	These statuses are determined by the Posting Confirmation API.
+*	This “check” ensures that money is only reimbursed for reports successfully posted in the ERP.
+*	When reports are extracted using the SAE/extract file process, payment demands are sent to the bank independent of the customer’s financial posting.
+
+### Non-Expense Pay Payment Batches (Standard Edition and S2P)
+
+* Current extract process requires a “batch close” event to trigger the extract job and generate the extract.
+* FIS flow is triggered each time a report reaches the proper workflow status and has no dependency on the status of a batch resulting in a near real-time financial posting process.
+
+### Imaging
+
+**Expense**
+
+Use the entryreceiptID to obtain a short-lived URL (15 minutes ttl) that can be rendered to obtain the receipt image.  
+
+```
+https://www.concursolutions.com/api/image/v1.0/report/{entryreceiptID}
+```
+
+**Invoice**
+
+Use the requestID to obtain a URL, copy the portion up to the "?" and render the image in a separate browser.
+
+```
+https://www.concursolutions.com/api/image/v1.0/invoice/{requestID}
+```
+
+```
+<Image xmlns="http://www.concursolutions.com/api/image/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Id>2A5A2971F671480083FF</Id>
+ <Url>https://imaginginvoiceupload.concursolutions.com/file/p0085104gigw/92608D9780BAB1DB6CF884CE08C115AA660E198045E42357812E976AD35DB3A7B573A0549B4859A742xxxxx?id=2A5A2971F671480083FF&amp;e=p0085104gigw&amp;t=AN&amp;s=ConcurConnect</Url>
+</Image>
+```
+
 ## API Sequence Flow
 
 The flow consists of calling the API in this sequence:
