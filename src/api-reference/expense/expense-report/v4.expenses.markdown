@@ -799,7 +799,7 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`hasCaravanAttached`|`boolean`|`true`/`false`|Whether the mileage expense has caravan attached to the car. Default: `false`|
+|`hasCaravanAttached`|`boolean`|`true`/`false`|Whether the mileage expense has caravan or trailer attached to the car. Default: `false`|
 |`hasDogIncluded`|`boolean`|`true`/`false`|Whether the mileage expense includes a dog for work purposes. Default: `false`|
 |`hasForestOrConstructionSiteRoadInRoute`|`boolean`|`true`/`false`|Whether the mileage route is via a forest road or construction site road. Default: `false`|
 |`hasForestRoadInRoute`|`boolean`|`true`/`false`|Whether the mileage route has forest road. Default: `false`|

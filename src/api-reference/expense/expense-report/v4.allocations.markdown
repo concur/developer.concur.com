@@ -5,7 +5,7 @@ layout: reference
 
 ---
 
-The Allocations API can be used to read the allocations that belong to a specific expense on an expense report and modify an allocation on an existing expense in an expense report. This API can be used to change custom field attributes, etc...
+The Allocations API can be used to read the allocations that belong to a specific expense on an expense report and modify an allocation on an existing expense in an expense report. This API can be used to change custom field attributes, etc.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
