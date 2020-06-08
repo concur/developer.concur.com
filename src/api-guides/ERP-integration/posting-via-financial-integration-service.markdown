@@ -23,9 +23,10 @@ FIS has these benefits over the Extract file process:
 
 * Maintains consistency between SAP Concur solutions and the ERP:
   * FIS requires a post of the status of the ERP integration back into the SAP Concur solution, per report or invoice. If there is a failure at the ERP, the app will update the affected report or invoice with an error message. The customer will initiate corrective action from within the SAP Concur processor tool. The result is that no expense report or invoice will advance until it can be integrated into the ERP.
-  * For existing customers, enabling FIS also requires change management discussions regarding expense reports and invoices in process during the switch. Any report created after FIS is enabled will flow to FIS and not the extract file. Reports still in process when FIS is enabled will be accounted for only via the extract file. Customers need to manage their existing integration until those reports or invoices are completely processed.
 
->   **Note**: This process is a change for existing customers who are not accustomed to this awareness between their ERP and SAP Concur solutions.
+    >**Note**: This process is a change for existing SAP Concur customers who are not accustomed to this awareness between their ERP and SAP Concur solutions.
+
+  * For existing SAP Concur customers, enabling FIS also requires change management discussions regarding expense reports and invoices in process during the switch. Any report created after FIS is enabled will flow to FIS and not the extract file. Reports still in process when FIS is enabled will be accounted for only via the extract file. Customers need to manage their existing integration until those reports or invoices are completely processed.
 
 * Real-time integration into the ERP:
   * You will obtain final approved spend data throughout the day and post it to the ERP instead of waiting for the file-based interval to occur once per day.
@@ -60,7 +61,7 @@ Product Configuration is required to ensure reports route properly through FIS i
 * The “enabled” value at the Report Header will not change even as the feature may be toggled on/off.
 * This ensures no cross pollination – inclusion of a report in both posting document and extract.
 
- Any report or invoice created after enablement will flow through to FIS.  Existing reports or invoices with a Create Date prior to enablement will continue to flow through the extract file process. Existing customers need to manage the in-flight reports and invoices but your team needs to raise this topic to ensure everyone is agreement. Does the customer prefer a parallel process of their existing, file-based process plus the FIS process? Or will the customer want to process all reports and invoices prior to enabling FIS? The latter option will require prohibiting users from creating a new report or invoice until all existing reports and invoices are processed and FIS is enabled.
+ Any report or invoice created after enablement will flow through to FIS.  Existing reports or invoices with a Create Date prior to enablement will continue to flow through the extract file process. Existing customers need to manage the in-flight reports and invoices but your team needs to raise this topic to ensure everyone is in agreement. Does the customer prefer a parallel process of their existing, file-based process plus the FIS process? Or will the customer want to process all reports and invoices prior to enabling FIS? The latter option will require prohibiting users from creating a new report or invoice until all existing reports and invoices are processed and FIS is enabled.
 
 ### Accounting Extracts
 
@@ -76,8 +77,8 @@ Product Configuration is required to ensure reports route properly through FIS i
 ### Expense Pay
 
 *	Batch close process calls FIS to confirm if expense report is successfully posted.
-*	Demand is processed and is not sent to the bank if status in FIS = SUCCESS.
-*	Demand is not processed and sent to the bank if status in FIS = FAILED.
+*	Demand is processed and is sent to the bank if status in FIS = SUCCESS.
+*	Demand is not processed and is not sent to the bank if status in FIS = FAILED.
 *	These statuses are determined by the Posting Confirmation API.
 *	This “check” ensures that money is only reimbursed for reports successfully posted in the ERP.
 *	When reports are extracted using the SAE/extract file process, payment demands are sent to the bank independent of the customer’s financial posting.
@@ -86,31 +87,6 @@ Product Configuration is required to ensure reports route properly through FIS i
 
 * Current extract process requires a “batch close” event to trigger the extract job and generate the extract.
 * FIS flow is triggered each time a report reaches the proper workflow status and has no dependency on the status of a batch resulting in a near real-time financial posting process.
-
-### Imaging
-
-**Expense**
-
-Use the entryreceiptID to obtain a short-lived URL (15 minutes ttl) that can be rendered to obtain the receipt image.  
-
-```
-https://www.concursolutions.com/api/image/v1.0/report/{entryreceiptID}
-```
-
-**Invoice**
-
-Use the requestID to obtain a URL, copy the portion up to the "?" and render the image in a separate browser.
-
-```
-https://www.concursolutions.com/api/image/v1.0/invoice/{requestID}
-```
-
-```
-<Image xmlns="http://www.concursolutions.com/api/image/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-    <Id>2A5A2971F671480083FF</Id>
- <Url>https://imaginginvoiceupload.concursolutions.com/file/p0085104gigw/92608D9780BAB1DB6CF884CE08C115AA660E198045E42357812E976AD35DB3A7B573A0549B4859A742xxxxx?id=2A5A2971F671480083FF&amp;e=p0085104gigw&amp;t=AN&amp;s=ConcurConnect</Url>
-</Image>
-```
 
 ## API Sequence Flow
 
@@ -137,3 +113,28 @@ You will review the timing of the FIS API requests to ensure they are not interf
 This may require you to develop a button in the UI of your integration to allow the customer to initiate the FIS process on demand. This would free you and the customer from coordinating the timing.
 
 For example, the SAP Concur workflow typically includes a final approval step that is completed by Finance/Accounting. Once the accountant final-approves a report (or invoice), the report is queued into FIS. If necessary, the accountant can pull this report back and send it back to the employee for adjustment prior to ERP integration, but only if you have not yet picked up the report. So, the process should include awareness of the timing between you and your customer.
+
+## Imaging
+
+**Expense**
+
+Use the entryreceiptID to obtain a short-lived URL (15 minutes ttl) that can be rendered to obtain the receipt image.  
+
+```
+https://www.concursolutions.com/api/image/v1.0/report/{entryreceiptID}
+```
+
+**Invoice**
+
+Use the requestID to obtain a URL, copy the portion up to the "?" and render the image in a separate browser.
+
+```
+https://www.concursolutions.com/api/image/v1.0/invoice/{requestID}
+```
+
+```
+<Image xmlns="http://www.concursolutions.com/api/image/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Id>2A5A2971F671480083FF</Id>
+ <Url>https://imaginginvoiceupload.concursolutions.com/file/p0085104gigw/92608D9780BAB1DB6CF884CE08C115AA660E198045E42357812E976AD35DB3A7B573A0549B4859A742xxxxx?id=2A5A2971F671480083FF&amp;e=p0085104gigw&amp;t=AN&amp;s=ConcurConnect</Url>
+</Image>
+```
