@@ -12,7 +12,6 @@ layout: reference
 * [API Sequence Flow](#sequence-flow)
 * [Timing to Run FIS](#timing)
 * [Imaging](#imaging)
-* [Customer Planning](#planning)
 
 A ERP Partner has two options to obtain data for financial journal entries into the ERP:
 
@@ -140,23 +139,3 @@ https://www.concursolutions.com/api/image/v1.0/invoice/{requestID}
  <Url>https://imaginginvoiceupload.concursolutions.com/file/p0085104gigw/92608D9780BAB1DB6CF884CE08C115AA660E198045E42357812E976AD35DB3A7B573A0549B4859A742xxxxx?id=2A5A2971F671480083FF&amp;e=p0085104gigw&amp;t=AN&amp;s=ConcurConnect</Url>
 </Image>
 ```
-## <a name="planning"></a>Customer Planning
-
-This section is provided for SAP Concur customers to help them with planning their transition to FIS. All new customers are encouraged to enable FIS for all of their Expense Groups.
-
-If your ERP requires a file, the partner you're working with can create a file from FIS data, removing the need to use the extract file or the Payment Batch files. It is important to know that extract files will stop being created when FIS is enabled for any group(s).
-
-*  Any report or invoice created before FIS is enabled will continue to flow to the extract file process.
-*  Any report or invoice with a create date after FIS is enabled will flow to the FIS process.
-*  You should manage your existing file-based integration until all of those reports or invoices have been finalized in your ERP.
-
-#### Workflow Processor Step
-
-The processor step must be part of the workflow so you can take action on reports that did not get integrated into the ERP. This step can retain skip steps but the step cannot be omitted. One large advantage FIS has over extract files is the ability to keep the ERP and SAP Concur systems in sync. The processor step is where the administrator will initiate corrective action on reports or invoices that failed ERP integration.
-
-> This synchronization is a change for existing customers. You will now need to look for failed reports.
-
-#### Existing Customers
-
-* **Processor Search Tool** - Create a query to identify the reports that will flow through extract process. The processor query should have the criteria FI Enabled = N (plus whatever other criteria the customer desires such as Approved and In Accounting Review). This query will return any report that was created prior to FIS being enabled.
-* **Audit Rule** - Create an audit rule to prohibit the use of the "Copy Report" feature during the switch to FIS. Employees should be restricted from using this feature on any legacy reports because the copy feature will not send the new report to the FIS. This will be enforced via an audit rule created by the customer. The Copy Report feature can be used for reports that are already FI-enabled. Support or Implementation can assist with this rule creation.
