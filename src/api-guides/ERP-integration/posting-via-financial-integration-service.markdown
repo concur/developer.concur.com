@@ -38,7 +38,7 @@ FIS has these benefits over the Extract file process:
 
 We expect all new SAP Concur customers will use FIS data instead of extract files (*Life Science customers probably will need the Attendee Detail extract file created until an API is released for Attendee transactions*).
 
-### <a name="existing"></a>Existing SAP Concur Customers
+## <a name="existing"></a>Existing SAP Concur Customers
 
 Existing customers likely have integrations in place based on SAP Concur extracts. The partner and the customer will determine if FIS data can replace all of the customer's integrations. For example, customers may use the extract file content for import into their ERP and into analytical databases.
 
