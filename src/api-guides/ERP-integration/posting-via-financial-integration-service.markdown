@@ -3,10 +3,10 @@ title: Posting via Financial Integration Service
 layout: reference
 ---
 
+* [Benefits](#benefits)
 * [New SAP Concur Customers](#new)
 * [Existing SAP Concur Customers](#existing)
-* [Configuration Tips](#tips)
-* [Accounting Extracts](#extracts)
+* [FIS Enablement](#enable)
 * [Expense Pay](#expense-pay)
 * [Non-Expense Pay Payment Batches (Standard Edition and S2P)](#nonexpense-pay)
 * [API Sequence Flow](#sequence-flow)
@@ -14,12 +14,14 @@ layout: reference
 * [Imaging](#imaging)
 * [Customer Planning](#planning)
 
-A ERP Partner has two options to obtain data for financial journal entries into the ERP:
+## <a name="benefits"></a>Benefits
+
+An ERP partner has two options to obtain data for financial journal entries into the ERP:
 
 *  Financial Integration Service (FIS) – data is returned via APIs.
 *  Extract files – data is written to a flat file on a batched schedule.
 
-We recommend using data from FIS whenever possible due to the efficiency and advantages it has over batched extract files. If a customer’s ERP requires a file then the partner will create their own file based on FIS data, not the extract.
+We recommend using data from FIS whenever possible due to the efficiency and advantages it has over batched extract files. If a customer’s ERP requires a file the partner will create their own file based on FIS data, not the extract.
 
 Using FIS data for either of the above situations will simplify processes and enable FIS benefits.
 
@@ -34,47 +36,46 @@ FIS has these benefits over the Extract file process:
   * Partner will obtain final approved spend data throughout the day and post it to the ERP instead of waiting for the file-based interval to occur once per day.
 * Payment Confirmation:
   * ERP partners have the ability to post a payment status of reports into SAP Concur solutions (Expense only at this time).
+  *	Expense Pay customers who use FIS only reimburse reports that have been successfully posted into their ERP. Conversely, reports processed using the SAE/extract file process have reimbursements sent to the bank independent of the customer’s financial posting.
 
 ## <a name="new"></a>New SAP Concur Customers
 
-We expect all new SAP Concur customers will use FIS data instead of extract files (*Life Science customers probably will need the Attendee Detail extract file created until an API is released for Attendee transactions*).
+We expect all new SAP Concur customers will use FIS data instead of extract files (*Life Science customers probably will need the Attendee Detail extract file created as an informational extract until an API is released for Attendee transactions*).
 
 ## <a name="existing"></a>Existing SAP Concur Customers
 
-Existing customers likely have integrations in place based on SAP Concur extracts. The partner and the customer will determine if FIS data can replace all of the customer's integrations. For example, customers may use the extract file content for import into their ERP and into analytical databases.
+All of the integrations where a customer uses the extract files as the source must be identified. Then, determine if FIS data can replace all of the customer's extract file integrations. We expect most customers use the extract only for journal entries. FIS is a replacement for that purpose. Some customers may use the extract for analytical databases. In this case, you may need extracts in addition to FIS.
 
-By default, SAP Concur extract files are disabled when FIS is enabled. The partner and the customer will determine if they need any extracts created in addition to enabling FIS:
+By default, SAP Concur extract files are disabled when FIS is enabled.
+
+* Reports configured for the FIS flow will not be included in the traditional accounting extract.
+*	Reports NOT enabled for FIS flow will continue to be included in the SAE.
+
+See the [Customer Planning](#planning) section for more information.
+
+
+You will determine if any informational extracts need to be created in addition to enabling FIS, such as:
 
 * Standard Accounting Extract (SAE)
   * FIS will replace the need to use the SAE for journal entries.
   * Does the customer use the SAE for any analytical requirements? If yes, then you will review the FIS data to determine if it can be used instead of the SAE.
 * Payment Request Accounting Extract (PRAE) - same as above.
 * Attendee Details Extract
-  * Used for compliance reporting purposes. This file can still be created even if FIS is used.
-  * You will submit a case for this file to be continued as an "informational extract." We will need to setup this informational extract based on the customer's request.
+  * Used for compliance reporting purposes.
 * Expense Pay Confirmation Extract
+  * Informational extracts should not be used for financial integration purposes. They lack the level of control to eliminate duplicates. You should rely on a single source of truth for your posting information: either SAE or FIS posting documents.
 
-## <a name="tips"></a>Configuration Tips
+The partner will submit a case for any of the above files to be continued as an informational extract. SAP Concur will need to setup the informational extract based on the customer's request.
+
+## <a name="enable"></a>FIS Enablement
 
 Product Configuration is required to ensure reports route properly through FIS instead of Extract process:
 
-* FI Service is enabled at the Expense group level.
-* This value is copied down to the Report Header as a hidden field.
-* The “enabled” value at the Report Header will not change even as the feature may be toggled on/off.
+* FI Service is enabled at the Expense group level and at the Invoice workflow level. This is done by an SAP Concur consultant.
+* This value is copied down to the Report Header as a hidden field. The “enabled” value at the Report Header will not change even as the feature may be toggled on/off.
 * This ensures no cross pollination – inclusion of a report in both posting document and extract.
 
- Any report or invoice created after enablement will flow through to FIS.  Existing reports or invoices with a Create Date prior to enablement will continue to flow through the extract file process. Existing customers need to manage the in-flight reports and invoices but your team needs to raise this topic to ensure everyone is in agreement. Does the customer prefer a parallel process of their existing, file-based process plus the FIS process? Or will the customer want to process all reports and invoices prior to enabling FIS? The latter option will require prohibiting users from creating a new report or invoice until all existing reports and invoices are processed and FIS is enabled.
-
-## <a name="extracts"></a>Accounting Extracts
-
-*	Reports configured for the FIS flow will not be included in the traditional accounting extract.
-*	Reports NOT enabled for FIS flow will continue to be included in the SAE.
-*	Informational extracts are always available and typically managed by Implementation and Support services.
-*	Informational extracts are not intended for financial integration purposes.
-  *	They lack the level of control to eliminate duplicates or missing data.
-	* You should rely on a single source of truth for your posting information: either SAE or FIS posting documents.
-  *	Informational extracts supplement the SAE or FIS posting documents (Attendee, VAT, Expense Pay).
-  *	Output is based on new transactions since last run and reports in p_paid status.
+ Any report or invoice created after enablement will flow through to FIS.  Existing reports or invoices with a Create Date prior to enablement will continue to flow through the extract file process.
 
 ## <a name="expense-pay"></a>Expense Pay
 
@@ -85,7 +86,7 @@ Product Configuration is required to ensure reports route properly through FIS i
 *	This “check” ensures that money is only reimbursed for reports successfully posted in the ERP.
 *	When reports are extracted using the SAE/extract file process, payment demands are sent to the bank independent of the customer’s financial posting.
 
-## <a name="nonexpense-pay"></a>Non-Expense Pay Payment Batches (Standard Edition and S2P)
+## <a name="nonexpense-pay"></a>Non-Expense Pay Payment Batches (Universal Edition and Universal-to-Professional Upgrade Edition)
 
 * Current extract process requires a “batch close” event to trigger the extract job and generate the extract.
 * FIS flow is triggered each time a report reaches the proper workflow status and has no dependency on the status of a batch resulting in a near real-time financial posting process.
@@ -110,9 +111,7 @@ The above steps will maintain consistency between the customer's ERP and their S
 
 ## <a name="timing"></a>Timing to Run FIS
 
-You will review the timing of the FIS API requests to ensure they are not interfering with the customer administrator's ability to send an expense report (or invoice) back to the employee prior to ERP integration.
-
-This may require you to develop a button in the UI of your integration to allow the customer to initiate the FIS process on demand. This would free you and the customer from coordinating the timing.
+Review the timing of the FIS API requests to ensure they are not interfering with the customer administrator's ability to send an expense report (or invoice) back to the employee prior to ERP integration. This may require the development of a button in the UI of the integration to allow the customer to initiate the FIS process on demand. This would eliminate the need to coordinate the timing.
 
 For example, the SAP Concur workflow typically includes a final approval step that is completed by Finance/Accounting. Once the accountant final-approves a report (or invoice), the report is queued into FIS. If necessary, the accountant can pull this report back and send it back to the employee for adjustment prior to ERP integration, but only if you have not yet picked up the report. So, the process should include awareness of the timing between you and your customer.
 
@@ -142,13 +141,9 @@ https://www.concursolutions.com/api/image/v1.0/invoice/{requestID}
 ```
 ## <a name="planning"></a>Customer Planning
 
-This section is provided for SAP Concur customers to help them with planning their transition to FIS. All new customers are encouraged to enable FIS for all of their Expense Groups.
+This section is provided for SAP Concur customers to help them with planning their deployment of FIS. All new customers are encouraged to enable FIS for all of their Expense Groups to establish consistent processes.
 
-If your ERP requires a file, the partner you're working with can create a file from FIS data, removing the need to use the extract file or the Payment Batch files. It is important to know that extract files will stop being created when FIS is enabled for any group(s).
-
-*  Any report or invoice created before FIS is enabled will continue to flow to the extract file process.
-*  Any report or invoice with a create date after FIS is enabled will flow to the FIS process.
-*  You should manage your existing file-based integration until all of those reports or invoices have been finalized in your ERP.
+If your ERP requires a file, the developer you're working with can create a file from FIS data.
 
 #### Workflow Processor Step
 
@@ -157,6 +152,12 @@ The processor step must be part of the workflow so you can take action on report
 > This synchronization is a change for existing customers. You will now need to look for failed reports.
 
 #### Existing Customers
+
+It is important to know that extract files will stop being created when FIS is enabled for any group(s). So, determine beforehand whether to implement a parallel process of  existing, file-based process plus the FIS process? Or process all reports and invoices prior to enabling FIS? The latter option will require prohibiting users from creating a new report or invoice until all existing reports and invoices are processed and FIS is enabled.
+
+*  Any report or invoice created before FIS is enabled will continue to flow to the extract file process.
+*  Any report or invoice with a create date after FIS is enabled will flow to the FIS process.
+*  You should manage your existing file-based integration until all of those reports or invoices have been finalized in your ERP.
 
 * **Processor Search Tool** - Create a query to identify the reports that will flow through extract process. The processor query should have the criteria FI Enabled = N (plus whatever other criteria the customer desires such as Approved and In Accounting Review). This query will return any report that was created prior to FIS being enabled.
 * **Audit Rule** - Create an audit rule to prohibit the use of the "Copy Report" feature during the switch to FIS. Employees should be restricted from using this feature on any legacy reports because the copy feature will not send the new report to the FIS. This will be enforced via an audit rule created by the customer. The Copy Report feature can be used for reports that are already FI-enabled. Support or Implementation can assist with this rule creation.
