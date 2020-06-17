@@ -76,3 +76,4 @@ budgetitem.read|Grants read access to the budget resources|[Budget v4 API](/api-
 budgetitem.write|Grants read and write access to the budget resources|[Budget v4 API](/api-reference/budget/getting-started.html)
 fiscalcalendar.read|Grants read access to the fiscal calendar|[Budget v4 API](/api-reference/budget/getting-started.html)
 fiscalcalendar.write|Grants read and write access to the fiscal calendar|[Budget v4 API](/api-reference/budget/getting-started.html)
+notifications.messages.writeonly|Write messages to the notifications platform|[Notifications v4 API](/api-reference/notifications/v4.notifications.html)
