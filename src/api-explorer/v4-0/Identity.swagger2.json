@@ -1,0 +1,1634 @@
+{
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "description": "A Boolean value indicating whether the User is active."
+        },
+        "addresses": {
+          "type": "array",
+          "description": "A physical mailing address for this User. Canonical type values of 'work', 'home', and 'other'. This attribute is a complex type with the following sub-attributes.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "A two-letter country code defined in ISO 3166-1 alpha-2"
+              },
+              "formatted": {
+                "type": "string",
+                "description": "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines."
+              },
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for the User's physical addresses."
+              },
+              "latitude": {
+                "type": "string",
+                "description": ""
+              },
+              "locality": {
+                "type": "string",
+                "description": "The city or locality."
+              },
+              "longitude": {
+                "type": "string",
+                "description": ""
+              },
+              "postalCode": {
+                "type": "string",
+                "description": "The zip code or postal code."
+              },
+              "region": {
+                "type": "string",
+                "description": "The state or region."
+              },
+              "streetAddress": {
+                "type": "string",
+                "description": "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines."
+              },
+              "type": {
+                "type": "string",
+                "description": "A label indicating the function of the address, e.g., 'work' or 'home'.",
+                "enum": [
+                  "Work",
+                  "Home",
+                  "Other",
+                  "Billing",
+                  "Bank",
+                  "Shipping"
+                ]
+              }
+            }
+          }
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "description": "The user's date of birth , in YYYY-MM-DD format"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The name of the User, suitable for display  to end-users.  The name SHOULD be the full name of the User being  described, if known."
+        },
+        "emails": {
+          "type": "array",
+          "description": "Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dateAdded": {
+                "type": "string",
+                "description": "The date and time the email was added to the user's profile."
+              },
+              "dateVerified": {
+                "type": "string",
+                "description": "The date and time the email was verified"
+              },
+              "display": {
+                "type": "string",
+                "description": "A human-readable email address."
+              },
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for the emails."
+              },
+              "notifications": {
+                "type": "boolean",
+                "description": "Notifications opt-in for emails"
+              },
+              "primary": {
+                "type": "boolean",
+                "description": "A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred mailing address or primary email address.  The primary attribute value 'true' MUST appear no more than once."
+              },
+              "type": {
+                "type": "string",
+                "description": "A label indicating the attribute's function, e.g., 'Work' or 'Home'.",
+                "enum": [
+                  "Work",
+                  "Home",
+                  "Other",
+                  "Other2",
+                  "Work2",
+                  "SMS"
+                ]
+              },
+              "value": {
+                "type": "string",
+                "description": "Email address value"
+              },
+              "verified": {
+                "type": "boolean",
+                "description": "flag to note which email has been verified by the user."
+              }
+            },
+            "required": [
+              "value"
+            ]
+          }
+        },
+        "emergencyContacts": {
+          "type": "array",
+          "description": "Emergency Contact information for the User.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "A two-letter country code defined in ISO 3166-1 alpha-2"
+              },
+              "emails": {
+                "type": "array",
+                "description": "Emails of the contact",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "formatted": {
+                "type": "string",
+                "description": "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines."
+              },
+              "latitude": {
+                "type": "string",
+                "description": ""
+              },
+              "locality": {
+                "type": "string",
+                "description": "The city or locality."
+              },
+              "longitude": {
+                "type": "string",
+                "description": ""
+              },
+              "name": {
+                "type": "string",
+                "description": "Contact name."
+              },
+              "phones": {
+                "type": "array",
+                "description": "Phone numbers of the contact",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "postalCode": {
+                "type": "string",
+                "description": "The zip code or postal code."
+              },
+              "region": {
+                "type": "string",
+                "description": "The state or region."
+              },
+              "relationship": {
+                "type": "string",
+                "description": "Emergency contact relationship.",
+                "enum": [
+                  "Spouse",
+                  "Brother",
+                  "Parent",
+                  "Sister",
+                  "Life Partner",
+                  "Other"
+                ]
+              },
+              "streetAddress": {
+                "type": "string",
+                "description": "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines."
+              }
+            },
+            "required": [
+              "relationship"
+            ]
+          }
+        },
+        "externalClient": {
+          "type": "string",
+          "description": "The provisioning Client that generates the externalId",
+          "enum": [
+            "Concur.Travel",
+            "Concur.ProvisioningService",
+            "SAP.WBS",
+            "Microsoft.AzureAD",
+            "Okta"
+          ]
+        },
+        "externalId": {
+          "type": "string",
+          "description": "User identifilier from the provisioning client"
+        },
+        "gender": {
+          "type": "string",
+          "description": "The user's gender",
+          "enum": [
+            "Male",
+            "Female",
+            "Others"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user - a uuid"
+        },
+        "localeOverrides": {
+          "type": "object",
+          "description": "Support for users who want to override locale settings",
+          "properties": {
+            "preference24Hour": {
+              "type": "string",
+              "description": "preferred 24 hour format for the user",
+              "enum": [
+                "h:mm AM/PM",
+                "H:mm"
+              ]
+            },
+            "preferenceCurrencySymbolLocation": {
+              "type": "string",
+              "description": "preferred currency symbol location for the user",
+              "enum": [
+                "BeforeAmount",
+                "AfterAmount"
+              ]
+            },
+            "preferenceDateFormat": {
+              "type": "string",
+              "description": "preferred date format for the user",
+              "enum": [
+                "mm/dd/yyyy",
+                "mm.dd.yyyy",
+                "mm-dd-yyyy",
+                "dd/mm/yyyy",
+                "dd.mm.yyyy",
+                "dd-mm-yyyy",
+                "yyyy/mm/dd",
+                "yyyy.mm.dd",
+                "yyyy-mm-dd"
+              ]
+            },
+            "preferenceDefaultCalView": {
+              "type": "string",
+              "description": "preferred default calendar view for the user",
+              "enum": [
+                "day",
+                "week",
+                "month"
+              ]
+            },
+            "preferenceDistance": {
+              "type": "string",
+              "description": "preferred distance metric",
+              "enum": [
+                "mile",
+                "km"
+              ]
+            },
+            "preferenceEndDayViewHour": {
+              "type": "integer",
+              "description": "preferred hour setting for the end of day, 0-23"
+            },
+            "preferenceFirstDayOfWeek": {
+              "type": "string",
+              "description": "preferred first day of the week for the user",
+              "enum": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ]
+            },
+            "preferenceHourMinuteSeparator": {
+              "type": "string",
+              "description": "preferred separator between hour and minute",
+              "enum": [
+                ":",
+                "."
+              ]
+            },
+            "preferenceNegativeCurrencyFormat": {
+              "type": "string",
+              "description": "preferred negative currency format for the user",
+              "enum": [
+                "-100",
+                "(100)"
+              ]
+            },
+            "preferenceNegativeNumberFormat": {
+              "type": "string",
+              "description": "preferred negative number format for the user",
+              "enum": [
+                "-100",
+                "(100)"
+              ]
+            },
+            "preferenceNumberFormat": {
+              "type": "string",
+              "description": "preferred number format for the user",
+              "enum": [
+                "1,000.00",
+                "1.000,00",
+                "1 000,00",
+                "1'000.00",
+                "1'000,00"
+              ]
+            },
+            "preferenceStartDayViewHour": {
+              "type": "integer",
+              "description": "preferred start of day for the user, from 1"
+            }
+          }
+        },
+        "meta": {
+          "type": "object",
+          "description": ""
+        },
+        "name": {
+          "type": "object",
+          "description": "The user's name",
+          "properties": {
+            "familyName": {
+              "type": "string",
+              "description": "The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III')."
+            },
+            "formatted": {
+              "type": "string",
+              "description": "The full name, including all middle names, title, and suffixes as appropriate, formatted for display (e.g., 'Ms. Barbara J Jensen, III')."
+            },
+            "givenName": {
+              "type": "string",
+              "description": "The given name of the User, or first name in most Western languages (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III')."
+            },
+            "hasNoMiddleName": {
+              "type": "boolean",
+              "description": "A boolean indicating that the user does not have a middle name"
+            },
+            "honorificPrefix": {
+              "type": "string",
+              "description": "The honorific prefix(es) of the User, or title in most Western languages (e.g., 'Ms.' given the full name 'Ms. Barbara J Jensen, III').",
+              "enum": [
+                "Miss",
+                "Mr",
+                "Mrs",
+                "Ms",
+                "Mx",
+                "B.A.",
+                "B.Sc.",
+                "CPA",
+                "D.D.",
+                "D.D.S.",
+                "D.P.S.",
+                "Dr",
+                "Dr Mr",
+                "Dr Mrs",
+                "Dr Ms",
+                "Eng.",
+                "Ing.",
+                "Lady",
+                "Lord",
+                "M.D.",
+                "MBA",
+                "P.Eng.",
+                "Ph.D",
+                "Ph.D.",
+                "Prof",
+                "Prof Dr",
+                "Prof Dr Mr",
+                "Prof Dr Mrs",
+                "Prof Dr Ms",
+                "Prof Mr",
+                "Prof Mrs",
+                "Prof Ms",
+                "Rev",
+                "Sir"
+              ]
+            },
+            "honorificSuffix": {
+              "type": "string",
+              "description": "The honorific suffix(es) of the User, or  suffix in most Western languages (e.g., 'III' given the full name  'Ms. Barbara J Jensen, III').",
+              "enum": [
+                "Jr.",
+                "Sr.",
+                "I",
+                "II",
+                "III",
+                "IV",
+                "V",
+                "VI"
+              ]
+            },
+            "legalName": {
+              "type": "string",
+              "description": "The legal name of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III')."
+            },
+            "middleInitial": {
+              "type": "string",
+              "description": "middle initial, if the user has a middle name"
+            },
+            "middleName": {
+              "type": "string",
+              "description": "The middle name(s) of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III')."
+            }
+          },
+          "required": [
+            "familyName",
+            "givenName"
+          ]
+        },
+        "nickName": {
+          "type": "string",
+          "description": "The casual way to address the user in real  life, e.g., 'Bob' or 'Bobby' instead of 'Robert'.  This attribute  SHOULD NOT be used to represent a User's username (e.g., 'bjensen' or  'mpepperidge')."
+        },
+        "phoneNumbers": {
+          "type": "array",
+          "description": "Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'work', 'home', 'mobile', 'fax', 'pager', and 'other'.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "countryCode": {
+                "type": "string",
+                "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country the phone number was issued in. e.g., US"
+              },
+              "countryISDCode": {
+                "type": "string",
+                "description": "E164 assigned country code"
+              },
+              "display": {
+                "type": "string",
+                "description": "A human-readable phone number for display"
+              },
+              "extension": {
+                "type": "string",
+                "description": "phone number extension"
+              },
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for phone numbers."
+              },
+              "notifications": {
+                "type": "boolean",
+                "description": "LNA Opt-in for mobile devices (type=Mobile)"
+              },
+              "operatingSystem": {
+                "type": "string",
+                "description": "The OS of the  device, when the phone is a cellphone type",
+                "enum": [
+                  "Android Phone",
+                  "Android Tablet",
+                  "Blackberry",
+                  "iOS Phone",
+                  "iOS Tablet",
+                  "Not a smartphone",
+                  "Other iOS device",
+                  "Other smartphone",
+                  "Unknown",
+                  "Window Mobile"
+                ]
+              },
+              "primary": {
+                "type": "boolean",
+                "description": "Primary device for mobile devices (type=Mobile)"
+              },
+              "type": {
+                "type": "string",
+                "description": "A label indicating the attribute's function, e.g., 'Work', 'Home'.",
+                "enum": [
+                  "Work",
+                  "Home",
+                  "Mobile",
+                  "Fax",
+                  "Pager",
+                  "Other",
+                  "Work2"
+                ]
+              },
+              "value": {
+                "type": "string",
+                "description": "Phone number value"
+              },
+              "verified": {
+                "type": "boolean",
+                "description": "Phone number verification status"
+              }
+            }
+          }
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "description": "Indicates the User's preferred written or spoken language.  Generally used for selecting a localized user interface"
+        },
+        "schemas": {
+          "type": "array",
+          "description": "",
+          "items": {
+            "type": "string",
+            "enum": [
+              "urn:ietf:params:scim:schemas:core:2.0:User",
+              "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+              "urn:ietf:params:scim:schemas:extension:enterprise:legacy:2.0:User"
+            ]
+          }
+        },
+        "timezone": {
+          "type": "string",
+          "description": "The User's time zone in the 'Olson' time zone database format, e.g., 'America/Los_Angeles'."
+        },
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "companyId": {
+              "type": "string",
+              "description": "Concur ID of the company"
+            },
+            "costCenter": {
+              "type": "string",
+              "description": "employee cost center for product"
+            },
+            "dataRetention": {
+              "type": "object",
+              "description": "",
+              "properties": {
+                "isDoNotTouch": {
+                  "type": "boolean",
+                  "description": "Whether we should delete user record or not, according to the user's data retention policies."
+                },
+                "policyIds": {
+                  "type": "array",
+                  "description": "User's active data retention policy Ids.",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "department": {
+              "type": "string",
+              "description": "Client supplied department name"
+            },
+            "division": {
+              "type": "string",
+              "description": "Client supplied division name"
+            },
+            "employeeNumber": {
+              "type": "string",
+              "description": "Client supplied employee's number within the company, unique for the company"
+            },
+            "entitlements": {
+              "type": "array",
+              "description": "The features enabled for the user",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Expense",
+                  "Invoice",
+                  "Locate",
+                  "Request",
+                  "Travel"
+                ]
+              }
+            },
+            "jobTitle": {
+              "type": "string",
+              "description": "user's job title in the company"
+            },
+            "manager": {
+              "type": "object",
+              "description": "The manager of this user",
+              "properties": {
+                "$ref": {
+                  "type": "string",
+                  "description": "The URI of the SCIM resource representing the referenced user."
+                },
+                "displayName": {
+                  "type": "string",
+                  "description": "The referenced user's display name"
+                },
+                "employeeNumber": {
+                  "type": "string",
+                  "description": "The referenced user's employee number, if it is an Enterprise user"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The referenced user's UUID"
+                }
+              }
+            },
+            "orgUnit": {
+              "type": "string",
+              "description": "Client supplied org unit name"
+            },
+            "organization": {
+              "type": "string",
+              "description": "Company name"
+            },
+            "self": {
+              "type": "object",
+              "description": "A reference to this user",
+              "properties": {
+                "$ref": {
+                  "type": "string",
+                  "description": "The URI of the SCIM resource representing the referenced user."
+                },
+                "displayName": {
+                  "type": "string",
+                  "description": "The referenced user's display name"
+                },
+                "employeeNumber": {
+                  "type": "string",
+                  "description": "The referenced user's employee number, if it is an Enterprise user"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The referenced user's UUID"
+                }
+              }
+            },
+            "startDate": {
+              "type": "string",
+              "description": "Start Date, in YYYY-MM-DD format"
+            },
+            "terminationDate": {
+              "type": "string",
+              "description": "Termination Date, in YYYY-MM-DD format, if the employee is terminated, this can also be used to calculate the data retention period"
+            }
+          },
+          "required": [
+            "companyId"
+          ]
+        },
+        "urn:ietf:params:scim:schemas:extension:enterprise:legacy:2.0:User": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "expense": {
+              "type": "object",
+              "description": "",
+              "properties": {
+                "enableExpenseAssistant": {
+                  "type": "string",
+                  "description": "How trip report should be created by Expense Assistant",
+                  "enum": [
+                    "Calendar",
+                    "Trip",
+                    "None"
+                  ]
+                },
+                "enablePersonalCardAutoCreate": {
+                  "type": "boolean",
+                  "description": ""
+                }
+              }
+            },
+            "identifiers": {
+              "type": "object",
+              "description": "",
+              "properties": {
+                "entityId": {
+                  "type": "string",
+                  "description": "entity_id for this CTE user"
+                },
+                "guuid": {
+                  "type": "string",
+                  "description": "OUM.guuid for this CTE.Expense user. Not set if this is not a CTE expense user"
+                },
+                "outtaskCompanyId": {
+                  "type": "integer",
+                  "description": "outtask_company.id for this CTE user. Not set if this is not a CTE user"
+                },
+                "outtaskUserId": {
+                  "type": "integer",
+                  "description": "outtask_user.user_id. Not set if this is not a CTE user"
+                }
+              }
+            },
+            "legacyRole": {
+              "type": "string",
+              "description": "",
+              "enum": [
+                "User",
+                "Boardmember",
+                "Boardmember and user",
+                "Meeting user",
+                "Webservice user",
+                "System User"
+              ]
+            },
+            "locateRoles": {
+              "type": "array",
+              "description": "external facing roles for the User for Locate",
+              "items": {
+                "type": "string"
+              }
+            },
+            "privateData": {
+              "type": "object",
+              "description": "",
+              "properties": {
+                "expense": {
+                  "type": "object",
+                  "description": "Any private info expense wants to store"
+                },
+                "expenseIt": {
+                  "type": "object",
+                  "description": "Any private info ExpenseIt wants to store"
+                },
+                "locate": {
+                  "type": "object",
+                  "description": "Any private info Locate wants to store"
+                },
+                "notifications": {
+                  "type": "object",
+                  "description": "Any private info Notifications Platform wants to store"
+                },
+                "travel": {
+                  "type": "object",
+                  "description": "Any private info travel wants to store"
+                }
+              }
+            },
+            "supplierSearchRoles": {
+              "type": "array",
+              "description": "roles for supplier search",
+              "items": {
+                "type": "string"
+              }
+            },
+            "travel": {
+              "type": "object",
+              "description": "",
+              "properties": {
+                "vacationBackupManagerId": {
+                  "type": "string",
+                  "description": "backup manager (UUID)"
+                }
+              }
+            }
+          }
+        },
+        "userName": {
+          "type": "string",
+          "description": "The name that can be used to login to CTE"
+        }
+      },
+      "required": [
+        "name",
+        "active",
+        "id",
+        "emails",
+        "userName",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+      ]
+    },
+    "Company": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "description": "A Boolean value indicating whether the company is active."
+        },
+        "addresses": {
+          "type": "array",
+          "description": "A physical mailing address for this company.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "A two-letter country code defined in ISO 3166-1 alpha-2"
+              },
+              "formatted": {
+                "type": "string",
+                "description": "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines."
+              },
+              "latitude": {
+                "type": "string",
+                "description": ""
+              },
+              "locality": {
+                "type": "string",
+                "description": "The city or locality."
+              },
+              "longitude": {
+                "type": "string",
+                "description": ""
+              },
+              "postalCode": {
+                "type": "string",
+                "description": "The zip code or postal code."
+              },
+              "region": {
+                "type": "string",
+                "description": "The state or region."
+              },
+              "streetAddress": {
+                "type": "string",
+                "description": "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines."
+              }
+            }
+          }
+        },
+        "companyDomain": {
+          "type": "string",
+          "description": "The company's company domain name"
+        },
+        "contact": {
+          "type": "object",
+          "description": "Contact information for the company.",
+          "properties": {
+            "country": {
+              "type": "string",
+              "description": "A two-letter country code defined in ISO 3166-1 alpha-2"
+            },
+            "emails": {
+              "type": "array",
+              "description": "Emails of the contact",
+              "items": {
+                "type": "string"
+              }
+            },
+            "formatted": {
+              "type": "string",
+              "description": "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines."
+            },
+            "latitude": {
+              "type": "string",
+              "description": ""
+            },
+            "locality": {
+              "type": "string",
+              "description": "The city or locality."
+            },
+            "longitude": {
+              "type": "string",
+              "description": ""
+            },
+            "name": {
+              "type": "string",
+              "description": "Contact name."
+            },
+            "phones": {
+              "type": "array",
+              "description": "Phone numbers of the contact",
+              "items": {
+                "type": "string"
+              }
+            },
+            "postalCode": {
+              "type": "string",
+              "description": "The zip code or postal code."
+            },
+            "region": {
+              "type": "string",
+              "description": "The state or region."
+            },
+            "streetAddress": {
+              "type": "string",
+              "description": "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines."
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "dataRetention": {
+          "type": "array",
+          "description": "",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for the data retention policy"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the company data retention policy"
+              },
+              "scope": {
+                "type": "string",
+                "description": "",
+                "enum": [
+                  "dataretention.concur.expense",
+                  "dataretention.concur.expense.default",
+                  "dataretention.concur.invoice",
+                  "dataretention.concur.invoice.default",
+                  "dataretention.concur.locate",
+                  "dataretention.concur.locate.default",
+                  "dataretention.concur.request",
+                  "dataretention.concur.request.default",
+                  "dataretention.concur.travel",
+                  "dataretention.concur.travel.default",
+                  "dataretention.data.sensitive"
+                ]
+              },
+              "unit": {
+                "type": "string",
+                "description": "Period of the data retention policy",
+                "enum": [
+                  "day",
+                  "month",
+                  "year"
+                ]
+              },
+              "value": {
+                "type": "integer",
+                "description": "Period of the data retention policy"
+              }
+            }
+          }
+        },
+        "defaultLanguage": {
+          "type": "string",
+          "description": "Indicates the default language for the company."
+        },
+        "entitlements": {
+          "type": "array",
+          "description": "The features enabled for the company",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Expense",
+              "Invoice",
+              "Locate",
+              "Request",
+              "Travel"
+            ]
+          }
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the company - a uuid"
+        },
+        "internetDomain": {
+          "type": "string",
+          "description": "The company's internet domain name"
+        },
+        "meta": {
+          "type": "object",
+          "description": ""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the company"
+        },
+        "notifications": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "channels": {
+              "type": "array",
+              "description": "",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Slack",
+                  "SMS",
+                  "Email",
+                  "Push"
+                ]
+              }
+            },
+            "enabled": {
+              "type": "boolean",
+              "description": ""
+            }
+          }
+        },
+        "schemas": {
+          "type": "array",
+          "description": "",
+          "items": {
+            "type": "string"
+          }
+        },
+        "urn:ietf:params:scim:schemas:extension:authentication:2.0:Company": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "loginPolicy": {
+              "type": "object",
+              "description": "",
+              "properties": {
+                "hideForgotLoginIdLink": {
+                  "type": "boolean",
+                  "description": "Hide Forgot LoginId Link"
+                },
+                "loginFailureLockoutDuration": {
+                  "type": "integer",
+                  "description": "Login Failure Lockout Duration"
+                },
+                "loginFailureWindowDuration": {
+                  "type": "integer",
+                  "description": "Login Failure Window Duration"
+                },
+                "loginFailuresAllowed": {
+                  "type": "integer",
+                  "description": "Login Failures Allowed"
+                },
+                "loginIPRestriction": {
+                  "type": "string",
+                  "description": "login IP Restriction"
+                },
+                "loginOneTimeLinkExpirationLength": {
+                  "type": "integer",
+                  "description": "Login One Time Link Expiration Length"
+                },
+                "loginViaSsoOnly": {
+                  "type": "boolean",
+                  "description": "login Via SSO Only"
+                }
+              }
+            },
+            "passwordPolicy": {
+              "type": "object",
+              "description": "",
+              "properties": {
+                "daysUntilExpiration": {
+                  "type": "integer",
+                  "description": "Number of days Until expiration"
+                },
+                "expirePasswordOnUserCreation": {
+                  "type": "boolean",
+                  "description": "Expire Password On User Creation"
+                },
+                "maxLength": {
+                  "type": "integer",
+                  "description": "Maximum length"
+                },
+                "minLength": {
+                  "type": "integer",
+                  "description": "Minimum length"
+                },
+                "mobileAuthenticationLifetime": {
+                  "type": "integer",
+                  "description": "Mobile session timeout in seconds"
+                },
+                "mobileMinLength": {
+                  "type": "integer",
+                  "description": "Min Length for Mobile"
+                },
+                "mobileRequiresMixedCase": {
+                  "type": "boolean",
+                  "description": "Require mixed cases for Mobile"
+                },
+                "mobileRequiresNonalphanum": {
+                  "type": "boolean",
+                  "description": "Require None alpha numberic for Mobile"
+                },
+                "numGenerationsBeforeCanReuse": {
+                  "type": "integer",
+                  "description": "Number of Generations Before the password can be reused"
+                },
+                "numSecurityQuestions": {
+                  "type": "integer",
+                  "description": "Number of security questions"
+                },
+                "numSecurityQuestionsUsersPick": {
+                  "type": "integer",
+                  "description": "Number of security questions users can pick"
+                },
+                "passwordResetEmailPolicy": {
+                  "type": "string",
+                  "description": "When should password reset password email shall be sent",
+                  "enum": [
+                    "never",
+                    "anyTime",
+                    "afterFirstLogin"
+                  ]
+                },
+                "passwordResetSupportEmail": {
+                  "type": "string",
+                  "description": "The FROM address of the password or PIN reset email"
+                },
+                "requiresMixedCase": {
+                  "type": "boolean",
+                  "description": "Require mixed cases"
+                },
+                "requiresNonAlpha": {
+                  "type": "boolean",
+                  "description": "Requires NonAlpha"
+                },
+                "requiresNonAlphanum": {
+                  "type": "boolean",
+                  "description": "Requires NonAlphaNum"
+                },
+                "requiresNumber": {
+                  "type": "boolean",
+                  "description": "Require numbers"
+                },
+                "requiresSecurityQuestions": {
+                  "type": "boolean",
+                  "description": "Require security questions"
+                },
+                "restrictPasswordResetOncePerDay": {
+                  "type": "boolean",
+                  "description": "restrict Password Reset Once Per Day"
+                }
+              }
+            }
+          }
+        },
+        "urn:ietf:params:scim:schemas:extension:legacy:2.0:Company": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "identifiers": {
+              "type": "object",
+              "description": "",
+              "properties": {
+                "entityId": {
+                  "type": "string",
+                  "description": "entity_id for the company"
+                },
+                "greatPlainsId": {
+                  "type": "string",
+                  "description": "GreatPlains Id for the company"
+                },
+                "outtaskCompanyId": {
+                  "type": "integer",
+                  "description": "outtask_company ID for the company"
+                },
+                "salesforceId": {
+                  "type": "string",
+                  "description": "Salesforce Id for the company"
+                }
+              }
+            },
+            "mobile": {
+              "type": "object",
+              "description": "",
+              "properties": {
+                "isHighSecurityAccount": {
+                  "type": "boolean",
+                  "description": "Whether the company is a high security account"
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "active",
+        "id"
+      ]
+    },
+    "error-response": {
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "same as HTTP status code, e.g. 400, 401, etc."
+        },
+        "schemas": {
+          "items": {
+            "type": "string",
+            "enum": [
+              "urn:ietf:params:scim:api:messages:2.0:Error"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "consumes": [
+    "application/json",
+    "application/scim+json"
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "basePath": "/profile/identity/",
+  "host": "us.api.concursolutions.com",
+  "info": {
+    "contact": {
+      "email": "profile@concur.com"
+    },
+    "version": "v4",
+    "description": "Identity APIs",
+    "license": {
+      "name": "Concur",
+      "url": "https://developer.concur.com/Terms-of-Use.html"
+    },
+    "title": "Identity APIs",
+    "termsOfService": "http://us.api.concursolutions.com/terms"
+  },
+  "paths": {
+    "/v4/users/lookup/": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userName",
+            "description": "username to find",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyId",
+            "description": "companyId that the user belongs to (used along with employeeNumber)",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "description": "user's employeeNumber (used along with companyId)",
+            "name": "employeeNumber",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "description": "successfully fetched user identity"
+          },
+          "default": {
+            "description": "Error fetching user identity",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "tags": [
+          "User"
+        ],
+        "summary": "Lookup User Identity"
+      }
+    },
+    "/v4/users/{id}/": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Replace User Identity",
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "description": "successful updation of user identity"
+          },
+          "default": {
+            "description": "error updating user identity",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "name": "id",
+            "description": "user's uuid",
+            "in": "path"
+          },
+          {
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "in": "body",
+            "name": "user",
+            "description": "the user identity to update"
+          }
+        ]
+      },
+      "get": {
+        "summary": "Fetch User Identity",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched User Identity",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "default": {
+            "description": "error fetching user identity",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "description": "user's uuid",
+            "name": "id",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Patch User Identity",
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "in": "path",
+            "description": "user's uuid",
+            "name": "id"
+          },
+          {
+            "schema": {
+              "type": "object",
+              "description": "https://tools.ietf.org/html/rfc7644#section-3.5.2"
+            },
+            "required": true,
+            "name": "patch operations",
+            "description": "patch operations to apply on the user identity",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "description": "Successfully patched User Identity"
+          },
+          "default": {
+            "description": "Error patching user identity",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        }
+      }
+    },
+    "/v4/companies/lookup/": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Company"
+            },
+            "description": "Company"
+          },
+          "default": {
+            "description": "Error fetching company",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "type": "string",
+            "required": false,
+            "in": "query",
+            "description": "company's outtaskCompanyId (one of outtaskCompanyId or entityId must be specified)",
+            "name": "outtaskCompanyId"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "in": "query",
+            "description": "company's entityId (one of outtaskCompanyId or entityId must be specified)",
+            "name": "entityId"
+          }
+        ],
+        "tags": [
+          "Company"
+        ],
+        "summary": "Lookup Company"
+      }
+    },
+    "/v4/companies/": {
+      "post": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Company"
+            },
+            "description": "Created Company"
+          },
+          "default": {
+            "description": "error creating company",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/Company"
+            },
+            "required": true,
+            "in": "body",
+            "name": "company",
+            "description": "the company to create"
+          }
+        ],
+        "summary": "Create Company",
+        "tags": [
+          "Company"
+        ]
+      }
+    },
+    "/v4/users": {
+      "post": {
+        "summary": "Create User Identity",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "created User Identity",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "default": {
+            "description": "error creating user identity",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user",
+            "description": "the user identity to create",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/v4/companies/{id}/": {
+      "put": {
+        "summary": "Replace Company",
+        "tags": [
+          "Company"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully replaced company",
+            "schema": {
+              "$ref": "#/definitions/Company"
+            }
+          },
+          "default": {
+            "description": "error updating company",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "in": "path",
+            "name": "id",
+            "description": "company's uuid"
+          },
+          {
+            "name": "company",
+            "description": "the company to update",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Company"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "in": "path",
+            "description": "Company's uuid",
+            "name": "id"
+          },
+          {
+            "required": true,
+            "schema": {
+              "description": "https://tools.ietf.org/html/rfc7644#section-3.5.2",
+              "type": "object"
+            },
+            "name": "company",
+            "description": "the company to update",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Company"
+            },
+            "description": "Updated Company"
+          },
+          "default": {
+            "description": "error patching company",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "summary": "Patch Company",
+        "tags": [
+          "Company"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "company's uuid",
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Company"
+            },
+            "description": "Company"
+          },
+          "default": {
+            "description": "error fetching company",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "tags": [
+          "Company"
+        ],
+        "summary": "Find Company by Id"
+      }
+    },
+    "/v4/schemas/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successfully fetched schema"
+          },
+          "default": {
+            "description": "error fetching schema",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "enum": [
+              "com:concur:cte:user:2.0",
+              "com:concur:cte:company:2.0"
+            ],
+            "description": "schema id",
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Get Schema"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/scim+json"
+  ],
+  "swagger": "2.0"
+}

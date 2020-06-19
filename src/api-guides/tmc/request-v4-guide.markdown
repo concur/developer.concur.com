@@ -523,7 +523,7 @@ Authorization: Bearer {{access_token}}
         <PreferredLanguage>en</PreferredLanguage>
         <HasOpenBooking>false</HasOpenBooking>
         <CountryCode>US</CountryCode>
-        <CompanyName>SAP Concur Connect TMC-130-PE</CompanyName>
+        <CompanyName>SAP Concur TMC-130-PE</CompanyName>
         <CompanyID>283423</CompanyID>
         <RuleClass>Default Travel Class</RuleClass>
         <TravelConfigID>146793</TravelConfigID>

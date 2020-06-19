@@ -41,6 +41,9 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [Request v3 Reference](/api-reference/request/v3.request.html)
   * [Request v3 Explorer](/api-explorer/v3-0/Requests.html)
   * [Request v3.1 Explorer](/api-explorer/v3-1/Requests.html)
+  * Travel Profile v1
+    * [Travel Profile v1 - Company Notification](/api-reference/travel-profile/v1.notification-company-resource.html)
+    * [Travel Profile v1 - User Notification](/api-reference/travel-profile/v1.notification-user-resource.html)
 * Travel Web Service v1
   * [Profile Resource](/api-reference/travel-profile/v1.profile-resource.html)
 * [Trip Approval v1](/api-reference/travel/trip-approval/v1.trip-approval-resource.html)
