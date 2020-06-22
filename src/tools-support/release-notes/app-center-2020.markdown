@@ -8,6 +8,7 @@ layout: reference
 * [March](#march)
 * [April](#april)
 * [May](#may)
+* [June](#june)
 
 ## <a name="january"></a>January 2020
 
@@ -332,3 +333,80 @@ Now, you can submit your business expenses to Concur Expense in the PayPay app f
 Please follow the rules provided by your organization regarding how to handle the receipt photo attached to the expense item submitted from the PayPay app and e-receipt issued by SAP Concur.
 
 PayPay works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the PayPay integration, visit [https://paypay.ne.jp/](https://paypay.ne.jp/).
+
+## <a name="june"></a>June 2020
+
+* [User Connection Apps Now Available](#user-connection-now-available-june)
+  * [PayPay](#paypay-june)
+  * [Ordit](#ordit-june)
+  * [RoadGoat](#roadgoat-june)
+* [User Connection Apps Coming Soon](#user-connection-coming-soon-june)
+
+### <a href="user-connection-now-available-may"></a>User Connection Apps Now Available
+
+### <a name="paypay-june"></a>PayPay
+
+![PayPay Logo](./app-center-2020-05-04-paypay-logo.png)
+
+PayPay enables easy and discounted payments directly from your smartphone. The PayPay mobile app can be used to pay at over 2 million locations across Japan, including convenience stores, drug stores, and restaurants. No cash or wallet required.
+
+Register in only one minute and pay with PayPay right away.
+
+Choose from three available payment methods:
+
+  * Top up from your bank account.
+  * Top up from a Seven Bank ATM.
+  * Charge to your credit card.
+
+Now, you can submit your business expenses to Concur Expense in the PayPay app for easier reimbursement. Just follow these three simple steps:
+
+1. Connect PayPay and Concur Expense.
+  * Click the "Connect" or “Login to Connect” button on this page.
+  * Follow the instructions on the screen and login to PayPay to complete the connection.
+2. Take a photo of the receipt for your purchases with PayPay.
+  * Tap on "Register Receipt" in "Transaction History" and take a photo.
+3. Confirm the details and send to Concur Expense.
+  * Check the details on payee, date, and amount, add a comment, and submit.
+  * Your transaction information, receipt image, and an electronic receipt (e-receipt) will be automatically sent to Concur Expense for easy expensing.
+
+Please follow the rules provided by your organization regarding how to handle the receipt photo attached to the expense item submitted from the PayPay app and e-receipt issued by SAP Concur.
+
+PayPay works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the PayPay integration, visit [https://paypay.ne.jp/](https://paypay.ne.jp/).
+
+### <a name="ordit-june"></a>Ordit
+
+![Ordit Logo](./app-center-2020-06-22-ordit-logo.png)
+
+Ordit has partnered with a large number of local restaurants and caterers to
+deliver the best possible food experience and cater for all cuisines, dietary
+preferences and allergens.
+
+Employees can order on-demand or pre-order in advance.
+
+Make food ordering easier than ever by connecting your Ordit profile to SAP Concur! Food order receipts will automatically be sent to Concur Expense.
+
+Get started in three simple steps:
+
+1. Click "Connect" to begin the process to link accounts.
+2. Log in to your Ordit account and agree to connect accounts.
+3. Once you’ve ordered, we’ll send you a confirmation, and you’ll either wait for your order to arrive or pick it up yourself. Your e-receipt will be automatically sent to your connected Concur Expense account.
+
+Ordit works with Expense for Concur Standard and Expense for Concur Professional.
+It is now available in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Ordit integration, visit [https://ordit.co.uk/](https://ordit.co.uk/).
+
+### <a name="roadgoat-june"></a>RoadGoat
+
+![RoadGoat Logo](./app-center-2020-06-22-roadgoat-logo.png)
+
+Connect to RoadGoat, one of the fastest-growing traveler communities in the
+world.
+
+When you’re planning your next trip, peek into RoadGoat to see who from your LinkedIn, Facebook, or Google networks are in town to grab a meal with. Tap into our travel recs for where to eat, drink, and play during your free time.
+
+Wherever you travel, RoadGoat organizes a history of all the places you’ve been. Use its interactive travel map or connect RoadGoat to Concur Travel, TripIt, social media, email, fitness trackers, and more to have your travels update automatically. Compete with friends and coworkers to see who’s been traveling the most.
+
+RoadGoat works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the RoadGoat integration, visit [https://www.roadgoat.com](https://www.roadgoat.com).
+
+## <a name="user-connection-coming-soon-june"></a>User Connection Apps Coming Soon
+
+None at this time.
