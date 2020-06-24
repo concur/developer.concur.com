@@ -45,7 +45,7 @@ This request will return a **CardCharges** parent element with a **CardCharge** 
 
 |  Element |  Description |
 | -------- | ------------ |
-|  CardNumber |  The number of the card, with all but the last four digits obscured.  |
+|  CardNumber |  The number of the card, with all digits obscured OTHER than last 4 digits.  |
 |  ExpKey |  The code for the expense type of the transaction |
 |  Merchant |  The merchant name for the transaction. |
 |  ExpName |  The name of the expense type of the transaction. |
@@ -72,7 +72,7 @@ Content-Type: application/xml
 <CardCharges
     xmlns="https://www.concursolutions.com/api/expense/expensereport/2011/03">
     <CardCharge>
-        <CardNumber>XXXXXXXX11111</CardNumber>
+        <CardNumber>XXXXXXXXX1111</CardNumber>
         <ExpKey>CARRT</ExpKey>
         <ExpName>Car Rental</ExpName>
         <Merchant>Hertz</Merchant>
@@ -81,7 +81,7 @@ Content-Type: application/xml
         <TransactionDate>2010-08-19T00:00:00</TransactionDate>
     </CardCharge>
     <CardCharge>
-        <CardNumber>XXXXXXXX11111</CardNumber>
+        <CardNumber>XXXXXXXXX1111</CardNumber>
         <ExpKey>UNDEF</ExpKey>
         <ExpName>Undefined</ExpName>
         <Merchant>King Tires</Merchant>
