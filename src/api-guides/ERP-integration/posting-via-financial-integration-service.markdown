@@ -6,6 +6,7 @@ layout: reference
 * [Learn More](#learn)
 * [Quick Connect](#quick-connect)
 * [API Sequence Flow](#sequence-flow)
+  * [FI Sequence Flow Matrix](#matrix)
   * [Expense Pay](#expense-pay)
   * [Non-Expense Pay Payment Batches (Standard Edition and S2P)](#nonexpense-pay)
 * [Imaging](#imaging)
@@ -59,7 +60,7 @@ The following are the recommended steps when you create a file based on FIS data
 
 The above steps will maintain consistency between the customer's ERP and their SAP Concur Spend Management service. If they cannot be performed due to error-handling logistics between you and customer, then you can post successes for the file content back into the SAP Concur solution. The customer will handle the errors directly with the ERP. However, their ERP and the SAP Concur data will not be in sync at this point.
 
-### FI Sequence Flow Matrix
+### <a name="matrix"></a>FI Sequence Flow Matrix
 
 The following table describes the expected events and their statuses.
 
