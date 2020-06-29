@@ -7,25 +7,25 @@ layout: reference
 
 ## Description
 
-The Hotel Services Direct Connect from Concur Connect provides a method for Travel users to access hotel inventory.
+The Hotel Services Direct Connect provides a method for Travel users to access hotel inventory.
 
-Once the hotel supplier has developed and certified their interface with Concur, their inventory will begin appearing in hotel searches by opted-in Travel users.
+Once the hotel supplier has developed and certified their interface with SAP Concur, their inventory will begin appearing in hotel searches by opted-in Travel users.
 
-This callout differs from the inbound Concur web services in the following ways:
+This callout differs from the inbound SAP Concur web services in the following ways:
 
 * It uses an outbound message where Travel calls a public facing API endpoint provided by the hotel supplier.
-* The supplier configures and maintains the public web service interface. This guide specifies the request and response format required by Concur.
+* The supplier configures and maintains the public web service interface. This guide specifies the request and response format required by SAP Concur.
 
-## Works With These Concur Products
+## Works With These SAP Concur Products
 
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
 
 ## Product Restrictions
 
-This direct connect is only available to Travel Suppliers with Hotel inventory. This direct connect is not supported in the Concur mobile application.
+This direct connect is only available to Travel Suppliers with Hotel inventory. This direct connect is not supported in the SAP Concur mobile application.
 
-Concur products are highly configurable, and not all clients will have access to all features.
+SAP Concur products are highly configurable, and not all clients will have access to all features.
 
 Partner developers must determine which configurations are required for their solution prior to the application review process.
 
@@ -33,16 +33,16 @@ Partner developers must determine which configurations are required for their so
 
 The configuration process has the following steps:
 
-1. The Hotel Supplier creates the application on their system that will accept the requests from Concur and return the appropriate responses.
-2. The Hotel Supplier creates the endpoint on their system that Concur uses to access their inventory.
-3. Concur creates a production company for the Hotel Supplier.
-4. The Hotel Supplier registers their application with Concur by logging in to their production company.
-5. Concur and the Hotel Supplier validate the application:
-    * The Hotel Supplier develops to the Concur API and provides a test system.
-    * The Hotel Supplier provides the URIs and credentials for their test system to Concur.
-    * Concur sets up the vendor in the certification systems and runs a series of tests to validate the interaction between the two systems.
-    * Once certification passes, the Hotel supplier sends Concur the production URIs and credentials.
-    * Concur updates the production servers with the supplier's production data and does a test booking. Upon successful completion, the supplier will be live in Concur for any customer to enable.
+1. The Hotel Supplier creates the application on their system that will accept the requests from SAP Concur and return the appropriate responses.
+2. The Hotel Supplier creates the endpoint on their system that SAP Concur uses to access their inventory.
+3. SAP Concur creates a production company for the Hotel Supplier.
+4. The Hotel Supplier registers their application with SAP Concur by logging in to their production company.
+5. SAP Concur and the Hotel Supplier validate the application:
+    * The Hotel Supplier develops to the SAP Concur API and provides a test system.
+    * The Hotel Supplier provides the URIs and credentials for their test system to SAP Concur.
+    * SAP Concur sets up the vendor in the certification systems and runs a series of tests to validate the interaction between the two systems.
+    * Once certification passes, the Hotel supplier sends SAP Concur the production URIs and credentials.
+    * SAP Concur updates the production servers with the supplier's production data and does a test booking. Upon successful completion, the supplier will be live in SAP Concur for any customer to enable.
 6. The Travel client opts in to the Hotel callout (within the Travel Configuration) to allow their users to view and book the available inventory.
 
 Once the configuration is complete, the callout uses the following process:
@@ -88,15 +88,15 @@ https://{servername}/concur/hotel/HotelAvail/v1/
 
 ## Security
 
-Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.
+SAP Concur will make calls to the application connector's endpoint using SSL. During configuration, SAP Concur will connect to the application connector to validate that its hostname and access credentials are valid.
 
-Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.
+SAP Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before SAP Concur can access the connector.
 
-Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that Concur will send to the supplier's system for each message.
+SAP Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that SAP Concur will send to the supplier's system for each message.
 
 ## Outbound Messages
 
-The Concur outbound message format is based upon a subset of the OTA2011B hotel standard. Please refer to the Function links below for the details of the request and response format.
+The SAP Concur outbound message format is based upon a subset of the OTA2011B hotel standard. Please refer to the Function links below for the details of the request and response format.
 
 Please note the following general information about this format:
 
@@ -125,15 +125,15 @@ Please note the following general information about this format:
 
 ###  Concur Travel Configuration
 
-The Travel clients opt in to the Hotel inventory using a setting in the Travel Configuration. Clients must contact Concur to have this setting activated.
+The Travel clients opt in to the Hotel inventory using a setting in the Travel Configuration. Clients must contact SAP Concur to have this setting activated.
 
 ###  Versioning
 
-In most cases, new versions of Hotel Services will involve adding support for various optional nodes and attributes in the OTA standards. These changes will be backwards compatible and should not require any mandatory changes and hotel suppliers will be upgrade automatically. In the situation where a change is implemented which cannot be made backwards compatible, suppliers will need to upgrade the Hotel Services interface by and provide a new set of hotel URIs. Concur recommends that the version of the interface be part of the hotel URI provided by the hotel suppliers.
+In most cases, new versions of Hotel Services will involve adding support for various optional nodes and attributes in the OTA standards. These changes will be backwards compatible and should not require any mandatory changes and hotel suppliers will be upgrade automatically. In the situation where a change is implemented which cannot be made backwards compatible, suppliers will need to upgrade the Hotel Services interface by and provide a new set of hotel URIs. SAP Concur recommends that the version of the interface be part of the hotel URI provided by the hotel suppliers.
 
 ###  Certification
 
-The certification process will start once the vendor has completed their integration with the Concur certification systems. Certification consists of running through several use cases on the certification servers and validating that in each scenario the correct response is sent. Typically, most potential issues are being worked out during the integration process and certification can be accomplished in a day or two. An example of a use case during certification would be a user searching and booking a property several months out, viewing an itinerary, changing the dates of the property, and then cancelling the reservation.
+The certification process will start once the vendor has completed their integration with the SAP Concur certification systems. Certification consists of running through several use cases on the certification servers and validating that in each scenario the correct response is sent. Typically, most potential issues are being worked out during the integration process and certification can be accomplished in a day or two. An example of a use case during certification would be a user searching and booking a property several months out, viewing an itinerary, changing the dates of the property, and then cancelling the reservation.
 
 ###  Responses and Errors
 

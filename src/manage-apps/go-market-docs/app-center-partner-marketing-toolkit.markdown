@@ -34,8 +34,8 @@ Learn best practices for marketing your app and interact directly with the App C
 
  * **Date:** Office hours take place the first Tuesday of each month.
  * **Time:** 8:30-9:00 AM PST
- * **Toll-free:** +1-866-668-0721, PIN: 841-399-7618
- * **WebEx Link:** [https://concur.webex.com/meet/concur_AppCenter](https://concur.webex.com/meet/concur_AppCenter)
+ * **Zoom Link:** [https://zoom.us/j/6309448684?pwd=NTFnNTBrQzhCRllzR3VIME5hc3o5UT09](https://zoom.us/j/6309448684?pwd=NTFnNTBrQzhCRllzR3VIME5hc3o5UT09)
+ * **Room ID:** 630 944 8684, Meeting Password: 8M5YvT
 
 Or email us at [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com).
 
@@ -113,7 +113,7 @@ After signing the partner agreement, you can use the “SAP Concur Partner” fo
 
 ### <a name="font-treatment-download-links"></a>Download links
 
-* Download the ”SAP Concur Partner” font treatment [here](https://partnerportal.concur.com/ResourceFiles/9792e786-76bc-4fc8-9c01-c9f614818267.pdf).
+* Download the ”SAP Concur Partner” font treatment [here](https://partnerportal.concur.com/ResourceFiles/a9829671-fc33-49fc-9533-d76eea817e65.zip).
 * Download the ”SAP Concur Partner App Center” font treatment [here](https://partnerportal.concur.com/ResourceFiles/4b304699-930f-4831-a733-a000fd97f34f.zip).
 * Queen’s English “App Centre” spelling available [here](https://partnerportal.concur.com/ResourceFiles/89923fd9-ffc6-4912-877d-6185ee5fe3b2.zip).
 
@@ -129,7 +129,7 @@ Acceptable|Branding
 
 ### <a name="font-treatment-using-trademark-symbols"></a>Using trademark symbols
 
-Include the registered trademark symbol “®” on the terms “SAP” and “Concur” (SAP® Concur®) at firstmention in headlines and text. You do not need to include trademark symbols for Webor mobile sites or on projection screens.
+Include the registered trademark symbol “®” on the terms “SAP” and “Concur” (SAP® Concur®) at first mention in headlines and text. You do not need to include trademark symbols for Web or mobile sites or on projection screens.
 
 ### <a name="font-treatment-clear-space"></a>Clear Space
 
@@ -219,7 +219,7 @@ The following guidelines are designed to make the approval process easier:
 * Please use the press release template provided to you in this toolkit.
 * For Non-U.S. templates, please email [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com) to request the template for your specific region.
 * No press release will cross the wire without approval from both SAP Concur and participating partner.
-* All press releases must adhere to SAP Concur’s brand standards.
+* All press releases must adhere to SAP Concur brand standards.
 * Please allow a minimum of 10 business days for approval of any press release.
 * Send your draft press release to App Center Marketing for review and management of the SAP Concur PR approval process.
 * Your application must be live in the App Center prior to issuing a press release.

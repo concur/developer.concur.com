@@ -3,8 +3,6 @@ title: Budget v4 - Getting Started
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 ## Menu
 
 * [Getting Started](./getting-started.html)
@@ -25,12 +23,10 @@ layout: reference
 
 ## <a name="overview"></a>Overview
 
-The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration.
+The Budget service exposes budget and fiscal year data.  Partners and clients may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration.
 Summary and detailed balance amounts are also available to read, but may not be altered via the API.
 
-The sequence to configure budgets is to first setup the fiscal year and then the budget categories (if applicable) before creating budget items.
-Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application UI. Also budget owner,
-approver and budget viewer permissions have to be assigned to users prior to configuring budgets.
+The sequence to configure budgets is to first setup the fiscal year and then the budget categories (if applicable) before creating budget items. Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application UI. Also budget owner, approver, and budget viewer permissions have to be assigned to users prior to configuring budgets.
 
 ## Process Flow
 
@@ -56,16 +52,9 @@ Name|Description|Endpoint
 `fiscalcalendar.read`|Grants read access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year
 `fiscalcalendar.write`|Grants read and write access to the fiscal calendar.|GET All Fiscal Years, GET a Fiscal Year, POST a Fiscal Year, DELETE a Fiscal Year
 
-This API uses this optional scope:
-
-Name|Description|Endpoint
----|---|---
-`LIST` |GET List Items, necessary for budget tracking value `listKey` if using list fields for budget tracking. |POST Budget Item
-
 ## <a name="dependencies"></a>Dependencies
 
-SAP Concur clients must purchase Budget in order to use this API. The developer may use the following SAP Concur API to get optional information:
-* List Item v3.0, to retrieve the budget tracking value `listKey`
+SAP Concur clients must purchase Budget in order to use this API.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
