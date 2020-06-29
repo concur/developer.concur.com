@@ -64,7 +64,7 @@ The above steps will maintain consistency between the customer's ERP and their S
 
 The following table describes the expected events and their statuses.
 
-**Sequence**|**Expected Event**|**Concur Expense Payment Status**|**FIS Posting Document Status**|**ERP**|**FIS**
+Sequence|Expected Event|Concur Expense Payment Status|FIS Posting Document Status|ERP|FIS
 ----|----|----|----|----|----
 1|Report is submitted by user and enters workflow| Submitted/Not Paid| Doesn’t exist| Doesn’t exist| NA
 2|Report is “final approved” in Processor workflow step| Processing Payment| Queued and Ready| Doesn’t exist| NA
