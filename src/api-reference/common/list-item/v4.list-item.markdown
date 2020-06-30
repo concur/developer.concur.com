@@ -1,0 +1,182 @@
+---
+title: List Item v4
+layout: reference
+---
+
+{% include prerelease.html %}
+
+The SAP Concur List Item API provides an automated solution to clients who would like to retrieve and add list items. Use of the API is subject to some limitations on the volume of List data. You may need to manage the initial load of large volumes of data via a file import due to capacity limitations. This is also true if ongoing maintenance of List values involves a large volume.
+
+* [Process Flow](#process-flow)
+* [Products and Editions](#products-editions)
+* [Access Token Usage](#access-token-usage)
+* [Scope Usage](#scope-usage)
+* [Retrieve List Items by ID](#get-list-item-ID)
+* [Create a List Item](#post-list-item)
+* [Update a List Item](#put-list-item)
+* [Retrieve Children of a List Item](#children-list-item-ID)
+* [Schema](#schema)
+  * [Schema One](#schema-one)
+  * [Schema Two](#schema-two)
+  * [Error](#schema-error)
+
+## Prior Versions
+
+* List Items v3 documentation is available [here](https://developer.concur.com/api-reference/common/list-item/v3.list-item.html)
+* Deprecated List Items v1 documentation is available [here](https://developer.concur.com/api-reference/common/list-item/v1.list-item.html)
+
+## <a name="process-flow"></a>Process Flow
+
+**Editing note: is this needed?**
+
+## <a name="products-editions"></a>Products and Editions
+
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+* Concur Invoice Professional Edition
+* Concur Invoice Standard Edition
+* Concur Request Professional Edition
+* Concur Request Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Name|Description|Endpoint
+---|---|---
+`spend.listitem.read`|Read-only access to spend list items|GET
+`spend.listitem.write`|Read and write access to spend list items|GET, POST, PUT 
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens. The user access token is authenticated on scope and user role, the user must be an Expense, Invoice, Shared or Request Configuration Administrator in order to perform POST and PUT actions.
+**Editing note:** HOW MUCH SHOULD WE INCLUDE HERE? More detailed info at https://github.concur.com/expense-services/list-service/wiki/Authentication
+
+## <a name="get-list-item-ID"></a>Retrieve List Items by ID
+
+`GET /list/v4/items/{itemId}`
+
+Retrieve a list item by ID.
+
+
+##### Parameters
+
+| Name        |Type|  Description           |
+| :- |:-| :-| 
+| Accept-Language | String|  **Optional:** Language code; default value: en | 
+| company-uuid | String | **Optional:** Company UUID of the user (Used for x509 authorization) |
+| concur-correlationid | String | **Optional:** The unique identifier of the consumer making the API calls. Minimum length: 6 characters. | 
+| concur-uid | String | **Optional:** Concur Employee UUID of the caller (Used for x509 authorization) | 
+| listItem | String |  **Required:** The unique identifier of the list item (SYNC_GUID) | 
+
+#### Headers
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+
+## <a name="post-list-item"></a>Create a List Item
+
+`POST /list/v4/items`
+
+Create a list item with the provided request body.
+
+##### Parameters
+
+| Name        |Type|  Description           |
+| :- |:-| :-| 
+| Accept-Language | String|  **Optional:** Language code; default value: en | 
+| company-uuid | String | **Optional:** Company UUID of the user (Used for x509 authorization) |
+| concur-correlationid | String | **Optional:** The unique identifier of the consumer making the API calls. Minimum length: 6 characters. | 
+| concur-uid | String | **Optional:** Concur Employee UUID of the caller (Used for x509 authorization) | 
+| listItem | |  **Required:** List Item object that is created for the company | 
+
+#### Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+## <a name="put-list-item"></a>Update a List Item
+
+`PUT /list/v4/items/{itemId}`
+
+Update a list item with provided request body.
+
+##### Parameters
+
+| Name        |Type|  Description           |
+| :- |:-| :-| 
+| Accept-Language | String|  **Optional:** Language code; default value: en | 
+| company-uuid | String | **Optional:** Company UUID of the user (Used for x509 authorization) |
+| concur-correlationid | String | **Optional:** The unique identifier of the consumer making the API calls. Minimum length: 6 characters. | 
+| concur-uid | String | **Optional:** Concur Employee UUID of the caller (Used for x509 authorization) | 
+| itemId | |  **Required:** The unique identifier of the list item (SYNC_GUID) | 
+| listItem | |  **Required:** List Item object that is created for the company | 
+
+#### Headers
+
+**TO DO:** Delete unused headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+
+## <a name="children-list-item-ID"></a>Retrieve Children of a List Item
+Allows you to retrive children for a given list item.
+
+`GET /list/v4/items/{itemId}/children`
+
+
+##### Parameters
+
+| Name        |Type|  Description           |
+| :- |:-| :-| 
+| Accept-Language | String|  **Optional:** Language code; default value: en | 
+| company-uuid | String | **Optional:** Company UUID of the user (Used for x509 authorization) |
+| concur-correlationid | String | **Optional:** The unique identifier of the consumer making the API calls. Minimum length: 6 characters. | 
+| concur-uid | String | **Optional:** Concur Employee UUID of the caller (Used for x509 authorization) | 
+| endDate | String | **Optional:** Filter capabilities for EndDate. | 
+| hasChildren | Boolean | **Optional:** Shows items with children | 
+| isDeleted | Boolean | **Optional:** Shows deleted items |
+| itemId  | String | **Required:** The unique identifier of the list item (SYNC_GUID) | 
+| page | Integer | **Optional:** Page number starting from 1. Default value: 1. |
+| shortCode | String | **Optional:** Filter capabilities for ShortCode.|
+| shortCodeOrValue | String | **Optional:** Filter capabilities for Value OR ShortCode.  |
+| sortBy | String | **Optional:** Field to sort by, {value, shortcode}. Default value: value. |
+| sortDirection | String | **Optional:** Sort direction, {asc, desc} |
+| startDate | String | **Optional:** Filter capabilities for StartDate. |
+| value | String | **Optional:** Filter capabilities for Value. |
+
+
+
+#### Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+
+
+## <a name="schema"></a>Schema
+
+### <a name="schema-one"></a>Schema One
+
+Name|Type|Format|Description
+---|---|---|---
+
+
+### <a name="schema-two"></a>Schema Two
+
+Name|Type|Format|Description
+---|---|---|---
+
+
+### <a name="schema-error"></a>Error
+
+Name|Type|Format|Description
+---|---|---|---
+
