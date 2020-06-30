@@ -41,8 +41,7 @@ The [V1 of Launch External URL](https://developer.concur.com/api-reference/callo
 
 
 ## <a name="process-flow"></a>Process Flow
-
-**Have image -- to be added**
+![Process Flow for Launch External Service](./launch-external-url-v4.png)
 
 ## <a name="products-editions"></a>Products and Editions
 * Concur Expense Professional Edition (Next Gen UI  web-based or mobile)
