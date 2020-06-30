@@ -137,14 +137,14 @@ Notes:
 Refer to the [HTTP Codes](https://developer.concur.com/api-reference/http-status-codes.html) page for details of the common responses and errors.  
 
 
-## <a name="app-connector"></a># Application Connector Management
+## <a name="app-connector"></a>Application Connector Management
 
 SAP Concur administrators use the Manage Application Connectors link on the Web Services page under Administration to register, test and enable application connectors.
 
 Information on how to download, install, and configure the application connector is included in Callouts and Application Connectors.
 
 
-## <a name="config-leu"></a>## Configure Launch External URL - V4 Service
+## <a name="config-leu"></a>Configure Launch External URL - V4 Service
 
  
 
@@ -168,7 +168,7 @@ Information on how to download, install, and configure the application connector
 8. Click Save on the top tab left side, to return to the Application Connector Registration page.
 
 
-## <a name="leu-field-config"></a># Launch External URL Form Field Configuration
+# <a name="leu-field-config"></a>Launch External URL Form Field Configuration
 
 Create a new form field with the Launch External URL control type
 
