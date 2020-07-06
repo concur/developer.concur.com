@@ -6,6 +6,7 @@ layout: reference
 * [Learn More](#learn)
 * [Quick Connect](#quick-connect)
 * [API Sequence Flow](#sequence-flow)
+  * [FI Sequence Flow Matrix](#matrix)
   * [Expense Pay](#expense-pay)
   * [Non-Expense Pay Payment Batches (Standard Edition and S2P)](#nonexpense-pay)
 * [Imaging](#imaging)
@@ -35,6 +36,8 @@ FIS has these benefits over the Extract file process:
   * ERP partners have the ability to post a payment status of reports into SAP Concur solutions (Expense only at this time).
   *	Expense Pay customers who use FIS only reimburse reports that have been successfully posted into their ERP. Conversely, reports processed using the SAE/extract file process have reimbursements sent to the bank independent of the customer’s financial posting.
 
+  To see the mapping of extract files vs. FIS, review the [Standard Accounting Extract (SAE)](/ERP-integration/standard-accounting-extract-expense.xlsx) and/or [Payment Request Accounting Extract (PRAE)](/ERP-integration/payment-request-accounting-extract-invoice.xlsx) files.
+
 ## <a name="quick-connect"></a>Quick Connect
 
 Quick Connect describes the process customers use to connect their SAP Concur site with an App Center Partner’s Enterprise application. See the separate [Quick Connect](/ERP-integration/quick-connect-scope-for-enterprise-apps.html) scope document for details to guide you through the development of this required piece to your certified application.
@@ -56,6 +59,22 @@ The following are the recommended steps when you create a file based on FIS data
 1. You will re-try your file without the rejected reports. Upon 100% successful import of the remaining reports, you will post successful statuses of those reports back into the SAP Concur solution via FIS.
 
 The above steps will maintain consistency between the customer's ERP and their SAP Concur Spend Management service. If they cannot be performed due to error-handling logistics between you and customer, then you can post successes for the file content back into the SAP Concur solution. The customer will handle the errors directly with the ERP. However, their ERP and the SAP Concur data will not be in sync at this point.
+
+### <a name="matrix"></a>FI Sequence Flow Matrix
+
+The following table describes the expected events and their statuses.
+
+Sequence|Expected Event|Concur Expense Payment Status|FIS Posting Document Status|ERP|FIS
+----|----|----|----|----|----
+1|Report is submitted by user and enters workflow| Submitted/Not Paid| Doesn’t exist| Doesn’t exist| NA
+2|Report is “final approved” in Processor workflow step| Processing Payment| Queued and Ready| Doesn’t exist| NA
+3| ERP calls FIS for “ready” posting documents| Processing Payment| Queued and Ready| Received| GET financial documents
+4| ERP calls FIS to acknowledge documents retrieved| Processing Payment| Acknowledged| Acknowledged| POST acknowledge financial documents
+5|ERP Sends Posting Feedback - Failed| Financial Posting Failed| Posting Failed| Posting Failed| POST Posting Feedback
+6| Processor Recalls Report for Posting Corrections| Not Paid| Posting Failed| Posting Failed| N/A
+7| Report is re-submitted with corrections and re-enters workflow (steps 1-4 repeat)| Submitted/Not Paid| Posting Failed| Posting Failed| N/A
+8| ERP Sends Posting Feedback – Success| Paid| Posting Success| Posting Success | POST Posting Feedback
+9| ERP Sends Payment Feedback (Optional)| Payment Confirmed| Payment Confirmed| Paid | POST Payment Confirmation
 
 ### <a name="expense-pay"></a>Expense Pay
 
