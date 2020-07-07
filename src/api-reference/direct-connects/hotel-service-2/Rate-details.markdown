@@ -1,5 +1,5 @@
 ---
-title: Direct Connect - Hotel v2 - Availability
+title: Direct Connect - Hotel v2 - Rate Details
 layout: reference
 ---
 
