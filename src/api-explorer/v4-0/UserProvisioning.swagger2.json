@@ -88,36 +88,36 @@
           "type" : "string"
         },
         "dateVerified" : {
-          "description" : "The date and time the email was verified",
+          "description" : "The date and time the email was verified.",
           "type" : "string"
         },
         "display" : {
-          "description" : "A human-readable email address.",
+          "description" : "Display name for an email address.",
           "type" : "string"
         },
         "id" : {
-          "description" : "Unique identifier for the emails.",
+          "description" : "Unique identifier for the email.",
           "type" : "string"
         },
         "notifications" : {
-          "description" : "Notifications opt-in for emails",
+          "description" : "Opt-in notifications for email.",
           "type" : "boolean"
         },
         "primary" : {
-          "description" : "A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred mailing address or primary email address.  The primary attribute value 'true' MUST appear no more than once.",
+          "description" : "If true, this will be the preferred mailing address or primary email address. May not appear more than once.",
           "type" : "boolean"
         },
         "type" : {
-          "description" : "A label indicating the attribute's function, e.g., 'Work' or 'Home'.",
+          "description" : "A label indicating the attribute's function. Examples: Work, Home",
           "enum" : [ "Work", "Home", "Other", "Other2", "Work2", "SMS" ],
           "type" : "string"
         },
         "value" : {
-          "description" : "Email address value",
+          "description" : "Email address value.",
           "type" : "string"
         },
         "verified" : {
-          "description" : "flag to note which email has been verified by the user.",
+          "description" : "If true, the email has been verified by the user.",
           "type" : "boolean"
         }
       },
@@ -129,22 +129,22 @@
       "description" : "",
       "properties" : {
         "companyId" : {
-          "description" : "Concur ID of the company",
+          "description" : "SAP Concur ID of the company.",
           "type" : "string"
         },
         "costCenter" : {
-          "description" : "employee cost center for product",
+          "description" : "Employee cost center for product.",
           "type" : "string"
         },
         "dataRetention" : {
           "description" : "",
           "properties" : {
             "isDoNotTouch" : {
-              "description" : "Whether we should delete user record or not, according to the user's data retention policies.",
+              "description" : "If true, the user record will be deleted according to the user's data retention policies.",
               "type" : "boolean"
             },
             "policyIds" : {
-              "description" : "User's active data retention policy Ids.",
+              "description" : "User's active data retention policy IDs.",
               "items" : {
                 "type" : "string"
               },
@@ -154,19 +154,19 @@
           "type" : "object"
         },
         "department" : {
-          "description" : "Client supplied department name",
+          "description" : "Department name, as supplied by the user.",
           "type" : "string"
         },
         "division" : {
-          "description" : "Client supplied division name",
+          "description" : "Division name, as supplied by the user.",
           "type" : "string"
         },
         "employeeNumber" : {
-          "description" : "Client supplied employee's number within the company, unique for the company",
+          "description" : "Unique employee number.",
           "type" : "string"
         },
         "entitlements" : {
-          "description" : "The features enabled for the user",
+          "description" : "The features enabled for the user.",
           "items" : {
             "enum" : [ "Expense", "Invoice", "Locate", "Request", "Travel" ],
             "type" : "string"
@@ -174,67 +174,67 @@
           "type" : "array"
         },
         "jobTitle" : {
-          "description" : "user's job title in the company",
+          "description" : "User's job title.",
           "type" : "string"
         },
         "manager" : {
-          "description" : "The manager of this user",
+          "description" : "The manager of this user.",
           "properties" : {
             "$ref" : {
               "description" : "The URI of the SCIM resource representing the referenced user.",
               "type" : "string"
             },
             "displayName" : {
-              "description" : "The referenced user's display name",
+              "description" : "The referenced user's display name.",
               "type" : "string"
             },
             "employeeNumber" : {
-              "description" : "The referenced user's employee number, if it is an Enterprise user",
+              "description" : "The referenced user's employee number, if it is an Enterprise user.",
               "type" : "string"
             },
             "value" : {
-              "description" : "The referenced user's UUID",
+              "description" : "The referenced user's UUID.",
               "type" : "string"
             }
           },
           "type" : "object"
         },
         "orgUnit" : {
-          "description" : "Client supplied org unit name",
+          "description" : "Organization unit name, as supplied by the user.",
           "type" : "string"
         },
         "organization" : {
-          "description" : "Company name",
+          "description" : "Company name.",
           "type" : "string"
         },
         "self" : {
-          "description" : "A reference to this user",
+          "description" : "Reference to user.",
           "properties" : {
             "$ref" : {
               "description" : "The URI of the SCIM resource representing the referenced user.",
               "type" : "string"
             },
             "displayName" : {
-              "description" : "The referenced user's display name",
+              "description" : "The referenced user's display name.",
               "type" : "string"
             },
             "employeeNumber" : {
-              "description" : "The referenced user's employee number, if it is an Enterprise user",
+              "description" : "The referenced user's employee number, if it is an Enterprise user.",
               "type" : "string"
             },
             "value" : {
-              "description" : "The referenced user's UUID",
+              "description" : "The referenced user's UUID.",
               "type" : "string"
             }
           },
           "type" : "object"
         },
         "startDate" : {
-          "description" : "Start Date, in YYYY-MM-DD format",
+          "description" : "Start date. Format: YYYY-MM-DD",
           "type" : "string"
         },
         "terminationDate" : {
-          "description" : "Termination Date, in YYYY-MM-DD format, if the employee is terminated, this can also be used to calculate the data retention period",
+          "description" : "Termination date. Format: YYYY-MM-DD",
           "type" : "string"
         }
       },
@@ -242,44 +242,44 @@
       "type" : "object"
     },
     "Name" : {
-      "description" : "The user's name",
+      "description" : "The user's name.",
       "properties" : {
         "familyName" : {
-          "description" : "The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III').",
+          "description" : "The family name or last name of the user.",
           "type" : "string"
         },
         "formatted" : {
-          "description" : "The full name, including all middle names, title, and suffixes as appropriate, formatted for display (e.g., 'Ms. Barbara J Jensen, III').",
+          "description" : "The full name, including all middle names, title, and suffixes as appropriate. Example: Ms. Barbara J Jensen, III.",
           "type" : "string"
         },
         "givenName" : {
-          "description" : "The given name of the User, or first name in most Western languages (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III').",
+          "description" : "The given or first name of the user.",
           "type" : "string"
         },
         "hasNoMiddleName" : {
-          "description" : "A boolean indicating that the user does not have a middle name",
+          "description" : "If true, the user does not have a middle name.",
           "type" : "boolean"
         },
         "honorificPrefix" : {
-          "description" : "The honorific prefix(es) of the User, or title in most Western languages (e.g., 'Ms.' given the full name 'Ms. Barbara J Jensen, III').",
+          "description" : "The honorific prefix(es) of the user.",
           "enum" : [ "Miss", "Mr", "Mrs", "Ms", "Mx", "B.A.", "B.Sc.", "CPA", "D.D.", "D.D.S.", "D.P.S.", "Dr", "Dr Mr", "Dr Mrs", "Dr Ms", "Eng.", "Ing.", "Lady", "Lord", "M.D.", "MBA", "P.Eng.", "Ph.D", "Ph.D.", "Prof", "Prof Dr", "Prof Dr Mr", "Prof Dr Mrs", "Prof Dr Ms", "Prof Mr", "Prof Mrs", "Prof Ms", "Rev", "Sir" ],
           "type" : "string"
         },
         "honorificSuffix" : {
-          "description" : "The honorific suffix(es) of the User, or  suffix in most Western languages (e.g., 'III' given the full name  'Ms. Barbara J Jensen, III').",
+          "description" : "The honorific suffix(es) of the user.",
           "enum" : [ "Jr.", "Sr.", "I", "II", "III", "IV", "V", "VI" ],
           "type" : "string"
         },
         "legalName" : {
-          "description" : "The legal name of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III').",
+          "description" : "The legal name of the user.",
           "type" : "string"
         },
         "middleInitial" : {
-          "description" : "middle initial, if the user has a middle name",
+          "description" : "Middle initial, if the user has a middle name.",
           "type" : "string"
         },
         "middleName" : {
-          "description" : "The middle name(s) of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III').",
+          "description" : "The middle name(s) of the user.",
           "type" : "string"
         }
       },
@@ -510,23 +510,23 @@
     "User" : {
       "properties" : {
         "active" : {
-          "description" : "A Boolean value indicating whether the User is active.",
+          "description" : "If true, the user is active.",
           "type" : "boolean"
         },
         "addresses" : {
-          "description" : "A physical mailing address for this User. Canonical type values of 'work', 'home', and 'other'. This attribute is a complex type with the following sub-attributes.",
+          "description" : "A physical mailing address for the user.",
           "items" : {
             "properties" : {
               "country" : {
-                "description" : "A two-letter country code defined in ISO 3166-1 alpha-2",
+                "description" : "A two-letter country code defined in ISO 3166-1 Alpha-2.",
                 "type" : "string"
               },
               "formatted" : {
-                "description" : "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines.",
+                "description" : "The full mailing address, formatted for display or use with a mailing label.",
                 "type" : "string"
               },
               "id" : {
-                "description" : "Unique identifier for the User's physical addresses.",
+                "description" : "Unique identifier for the user's physical addresses.",
                 "type" : "string"
               },
               "latitude" : {
@@ -550,11 +550,11 @@
                 "type" : "string"
               },
               "streetAddress" : {
-                "description" : "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines.",
+                "description" : "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.",
                 "type" : "string"
               },
               "type" : {
-                "description" : "A label indicating the function of the address, e.g., 'work' or 'home'.",
+                "description" : "A label indicating the function of the address. Example: Work, Home",
                 "enum" : [ "Work", "Home", "Other", "Billing", "Bank", "Shipping" ],
                 "type" : "string"
               }
@@ -564,37 +564,37 @@
           "type" : "array"
         },
         "dateOfBirth" : {
-          "description" : "The user's date of birth , in YYYY-MM-DD format",
+          "description" : "The user's date of birth. Format: YYYY-MM-DD",
           "type" : "string"
         },
         "displayName" : {
-          "description" : "The name of the User, suitable for display  to end-users.  The name SHOULD be the full name of the User being  described, if known.",
+          "description" : "The name of the user, suitable for display. This name should be the full name of the user.",
           "type" : "string"
         },
         "emails" : {
-          "description" : "Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.",
+          "description" : "Email addresses for the user. The value should be canonicalized by the service provider.",
           "items" : {
             "$ref" : "#/definitions/Email"
           },
           "type" : "array"
         },
         "emergencyContacts" : {
-          "description" : "Emergency Contact information for the User.",
+          "description" : "Emergency contact information for the user.",
           "items" : {
             "properties" : {
               "country" : {
-                "description" : "A two-letter country code defined in ISO 3166-1 alpha-2",
+                "description" : "A two-letter country code defined in ISO 3166-1 Alpha-2.",
                 "type" : "string"
               },
               "emails" : {
-                "description" : "Emails of the contact",
+                "description" : "Emails of the contact.",
                 "items" : {
                   "type" : "string"
                 },
                 "type" : "array"
               },
               "formatted" : {
-                "description" : "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines.",
+                "description" : "The full mailing address, formatted for display or use with a mailing label.",
                 "type" : "string"
               },
               "latitude" : {
@@ -614,7 +614,7 @@
                 "type" : "string"
               },
               "phones" : {
-                "description" : "Phone numbers of the contact",
+                "description" : "Phone numbers of the contact.",
                 "items" : {
                   "type" : "string"
                 },
@@ -634,7 +634,7 @@
                 "type" : "string"
               },
               "streetAddress" : {
-                "description" : "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines.",
+                "description" : "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.",
                 "type" : "string"
               }
             },
@@ -644,83 +644,83 @@
           "type" : "array"
         },
         "externalClient" : {
-          "description" : "The provisioning Client that generates the externalId",
+          "description" : "The provisioning client that generates the externalID.",
           "enum" : [ "Concur.Travel", "Concur.ProvisioningService", "SAP.WBS", "Microsoft.AzureAD", "Okta" ],
           "type" : "string"
         },
         "externalId" : {
-          "description" : "User identifilier from the provisioning client",
+          "description" : "User identifilier from the provisioning client.",
           "type" : "string"
         },
         "gender" : {
-          "description" : "The user's gender",
+          "description" : "The user's gender.",
           "enum" : [ "Male", "Female", "Others" ],
           "type" : "string"
         },
         "id" : {
-          "description" : "Unique identifier for the user - a uuid",
+          "description" : "Unique identifier for the user.",
           "format" : "uuid",
           "type" : "string"
         },
         "localeOverrides" : {
-          "description" : "Support for users who want to override locale settings",
+          "description" : "Support for users who want to override locale settings.",
           "properties" : {
             "preference24Hour" : {
-              "description" : "preferred 24 hour format for the user",
+              "description" : "Preferred 24 hour format for the user.",
               "enum" : [ "h:mm AM/PM", "H:mm" ],
               "type" : "string"
             },
             "preferenceCurrencySymbolLocation" : {
-              "description" : "preferred currency symbol location for the user",
+              "description" : "Preferred currency symbol location for the user.",
               "enum" : [ "BeforeAmount", "AfterAmount" ],
               "type" : "string"
             },
             "preferenceDateFormat" : {
-              "description" : "preferred date format for the user",
+              "description" : "Preferred date format for the user.",
               "enum" : [ "mm/dd/yyyy", "mm.dd.yyyy", "mm-dd-yyyy", "dd/mm/yyyy", "dd.mm.yyyy", "dd-mm-yyyy", "yyyy/mm/dd", "yyyy.mm.dd", "yyyy-mm-dd" ],
               "type" : "string"
             },
             "preferenceDefaultCalView" : {
-              "description" : "preferred default calendar view for the user",
+              "description" : "Preferred default calendar view for the user.",
               "enum" : [ "day", "week", "month" ],
               "type" : "string"
             },
             "preferenceDistance" : {
-              "description" : "preferred distance metric",
+              "description" : "Preferred distance metric.",
               "enum" : [ "mile", "km" ],
               "type" : "string"
             },
             "preferenceEndDayViewHour" : {
-              "description" : "preferred hour setting for the end of day, 0-23",
+              "description" : "Preferred hour setting for the end of day. Supported values: 0-23",
               "type" : "integer"
             },
             "preferenceFirstDayOfWeek" : {
-              "description" : "preferred first day of the week for the user",
+              "description" : "Preferred first day of the week for the user.",
               "enum" : [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
               "type" : "string"
             },
             "preferenceHourMinuteSeparator" : {
-              "description" : "preferred separator between hour and minute",
+              "description" : "Preferred separator between hour and minute.",
               "enum" : [ ":", "." ],
               "type" : "string"
             },
             "preferenceNegativeCurrencyFormat" : {
-              "description" : "preferred negative currency format for the user",
+              "description" : "Preferred negative currency format for the user.",
               "enum" : [ "-100", "(100)" ],
               "type" : "string"
             },
             "preferenceNegativeNumberFormat" : {
-              "description" : "preferred negative number format for the user",
+              "description" : "Preferred negative number format for the user.",
               "enum" : [ "-100", "(100)" ],
               "type" : "string"
             },
             "preferenceNumberFormat" : {
-              "description" : "preferred number format for the user",
+              "description" : "Preferred number format for the user.",
               "enum" : [ "1,000.00", "1.000,00", "1 000,00", "1'000.00", "1'000,00" ],
               "type" : "string"
             },
             "preferenceStartDayViewHour" : {
-              "description" : "preferred start of day for the user, from 1",
+              "description" : "Preferred start of day for the user.",
               "type" : "integer"
             }
           },
@@ -734,27 +734,27 @@
           "$ref" : "#/definitions/Name"
         },
         "nickName" : {
-          "description" : "The casual way to address the user in real  life, e.g., 'Bob' or 'Bobby' instead of 'Robert'.  This attribute  SHOULD NOT be used to represent a User's username (e.g., 'bjensen' or  'mpepperidge').",
+          "description" : "Preferred name for the user. This attribute  should not be used to represent a user's username.",
           "type" : "string"
         },
         "phoneNumbers" : {
-          "description" : "Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'work', 'home', 'mobile', 'fax', 'pager', and 'other'.",
+          "description" : "Phone numbers for the user. The value should be canonicalized by the service provider according to the format specified in RFC 3966.",
           "items" : {
             "properties" : {
               "countryCode" : {
-                "description" : "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country the phone number was issued in. e.g., US",
+                "description" : "A two-letter code defined in ISO 3166-1 Alpha-2 denoting the country the phone number was issued in. e.g., US",
                 "type" : "string"
               },
               "countryISDCode" : {
-                "description" : "E164 assigned country code",
+                "description" : "E164 assigned country code.",
                 "type" : "string"
               },
               "display" : {
-                "description" : "A human-readable phone number for display",
+                "description" : "Phone number display.",
                 "type" : "string"
               },
               "extension" : {
-                "description" : "phone number extension",
+                "description" : "Phone number extension.",
                 "type" : "string"
               },
               "id" : {
@@ -762,29 +762,29 @@
                 "type" : "string"
               },
               "notifications" : {
-                "description" : "LNA Opt-in for mobile devices (type=Mobile)",
+                "description" : "LNA opt-in for mobile devices.",
                 "type" : "boolean"
               },
               "operatingSystem" : {
-                "description" : "The OS of the  device, when the phone is a cellphone type",
+                "description" : "The OS of the device, if the phone is a cellphone type.",
                 "enum" : [ "Android Phone", "Android Tablet", "Blackberry", "iOS Phone", "iOS Tablet", "Not a smartphone", "Other iOS device", "Other smartphone", "Unknown", "Window Mobile" ],
                 "type" : "string"
               },
               "primary" : {
-                "description" : "Primary device for mobile devices (type=Mobile)",
+                "description" : "Primary device for mobile devices.",
                 "type" : "boolean"
               },
               "type" : {
-                "description" : "A label indicating the attribute's function, e.g., 'Work', 'Home'.",
+                "description" : "A label indicating the attribute's function., Examples; Work, Home",
                 "enum" : [ "Work", "Home", "Mobile", "Fax", "Pager", "Other", "Work2" ],
                 "type" : "string"
               },
               "value" : {
-                "description" : "Phone number value",
+                "description" : "Phone number value.",
                 "type" : "string"
               },
               "verified" : {
-                "description" : "Phone number verification status",
+                "description" : "Phone number verification status.",
                 "type" : "boolean"
               }
             },
@@ -793,7 +793,7 @@
           "type" : "array"
         },
         "preferredLanguage" : {
-          "description" : "Indicates the User's preferred written or spoken language.  Generally used for selecting a localized user interface",
+          "description" : "The user's preferred written or spoken language.",
           "type" : "string"
         },
         "schemas" : {
@@ -805,7 +805,7 @@
           "type" : "array"
         },
         "timezone" : {
-          "description" : "The User's time zone in the 'Olson' time zone database format, e.g., 'America/Los_Angeles'.",
+          "description" : "The user's time zone in the 'Olson' time zone database format. Example: America/Los_Angeles",
           "type" : "string"
         },
         "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll" : {
@@ -821,7 +821,7 @@
               "description" : "",
               "properties" : {
                 "enableExpenseAssistant" : {
-                  "description" : "How trip report should be created by Expense Assistant",
+                  "description" : "How the trip report should be created by Expense Assistant.",
                   "enum" : [ "Calendar", "Trip", "None" ],
                   "type" : "string"
                 },
@@ -836,19 +836,19 @@
               "description" : "",
               "properties" : {
                 "entityId" : {
-                  "description" : "entity_id for this CTE user",
+                  "description" : "entity_id for this CTE user.",
                   "type" : "string"
                 },
                 "guuid" : {
-                  "description" : "OUM.guuid for this CTE.Expense user. Not set if this is not a CTE expense user",
+                  "description" : "OUM.guuid for this CTE.Expense user. Not set if this is not a CTE expense user.",
                   "type" : "string"
                 },
                 "outtaskCompanyId" : {
-                  "description" : "outtask_company.id for this CTE user. Not set if this is not a CTE user",
+                  "description" : "outtask_company.id for this CTE user. Not set if this is not a CTE user.",
                   "type" : "integer"
                 },
                 "outtaskUserId" : {
-                  "description" : "outtask_user.user_id. Not set if this is not a CTE user",
+                  "description" : "outtask_user.user_id. Not set if this is not a CTE user.",
                   "type" : "integer"
                 }
               },
@@ -860,7 +860,7 @@
               "type" : "string"
             },
             "locateRoles" : {
-              "description" : "external facing roles for the User for Locate",
+              "description" : "External facing roles for the user for Locate.",
               "items" : {
                 "type" : "string"
               },
@@ -870,30 +870,30 @@
               "description" : "",
               "properties" : {
                 "expense" : {
-                  "description" : "Any private info expense wants to store",
+                  "description" : "Any private info expense wants to store.",
                   "type" : "object"
                 },
                 "expenseIt" : {
-                  "description" : "Any private info ExpenseIt wants to store",
+                  "description" : "Any private info ExpenseIt wants to store.",
                   "type" : "object"
                 },
                 "locate" : {
-                  "description" : "Any private info Locate wants to store",
+                  "description" : "Any private info Locate wants to store.",
                   "type" : "object"
                 },
                 "notifications" : {
-                  "description" : "Any private info Notifications Platform wants to store",
+                  "description" : "Any private info Notifications Platform wants to store.",
                   "type" : "object"
                 },
                 "travel" : {
-                  "description" : "Any private info travel wants to store",
+                  "description" : "Any private info Travel wants to store.",
                   "type" : "object"
                 }
               },
               "type" : "object"
             },
             "supplierSearchRoles" : {
-              "description" : "roles for supplier search",
+              "description" : "Roles for supplier search.",
               "items" : {
                 "type" : "string"
               },
@@ -903,7 +903,7 @@
               "description" : "",
               "properties" : {
                 "vacationBackupManagerId" : {
-                  "description" : "backup manager (UUID)",
+                  "description" : "Backup manager UUID.",
                   "type" : "string"
                 }
               },
@@ -946,7 +946,7 @@
           "$ref" : "#/definitions/TravelUser"
         },
         "userName" : {
-          "description" : "The name that can be used to login to CTE",
+          "description" : "The name that can be used to login to CTE.",
           "type" : "string"
         }
       },
