@@ -58,6 +58,7 @@ mileage.vehicle.read|Read-only access to vehicle resources.
 mileage.vehicle.writeonly|Write-only access to vehicle resources.
 mileage.rate.read|Read-only access to rate configuration resources.
 mileage.rate.writeonly|Write-only access to rate configuration resources.
+notifications.messages.writeonly|Write messages to the notifications platform
 openid|Return OPENID Token
 realtimeingest.location.writeonly|Post user location object upon trip completion|
 receipts.read|Read receipts and invoices
