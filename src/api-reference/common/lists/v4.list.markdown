@@ -20,9 +20,9 @@ The Lists APIs allow you to view your configured lists within SAP Concur product
 * [Remove a List](#remove-a-list)
 * [Schema](#schema)
   * [Paged Resources List Response](#schema-paged-resources-list-response)
+  * [List Response](#schema-list-response)
   * [List Request](#schema-list-request)
   * [List Update](#schema-list-update)
-  * [List Response](#schema-list-response)
   * [Error Message](#schema-error-message)
 * [Definitions](#definitions)  
 
@@ -92,7 +92,6 @@ GET /list/v4/lists
 
 * [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
 * [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
-* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) ??
 * [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
 * [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
 
@@ -112,7 +111,7 @@ GET /list/v4/lists
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
 * [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
-* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) ??
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
 
 #### Payload
 
@@ -133,7 +132,7 @@ Authorization: Bearer {token}
 #### Response
 
 ```shell
-HTTP/1.1 200 OK
+HTTP/1.1 200
 concur-correlationid: 746696dc-8782-4642-815d-3080640786c7
 content-length: 5632
 content-type: application/json;charset=UTF-8
@@ -237,7 +236,7 @@ POST /list/v4/lists
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
 * [RFC 7231 Location](https://tools.ietf.org/html/rfc7231#section-7.1.2)
-* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) ??
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
 
 #### Payload
 
@@ -358,7 +357,7 @@ PUT /list/v4/lists/{listId}
 * [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
-* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) ??
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
 
 #### Payload
 
@@ -388,7 +387,7 @@ Authorization: Bearer {token}
 #### Response
 
 ```shell
-HTTP/1.1 200 OK
+HTTP/1.1 200
 concur-correlationid: e3a4d4cf-e1b2-4f22-a95c-b5bb8a2cb0e1 
 content-length: 275 
 content-type: application/json;charset=UTF-8 
@@ -443,7 +442,6 @@ GET /list/v4/lists/{listId}
 
 * [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
 * [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
-* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) ??
 * [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
 * [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
 
@@ -464,7 +462,7 @@ GET /list/v4/lists/{listId}
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
 * [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
-* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) ??
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
 
 #### Payload
 
@@ -485,7 +483,7 @@ Authorization: Bearer {token}
 #### Response
 
 ```shell
-HTTP/1.1 200 OK
+HTTP/1.1 200
 concur-correlationid: 6a5803f6-b63b-49d8-88b3-872f456206c2 
 content-length: 275
 content-type: application/json;charset=UTF-8
@@ -585,7 +583,7 @@ Authorization: Bearer {token}
 #### Response
 
 ```shell
-HTTP/1.1 200 OK
+HTTP/1.1 200
 concur-correlationid: 0e80dff7-93b7-4b43-a1b6-a91ebe5c55f0 
 content-length: 364
 content-type: application/json;charset=UTF-8
@@ -695,12 +693,27 @@ cache-control: no-cache, private
 
 ### <a name="schema-paged-resources-list-response"></a>Paged Resources List Response
 
-### <a name="schema-list-request"></a>List Request
-
-### <a name="schema-list-update"></a>List Update
+Name|Type|Format|Description
+---|---|---|---
 
 ### <a name="schema-list-response"></a>List Response
 
+Name|Type|Format|Description
+---|---|---|---
+
+### <a name="schema-list-request"></a>List Request
+
+Name|Type|Format|Description
+---|---|---|---
+
+### <a name="schema-list-update"></a>List Update
+
+Name|Type|Format|Description
+---|---|---|---
+
 ### <a name="schema-error-message"></a>Error Message
+
+Name|Type|Format|Description
+---|---|---|---
 
 ## <a name="definitions"></a>Definitions
