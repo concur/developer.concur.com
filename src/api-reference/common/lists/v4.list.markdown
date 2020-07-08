@@ -200,6 +200,7 @@ POST /list/v4/lists
 ```
 
 ##### Parameters
+
 | Name        |Type|  Description           |
 | :- |:-| :-| 
 | company-uuid | String | **Optional:** Company UUID of the user |
@@ -430,6 +431,7 @@ GET /list/v4/lists/{listId}
 ```
 
 ##### Parameters
+
 | Name        |Type|  Description           |
 | :- |:-| :-| 
 | Accept-Language | String|  **Optional:** Language code; default value is en | 
@@ -527,6 +529,7 @@ GET /list/v4/categories/{categoryId}/lists
 ```
 
 ##### Parameters| Name        |Type|  Description           |
+
 | :- |:-| :-| 
 | Accept-Language | String|  **Optional:** Language code; default value is en | 
 | categoryId | String ($uuid) | **Required:** Required parameter. The unique identifier of the category. | 
@@ -638,6 +641,7 @@ DELETE /list/v4/lists/{listId}
 ```
 
 ##### Parameters
+
 | Name        |Type|  Description           |
 | :- |:-| :-| 
 | company-uuid | String | **Optional:** Company UUID of the user |
@@ -717,3 +721,4 @@ Name|Type|Format|Description
 ---|---|---|---
 
 ## <a name="definitions"></a>Definitions
+
