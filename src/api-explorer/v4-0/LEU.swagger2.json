@@ -1,0 +1,474 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Rest API for Launch External URL Service",
+    "version": "0.1",
+    "title": "Launch External URL",
+    "termsOfService": "http://www.concur.com",
+    "contact": {
+      "name": "Team Martian",
+      "email": "martian@concur.com"
+    },
+    "license": {
+      "name": "Concur",
+      "url": "http://www.concur.com"
+    }
+  },
+  "host": "launchexternalurl-prod.seapr1.uscom.cnqr.delivery",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Launch External URL API",
+      "description": "Launch External Url Controller"
+    },
+    {
+      "name": "mgmt-controller",
+      "description": "Mgmt Controller"
+    }
+  ],
+  "paths": {
+    "/launchexternalurl/v4/leuconfig": {
+      "post": {
+        "tags": [
+          "Launch External URL API"
+        ],
+        "summary": "Launch external url configuration",
+        "description": "returns the launch external url configuration for the form field",
+        "operationId": "createLeuConfigUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "company-uid",
+            "in": "header",
+            "description": "The unique identifier of the company in question",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "The unique identifier of the logged in user (required when using user jwt)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "leuConfigRequest",
+            "description": "leuConfigRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LeuConfigRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved launch external url config",
+            "schema": {
+              "$ref": "#/definitions/LeuConfigResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is missing parameters. Please verify and resubmit.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Full authentication is required to access this resource.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "Unable to find resource requested",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error, please contact the administrator.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "503": {
+            "description": "The service is unavailable either due to being offline or refusing the connection",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          },
+          {
+            "concur-forwarded-for": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/launchexternalurl/v4/leuversion/{formFieldId}": {
+      "get": {
+        "tags": [
+          "Launch External URL API"
+        ],
+        "summary": "Launch external url version",
+        "description": "returns Launch external url version configured for the form field",
+        "operationId": "getLeuVersionUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "company-uid",
+            "in": "header",
+            "description": "The unique identifier of the company in question",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "The unique identifier of the logged in user (required when using user jwt)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "formFieldId",
+            "in": "path",
+            "description": "Form field id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved launch external url version",
+            "schema": {
+              "$ref": "#/definitions/LeuVersionResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is missing parameters. Please verify and resubmit.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Full authentication is required to access this resource.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "Unable to find resource requested",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error, please contact the administrator.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "503": {
+            "description": "The service is unavailable either due to being offline or refusing the connection",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          },
+          {
+            "concur-forwarded-for": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/mgmt/version": {
+      "get": {
+        "tags": [
+          "mgmt-controller"
+        ],
+        "summary": "Get current server time and git commit sha of deployed LEU",
+        "description": "/api based path requires authentication",
+        "operationId": "versionUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "company-uid",
+            "in": "header",
+            "description": "The unique identifier of the company in question",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "The unique identifier of the logged in user (required when using user jwt)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is missing parameters. Please verify and resubmit.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Full authentication is required to access this resource.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "Unable to find resource requested.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error, please contact the administrator.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable.",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          },
+          {
+            "concur-forwarded-for": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "ErrorMessage": {
+      "type": "object",
+      "required": [
+        "errorMessage",
+        "httpStatus",
+        "path",
+        "timestamp"
+      ],
+      "properties": {
+        "errorId": {
+          "type": "string",
+          "description": "The unique identifier of the error associated with the response or is it error response itself"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "The detailed error message"
+        },
+        "httpStatus": {
+          "type": "string",
+          "description": "The http response code and phrase for the response"
+        },
+        "path": {
+          "type": "string",
+          "description": "The URI of the attempted request"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2016-10-04T00:53:25.931+0000",
+          "description": "The time when the error was captured"
+        },
+        "validationErrors": {
+          "type": "array",
+          "description": "The validation error messages",
+          "items": {
+            "$ref": "#/definitions/ValidationError"
+          }
+        }
+      },
+      "title": "ErrorMessage"
+    },
+    "LeuConfigRequest": {
+      "type": "object",
+      "required": [
+        "context_type",
+        "form_field_id",
+        "logged_in_user_id",
+        "report_id",
+        "report_owner_user_id",
+        "source"
+      ],
+      "properties": {
+        "allocation_id": {
+          "type": "string",
+          "description": "The allocation ID is required for report allocation"
+        },
+        "context_type": {
+          "type": "string",
+          "description": "The context type would most likely be TRAVELER, and that is dependent on the JWT conversation"
+        },
+        "expense_ids": {
+          "type": "array",
+          "description": "A list of expense IDs is required for report entry and allocation",
+          "items": {
+            "type": "string"
+          }
+        },
+        "form_field_id": {
+          "type": "string",
+          "description": "The form field ID is required to call EMT for the popup window height and width."
+        },
+        "is_mobile": {
+          "type": "boolean",
+          "description": "A boolean (set to false as default) to know if the request is coming from Mobile"
+        },
+        "logged_in_user_id": {
+          "type": "string",
+          "description": "UUID of the user, can also be the expense delegate instead of report owner"
+        },
+        "logged_in_user_login_id": {
+          "type": "string",
+          "description": "The SAP Concur user ID of the logged-in user"
+        },
+        "report_id": {
+          "type": "string",
+          "description": "The report ID is required for report entry, allocation, and header"
+        },
+        "report_owner_user_id": {
+          "type": "string",
+          "description": "UUID of the report owner"
+        },
+        "rpe_key": {
+          "type": "string",
+          "description": "The report entry key is required for v1 only"
+        },
+        "rpt_key": {
+          "type": "string",
+          "description": "The report header key is required for v1 only"
+        },
+        "source": {
+          "type": "string",
+          "description": "The source of the report"
+        }
+      },
+      "title": "LeuConfigRequest"
+    },
+    "LeuConfigResponse": {
+      "type": "object",
+      "properties": {
+        "client_url": {
+          "type": "string",
+          "description": "value = Client popup url along with data as query parameter, needed by client to update report using Concur callback url"
+        },
+        "leu_version": {
+          "type": "string",
+          "description": "value = Launch external url version configured for the field / connector"
+        },
+        "popup_height": {
+          "type": "integer",
+          "format": "int32",
+          "description": "value = Display specifics for popup window"
+        },
+        "popup_width": {
+          "type": "integer",
+          "format": "int32",
+          "description": "value = Display specifics for popup window"
+        }
+      },
+      "title": "LeuConfigResponse"
+    },
+    "LeuVersionResponse": {
+      "type": "object",
+      "properties": {
+        "leu_version": {
+          "type": "string",
+          "description": "value = Launch external url version configured for the field / connector"
+        }
+      },
+      "title": "LeuVersionResponse"
+    },
+    "ValidationError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The detailed message of the validation error"
+        },
+        "source": {
+          "type": "string",
+          "description": "The type of validation which failed"
+        }
+      },
+      "title": "ValidationError"
+    }
+  }
+}
