@@ -582,7 +582,7 @@ cache-control: no-cache, private
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`content`|`array`|[`ListItem`](#schema-list-item)|Collection of List Items|
+|`content`|`array`|[`ListItem`](#schema-list-item)|-|
 |`page`|[`PageMetadata`](#schema-page-metadata)|-|Metadata for the page of data returned|
 |`links`|`array`|[`Link`](#schema-link)|Metadata for the page of data returned|
 
