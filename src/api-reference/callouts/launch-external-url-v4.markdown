@@ -45,7 +45,7 @@ The [V1 of Launch External URL](https://developer.concur.com/api-reference/callo
 
 ## <a name="limitations"></a>Limitations
 
-SAP Concur products are highly configurable, and not all clients will have access to all features. Partner developers must determine which configurations are required for their solution prior to the review process. Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+SAP Concur products are highly configurable, and not all clients will have access to all features. Partner developers must determine which configurations are required for their solution prior to the review process. Existing clients can work with SAP Concur Integration Services to create custom applications that work with their configuration.
 
 The Launch External URL callout is not supported for expense entry bulk editing. For situations where the data needs to be the same, we recommend configuring Copy-Down of the desired data fields.
 
@@ -108,7 +108,7 @@ Concur Expense sends requests to the application connector using anonymous autho
 The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that Concur Expense supplies. Two of the required variables for the signature hash are username and password, which are entered in Concur Expense on the Register Application Connector page in web services under Administration. The application connector must use the same username and password pair to generate its validation signature hash.
 
 ## <a name="functions"></a>Functions
-[V4 Launch External URL Request](\api-reference\callouts\launch-external-url-v4-request.html)
+Details of the URI used for the Launch External URL request can be found on the [V4 Launch External URL Request](\api-reference\callouts\launch-external-url-v4-request.html) page.
 
 ## <a name="config"></a>Concur Expense Configuration
 A custom field in Expense with text data type for the Expense Report Header, Entry, or Allocation must be configured as the Launch URL control type and the form field must be added to the desired form before this callout can be used. The Launch URL control type will not appear in the list until a partner application using the Launch External URL API has been registered and enabled for the company. The administrator must select either a single-line or a multi-line control type, depending on the data that will be placed in the field.
