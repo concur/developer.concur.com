@@ -27,7 +27,9 @@ The Lists APIs allow you to view your configured lists within SAP Concur product
   * [List Update](#schema-list-update)
   * [Error Message](#schema-error-message)
   * [Validation Errors](#schema-validation-error)
-* [Definitions](#definitions)  
+  * [Message](#schema-message)
+  * [Page Metadata](#schema-page-metadata)
+  * [Link](#schema-link)
 
 ## Prior Versions
 
@@ -54,7 +56,7 @@ Remove a list (DELETE /list/v4/lists{listId})
 
 ## <a name="scope-usage"></a>Scope Usage
 |Name|Description|Endpoints|
-|-|-|-|
+|---|---|---|
 |`spend.list.read`|Read-only access to spend lists.|GET|
 |`spend.list.write`|Read and write access to spend lists.|GET, POST, PUT|
 |`spend.list.delete`|Delete capabilities for spend lists.|DELETE|
@@ -87,7 +89,7 @@ GET /list/v4/lists
 ##### Parameters
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
@@ -208,7 +210,7 @@ POST /list/v4/lists
 ##### Parameters
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
 |`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
@@ -330,7 +332,7 @@ PUT /list/v4/lists/{listId}
 ##### Parameters
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
@@ -442,7 +444,7 @@ GET /list/v4/lists/{listId}
 ##### Parameters
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
@@ -539,7 +541,7 @@ GET /list/v4/categories/{categoryId}/lists
 
 ##### Parameters
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
@@ -651,7 +653,7 @@ DELETE /list/v4/lists/{listId}
 ##### Parameters
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
 |`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
@@ -707,13 +709,15 @@ cache-control: no-cache, private
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`content`|[`ListResponse`](#schema-list-response)|-|-|-|
+|`content`|`array`|[`ListResponse`](#schema-list-response)|-|
+|`page`|[`PageMetadata`](#schema-page-metadata)|-|Metadata for the page of data returned|
+|`links`|`array`|[`Link`](#schema-link)|Metadata for the page of data returned|
 
 ### <a name="schema-list-response"></a>List Response
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`id`|`string(uuid)`|`uuid`|-|Unique identifier of a list.|
+|`id`|`string(uuid)`|`uuid`|Unique identifier of a list.|
 |`value`|`string`|-|Name of the list.|
 |`categoryId`|`string(uuid)`|`uuid`|Unique identifier of a category.|
 |`levelCount`|`integer(int32)`|-|Number of levels in the list.|
@@ -743,11 +747,11 @@ cache-control: no-cache, private
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`error`|[`Message`](#schema-message)|-|**Required**|
-|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response|
+|`error`|[`Message`](#schema-message)|-|**Required** The detailed error message.|
+|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response.|
 |`path`|`string`|-|**Required** The URI of the attempted request.|
 |`timestamp`|`string`|`date-time`|**Required** The time when the error was captured.|
-|`validationErrors`|[`ValidationError`](#schemavalidationerror)|-|The validation error messages.|
+|`validationErrors`|`array`|[`ValidationError`](#schema-validation-error)|The validation error messages.|
 
 ### <a name="schema-validation-error"></a>Validation Error
 
@@ -756,4 +760,25 @@ cache-control: no-cache, private
 |`message`|`string`|-|The detailed message of the validation error.|
 |`source`|`string`|-|The type of validation which failed.|
 
-## <a name="definitions"></a>Definitions
+### <a name="schema-message"></a>Message
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`msg`|`string`|-|The detailed error message.|
+|`id`|`string`|-|The identifier of the error.|
+
+### <a name="schema-page-metadata"></a>Page Metadata
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`number`|`integer(int32)`|-|The page number|
+|`size`|`integer(int32)`|-|The page size|
+|`totalElements`|`integer(int32)`|-|The number of total elements|
+|`totalPages`|`integer(int32)`|-|The number of total pages|
+
+### <a name="schema-link"></a>Link
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`rel`|`string`|-|The link relation|
+|`href`|`string`|-|The link href|
