@@ -5,7 +5,9 @@ layout: reference
 
 {% include prerelease.html %}
 
-The SAP Concur List Item API provides an automated solution to clients who would like to retrieve and add list items. Use of the API is subject to some limitations on the volume of List data. You may need to manage the initial load of large volumes of data via a file import due to capacity limitations. This is also true if ongoing maintenance of List values involves a large volume.
+The SAP Concur List Item API provides an automated solution to clients who would like to retrieve and add list items. Use of the API is subject to some limitations on the volume of list data. You may need to manage the initial load of large volumes of data via a file import due to capacity limitations. This is also true if ongoing maintenance of list values involves a large volume.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
@@ -19,18 +21,22 @@ The SAP Concur List Item API provides an automated solution to clients who would
   * [List Item](#schema-list-item)
   * [List Item Create](#schema-list-item-create)
   * [List Item Update](#schema-list-item-update)
+  * [List Item Member List](#schema-list-item-member-list)
   * [Paged Resources List Item](#schema-paged-resources-list-item)
+  * [Message](#schema-message)
+  * [Page Metadata](#schema-page-metadata)
+  * [Link](#schema-link)
   * [Error Message](#schema-error-message)
-* [Definitions](#definitions)
+  * [Validation Error](#schema-validation-error)
 
 ## Prior Versions
 
-* List Items v3 documentation is available [here](https://developer.concur.com/api-reference/common/list-item/v3.list-item.html)
-* Deprecated List Items v1 documentation is available [here](https://developer.concur.com/api-reference/common/list-item/v1.list-item.html)
+* List Items v3 documentation is available [here](https://developer.concur.com/api-reference/common/list-item/v3.list-item.html).
+* List Items v1 documentation is available [here](https://developer.concur.com/api-reference/common/list-item/v1.list-item.html).
 
 ## <a name="process-flow"></a>Process Flow
 
-**Editing note: is this needed?**
+![A process flow diagram of the List Item API](./v4-list-item-process-flow.png)
 
 ## <a name="products-editions"></a>Products and Editions
 
@@ -45,12 +51,15 @@ The SAP Concur List Item API provides an automated solution to clients who would
 
 Name|Description|Endpoint
 ---|---|---
-`spend.listitem.read`|Read-only access to spend list items|GET
-`spend.listitem.write`|Read and write access to spend list items|GET, POST, PUT 
+`spend.listitem.read`|Read-only access to spend list items.|GET
+`spend.listitem.write`|Read and write access to spend list items.|GET, POST, PUT
+
+## <a name="dependencies"></a>Dependencies
+Users must be an Expense, Invoice, Shared or Request Configuration Administrator in order to perform POST and PUT actions.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
-This API supports both company level and user level access tokens. The user access token is authenticated on scope and user role, the user must be an Expense, Invoice, Shared or Request Configuration Administrator in order to perform POST and PUT actions.
+This API supports both company level and user level access tokens.
 
 ## <a name="get-list-item-ID"></a>Retrieve List Items by ID
 
@@ -72,13 +81,13 @@ GET /list/v4/items/{itemId}
 
 ##### Parameters
 
-| Name        |Type|  Description           |
-| :- |:-| :-| 
-| Accept-Language | String|  **Optional:** Language code; default value: en | 
-| company-uuid | String | **Optional:** Company UUID of the user |
-| concur-correlationid | String | **Optional:** The unique identifier of the consumer making the API calls. Minimum length: 6 characters. | 
-| concur-uid | String | **Optional:** Concur Employee UUID of the caller | 
-| itemId | String |  **Required:** The unique identifier of the list item (SYNC_GUID) | 
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: `en` |
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
+|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`itemId`|`string`| **Required** The unique identifier of the list item (SYNC_GUID).|
 
 #### Headers
 
@@ -126,10 +135,10 @@ Authorization: Bearer {token}
 
 ```shell
 HTTP/1.1 200
-concur-correlationid: 663d7795-fc21-4d98-ba31-87be20aeacd2 
-content-length: 360 
-content-type: application/json;charset=UTF-8 
-date: Wed, 08 Jul 2020 14:07:25 GMT 
+concur-correlationid: 663d7795-fc21-4d98-ba31-87be20aeacd2
+content-length: 360
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 14:07:25 GMT
 etag: "0950be10ca5a9f5069898e2468db6e137"
 cache-control: no-cache, private
 ```
@@ -172,13 +181,13 @@ POST /list/v4/items
 
 ##### Parameters
 
-| Name        |Type|  Description           |
-| :- |:-| :-| 
-| Accept-Language | String|  **Optional:** Language code; default value: en | 
-| company-uuid | String | **Optional:** Company UUID of the user |
-| concur-correlationid | String | **Optional:** The unique identifier of the consumer making the API calls. Minimum length: 6 characters. | 
-| concur-uid | String | **Optional:** Concur Employee UUID of the caller | 
-| listItem | |  **Required:** List Item object that is created for the company | 
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: `en` |
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
+|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`listItem`|-|**Required** List Item object that is created for the company.|
 
 #### Headers
 
@@ -251,10 +260,10 @@ Example 2:
 
 ```shell
 HTTP/1.1 201
-concur-correlationid: 85b8deb7-db84-4dfb-bdca-d4bccb2ef06e 
-content-length: 282 
-content-type: application/json;charset=UTF-8 
-date: Wed, 08 Jul 2020 13:47:25 GMT 
+concur-correlationid: 85b8deb7-db84-4dfb-bdca-d4bccb2ef06e
+content-length: 282
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 13:47:25 GMT
 location: http://localhost:5000/list/v4/items/7c6d0435-c4d1-8b48-8492-7e7b625e148d
 cache-control: no-cache, private
 ```
@@ -315,14 +324,14 @@ PUT /list/v4/items/{itemId}
 
 ##### Parameters
 
-| Name        |Type|  Description           |
-| :- |:-| :-| 
-| Accept-Language | String|  **Optional:** Language code; default value: en | 
-| company-uuid | String | **Optional:** Company UUID of the user |
-| concur-correlationid | String | **Optional:** The unique identifier of the consumer making the API calls. Minimum length: 6 characters. | 
-| concur-uid | String | **Optional:** Concur Employee UUID of the caller | 
-| itemId | |  **Required:** The unique identifier of the list item (SYNC_GUID) | 
-| listItem | |  **Required:** List Item object that is updated | 
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: `en` |
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
+|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`itemId`|`string`| **Required** The unique identifier of the list item (SYNC_GUID).|
+|`listItem`|-|**Required** List Item object that is updated.|
 
 #### Headers
 
@@ -384,10 +393,10 @@ Authorization: Bearer {token}
 
 ```shell
 HTTP/1.1 200
-concur-correlationid: 27abed5d-20cc-4edf-81b6-3e2dbf70ba39 
-content-length: 289 
-content-type: application/json;charset=UTF-8 
-date: Wed, 08 Jul 2020 14:16:21 GMT 
+concur-correlationid: 27abed5d-20cc-4edf-81b6-3e2dbf70ba39
+content-length: 289
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 14:16:21 GMT
 cache-control: no-cache, private
 ```
 
@@ -411,7 +420,7 @@ cache-control: no-cache, private
 
 ## <a name="children-list-item-ID"></a>Retrieve Children of a List Item
 
-Allows you to retrive children for a given list item.
+Allows you to retrieve children for a given list item.
 
 ### Scopes
 
@@ -429,23 +438,23 @@ GET /list/v4/items/{itemId}/children?page={page}&sortBy={sortBy}
 
 ##### Parameters
 
-| Name        |Type|  Description           |
-| :- |:-| :-| 
-| Accept-Language | String|  **Optional:** Language code; default value: en | 
-| company-uuid | String | **Optional:** Company UUID of the user |
-| concur-correlationid | String | **Optional:** The unique identifier of the consumer making the API calls. Minimum length: 6 characters. | 
-| concur-uid | String | **Optional:** Concur Employee UUID of the caller | 
-| endDate | String | **Optional:** Filter capabilities for EndDate. | 
-| hasChildren | Boolean | **Optional:** Shows items with children | 
-| isDeleted | Boolean | **Optional:** Shows deleted items |
-| itemId  | String | **Required:** The unique identifier of the list item (SYNC_GUID) | 
-| page | Integer | **Optional:** Page number starting from 1. Default value: 1. |
-| shortCode | String | **Optional:** Filter capabilities for ShortCode.|
-| shortCodeOrValue | String | **Optional:** Filter capabilities for Value OR ShortCode.  |
-| sortBy | String | **Optional:** Field to sort by, {value, shortcode}. Default value: value. |
-| sortDirection | String | **Optional:** Sort direction, {asc, desc} |
-| startDate | String | **Optional:** Filter capabilities for StartDate. |
-| value | String | **Optional:** Filter capabilities for Value. |
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|'string'|Language code. Default: `en`|
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters.|
+|`concur-uuid`|`string`|SAP Concur Employee UUID of the caller.|
+|`endDate`|`string`|Filter capabilities for `endDate`.|
+|`hasChildren`|`boolean`|If `true`, displays items with children.|
+|`isDeleted`|`boolean`|If `true`, displays deleted items.|
+|`itemId`|`string`|**Required** The unique identifier of the list item (SYNC_GUID).|
+|`page`|`integer`|Page number starting from 1. Default: `1`|
+|`shortCode`|`string`|Filter capabilities for `shortCode`.|
+|`shortCodeOrValue`|`string`|Filter capabilities for `value` or `shortCode`.|
+|`sortBy`|`string`|Field to sort by. Supported values: `value`, `shortCode`. Default: `value`|
+|`sortDirection`|`string`|Sort direction. Supported values: `asc`, `desc`|
+|`startDate`|`string`|Filter capabilities for `startDate`.|
+|`value`|`string`|Filter capabilities for `value`. |
 
 #### Headers
 
@@ -493,12 +502,12 @@ Authorization: Bearer {token}
 
 ```shell
 HTTP/1.1 200
-concur-correlationid: 50dcec14-c984-479c-84e2-186a7e62f87e 
-content-length: 449 
-content-type: application/json;charset=UTF-8 
-date: Wed, 08 Jul 2020 14:27:13 GMT 
-etag: "05cb0f0ed5a73bedf1e8cd4171e360e41" 
-cache-control: no-cache, private 
+concur-correlationid: 50dcec14-c984-479c-84e2-186a7e62f87e
+content-length: 449
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 14:27:13 GMT
+etag: "05cb0f0ed5a73bedf1e8cd4171e360e41"
+cache-control: no-cache, private
 ```
 
 ```json
@@ -534,31 +543,85 @@ cache-control: no-cache, private
 
 ### <a name="schema-list-item"></a>List Item
 
-Name|Type|Format|Description
----|---|---|---
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|`uuid`|The unique identifier of the list item.|
+|`code`|`string`|-|List item long code.|
+|`shortCode`|`string`|-|List item short code.|
+|`value`|`string`|-|List item value.|
+|`parentId`|`string`|`uuid`|The unique identifier of the parent list item.|
+|`listId`|`string`|`uuid`|The unique identifier of the list that contains the list item.|
+|`level`|`integer`|`int32`|Level of the list item within the list.|
+|`hasChildren`|`boolean`|`true`/`false`|If `true`, the list item has children.|
+|`lists`|[`ListItemMemberList`](#schema-list-item-member-list)|-|The unique identifiers of the lists that contains the list item.|
+|`isDeleted`|`boolean`|`true`/`false`|If `true`, the list item is deleted.|
 
 ### <a name="schema-list-item-create"></a>List Item Create
 
-Name|Type|Format|Description
----|---|---|---
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`listId`|`string`|`uuid`|**Required** The unique identifier of the list that contains the list item.|
+|`parentId`|`string`|`uuid`|The unique identifier of parent list item.|
+|`shortCode`|`string`|-|**Required** List item short code.|
+|`value`|`string`|-|**Required** List item value.|
 
 ### <a name="schema-list-item-update"></a>List Item Update
 
-Name|Type|Format|Description
----|---|---|---
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`shortCode`|`string`|-|**Required** List item short code.|
+|`value`|`string`|-|**Required** List item value.|
+
+### <a name="schema-list-item-member-list"></a>List Item Member List
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|`uuid`|The unique identifier of the list that contains the list item.|
 
 ### <a name="schema-paged-resources-list-item"></a>Paged Resources List Item
 
-Name|Type|Format|Description
----|---|---|---
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`content`|`array`|[`ListItem`](#schema-list-item)|-|
+|`page`|[`PageMetadata`](#schema-page-metadata)|-|Metadata for the page of data returned|
+|`links`|`array`|[`Link`](#schema-link)|Metadata for the page of data returned|
 
 ### <a name="schema-error-message"></a>Error Message
 
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`error`|[`Message`](#schema-message)|-|**Required** The detailed error message.|
+|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response.|
+|`path`|`string`|-|**Required** The URI of the attempted request.|
+|`timestamp`|`string`|`date-time`|**Required** The time when the error was captured.|
+|`validationErrors`|`array`|[`ValidationError`](#schema-validation-error)|The validation error messages.|
 
-Name|Type|Format|Description
----|---|---|---
+### <a name="schema-validation-error"></a>Validation Error
 
-## <a name="definitions"></a>Definitions
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`message`|`string`|-|The detailed message of the validation error.|
+|`source`|`string`|-|The type of validation that failed.|
 
-Name|Type|Format|Description
----|---|---|---
+### <a name="schema-message"></a>Message
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`msg`|`string`|-|The detailed error message.|
+|`id`|`string`|-|The identifier of the error.|
+
+### <a name="schema-page-metadata"></a>Page Metadata
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`number`|`integer`|`int32`|The page number.|
+|`size`|`integer`|`int32`|The page size.|
+|`totalElements`|`integer`|`int32`|The number of total elements.|
+|`totalPages`|`integer`|`int32`|The number of total pages.|
+
+### <a name="schema-link"></a>Link
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`rel`|`string`|-|The link relation.|
+|`href`|`string`|-|The link href.|
