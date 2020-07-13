@@ -95,6 +95,7 @@ Name | Type | Format | Description
 `ApprovedAmount`	|	`decimal`	|	-	|	The approved amount of the expense entry, in the report currency.
 `CompanyCardTransactionID`	|	`string`	|	-	|	The unique identifier for a company card transaction that is associated with this expense. Concur Expense uses the Credit Card Import job to import company card transactions. Use the GET CompanyCardTransactions function to get information about these card transactions. This element is null when there is no company card transaction associated with this expense.
 `Custom1 through Custom40`	|	`customField`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
+`Comment`	|	`string`	|	-	|	A comment that describes the expense entry. Maximum length: 500 characters
 `Description`	|	`string`	|	-	|	The description of the expense. Maximum length: 64 characters
 `ElectronicReceiptID`	|	`string`	|	-	|	The unique identifier for an eReceipt that is associated with this expense. Use the GET eReceipts function to get information about this eReceipt. This element is null when there is no eReceipt associated with this expense.
 `EmployeeBankAccountID`	|	`string`	|	-	|	The unique identifier of an employee bank account that is associated with this expense. Typically, this element is used when Expense Pay reimburses the employee for this expense. Use the GET BankAccounts function to get information about this bank account.

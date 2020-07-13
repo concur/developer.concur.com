@@ -44,7 +44,7 @@ SAP Concur products are highly configurable, and not all clients will have acces
 
 Partner developers must determine which configurations are required for their solution prior to the review process.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with SAP Concur Integration Services to create custom applications that work with their configuration.
 
 ### <a name="concur-connect-callout-details"></a>Callout Details
 
