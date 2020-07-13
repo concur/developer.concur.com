@@ -23,11 +23,11 @@ The SAP Concur List Item API provides an automated solution to clients who would
   * [List Item Update](#schema-list-item-update)
   * [List Item Member List](#schema-list-item-member-list)
   * [Paged Resources List Item](#schema-paged-resources-list-item)
-  * [Error Message](#schema-error-message)
-  * [Validation Error](#schema-validation-error)
   * [Message](#schema-message)
   * [Page Metadata](#schema-page-metadata)
   * [Link](#schema-link)
+  * [Error Message](#schema-error-message)
+  * [Validation Error](#schema-validation-error)
 
 ## Prior Versions
 
@@ -36,7 +36,7 @@ The SAP Concur List Item API provides an automated solution to clients who would
 
 ## <a name="process-flow"></a>Process Flow
 
-**Editing note: is this needed?**
+![A process flow diagram of the List Item API](./v4-list-item-process-flow.png)
 
 ## <a name="products-editions"></a>Products and Editions
 
@@ -451,7 +451,7 @@ GET /list/v4/items/{itemId}/children?page={page}&sortBy={sortBy}
 |`page`|`integer`|Page number starting from 1. Default: `1`|
 |`shortCode`|`string`|Filter capabilities for `shortCode`.|
 |`shortCodeOrValue`|`string`|Filter capabilities for `value` or `shortCode`.|
-|`sortBy`|`string`|Field to sort by. Supported values: `value`, `shortCode. Default: `value`|
+|`sortBy`|`string`|Field to sort by. Supported values: `value`, `shortCode`. Default: `value`|
 |`sortDirection`|`string`|Sort direction. Supported values: `asc`, `desc`|
 |`startDate`|`string`|Filter capabilities for `startDate`.|
 |`value`|`string`|Filter capabilities for `value`. |
@@ -614,14 +614,14 @@ cache-control: no-cache, private
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`number`|`integer(int32)`|-|The page number|
-|`size`|`integer(int32)`|-|The page size|
-|`totalElements`|`integer(int32)`|-|The number of total elements|
-|`totalPages`|`integer(int32)`|-|The number of total pages|
+|`number`|`integer`|`int32`|The page number.|
+|`size`|`integer`|`int32`|The page size.|
+|`totalElements`|`integer`|`int32`|The number of total elements.|
+|`totalPages`|`integer`|`int32`|The number of total pages.|
 
 ### <a name="schema-link"></a>Link
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`rel`|`string`|-|The link relation|
-|`href`|`string`|-|The link href|
+|`rel`|`string`|-|The link relation.|
+|`href`|`string`|-|The link href.|

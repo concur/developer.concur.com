@@ -25,11 +25,11 @@ The Lists APIs allow you to view your configured lists within SAP Concur product
   * [List Response](#schema-list-response)
   * [List Request](#schema-list-request)
   * [List Update](#schema-list-update)
-  * [Error Message](#schema-error-message)
-  * [Validation Errors](#schema-validation-error)
   * [Message](#schema-message)
   * [Page Metadata](#schema-page-metadata)
   * [Link](#schema-link)
+  * [Error Message](#schema-error-message)
+  * [Validation Errors](#schema-validation-error)
 
 ## Prior Versions
 
@@ -37,14 +37,7 @@ Lists V3 documentation is available [here](https://developer.concur.com/api-refe
 
 ## <a name="process-flow"></a>Process Flow
 
-**Editing note:** Placeholder for diagram (To be created into diagram -- if needed)
-
-User on the left, List API on the right, and diagram the request/response for the APIs.
-Get all lists for a company (GET /list/v4/lists), Returns Lists
-Create a new list (POST /list/v4/lists)
-Get a list by id (GET /list/v4/lists/{listId}), Returns List
-Update a list (PUT /list/v4/lists/{listId})
-Remove a list (DELETE /list/v4/lists{listId})
+![A process flow diagram of the List API](./v4-list-process-flow.png)
 
 ## <a name="products-editions"></a>Products and Editions
 * Concur Expense Professional Edition
@@ -717,10 +710,10 @@ cache-control: no-cache, private
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`id`|`string(uuid)`|`uuid`|Unique identifier of a list.|
+|`id`|`string`|`uuid`|Unique identifier of a list.|
 |`value`|`string`|-|Name of the list.|
-|`categoryId`|`string(uuid)`|`uuid`|Unique identifier of a category.|
-|`levelCount`|`integer(int32)`|-|Number of levels in the list.|
+|`categoryId`|`string`|`uuid`|Unique identifier of a category.|
+|`levelCount`|`integer`|`int32`|Number of levels in the list.|
 |`searchCriteria`|`string`|-|What attribute to search by.|
 |`displayFormat`|`string`|-|Whether the code or value is displayed first.|
 |`isReadOnly`|`boolean`|`true`/`false`|If `true`, the list is read-only.|
@@ -732,7 +725,7 @@ cache-control: no-cache, private
 |---|---|---|---|
 |`searchCriteria`|`string`|-|What attribute to search by. Supported values: `TEXT`, `CODE`|
 |`value`|`string`|-|**Required** Name of the list.|
-|`categoryId`|`string(uuid)`|`uuid`|The unique identifier of the category that the list belongs to.|
+|`categoryId`|`string`|`uuid`|The unique identifier of the category that the list belongs to.|
 |`displayFormat`|`string`|-|Whether we display code or value first.  Supported values: `TEXT`, `CODE`|
 
 ### <a name="schema-list-update"></a>List Update
@@ -742,6 +735,29 @@ cache-control: no-cache, private
 |`value`|`string`|-|**Required** Name of the list.|
 |`searchCriteria`|`string`|-|What attribute to search by.|
 |`displayFormat`|`string`|-|Whether we display code or value first.|
+
+### <a name="schema-message"></a>Message
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`msg`|`string`|-|The detailed error message.|
+|`id`|`string`|-|The identifier of the error.|
+
+### <a name="schema-page-metadata"></a>Page Metadata
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`number`|`integer`|`int32`|The page number.|
+|`size`|`integer`|`int32`|The page size.|
+|`totalElements`|`integer`|`int32`|The number of total elements.|
+|`totalPages`|`integer`|`int32`|The number of total pages.|
+
+### <a name="schema-link"></a>Link
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`rel`|`string`|-|The link relation.|
+|`href`|`string`|-|The link href.|
 
 ### <a name="schema-error-message"></a>Error Message
 
@@ -759,26 +775,3 @@ cache-control: no-cache, private
 |---|---|---|---|
 |`message`|`string`|-|The detailed message of the validation error.|
 |`source`|`string`|-|The type of validation which failed.|
-
-### <a name="schema-message"></a>Message
-
-|Name|Type|Format|Description|
-|---|---|---|---|
-|`msg`|`string`|-|The detailed error message.|
-|`id`|`string`|-|The identifier of the error.|
-
-### <a name="schema-page-metadata"></a>Page Metadata
-
-|Name|Type|Format|Description|
-|---|---|---|---|
-|`number`|`integer(int32)`|-|The page number|
-|`size`|`integer(int32)`|-|The page size|
-|`totalElements`|`integer(int32)`|-|The number of total elements|
-|`totalPages`|`integer(int32)`|-|The number of total pages|
-
-### <a name="schema-link"></a>Link
-
-|Name|Type|Format|Description|
-|---|---|---|---|
-|`rel`|`string`|-|The link relation|
-|`href`|`string`|-|The link href|
