@@ -767,7 +767,7 @@ Name|Type|Format|Description
 `financialDocumentId`|`string`|-|Document ID in ERP.
 `fiscalYear`|`string`|-|Fiscal year.
 `paymentRef`|`string`|-|Payment reference ID.
-`paymentMethod`|`string`|-|Payment method.
+`paymentMethod`|`string`|-|Payment method Where E=Electronic Fund Transfer or C = Check.
 
 ### <a name="schema-paymentconfirmationresponse"></a>Payment Confirmation Response
 
