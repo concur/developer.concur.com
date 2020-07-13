@@ -25,7 +25,9 @@ The SAP Concur List Item API provides an automated solution to clients who would
   * [Paged Resources List Item](#schema-paged-resources-list-item)
   * [Error Message](#schema-error-message)
   * [Validation Error](#schema-validation-error)
-* [Definitions](#definitions)
+  * [Message](#schema-message)
+  * [Page Metadata](#schema-page-metadata)
+  * [Link](#schema-link)
 
 ## Prior Versions
 
@@ -80,7 +82,7 @@ GET /list/v4/items/{itemId}
 ##### Parameters
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
@@ -180,7 +182,7 @@ POST /list/v4/items
 ##### Parameters
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
@@ -323,7 +325,7 @@ PUT /list/v4/items/{itemId}
 ##### Parameters
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
@@ -437,7 +439,7 @@ GET /list/v4/items/{itemId}/children?page={page}&sortBy={sortBy}
 ##### Parameters
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`Accept-Language`|'string'|Language code. Default: `en`|
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters.|
@@ -580,17 +582,19 @@ cache-control: no-cache, private
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`content`|[ListItem](#schema-list-item)|-|-|
+|`content`|`array`|[`ListItem`](#schema-list-item)|-|
+|`page`|[`PageMetadata`](#schema-page-metadata)|-|Metadata for the page of data returned|
+|`links`|`array`|[`Link`](#schema-link)|Metadata for the page of data returned|
 
 ### <a name="schema-error-message"></a>Error Message
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`error`|[`Message`](#schema-message)|-|**Required**|
-|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response|
+|`error`|[`Message`](#schema-message)|-|**Required** The detailed error message.|
+|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response.|
 |`path`|`string`|-|**Required** The URI of the attempted request.|
 |`timestamp`|`string`|`date-time`|**Required** The time when the error was captured.|
-|`validationErrors`|[`ValidationError`](#schemavalidationerror)|-|The validation error messages.|
+|`validationErrors`|`array`|[`ValidationError`](#schema-validation-error)|The validation error messages.|
 
 ### <a name="schema-validation-error"></a>Validation Error
 
@@ -599,7 +603,25 @@ cache-control: no-cache, private
 |`message`|`string`|-|The detailed message of the validation error.|
 |`source`|`string`|-|The type of validation which failed.|
 
-## <a name="definitions"></a>Definitions
+### <a name="schema-message"></a>Message
 
-Name|Type|Format|Description
----|---|---|---
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`msg`|`string`|-|The detailed error message.|
+|`id`|`string`|-|The identifier of the error.|
+
+### <a name="schema-page-metadata"></a>Page Metadata
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`number`|`integer(int32)`|-|The page number|
+|`size`|`integer(int32)`|-|The page size|
+|`totalElements`|`integer(int32)`|-|The number of total elements|
+|`totalPages`|`integer(int32)`|-|The number of total pages|
+
+### <a name="schema-link"></a>Link
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`rel`|`string`|-|The link relation|
+|`href`|`string`|-|The link href|
