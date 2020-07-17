@@ -18,7 +18,7 @@ This callout differs from the standard SAP Concur web services in the following 
 *	The client Expense administrator must configure a new form field and add the field to the desired form before this service can be used.
 
 ## Prior Versions
-The [V1 of Launch External URL](https://developer.concur.com/api-reference/callouts/launch-external-url.html) will continue to work only at the Expense Entry level on the Gateway UI.  
+The [V1 of Launch External URL](https://developer.concur.com/api-reference/callouts/launch-external-url.html) will continue to work only at the Expense Entry level on the Gateway UI. V1 Launch External URL is not available on the NextGen UI for Concur Expense.
 
 ## Contents
 
@@ -41,7 +41,7 @@ The [V1 of Launch External URL](https://developer.concur.com/api-reference/callo
 
 ## <a name="products-editions"></a>Products and Editions
 
-* Concur Expense Professional Edition
+* Concur Expense Professional Edition, running NextGen UI for Concur Expense.
 
 ## <a name="limitations"></a>Limitations
 
@@ -61,7 +61,7 @@ The system requires certain named fields (not custom fields) to be completed bef
 Any audit rules configured as Save actions will not be visible to the end user until the user returns to the SAP Concur Expense application from the pop-up window.
 
 ## <a name="callout-details"></a>Callout Details
-Information on how to download, install, and configure the application connector is included in [Callouts and Application Connectors](https://developer.concur.com/api-reference/callouts/callouts-application-connectors.html) and below.
+Information on how to create, install, and configure the application connector is included in [Callouts and Application Connectors](https://developer.concur.com/api-reference/callouts/callouts-application-connectors.html) and below.
 
 ## <a name="leu-process-overview"></a>Launch URL Process Overview
 
@@ -126,7 +126,7 @@ Refer to the [HTTP Codes](https://developer.concur.com/api-reference/http-status
 
 SAP Concur administrators use the Manage Application Connectors link on the web services page under Administration to register, test, and enable application connectors.
 
-Information on how to download, install, and configure the application connector is included in [Callouts and Application Connectors](\api-reference\callouts\callouts-application-connectors.html).
+Information on how to create, install, and configure the application connector is included in [Callouts and Application Connectors](\api-reference\callouts\callouts-application-connectors.html).
 
 ## <a name="config-leu"></a>Configure Launch External URL - V4 Service
 

@@ -21,7 +21,6 @@ See the schema documentation below for the specifications of each type, plus the
 ### Schemas
 
 #### Address
-Common address object used by all receipt types except for the JPT IC Card receipt, which uses [Address-Original](#address-original).
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
