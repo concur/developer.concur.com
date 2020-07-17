@@ -69,7 +69,7 @@ PUT /events/v4/subscriptions/webhook
 ## <a name="get-subscription"></a>  4. Verify your subscription
 You can always request a configuration of your subscription. You might notice that your subscription contains some more parameters that you can not modify for security reasons, but can use them for troubleshooting purposes.
 -  applicationId - identifies your Concur Application as an owner of that subscription
-- companyIds - a list of UUIDs of companies that allowed your Applicaion to access their data, the process of connecting Concur company to your application is described here (where???)
+- companyIds - a list of UUIDs of companies that allowed your Applicaion to access their data, the process of connecting Concur company to your application is described here (link)
 - groups and scope - are used for complex access control scenarios  
 
 **Request**
