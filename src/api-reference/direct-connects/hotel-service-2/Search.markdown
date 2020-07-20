@@ -202,7 +202,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |----------------|-------------------|-------------|
-|`ChainCode`|`stringLength1to32`|2-letter GDS chain code. The code that identifies a hotel chain or management group. Used for chain filter in UI, and for travel rules based on GDS codes.|
+|`ChainCode`|`stringLength1to32`|2-letter valid GDS chain code. The code that identifies a hotel chain or management group. Must be present to support filtering, preferences or travel rules base on chains|
 |`ChainName`|`stringLength1to32`|The name of the hotel chain. Examples: `Hilton`, `Marriott`, `Hyatt`, `Starwood`|
 |`HotelCode`|`stringLength1to32`|**Required** The code that uniquely identifies a single hotel property. Used in other OTA messages.|
 |`HotelName`|`stringLength1to32`|**Required** A text field used to communicate the proper name of the hotel.|
