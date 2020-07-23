@@ -12,7 +12,7 @@ The application connector can use web services to send information to update fie
 
 This callout differs from the standard SAP Concur web services in the following ways:
 
-*	It uses an outbound callout where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. The connector domain and IP address must be on the allow list created during the configuration process.
+*	It uses an outbound callout where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. The connector domain must be on the allow list created during the configuration process.
 *	The application connector can also use the web services to read or update SAP Concur data.
 *	The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by SAP Concur. This guide specifies the request and response format required.
 *	The client Expense administrator must configure a new form field and add the field to the desired form before this service can be used.
@@ -48,6 +48,8 @@ The [V1 of Launch External URL](https://developer.concur.com/api-reference/callo
 SAP Concur products are highly configurable, and not all clients will have access to all features. Partner developers must determine which configurations are required for their solution prior to the review process. Existing clients can work with SAP Concur Integration Services to create custom applications that work with their configuration.
 
 The Launch External URL callout is not supported for expense entry bulk editing. For situations where the data needs to be the same, we recommend configuring Copy-Down of the desired data fields.
+
+Only the Employee role can interact with the Launch External URL configured field. Other roles such as the Approver and Processor are not able to trigger the pop-up window.
 
 If Expense Assistant is used to create reports and the Launch External URL field is employed at the Report Header level, clients may consider creating a mandatory field for the Report Header to ensure users interact with the Launch External URL field.
 
