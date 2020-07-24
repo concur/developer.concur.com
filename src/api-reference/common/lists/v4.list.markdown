@@ -48,6 +48,7 @@ Lists V3 documentation is available [here](https://developer.concur.com/api-refe
 * Concur Request Standard Edition
 
 ## <a name="scope-usage"></a>Scope Usage
+
 |Name|Description|Endpoints|
 |---|---|---|
 |`spend.list.read`|Read-only access to spend lists.|GET|

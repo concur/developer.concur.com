@@ -179,4 +179,4 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`URL`|`stringLength1to32`|**Required** Contains a URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with `.png` and `.jpg` files.|
+|`URL`|`stringLength1to32`|**Required** Contains a HTTPS URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with `.png` and `.jpg` files.|

@@ -42,9 +42,11 @@ This callout is not supported in the SAP Concur mobile application.
 
 SAP Concur products are highly configurable, and not all clients will have access to all features.
 
+Only the Employee role can interact with the Launch External URL configured field. Other roles such as the Approver and Processor are not able to trigger the pop-up window.
+
 Partner developers must determine which configurations are required for their solution prior to the review process.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with SAP Concur Integration Services to create custom applications that work with their configuration.
 
 ### <a name="concur-connect-callout-details"></a>Callout Details
 
