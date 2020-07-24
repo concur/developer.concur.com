@@ -4,14 +4,14 @@ layout: reference
 ---
 {% include prerelease.html %}
 
-* [Request](#request)
+* [Launch External URL Request v4](#request)
 * [URI](#uri)
 * [Definitions](#definitions)
 * [Authentication](#auth)
 * [URL Example Request](#url-request)
 * [Response](#response)
 
-## <a name="request"></a>Request
+## <a name="request"></a>Launch External URL Request v4
 
 Concur Expense will send a request with the information in an encoded query string when the user clicks the field configured to use the Launch External URL callout.
 
