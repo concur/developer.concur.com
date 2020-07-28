@@ -49,7 +49,7 @@ SAP Concur products are highly configurable, and not all clients will have acces
 
 The Launch External URL callout is not supported for expense entry bulk editing. For situations where the data needs to be the same, we recommend configuring Copy-Down of the desired data fields.
 
-Only the Employee role can interact with the Launch External URL configured field. Other roles such as the Approver and Processor are not able to trigger the pop-up window.
+Only the Employee role can interact with the Launch External URL configured field. Approver, Expense Processor, and Expense Processor Manager roles will not have access to trigger or interact with the Launch External URL callout configured field. When the Launch External URL field is configured, the Approver, Expense Processor, and Expense Processor Manager roles should be configured as read-only or hidden.
 
 If Expense Assistant is used to create reports and the Launch External URL field is employed at the Report Header level, clients may consider creating a mandatory field for the Report Header to ensure users interact with the Launch External URL field.
 
@@ -61,8 +61,6 @@ The system requires certain named fields (not custom fields) to be completed bef
 * At the Expense Entry level: Expense Type, Amount, Transaction Date, Payment Type, and Currency.
 
 Any audit rules configured as Save actions will not be visible to the end user until the user returns to the SAP Concur Expense application from the pop-up window.
-
-Approver, Expense Processor, and Expense Processor Manager roles will not have access to interact with the Launch External URL callout configured field. When the Launch External URL field is configured, the Approver, Expense Processor, and Expense Processor Manager roles should be configured as read-only or hidden.
 
 ## <a name="callout-details"></a>Callout Details
 Information on how to create, install, and configure the application connector is included in [Callouts and Application Connectors](https://developer.concur.com/api-reference/callouts/callouts-application-connectors.html) and below.
@@ -179,4 +177,4 @@ Create a new form field with the Launch External URL control type.
 
 6. Go to the **Forms** tab and add the **Launch URL** field to the form.
 
->**Note**: Make sure the access rights are set for Employee. Approvers and processors should be set to read only access.
+>**Note**: Make sure the Access Rights are set to Modify for the Employee role. Approver, Expense Processor, and Expense Processor Manager roles should be configured as read-only or hidden.
