@@ -4,14 +4,14 @@ layout: reference
 ---
 {% include prerelease.html %}
 
-* [Request](#request)
+* [Launch External URL Request v4](#request)
 * [URI](#uri)
 * [Definitions](#definitions)
 * [Authentication](#auth)
 * [URL Example Request](#url-request)
 * [Response](#response)
 
-## <a name="request"></a>Request
+## <a name="request"></a>Launch External URL Request v4
 
 Concur Expense will send a request with the information in an encoded query string when the user clicks the field configured to use the Launch External URL callout.
 
@@ -58,7 +58,7 @@ Value | Description
 `signature` |  The URL-encoded signature hash.
 `is_mobile` |  True or false indicating if the end-user is coming from the web-based instance of Concur Expense or mobile. This allows the client to display different UI for mobile devices.
 `client_auth_code` |  URL encoded temporary client authorization code. This will allow to call OAuth service to get a refresh and access token to access `item_url`.
-`language_code` |  Language code of the logged in user. Length between two to five characters. Default is "en". The code may be xx_XX, where xx indicates the base language and correlates to ISO 639-1, and XX specifies the local dialect, if applicable (e.g., en_AU for Australia English). SAP Concur supported languages are [here](https://www.concurtraining.com/customers/tech_pubs/SupportedLanguages-client/SupportedLanguages-client.pdf). Information on importing languages is [here](https://www.concurtraining.com/customers/tech_pubs/Docs/_Current/SPC/Spc_Shr/Shr_SPEC_Emp_Imp.pdf).
+`language_code` |  Language code of the logged in user. Length between two to five characters. Default is "en". The code may be xx-XX (e.g., en-GB for British English), where xx indicates the base language and correlates to ISO 639-1, and XX specifies the local dialect, if applicable. SAP Concur supported languages are [here](https://www.concurtraining.com/customers/tech_pubs/SupportedLanguages-client/SupportedLanguages-client.pdf). Information on language identifiers can be found [here](https://www.concurtraining.com/customers/tech_pubs/Docs/_Current/SPC/Spc_Shr/Shr_SPEC_Emp_Imp.pdf) in the appendix (Note: a hyphen is the expected separator for this API for languages with dialects, e.g., en-GB).
 
 ## <a name="auth"></a>Authentication
 
