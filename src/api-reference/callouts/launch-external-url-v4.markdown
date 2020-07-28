@@ -177,4 +177,4 @@ Create a new form field with the Launch External URL control type.
 
 6. Go to the **Forms** tab and add the **Launch URL** field to the form.
 
->**Note**: Make sure the access rights are set for Employee. Approvers and processors should be set to read only access.
+>**Note**: Make sure the Access Rights are set to Modify for the Employee role. Approver, Expense Processor, and Expense Processor Manager roles should be configured as read-only or hidden.
