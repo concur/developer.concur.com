@@ -34,8 +34,8 @@ Learn best practices for marketing your app and interact directly with the App C
 
  * **Date:** Office hours take place the first Tuesday of each month.
  * **Time:** 8:30-9:00 AM PST
- * **Toll-free:** +1-866-668-0721, PIN: 841-399-7618
- * **WebEx Link:** [https://concur.webex.com/meet/concur_AppCenter](https://concur.webex.com/meet/concur_AppCenter)
+ * **Zoom Link:** [https://zoom.us/j/6309448684?pwd=NTFnNTBrQzhCRllzR3VIME5hc3o5UT09](https://zoom.us/j/6309448684?pwd=NTFnNTBrQzhCRllzR3VIME5hc3o5UT09)
+ * **Room ID:** 630 944 8684, Meeting Password: 8M5YvT
 
 Or email us at [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com).
 

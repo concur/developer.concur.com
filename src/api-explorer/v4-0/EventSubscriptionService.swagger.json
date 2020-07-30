@@ -1,0 +1,350 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Event Service Api.",
+        "version": "1.0.1",
+        "title": "Event Service Api",
+        "termsOfService": "http://concur.com",
+        "license": {
+            "name": "Concur License",
+            "url": "https://concur.com"
+        }
+    },
+    "host": "awsqa-event-mgmt.nonprod.cnqr.tech",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Subscriptions Management",
+            "description": "Subscriptions CRUD"
+        },
+        {
+            "name": "Topics Management",
+            "description": "Enumerate Available Topics"
+        }
+    ],
+    "paths": {
+        "/v4/subscriptions": {
+            "get": {
+                "tags": [
+                    "Subscriptions Management"
+                ],
+                "summary": "Fetch all of your subscriptions and subscription details",
+                "description": "Allows you to fetch all of your subscriptions based on your Application ID found in the JWT (web token).",
+                "operationId": "listUsingGET_2",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Web token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/PublicWebhookSubscription"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v4/subscriptions/webhook": {
+            "put": {
+                "tags": [
+                    "Subscriptions Management"
+                ],
+                "summary": "Create or update subscription webhook",
+                "description": "Allows you to create or update subscription webhook for allowed topic (look up Topic Management for details).",
+                "operationId": "saveWebhookUsingPUT_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Web token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "subscription",
+                        "description": "Subscription",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PublicWebhookSubscriptionApiAdapter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SubscriptionSaveSuccess"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v4/subscriptions/{id}": {
+            "get": {
+                "tags": [
+                    "Subscriptions Management"
+                ],
+                "summary": "Fetch your subscription details",
+                "description": "Allows you to fetch certain subscription details.",
+                "operationId": "getUsingGET_2",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Web token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Subscription id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PublicWebhookSubscription"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Subscriptions Management"
+                ],
+                "summary": "Delete your subscription",
+                "description": "Allows you to delete an existing subscription.",
+                "operationId": "deleteUsingDELETE_1",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Web token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Subscription id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SubscriptionDeleteSuccess"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v4/topics": {
+            "get": {
+                "tags": [
+                    "Topics Management"
+                ],
+                "summary": "Fetch allowed topics",
+                "description": "Fetch all allowed topics. If you don't see a specific topic, you don't have necessary scopes in your JWT. Please contact topic owner to add correct scopes to your Application.",
+                "operationId": "listUsingGET_3",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Web token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "PublicWebhookSubscription": {
+            "type": "object",
+            "required": [
+                "applicationId",
+                "id",
+                "topic",
+                "webHookConfig"
+            ],
+            "properties": {
+                "applicationId": {
+                    "type": "string"
+                },
+                "companyIds": {
+                    "type": "array",
+                    "description": "Only events corresponding to one of the provided company IDs will be delivered to the subscription. Required for public subscriptions. If a single value of '.*' is provided in the array, companies will not be filtered out.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "filter": {
+                    "type": "string",
+                    "example": ".*",
+                    "description": "The regex pattern which will be applied to the event type to filter events.Ignore if no filter is needed"
+                },
+                "groups": {
+                    "type": "array",
+                    "description": "Only events corresponding to one of the provided group IDs will be delivered to the subscription. If left blank or omitted, groups will not be filtered out.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The name of the subscription, must be globally unique"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "topic": {
+                    "type": "string",
+                    "description": "The name of the topic from which this subscription is receiving event"
+                },
+                "webHookConfig": {
+                    "description": "Details of webhook subscription",
+                    "$ref": "#/definitions/WebhookConfig"
+                }
+            },
+            "title": "PublicWebhookSubscription"
+        },
+        "PublicWebhookSubscriptionApiAdapter": {
+            "type": "object",
+            "required": [
+                "id",
+                "topic",
+                "webHookConfig"
+            ],
+            "properties": {
+                "filter": {
+                    "type": "string",
+                    "example": ".*",
+                    "description": "The regex pattern which will be applied to the event type to filter events.Ignore if no filter is needed"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The name of the subscription, must be globally unique"
+                },
+                "topic": {
+                    "type": "string",
+                    "description": "The name of the topic from which this subscription is receiving event"
+                },
+                "webHookConfig": {
+                    "description": "Details of webhook subscription",
+                    "$ref": "#/definitions/WebhookConfig"
+                }
+            },
+            "title": "PublicWebhookSubscriptionApiAdapter"
+        },
+        "SubscriptionDeleteSuccess": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            },
+            "title": "SubscriptionDeleteSuccess"
+        },
+        "SubscriptionSaveSuccess": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            },
+            "title": "SubscriptionSaveSuccess"
+        },
+        "TopicApiAdapter": {
+            "type": "object",
+            "required": [
+                "name",
+                "partitionCount",
+                "type"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "name"
+                },
+                "partitionCount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "partitionCount"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type",
+                    "enum": [
+                        "Public",
+                        "Internal"
+                    ]
+                }
+            },
+            "title": "TopicApiAdapter"
+        },
+        "WebhookConfig": {
+            "type": "object",
+            "required": [
+                "endpoint"
+            ],
+            "properties": {
+                "endpoint": {
+                    "type": "string",
+                    "description": "A URL locating the endpoint to which event should be pushed. For example, a Webhook endpoint might use \"https://example.com/push\""
+                }
+            },
+            "title": "WebhookConfig"
+        }
+    }
+}
