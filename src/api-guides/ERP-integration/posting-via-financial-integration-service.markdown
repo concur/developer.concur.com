@@ -36,7 +36,7 @@ FIS has these benefits over the Extract file process:
   * ERP partners have the ability to post a payment status of reports into SAP Concur solutions (Expense only at this time).
   *	Expense Pay customers who use FIS only reimburse reports that have been successfully posted into their ERP. Conversely, reports processed using the SAE/extract file process have reimbursements sent to the bank independent of the customer’s financial posting.
 
-  To see the mapping of extract files vs. FIS, review the [Standard Accounting Extract (SAE)](/ERP-integration/standard-accounting-extract-expense.xlsx) and/or [Payment Request Accounting Extract (PRAE)](/ERP-integration/payment-request-accounting-extract-invoice.xlsx) files.
+  To see the mapping of extract files vs. FIS, review the [Standard Accounting Extract (SAE)](/standard-accounting-extract-expense.xlsx) and/or [Payment Request Accounting Extract (PRAE)](/payment-request-accounting-extract-invoice.xlsx) files.
 
 ## <a name="quick-connect"></a>Quick Connect
 
