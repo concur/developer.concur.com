@@ -1,0 +1,894 @@
+{
+  "x-sap-shortText": "Manage your configured SAP Concur lists.",
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "info": {
+    "title": "List",
+    "description": "Provides an automated solution to clients who would like to manage lists. This API provides methods to view, add, update or delete lists.",
+    "version": "4.0"
+  },
+  "tags": [
+    {
+      "name": "List API",
+      "description": "List Controller"
+    }
+  ],
+  "paths": {
+    "/list/v4/categories/{categoryId}/lists": {
+      "get": {
+        "tags": [
+          "List API"
+        ],
+        "summary": "Get the lists for a given category id",
+        "description": "Returns lists for the category",
+        "operationId": "getListsForCategoryUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "The unique identifier of the category",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number starting from 1",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32",
+            "x-example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully got all lists of list category",
+            "schema": {
+              "$ref": "#/definitions/PagedResourcesListResponse"
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "List category not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/list/v4/lists": {
+      "get": {
+        "tags": [
+          "List API"
+        ],
+        "summary": "Gets all lists for the given company",
+        "description": "Returns all lists",
+        "operationId": "getAllListsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number starting from 1",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32",
+            "x-example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get all lists",
+            "schema": {
+              "$ref": "#/definitions/PagedResourcesListResponse"
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": []
+          }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "List API"
+        ],
+        "summary": "Create a list with provided request body",
+        "description": "Returns a new list",
+        "operationId": "createListUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "listRequest",
+            "description": "List object that is created for the company",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully created a list",
+            "schema": {
+              "$ref": "#/definitions/ListResponse"
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "415": {
+            "description": "The specified media type is not supported",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "List could not be created",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/list/v4/lists/{listId}": {
+      "get": {
+        "tags": [
+          "List API"
+        ],
+        "summary": "Get a list with provided list id",
+        "description": "Returns an existing list",
+        "operationId": "getListUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get list",
+            "schema": {
+              "$ref": "#/definitions/ListResponse"
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "List not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": []
+          }
+        ],
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "List API"
+        ],
+        "summary": "Update a list with provided request body",
+        "description": "Returns updated list",
+        "operationId": "putListUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "body",
+            "name": "listUpdate",
+            "description": "List object that is updated for the company",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully updated the list",
+            "schema": {
+              "$ref": "#/definitions/ListResponse"
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "List not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "415": {
+            "description": "The specified media type is not supported",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": []
+          }
+        ],
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "List API"
+        ],
+        "summary": "Delete a list",
+        "description": "Returns status code result",
+        "operationId": "deleteListUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "List resource no longer in system."
+          },
+          "400": {
+            "description": "List could not be deleted",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": []
+          }
+        ],
+        "deprecated": false
+      }
+    }
+  },
+  "securityDefinitions": {
+    "JWT Token": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "ErrorMessage": {
+      "type": "object",
+      "required": [
+        "error",
+        "httpStatus",
+        "path",
+        "timestamp"
+      ],
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/Message"
+        },
+        "httpStatus": {
+          "type": "string",
+          "description": "The http response code and phrase for the response"
+        },
+        "path": {
+          "type": "string",
+          "description": "The URI of the attempted request"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2016-10-04T00:53:25.931+0000",
+          "description": "The time when the error was captured"
+        },
+        "validationErrors": {
+          "type": "array",
+          "description": "The validation error messages",
+          "items": {
+            "$ref": "#/definitions/ValidationError"
+          }
+        }
+      },
+      "title": "ErrorMessage"
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "deprecation": {
+          "type": "string",
+          "xml": {
+            "name": "deprecation",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "href": {
+          "type": "string",
+          "xml": {
+            "name": "href",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "hreflang": {
+          "type": "string",
+          "xml": {
+            "name": "hreflang",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "media": {
+          "type": "string",
+          "xml": {
+            "name": "media",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "rel": {
+          "type": "string",
+          "xml": {
+            "name": "rel",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "templated": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string",
+          "xml": {
+            "name": "title",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "type": {
+          "type": "string",
+          "xml": {
+            "name": "type",
+            "attribute": true,
+            "wrapped": false
+          }
+        }
+      },
+      "title": "Link"
+    },
+    "ListRequest": {
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "searchCriteria": {
+          "type": "string",
+          "description": "What attribute to search by",
+          "enum": [
+            "TEXT",
+            "CODE"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "Name of the list"
+        },
+        "categoryId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The unique identifier of the category that the list belongs to"
+        },
+        "displayFormat": {
+          "type": "string",
+          "description": "Whether we display code or value first",
+          "enum": [
+            "(CODE) TEXT",
+            "TEXT (CODE)"
+          ]
+        }
+      },
+      "title": "ListRequest"
+    },
+    "ListResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Unique identifier of a List"
+        },
+        "value": {
+          "type": "string",
+          "description": "Name of the list"
+        },
+        "categoryId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Unique identifier of a Category"
+        },
+        "levelCount": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "Number of levels in the list"
+        },
+        "searchCriteria": {
+          "type": "string",
+          "description": "What attribute to search by"
+        },
+        "displayFormat": {
+          "type": "string",
+          "description": "Whether we display code or value first"
+        },
+        "isReadOnly": {
+          "type": "boolean",
+          "description": "Whether the list is read only"
+        },
+        "isDeleted": {
+          "type": "boolean",
+          "description": "Whether the list has been deleted"
+        }
+      },
+      "title": "ListResponse"
+    },
+    "ListUpdate": {
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "Name of the list"
+        },
+        "searchCriteria": {
+          "type": "string",
+          "description": "What attribute to search by",
+          "enum": [
+            "TEXT",
+            "CODE"
+          ]
+        },
+        "displayFormat": {
+          "type": "string",
+          "description": "Whether we display code or value first",
+          "enum": [
+            "(CODE) TEXT",
+            "TEXT (CODE)"
+          ]
+        }
+      },
+      "title": "ListUpdate"
+    },
+    "Message": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the error associated with the response or is it error response itself"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "Message"
+    },
+    "PageMetadata": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "integer",
+          "format": "int64",
+          "xml": {
+            "name": "number",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "xml": {
+            "name": "size",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64",
+          "xml": {
+            "name": "totalElements",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int64",
+          "xml": {
+            "name": "totalPages",
+            "attribute": true,
+            "wrapped": false
+          }
+        }
+      },
+      "title": "PageMetadata"
+    },
+    "PagedResourcesListResponse": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ListResponse"
+          }
+        },
+        "links": {
+          "type": "array",
+          "xml": {
+            "name": "link",
+            "namespace": "http://www.w3.org/2005/Atom",
+            "attribute": false,
+            "wrapped": false
+          },
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/PageMetadata"
+        }
+      },
+      "title": "PagedResourcesListResponse"
+    },
+    "ValidationError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The detailed message of the validation error"
+        },
+        "source": {
+          "type": "string",
+          "description": "The type of validation which failed"
+        }
+      },
+      "title": "ValidationError"
+    }
+  },
+  "x-servers": [
+    {
+      "url": "https://www.concursolutions.com/api/v4.0",
+      "description": "Concur API EndPoint"
+    }
+  ]
+}
