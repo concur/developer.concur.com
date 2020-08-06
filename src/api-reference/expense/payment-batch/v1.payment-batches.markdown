@@ -31,7 +31,7 @@ Concur Expense Standard Edition
 Retrieves the list of payment batches with an optional requested status.
 
 ```
-GET /expense/paymentbatch/v1.1/batchlist/
+GET /api/expense/paymentbatch/v1.1/batchlist/
 ```
 
 ### Parameters
@@ -62,7 +62,7 @@ This asynchronous request schedules closing of the specified batch, preventing a
 > **Note**: You can check batch status using the Retrieve the List of Payment Batches method.
 
 ```
-POST /expense/paymentbatch/v1.2/batch/{BatchID}/close
+POST /api/expense/paymentbatch/v1.2/batch/{BatchID}/close
 ```
 
 ### Parameters
@@ -89,7 +89,7 @@ This synchronous call has a time limit that can be superseded by the time it tak
 > **Note**: You can check batch status using the Retrieve the List of Payment Batches method.
 
 ```
-POST /expense/paymentbatch/v1.1/batch/{BatchID}/close
+POST /api/expense/paymentbatch/v1.1/batch/{BatchID}/close
 ```
 
 ### Parameters
@@ -112,7 +112,7 @@ Name|Type|Format|Description
 Requests the expense transaction data for the specified payment batch.
 
 ```
-GET /expense/paymentbatch/v1.1/batch/{JobRunKey}/file
+GET /api/expense/paymentbatch/v1.1/batch/{JobRunKey}/file
 ```
 
 ### Parameters

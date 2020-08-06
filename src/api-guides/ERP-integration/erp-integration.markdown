@@ -24,13 +24,13 @@ Use the following resources to get familiar with the SAP Concur product and then
 
 ## <a name="phases"></a>Phased Development Approaches
 
-We recognize there is a likelihood of certifying the following in a phased approach. We will provide guidance on which segments can be phased together. Regardless of the phase that is pursued, both Standard & Professional Editions must be supported with each phase. You cannot go to production with support for only one of the Edition types since your sales team will not know which Edition type a prospect uses.
+There is a likelihood the ERP integration components will need to be certified in a phased approach. If necessary, the phases are to be completed as specified below. Standard and Professional Editions must be supported with each phase. You cannot go to production with support for only one of the edition types since you will not know which edition type customers will use. The phases are to be done in this sequence and must include:
 
 Phase 1|Phase 2
 ---|---
 Quick Connect|Manage lists of Cost Object codes (Basic + Advanced)
 Company Profile|Add and update Vendor data (Basic + Advanced)
-Financial posting via Extract|Send Purchase Order data to SAP Concur (Advanced)
+Financial posting via Financial Integration Service|Send Purchase Order data to SAP Concur (Advanced)
 -|Send Purchase Order Receipt data to SAP Concur (Advanced)
 
 ## <a name="integration"></a>Integration
