@@ -441,7 +441,7 @@ GET /list/v4/items/{itemId}/children?page={page}&sortBy={sortBy}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|'string'|Language code. Default: `en`|
+|`Accept-Language`|`string`|Language code. Default: `en`|
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters.|
 |`concur-uuid`|`string`|SAP Concur Employee UUID of the caller.|
@@ -542,7 +542,7 @@ cache-control: no-cache, private
 
 ## <a name="children-list-ID"></a>Retrieve First Level Children Items of a List
 
-Allows you to retrieve the first level list items for a given list id.
+Allows you to retrieve the first level list items for a given List ID.
 
 ### Scopes
 
@@ -562,7 +562,7 @@ GET /list/v4/lists/{listId}/children?page={page}&sortBy={sortBy}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|'string'|Language code. Default: `en`|
+|`Accept-Language`|`string`|Language code. Default: `en`|
 |`company-uuid`|`string`|Company UUID of the user.|
 |`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters.|
 |`concur-uuid`|`string`|SAP Concur Employee UUID of the caller.|
