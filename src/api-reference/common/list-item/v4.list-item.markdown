@@ -17,6 +17,7 @@ The SAP Concur List Item API provides an automated solution to clients who would
 * [Create a List Item](#post-list-item)
 * [Update a List Item](#put-list-item)
 * [Retrieve Children of a List Item](#children-list-item-ID)
+* [Retrieve First Level Children of a List](#children-list-ID)
 * [Schema](#schema)
   * [List Item](#schema-list-item)
   * [List Item Create](#schema-list-item-create)
@@ -526,6 +527,126 @@ cache-control: no-cache, private
       "lists": [
         {
           "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f"
+        }
+      ]
+    }
+  ],
+  "page": {
+    "size": 100,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 1
+  }
+}
+```
+
+## <a name="children-list-ID"></a>Retrieve First Level Children Items of a List
+
+Allows you to retrieve the first level list items for a given list id.
+
+### Scopes
+
+`spend.listitem.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+GET /list/v4/lists/{listId}/children?page={page}&sortBy={sortBy}
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|'string'|Language code. Default: `en`|
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters.|
+|`concur-uuid`|`string`|SAP Concur Employee UUID of the caller.|
+|`endDate`|`string`|Filter capabilities for `endDate`.|
+|`hasChildren`|`boolean`|If `true`, displays items with children.|
+|`isDeleted`|`boolean`|If `true`, displays deleted items.|
+|`listId`|`string`|**Required** The unique identifier of the list (SYNC_GUID).|
+|`page`|`integer`|Page number starting from 1. Default: `1`|
+|`shortCode`|`string`|Filter capabilities for `shortCode`.|
+|`shortCodeOrValue`|`string`|Filter capabilities for `value` or `shortCode`.|
+|`sortBy`|`string`|Field to sort by. Supported values: `value`, `shortCode`. Default: `value`|
+|`sortDirection`|`string`|Sort direction. Supported values: `asc`, `desc`|
+|`startDate`|`string`|Filter capabilities for `startDate`.|
+|`value`|`string`|Filter capabilities for `value`. |
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [List Item](#schema-list-item)
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```http
+GET https://us.api.concursolutions.com/list/v4/lists/7c6d0435-c4d1-8b48-8492-7e7b625e148d/children?page=1&sortBy=value
+Accept: application/json
+Accept-Language: en
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200
+concur-correlationid: 50dcec14-c984-479c-84e2-186a7e62f87e
+content-length: 449
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 14:27:13 GMT
+etag: "05cb0f0ed5a73bedf1e8cd4171e360e41"
+cache-control: no-cache, private
+```
+
+```json
+{
+  "links": [],
+  "content": [
+    {
+      "id": "63b7fbd9-ae08-0840-abdb-62b0b9160081",
+      "code": "ITEM-FIRST LEVEL ITEM",
+      "shortCode": "FIRST LEVEL ITEM",
+      "value": "FIRST LEVEL ITEM",
+      "level": 1,
+      "hasChildren": false,
+      "isDeleted": false,
+      "lists": [
+        {
+          "id": "7c6d0435-c4d1-8b48-8492-7e7b625e148d"
         }
       ]
     }
