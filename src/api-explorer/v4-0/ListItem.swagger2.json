@@ -511,7 +511,7 @@
           "List Item API"
         ],
         "summary": "Get the first level list items for a given list id",
-        "description": "Returns first level list items",
+        "description": "Returns the first level children list items for a list",
         "operationId": "getFirstLevelListItemsUsingGET",
         "produces": [
           "application/json"
