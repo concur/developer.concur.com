@@ -33,7 +33,7 @@ Action|Description|Examples
 `read`|Read only access (GET)|`receipts.read`, `budgetitem.read`
 `write`|Read AND Write access (GET, POST, UPDATE etc)|`company.write`, `travel.receipts.write`
 `writeonly`|Write only access|`mileage.journey.writeonly`, `receipts.writeonly`
-`delete`|Delete access|
+`delete`|Delete access|N/A
 
 ## <a name="v4apiscopes"></a>List of v4 API Scopes
 
