@@ -28,10 +28,10 @@ There is a likelihood the ERP integration components will need to be certified i
 
 Phase 1|Phase 2
 ---|---
-Quick Connect|Manage lists of Cost Object codes (Basic + Advanced)
-Company Profile|Add and update Vendor data (Basic + Advanced)
-Financial posting via Financial Integration Service|Send Purchase Order data to SAP Concur (Advanced)
--|Send Purchase Order Receipt data to SAP Concur (Advanced)
+Quick Connect|Manage lists of Cost Object codes
+Company Profile|Add and update Vendor data
+Financial posting via Financial Integration Service|Send Purchase Order data to SAP Concur
+-|Send Purchase Order Receipt data to SAP Concur
 
 ## <a name="integration"></a>Integration
 
