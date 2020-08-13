@@ -23,7 +23,7 @@ layout: reference
 
 ## <a name="overview"></a>Overview
 
-The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration.
+The Budget service exposes budget and fiscal year data.  Partners and clients may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration.
 Summary and detailed balance amounts are also available to read, but may not be altered via the API.
 
 The sequence to configure budgets is to first setup the fiscal year and then the budget categories (if applicable) before creating budget items. Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application UI. Also budget owner, approver, and budget viewer permissions have to be assigned to users prior to configuring budgets.

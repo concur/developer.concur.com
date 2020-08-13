@@ -10,6 +10,8 @@ layout: reference
 
 # Developer Platform Release Notes
 
+* [July 2020](./api/2020-07-30.html)
+* [June 2020](./api/2020-06-24.html)
 * [May 2020](./api/2020-05-15.html)
 * [April 2020](./api/2020-04-17.html)
 * [March 2020](./api/2020-03-13.html)

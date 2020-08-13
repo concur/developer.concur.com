@@ -78,8 +78,8 @@ Create or update a Purchase Order. Batch processing is not available using the P
   "CurrencyCode": "USD",
   "OrderDate":"2011-08-12T20:17:46.384Z",
   "ID": "API101",
-  "IsTest": false,
-  "IsChangeOrder": false,
+  "IsTest": "false",
+  "IsChangeOrder": "false",
   "LedgerCode": "23",
   "LineItem": [
     {
@@ -94,7 +94,7 @@ Create or update a Purchase Order. Batch processing is not available using the P
       "Description": "line 1",
       "ExpenseType": "Advertising",
       "ExternalID": "API100line1",
-      "IsReceiptRequired": true,
+      "IsReceiptRequired": "true",
       "LineNumber": "1",
       "PurchaseOrderReceiptType": "WQTY",
       "Quantity": "1.00",
@@ -193,8 +193,8 @@ Name|Type|Format|Description
 `DiscountPercentage`|`string`|-|The discount from the vendor, if the discount terms are met.
 `DiscountTerms`|`string`|-|The net discount terms that the vendor offers, when discounts apply.
 `ID`|`string`|-|The unique identifier of the resource.
-`IsTest`|`boolean`|-|If the purchase order is a test.
-`IsChangeOrder`|`string`|-|If the purchase order has a change order or not.
+`IsTest`|`string`|`true` / `false`|If the purchase order is a test.
+`IsChangeOrder`|`string`|`true` / `false`|If the purchase order has a change order or not.
 `LedgerCode`|`string`|-|A code which indicates which company journal the Purchase Order is assigned to.
 `LineItem`|`array`|[`LineItem`](#lineItem)|**Required** The line items in a purchase order.
 `Name`|`string`|-|**Required** A name for the purchase order.

@@ -104,7 +104,7 @@ Name|Type|Format|Description
 `limit`|`int32`|`query`|Number of records to return per page (default 25).
 `docId`|`string`|`query`|The transaction unique identifier, it could be expense report ID, payment request ID or cash advance ID. If specified, a single document that matches docId is returned.
 `ignoreDocumentStatus`|`string`|`query`|Ignores the financial documents status. Supported values are: `yes` or `no`. If yes, a document is returned regardless of status. If no, only documents that have not been acknowledged/confirmed are returned.
-`systemId`|`string`|`query`|The external system ID that processed the document.
+`systemId`|`string`|`query`|The external system ID that processed the document. Maximum 50 characters.
 
 #### Headers
 
@@ -536,7 +536,7 @@ Content-Type: application/json
   [
     {
       "docId":"0c06ab044834454d91f83cbd7b6431d2",
-      "processingStatusCode":"error",
+      "processingStatusCode":"CP",
       "clearingDetails":[
         {
           "clearingDate":"2019-02-06T12:00:00.27Z","clearingAmount":220.00,
@@ -544,6 +544,60 @@ Content-Type: application/json
           "receiverName":"Charles","receiverType":"EMPLOYEE"},
           "clearingReference":{"companyCode":"US01","financialDocumentId":"667799",
           "fiscalYear":"2019","paymentRef":"US01/667799/2019/2","paymentMethod":"E"}
+        }
+      ]
+    },
+    {
+      "docId":"454d91f83cbd7b6431d20c06ab044834",
+      "processingStatusCode":"PP",
+      "clearingDetails":[
+        {
+          "clearingDate":"2019-02-06T12:00:00.27Z","clearingAmount":40.00,
+          "clearingCurrency":"USD","receiver":{"receiverId":"57",
+          "receiverName":"John","receiverType":"EMPLOYEE"},
+          "clearingReference":{"companyCode":"US01","financialDocumentId":"996675",
+          "fiscalYear":"2019","paymentRef":"US01/996675/2019/2","paymentMethod":"E"}
+        }
+      ]
+    },
+    {
+      "docId":"1d20c06ab0445d7b64348344d91f83cb",
+      "processingStatusCode":"PP",
+      "clearingDetails":[
+        {
+          "clearingDate":"2019-02-06T12:00:00.27Z","clearingAmount":23.00,
+          "clearingCurrency":"USD","receiver":{"receiverId":"57",
+          "receiverName":"Alice","receiverType":"EMPLOYEE"},
+          "clearingReference":{"companyCode":"US01","financialDocumentId":"95432",
+          "fiscalYear":"2019","paymentRef":"US01/95432/2019/2","paymentMethod":"E"}
+        }
+      ]
+    },
+    {
+      "docId":"d2454d91fcb44834830c06ab0d7b6431",
+      "processingStatusCode":"RE",
+      "additionalMessage":"This report was sent to wrong system",
+      "clearingDetails":[
+        {
+          "clearingDate":"2019-02-06T12:00:00.27Z","clearingAmount":10.00,
+          "clearingCurrency":"USD","receiver":{"receiverId":"57",
+          "receiverName":"Peter","receiverType":"EMPLOYEE"},
+          "clearingReference":{"companyCode":"US01","financialDocumentId":"5498",
+          "fiscalYear":"2019","paymentRef":"US01/5498/2019/2","paymentMethod":"E"}
+        }
+      ]
+    },
+    {
+      "docId":"b6431d2454dcbd791f44834830c06ab0",
+      "processingStatusCode":"OB",
+      "additionalMessage":"Not required anymore",
+      "clearingDetails":[
+        {
+          "clearingDate":"2019-02-06T12:00:00.27Z","clearingAmount":54.00,
+          "clearingCurrency":"USD","receiver":{"receiverId":"57",
+          "receiverName":"Kevin","receiverType":"EMPLOYEE"},
+          "clearingReference":{"companyCode":"US01","financialDocumentId":"32478",
+          "fiscalYear":"2019","paymentRef":"US01/32478/2019/2","paymentMethod":"E"}
         }
       ]
     }
@@ -565,20 +619,49 @@ Content-Length: 405
 ```json
 [
   {
-    "code": 0,
-    "docId": "0c06ab044834454d91f83cbd7b6431d2",
-    "systemId": null,
-    "paymentConfirmationResult": "SUCCESS",
-    "errorMessage": "",
-    "detailMessage": ""
+  "code" : 0,
+  "docId" : "0c06ab044834454d91f83cbd7b6431d2",
+  "systemId" : "",
+  "paymentConfirmationResult" : "SUCCESS",
+  "errorMessage" : null,
+  "paymentRef" : "US01/667799/2019/2",
+  "detailMessage" : ""
   },
   {
-    "code": 116,
-    "docId": "3331dbeb8e2240ffad7ab5b69492722a",
-    "systemId": "",
-    "paymentConfirmationResult": "FAILURE",
-    "errorMessage": "This document does not exist.",
-    "detailMessage": ""
+  "code" : 116,
+  "docId" : "454d91f83cbd7b6431d20c06ab044834",
+  "systemId" : "",
+  "paymentConfirmationResult" : "FAILURE",
+  "errorMessage" : "This document does not exist.",
+  "paymentRef" : "US01/996675/2019/2",
+  "detailMessage" : ""
+  },
+  {
+  "code" : 298,
+  "docId" : "1d20c06ab0445d7b64348344d91f83cb",
+  "systemId" : "",
+  "paymentConfirmationResult" : "NOOP",
+  "errorMessage" : "Payment confirmation already exist US01/95432/2019/2.",
+  "paymentRef" : "US01/95432/2019/2",
+  "detailMessage" : ""
+  }
+  {
+  "code" : 0,
+  "docId" : "d2454d91fcb44834830c06ab0d7b6431",
+  "systemId" : "",
+  "paymentConfirmationResult" : "SUCCESS",
+  "errorMessage" : null,
+  "paymentRef" : "US01/5498/2019/2",
+  "detailMessage" : ""
+  },
+  {
+  "code" : 0,
+  "docId" : "b6431d2454dcbd791f44834830c06ab0",
+  "systemId" : "",
+  "paymentConfirmationResult" : "SUCCESS",
+  "errorMessage" : null,
+  "paymentRef" : "US01/32478/2019/2",
+  "detailMessage" : ""
   }
 ]
 ```
@@ -621,10 +704,10 @@ Name|Type|Format|Description
 ---|---|---|---
 `id`|`string`|-|The unique identifier for the document.
 `docType`|`string`|-|Transaction type. Supported values are: `expense`, `invoice`, `cashadvance`, `payroll`, `obligation`.
-`companyId`|`string`|-|Unique identifier for the company in SAP Concur.
-`entityId`|`string`|-|Unique identifier for the entity in SAP Concur.
-`companyUuid`|`string`|`UUID`|UUID for the company in SAP Concur.
-`erpSystemId`|`string`|-|The external System ID that processed the document.
+`companyId`|`string`|-|Unique identifier for the company in SAP Concur. Maximum 32 chars.
+`entityId`|`string`|-|Unique identifier for the entity in SAP Concur. Maximum 32 chars.
+`companyUuid`|`string`|`UUID`|UUID for the company in SAP Concur. Maximum 36 chars.
+`erpSystemId`|`string`|-|The external System ID that processed the document. Maximum 50 chars.
 `document`|`Array`|-|The JSON financial document. Review the [FI sample documents](#examples) below.
 `docStatus`|`string`|-|The financial document status. Supported values are: `READY`, `ACKNOWLEDGED`, `POSTING_CONFIRMED_SUCCESS`, `POSTING_CONFIRMED_FAILURE`.
 
@@ -668,15 +751,15 @@ Name|Type|Format|Description
 ---|---|---|---
 `acknowledgeResult`|`string`|-|Acknowledge processing result. Supported values are: `SUCCESS` or `FAILURE`.
 `code`|`Int32`|<a href="#service-codes">Service Codes</a>|The Financial Integration Service Code. This is a particular code based on the success and failure of individual records for Acknowledging documents.
-`docId`|`string`|-|The financial document unique identifier.
+`docId`|`string`|-|The financial document unique identifier. Maximum 32 chars.
 `errorMessage`|`string`|-|The error message, if any.
-`systemId`|`string`|-|The external system ID that acknowledged the documents.
+`systemId`|`string`|-|The external system ID that acknowledged the documents. Maximum 50 chars.
 
 ### <a name="schema-confirmationrequest"></a>Confirmation Request
 
 Name|Type|Format|Description
 ---|---|---|---
-`systemId`|`string`|-|**Required** The external system ID that acknowledged the documents, it can be an empty string.
+`systemId`|`string`|-|**Required** The external system ID that acknowledged the documents, it can be an empty string. Maximum 50 chars.
 `postingConfirmations`|`Array`|[Posting Confirmation request item](#postingrequest)|Posting confirmations JSON request.
 
 
@@ -684,7 +767,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`docId`|`string`|-|The financial document ID to confirm.
+`docId`|`string`|-|The financial document ID to confirm. Maximum 32 chars.
 `overallPostingStatusCode`|`string`|-|Posting status. VALUES: error or success.
 `postingDocs`|`array`|[Posting Documents Details](#schema-postingdocs)|Posting documents details, if any.
 `systemMessages`|`array`|[System Messages](#schema-systemmsg)|Messages to post to SAP Concur, if any.
@@ -693,8 +776,8 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`companyId`|`string`|-|**Required** External system organizational unit ID
-`documentNumber`|`string`|-|External system document identifier.
+`companyId`|`string`|-|**Required** External system organizational unit ID. Maximum 32 chars.
+`documentNumber`|`string`|-|External system document identifier. Maximum 80 chars.
 `fiscalYear`|`int32`|-|External system fiscal year.
 `paymentRelevantLineItems`|`array`|-|Payment relevant line items. This array is usually empty.
 `postingDate`|`string`|YYYY-MM-DD|External system posting date.
@@ -722,23 +805,24 @@ Name|Type|Format|Description
 `postingConfirmationResult`|`string`|-|Posting confirmation result. Supported values are: SUCCESS, SYSTEM_ERROR_OCCURRED, NOT_YET_ACKNOWLEDGED, DOCUMENT_NOT_FOUND, FAILURE, WAS_RECALLED.
 `detailMessage`|`string`|-|Posting confirmation message.
 `code`|`Int32`|-|The Financial Service return code.
-`docId`|`string`|-|The document ID.
+`docId`|`string`|-|The document ID. Maximum 32 chars.
 `errorMessage`|`string`|-|The error message, if any.
-`systemId`|`string`|-|The external system ID that acknowledged the document.
+`systemId`|`string`|-|The external system ID that acknowledged the document. Maximum 50 chars.
 
 ### <a name="schema-paymentrequest"></a>Payment Confirmation Request
 
 Name|Type|Format|Description
 ---|---|---|---
-`systemId`|`string`|-|**Required** The external system ID that acknowledged the documents, it can be an empty string.
+`systemId`|`string`|-|**Required** The external system ID that acknowledged the documents, it can be an empty string. Maximum 50 chars.
 `processingConfirmation`|`Array`|[Payment Confirmation Request Item](#schema-paymentconfirmationrequest)|Payment confirmations JSON request.
 
 ### <a name="schema-paymentconfirmationrequest"></a>Payment Confirmation Request Item
 
 Name|Type|Format|Description
 ---|---|---|---
-`docId`|`string`|-|The financial document ID to confirm.
-`processingStatusCode`|`string`|-|Payment status. VALUES: CP, PP (Completely Paid, Partially paid).
+`docId`|`string`|-|The financial document ID to confirm. Maximum 32 chars.
+`processingStatusCode`|`string`|-|Payment status. VALUES: CP, PP, RE, OB (Completely Paid, Partially paid, Reversal, Obsolete). Maximum 3 chars.
+`additionalMessage`|`string`|-|Reversal message or obsolete message if any.
 `clearingDetails`|`array`|[Payment Documents Details](#schema-paymentdocs)|Payment documents details, if any.
 
 ### <a name="schema-paymentdocs"></a>Payment Documents Details
@@ -767,13 +851,13 @@ Name|Type|Format|Description
 `financialDocumentId`|`string`|-|Document ID in ERP.
 `fiscalYear`|`string`|-|Fiscal year.
 `paymentRef`|`string`|-|Payment reference ID.
-`paymentMethod`|`string`|-|Payment method.
+`paymentMethod`|`string`|-|Payment method Where E=Electronic Fund Transfer or C = Check.
 
 ### <a name="schema-paymentconfirmationresponse"></a>Payment Confirmation Response
 
 Name|Type|Format|Description
 ---|---|---|---
-`PaymentConfirmationResponse`|`array`|[Payment Confirmation Response Item](schema-PaymentConfirmationResponseItem)|The JSON response body
+`PaymentConfirmationResponse`|`array`|[Payment Confirmation Response Item](#schema-PaymentConfirmationResponseItem)|The JSON response body
 
 #### <a name="schema-PaymentConfirmationResponseItem"></a>PaymentConfirmationResponseItem
 
@@ -783,9 +867,9 @@ Name|Type|Format|Description
 `paymentRef`|`string`|-|Any message corresponding to payment reference being processed.
 `detailMessage`|`string`|-|Payment confirmation message.
 `code`|`Int32`|-|The financial service return code.
-`docId`|`string`|-|The document ID.
+`docId`|`string`|-|The document ID. Maximum 32 chars.
 `errorMessage`|`string`|-|The error message, if any.
-`systemId`|`string`|-|The external system ID that acknowledged the document.
+`systemId`|`string`|-|The external system ID that acknowledged the document. Maximum 50 chars.
 
 ## <a name="example"></a>Example Financial Documents
 
