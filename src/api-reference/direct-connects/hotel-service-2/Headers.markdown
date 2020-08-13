@@ -24,6 +24,8 @@ SAP Concur will send the following HTTP headers in every request.  The contents 
 |`Accept`|`string`|SAP Concur will always set the `Accept` header to `application/xml`.|
 |`Accept-Charset`|`string`|SAP Concur will always set the `Accept-Charset` header to `utf-8`.|
 |`Concur-Correlationid`|`string`|This unique code can be used during troubleshooting as it identifies the API call in the log files.|
+|`Concur-Traveleruuid`|`string`|UUID that identifies the traveler within concur. Only sent when available.|
+|`Concur-Loginid`|`string`|Login ID of traveler within concur. Only sent when available.|
 
 Supported Soapactions:
 
