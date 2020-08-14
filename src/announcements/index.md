@@ -2,6 +2,10 @@
 title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
+### 2020-08-14 :: August 2020 Release Notes Published
+
+SAP Concur has published release notes for the Request and Travel Profile Notification APIs, with additional information about SSL certificates, in the August 2020 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
+
 ### 2020-07-30 :: July 2020 Release Notes Published
 
 SAP Concur has published release notes for the Request and Travel Profile Notification APIs, with additional information about Legacy OAuth access tokens, in the July 2020 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
