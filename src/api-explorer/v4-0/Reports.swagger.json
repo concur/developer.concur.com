@@ -1,0 +1,3097 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "<b>Expense Report Service (ERS) is the next-generation v4 API for operations related to  creating and processing Expense Reports</b>. In order to interact with this API, a client  must include either an authorized User or Company JWT in the header of each request, or  use an X.509 client certificate which has been white-listed by the ERS team.\n",
+        "version": "4.0.56",
+        "title": "Expense Report Service",
+        "contact": {
+            "name": "expensereportservice@sap.onmicrosoft.com",
+            "email": "expensereportservice@sap.onmicrosoft.com"
+        },
+        "license": {
+            "name": "SAP Concur"
+        }
+    },
+    "host": "api.concursolutions.com",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Reports",
+            "description": "Reports API "
+        },
+        {
+            "name": "Expenses",
+            "description": "Report Expenses API"
+        },
+        {
+            "name": "Allocations",
+            "description": "Allocations API"
+        },
+        {
+            "name": "Workflows",
+            "description": "Workflows API "
+        }
+    ],
+    "paths": {
+        "/expensereports/v4/reports/{reportId}/approve": {
+            "patch": {
+                "tags": [
+                    "Workflows"
+                ],
+                "summary": "Advances the specified report to the next step if it is in a system step",
+                "operationId": "approveReportAsSystemUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "systemApproveReportRequest",
+                        "description": "systemApproveReportRequest",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/WorkflowTransitionRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "400": {
+                        "description": "Specified context not supported\n\nerror.submit.Generic: An error occurred while submitting the selected report. The report was not submitted\n\nerror.submit.no_entries: The expense report has no expenses. You must create at least one expense in order to submit the report\n\nerror.workflow.no_clearingcode: Either the credit card account or the payment type is missing a clearing account code. Contact your Expense administrator\n\nerror.workflow.invalid_action: The action cannot be executed because it is not valid for the report workflow\n\nerror.workflow.incomplete_receipt_review: You have not finished reviewing all the receipts in this report.  Your company requires that you review receipts during approval\n\nerror.submit.rptXctMaxThreshold: This expense report cannot be submitted until all blocking exceptions are resolved\n\nerror.submit.entryXctMaxThreshold: This expense report cannot be submitted until all blocking exceptions are resolved\n\nerror.submit.undefined_expense_type: The expense report contains one or more expenses with an expense type of Undefined. You must select an expense type for each expense before you can submit the report\n\nerror.submit.missing_reqd_fields: At least one required field in this report is empty. Please provide a value and then submit the report\n\nerror.submit.missing_alloc_reqd_fields: At least one required allocation field in this report is empty. Please provide the appropriate value, and then submit the report\n\nerror.submit.missingKids: This report contains a Lodging expense that is not itemized. Lodging expenses must be itemized in the report before it can be submitted\n\nerror.submit.itemDiff: The expense report contains at least one itemized expense. The itemization amounts do not add up to the expense amount. Edit the itemized entries to make the required changes before submitting the report\n\nerror.submit.itemMissing: This report cannot be submitted because one or more entries must be itemized. Itemize the entries and then submit the report\n\nerror.submit.alreadySubmitted: The report has already been submitted and cannot be submitted again\n\nerror.submit.cannotSubmitAsDelegate: The report cannot be submitted by the Delegate\n\nerror.submit.cashadvance_cant_carry_balance: Cash Advances must be entirely utilized or returned. Please enter a Cash Advance Return on this report to return the remaining balance\n\nerror.submit.cashadvance_negative_balance: The Cash Advance Balance is negative because a Cash Advance Return is greater than the remaining balance. Either enter a Currency Gain/Loss expense to bring the balance to zero or adjust the Cash Advance Return amount to bring the balance to zero. Then, click Submit again\n\nerror.submit.single_row_itinerary: This report contains at least one itinerary with a single itinerary row. An itinerary is not valid until it has at least two rows. Please add another row to complete the itinerary\n\nerror.submit.invalidAttendeeType: This report contains at least one entry with an attendee of an invalid type.  Please remove the attendee(s) before submitting the report\n\ninfo.submit.notify_by_delegate: A notification has been sent to the employee\n\ncannot_approve_your_own_report: This expense report was created by you. You cannot approve your own report\n\nno_approver: You must identify an approver before the expense report moves on to the next workflow step\n\ninvalid_auth_approver: This report cannot be sent to the next approver. This workflow step must be approved by a specialized approver called an Authorized Approver. The selected approver is not an Authorized Approver. Select another approver\n\nno_approver.not_editable_step: There are no approvers defined in your workflow. Please contact your Expense administrator\n\nno_approver.change_my_info: Missing the required approver for next workflow step. You may be able to select an approver; otherwise contact your Expense administrator for assistance\n\nwf_config_invalid_next_step: You must identify an approver before the expense report moves on to the next workflow step\n\nnot_an_approver: This report cannot be sent to the next approver because the selected approver is no longer authorized to approve reports. Please select another approver\n\napprover_cum_reportowner: You cannot send this report to this approver since this person created this report\n\napprover_cum_reportowner.is_editableby: Your workflow is configured such that the report would come back to the report owner during some step. Please contact your Employee Administrator to change the approvers\n\ninstance_out_of_date: The approval workflow that this expense report uses has changed. Please select a new approver in order to approve and process this expense report\n\nreview_approval_flow_approver: Review Approvers in the workflow\n\ncost_object_step: The next approval step is a Cost object step and cannot be approved through Mobile\n\nstep_exit_blocking_by_exception: One or more blocking exceptions are preventing approval submission. Resolve the exception before proceeding\n\nreceiptimagehold.workflow.noapprover: Missing the required approver for next step. Cannot advance report out of imaging hold. Contact your Expense administrator for assistance\n\nerror.workflow.invalid_report_key: The expense report no longer exists in the system\n\nattendee_total_error: This report contains at least one entry with invalid attendee amounts.  Please correct the attendee amounts before approving\n\napprover_cashadvance_owner.is_editableby: Your workflow is configured such that the cash advance would come back to the cash advance owner during some step. Please contact your Employee Administrator to change the approvers\n\nerror.workflow.missing_alloc_reqd_fields: At least one required allocation field in this report lacks data. Please provide the appropriate value, and then approve the report\n\nerror.recall.cannotRecall: Expense report cannot be recalled\n\nerror.workflow.noComments: Cannot send report back without providing comments. Add a comment to explain why you are returning the report\n\nstatusId.invalidValue: Invalid 'statusId' value specified",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "204": {
+                        "description": "Report successfully approved",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "403": {
+                        "description": "Caller cannot modify System workflow step",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/reports/{reportId}/sendBack": {
+            "patch": {
+                "tags": [
+                    "Workflows"
+                ],
+                "summary": "Sends back the specified report to report owner",
+                "operationId": "sendBackReportAsSystemUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "systemSendBackReportRequest",
+                        "description": "systemSendBackReportRequest",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReportSendBackRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "400": {
+                        "description": "Specified context not supported\n\nInvalid reportId\n\nerror.workflow.noComments: Cannot send report back without providing comments. Add a comment to explain why you are returning the report\n\nno_approver: You must identify an approver before the expense report moves on to the next workflow step\n\ninvalid_auth_approver: This report cannot be sent to the next approver. This workflow step must be approved by a specialized approver called an Authorized Approver. The selected approver is not an Authorized Approver. Select another approver\n\nno_approver.not_editable_step: There are no approvers defined in your workflow. Please contact your Expense administrator\n\nwf_config_invalid_next_step: You must identify an approver before the expense report moves on to the next workflow step\n\nnot_an_approver: This report cannot be sent to the next approver because the selected approver is no longer authorized to approve reports. Please select another approver\n\nerror.workflow.invalid_report_key: The expense report no longer exists in the system\n\nerror.workflow.missing_alloc_reqd_fields: At least one required allocation field in this report lacks data. Please provide the appropriate value, and then approve the report\n\n",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "204": {
+                        "description": "Report successfully sent back",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "403": {
+                        "description": "Caller cannot modify System workflow step",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Gets report details for the specified report.",
+                "description": "Returns report details for the specified report. Also returns a self link, plus each of the following links, contingent on the existence of the resource: comments, exceptions, expenses, formFields.",
+                "operationId": "getReportDetailsUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER",
+                            "PROXY"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Report details successfully retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/ReportDetails"
+                        }
+                    },
+                    "400": {
+                        "description": "Specified context not supported",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type,\nUser is not allowed to access this report ",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Updates the specified report",
+                "description": "Updates the specified report.",
+                "operationId": "updateReportUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "report",
+                        "description": "Report body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateReport"
+                        }
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER",
+                            "PROXY"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Specified context not supported,\nInvalid field value specified,\nUser does not have proper role",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "204": {
+                        "description": "Report successfully updated"
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/allocations/{allocationId}": {
+            "get": {
+                "tags": [
+                    "Allocations"
+                ],
+                "summary": "Gets specified allocation for the specified report.",
+                "description": "Returns specified allocation for the specified report.",
+                "operationId": "getAllocationByIdUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "allocationId",
+                        "in": "path",
+                        "description": "The unique identifier of the expense allocation",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER",
+                            "PROXY"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Allocation successfully retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/ReportAllocationResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid expenseId\n\nallocationId is invalid",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nUser is not authorized to access this report with this context type",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found\n\nallocationId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Allocations"
+                ],
+                "summary": "Updates the specified allocation for the report",
+                "description": "Updates the specified allocation for the report.",
+                "operationId": "updateAllocationUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report that contains the expense associated with the allocations",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "allocationId",
+                        "in": "path",
+                        "description": "The unique identifier of the expense allocation",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "allocationData",
+                        "description": "Allocation data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateReportAllocation"
+                        }
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER",
+                            "PROXY"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid field value specified\n\nInvalid expenseId\n\nallocationId is invalid\n\nUser does not have proper role",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "204": {
+                        "description": "Successfully updated the allocation"
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nSystem allocation cannot be modified\n\nUser is not authorized to access this report with this context type",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found\n\nallocationId not found\n\nexpenseId not found\n\nThe policy of the specified report does not have an allocation form defined. Contact your Concur Administrator",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses": {
+            "get": {
+                "tags": [
+                    "Expenses"
+                ],
+                "summary": "Gets all expense summaries for the specified report",
+                "description": "Returns all expense summaries for the specified report. Includes a link to expense details for each expense and a link to itemizations for each parent expense.",
+                "operationId": "getReportExpensesSummaryUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER",
+                            "PROXY"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Expense summaries successfully retrieved",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ReportExpenseSummary"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Specified context not supported",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nUser is not allowed to access this report ",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}": {
+            "get": {
+                "tags": [
+                    "Expenses"
+                ],
+                "summary": "Gets expense details for the specified expense",
+                "description": "Returns expense details for the specified expense. Also returns a self link, plus each of the following links, contingent on the existence of the resource: allocations, attendees, comments, exceptions, formFields, itemizations, tax.",
+                "operationId": "getReportExpenseDetailUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "expenseId",
+                        "in": "path",
+                        "description": "The unique identifier of the expense",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER",
+                            "PROXY"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Expense details successfully retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/ReportExpenseDetail"
+                        }
+                    },
+                    "400": {
+                        "description": "Specified context not supported",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nUser is not allowed to access this report ",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found\n\nexpenseId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Expenses"
+                ],
+                "summary": "Updates the specified expense",
+                "description": "Updates the specified expense.",
+                "operationId": "updateReportExpenseUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "expenseId",
+                        "in": "path",
+                        "description": "The unique identifier of the expense",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "expenseData",
+                        "description": "Expense data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateReportExpense"
+                        }
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER",
+                            "PROXY"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Specified context not supported\n\nInvalid field value specified\n\nUser does not have proper role",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "204": {
+                        "description": "Successfully updated the report expense"
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nUser is not allowed to modify this report ",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found\n\nexpenseId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/allocations": {
+            "get": {
+                "tags": [
+                    "Allocations"
+                ],
+                "summary": "Gets all allocations for the specified expense",
+                "description": "Returns all allocations for the specified expense.",
+                "operationId": "getAllocationsUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "expenseId",
+                        "in": "path",
+                        "description": "The unique identifier of the expense",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER",
+                            "PROXY"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Allocations successfully retrieved",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Allocation"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid expenseId",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nUser is not authorized to access this report with this context type",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "reportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "HotelEReceipt": {
+            "type": "object",
+            "properties": {
+                "calculatedDailyRate": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The calculated hotel daily rate"
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The hotel checkout date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "locationId": {
+                    "type": "string",
+                    "description": "The unique identifier of the location for this hotel"
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The hotel checkin date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "totalAmountPaid": {
+                    "description": "The total amount paid",
+                    "$ref": "#/definitions/Amount"
+                },
+                "vendorName": {
+                    "type": "string",
+                    "description": "The name of the hotel vendor. Maximum length: 255 characters. Examples: 'Hilton', 'Four Points by Sheraton, Seattle'"
+                }
+            }
+        },
+        "ReportExpenseSummary": {
+            "type": "object",
+            "required": [
+                "allocationState",
+                "exchangeRate",
+                "expenseId",
+                "expenseType",
+                "hasBlockingExceptions",
+                "hasExceptions",
+                "hasMissingReceiptDeclaration",
+                "isAutoCreated",
+                "isImageRequired",
+                "isPaperReceiptRequired",
+                "isPersonalExpense",
+                "paymentType",
+                "postedAmount",
+                "transactionAmount"
+            ],
+            "properties": {
+                "allocationSetId": {
+                    "type": "string",
+                    "description": "The identifier of the Allocation set associated with the expense. Allocations which belong to the same set were created at the same time."
+                },
+                "allocationState": {
+                    "type": "string",
+                    "description": "Allocation state for the expense. Possible values: 'FULLY_ALLOCATED', 'NOT_ALLOCATED', 'PARTIALLY_ALLOCATED'"
+                },
+                "approvedAmount": {
+                    "description": "The approved amount of the expense, in the report currency",
+                    "$ref": "#/definitions/Amount"
+                },
+                "approverAdjustedAmount": {
+                    "description": "The total amount adjusted for the expense by the approver",
+                    "$ref": "#/definitions/Amount"
+                },
+                "attendeeCount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The total number of attendees associated with the expense"
+                },
+                "businessPurpose": {
+                    "type": "string",
+                    "description": "The text input for the business purpose by the user"
+                },
+                "claimedAmount": {
+                    "description": "The total non-personal amount claimed for reimbursement for the expense",
+                    "$ref": "#/definitions/Amount"
+                },
+                "ereceiptImageId": {
+                    "type": "string",
+                    "description": "The unique identifier of the eReceipt image associated with the expense"
+                },
+                "exchangeRate": {
+                    "description": "Exchange rate data for the expense. Please refer to the 'ExchangeRate' object for more information",
+                    "$ref": "#/definitions/ExchangeRate"
+                },
+                "expenseId": {
+                    "type": "string",
+                    "description": "The unique identifier for the expense"
+                },
+                "expenseSourceIdentifiers": {
+                    "description": "The list of expense sources associated with the expense",
+                    "$ref": "#/definitions/ExpenseSourceIdentifiers"
+                },
+                "expenseType": {
+                    "description": "The expense type information for the expense. Please refer to the 'ExpenseType' object for more information",
+                    "$ref": "#/definitions/ExpenseType"
+                },
+                "hasBlockingExceptions": {
+                    "type": "boolean",
+                    "description": "Whether the expense has any exceptions that blocks it from being submitted"
+                },
+                "hasExceptions": {
+                    "type": "boolean",
+                    "description": "Whether the expense has any exceptions"
+                },
+                "hasMissingReceiptDeclaration": {
+                    "type": "boolean",
+                    "description": "Whether the expense has an affidavit declaration for missing receipt"
+                },
+                "imageCertificationStatus": {
+                    "type": "string",
+                    "description": "The final status of the receipt image associated with the expense. Possible values: Refer [Receipts Status V4 API](https://github.concur.com/receipts/receipt-service/wiki/GRDC-API-Docs#possible-digitizationstatus-codes)"
+                },
+                "isAutoCreated": {
+                    "type": "boolean",
+                    "description": "Whether the expense is auto created"
+                },
+                "isImageRequired": {
+                    "type": "boolean",
+                    "description": "Whether the image is required for the expense"
+                },
+                "isPaperReceiptRequired": {
+                    "type": "boolean",
+                    "description": "Whether the paper receipt is required for the expense to be submitted"
+                },
+                "isPersonalExpense": {
+                    "type": "boolean",
+                    "description": "Whether the expense is marked as personal (that is, non-reimbursable) by the user"
+                },
+                "jptRouteId": {
+                    "type": "string",
+                    "description": "The unique route ID to identify a Japan rail route"
+                },
+                "links": {
+                    "type": "array",
+                    "description": "Resource links related to this call",
+                    "items": {
+                        "$ref": "#/definitions/Link"
+                    }
+                },
+                "location": {
+                    "description": "The location information of the expense. Please refer to the 'Location' object for more information",
+                    "$ref": "#/definitions/Location"
+                },
+                "paymentType": {
+                    "description": "The payment type information for the expense. Please refer to the 'PaymentType' object for more information",
+                    "$ref": "#/definitions/PaymentType"
+                },
+                "postedAmount": {
+                    "description": "The amount of the expense, in the report currency",
+                    "$ref": "#/definitions/Amount"
+                },
+                "receiptImageId": {
+                    "type": "string",
+                    "description": "The unique identifier of the image associated with the expense"
+                },
+                "ticketNumber": {
+                    "type": "string",
+                    "description": "The ticket number associated with the travel"
+                },
+                "transactionAmount": {
+                    "description": "The amount of the expense, in the transaction currency paid to the vendor",
+                    "$ref": "#/definitions/Amount"
+                },
+                "transactionDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The transaction date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                },
+                "travelAllowance": {
+                    "description": "The travel allowance data associated with the expense. Please refer to the 'TravelAllowance' object for more information",
+                    "$ref": "#/definitions/TravelAllowance"
+                },
+                "vendor": {
+                    "description": "The vendor information for the expense. Please refer to the 'Vendor' object for more information",
+                    "$ref": "#/definitions/Vendor"
+                }
+            }
+        },
+        "SmartExpense": {
+            "type": "object",
+            "properties": {
+                "creditCardTransactionId": {
+                    "type": "string",
+                    "description": "The unique identifier of the credit card transaction (indexed transactionId) associated with the expense"
+                },
+                "ereceipt": {
+                    "description": "EReceipt information for the expense. Please refer to the 'EReceipt' object for more information",
+                    "$ref": "#/definitions/EReceipt"
+                },
+                "expenseAttendees": {
+                    "description": "The attendee details associated with the smart expense. Please refer to the 'ExpenseAttendees' object for more information",
+                    "$ref": "#/definitions/ExpenseAttendees"
+                },
+                "isAutoCreated": {
+                    "type": "boolean",
+                    "description": "Whether this expense is auto created. This element only applies to POST expense request. Default value: false"
+                },
+                "personalCardTransactionId": {
+                    "type": "string",
+                    "description": "The unique identifier of the personal card transaction associated with the expense"
+                },
+                "quickExpenseId": {
+                    "type": "string",
+                    "description": "The unique identifier of the mobile expense associated with the expense. When 'quickExpenseId' is specified, 'exchangeRate.value' field value will be ignored and it's value will be read from exchange rate currency service but 'exchangeRate.operation' will still be honored"
+                },
+                "trip": {
+                    "description": "Trip data associated with the expense. Please refer to the 'Trip' object for more information",
+                    "$ref": "#/definitions/Trip"
+                }
+            }
+        },
+        "ValidationError": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The id of the validation error"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "The detailed message of the validation error"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The type of validation which failed"
+                }
+            }
+        },
+        "ExpenseTax": {
+            "type": "object",
+            "required": [
+                "taxAuthorityId"
+            ],
+            "properties": {
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "reclaimCode": {
+                    "type": "string",
+                    "description": "The tax reclaim code. Maximum length: 20 characters"
+                },
+                "reclaimTransactionAmount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The tax reclaim transaction amount"
+                },
+                "taxAuthorityId": {
+                    "type": "string",
+                    "description": "The unique identifier of the tax authority"
+                },
+                "taxAuthorityName": {
+                    "type": "string",
+                    "description": "The name of the tax authority"
+                },
+                "taxCode": {
+                    "type": "string",
+                    "description": "The tax code. Maximum length: 20 characters"
+                },
+                "taxFormId": {
+                    "type": "string",
+                    "description": "The unique identifier of the tax form associated with the expense"
+                },
+                "taxLabel": {
+                    "type": "string",
+                    "description": "The localized label of the tax authority"
+                },
+                "taxRateTypeId": {
+                    "type": "string",
+                    "description": "The unique identifier of the tax rate type id"
+                },
+                "taxRateTypeName": {
+                    "type": "string",
+                    "description": "The name of the tax rate type"
+                },
+                "taxReclaimConfigurationId": {
+                    "type": "string",
+                    "description": "The unique identifier of the tax reclaim configuration id"
+                },
+                "taxTransactionAmount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The tax transaction amount"
+                }
+            }
+        },
+        "Mileage": {
+            "type": "object",
+            "required": [
+                "totalDistance",
+                "vehicleId"
+            ],
+            "properties": {
+                "hasCaravanAttached": {
+                    "type": "boolean",
+                    "description": "Whether the mileage expense has caravan attached to the car. Default value: false"
+                },
+                "hasDogIncluded": {
+                    "type": "boolean",
+                    "description": "Whether the mileage expense includes a dog for work purposes. Default value: false"
+                },
+                "hasForestOrConstructionSiteRoadInRoute": {
+                    "type": "boolean",
+                    "description": "Whether the mileage route is via a forest road or construction site road. Default value: false"
+                },
+                "hasForestRoadInRoute": {
+                    "type": "boolean",
+                    "description": "Whether the mileage route has forest road. Default value: false"
+                },
+                "hasMachinery": {
+                    "type": "boolean",
+                    "description": "Whether machines or equipment are transported in the car for this mileage expenses. Default value: false"
+                },
+                "hasMobileCanteenOrHeavyLoadAttached": {
+                    "type": "boolean",
+                    "description": "Whether the mileage expense has mobile canteen or is transporting a heavy load attached to the car. Default value: false"
+                },
+                "hasTrailerAttached": {
+                    "type": "boolean",
+                    "description": "Whether the mileage expense has trailer attached to the car. Default value: false"
+                },
+                "isMarkedAsHigherRate": {
+                    "type": "boolean",
+                    "description": "Whether a higher rate should be applied to the mileage expense. Default value: false"
+                },
+                "odometerEnd": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The odometer reading at the end of the journey"
+                },
+                "odometerStart": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The odometer reading at the start of the journey"
+                },
+                "passengerCount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of passengers in the vehicle during the journey"
+                },
+                "personalDistance": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The portion of the journey attributed to personal use. Default value: 0"
+                },
+                "routeId": {
+                    "type": "string",
+                    "description": "The unique identifier of the route for this journey"
+                },
+                "totalDistance": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The total distance for this journey"
+                },
+                "vehicleId": {
+                    "type": "string",
+                    "description": "The unique identifier for the vehicle used for this journey"
+                }
+            }
+        },
+        "ExpenseType": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The code of the expense type"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the expense type. Maximum length: 5 characters. Example: 'BRKFT'"
+                },
+                "isDeleted": {
+                    "type": "boolean",
+                    "description": "Whether the expense type returned is deleted or not."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the expense type (localized as per accept-language header)"
+                }
+            }
+        },
+        "Link": {
+            "type": "object",
+            "required": [
+                "href",
+                "isTemplated",
+                "method",
+                "rel"
+            ],
+            "properties": {
+                "deprecation": {
+                    "type": "string"
+                },
+                "href": {
+                    "type": "string",
+                    "description": "The URL of the related HATEOAS link that you can use for subsequent calls"
+                },
+                "hreflang": {
+                    "type": "string"
+                },
+                "isTemplated": {
+                    "type": "boolean",
+                    "description": "Whether the href is parameterized"
+                },
+                "media": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "The HTTP method required for the related call"
+                },
+                "rel": {
+                    "type": "string",
+                    "description": "The link relationship that describes how the href relates to the API call"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateReport": {
+            "type": "object",
+            "required": [
+                "reportSource"
+            ],
+            "properties": {
+                "businessPurpose": {
+                    "type": "string",
+                    "description": "The text input for the business purpose by the user"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "The expense report comment added by the user"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "The country name associated with the report (localized as per accept-language header)"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "description": "The location country ISO 3166-1 code (https://en.wikipedia.org/wiki/ISO_3166-1)"
+                },
+                "countrySubDivisionCode": {
+                    "type": "string",
+                    "description": "The location country sub division ISO 3166-2 code (https://en.wikipedia.org/wiki/ISO_3166-2)"
+                },
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The end date (ISO-8601) of the report as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                },
+                "isCopyDownInherited": {
+                    "type": "boolean",
+                    "description": "If this flag is set to true, any change in the report header fields will be copied down to expenses, itemizations and allocations, as per the configuration. Usage of this flag should be deliberate as data corruption could result."
+                },
+                "isPaperReceiptsReceived": {
+                    "type": "boolean",
+                    "description": "Whether paper receipts have been received for the report"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The expense report name input by the user"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The policy name to which the report adheres to"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "The unique identifier of the policy that applies to this report"
+                },
+                "redirectFund": {
+                    "description": "Funds redirected to IBCP card",
+                    "$ref": "#/definitions/RedirectFund"
+                },
+                "reportDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date (ISO-8601) assigned to the report by the user (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DD"
+                },
+                "reportSource": {
+                    "type": "string",
+                    "description": "The source of the report. Possible values: EA - Expense Assistant, MOB - Mobile, OTHER - Unknown, SE - Smart Expense, TR - Travel Request, UI - Web UI",
+                    "enum": [
+                        "EA",
+                        "MOB",
+                        "OTHER",
+                        "SE",
+                        "TR",
+                        "UI"
+                    ]
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The start date (ISO-8601) of the report as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                }
+            }
+        },
+        "ExpenseSourceIdentifiers": {
+            "type": "object",
+            "properties": {
+                "creditCardTransactionId": {
+                    "type": "string",
+                    "description": "The unique identifier of the credit card transaction (indexed transactionId) associated with the expense"
+                },
+                "ereceiptId": {
+                    "type": "string"
+                },
+                "expenseCaptureImageId": {
+                    "type": "string",
+                    "description": "The unique identifier of the expense capture image associated with the expense"
+                },
+                "jptRouteId": {
+                    "type": "string",
+                    "description": "The unique identifier to identify a Japan rail route"
+                },
+                "personalCardTransactionId": {
+                    "type": "string",
+                    "description": "The unique identifier of the personal card transaction associated with the expense"
+                },
+                "quickExpenseId": {
+                    "type": "string",
+                    "description": "The unique identifier of the mobile expense associated with the expense"
+                },
+                "segmentId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The unique identifier of the segment associated with the expense"
+                },
+                "segmentTypeId": {
+                    "type": "string",
+                    "description": "Segment type id associated with the trip. Possible values: AIRFR - Air Ticket, AIRSU - Air Subscription, CARRT - Car Rental, DININ - Dining, EVENT - Event, HOTEL - Hotel Reservation, INSUR - Insurance, LIMOF - Limousine Reservation, MISC - Miscellaneous, PARKG - Parking Fee, RAILF - Train Ticket, RAISU - Train Subscription, TAXIF - Taxi Fare, VISA - Visa"
+                },
+                "tripId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The unique identifier of the trip id associated with the expense"
+                }
+            }
+        },
+        "CustomData": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the custom field e.g. 'custom1', 'orgUnit1'"
+                },
+                "isValid": {
+                    "type": "boolean",
+                    "description": "Whether the value returned is valid or not. This value is returned for custom fields of all data types and is specifically evaluated for list items to represent the current status. Default value: true"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the custom field. This field can have values for all the supported data types such as 'text', 'integer', 'boolean' and 'listItemId'. Maximum length: 48 characters"
+                }
+            }
+        },
+        "EReceipt": {
+            "type": "object",
+            "required": [
+                "id",
+                "type"
+            ],
+            "properties": {
+                "carEReceipt": {
+                    "description": "The eReceipt car data. Please refer to the 'CarEReceipt' object for more information",
+                    "$ref": "#/definitions/CarEReceipt"
+                },
+                "hotelEReceipt": {
+                    "description": "The eReceipt hotel data. Please refer to the 'HotelEReceipt' object for more information",
+                    "$ref": "#/definitions/HotelEReceipt"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the eReceipt with the expense"
+                },
+                "imageId": {
+                    "type": "string",
+                    "description": "The unique identifier of the eReceipt image associated with the expense"
+                },
+                "templateURL": {
+                    "type": "string",
+                    "description": "The URL of the eReceipt template. Maximum length: 512 characters"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of eReceipt associated with the expense. Possible values: 'AIR', 'CAR', 'GASXX', 'GENERAL', 'GRTRN', 'HOTEL', 'JPT', 'MEALS', 'OFFIC', 'PRKNG', 'RAIL', 'RIDE', 'SHIPG', 'TELEC'"
+                }
+            }
+        },
+        "Trip": {
+            "type": "object",
+            "required": [
+                "segmentId",
+                "segmentTypeId",
+                "tripId"
+            ],
+            "properties": {
+                "airTrip": {
+                    "description": "Air trip data associated with the expense. Please refer to the 'AirTrip' object for more information",
+                    "$ref": "#/definitions/AirTrip"
+                },
+                "bookingOrigin": {
+                    "type": "string",
+                    "description": "Booking origin of the trip. Possible values: AETM - Amadeus E-Travel, CLIQ - Concur Travel, PANM - Open Booking, TRPT - TripIt, TSUP - Travel Supplier"
+                },
+                "bookingSource": {
+                    "type": "string",
+                    "description": "Booking source of the trip. Maximum length: 48 characters. Examples: 'Expedia', 'Travelocity', 'Manual'"
+                },
+                "carTrip": {
+                    "description": "Car trip data associated with the expense. Please refer to the 'CarTrip' object for more information",
+                    "$ref": "#/definitions/CarTrip"
+                },
+                "cliqbookPaymentId": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Cliqbook payment id associated with the trip"
+                },
+                "cliqbookPaymentMethod": {
+                    "type": "string",
+                    "description": "Cliqbook payment method associated with the trip. Possible values: 'GHOST_CARD' or 'FLGHT_PASS'"
+                },
+                "hotelTrip": {
+                    "description": "Hotel trip data associated with the expense. Please refer to the 'HotelTrip' object for more information",
+                    "$ref": "#/definitions/HotelTrip"
+                },
+                "merchantCode": {
+                    "type": "string",
+                    "description": "Merchant code associated with the trip. Maximum length: 4 characters"
+                },
+                "rideTrip": {
+                    "description": "Ride or Taxi trip data associated with the expense. Please refer to the 'RideTrip' object for more information",
+                    "$ref": "#/definitions/RideTrip"
+                },
+                "segmentId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The unique identifier of the segment associated with the expense"
+                },
+                "segmentTypeId": {
+                    "type": "string",
+                    "description": "Segment type id associated with the trip. Possible values: AIRFR - Air Ticket, AIRSU - Air Subscription, CARRT - Car Rental, DININ - Dining, EVENT - Event, HOTEL - Hotel Reservation, INSUR - Insurance, LIMOF - Limousine Reservation, MISC - Miscellaneous, PARKG - Parking Fee, RAILF - Train Ticket, RAISU - Train Subscription, TAXIF - Taxi Fare, VISA - Visa"
+                },
+                "startLocationId": {
+                    "type": "string",
+                    "description": "The unique identifier of the start location associated with the trip"
+                },
+                "tripId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The unique identifier of the trip id associated with the expense"
+                }
+            }
+        },
+        "ReportExpenseDetail": {
+            "type": "object",
+            "required": [
+                "allocationState",
+                "exchangeRate",
+                "expenseId",
+                "expenseType",
+                "hasBlockingExceptions",
+                "hasExceptions",
+                "hasMissingReceiptDeclaration",
+                "isAutoCreated",
+                "isExcludedFromCashAdvanceByUser",
+                "isExpenseBillable",
+                "isExpenseRejected",
+                "isImageRequired",
+                "isPaperReceiptReceived",
+                "isPaperReceiptRequired",
+                "isPersonalExpense",
+                "paymentType",
+                "postedAmount",
+                "taxRateLocation",
+                "transactionAmount"
+            ],
+            "properties": {
+                "allocationSetId": {
+                    "type": "string",
+                    "description": "The identifier of the Allocation set associated with the expense. Allocations which belong to the same set were created at the same time."
+                },
+                "allocationState": {
+                    "type": "string",
+                    "description": "Allocation state for the expense. Possible values: 'FULLY_ALLOCATED', 'NOT_ALLOCATED', 'PARTIALLY_ALLOCATED'"
+                },
+                "approvedAmount": {
+                    "description": "The approved amount of the expense, in the report currency",
+                    "$ref": "#/definitions/Amount"
+                },
+                "approverAdjustedAmount": {
+                    "description": "The total amount adjusted for the expense by the approver",
+                    "$ref": "#/definitions/Amount"
+                },
+                "attendeeCount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The total number of attendees associated with the expense"
+                },
+                "authorizationRequestExpenseId": {
+                    "type": "string",
+                    "description": "The authorization request expense id associated with the expense"
+                },
+                "budgetAccrualDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The budget accrual date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                },
+                "businessPurpose": {
+                    "type": "string",
+                    "description": "The text input for the business purpose by the user"
+                },
+                "claimedAmount": {
+                    "description": "The total non-personal amount claimed for reimbursement for the expense",
+                    "$ref": "#/definitions/Amount"
+                },
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the expense based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "ereceiptImageId": {
+                    "type": "string",
+                    "description": "The unique identifier of the eReceipt image associated with the expense"
+                },
+                "exchangeRate": {
+                    "description": "Exchange rate data for the expense. Please refer to the 'ExchangeRate' object for more information",
+                    "$ref": "#/definitions/ExchangeRate"
+                },
+                "expenseId": {
+                    "type": "string",
+                    "description": "The unique identifier for the expense"
+                },
+                "expenseSourceIdentifiers": {
+                    "description": "The list of expense sources associated with the expense",
+                    "$ref": "#/definitions/ExpenseSourceIdentifiers"
+                },
+                "expenseTaxSummary": {
+                    "description": "Tax information for the expense. Please refer to the 'ExpenseTaxSummary' object for more information",
+                    "$ref": "#/definitions/ExpenseTaxSummary"
+                },
+                "expenseType": {
+                    "description": "The expense type information for the expense. Please refer to the 'ExpenseType' object for more information",
+                    "$ref": "#/definitions/ExpenseType"
+                },
+                "hasBlockingExceptions": {
+                    "type": "boolean",
+                    "description": "Whether the expense has any exceptions that blocks it from being submitted"
+                },
+                "hasExceptions": {
+                    "type": "boolean",
+                    "description": "Whether the expense has any exceptions"
+                },
+                "hasMissingReceiptDeclaration": {
+                    "type": "boolean",
+                    "description": "Whether the expense has an affidavit declaration for missing receipt"
+                },
+                "imageCertificationStatus": {
+                    "type": "string",
+                    "description": "The final status of the receipt image associated with the expense. Possible values: Refer [Receipts Status V4 API](https://github.concur.com/receipts/receipt-service/wiki/GRDC-API-Docs#possible-digitizationstatus-codes)"
+                },
+                "isAutoCreated": {
+                    "type": "boolean",
+                    "description": "Whether the expense is auto created"
+                },
+                "isExcludedFromCashAdvanceByUser": {
+                    "type": "boolean",
+                    "description": "Whether the user has excluded the expense from cash advance"
+                },
+                "isExpenseBillable": {
+                    "type": "boolean",
+                    "description": "Whether the expense is billable"
+                },
+                "isExpenseRejected": {
+                    "type": "boolean",
+                    "description": "Whether the approver or processor has rejected this expense in the report. If this is true then this expense will be sent back to the report submitted in an addendum (split) report"
+                },
+                "isImageRequired": {
+                    "type": "boolean",
+                    "description": "Whether the image is required for the expense"
+                },
+                "isPaperReceiptReceived": {
+                    "type": "boolean",
+                    "description": "Whether the paper receipt was received for the expense"
+                },
+                "isPaperReceiptRequired": {
+                    "type": "boolean",
+                    "description": "Whether the paper receipt is required for the expense to be submitted"
+                },
+                "isPersonalExpense": {
+                    "type": "boolean",
+                    "description": "Whether the expense is marked as personal (that is, non-reimbursable) by the user"
+                },
+                "jptRouteId": {
+                    "type": "string",
+                    "description": "The unique route ID to identify a Japan rail route"
+                },
+                "links": {
+                    "type": "array",
+                    "description": "Resource links related to this call",
+                    "items": {
+                        "$ref": "#/definitions/Link"
+                    }
+                },
+                "location": {
+                    "description": "The location information of the expense. Please refer to the 'Location' object for more information",
+                    "$ref": "#/definitions/Location"
+                },
+                "merchantTaxId": {
+                    "type": "string",
+                    "description": "Merchant tax id for the expense"
+                },
+                "mileage": {
+                    "description": "The mileage data associated with the expense. Please refer to the 'Mileage' object for more information",
+                    "$ref": "#/definitions/Mileage"
+                },
+                "parentExpenseId": {
+                    "type": "string",
+                    "description": "Expense Id of the parent expense"
+                },
+                "paymentType": {
+                    "description": "The payment type information for the expense. Please refer to the 'PaymentType' object for more information",
+                    "$ref": "#/definitions/PaymentType"
+                },
+                "postedAmount": {
+                    "description": "The amount of the expense, in the report currency",
+                    "$ref": "#/definitions/Amount"
+                },
+                "receiptImageId": {
+                    "type": "string",
+                    "description": "The unique identifier of the image associated with the expense"
+                },
+                "receiptType": {
+                    "description": "Receipt type for the expense. Please refer to the 'ReceiptType' object for more information",
+                    "$ref": "#/definitions/ReceiptType"
+                },
+                "taxRateLocation": {
+                    "type": "string",
+                    "description": "Transaction location relative to the employee's home location as defined by their user profile. Possible values: FOREIGN - The expense transaction took place in foreign currency, HOME - The expense transaction took place in the reimbursement currency, OUT_OF_PROVINCE - The expense transaction took place outside the state jurisdiction. Default value: HOME",
+                    "enum": [
+                        "FOREIGN",
+                        "HOME",
+                        "OUT_OF_PROVINCE"
+                    ]
+                },
+                "transactionAmount": {
+                    "description": "The amount of the expense, in the transaction currency paid to the vendor",
+                    "$ref": "#/definitions/Amount"
+                },
+                "transactionDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The transaction date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                },
+                "travel": {
+                    "description": "The travel data associated with the expense. Please refer to the 'Travel' object for more information",
+                    "$ref": "#/definitions/Travel"
+                },
+                "travelAllowance": {
+                    "description": "The travel allowance data associated with the expense. Please refer to the 'TravelAllowance' object for more information",
+                    "$ref": "#/definitions/TravelAllowance"
+                },
+                "vendor": {
+                    "description": "The vendor information for the expense. Please refer to the 'Vendor' object for more information",
+                    "$ref": "#/definitions/Vendor"
+                }
+            }
+        },
+        "Amount": {
+            "type": "object",
+            "required": [
+                "currencyCode",
+                "value"
+            ],
+            "properties": {
+                "currencyCode": {
+                    "type": "string",
+                    "description": "The 3-letter ISO 4217 currency code for the expense report currency, based on the user's assigned reimbursement currency when the report was created. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona"
+                },
+                "value": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The amount in the defined currency"
+                }
+            }
+        },
+        "CarEReceipt": {
+            "type": "object",
+            "properties": {
+                "calculatedDailyRate": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The calculated car rental daily rate"
+                },
+                "carClass": {
+                    "type": "string",
+                    "description": "The car class. Maximum length: 4 characters. Examples: 'IDAD', 'ECMZ', 'PCAV', 'IGDV'"
+                },
+                "currencyCode": {
+                    "type": "string",
+                    "description": "The 3-letter ISO 4217 currency code. Examples: USD - US dollars, BRL - Brazilian real, CAD - Canadian dollar"
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The car rental end date(ISO-8601)(https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                },
+                "fuelServiceCharge": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The fuel service charge. Minimum value: 0"
+                },
+                "numberOfRentalDays": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of car rental calculated days. Minimum value: 0"
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The car rental start date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "unitsDriven": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The total units driven. Minimum value: 0"
+                },
+                "vendorName": {
+                    "type": "string",
+                    "description": "The name of the car vendor. Maximum length: 255 characters. Example: 'ABC Rent A Car'"
+                }
+            }
+        },
+        "ErrorMessage": {
+            "type": "object",
+            "required": [
+                "errorMessage",
+                "httpStatus",
+                "path",
+                "timestamp"
+            ],
+            "properties": {
+                "errorId": {
+                    "type": "string",
+                    "description": "The unique identifier of the error associated with the response or is it error response itself"
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "description": "The detailed error message"
+                },
+                "httpStatus": {
+                    "type": "string",
+                    "description": "The http response code and phrase for the response"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The URI of the attempted request"
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-10-04T00:53:25.931+0000",
+                    "description": "The time when the error was captured"
+                },
+                "validationErrors": {
+                    "type": "array",
+                    "description": "The validation error messages",
+                    "items": {
+                        "$ref": "#/definitions/ValidationError"
+                    }
+                }
+            }
+        },
+        "HotelTrip": {
+            "type": "object",
+            "properties": {
+                "calculatedDailyRate": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The calculated hotel daily rate"
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The hotel checkout date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "numberOfNights": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of nights. Minimum value: 1"
+                },
+                "numberOfRooms": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of hotel rooms. Minimum value: 1"
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The hotel checkin date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "totalAmountPaid": {
+                    "description": "The total amount paid",
+                    "$ref": "#/definitions/Amount"
+                },
+                "vendorName": {
+                    "type": "string",
+                    "description": "The name of the hotel vendor. Maximum length: 255 characters. Examples: 'Hilton', 'Four Points by Sheraton, Seattle'"
+                }
+            }
+        },
+        "AirTrip": {
+            "type": "object",
+            "properties": {
+                "airlineName": {
+                    "type": "string",
+                    "description": "The name of the airline vendor. Maximum length: 255 characters. Example: 'Alaska Airlines'"
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The last travel date or the travel end date(ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "numberOfTravelDays": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of days of travel. Minimum value: 1"
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The first travel date or the travel start date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "ticketType": {
+                    "type": "string",
+                    "description": "The airline class of service. Maximum length: 10 characters, Example: 'Economy'"
+                },
+                "totalAmountPaid": {
+                    "description": "The total amount paid",
+                    "$ref": "#/definitions/Amount"
+                }
+            }
+        },
+        "Tax": {
+            "type": "object",
+            "required": [
+                "expenseTax1"
+            ],
+            "properties": {
+                "expenseTax1": {
+                    "description": "The tax data for the expense. Please refer to the 'ExpenseTax' object for more information",
+                    "$ref": "#/definitions/ExpenseTax"
+                },
+                "expenseTax2": {
+                    "description": "The tax data for the expense. Please refer to the 'ExpenseTax' object for more information",
+                    "$ref": "#/definitions/ExpenseTax"
+                }
+            }
+        },
+        "UpdateReportExpense": {
+            "type": "object",
+            "required": [
+                "expenseSource"
+            ],
+            "properties": {
+                "approverAdjustedAmount": {
+                    "description": "The total amount adjusted for the expense by the approver",
+                    "$ref": "#/definitions/Amount"
+                },
+                "authorizationRequestExpenseId": {
+                    "type": "string",
+                    "description": "The authorization request expense id associated with the expense"
+                },
+                "budgetAccrualDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The budget accrual date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                },
+                "businessPurpose": {
+                    "type": "string",
+                    "description": "The text input for the business purpose by the user. Maximum length: 64 characters"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A comment that describes the expense. Maximum length: 2000 characters"
+                },
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "exchangeRate": {
+                    "description": "The exchange rate data for the expense. Please refer to the 'ExchangeRate' object for more information",
+                    "$ref": "#/definitions/ExchangeRate"
+                },
+                "expenseSource": {
+                    "type": "string",
+                    "description": "The source of the expense. Possible values: EA - Expense Assistant, MOB - Mobile, OTHER - Unknown, SE - Smart Expense, TA - Travel Allowance, TR - Travel Request, UI - Web UI",
+                    "enum": [
+                        "EA",
+                        "MOB",
+                        "OTHER",
+                        "SE",
+                        "TA",
+                        "TR",
+                        "UI"
+                    ]
+                },
+                "expenseType": {
+                    "description": "The expense type data for the expense. Please refer to the 'ExpenseType' object for more information",
+                    "$ref": "#/definitions/ExpenseType"
+                },
+                "hasMissingReceiptDeclaration": {
+                    "type": "boolean",
+                    "description": "Whether the expense has an affidavit declaration for missing receipt"
+                },
+                "isCopyDownInherited": {
+                    "type": "boolean",
+                    "description": "If this flag is set to true, any change in the report expense fields will be copied down to itemization's and allocations, as per the configuration"
+                },
+                "isExcludedFromCashAdvanceByUser": {
+                    "type": "boolean",
+                    "description": "Whether the user has excluded the expense from cash advance"
+                },
+                "isExpenseBillable": {
+                    "type": "boolean",
+                    "description": "Whether the expense is billable"
+                },
+                "isExpenseRejected": {
+                    "type": "boolean",
+                    "description": "Whether the approver or processor has rejected this expense in the report. If this is true then this expense will be sent back to the report submitted in an addendum (split) report"
+                },
+                "isPaperReceiptReceived": {
+                    "type": "boolean",
+                    "description": "Whether paper receipts have been received for the expense. "
+                },
+                "isPersonalExpense": {
+                    "type": "boolean",
+                    "description": "Whether the expense is marked as personal (that is, non-reimbursable) by the user"
+                },
+                "jptRouteId": {
+                    "type": "string",
+                    "description": "The unique route ID to identify a Japan rail route"
+                },
+                "location": {
+                    "description": "The location data of the expense. Please refer to the 'Location' object for more information",
+                    "$ref": "#/definitions/Location"
+                },
+                "merchantTaxId": {
+                    "type": "string",
+                    "description": "The merchant tax id for the expense. Maximum length: 64 characters"
+                },
+                "mileage": {
+                    "description": "The mileage data associated with the expense. Please refer to the 'Mileage' object for more information",
+                    "$ref": "#/definitions/Mileage"
+                },
+                "paymentType": {
+                    "description": "The payment type data for the expense. Default's to group's default payment type else CASH. Please refer to the 'PaymentType' object for more information",
+                    "$ref": "#/definitions/PaymentType"
+                },
+                "receiptImageId": {
+                    "type": "string",
+                    "description": "The unique identifier of the image associated with the expense"
+                },
+                "receiptType": {
+                    "description": "Receipt type for the expense. Please refer to the 'ReceiptType' object for more information",
+                    "$ref": "#/definitions/ReceiptType"
+                },
+                "smartExpense": {
+                    "description": "The smart expense data associated with this expense. Please refer to the 'SmartExpense' object for more information",
+                    "$ref": "#/definitions/SmartExpense"
+                },
+                "tax": {
+                    "description": "The tax data associated with the expense",
+                    "$ref": "#/definitions/Tax"
+                },
+                "taxRateLocation": {
+                    "type": "string",
+                    "description": "Transaction location relative to the employee's home location as defined by their user profile. Possible values: FOREIGN - The expense transaction took place in foreign currency, HOME - The expense transaction took place in the reimbursement currency, OUT_OF_PROVINCE - The expense transaction took place outside the state jurisdiction",
+                    "enum": [
+                        "FOREIGN",
+                        "HOME",
+                        "OUT_OF_PROVINCE"
+                    ]
+                },
+                "transactionAmount": {
+                    "description": "The amount of the expense, in the transaction currency paid to the vendor",
+                    "$ref": "#/definitions/Amount"
+                },
+                "transactionDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The transaction date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                },
+                "travel": {
+                    "description": "The travel data associated with the expense. Please refer to the 'Travel' object for more information",
+                    "$ref": "#/definitions/Travel"
+                },
+                "travelAllowance": {
+                    "description": "The travel allowance data associated with the expense. Please refer to the 'TarvelAllowance' object for more information",
+                    "$ref": "#/definitions/TravelAllowance"
+                },
+                "vendor": {
+                    "description": "The vendor data for the expense. Please refer to the 'Vendor' object for more information",
+                    "$ref": "#/definitions/Vendor"
+                }
+            }
+        },
+        "ReportSendBackRequest": {
+            "type": "object",
+            "required": [
+                "comment"
+            ],
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Comments for sending back the report"
+                },
+                "currentProcessInstanceId": {
+                    "type": "string",
+                    "description": "Current workflow process instance ID for validation"
+                },
+                "currentSequence": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Current workflow process sequence number for validation"
+                },
+                "reasonCodeId": {
+                    "type": "string",
+                    "description": "The unique identifier of the Reason Code  only by Processor "
+                },
+                "reportSource": {
+                    "type": "string",
+                    "description": "The source of the report. Possible values: EA - Expense Assistant, MOB - Mobile, OTHER - Unknown, SE - Smart Expense, TR - Travel Request, UI - Web UI",
+                    "enum": [
+                        "EA",
+                        "MOB",
+                        "OTHER",
+                        "SE",
+                        "TR",
+                        "UI"
+                    ]
+                }
+            }
+        },
+        "RedirectFund": {
+            "type": "object",
+            "required": [
+                "amount",
+                "creditCardId"
+            ],
+            "properties": {
+                "amount": {
+                    "description": "The value of funds redirected to the IBCP card account",
+                    "$ref": "#/definitions/Amount"
+                },
+                "creditCardId": {
+                    "type": "string",
+                    "description": "The unique identifier of the IBCP card account to which funds need to be redirected"
+                }
+            }
+        },
+        "ReportAllocationResponse": {
+            "type": "object",
+            "required": [
+                "allocationId",
+                "expenseId",
+                "isPercentEdited",
+                "isSystemAllocation",
+                "percentage"
+            ],
+            "properties": {
+                "accountCode": {
+                    "type": "string",
+                    "description": "The ledger account code associated with the allocation"
+                },
+                "allocationAmount": {
+                    "description": "The amount of the allocation",
+                    "$ref": "#/definitions/Amount"
+                },
+                "allocationId": {
+                    "type": "string",
+                    "description": " The unique identifier of the allocation"
+                },
+                "approvedAmount": {
+                    "description": "The pro-rated amount of the allocation approved for reimbursement based on the approved expense amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "claimedAmount": {
+                    "description": "The amount of the allocation requested for reimbursement",
+                    "$ref": "#/definitions/Amount"
+                },
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "expenseId": {
+                    "type": "string",
+                    "description": "The unique identifier of the expense associated with the allocation"
+                },
+                "isPercentEdited": {
+                    "type": "boolean",
+                    "description": "Whether the allocation percent has been edited"
+                },
+                "isSystemAllocation": {
+                    "type": "boolean",
+                    "description": "Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only"
+                },
+                "overLimitAccountCode": {
+                    "type": "string",
+                    "description": " The ledger account code associated with the allocation if it exceeds a pre-defined threshold, for example, the user\u2019s travel allowance limit "
+                },
+                "percentage": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The percentage of the total expense that this allocation represents"
+                }
+            }
+        },
+        "RideTrip": {
+            "type": "object",
+            "properties": {
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The start date for the ride (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "totalAmountPaid": {
+                    "description": "The total amount paid",
+                    "$ref": "#/definitions/Amount"
+                },
+                "vendorName": {
+                    "type": "string",
+                    "description": "The name of the vendor. Maximum length: 255 characters. Example: 'Yellow Cab'"
+                }
+            }
+        },
+        "ExchangeRate": {
+            "type": "object",
+            "required": [
+                "operation",
+                "value"
+            ],
+            "properties": {
+                "operation": {
+                    "type": "string",
+                    "description": "Exchange rate operation. Possible values: 'MULTIPLY' or 'DIVIDE'"
+                },
+                "value": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "Exchange rate value"
+                }
+            }
+        },
+        "ReportDetails": {
+            "type": "object",
+            "required": [
+                "amountCompanyPaid",
+                "amountDueCompany",
+                "amountDueCompanyCard",
+                "amountDueEmployee",
+                "amountNotApproved",
+                "analyticsGroupId",
+                "approvalStatus",
+                "approvalStatusId",
+                "approvedAmount",
+                "canRecall",
+                "claimedAmount",
+                "concurAuditStatus",
+                "creationDate",
+                "currency",
+                "currencyCode",
+                "hierarchyNodeId",
+                "isFinancialIntegrationEnabled",
+                "isPaperReceiptsReceived",
+                "isReceiptImageAvailable",
+                "isReceiptImageRequired",
+                "ledger",
+                "ledgerId",
+                "name",
+                "paymentConfirmedAmount",
+                "paymentStatus",
+                "paymentStatusId",
+                "personalAmount",
+                "policy",
+                "policyId",
+                "reportFormId",
+                "reportId",
+                "reportTotal",
+                "reportVersion",
+                "userId"
+            ],
+            "properties": {
+                "allocationFormId": {
+                    "type": "string",
+                    "description": "The unique identifier of the allocation form"
+                },
+                "amountCompanyPaid": {
+                    "description": "The amount paid by the company",
+                    "$ref": "#/definitions/Amount"
+                },
+                "amountDueCompany": {
+                    "description": "The amount that the employee owes the company",
+                    "$ref": "#/definitions/Amount"
+                },
+                "amountDueCompanyCard": {
+                    "description": "The amount that the employee/company owes the corporate card",
+                    "$ref": "#/definitions/Amount"
+                },
+                "amountDueEmployee": {
+                    "description": "The amount that the company owes the employee",
+                    "$ref": "#/definitions/Amount"
+                },
+                "amountNotApproved": {
+                    "description": "The amount that was not approved for the report",
+                    "$ref": "#/definitions/Amount"
+                },
+                "analyticsGroupId": {
+                    "type": "string",
+                    "description": "The unique identifier of the business intelligence hierarchy node"
+                },
+                "approvalStatus": {
+                    "type": "string",
+                    "description": "The report\u2019s approval status, in the user\u2019s language"
+                },
+                "approvalStatusId": {
+                    "type": "string",
+                    "description": "The unique identifier of the Approval Status"
+                },
+                "approvedAmount": {
+                    "description": "The total amount of approved expenses in the report",
+                    "$ref": "#/definitions/Amount"
+                },
+                "businessPurpose": {
+                    "type": "string",
+                    "description": "The text input for the business purpose by the user"
+                },
+                "canRecall": {
+                    "type": "boolean",
+                    "description": "Whether the report can be recalled by the current user"
+                },
+                "canReopen": {
+                    "type": "boolean",
+                    "description": "Whether the report can be reopened after payment"
+                },
+                "cardProgramStatementPeriodId": {
+                    "type": "string",
+                    "description": "The unique identifier of card program statement period on the report"
+                },
+                "claimedAmount": {
+                    "description": "The total amount of all non-personal expenses in the report",
+                    "$ref": "#/definitions/Amount"
+                },
+                "concurAuditStatus": {
+                    "type": "string",
+                    "description": "The status of audit for the report",
+                    "enum": [
+                        "PASS",
+                        "FAIL",
+                        "NOTR"
+                    ]
+                },
+                "country": {
+                    "type": "string",
+                    "description": "The country name associated with the report (localized as per accept-language header)"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "description": "The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US"
+                },
+                "countrySubDivisionCode": {
+                    "type": "string",
+                    "description": "The location country sub division ISO 3166-2 code (https://en.wikipedia.org/wiki/ISO_3166-2)"
+                },
+                "creationDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The UTC datetime when the user created the report (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DDTHH:mm:ssZ"
+                },
+                "currency": {
+                    "type": "string",
+                    "description": "The currency name for the report (localized as per accept-language header)"
+                },
+                "currencyCode": {
+                    "type": "string",
+                    "description": "The 3-letter ISO 4217 currency code (https://en.wikipedia.org/wiki/ISO_4217) for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong"
+                },
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the report based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The end date (ISO-8601) of the report as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DD"
+                },
+                "hierarchyNodeId": {
+                    "type": "string",
+                    "description": "The unique identifier of the group hierarchy node for the report resource"
+                },
+                "isFinancialIntegrationEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the Financial Integration setting has been enabled for this report"
+                },
+                "isPaperReceiptsReceived": {
+                    "type": "boolean",
+                    "description": "Whether paper receipts have been received for the report"
+                },
+                "isReceiptImageAvailable": {
+                    "type": "boolean",
+                    "description": "Whether the receipt image is available at the report level"
+                },
+                "isReceiptImageRequired": {
+                    "type": "boolean",
+                    "description": "Whether the receipt image is required at the report level"
+                },
+                "isReopened": {
+                    "type": "boolean",
+                    "description": "Whether the report is reopened"
+                },
+                "ledger": {
+                    "type": "string",
+                    "description": "The ledger name to which the report belongs (localized as per accept-language header)"
+                },
+                "ledgerId": {
+                    "type": "string",
+                    "description": "The unique identifier of the Ledger"
+                },
+                "links": {
+                    "type": "array",
+                    "description": "Resource links related to this call",
+                    "items": {
+                        "$ref": "#/definitions/Link"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The expense report name input by the user"
+                },
+                "paymentConfirmedAmount": {
+                    "description": "The amount that was paid on the report",
+                    "$ref": "#/definitions/Amount"
+                },
+                "paymentStatus": {
+                    "type": "string",
+                    "description": "The report's payment status in the user's language"
+                },
+                "paymentStatusId": {
+                    "type": "string",
+                    "description": "The unique identifier of the payment status of the report"
+                },
+                "personalAmount": {
+                    "description": "The total amount of expenses marked as personal on the report",
+                    "$ref": "#/definitions/Amount"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The policy name to which the report adheres (localized as per accept-language header)"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "The unique identifier of the policy that applies to this report"
+                },
+                "redirectFund": {
+                    "description": "Funds redirected to IBCP card",
+                    "$ref": "#/definitions/RedirectFund"
+                },
+                "reportDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date (ISO-8601) assigned to the report by the user (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DD"
+                },
+                "reportFormId": {
+                    "type": "string",
+                    "description": "The unique identifier of the report form"
+                },
+                "reportId": {
+                    "type": "string",
+                    "description": "The unique identifier for the report resource"
+                },
+                "reportNumber": {
+                    "type": "string",
+                    "description": "User friendly unique identifier for the report"
+                },
+                "reportTotal": {
+                    "description": "The total amount on the Report",
+                    "$ref": "#/definitions/Amount"
+                },
+                "reportType": {
+                    "type": "string",
+                    "description": "This value identifies the method used to create the report. Statement refers to company billed statement reports and Auto-created refers to reports created by Expense Assistant.",
+                    "enum": [
+                        "'Regular'or'Reconciliation'or'Statement'or'AutoCreated'"
+                    ]
+                },
+                "reportVersion": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The current version of the report"
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The start date (ISO-8601) of the report as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DD"
+                },
+                "submitDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The UTC datetime when the user submitted the report (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DDTHH:mm:ssZ"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "The unique identifier of the Concur user who is the report owner"
+                }
+            }
+        },
+        "CarTrip": {
+            "type": "object",
+            "properties": {
+                "calculatedDailyRate": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The calculated car rental daily rate"
+                },
+                "carClass": {
+                    "type": "string",
+                    "description": "The car class. Maximum length: 10 characters. Examples: 'IDAD', 'ECMZ', 'PCAV', 'IGDV'"
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The car rental end date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "numberOfCars": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of cars rented. Minimum value: 1"
+                },
+                "numberOfRentalDays": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of car rental calculated days. Minimum value: 0"
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The car rental start date (ISO-8601) (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD ."
+                },
+                "totalAmountPaid": {
+                    "description": "The total amount paid",
+                    "$ref": "#/definitions/Amount"
+                },
+                "vendorName": {
+                    "type": "string",
+                    "description": "The name of the car vendor. Maximum length: 255 characters. Example: 'ABC Rent A Car'"
+                }
+            }
+        },
+        "WorkflowTransitionRequest": {
+            "type": "object",
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Approver Comments"
+                },
+                "currentProcessInstanceId": {
+                    "type": "string",
+                    "description": "Current workflow process instance ID for validation"
+                },
+                "currentSequence": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Current workflow process sequence number for validation"
+                },
+                "reportSource": {
+                    "type": "string",
+                    "description": "The source of the report. Possible values: EA - Expense Assistant, MOB - Mobile, OTHER - Unknown, SE - Smart Expense, TR - Travel Request, UI - Web UI",
+                    "enum": [
+                        "EA",
+                        "MOB",
+                        "OTHER",
+                        "SE",
+                        "TR",
+                        "UI"
+                    ]
+                },
+                "statusId": {
+                    "type": "string",
+                    "description": "Status that will be assigned to the report by this workflow transition"
+                }
+            }
+        },
+        "ReceiptType": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the receipt type. Possible values: N - No Receipt, R - Regular Receipt, T - Tax Receipt. Default value: N"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Receipt status (localized as per accept-language header)"
+                }
+            }
+        },
+        "Allocation": {
+            "type": "object",
+            "required": [
+                "allocationId",
+                "expenseId",
+                "isSystemAllocation",
+                "percentage"
+            ],
+            "properties": {
+                "accountCode": {
+                    "type": "string",
+                    "description": "The ledger account code associated with the allocation"
+                },
+                "allocationAmount": {
+                    "description": "The amount of the allocation",
+                    "$ref": "#/definitions/Amount"
+                },
+                "allocationId": {
+                    "type": "string",
+                    "description": " The unique identifier of the allocation"
+                },
+                "approvedAmount": {
+                    "description": "The pro-rated amount of the allocation approved for reimbursement based on the approved expense amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "claimedAmount": {
+                    "description": "The amount of the allocation requested for reimbursement",
+                    "$ref": "#/definitions/Amount"
+                },
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "expenseId": {
+                    "type": "string",
+                    "description": "The unique identifier of the expense associated with the allocation"
+                },
+                "isPercentEdited": {
+                    "type": "boolean",
+                    "description": "Whether the allocation percent has been edited"
+                },
+                "isSystemAllocation": {
+                    "type": "boolean",
+                    "description": "Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only"
+                },
+                "overLimitAccountCode": {
+                    "type": "string",
+                    "description": " The ledger account code associated with the allocation if it exceeds a pre-defined threshold, for example, the user\u2019s travel allowance limit "
+                },
+                "percentage": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The percentage of the total expense that this allocation represents"
+                }
+            }
+        },
+        "UpdateReportAllocation": {
+            "type": "object",
+            "required": [
+                "allocation",
+                "expenseIds"
+            ],
+            "properties": {
+                "allocation": {
+                    "description": "This is an allocation custom data object to be updated.",
+                    "$ref": "#/definitions/UpdateAllocation"
+                },
+                "expenseIds": {
+                    "type": "array",
+                    "description": "This is an array of unique identifiers of expenses within this report that are being updated",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "PaymentType": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The code of the payment type"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the Payment type. Maximum length: 4 characters. Example: 'CASH'"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the payment type (localized as per accept-language header)"
+                }
+            }
+        },
+        "TravelAllowance": {
+            "type": "object",
+            "properties": {
+                "dailyLimitAmount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The allowed amount based on government travel allowance rates"
+                },
+                "dailyTravelAllowanceId": {
+                    "type": "string",
+                    "description": "The fixed daily travel allowance id associated with the expense. Maximum length: 32 characters"
+                },
+                "isExpensePartOfTravelAllowance": {
+                    "type": "boolean",
+                    "description": "Whether the expense is part of travel allowance. Default value: false"
+                }
+            }
+        },
+        "ExpenseTaxSummary": {
+            "type": "object",
+            "properties": {
+                "netAdjustedTaxAmount": {
+                    "description": "Net adjusted tax amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "netReclaimAdjustedAmount": {
+                    "description": "Net reclaim adjusted amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "netReclaimAmount": {
+                    "description": "Net reclaim amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "netTaxAmount": {
+                    "description": "Net tax amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "totalReclaimAdjustedAmount": {
+                    "description": "Total reclaim adjusted amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "totalReclaimPostedAmount": {
+                    "description": "Total reclaim posted amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "totalTaxAdjustedAmount": {
+                    "description": "Total tax adjusted amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "totalTaxPostedAmount": {
+                    "description": "Total tax posted amount",
+                    "$ref": "#/definitions/Amount"
+                },
+                "vatTaxTotal": {
+                    "description": "VAT tax total amount",
+                    "$ref": "#/definitions/Amount"
+                }
+            }
+        },
+        "ExpenseAttendees": {
+            "type": "object",
+            "properties": {
+                "expenseAttendeeList": {
+                    "type": "array",
+                    "description": "The list of attendees associated with the expense. Maximum attendees: 500 ",
+                    "items": {
+                        "$ref": "#/definitions/ExpenseAttendee"
+                    }
+                },
+                "noShowAttendeeCount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of attendees that were planned but did not show up. Default value: 0"
+                }
+            }
+        },
+        "UpdateAllocation": {
+            "type": "object",
+            "properties": {
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                }
+            }
+        },
+        "ExpenseAttendee": {
+            "type": "object",
+            "required": [
+                "attendeeId"
+            ],
+            "properties": {
+                "associatedAttendeeCount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The count of total attendees. A count greater than 1 means there are unnamed attendees associated with this expense-attendee record. Default value: 1"
+                },
+                "attendeeId": {
+                    "type": "string",
+                    "description": "The unique identifier of the associated expense attendee within Concur"
+                },
+                "customData": {
+                    "type": "array",
+                    "description": "The set of data the custom fields contain for the attendee based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "isAmountUserEdited": {
+                    "type": "boolean",
+                    "description": "This field indicates if the amount value for the attendee on this expense was ever manually edited by the end user. Default value: false"
+                },
+                "isTraveling": {
+                    "type": "boolean",
+                    "description": "Whether the attendee was traveling when the expense was incurred, used for FBT tax calculations"
+                },
+                "transactionAmount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The portion of the expense transaction amount assigned to this attendee for both individual expense tracking and attendee totals across time periods"
+                },
+                "versionNumber": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The version number of the attendee. This field value may always be 1, depending on the configuration. Default value: 1"
+                }
+            }
+        },
+        "Vendor": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the vendor. Maximum length: 64 characters"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the vendor"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the vendor (localized as per accept-language header)"
+                }
+            }
+        },
+        "Travel": {
+            "type": "object",
+            "properties": {
+                "airlineFeeTypeCode": {
+                    "type": "string",
+                    "description": "Airline fee type code. Possible values: 'BAGGS', 'BUSIN', 'OBENT', 'ONBRD', 'OTHER', 'PRACC', 'SEATS', 'TKCHG', 'UPGRD'"
+                },
+                "airlineFeeTypeName": {
+                    "type": "string",
+                    "description": "The localized airline fee type name"
+                },
+                "airlineServiceClassCode": {
+                    "type": "string",
+                    "description": "The airline service class code. Possible values: 'BUSIN', 'COACH', 'FIRST'"
+                },
+                "airlineServiceClassName": {
+                    "type": "string",
+                    "description": "The localized airline service class name"
+                },
+                "carRentalDays": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of days car was rented. Minimum value: 0"
+                },
+                "endLocation": {
+                    "type": "string",
+                    "description": "Location where the travel ended. Maximum length: 100 characters"
+                },
+                "hotelCheckinDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The hotel checkin date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                },
+                "hotelCheckoutDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The hotel checkout date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                },
+                "startLocation": {
+                    "type": "string",
+                    "description": "Location where the travel started. Maximum length: 100 characters"
+                },
+                "ticketNumber": {
+                    "type": "string",
+                    "description": "The ticket number associated with the travel. Maximum length: 32 characters"
+                }
+            }
+        },
+        "Location": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "description": "The location city"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "description": "The location country ISO 3166-1 code (https://en.wikipedia.org/wiki/ISO_3166-1)"
+                },
+                "countrySubDivisionCode": {
+                    "type": "string",
+                    "description": "The location country sub division ISO 3166-2 code (https://en.wikipedia.org/wiki/ISO_3166-2)"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the location. When location id is specified (when creating or updating a resource), other location object fields will be ignored"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The location name (localized as per accept-language header)"
+                }
+            }
+        }
+    }
+}

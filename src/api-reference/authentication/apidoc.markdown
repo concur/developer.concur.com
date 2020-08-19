@@ -187,30 +187,18 @@ FOR APP CENTER AND SUPPLIER PARTNERS supporting all geolocations, storing the au
 ## <a name="base_uri"></a>Base URIs
 
 When making API calls, the appropriate base URI should be used. There are three different scenarios:
-1. Obtaining a token for a user
-2. Refreshing a token
-3. Calling other APIs
+1. Obtaining a token for a user.
+2. Refreshing a token.
+3. Calling other APIs.
 
-The Base URI for obtaining a token will leverage your application's geolocation.  The Base URI for refreshing tokens and all other API calls will leverage the token's geolocation.
+The base URI for obtaining a token will leverage your application's geolocation.  The base URI for refreshing tokens and all other API calls will leverage the token's geolocation.
 
 ### <a name="base_uri_obtain_token"></a>Base URIs for Obtaining a Token
 When your application is created, you will be provided with a client ID, secret and geolocation. When obtaining a token, your application should use the base URI for the geolocation in which your application exists.
 
 There are two endpoints for each geolocation - one is the default (used for server-side calls) and the other should be used for client-side calls.
 
-The full list of available token geolocations is below:
-
-Environment | URI | Description
------|------|------
-US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all API calls
-WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
-EU Production |`https://emea.api.concursolutions.com/oauth2/v0` | Default for all API calls
-WWW-EU Production | `https://www-emea.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
-China Production |`https://cn.api.concurcdc.cn/oauth2/v0`| Default for all API Calls
-WWW-CN Production |`https://www-cn.api.concurcdc.cn/oauth2/v0`|Used by browsers during Authorization Code grant
-US Implementation |`https://us-impl.api.concursolutions.com/oauth2/v0` | For customers who have Implementation servers in the US
-EU Implementation |`https://emea-impl.api.concursolutions.com/oauth2/v0` | For customers who have Implementation servers in the EU
-
+The full list of available token geolocations is available on the [Base URIs](/platform/base-uris.html) page.
 
 > **When obtaining the token, the token's geolocation will be included in the response. The token's geolocation should be stored along with the token. The Developer's app will then be able to make subsequent calls using the token and the correct end points based on the token's GEO location.**
 

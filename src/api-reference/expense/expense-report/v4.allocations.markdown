@@ -1,0 +1,477 @@
+---
+title: Allocations v4
+layout: reference
+
+
+---
+
+{% include prerelease.html %}
+
+The Allocations API can be used to read the allocations that belong to a specific expense on an expense report and modify an allocation on an existing expense in an expense report. This API can be used to change custom field attributes, etc.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Retrieve allocations on a specific Expense ID and Report ID](#specific-expense-allocations)
+* [Retrieve an Allocation by ID](#retrieve-allocation-id)
+* [Update an Allocation](#update-allocation-id)
+* [Schema](#schema)
+  * [Report Allocation Response](#report-allocation-response-schema)
+  * [Custom Data](#custom-data-schema)
+  * [Amount](#amount-schema)
+  * [Update Report Allocation](#update-report-allocation-schema)
+  * [Allocation](#allocation-schema)
+  * [Link](#link-schema)
+* [Error](#error-schema)
+* [Validation Errors](#validation-errors-schema)
+
+## Prior Versions
+
+* Allocations v3 documentation is available [here](./api-reference/expense/allocations/expense-allocations.html)
+
+## <a name="products-editions"></a>Products and Editions
+
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Required Scopes:
+
+|Name|Description|Endpoint|
+|---|---|---|
+|`expense.report.read`|Get information about expense reports.|GET|
+|`expense.report.readwrite`|Read and write expense report headers.        |PATCH|
+|`user.read`|Get User Information, necessary for `userID`.|POST|
+
+Optional Scope:
+
+|Name|Description|Endpoint|
+|---|---|---|
+|`spend.listitem.read`|Read only access to spend list items `listItemId`.  |GET|
+|`spend.list.read`|Read only access to spend list and category details.| GET|
+
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens.
+
+## <a name="report-expense-allocations"></a>Retrieve Allocations of an Expense ID on a Specific Report ID
+
+Retrieves the allocations that belong to a specific expense ID on a specific report ID.
+
+### Scopes
+
+`expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/allocations
+```
+
+##### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+|`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: `TRAVELER` |
+|`reportId`|`string`|-|**Required** The unique identifier of the report to which the expense entry belongs whose allocations are being retrieved.|
+|`expenseId`|`string`|-|**Required** The unique identifier of the expense entry whose allocations are being retrieved.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Allocations Response](#allocations-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32c2fcc3-b2e8-4907-9672-5b3f49b1c643/context/TRAVELER/reports/764428DD6A664AF0BFCB/expenses/29EE3C62F5D844458828A5C1086072D1/allocations' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Allocation-test' \
+--header 'Content-Type: application/json'
+```
+
+#### Response
+
+```shell
+200 OK
+
+[
+    {
+        "customData": [
+            {
+                "id": "custom9",
+                "value": "D3954B47BCEC9446A4FFC49E0000B46E",
+                "isValid": true
+            }
+        ],
+        "allocationId": "3BBB494511E1C74DA04469C45B039871",
+        "accountCode": "Pending Client",
+        "overLimitAccountCode": null,
+        "allocationAmount": {
+            "value": 250.00,
+            "currencyCode": "USD"
+        },
+        "approvedAmount": {
+            "value": 250.00,
+            "currencyCode": "USD"
+        },
+        "claimedAmount": {
+            "value": 250.00,
+            "currencyCode": "USD"
+        },
+        "expenseId": "29EE3C62F5D844458828A5C1086072D1",
+        "isSystemAllocation": false,
+        "isPercentEdited": false,
+        "percentage": 50.00000000
+    },
+    {
+        "customData": [
+            {
+                "id": "custom9",
+                "value": "88EACA3116581248BCE27956DE67647D",
+                "isValid": true
+            }
+        ],
+        "allocationId": "4DB06B4360E31443AD43ED52B2AE007E",
+        "accountCode": "Pending Client",
+        "overLimitAccountCode": null,
+        "allocationAmount": {
+            "value": 250.00,
+            "currencyCode": "USD"
+        },
+        "approvedAmount": {
+            "value": 250.00,
+            "currencyCode": "USD"
+        },
+        "claimedAmount": {
+            "value": 250.00,
+            "currencyCode": "USD"
+        },
+        "expenseId": "29EE3C62F5D844458828A5C1086072D1",
+        "isSystemAllocation": false,
+        "isPercentEdited": false,
+        "percentage": 50.00000000
+    }
+]
+```
+
+## <a name="retrieve-allocation-id"></a>Retrieve an Allocation by ID
+
+Retrieves the details of the specific allocation of an expense entry on a report.
+
+### Scopes
+
+`expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/allocations/{allocationId}
+```
+
+##### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
+|`reportId`|`string`|-|**Required** The unique identifier of the report to which this allocation belongs.|
+|`allocationId`|`string`|-|**Required** The unique identifier of the allocation that is being retrieved.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Allocation by ID Response](#allocation-id-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32c2fcc3-b2e8-4907-9672-5b3f49b1c643/context/TRAVELER/reports/764428DD6A664AF0BFCB/allocations/3BBB494511E1C74DA04469C45B039871' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Allocation-test' \
+--header 'Content-Type: application/json'
+```
+
+#### Response
+
+```shell
+200 OK
+
+{
+    "customData": [
+        {
+            "id": "custom9",
+            "value": "D3954B47BCEC9446A4FFC49E0000B46E",
+            "isValid": true
+        }
+    ],
+    "allocationId": "3BBB494511E1C74DA04469C45B039871",
+    "accountCode": "Pending Client",
+    "overLimitAccountCode": null,
+    "allocationAmount": {
+        "value": 250.00,
+        "currencyCode": "USD"
+    },
+    "approvedAmount": {
+        "value": 250.00,
+        "currencyCode": "USD"
+    },
+    "claimedAmount": {
+        "value": 250.00,
+        "currencyCode": "USD"
+    },
+    "expenseId": "29EE3C62F5D844458828A5C1086072D1",
+    "isSystemAllocation": false,
+    "isPercentEdited": false,
+    "percentage": 50.00000000
+}
+```
+
+## <a name="update-allocation-id"></a>Update a Specific Allocation	 
+
+Updates the attributes of a specific allocation.
+
+### Scopes
+
+`expense.report.readwrite` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/allocations/{allocationId}
+```
+
+##### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
+|`reportId`|`string`|-|**Required** The unique identifier of the report to which this allocation belongs.|
+|`allocationId`|`string`|-|**Required** The unique identifier of the allocation that is being retrieved.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### REST Design Specification
+
+PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specification:
+
+* [RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
+
+#### Payload
+
+* [Patch Allocation Request](#patch-allocation-request-schema)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Patch Allocation Response](#patch-allocation-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB/allocations/3BBB494511E1C74DA04469C45B039871' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Viswa test' \
+--header 'Content-Type: application/json' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+    "allocation":{
+    "customData": [
+        {
+            "id": "custom9",
+            "value": "058713001E2CD943824280D9275FDC3F",
+            "isValid": true
+        }
+    ]
+    },
+
+    "expenseIds": ["29EE3C62F5D844458828A5C1086072D1"]
+
+}'
+```
+
+#### Response
+
+```shell
+204 No Content
+```
+
+## <a name="schema"></a>Schema
+
+### <a name="report-allocation-response-schema"></a>ReportAllocationResponse
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`accountCode`|`string`|-|The ledger account code associated with the allocation.|
+|`allocationAmount`|[`Amount`](#amount-schema)|-|The amount of the allocation.|
+|`allocationId`|`string`|-|**Required** The unique identifier of the allocation.|
+|`approvedAmount`|[`Amount`](#amount-schema)|-|The pro-rated amount of the allocation approved for reimbursement based on the approved expense amount.|
+|`claimedAmount`|[`Amount`](#amount-schema)|-|The amount of the allocation requested for reimbursement.|
+|`customData`|[`CustomData`](#custom-data-schema)|-|The details from the `customData` fields. These fields may not have data, depending on the configuration.|
+|`expenseId`|`string`|-|**Required** The unique identifier of the expense associated with the allocation.|
+|`isPercentEdited`|`boolean`|`true`/`false`|**Required** Whether the allocation percent has been edited.|
+|`isSystemAllocation`|`boolean`|`true`/`false`|**Required** Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only.|
+|`overLimitAccountCode`|`string`|-|The ledger account code associated with the allocation if it exceeds a pre-defined threshold, for example, the user’s travel allowance limit.|
+|`percentage`|`number`|`double`|**Required** The percentage of the total expense that this allocation represents.|
+
+### <a name="custom-data-schema"></a>CustomData
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|**Required** The unique identifier of the custom field. Examples: `custom1`, `orgUnit1`|
+|`isValid`|`boolean`|`true`/`false`|Whether the value returned is valid or not. This value is returned for custom fields of all data types and is specifically evaluated for list items to represent the current status. Default: `true`|
+|`value`|`string`|-|The value of the custom field. This field can have values for all the supported data types such as `text`, `integer`, `boolean` and `listItemId`. Maximum length: 48 characters|
+
+### <a name="amount-schema"></a>Amount
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`currencyCode`|`string`|-|**Required** The 3-letter ISO 4217 currency code for the expense report currency, based on the user's assigned reimbursement currency when the report was created. Examples: `USD` - US dollars; `BRL` - Brazilian real; `CAD` - Canadian dollar; `CHF` - Swiss franc; `EUR` - Euro; `GBO` - Pound sterling; `HKD` - Hong Kong dollar; `INR` - Indian rupee; `MXN` - Mexican peso; `NOK` - Norwegian krone; `SEK` - Swedish krona|
+|`value`|`number`|`double`|**Required** The amount in the defined currency.|
+
+### <a name="update-report-allocation-schema"></a>UpdateReportAllocation
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`allocation`|[`UpdateAllocation`](#allocation-schema)|-|**Required** This is an allocation custom data object to be updated.|
+|`expenseIds`|`string`|-|**Required** This is an array of unique identifiers of expenses within this report that are being updated.|
+
+### <a name="update-allocation-schema"></a>UpdateAllocation
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`customData`|[CustomData](#custom-data-schema)|-|The details from the `customData` fields. These fields may not have data, depending on the configuration.|
+
+### <a name="link-schema"></a>Link
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`deprecation`|`string`|-|-|
+|`href`|`string`|-|**Required** The URL of the related `HATEOAS` link that you can use for subsequent calls.|
+|`hreflang`|`string`|-|-|
+|`isTemplated`|`boolean`|`true`/`false`|**Required** Whether the `href` is parameterized.|
+|`media`|`string`|-|-|
+|`method`|`string`|-|**Required** The HTTP method required for the related call.|
+|`rel`|`string`|-|**Required** The link relationship that describes how the `href` relates to the API call.|
+|`title`|`string`|-|-|
+|`type`|`string`|-|-|
+
+### <a name="error-message-schema"></a>ErrorMessage
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`errorId`|`string`|-|The unique identifier of the error associated with the response.|
+|`errorMessage`|`string`|-|**Required** The detailed error message.|
+|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response.|
+|`path`|`string`|-|**Required** The URI of the attempted request.|
+|`timestamp`|`string`|`date-time`|**Required** The time when the error was captured.|
+|`validationErrors`|[`ValidationError`](#validation-error-schema)|-|The validation error messages.|
+
+### <a name="validation-errors-schema"></a>ValidationError
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|The ID of the validation error.|
+|`message`|`string`|-|The detailed message of the validation error.|
+|`source`|`string`|-|The type of validation which failed.|

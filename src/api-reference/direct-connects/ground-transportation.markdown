@@ -3,7 +3,7 @@ title: Direct Connect - Ground Transportation
 layout: reference
 ---
 
-The Ground Transportation Direct Connect from Concur Connect provides a method for Travel users to access the inventory of ground transportation service providers. This direct connect was originally designed for use by limo service providers, but can be used with all forms of ground transportation.
+The Ground Transportation Direct Connect provides a method for Travel users to access the inventory of ground transportation service providers. This direct connect was originally designed for use by limo service providers, but can be used with all forms of ground transportation.
 
 Once the ground transportation supplier has developed their interface with SAP Concur, their inventory will begin appearing in ground transportation searches by opted-in Travel users.
 

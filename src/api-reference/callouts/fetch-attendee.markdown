@@ -16,7 +16,7 @@ This callout differs from the standard SAP Concur web services in the following 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
-* [Concur Connect Callout Details](#concur-connect-callout-details)
+* [Callout Details](#concur-connect-callout-details)
 * [Fetch Attendee Process Overview](#fetch-attendee-process-overview)
   * [Security](#security)
   * [Authentication](#authentication)
@@ -42,7 +42,7 @@ This callout differs from the standard SAP Concur web services in the following 
 * Partner developers must determine which configurations are required for their solution prior to the review process.
 * Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
-## <a name="concur-connect-callout-details"></a>Concur Connect Callout Details
+## <a name="concur-connect-callout-details"></a>Callout Details
 
 Information on how to download, install, and configure the application connector is included in **Callouts >** [Core Concepts](/api-reference/callouts/callouts-application-connectors.html).
 
@@ -99,7 +99,7 @@ The client then registers the application connector with SAP Concur:
 5. Fill out the fields according to the **Application Connector Fields** table shown below.
 6. In the Services section, select Fetch Attendee.  
 7. Click Configure. The Configure Service window appears.  
-8. Enter the endpoint that the SAP Concur will connect to on your server. Example: `/attendee/v2.0/fetch`  
+8. Enter the endpoint that the SAP Concur will connect to on your server. Example: `/attendee/v2.0/fetch`. **Note:** The endpoint name should contain 'v2.0', otherwise the API defaults to v1.0 and returns a different set of fields.
 9. Select the Active check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.  
 10. Select the attendee types that will use the application connector. These attendee types will be automatically configured to not allow users to create new attendees manually.  
 11. Click OK.

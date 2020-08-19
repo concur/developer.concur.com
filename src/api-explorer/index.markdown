@@ -7,14 +7,4 @@ Browse [Swagger](https://swagger.io/) documents, such as what APIs are available
 
 ## Base URIs
 
-For APIs using the new OAuth2 framework:
-
-* **US**: https://us.api.concursolutions.com
-* **EMEA**: https://emea.api.concursolutions.com
-* **China**: https://cn.api.concurcdc.cn
-
-For APIs using the pre-2017 authentication:
-
-* **US**: https://www.concursolutions.com/api/{version}
-* **EMEA**: https://eu1.concursolutions.com/api/{version}
-* **China**: https://cn.api.concurcdc.cn/api/{version}
+For information on Base URIs (also known as Instance URLs), including which URI to use, see [Base URIs](/platform/base-uris.html).

@@ -1,395 +1,183 @@
 {
-  "openapi": "3.0.0",
+  "x-sap-shortText": "Request OAuth2 tokens from SAP Concur.",
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/oauth2/token",
   "info": {
-    "version": "0.1",
-    "title": "SAP Concur implementation of oauth2/token endpoints",
-    "description": "This specification describes howthe oauth2/token endpoints are\nimplemented by the Concur service provider.\n\nThe endpoint in this specification is derived from a number of RFCs and\nexternal documents:\n\n  * The OAuth2 framework - [RFC 6749][rfc6749]\n  * Proof of Key Code Exchange extension for OAuth2 - [RFC 7636][rfc7636]\n\nThe US production APIs can be found at `https://us.api.concursolutions.com/oauth2/token`.\n\n[rfc6749]: https://tools.ietf.org/html/rfc6749\n[rfc7636]: https://tools.ietf.org/html/rfc7636\n",
-    "contact": {
-      "name": "SAP Concur",
-      "url": "https://www.concur.com"
+    "title": "SAP Concur Authentication",
+    "description": "This specification describes how the OAuth2/token endpoints are\nimplemented by the SAP Concur service provider.\n\nThe endpoint in this specification is derived from a number of RFCs and\nexternal documents:\n\n  * The OAuth2 framework - [RFC 6749][rfc6749]\n  * Proof of Key Code Exchange extension for OAuth2 - [RFC 7636][rfc7636]\n\nThe US production APIs can be found at `https://us.api.concursolutions.com/oauth2/token`.\n\n[rfc6749]: https://tools.ietf.org/html/rfc6749\n[rfc7636]: https://tools.ietf.org/html/rfc7636\n",
+    "version": "0.1"
+  },
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "To use this API, you need to get OAuth client credentials (client ID, secret, and geolocation) from SAP Concur, and be authorized to use the relevant scope. Refer to the <a href=\"https://developer.concur.com/api-reference/authentication/getting-started.html\">full authentication information</a> for more information.",
+      "tokenUrl": "https://us.api.concursolutions.com/oauth2/v0",
+      "flow": "application"
     }
   },
-  "servers": [
+  "security": [
     {
-      "url": "https://us.api.concursolutions.com/oauth2/token"
+      "OAuth2": []
     }
   ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/x-www-form-urlencoded"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/token": {
+      "post": {
+        "description": "\nThe token endpoint, as described in [RFC 6749 Â§3.2], used in four cases:\n * [Password Grant][RFC 6749 Â§4.3]\n   * The Password grant can be used when there is a trust relationship between the user and the application. There are two credential types allowed with Password Grant:\n     * <b>Password:</b> with this credential type, the application either already has the user’s credentials or can obtain the user’s credentials by directly interacting with the user.\n     * <b>AuthToken:</b> This credential type is used for connections from the App Center. For App Center partners and TripLink suppliers, please refer to the [certification documentation][Cert Docs] for more information.\n    * Properties:\n      * <b>client_id:</b> (Required) <i>String</i> - The client_id of the application.\n      * <b>client_secret:</b> (Required) <i>String</i> - The client_secret of the application.\n      * <b>grant_type:</b> (Required) <i>String</i> - The credential types allowed with Password Grant.\n      * <b>username:</b> (Required) <i>String</i> - The username of the user being authenticated.\n      * <b>password:</b> (Required) <i>String</i> - The password of the user being authenticated.\n      * <b>cred_type:</b> <i>String</i> - The credential set being submitted in the request, either <i>authtoken</i> or <i>password</i>. For password requests, use <i>password</i>. For connections with the App Center, use <i>authtoken</i>. If omitted, the default is <i>password</i>.\n      * <b>scope:</b> <i>String</i> - The scope of the requested access token. This can be used to restrict the new access token to a subset of the scope allowed to the client and token type.\n * [Client Credentials Grant][RFC 6749 Â§4.4]\n   * The Client Credentials grant enables an application to get an access token allowing only app-specific operations.\n   * Properties:\n      * <b>client_id:</b> (Required) <i>String</i> - The client_id of the application.\n      * <b>client_secret:</b> (Required) <i>String</i> - The client_secret of the application.\n      * <b>grant_type:</b> (Required) <i>String</i> - The credential types allowed with Password Grant.\n * [Token Refresh Grant][RFC 6749 Â§6]\n   * The refresh grant is used to refresh an access_token that has expired. This grant can be used anytime a refresh_token is returned in the response of another grant request. No user interaction is required.\n   * Properties:\n      * <b>client_id:</b> (Required) <i>String</i> - The client_id of the application.\n      * <b>client_secret:</b> (Required) <i>String</i> - The client_secret of the application.\n      * <b>grant_type:</b> (Required) <i>String</i> - The credential types allowed with Password Grant.\n      * <b>refresh_token:</b> (Required) <i>String</i> - An existing valid refresh token to be used to request a new access token.\n      * <b>scope:</b> <i>String</i> - The scope of the requested access token. This can be used to restrict the new access token to a subset of the scope allowed to the client and token type.\n * [One Time Password Grant][RFC 6749 Â§4.1]\n   * The One-time Password grant type leverages email, phone (text messaging), instant messaging and similar systems to provide per user access tokens to client applications. This grant type requires the following steps:\n     * The calling application calls the OAuth2 service specifying the otp grant type along with required parameters.\n     * The OAuth2 service generates a one time token which it sends through the messaging mechanism chosen by the application.\n     * The user retrieves the token and presents it to the application. The means of having this presented to the application is the responsibility of the application.\n     * The application presents this one-time token to the OAuth2 service via the token endpoint.  <b>It is only this step that is covered by this documentation.</b>\n    * Properties:\n      * <b>client_id:</b> (Required) <i>String</i> - The client_id of the application.\n      * <b>client_secret:</b> (Required) <i>String</i> - The client_secret of the application.\n      * <b>grant_type:</b> (Required) <i>String</i> - The credential types allowed with Password Grant.\n      * <b>channel_handle:</b> (Required) <i>String</i> - The location (email address, phone number) where the one time token should be sent.  Currently only email addresses are allowed.\n      * <b>channel_type:</b> (Required) <i>String</i> - The type of messaging system to use. Currently only <i>email</i> is allowed.\n      * <b>otp:</b> (Required) <i>String</i> - The one-time token.\n      * <b>scope:</b> <i>String</i> - The scope of the requested access token. This can be used to restrict the new access token to a subset of the scope allowed to the client and token type.\n\n\nAccess Tokens have a one hour lifetime.  If the access token expires, the client application must use a Refresh Grant to obtain a new access token.\n\nRefresh Tokens have a six month lifetime. If the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response. This token can change even if most of the time, this value is the same. Client applications should treat all returned refresh tokens as new tokens and overwrite the stored tokens with the new token from the response.\n\n\n [RFC 6749 Â§3.2]: https://tools.ietf.org/html/rfc6749#section-3.2\n [RFC 6749 Â§4.1]: https://tools.ietf.org/html/rfc6749#section-4.1\n [RFC 6749 Â§4.3]: https://tools.ietf.org/html/rfc6749#section-4.3\n [RFC 6749 Â§4.4]: https://tools.ietf.org/html/rfc6749#section-4.4\n [RFC 7636 Â§4.5]: https://tools.ietf.org/html/rfc7636#section-4.3\n [RFC 6749 Â§6]: https://tools.ietf.org/html/rfc6749#section-6\n [Cert Docs]: https://developer.concur.com/manage-apps/app-certification.html\n",
+        "summary": "Request a new access token.",
+        "tags": [
+          "Token Management"
+        ],
+        "operationId": "oauth2Token",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "body",
+            "required": true,
+            "description": "\n* <b>Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=password&username={name of user}&password={password of user}&credtype=password\n* <b>Client Credentials Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=client_credentials\n* <b>Token Refresh Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=refresh_token&refresh_token=333333333333333333333333333333333333\n* <b>One Time Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=otp&otp=222222222222222222222222222222222222&channel_handle={email address of user}&channel_type=email",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "New access token generated successfully",
+            "schema": {
+              "$ref": "#/definitions/TokenResponse"
+            },
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": {
+              "$ref": "#/definitions/TokenErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/TokenErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/TokenErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/TokenErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "TokenResponse": {
+      "title": "TokenResponse",
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "description": "The newly-obtained access token.",
+          "type": "string"
+        },
+        "token_type": {
+          "$ref": "#/definitions/TokenType"
+        },
+        "expires_in": {
+          "description": "The lifetime of the access token, in seconds.",
+          "example": "3600",
+          "type": "string"
+        },
+        "refresh_token": {
+          "description": "The refresh token to use, for a refresh token request.",
+          "type": "string"
+        },
+        "scope": {
+          "description": "The effective scope of the newly-obtained token.",
+          "type": "string"
+        },
+        "idtoken": {
+          "description": "The id token associated with the access token.  This is a parsable JSON document that includes the id-related fields of the access token.",
+          "type": "string"
+        },
+        "geolocation": {
+          "description": "The base URL for where the user profile lives. The token’s geolocation should be stored along with the token. The application should make subsequent calls using the token and the correct end points based on the token’s geolocation.",
+          "example": "https://us.api.concursolutions.com",
+          "type": "string"
+        }
+      }
+    },
+    "TokenErrorResponse": {
+      "title": "TokenErrorResponse",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A machine-readable number that more specifically identifies the error.",
+          "example": 16,
+          "type": "number"
+        },
+        "error": {
+          "$ref": "#/definitions/Error"
+        },
+        "error_description": {
+          "description": "A human-readable error message that gives details about the error.",
+          "example": "user lives elsewhere",
+          "type": "string"
+        },
+        "geolocation": {
+          "description": "The base URL for where the user profile lives. The token’s geolocation should be stored along with the token. The application should make subsequent calls using the token and the correct end points based on the token’s geolocation.",
+          "example": "https://us.api.concursolutions.com",
+          "type": "string"
+        }
+      },
+      "required": [
+        "error"
+      ]
+    },
+    "Error": {
+      "title": "Error",
+      "description": "A machine-readable category for the error, as in\n[RFC 6749, Â§4.1.2.1](https://tools.ietf.org/html/rfc6749#section-4.1.2.1).",
+      "example": "invalid_request",
+      "type": "string",
+      "enum": [
+        "invalid_request",
+        "invalid_client",
+        "invalid_grant",
+        "access_denied",
+        "invalid_scope"
+      ]
+    },
+    "TokenType": {
+      "title": "TokenType",
+      "description": "The type of the token. Currently only bearer tokens are emitted.",
+      "example": "bearer",
+      "type": "string",
+      "enum": [
+        "bearer"
+      ]
+    }
+  },
   "tags": [
     {
       "name": "Token Management",
       "description": "Get access tokens and refresh tokens."
     }
-  ],
-  "paths": {
-    "/token": {
-      "post": {
-        "operationId": "oauth2Token",
-        "summary": "Request a new access token.",
-        "description": "\nThe token endpoint, as described in [RFC 6749 Â§3.2], used in four cases:\n * [Password Grant][RFC 6749 Â§4.3]\n   * The Password grant can be used when there is a trust relationship between the user and the application. There are two credential types allowed with Password Grant:\n     * <b>Password:</b> with this credential type, the application either already has the user’s credentials or can obtain the user’s credentials by directly interacting with the user.\n     * <b>AuthToken:</b> This credential type is used for connections from the App Center. For App Center partners and TripLink suppliers, please refer to the [certification documentation][Cert Docs] for more information.\n * [Client Credentials Grant][RFC 6749 Â§4.4]\n   * The Client Credentials grant enables an application to get an access token allowing only app-specific operations.\n * [Token Refresh][RFC 6749 Â§6]\n   * The refresh grant is used to refresh an access_token that has expired. This grant can be used anytime a refresh_token is returned in the response of another grant request. No user interaction is required.\n * [One Time Password Grsnt][RFC 6749 Â§4.1]\n   * The One-time Password grant type leverages email, phone (text messaging), instant messaging and similar systems to provide per user access tokens to client applications. This grant type requires the following steps:\n     * The calling application calls the OAuth2 service specifying the otp grant type along with required parameters.\n     * The OAuth2 service generates a one time token which it sends through the messaging mechanism chosen by the application.\n     * The user retrieves the token and presents it to the application. The means of having this presented to the application is the responsibility of the application.\n     * The application presents this one-time token to the OAuth2 service via the token endpoint.  <b>It is only this step that is covered by this documentation.</b>\n\n\nAccess Tokens have a one hour lifetime.  If the access token expires, the client application must use a Refresh Grant to obtain a new access token.\n\nRefresh Tokens have a six month lifetime. If the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response. This token can change even if most of the time, this value is the same. Client applications should treat all returned refresh tokens as new tokens and overwrite the stored tokens with the new token from the response.\n\n\n [RFC 6749 Â§3.2]: https://tools.ietf.org/html/rfc6749#section-3.2\n [RFC 6749 Â§4.1]: https://tools.ietf.org/html/rfc6749#section-4.1\n [RFC 6749 Â§4.3]: https://tools.ietf.org/html/rfc6749#section-4.3\n [RFC 6749 Â§4.4]: https://tools.ietf.org/html/rfc6749#section-4.4\n [RFC 7636 Â§4.5]: https://tools.ietf.org/html/rfc7636#section-4.3\n [RFC 6749 Â§6]: https://tools.ietf.org/html/rfc6749#section-6\n [Cert Docs]: https://developer.concur.com/manage-apps/app-certification.html\n",
-        "tags": [
-          "Token Management"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/TokenRequest"
-              },
-              "examples": {
-                "password": {
-                  "summary": "Password token request",
-                  "value": "client_id=018e5202-748b-4544-b519-1a627a1b809b&client_secret=3a91751f-1429-4b91-9ee6-3372050950a2&grant_type=password&username=<name of user>&password=<password of user>&credtype=password"
-                },
-                "clientCredentials": {
-                  "summary": "Client_credentials token request",
-                  "value": "client_id=018e5202-748b-4544-b519-1a627a1b809b&client_secret=3a91751f-1429-4b91-9ee6-3372050950a2&grant_type=client_credentials"
-                },
-                "refreshToken": {
-                  "summary": "Refresh_token token request",
-                  "value": "client_id=018e5202-748b-4544-b519-1a627a1b809b&client_secret=3a91751f-1429-4b91-9ee6-3372050950a2&grant_type=refresh_token&refresh_token=22f7f63c-05da-4822-829c-756eab29773c"
-                },
-                "oneTimePassword": {
-                  "summary": "One-time password token request",
-                  "value": "client_id=018e5202-748b-4544-b519-1a627a1b809b&client_secret=3a91751f-1429-4b91-9ee6-3372050950a2&grant_type=otp&otp=d4556069-a439-496a-9b5e-90f552bf45e4&channel_handle=john.smith@company.com@channel_type=email"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "New access token generated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "responses": {
-      "Forbidden": {
-        "description": "Forbidden. The token is valid, but the operation is not permitted."
-      },
-      "NotSupported": {
-        "description": "Operation not supported."
-      }
-    },
-    "schemas": {
-      "TokenRequest": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/PasswordTokenRequest"
-          },
-          {
-            "$ref": "#/components/schemas/ClientCredentialsTokenRequest"
-          },
-          {
-            "$ref": "#/components/schemas/RefreshTokenTokenRequest"
-          },
-          {
-            "$ref": "#/components/schemas/OneTimePasswordTokenRequest"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "grant_type",
-          "mapping": {
-            "password": "#/components/schemas/PasswordTokenRequest",
-            "client_credentials": "#/components/schemas/ClientCredentialsTokenRequest",
-            "refresh_token": "#/components/schemas/RefreshTokenTokenRequest",
-            "oneTimeToken": "#/components/schemas/OneTimePasswordTokenRequest"
-          }
-        }
-      },
-      "PasswordTokenRequest": {
-        "type": "object",
-        "required": [
-          "client_id",
-          "client_secret",
-          "grant_type",
-          "username",
-          "password"
-        ],
-        "properties": {
-          "client_id": {
-            "type": "string",
-            "description": "The client_id of the application.",
-            "example": "018e5202-748b-4544-b519-1a627a1b809b"
-          },
-          "client_secret": {
-            "type": "string",
-            "description": "The client_id of the application.",
-            "example": "3a91751f-1429-4b91-9ee6-3372050950a2"
-          },
-          "grant_type": {
-            "type": "string",
-            "enum": [
-              "password"
-            ]
-          },
-          "username": {
-            "type": "string",
-            "description": "The username of the user being authenticated.",
-            "example": "john.smith@company.com"
-          },
-          "password": {
-            "type": "string",
-            "description": "The password of the user being authenticated.",
-            "example": "MySecurePa55word!"
-          },
-          "cred_type": {
-            "type": "string",
-            "description": "The credential set being submitted in the request, either <i>authtoken</i> or <i>password</i>. For password requests, use <i>password</i>. For connections with the App Center, use <i>authtoken</i>. If omitted, the default is <i>password</i>.",
-            "enum": [
-              "authtoken",
-              "password"
-            ]
-          },
-          "scope": {
-            "type": "string",
-            "description": "The scope of the requested access token. This can be used to restrict the new access token to a subset of the scope allowed to the client and token type.",
-            "example": "receipts.read, expense.report.read"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ClientCredentialsTokenRequest": {
-        "type": "object",
-        "required": [
-          "client_id",
-          "client_secret",
-          "grant_type"
-        ],
-        "properties": {
-          "client_id": {
-            "type": "string",
-            "description": "The client_id of the application.",
-            "example": "018e5202-748b-4544-b519-1a627a1b809b"
-          },
-          "client_secret": {
-            "type": "string",
-            "description": "The client_id of the application.",
-            "example": "3a91751f-1429-4b91-9ee6-3372050950a2"
-          },
-          "grant_type": {
-            "type": "string",
-            "enum": [
-              "client_credentials"
-            ]
-          }
-        },
-        "additionalProperties": false
-      },
-      "RefreshTokenTokenRequest": {
-        "type": "object",
-        "required": [
-          "client_id",
-          "client_secret",
-          "grant_type",
-          "refresh_token"
-        ],
-        "properties": {
-          "client_id": {
-            "type": "string",
-            "description": "The client_id of the application.",
-            "example": "018e5202-748b-4544-b519-1a627a1b809b"
-          },
-          "client_secret": {
-            "type": "string",
-            "description": "The client_id of the application.",
-            "example": "3a91751f-1429-4b91-9ee6-3372050950a2"
-          },
-          "grant_type": {
-            "type": "string",
-            "enum": [
-              "refresh_token"
-            ]
-          },
-          "refresh_token": {
-            "type": "string",
-            "description": "An existing valid refresh token to be used to request a new access token.",
-            "example": "22f7f63c-05da-4822-829c-756eab29773c"
-          },
-          "scope": {
-            "type": "string",
-            "description": "The scope of the requested access token. This can be used to restrict the new access token to a subset of the scope allowed to the client and token type.",
-            "example": "receipts.read, expense.report.read"
-          }
-        },
-        "additionalProperties": false
-      },
-      "OneTimePasswordTokenRequest": {
-        "type": "object",
-        "required": [
-          "client_id",
-          "client_secret",
-          "grant_type",
-          "channel_handle",
-          "channel_type",
-          "otp"
-        ],
-        "properties": {
-          "client_id": {
-            "type": "string",
-            "description": "The client_id of the application.",
-            "example": "018e5202-748b-4544-b519-1a627a1b809b"
-          },
-          "client_secret": {
-            "type": "string",
-            "description": "The client_id of the application.",
-            "example": "3a91751f-1429-4b91-9ee6-3372050950a2"
-          },
-          "grant_type": {
-            "type": "string",
-            "enum": [
-              "otp"
-            ]
-          },
-          "scope": {
-            "type": "string",
-            "description": "The scope of the requested access token. This can be used to restrict the new access token to a subset of the scope allowed to the client and token type.",
-            "example": "receipts.read, expense.report.read"
-          },
-          "channel_handle": {
-            "type": "string",
-            "description": "The location (email address, phone number) where the one time token should be sent.  Currently only email addresses are allowed.",
-            "example": "john.smith@company.com"
-          },
-          "channel_type": {
-            "type": "string",
-            "enum": [
-              "email"
-            ],
-            "description": "The type of messaging system to use. Currently only <i>email</i> is allowed."
-          },
-          "otp": {
-            "type": "string",
-            "description": "The one-time token.",
-            "example": "d4556069-a439-496a-9b5e-90f552bf45e4"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TokenResponse": {
-        "type": "object",
-        "properties": {
-          "access_token": {
-            "type": "string",
-            "description": "The newly-obtained access token."
-          },
-          "token_type": {
-            "type": "string",
-            "description": "The type of the token. Currently only bearer tokens are emitted.",
-            "enum": [
-              "bearer"
-            ]
-          },
-          "expires_in": {
-            "type": "string",
-            "description": "The lifetime of the access token, in seconds.",
-            "example": "3600"
-          },
-          "refresh_token": {
-            "type": "string",
-            "description": "The refresh token to use, for a refresh token request."
-          },
-          "scope": {
-            "type": "string",
-            "description": "The effective scope of the newly-obtained token."
-          },
-          "idtoken": {
-            "type": "string",
-            "description": "The id token associated with the access token.  This is a parsable JSON document that includes the id-related fields of the access token."
-          },
-          "geolocation": {
-            "type": "string",
-            "description": "The base URL for where the user profile lives. The token’s geolocation should be stored along with the token. The application should make subsequent calls using the token and the correct end points based on the token’s geolocation.",
-            "example": "https://us.api.concursolutions.com"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TokenErrorResponse": {
-        "type": "object",
-        "required": [
-          "error"
-        ],
-        "properties": {
-          "error": {
-            "type": "string",
-            "description": "A machine-readable category for the error, as in\n[RFC 6749, Â§4.1.2.1](https://tools.ietf.org/html/rfc6749#section-4.1.2.1).",
-            "enum": [
-              "invalid_request",
-              "invalid_client",
-              "invalid_grant",
-              "access_denied",
-              "invalid_scope"
-            ]
-          },
-          "code": {
-            "type": "number",
-            "description": "A machine-readable number that more specifically identifies the error.",
-            "example": 16
-          },
-          "error_description": {
-            "type": "string",
-            "description": "A human-readable error message that gives details about the error.",
-            "example": "user lives elsewhere"
-          },
-          "geolocation": {
-            "type": "string",
-            "description": "The base URL for where the user profile lives. The token’s geolocation should be stored along with the token. The application should make subsequent calls using the token and the correct end points based on the token’s geolocation.",
-            "example": "https://us.api.concursolutions.com"
-          }
-        },
-        "additionalProperties": false
-      }
-    }
-  }
+  ]
 }

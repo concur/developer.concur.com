@@ -101,15 +101,18 @@ Once a development partner has configured a application connector, it must be re
 1. On the **Application Connector Registration** page, click **New**.
 2. In the System area, complete all of the required fields.
 
-Field | Description
------|------|
-Name| Enter the name that should appear in the list of connectors.|
-Description | Enter the description of the function of the connector, such as what back-end system it might connect to.|
-Host Name | Enter the hostname for the connector. Example: https://{servername} |
-User Name | Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector.|
-Password | Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector.|
+    Field | Description
+    ----|------|
+    Name| Enter the name that should appear in the list of connectors.|
+    Description | Enter the description of the function of the connector, such as what back-end system it might connect to.|
+    Host Name | Enter the hostname for the connector. Example: https://{servername} |
+    User Name | Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector.|
+    Password | Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector.|
 
-3. Click **Test Connection**. SAP Concur will attempt to connect to the test connection endpoint https://(host name)/system/v1.0/testconnection with the supplied credentials. If you have not configured the test connection endpoint, the test will fail.
+3. Click **Test Connection**. SAP Concur will attempt to connect to the test connection endpoint https://(host name)/system/v1.0/testconnection, using a GET method with the supplied credentials as HTTP Basic Authentication. If you have not configured the test connection endpoint, the test will fail.
+
+    Note: A successful Test Connection request is required to set the connector to “Verified” before it can be used for any of the callout services.
+
 4. In the **Services** section, select an outbound message or callout that the connector will interact with.
 5. Click **Configure**. The **Configure Service** window appears.
 6. Enter the endpoint that the SAP Concur will connect to on the host. Example: /attendee/v1.0/find

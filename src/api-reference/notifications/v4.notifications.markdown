@@ -3,8 +3,6 @@ title: Partner Notifications v4
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 The purpose of this API is to provide SAP Concur's partners the ability to message users through the web and mobile product.
 
 **Sample use case:** A business traveller starts a travel booking. That user is notified that a visa is required for their trip.
@@ -45,7 +43,7 @@ A Company access token (JWT) is required for this endpoint.
 
 ## <a name="send-message"></a>Send a message
 
-The endpoint provides a way for SAP Concur partners to message users and notify them. Partners will provide details about the message they want to send, along with data to apply to the message.
+The endpoint provides a way for SAP Concur partners to message users and notify them. Partners will provide the identifier of the pre-configured message template, along with the data to apply to the message.
 
 ### Scopes
 

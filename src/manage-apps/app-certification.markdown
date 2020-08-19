@@ -35,10 +35,6 @@ After your app is approved, your SAP Concur App Center Listing will be reviewed 
 
 SAP Concur conducts an initial application and security review in the sandbox environment.  For solutions that process, transmit or store sensitive information, an additional review may be conducted in our sandbox as well as your production environment.  
 
-#### **Is There a Cost?**  
-
-For apps for individual travelers, the fee for App Review is currently being waived.  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Review and you will be asked to enter into a partnership agreement, review the information on the [Build App Center Solutions](https://developer.concur.com/solutions/app-center.html) page.
-
 #### **What Does SAP Concur Specifically Review?**  
 
 The App Review process includes a review of:  

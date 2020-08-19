@@ -35,23 +35,23 @@ Message to retrieve descriptive details about a given hotel. This may include te
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>user</userid>
-    <password>password</password>
-   </authentication>
+      <userid>user</userid>
+      <password>password</password>
+    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="3" PrimaryLangID="de" AltLangID="de">
-    <POS>
-     <Source ISOCurrency="USD">
-      <RequestorID Type="1" ID="123"></RequestorID>
-     </Source>
-    </POS>
-    <HotelDescriptiveInfos>
-     <HotelDescriptiveInfo ChainCode="AB" HotelCode="2575"></HotelDescriptiveInfo>
-    </HotelDescriptiveInfos>
-   </OTA_HotelDescriptiveInfoRQ>
+    <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="3" PrimaryLangID="de" AltLangID="de">
+      <POS>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="123"></RequestorID>
+        </Source>
+      </POS>
+      <HotelDescriptiveInfos>
+        <HotelDescriptiveInfo ChainCode="AB" HotelCode="2575"></HotelDescriptiveInfo>
+      </HotelDescriptiveInfos>
+    </OTA_HotelDescriptiveInfoRQ>
   </Body>
- </Envelope>
+</Envelope>
  ```
 
 #### <a name="req-schema"></a>OTA_HotelDescriptiveInfoRQ
@@ -81,7 +81,7 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth">
+    <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="3">
       <Success/>
       <HotelDescriptiveContents>
         <HotelDescriptiveContent ChainCode="ZZ" HotelCode="2575" HotelName="Torbräu">
@@ -103,11 +103,11 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
           </MultimediaDescriptions>
           <TPA_Extensions>
             <Description Name="This will be a header">
-                <Text>First line of first description.</Text>
-                <Text>Second line of first description.</Text>
+              <Text>First line of first description.</Text>
+              <Text>Second line of first description.</Text>
             </Description>
             <Description>
-                <Text>Second description without name.</Text>
+              <Text>Second description without name.</Text>
             </Description>
           </TPA_Extensions>
         </HotelDescriptiveContent>
@@ -179,4 +179,4 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`URL`|`stringLength1to32`|**Required** Contains a URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with `.png` and `.jpg` files.|
+|`URL`|`stringLength1to32`|**Required** Contains a HTTPS URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with `.png` and `.jpg` files.|

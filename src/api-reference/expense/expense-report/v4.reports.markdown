@@ -1,0 +1,503 @@
+---
+title: Reports v4
+layout: reference
+---
+
+{% include prerelease.html %}
+
+The Reports v4 API can be used to read and modify an expense report header of an existing expense report. This API can be used to change attributes like report name, business purpose, etc.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Retrieve a Report by ID](#retrieve-report-header)
+* [Update a Report](#update-report-header)
+* [Schema](#schema)
+    * [Report Details](#report-details-schema)
+    * [Update Report](#update-report-schema)
+    * [Custom Data](#custom-data-schema)
+    * [Amount](#amount-schema)
+    * [Redirect Fund](#redirect-fund-schema)
+    * [Report Send Back Request](#report-send-back-request-schema)
+    * [Workflow Transition Request](#workflow-transition-request-schema)
+    * [Link](#link-schema)
+* [Error](#error-schema)
+* [Validation Errors](#validation-errors-schema)
+
+## Prior Versions
+
+* Report Header v1 (Deprecated) documentation is available [here](./api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html)
+* Reports v3 (Deprecated) documentation is available [here](./v3.reports.html)
+
+## <a name="products-editions"></a>Products and Editions
+
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Required Scopes:
+
+| Name|Description|Endpoint|
+| ---|---|---|
+|`expense.report.read`| Get information about expense reports.|GET|
+|`expense.report.readwrite`|Read and write expense report headers.|PATCH|
+|`user.read`|Get User Information, necessary for `userID`.|POST|
+
+Optional Scope:
+
+|Name|Description|Endpoint|
+|---|---|---|
+|`spend.listitem.read`|Read only access to spend list items `listItemId`.| GET|
+|`spend.list.read`|Read only access to spend list and category details.|GET|
+
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens.
+
+## <a name="retrieve-report-header"></a>Retrieve a Report by ID
+
+Retrieves the details of the specific report header.
+
+### Scopes
+
+`expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}
+```
+
+##### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
+|`reportId`|string|-|**Required** The unique identifier of the report that is being read.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Report Header Response](#report-header-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Report-test' \
+--header 'Content-Type: application/json'
+```
+
+#### Response
+
+```shell
+200 OK
+
+{
+    "approvalStatus": "Not Submitted",
+    "approvalStatusId": "A_NOTF",
+    "concurAuditStatus": "NOTR",
+    "customData": [
+        {
+            "id": "custom15",
+            "value": "4366A89A916F074099A971B000989A94",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=4366A89A916F074099A971B000989A94"
+        },
+        {
+            "id": "custom16",
+            "value": "Test33224ASDF",
+            "isValid": true,
+            "listItemUrl": null
+        },
+        {
+            "id": "custom3",
+            "value": "582AE31D0F506C4BAA97573F2A90F03B",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=582AE31D0F506C4BAA97573F2A90F03B"
+        },
+        {
+            "id": "custom4",
+            "value": "79AE45D0F6757946AC2B01CDFA6CA326",
+            "isValid": true,
+            "listItemUrl": "https://us.api.concursolutions.com/list/v4/items?id=79AE45D0F6757946AC2B01CDFA6CA326"
+        }
+    ],
+    "ledger": "DEFAULT",
+    "ledgerId": "2703E3FBD393DA4484ED3CB07303407C",
+    "paymentStatus": "Not Paid",
+    "paymentStatusId": "P_NOTP",
+    "submitDate": null,
+    "approvedAmount": {
+        "value": 525.00000000,
+        "currencyCode": "USD"
+    },
+    "claimedAmount": {
+        "value": 525.00000000,
+        "currencyCode": "USD"
+    },
+    "amountCompanyPaid": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "paymentConfirmedAmount": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "amountDueCompany": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "amountDueCompanyCard": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "amountDueEmployee": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "personalAmount": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "reportTotal": {
+        "value": 525.00000000,
+        "currencyCode": "USD"
+    },
+    "amountNotApproved": {
+        "value": 0E-8,
+        "currencyCode": "USD"
+    },
+    "isFinancialIntegrationEnabled": false,
+    "canReopen": false,
+    "isReopened": false,
+    "isReceiptImageAvailable": false,
+    "isReceiptImageRequired": true,
+    "isPaperReceiptsReceived": false,
+    "reportId": "764428DD6A664AF0BFCB",
+    "currency": "US, Dollar",
+    "currencyCode": "USD",
+    "analyticsGroupId": "C8CB395275EC4FE9AF6CD5B535EA2B17",
+    "hierarchyNodeId": "0F941E0B0A2C974EB2B06CDA67973052",
+    "allocationFormId": "FD7E9C6389EF495B85042319D58CAE53",
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null,
+            "method": "GET",
+            "isTemplated": false
+        }
+    ],
+    "reportDate": "2020-03-25",
+    "reportFormId": "674B67F0C6BD4E9CA5D91AFB82CC8ABB",
+    "businessPurpose": "Facility cleaning and renovation",
+    "countryCode": "US",
+    "countrySubDivisionCode": "US-WA",
+    "policyId": "EE095F66AEF52B4A9CE62952601E5CB1",
+    "startDate": "2020-03-10",
+    "endDate": "2020-03-14",
+    "name": "March Expenses",
+    "policy": "JH - US Expense Policy",
+    "country": "UNITED STATES",
+    "userId": "32c2fcc3-b2e8-4907-9672-5b3f49b1c643",
+    "reportType": "Regular",
+    "redirectFund": null,
+    "creationDate": "2020-03-25T20:42:39Z",
+    "canRecall": false,
+    "reportVersion": 0
+}
+```
+
+## <a name="update-report-header"></a>Update a Specific Report
+
+Updates the attributes of a specific report.
+
+### Scopes
+
+`expense.report.readwrite` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}
+```
+
+##### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
+|`reportId`|string|-|**Required** The unique identifier of the report that is being modified.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### REST Design Specification
+
+PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specification:
+
+* [RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
+
+#### Payload
+
+* [Patch Report Request](#patch-report-request-schema)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Patch Report Response](#patch-report-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Viswa test' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"customData": [
+        {
+            "id": "custom15",
+            "value": "E31CB42509F9FF408BA7DD6713AB49BD",
+            "isValid": true
+        }
+    ],
+    "businessPurpose":"Office Facility Supplies",
+    "reportSource":"OTHER"
+}'
+```
+
+#### Response
+
+```shell
+204 No Content
+```
+
+## <a name="schema"></a>Schema
+
+### <a name="report-details-schema"></a>ReportDetails
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`allocationFormId`|`string`|-|The unique identifier of the allocation form.|
+|`amountCompanyPaid`|[`Amount`](#amount-schema)|-|**Required** The amount paid by the company.|
+|`amountDueCompany`|[`Amount`](#amount-schema)|-|**Required** The amount that the employee owes the company.|
+|`amountDueCompanyCard`|[`Amount`](#amount-schema)|-|**Required** The amount that the employee/company owes the corporate card.|
+|`amountDueEmployee`|[`Amount`](#amount-schema)|-|**Required** The amount that the company owes the employee.|
+|`amountNotApproved`|[`Amount`](#amount-schema)|-|**Required** The amount that was not approved for the report.|
+|`analyticsGroupId`|`string`|-|**Required** The unique identifier of the business intelligence hierarchy node.|
+|`approvalStatus`|`string`|-|**Required** The report’s approval status, in the user’s language.|
+|`approvalStatusId`|`string`|-|**Required** The unique identifier of the approval status.|
+|`approvedAmount`|[`Amount`](#amount-schema)|-|**Required** The total amount of approved expenses in the report.|
+|`businessPurpose`|`string`|-|The text input for the business purpose by the user.|
+|`canRecall`|`boolean`|`true`/`false`|**Required** Whether the report can be recalled by the current user.|
+|`canReopen`|`boolean`|`true`/`false`|Whether the report can be reopened after payment.|
+|`cardProgramStatementPeriodId`|`string`|-|The unique identifier of card program statement period on the report.|
+|`claimedAmount`|[`Amount`](#amount-schema)|-|**Required** The total amount of all non-personal expenses in the report.|
+|`concurAuditStatus`|`string`|-|**Required** The status of audit for the report.|
+|`country`|`string`|-|The country name associated with the report (localized as per `accept-language` header).|
+|`countryCode`|`string`|`ISO 3166-1 alpha-2 country code`|The report country. Maximum characters: 2. Example: `US` - United States|
+|`countrySubDivisionCode`|`string`|-|The location country sub division ISO 3166-2 code.|
+|`creationDate`|`string`|`YYYY-MM-DDTHH:mm:ssZ`|**Required** The UTC datetime when the user created the report.|
+|`currency`|`string`|-|**Required** The currency name for the report (localized as per `accept-language` header).|
+|`currencyCode`|`string`|-|**Required** The 3-letter ISO 4217 currency code for the expense report currency. Examples: `USD` - US dollars; `BRL` - Brazilian real; `CAD` - Canadian dollar; `CHF` - Swiss franc; `EUR` - Euro; `GBO` - Pound sterling; `HKD` - Hong Kong|
+|`customData`|[`CustomData`](#custom-data-schema)|-|The details from the `customData` fields. These fields may not have data, depending on the configuration.|
+|`endDate`|`string`|`YYYY-MM-DD`|The end date (ISO-8601) of the report as used for trip-based reporting.|
+|`hierarchyNodeId`|`string`|-|**Required** The unique identifier of the group hierarchy node for the report resource.|
+|`isFinancialIntegrationEnabled`|`boolean`|`true`/`false`|**Required** Whether the Financial Integration setting has been enabled for this report.|
+|`isPaperReceiptsReceived`|`boolean`|`true`/`false`|**Required** Whether paper receipts have been received for the report.|
+|`isReceiptImageAvailable`|`boolean`|`true`/`false`|**Required** Whether the receipt image is available at the report level.|
+|`isReceiptImageRequired`|`boolean`|`true`/`false`|**Required** Whether the receipt image is required at the report level.|
+|`isReopened`|`boolean`|`true`/`false`|Whether the report is reopened.|
+|`ledger`|`string`|-|**Required** The ledger name to which the report belongs (localized as per `accept-language` header).|
+|`ledgerId`|`string`|-|**Required** The unique identifier of the ledger.|
+|`links`|[`Link`](#link-schema)|-|Resource links related to this call.|
+|`name`|`string`|-|**Required** The expense report name input by the user.|
+|`paymentConfirmedAmount`|[`Amount`](#amount-schema)|-|**Required** The amount that was paid on the report.|
+|`paymentStatus`|`string`|-|**Required** The report's payment status in the user's language.|
+|`paymentStatusId`|`string`|-|**Required** The unique identifier of the payment status of the report.|
+|`personalAmount`|[`Amount`](#amount-schema)|-|**Required** The total amount of expenses marked as personal on the report.|
+|`policy`|`string`|-|**Required** The policy name to which the report adheres (localized as per `accept-language` header).|
+|`policyId`|`string`|-|**Required** The unique identifier of the policy that applies to this report.|
+|`redirectFund`|[`RedirectFund`](#redirect-fund)|-|Funds redirected to IBCP card.|
+|`reportDate`|`string`|`YYYY-MM-DD`|The date assigned to the report by the user.|
+|`reportFormId`|`string`|-|**Required** The unique identifier of the report form.|
+|`reportId`|`string`|-|**Required** The unique identifier for the report resource.|
+|`reportNumber`|`string`|-|User friendly unique identifier for the report.|
+|`reportTotal`|[`Amount`](#amount-schema)|-|**Required** The total amount on the report.|
+|`reportType`|`string`|-|This value identifies the method used to create the report. Statement refers to company billed statement reports and auto-created refers to reports created by Expense Assistant.|
+|`reportVersion`|`integer`|`int32`|**Required** The current version of the report.|
+|`startDate`|`string`|`YYYY-MM-DD`|The start date of the report as used for trip-based reporting.|
+|`submitDate`|`string`|`YYYY-MM-DDTHH:mm:ssZ`|The UTC datetime when the user submitted the report.|
+|`userId`|`string`|-|**Required** The unique identifier of the Concur user who is the report owner.|
+
+### <a name="update-report-schema"></a>UpdateReport
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`businessPurpose`|`string`|-|The text input for the business purpose by the user.|
+|`comment`|`string`|-|The expense report comment added by the user.|
+|`country`|`string`|-|The country name associated with the report (localized as per `accept-language` header).|
+|`countryCode`|`string`|-|The location country ISO 3166-1 code.|
+|`countrySubDivisionCode`|`string`|-|The location country sub division ISO 3166-2 code.|
+|`customData`|[`CustomData`](#custom-data-schema)|-|The details from the `customData` fields. These fields may not have data, depending on the configuration.|
+|`endDate`|`string`|`YYYY-MM-DD`|The end date of the report as used for trip-based reporting.|
+|`isCopyDownInherited`|`boolean`|`true`/`false`|If `true`, any change in the report header fields will be copied down to expenses, itemizations and allocations, as per the configuration. Usage of this flag should be deliberate as data corruption could result.|
+|`isPaperReceiptsReceived`|`boolean`|`true`/`false`|Whether paper receipts have been received for the report.|
+|`name`|`string`|-|The expense report name input by the user.|
+|`policy`|`string`|-|The policy name to which the report adheres to.|
+|`policyId`|`string`|-|The unique identifier of the policy that applies to this report.|
+|`redirectFund`|[`RedirectFund`](#redirect-fund-schema)|-|Funds redirected to IBCP card.|
+|`reportDate`|`string`|`YYYY-MM-DD`|The date assigned to the report by the user.|
+|`reportSource`|`string`|-|**Required** The source of the report. Supported values: `EA` - Expense Assistant, `MOB` - Mobile, `OTHER` - Unknown, `SE` - Smart Expense, `TR` - Travel Request, `UI` - Web UI|
+|`startDate`|`string`|`YYYY-MM-DD`|The start date of the report as used for trip-based reporting.|
+
+### <a name="custom-data-schema"></a>CustomData
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|**Required** The unique identifier of the custom field. Examples: `custom1`, `orgUnit1`|
+|`isValid`|`boolean`|`true`/`false`|Whether the value returned is valid or not. This value is returned for custom fields of all data types and is specifically evaluated for list items to represent the current status. Default: `true`|
+|`value`|`string`|-|The value of the custom field. This field can have values for all the supported data types such as `text`, `integer`, `boolean` and `listItemId`. Maximum length: 48 characters|
+
+### <a name="amount-schema"></a>Amount
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`currencyCode`|`string`|-|**Required** The 3-letter ISO 4217 currency code for the expense report currency, based on the user's assigned reimbursement currency when the report was created. Examples: `USD` - US dollars; `BRL` - Brazilian real; `CAD` - Canadian dollar; `CHF` - Swiss franc; `EUR` - Euro; `GBO` - Pound sterling; `HKD` - Hong Kong dollar; `INR` - Indian rupee; `MXN` - Mexican peso; `NOK` - Norwegian krone; `SEK` - Swedish krona|
+|`value`|`number`|`double`|**Required** The amount in the defined currency.|
+
+### <a name="redirect-fund-schema"></a>RedirectFund
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`amount`|[`Amount`](#amount-schema)|-|**Required** The value of funds redirected to the IBCP card account.|
+|`creditCardId`|`string`|-|**Required** The unique identifier of the IBCP card account to which funds need to be redirected.|
+
+### <a name="report-send-back-request-schema"></a>ReportSendBackRequest
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`comment`|`string`|-|**Required** Comments for sending back the report.|
+|`currentProcessInstanceId`|`string`|-|Current workflow process instance ID for validation.|
+|`currentSequence`|`integer`|`int32`|Current workflow process sequence number for validation.|
+|`reasonCodeId`|`string`|-|The unique identifier of the Reason Code only by processor.|
+|`reportSource`|`string`|-|The source of the report. Supported values: `EA` - Expense Assistant, `MOB` - Mobile, `OTHER` - Unknown, `SE` - Smart Expense, `TR` - Travel Request, `UI` - Web UI|
+
+### <a name="workflow-transition-request-schema"></a>WorkflowTransitionRequest
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`comment`|`string`|-|Approver comments.|
+|`currentProcessInstanceId`|`string`|-|Current workflow process instance ID for validation.|
+|`currentSequence`|`integer`|`int32`|Current workflow process sequence number for validation.|
+|`reportSource`|`string`|-|The source of the report. Supported values: `EA` - Expense Assistant, `MOB` - Mobile, `OTHER` - Unknown, `SE` - Smart Expense, `TR` - Travel Request, `UI` - Web UI|
+|`statusId`|`string`|-|Status that will be assigned to the report by this workflow transition.|
+
+### <a name="link-schema"></a>Link
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`deprecation`|`string`|-|-|
+|`href`|`string`|-|**Required** The URL of the related `HATEOAS` link that you can use for subsequent calls.|
+|`hreflang`|`string`|-|-|
+|`isTemplated`|`boolean`|`true`/`false`|**Required** Whether the `href` is parameterized.|
+|`media`|`string`|-|-|
+|`method`|`string`|-|**Required** The HTTP method required for the related call.|
+|`rel`|`string`|-|**Required** The link relationship that describes how the `href` relates to the API call.|
+|`title`|`string`|-|-|
+|`type`|`string`|-|-|
+
+### <a name="error-message-schema"></a>ErrorMessage
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`errorId`|`string`|-|The unique identifier of the error associated with the response.|
+|`errorMessage`|`string`|-|**Required** The detailed error message.|
+|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response.|
+|`path`|`string`|-|**Required** The URI of the attempted request.|
+|`timestamp`|`string`|`date-time`|**Required** The time when the error was captured.|
+|`validationErrors`|[`ValidationError`](#validation-error-schema)|-|The validation error messages.|
+
+### <a name="validation-errors-schema"></a>ValidationError
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|The ID of the validation error.|
+|`message`|`string`|-|The detailed message of the validation error.|
+|`source`|`string`|-|The type of validation which failed.|

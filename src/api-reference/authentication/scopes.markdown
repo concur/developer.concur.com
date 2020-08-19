@@ -20,7 +20,7 @@ Concur services follow these standard naming conventions for scopes.
 
 ```
 Template: {resource}.{optional subresource}.{action}
-Examples: expense.report.delete
+Examples: mileage.rate.read
           receipts.read
 ```
 
@@ -30,10 +30,10 @@ Examples: expense.report.delete
 
 Action|Description|Examples
 ---|---|---
-`read`|Read only access (GET)|`receipts.read`, `expense.report.read`
+`read`|Read only access (GET)|`receipts.read`, `budgetitem.read`
 `write`|Read AND Write access (GET, POST, UPDATE etc)|`company.write`, `travel.receipts.write`
 `writeonly`|Write only access|`mileage.journey.writeonly`, `receipts.writeonly`
-`delete`|Delete access|`expense.report.delete`
+`delete`|Delete access|N/A
 
 ## <a name="v4apiscopes"></a>List of v4 API Scopes
 
@@ -46,9 +46,6 @@ budgetitem.write|Read and write access to budget data including fiscal calendar.
 company.read|Read company profile
 company.write|Read and Write company profile
 creditcardaccount.read|Read credit card account data
-expense.report.read|Read only access to report resource within the Concur Expense service
-expense.report.readwrite|Read write access to report resource within the Concur Expense Report service
-expense.report.delete|Delete only access to report resource within the Concur Expense Report service
 quickexpense.writeonly|Write quick expense
 fiscalcalendar.read|Access to fiscal calendar
 fiscalcalendar.write|Read and write access to fiscal calendar.
@@ -58,6 +55,7 @@ mileage.vehicle.read|Read-only access to vehicle resources.
 mileage.vehicle.writeonly|Write-only access to vehicle resources.
 mileage.rate.read|Read-only access to rate configuration resources.
 mileage.rate.writeonly|Write-only access to rate configuration resources.
+notifications.messages.writeonly|Write messages to the notifications platform
 openid|Return OPENID Token
 realtimeingest.location.writeonly|Post user location object upon trip completion|
 receipts.read|Read receipts and invoices
