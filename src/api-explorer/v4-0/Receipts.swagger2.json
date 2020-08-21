@@ -4,18 +4,18 @@
         "title": "Receipts",
         "version": "4.0"
     },
-    "host": "us.api.concursolutions.com/receipts",
+    "host": "us.api.concursolutions.com",
     "schemes": [
         "https"
     ],
     "paths": {
-        "/v4/status": {
+        "/receipts/v4/status": {
             "post": {
                 "description": "Get status information for multiple receipts at once. Either receiptIds or forwardIds can be used. Maximum 50 receipts per call.",
                 "summary": "Bulk status",
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "produces": [
@@ -112,13 +112,13 @@
                 }
             }
         },
-        "/v4/{receiptId}/digitizedImage": {
+        "/receipts/v4/{receiptId}/digitizedImage": {
             "get": {
                 "description": "Get a digitized receipt image. These digitized images are the result of special processing and comply with legal regulations in certain jurisdictions.",
                 "summary": "Digitized image by ID",
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "produces": [
@@ -130,16 +130,12 @@
                         "in": "path",
                         "description": "The ID of the receipt.",
                         "type": "string",
-                        "required": false
+                        "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "The v4 image file associated with the receiptId. This is not the Imaging Service copy of the image but might be visually similar.",
-                        "schema": {
-                            "type": "file",
-                            "description": "The digitized copy of the image, complete with any accompanying PDF metadata"
-                        }
+                        "description": "The digitized (certified) copy of the image, complete with any accompanying PDF metadata"
                     },
                     "401": {
                         "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
@@ -153,13 +149,13 @@
                 }
             }
         },
-        "/v4/digitizedImages": {
+        "/receipts/v4/digitizedImages": {
             "get": {
                 "description": "Get a digitized receipt image. These digitized images are the result of special processing and comply with legal regulations in certain jurisdictions. This route is an alternative method for retrieving a digitized image, and should only be used if the caller does not have access to the receiptId associated with the image.",
                 "summary": "Digitized image by alternate query parameters",
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "produces": [
@@ -176,8 +172,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The v4 image file associated with the receiptId. This is the official digitized copy of the image.",
-                        "type": "file"
+                        "description": "The digitized (certified) copy of the image, complete with any accompanying PDF metadata"
                     },
                     "401": {
                         "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
@@ -191,7 +186,7 @@
                 }
             }
         },
-        "/v4/image-only-receipts/{receiptId}": {
+        "/receipts/v4/image-only-receipts/{receiptId}": {
             "get": {
                 "description": "Get an individual image-only receipt by receiptId.",
                 "summary": "Image-only receipt by ID",
@@ -200,7 +195,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -228,13 +223,13 @@
                 }
             }
         },
-        "/v4/image-only-receipts/{receiptId}/image": {
+        "/receipts/v4/image-only-receipts/{receiptId}/image": {
             "get": {
                 "description": "Get the image file for a given receiptId",
                 "summary": "Image by ID",
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "produces": [
@@ -256,8 +251,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The v4 image file associated with the receiptId. This is not the Imaging Service copy of the image but might be visually similar.",
-                        "type": "file"
+                        "description": "The v4 image file associated with the receiptId. This is not the Imaging Service copy of the image but might be visually similar."
                     },
                     "401": {
                         "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
@@ -271,7 +265,7 @@
                 }
             }
         },
-        "/v4/": {
+        "/receipts/v4/": {
             "get": {
                 "description": "Get a list of links to all the receipts endpoints in this environment. Call this endpoint first, then use the url templates in your code to make subsequent calls.",
                 "summary": "Service index",
@@ -280,7 +274,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "responses": {
@@ -299,7 +293,7 @@
                 }
             }
         },
-        "/v4/{receiptId}": {
+        "/receipts/v4/{receiptId}": {
             "get": {
                 "description": "Get an individual receipt by receiptId.",
                 "summary": "Receipt by ID",
@@ -308,7 +302,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -339,13 +333,13 @@
                 }
             }
         },
-        "/v4/{receiptId}/image": {
+        "/receipts/v4/{receiptId}/image": {
             "get": {
                 "description": "Get the image file for a given receiptId",
                 "summary": "Image by ID",
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "produces": [
@@ -367,8 +361,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The v4 image file associated with the receiptId. This is not the Imaging Service copy of the image but might be visually similar.",
-                        "type": "file"
+                        "description": "The v4 image file associated with the receiptId. This is not the Imaging Service copy of the image but might be visually similar."
                     },
                     "401": {
                         "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
@@ -382,13 +375,13 @@
                 }
             }
         },
-        "/v4/status/{receiptId}": {
+        "/receipts/v4/status/{receiptId}": {
             "get": {
                 "description": "Get status information about a receipt.",
                 "summary": "Receipt status",
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "produces": [
@@ -405,8 +398,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Status information about the receipt, including logs about the back-end processing of the receipt.",
-                        "type": "file"
+                        "description": "Status information about the receipt, including logs about the back-end processing of the receipt."
                     },
                     "401": {
                         "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
@@ -420,7 +412,7 @@
                 }
             }
         },
-        "/v4/{receiptId}/states": {
+        "/receipts/v4/{receiptId}/states": {
             "get": {
                 "description": "Get an individual receipt by receiptId, including state metadata. The JSON will include links that can be called to change the state of the receipt.",
                 "summary": "Receipt by ID",
@@ -429,7 +421,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -487,7 +479,7 @@
                 }
             }
         },
-        "/schemas/": {
+        "/receipts/schemas/": {
             "get": {
                 "description": "Returns objects with links to all available schemas, including the schemas used to validate E-receipts. Call the links returned from this route to retrieve individual schemas.",
                 "summary": "Schema index",
@@ -496,7 +488,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "responses": {
@@ -510,9 +502,11 @@
                                     "items": {
                                         "$ref": "#/definitions/linkObject"
                                     }
-                                },
-                                "required": "receiptSchemas"
-                            }
+                                }
+                            },
+                            "required": [
+                                "receiptSchemas"
+                            ]
                         }
                     },
                     "401": {
@@ -521,7 +515,7 @@
                 }
             }
         },
-        "/schemas/{schemaId}": {
+        "/receipts/schemas/{schemaId}": {
             "get": {
                 "description": "Get an individual schema by schemaId. Find schemaIds by calling the schema index.",
                 "summary": "Schema by ID",
@@ -539,7 +533,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "responses": {
@@ -552,7 +546,7 @@
                 }
             }
         },
-        "/v4/{receiptId}/sdr": {
+        "/receipts/v4/{receiptId}/sdr": {
             "get": {
                 "description": "Get the structured data record (SDR) for a receipt. This data is related to tax regulations in certain jurisdictions.",
                 "summary": "SDR",
@@ -561,7 +555,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -592,7 +586,7 @@
                 }
             },
             "post": {
-                "description": "Create/update SDR data for a receipt. The receipt MUST have been successfully digitized (digitizationStatus is PROCESSED) for the request to succeed. Digitization status can be checked by calling GET /receipts/v4/status/{receiptId}",
+                "description": "Create/update SDR data for a receipt. The receipt MUST have been successfully digitized (digitizationStatus is PROCESSED) for the request to succeed. Digitization status can be checked by calling GET /receipts/receipts/v4/status/{receiptId}",
                 "produces": [
                     "application/json"
                 ],
@@ -601,7 +595,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -657,7 +651,7 @@
                 }
             }
         },
-        "/v4/sdrExtracts": {
+        "/receipts/v4/sdrExtracts": {
             "get": {
                 "description": "Get a compressed extract file containing all SDR records for a given company from a one-month fiscal period. Extracts are generated at the end of each month.",
                 "summary": "SDR extract",
@@ -666,7 +660,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -701,7 +695,7 @@
                 }
             }
         },
-        "/v4/users/{userId}/image-only-receipts/{state}": {
+        "/receipts/v4/users/{userId}/image-only-receipts/{state}": {
             "get": {
                 "description": "Get all v4 image-only receipts for a single user with a certain state. Valid states are consumable (not attached to an expense report), consumed (attached), and discarded (deleted by the user). Maximum 50 receipts per page. If there are more results after the first page, a next page link will be provided in the results.  Calling that link will retrieve the next page of receipts.",
                 "summary": "Receipts for a user by state",
@@ -710,7 +704,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -749,8 +743,7 @@
                                 "next": {
                                     "type": "string",
                                     "description": "Link to the next page of receipts, if the response included the maximum of 50 receipts. The next page of receipts is available at this URL. If the next page also contains 50 receipt, it will also contain  a next page link, and so on."
-                                },
-                                "required": "receipts"
+                                }
                             }
                         }
                     },
@@ -763,7 +756,7 @@
                 }
             }
         },
-        "/v4/users/{userId}/image-only-receipts": {
+        "/receipts/v4/users/{userId}/image-only-receipts": {
             "get": {
                 "description": "Get all v4 image-only receipts for a single user. Maximum 50 receipts per page. If there are more results after the first page, a next page link will be provided in the results. Calling that link will retrieve the next page of receipts.",
                 "summary": "Image-only receipts by userId",
@@ -772,7 +765,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -799,8 +792,7 @@
                                 "next": {
                                     "type": "string",
                                     "description": "Link to the next page of receipts, if the response included the maximum of 50 receipts. The next page of receipts is available at this URL. If the next page also contains 50 receipt, it will also contain  a next page link, and so on."
-                                },
-                                "required": "receipts"
+                                }
                             }
                         }
                     },
@@ -817,7 +809,7 @@
                 "summary": "New image-only receipt",
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "consumes": [
@@ -842,10 +834,8 @@
                     {
                         "name": "clientData",
                         "in": "formData",
-                        "description": "Metadata about the capture of a paper receipt. Required for special GRDC processing rules to take effect.",
-                        "schema": {
-                            "$ref": "#/definitions/clientData"
-                        },
+                        "type": "file",
+                        "description": "Metadata about the capture of a paper receipt. Required for special GRDC processing rules to take effect. This parameter should be JSON. Please see the model for clientData for more details.",
                         "required": false
                     },
                     {
@@ -892,7 +882,7 @@
                 }
             }
         },
-        "/v4/users/{userId}/{state}": {
+        "/receipts/v4/users/{userId}/{state}": {
             "get": {
                 "description": "Get all v4 receipts for a single user with a certain state. Valid states are consumable (not attached to an expense report), consumed (attached), and discarded (deleted by the user). Maximum 50 receipts per page. If there are more results after the first page, a next page link will be provided in the results.  Calling that link will retrieve the next page of receipts.",
                 "summary": "Receipts for a user by state",
@@ -901,7 +891,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -940,8 +930,7 @@
                                 "next": {
                                     "type": "string",
                                     "description": "Link to the next page of receipts, if the response included the maximum of 50 receipts. The next page of receipts is available at this URL. If the next page also contains 50 receipt, it will also contain  a next page link, and so on."
-                                },
-                                "required": "receipts"
+                                }
                             }
                         }
                     },
@@ -961,7 +950,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -1010,7 +999,7 @@
                 }
             }
         },
-        "/v4/users/{userId}": {
+        "/receipts/v4/users/{userId}": {
             "get": {
                 "description": "Get all v4 receipts for a single user. Maximum 50 receipts per page. If there are more results after the first page, a next page link will be provided in the results. Calling that link will retrieve the next page of receipts.",
                 "summary": "Receipts by userId",
@@ -1019,7 +1008,7 @@
                 ],
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -1046,8 +1035,7 @@
                                 "next": {
                                     "type": "string",
                                     "description": "Link to the next page of receipts, if the response included the maximum of 50 receipts. The next page of receipts is available at this URL. If the next page also contains 50 receipt, it will also contain  a next page link, and so on."
-                                },
-                                "required": "receipts"
+                                }
                             }
                         }
                     },
@@ -1064,7 +1052,7 @@
                 "summary": "New E-receipt",
                 "security": [
                     {
-                        "JWT": null
+                        "JWT": []
                     }
                 ],
                 "consumes": [
@@ -1098,9 +1086,7 @@
                         "name": "receipt",
                         "in": "formData",
                         "description": "The JSON data for the receipt",
-                        "schema": {
-                            "type": "object"
-                        },
+                        "type": "string",
                         "required": true
                     },
                     {
@@ -1188,7 +1174,9 @@
                     }
                 }
             },
-            "required": "receiptIds",
+            "required": [
+                "receiptIds"
+            ],
             "minProperties": 1,
             "additionalProperties": false
         },
@@ -1327,7 +1315,7 @@
                         },
                         "hashCode": {
                             "type": "string",
-                            "descrption": "SHA-512 hash of the image. Used to verify the provenance of the image."
+                            "description": "SHA-512 hash of the image. Used to verify the provenance of the image."
                         }
                     }
                 },
@@ -1434,13 +1422,15 @@
                     "minItems": 1,
                     "maxItems": 4,
                     "uniqueItems": true,
-                    "additionalItems": false,
+                    "additionalProperties": false,
                     "items": {
                         "type": "object",
                         "minProperties": 2,
                         "maxProperties": 4,
                         "additionalProperties": false,
-                        "required": "rateType",
+                        "required": [
+                            "rateType"
+                        ],
                         "properties": {
                             "taxRate": {
                                 "type": "string",
