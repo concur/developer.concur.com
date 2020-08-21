@@ -42,6 +42,8 @@ This callout is not supported in the SAP Concur mobile application.
 
 SAP Concur products are highly configurable, and not all clients will have access to all features.
 
+Only the Employee role can interact with the Launch External URL configured field. Other roles such as the Approver and Processor are not able to trigger the pop-up window.
+
 Partner developers must determine which configurations are required for their solution prior to the review process.
 
 Existing clients can work with SAP Concur Integration Services to create custom applications that work with their configuration.
@@ -55,7 +57,7 @@ Information on how to download, install, and configure the application connector
 The configuration process has the following steps:
 
 1. Third-party developer, client or SAP Concur downloads, installs, configures, and customizes the application connector. The application connector may make requests to the inbound web services.  
-2. SAP Concur registers the application connector. SAP Concur must whitelist the IP address and domain of the application connector. Be ready to supply the test and production domain information.  
+2. SAP Concur registers the application connector. SAP Concur must add the IP address and domain of the application connector to an include list. Be ready to supply the test and production domain information.  
 3. Expense Admin creates a new form field with the Launch External URL control type and adds the field to the expense entry form(s).
 
 Once the configuration is complete, the callout uses the following process:

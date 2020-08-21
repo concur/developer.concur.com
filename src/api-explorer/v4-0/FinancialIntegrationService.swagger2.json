@@ -659,7 +659,7 @@
         },
         "processingStatusCode": {
           "type": "string",
-          "description": "Payment status. VALUES: CP, PP (Completely Paid, Partially paid)"
+          "description": "Payment status. VALUES: CP, PP, RE, OB (Completely Paid, Partially paid, Reversal, Obsolete)"
         }
       }
     },

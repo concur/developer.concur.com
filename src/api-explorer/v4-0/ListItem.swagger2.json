@@ -504,6 +504,178 @@
         ],
         "deprecated": false
       }
+    },
+    "/list/v4/lists/{listId}/children": {
+      "get": {
+        "tags": [
+          "List Item API"
+        ],
+        "summary": "Get the first level list items for a given List ID",
+        "description": "Returns the first level children list items for a list",
+        "operationId": "getFirstLevelListItemsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          },
+          {
+            "name": "company-uuid",
+            "in": "header",
+            "description": "Company UUID of the user (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "concur-uid",
+            "in": "header",
+            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Filter capabilities for EndDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "hasChildren",
+            "in": "query",
+            "description": "Show items with children",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "Show deleted items",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number starting from 1",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32",
+            "x-example": 1
+          },
+          {
+            "name": "shortCode",
+            "in": "query",
+            "description": "Filter capabilities for ShortCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "shortCodeOrValue",
+            "in": "query",
+            "description": "Filter capabilities for Value OR ShortCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Field to sort by, {value, shortcode}",
+            "required": false,
+            "type": "string",
+            "default": "value",
+            "enum": [
+              "value",
+              "shortcode"
+            ]
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "description": "Sort direction, {asc, desc}",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Filter capabilities for StartDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "Filter capabilities for Value",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully got first level list items of list",
+            "schema": {
+              "$ref": "#/definitions/PagedResourcesListItem"
+            }
+          },
+          "400": {
+            "description": "Entity does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "List not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Token": []
+          }
+        ],
+        "deprecated": false
+      }
     }
   },
   "definitions": {
