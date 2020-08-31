@@ -74,7 +74,7 @@ Specific cases only|![](./app-center-partner-marketing-toolkit-logo-brand-sap-co
 * Use lowercase for “partner” in body text. You can use uppercase in headlines and titles.
 
 | Acceptable | Branding                      |
-|:------------:|-------------------------------|
+|:----:|----|
 | &#9989;    | We are an SAP Concur Partner. |
 | &#10060;   | ~~We are a Concur Partner~~   |
 
@@ -82,7 +82,7 @@ Specific cases only|![](./app-center-partner-marketing-toolkit-logo-brand-sap-co
 Prefer normal language to refer to your specific engagement.
 
 | Acceptable | Branding                                                                                                                          |
-|:------------:|-----------------------------------------------------------------------------------------------------------------------------------|
+|:-----:|----|
 | &#9989;    | We are an SAP Concur partner. Our company provides SAP Concur solutions that help our customers manage their travel and expenses. |
 | &#9989;    | As an SAP Concur partner, we offer TMC services ...                                                                               |
 | &#9989;    | As an SAP Concur partner, we focus on enabling customer success.                                                                  |
@@ -93,20 +93,20 @@ SAP Concur Naming Conventions for use on landing pages, brochures, listing pages
 * If trademarks are required, the registered trademark at first mention for SAP and Concur when referring to the solutions or portfolio as a whole or more than one individual solution.
 
 | Acceptable | Branding               |
-|:------------:|------------------------|
+|:----:|----|
 | &#9989;    | SAP® Concur® solutions |
 
 Note that individual SAP Concur solutions have not yet adopted the SAP Concur brand. Do not include "SAP" in these offerings.
 
 | Acceptable | Branding               |
-|:------------:|------------------------|
+|:----:|----|
 | &#9989;    | Concur Expense         |
 | &#10060;   | ~~SAP Concur Expense~~ |
 
 Program Name:
 
 | Acceptable | Branding              |
-|:------------:|-----------------------|
+|:----:|----|
 | &#9989;    | SAP Concur App Center |
 | &#10060;   | ~~Concur App Center~~ |
 
@@ -114,20 +114,20 @@ Program Name:
 
 After signing the partner agreement, you can use the “SAP Concur Partner” font treatment to communicate your engagement with SAP and related offerings in collateral, presents, landing pages, and at events.
 
-* [Using the font treatment](#using-the-font-treatment)
-* [Download links](#font-treatment-download-links)
+* [Using the Font Treatment](#using-the-font-treatment)
+* [Download Links](#font-treatment-download-links)
 * [Minimum Size](#font-treatment-minimum-size)
-* [Using trademark symbols](#font-treatment-using-trademark-symbols)
+* [Using Trademark Symbols](#font-treatment-using-trademark-symbols)
 * [Clear Space](#font-treatment-clear-space)
 * [Color Specification](#font-treatment-color-specification)
 
-#### <a name="using-the-font-treatment"></a>Using the font treatment
+#### <a name="using-the-font-treatment"></a>Using the Font Treatment
 
 * Font treatments are intended for use in corporate materials (both print and online) referring to the specific offering(s).
 * Use only the files supplied by SAP. Do not alter the font treatment in any way.
 * Use “SAP Concur Partner” in quotation marks if you need to refer to the font treatment itself.
 
-#### <a name="font-treatment-download-links"></a>Download links
+#### <a name="font-treatment-download-links"></a>Download Links
 
 * Download the ”SAP Concur Partner” font treatment [here](https://partnerportal.concur.com/ResourceFiles/a9829671-fc33-49fc-9533-d76eea817e65.zip).
 * Download the ”SAP Concur Partner App Center” font treatment [here](https://partnerportal.concur.com/ResourceFiles/4b304699-930f-4831-a733-a000fd97f34f.zip).
@@ -143,7 +143,7 @@ Acceptable|Branding
 :---:|---
 &#9989;|![Minimum Size Image Print](./app-center-partner-marketing-toolkit-minimum-size.png)
 
-#### <a name="font-treatment-using-trademark-symbols"></a>Using trademark symbols
+#### <a name="font-treatment-using-trademark-symbols"></a>Using Trademark Symbols
 
 Include the registered trademark symbol “®” on the terms “SAP” and “Concur” (SAP® Concur®) at first mention in headlines and text. You do not need to include trademark symbols for Web or mobile sites or on projection screens.
 
@@ -172,18 +172,18 @@ Acceptable|Branding
 
 In general, SAP Concur logo usage is not permitted. However, App Center partners may, with approval, use the SAP Concur logo in certain instances, such as your integration UI, connection page, and a page or collateral listing multiple partners’ logos including SAP Concur.
 
-* [Using the logo](#sap-concur-logos-using)
-* [Clear space and size requirements](#sap-concur-logos-clear-space-and-size)
-* [Available logos](#sap-concur-logos-available)
-  * [Full logo](#sap-concur-logos-available-full)
-  * [C-dot only](#sap-concur-logos-available-c-dot)
+* [Using the Logo](#sap-concur-logos-using)
+* [Clear Space and Size Requirements](#sap-concur-logos-clear-space-and-size)
+* [Available Logos](#sap-concur-logos-available)
+  * [Full Logo](#sap-concur-logos-available-full)
+  * [C-dot Only](#sap-concur-logos-available-c-dot)
 
-#### <a name="sap-concur-logos-using"></a>Using the logo
+#### <a name="sap-concur-logos-using"></a>Using the Logo
 
 * Only original SAP Concur logo or c-dot icon artwork may be used. The content must be clear that you are a partner of SAP Concur Logo placement must adhere to [brand guidelines](https://partnerportal.concur.com/ResourceFiles/1c50981f-64d1-4b87-be79-a8e9994ba16b.zip) for clear space and sizing.
 * Email [concur_AppCenterMarketing@SAP.com](mailto:concur_AppCenterMarketing@SAP.com) for logo files and to submit collateral and pages using the logo prior to approval.
 
-#### <a name="sap-concur-logos-clear-space-and-size"></a>Clear space and size requirements
+#### <a name="sap-concur-logos-clear-space-and-size"></a>Clear Space and Size Requirements
 
 Always maintain the logo’s aspect ratio when scaling.
 
@@ -195,17 +195,17 @@ In print, the SAP Concur logo can be reproduced down to 0.92" (23.4mm) wide. For
 
 ![Logo width image](./app-center-partner-marketing-toolkit-sap-concur-logo-width.png)
 
-#### <a name="sap-concur-logos-available"></a>Available logos
+#### <a name="sap-concur-logos-available"></a>Available Logos
 
 For logo files, please email [concur_AppCenterMarketing@SAP.com](mailto:concur_AppCenterMarketing@SAP.com).
 
-#### <a name="sap-concur-logos-available-full"></a>Full logo
+#### <a name="sap-concur-logos-available-full"></a>Full Logo
 
 Acceptable|Branding
 :---:|---
 &#9989; (Certain cases and with App Center Marketing approval only.)|![Full logo image](./app-center-partner-marketing-toolkit-sap-concur-logo-full.png)
 
-#### <a name="sap-concur-logos-available-c-dot"></a>C-dot only
+#### <a name="sap-concur-logos-available-c-dot"></a>C-dot Only
 
 Acceptable|Branding
 :---:|---
@@ -216,8 +216,8 @@ Acceptable|Branding
 ### <a name="recommended-marketing-content"></a>Recommended Marketing Content​
 The most effective way to promote a partner integration is to make **concise**, **current**, and **compelling** marketing content available to the SAP Concur Sales teams, customers, and prospects.​
 
-| Recommended partner content                                                                                                                                                                                                                                                                  | Where content is surfaced                                                                                                                                |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Recommended Partner Content                                                                                                                                                                                                                                                                  | Where Content is Surfaced                                                                                                                                |
+|----|----|
 | Brochures (required for Enterprise applications)<br>Landing page covering the integration (required for Enterprise Applications)<br>Brief demo & video overviews<br>Customer testimonials and case studies ([submit via this form](https://app.smartsheet.com/b/form/bf7c655708514611a55f01cee8452737?mkt_tok=eyJpIjoiT1dFek5qTmtOVGt6T1dFeiIsInQiOiJHek9TXC9GTVlsQVZhOWZQV3cyY1VPKytTK0RJQllVS0lGQkl0U3F4TEVHZXllYlVJZEpXWk94TUZLQnFuQ1wvNUxrOU1WK2RMVnZPVTlJRUxibFp2dlNnPT0ifQ==))<br>Slides to integrate into sales presentations ([template](https://developer.concur.com/manage-apps/go-market-docs/app-center-partner-slide-template.pptx)) | Highspot (SAP employees only)<br>App Center Jam group (SAP employees only)<br>SAP Concur App Center listings<br>Concur.com<br>Your own website<br>Google |
 
 During onboarding, the App Center marketing team works with partners to ensure you have essential, correctly-branded marketing pieces. ​
@@ -228,17 +228,17 @@ To edit or send additional marketing content, email the edited/new content to co
 This messaging framework can be used to create compelling marketing content and collateral.​
 
 |                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                 |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----|-----|
 | **Target Audience**<br>Who is the intended audience? App Center partner content is distributed to two main audiences: customers/prospects and the SAP Concur field who help introduce them to your solution. If the content is intended for a customer, which roles or departments is this relevant for? | **Features & Benefits**<br>What are your key features and benefits? How does your integration work? What are some testimonials/stories from existing customers?                                     |
-| **Challenges or goals**<br>What problems can your integrated solution help them solve?                                                                                                                                                                                                                   | **Unique capabilities**<br>How is it different from alternative or existing solutions? (Note: avoid superlative language like “the leading” or “the best” unless it is corroborated by statistics.) |
-| **Value proposition**<br>How will your integration with SAP Concur solutions deliver value to the customer?                                                                                                                                                                                              | **Call to action**<br>What action should the audience take? Ex. follow up for more information? Connect through the App Center?                                                                     |                                                                   |
+| **Challenges or Goals**<br>What problems can your integrated solution help them solve?                                                                                                                                                                                                                   | **Unique Capabilities**<br>How is it different from alternative or existing solutions? (Note: avoid superlative language like “the leading” or “the best” unless it is corroborated by statistics.) |
+| **Value Proposition**<br>How will your integration with SAP Concur solutions deliver value to the customer?                                                                                                                                                                                              | **Call to Action**<br>What action should the audience take? Ex. follow up for more information? Connect through the App Center?                                                                     |                                                                   |
 
 ### <a name="content-best-practices"></a>Content Best Practices
 
 Content (landing pages, brochures, images, blog posts, etc.) should follow the following best practices:
 
 | Easy to Read                                                                                                                                                                                                                           | Visually Appealing                                                                                                                                                                                        | Brand-approved                                                                                                                                     | Searchable                                                                                                    | Up-to-date                                                                                                                                                                                                                             |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----|----|----|----|----|
 | - Not too much text – readers should be able to quickly digest the value and meaning.<br> - Text includes a call to action.<br>- Text is an appropriate size and contrasts with the background.<br>- Make sure to spell-check and review your work. |- Use images of appropriate resolution for each platform. Avoid blurry images.<br>- Don’t stretch an image or logo disproportionately.<br>- Avoid “busy” content – stick to simple fonts, colors, and backgrounds. | - Never use another company’s logo on external documents without permission.<br>- Follow SAP Concur logo & brand guidelines to refer to our partnership. | - Keep search and keywords in mind when drafting content.<br>- Follow SEO best practices when drafting web content. | - Refresh content at least annually.<br>- Ensure changes to integrations are well-documented and communicated in materials as soon as possible.<br>- If using statistics, make sure they are up-to-date and your sources can be cited if asked. |
 
 ### <a name="landing-pages"></a> Landing Pages
@@ -343,7 +343,7 @@ In addition to issuing a press release highlighting your SAP Concur integration,
 
 > Please ensure blog posts, tweets and Facebook posts go out after any press releases are issued.
 
-#### <a name="social-media-overview-blog-posts"></a>Blog posts
+#### <a name="social-media-overview-blog-posts"></a>Blog Posts
 
 Blog posts are a great way to create keyword-heavy content that helps optimize your site for search engines in order to help people find you online and feature your integration with SAP Concur. We encourage these blog posts to include as many visuals, including screenshots of the application integration points, if possible. Links back to the SAP Concur website are also highly encouraged. Create content that clearly and accurately describes the integration and be thoughtful about which keywords are linked back to your App Center listing. For example, if you want people to find your application when they’re searching for “VAT reclaim on expenses,” hyperlink this phrase back to your App Center listing.
 
