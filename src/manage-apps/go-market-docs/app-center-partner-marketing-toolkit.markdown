@@ -227,19 +227,37 @@ To edit or send additional marketing content, email the edited/new content to co
 ### <a name="messaging-framework"></a>Messaging Framework
 This messaging framework can be used to create compelling marketing content and collateral.​
 
-|                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                 |
-|-----|-----|
-| **Target Audience**<br>Who is the intended audience? App Center partner content is distributed to two main audiences: customers/prospects and the SAP Concur field who help introduce them to your solution. If the content is intended for a customer, which roles or departments is this relevant for? | **Features & Benefits**<br>What are your key features and benefits? How does your integration work? What are some testimonials/stories from existing customers?                                     |
-| **Challenges or Goals**<br>What problems can your integrated solution help them solve?                                                                                                                                                                                                                   | **Unique Capabilities**<br>How is it different from alternative or existing solutions? (Note: avoid superlative language like “the leading” or “the best” unless it is corroborated by statistics.) |
-| **Value Proposition**<br>How will your integration with SAP Concur solutions deliver value to the customer?                                                                                                                                                                                              | **Call to Action**<br>What action should the audience take? Ex. follow up for more information? Connect through the App Center?                                                                     |                                                                   |
+* **Target Audience**<br>Who is the intended audience? App Center partner content is distributed to two main audiences: customers/prospects and the SAP Concur field who help introduce them to your solution. If the content is intended for a customer, which roles or departments is this relevant for?  
+* **Features & Benefits**<br>What are your key features and benefits? How does your integration work? What are some testimonials/stories from existing customers?  
+* **Challenges or Goals**<br>What problems can your integrated solution help them solve?  
+* **Unique Capabilities**<br>How is it different from alternative or existing solutions? (Note: avoid superlative language like “the leading” or “the best” unless it is corroborated by statistics.  
+* **Value Proposition**<br>How will your integration with SAP Concur solutions deliver value to the customer?  
+* **Call to Action**<br>What action should the audience take? Ex. follow up for more information? Connect through the App Center?
 
 ### <a name="content-best-practices"></a>Content Best Practices
 
 Content (landing pages, brochures, images, blog posts, etc.) should follow the following best practices:
 
-| Easy to Read                                                                                                                                                                                                                           | Visually Appealing                                                                                                                                                                                        | Brand-approved                                                                                                                                     | Searchable                                                                                                    | Up-to-date                                                                                                                                                                                                                             |
-|----|----|----|----|----|
-| - Not too much text – readers should be able to quickly digest the value and meaning.<br> - Text includes a call to action.<br>- Text is an appropriate size and contrasts with the background.<br>- Make sure to spell-check and review your work. |- Use images of appropriate resolution for each platform. Avoid blurry images.<br>- Don’t stretch an image or logo disproportionately.<br>- Avoid “busy” content – stick to simple fonts, colors, and backgrounds. | - Never use another company’s logo on external documents without permission.<br>- Follow SAP Concur logo & brand guidelines to refer to our partnership. | - Keep search and keywords in mind when drafting content.<br>- Follow SEO best practices when drafting web content. | - Refresh content at least annually.<br>- Ensure changes to integrations are well-documented and communicated in materials as soon as possible.<br>- If using statistics, make sure they are up-to-date and your sources can be cited if asked. |
+ - **Easy to Read**
+	 - Not too much text – readers should be able to quickly digest the value and meaning.
+	 -  Text includes a call to action.
+	 - Text is an appropriate size and contrasts with the background.
+	 - Make sure to spell-check and review your work. 
+ - **Visually Appealing**
+	 - Use images of appropriate resolution for each platform. Avoid blurry images.
+	 - Don’t stretch an image or logo disproportionately.
+	 - Avoid “busy” content – stick to simple fonts, colors, and backgrounds.
+ - **Brand-Approved**
+	- Never use another company’s logo on external documents without permission.
+	- Follow SAP Concur logo & brand guidelines to refer to our partnership.
+ - **Searchable**
+	 - Keep search and keywords in mind when drafting
+	   content.
+	 - Follow SEO best practices when drafting web content.
+ - **Up-to-Date**
+	 - Refresh content at least annually. 
+	 - Ensure changes to integrations are well-documented and communicated in materials as soon as possible. 
+	 - If using statistics, make sure they are up-to-date    and your sources can be cited if asked.
 
 ### <a name="landing-pages"></a> Landing Pages
 
