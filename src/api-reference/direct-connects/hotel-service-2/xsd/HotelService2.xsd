@@ -3615,7 +3615,7 @@
           </xs:enumeration>
           <xs:enumeration value="CA">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Master Card</xs:documentation>
+              <xs:documentation xml:lang="en">Mastercard</xs:documentation>
             </xs:annotation>
           </xs:enumeration>
           <xs:enumeration value="CB">
@@ -3650,7 +3650,7 @@
           </xs:enumeration>
           <xs:enumeration value="MC">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Master Card</xs:documentation>
+              <xs:documentation xml:lang="en">Mastercard</xs:documentation>
             </xs:annotation>
           </xs:enumeration>
           <xs:enumeration value="TP">
