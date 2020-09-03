@@ -241,7 +241,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |----------------|-------------------|-------------|
-|`CardCode`|`upperCaseAlphaLength1to2`|Issuer code. Example: `MC`, `VI`, `AX`.|
+|`CardCode`|`upperCaseAlphaLength1to2`|Issuer code. Example: `AX`, `EC`, `CA`, `VI`, `DS`.|
 |`ExpireDate`|`MMYYDate`|Indicates the ending date.|
 |`CardType`|`stringLength1to32`|**Required** Payment card type. Example: `MasterCard`|
 |`CardHolderName`|`stringLength1to32`|**Required** Card holder name.|
