@@ -2410,7 +2410,7 @@
     <xs:attribute name="CardCode" type="PaymentCardCodeType" use="optional">
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">Issuer code.</xs:documentation>
-        <xs:documentation source="Example" xml:lang="en">Example: AX, EC, CA, VI, DS</xs:documentation>
+        <xs:documentation source="Example" xml:lang="en">Example: AX, CA, DC, DS, JC, VI</xs:documentation>
         <xs:documentation source="Deprecation" xml:lang="en">DEPRECATION WARNING: This attribute will be deprecated in
           the 2012B publication. It will be replaced with the List_PaymentCardCode Open List.
         </xs:documentation>
@@ -3623,7 +3623,7 @@
               <xs:documentation xml:lang="en">Carte Blanche</xs:documentation>
             </xs:annotation>
           </xs:enumeration>
-          <xs:enumeration value="DN">
+          <xs:enumeration value="DC">
             <xs:annotation>
               <xs:documentation xml:lang="en">Diners Club</xs:documentation>
             </xs:annotation>
@@ -3646,11 +3646,6 @@
           <xs:enumeration value="MA">
             <xs:annotation>
               <xs:documentation xml:lang="en">Maestro</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="MC">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Mastercard</xs:documentation>
             </xs:annotation>
           </xs:enumeration>
           <xs:enumeration value="TP">
