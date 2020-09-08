@@ -241,7 +241,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |----------------|-------------------|-------------|
-|`CardCode`|`upperCaseAlphaLength1to2`|Issuer code. Example: `AX`, `CA`, `DC`, `DS`, `JC`, `VI`.|
+|`CardCode`|`upperCaseAlphaLength1to2`|Issuer code. Example: `AX`, `CA`, `DC`, `DS`, `JC`, `VI`. Map to AMEX, Mastercard, Diners Club, Discover, JCB, Visa|
 |`ExpireDate`|`MMYYDate`|Indicates the ending date.|
 |`CardType`|`stringLength1to32`|**Required** Payment card type. Example: `MasterCard`|
 |`CardHolderName`|`stringLength1to32`|**Required** Card holder name.|
