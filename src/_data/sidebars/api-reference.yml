@@ -233,8 +233,6 @@
         url: /api-reference/travel/itinerary/trip/trip-resource.html
       - title: Booking Endpoint
         url: /api-reference/travel/itinerary/booking/booking-resource.html
-      - title: Notifications v4
-        url: /api-reference/notifications/v4.notifications.html
 - title: User
   url: /api-reference/user/index.html
 - title: General

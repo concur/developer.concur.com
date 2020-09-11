@@ -1,0 +1,778 @@
+---
+title: List v4
+layout: reference
+---
+
+{% include prerelease.html %}
+
+The Lists APIs allow you to view your configured lists within SAP Concur products and create new lists. The lists are shared between multiple SAP Concur products.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+## Contents
+* [Process Flow](#process-flow)
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Access Token Usage](#access-token-usage)
+* [Get All Lists](#get-all-lists)
+* [Create a New List](#create-a-new-list)
+* [Update a List](#update-a-list)
+* [Get a List by List ID](#get-a-list-by-list-id)
+* [Get a List by Category ID](#get-a-list-by-category-id)
+* [Remove a List](#remove-a-list)
+* [Schema](#schema)
+  * [Paged Resources List Response](#schema-paged-resources-list-response)
+  * [List Response](#schema-list-response)
+  * [List Request](#schema-list-request)
+  * [List Update](#schema-list-update)
+  * [Message](#schema-message)
+  * [Page Metadata](#schema-page-metadata)
+  * [Link](#schema-link)
+  * [Error Message](#schema-error-message)
+  * [Validation Errors](#schema-validation-error)
+
+## Prior Versions
+
+Lists V3 documentation is available [here](https://developer.concur.com/api-reference/common/lists/v3.lists.html#create-response).
+
+## <a name="process-flow"></a>Process Flow
+
+![A process flow diagram of the List API](./v4-list-process-flow.png)
+
+## <a name="products-editions"></a>Products and Editions
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+* Concur Invoice Professional Edition
+* Concur Invoice Standard Edition
+* Concur Request Professional Edition
+* Concur Request Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+|Name|Description|Endpoints|
+|---|---|---|
+|`spend.list.read`|Read-only access to spend lists.|GET|
+|`spend.list.write`|Read and write access to spend lists.|GET, POST, PUT|
+|`spend.list.delete`|Delete capabilities for spend lists.|DELETE|
+
+## <a name="dependencies"></a>Dependencies
+Users must be an Expense, Invoice, Shared or Request Configuration Administrator in order to perform POST, PUT, and DELETE actions.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens.
+
+## <a name="get-all-lists"></a>Get All Lists
+
+Returns all lists for a company.
+
+### Scopes
+
+`spend.list.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+GET /list/v4/lists
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: `en` |
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
+|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`page`|`integer($int32)`|Page number starting from 1. Default: `1` |
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) - Successfully get all lists
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1) - Access Denied
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [Paged Resources List Response](#schema-paged-resources-list-response)
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```http
+GET https://us.api.concursolutions.com/list/v4/lists?page=1
+Accept: application/json
+Accept-Language: en
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200
+concur-correlationid: 746696dc-8782-4642-815d-3080640786c7
+content-length: 5632
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 02:45:48 GMT
+etag: "02ebe9fc5c950a031f85c57ac91a0babb"
+cache-control: no-cache, private
+```
+
+```json
+{
+    "links": [],
+    "content": [
+        {
+            "id": "a80a5070-3951-4316-886a-a60ab790f06b",
+            "value": "Airlines",
+            "levelCount": 1,
+            "searchCriteria": "TEXT",
+            "displayFormat": "(CODE) TEXT",
+            "category": {
+                "id": "a2dfc451-8f3c-410e-a5f2-20d79c8fc3dc",
+                "type": "Vendor"
+            },
+            "isReadOnly": false,
+            "isDeleted": false
+        },
+        {
+            "id": "8652cdf9-c12b-4051-b8d1-80e20840ce9b",
+            "value": "Employee Groups",
+            "levelCount": 1,
+            "searchCriteria": "TEXT",
+            "displayFormat": "(CODE) TEXT",
+            "category": {
+                "id": "d232b1e3-43da-4a2d-adaf-eb948045e8cf",
+                "type": "Configuration"
+            },
+            "isReadOnly": false,
+            "isDeleted": false
+        }
+    ],
+    "page": {
+        "size": 100,
+        "totalElements": 2,
+        "totalPages": 1,
+        "number": 1
+    }
+}
+```
+
+## <a name="create-a-new-list"></a> Create a New List
+
+Creates a new list.
+
+### Scopes
+
+`spend.list.write` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+POST /list/v4/lists
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
+|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`listRequest`|-|**Required** List object that is created for the company.|
+
+#### Headers
+
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+#### Payload
+
+* [List Request](#schema-list-request)
+
+### Response
+
+#### Status Codes
+
+* [201 Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [415 Unsupported Media Type](https://tools.ietf.org/html/rfc7231#section-6.5.13)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7231 Location](https://tools.ietf.org/html/rfc7231#section-7.1.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [List Response](#schema-list-response)
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```shell
+POST https://us.api.concursolutions.com/list/v4/lists
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {token}
+```
+##### Example 1:
+
+```json
+{
+  "searchCriteria": "TEXT",
+  "value": "Custom List",
+  "displayFormat": "(CODE) TEXT"
+}
+```
+
+##### Example 2:
+
+```json
+{
+  "searchCriteria": "TEXT",
+  "value": "Custom Vendor List",
+  "categoryId": "a2dfc451-8f3c-410e-a5f2-20d79c8fc3dc",
+  "displayFormat": "(CODE) TEXT"
+}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 201
+concur-correlationid: 5512c7be-3fab-4d65-ae69-8a74a04a0c7f
+content-length: 269
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 03:00:42 GMT
+location: http://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f
+cache-control: no-cache, private
+```
+
+```json
+{
+    "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+    "value": "Custom List",
+    "levelCount": 1,
+    "searchCriteria": "TEXT",
+    "displayFormat": "(CODE) TEXT",
+    "category": {
+        "id": "77b85a76-8157-0c4e-b5e3-7785d8de1a6b",
+        "type": "Normal"
+    },
+    "isReadOnly": false,
+    "isDeleted": false
+}
+```
+
+## <a name="update-a-list"></a> Update a List
+
+Update an existing list.
+
+### Scopes
+
+`spend.list.write` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+PUT /list/v4/lists/{listId}
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: `en` |
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
+|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`listId`|`string($uuid)`|**Required** The unique identifier of the list.|
+|`listUpdate`|-|**Required** List object that is updated for the company.|
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+#### Payload
+
+* [List Update](#schema-list-update)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) - List not found
+* [415 Unsupported Media Type](https://tools.ietf.org/html/rfc7231#section-6.5.13)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [List Response](#schema-list-response)
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```http
+PUT https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f
+Accept: application/json
+Accept-Language: en
+Content-Type: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "value": "Custom List Renamed",
+  "searchCriteria": "TEXT",
+  "displayFormat": "(CODE) TEXT"
+}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200
+concur-correlationid: e3a4d4cf-e1b2-4f22-a95c-b5bb8a2cb0e1
+content-length: 275
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 03:24:16 GMT
+cache-control: no-cache, private
+```
+
+```json
+{
+  "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+  "value": "Custom List Renamed",
+  "levelCount": 1,
+  "searchCriteria": "TEXT",
+  "displayFormat": "(CODE) TEXT",
+  "category": {
+    "id": "77b85a76-8157-0c4e-b5e3-7785d8de1a6b",
+    "type": "Normal"
+  },
+  "isReadOnly": false,
+  "isDeleted": false
+}
+```
+
+## <a name="get-a-list-by-list-id"></a> Get a List by List ID
+
+Returns a list by a List ID.
+
+### Scopes
+
+`spend.list.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+GET /list/v4/lists/{listId}
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: `en` |
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
+|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`listId`|`string($uuid)`|**Required** The unique identifier of the list.|
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [List Response](#schema-list-response)
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```http
+GET https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f
+Accept: application/json
+Accept-Language: en
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200
+concur-correlationid: 6a5803f6-b63b-49d8-88b3-872f456206c2
+content-length: 275
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 02:45:48 GMT
+etag: "08514b0fce90d634c211aba29d1cc94c2"
+cache-control: no-cache, private
+```
+
+```json
+{
+  "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+  "value": "Custom List Renamed",
+  "levelCount": 1,
+  "searchCriteria": "TEXT",
+  "displayFormat": "(CODE) TEXT",
+  "category": {
+    "id": "77b85a76-8157-0c4e-b5e3-7785d8de1a6b",
+    "type": "Normal"
+  },
+  "isReadOnly": false,
+  "isDeleted": false
+}
+```
+
+## <a name="get-a-list-by-category-id"></a> Get a List by Category ID
+
+Returns a list by a category ID.
+
+### Scopes
+
+`spend.list.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+GET /list/v4/categories/{categoryId}/lists
+```
+
+##### Parameters
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: `en` |
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
+|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`page`|`integer($int32)`|Page number starting from 1. Default: `1`|
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) - List category not found
+* [415 Unsupported Media Type](https://tools.ietf.org/html/rfc7231#section-6.5.13)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [Paged Resources List Response](#schema-paged-resources-list-response)
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```http
+GET https://us.api.concursolutions.com/list/v4/categories/77b85a76-8157-0c4e-b5e3-7785d8de1a6b/lists?page=1
+Accept: application/json
+Accept-Language: en
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200
+concur-correlationid: 0e80dff7-93b7-4b43-a1b6-a91ebe5c55f0
+content-length: 364
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 02:45:48 GMT
+etag: "02e60234cf6ae61aadd7f066e839b07fb"
+cache-control: no-cache, private
+```
+
+```json
+{
+  "links": [],
+  "content": [
+    {
+      "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+      "value": "Custom List Renamed",
+      "levelCount": 1,
+      "searchCriteria": "TEXT",
+      "displayFormat": "(CODE) TEXT",
+      "category": {
+        "id": "77b85a76-8157-0c4e-b5e3-7785d8de1a6b",
+        "type": "Normal"
+      },
+      "isReadOnly": false,
+      "isDeleted": false
+    }
+  ],
+  "page": {
+    "size": 100,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 1
+  }
+}
+```
+
+## <a name="remove-a-list"></a> Remove a List
+
+Delete a list.
+
+### Scopes
+
+`spend.list.delete` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+DELETE /list/v4/lists/{listId}
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`company-uuid`|`string`|Company UUID of the user.|
+|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
+|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|'listId`|`string($uuid)`|**Required** The unique identifier of the list.|
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5) - List resource no longer in system
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - List could not be deleted
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```http
+DELETE https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 204
+concur-correlationid: d92ab0c7-510b-4730-99a8-14a79ad99b7c
+date: Wed, 08 Jul 2020 02:45:48 GMT
+cache-control: no-cache, private
+```
+
+## <a name="schema"></a>Schema
+
+### <a name="schema-paged-resources-list-response"></a>Paged Resources List Response
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`content`|`array`|[`ListResponse`](#schema-list-response)|-|
+|`page`|[`PageMetadata`](#schema-page-metadata)|-|Metadata for the page of data returned|
+|`links`|`array`|[`Link`](#schema-link)|Metadata for the page of data returned|
+
+### <a name="schema-list-response"></a>List Response
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|`uuid`|Unique identifier of a list.|
+|`value`|`string`|-|Name of the list.|
+|`categoryId`|`string`|`uuid`|Unique identifier of a category.|
+|`levelCount`|`integer`|`int32`|Number of levels in the list.|
+|`searchCriteria`|`string`|-|What attribute to search by.|
+|`displayFormat`|`string`|-|Whether the code or value is displayed first.|
+|`isReadOnly`|`boolean`|`true`/`false`|If `true`, the list is read-only.|
+|`isDeleted`|`boolean`|`true`/`false`|If `true`, the list has been deleted.|
+
+### <a name="schema-list-request"></a>List Request
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`searchCriteria`|`string`|-|What attribute to search by. Supported values: `TEXT`, `CODE`|
+|`value`|`string`|-|**Required** Name of the list.|
+|`categoryId`|`string`|`uuid`|The unique identifier of the category that the list belongs to.|
+|`displayFormat`|`string`|-|Whether we display code or value first.  Supported values: `TEXT`, `CODE`|
+
+### <a name="schema-list-update"></a>List Update
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`value`|`string`|-|**Required** Name of the list.|
+|`searchCriteria`|`string`|-|What attribute to search by.|
+|`displayFormat`|`string`|-|Whether we display code or value first.|
+
+### <a name="schema-message"></a>Message
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`msg`|`string`|-|The detailed error message.|
+|`id`|`string`|-|The identifier of the error.|
+
+### <a name="schema-page-metadata"></a>Page Metadata
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`number`|`integer`|`int32`|The page number.|
+|`size`|`integer`|`int32`|The page size.|
+|`totalElements`|`integer`|`int32`|The number of total elements.|
+|`totalPages`|`integer`|`int32`|The number of total pages.|
+
+### <a name="schema-link"></a>Link
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`rel`|`string`|-|The link relation.|
+|`href`|`string`|-|The link href.|
+
+### <a name="schema-error-message"></a>Error Message
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`error`|[`Message`](#schema-message)|-|**Required** The detailed error message.|
+|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response.|
+|`path`|`string`|-|**Required** The URI of the attempted request.|
+|`timestamp`|`string`|`date-time`|**Required** The time when the error was captured.|
+|`validationErrors`|`array`|[`ValidationError`](#schema-validation-error)|The validation error messages.|
+
+### <a name="schema-validation-error"></a>Validation Error
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`message`|`string`|-|The detailed message of the validation error.|
+|`source`|`string`|-|The type of validation that failed.|

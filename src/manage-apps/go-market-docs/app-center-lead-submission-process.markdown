@@ -96,7 +96,7 @@ Partners will receive a notification email that a lead has been submitted. Unlik
 Leads will be sent to the partner from the SAP Concur marketing automation tool Marketo. To ensure receipt of all leads the following steps must be completed by the partner:
 
 1. Verify the lead email address provided in the App Center Listing Form to receive leads is correct.
-1. Provide their IT team the following details to whitelist the Concur IP address and place Concur on the safe sender list.
+1. Provide their IT team the following details for the Concur IP address and place Concur on the safe sender list.
   1. Email From Address: appcenterreferral@sap.com
   1. From Sender: Concur App Center Referral
   1. Subject: AppCenter Inquiry Submission

@@ -1,1226 +1,1520 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "description": "User Provisioning API",
-    "version": "2.0.0",
-    "title": "Concur User Provisioning API",
-    "termsOfService": ""
-  },
-  "host": "us.api.concursolutions.com",
-  "basePath": "/api",
-  "tags": [
-    {
-      "name": "scimv2Bulk"
-    }
-  ],
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "paths": {
-    "/provisioning/v1/provisions": {
-      "post": {
-        "tags": [
-          "scimv2Bulk"
-        ],
-        "summary": "Bulk Operation",
-        "description": "SCIM Bulk Operation (https://tools.ietf.org/html/draft-ietf-scim-api-19#section-3.7)",
-        "operationId": "bulkOperation",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": ""
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": ""
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "description": "BulkRequest",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/BulkRequest"
+    "definitions": {
+        "WorkflowPreferenceExtension": {
+            "type": "object",
+            "properties": {
+                "emailAwaitApprovalOnCashAdvance": {
+                    "type": "boolean",
+                    "description": "Send email when a cash advance is awaiting approval, defaulted to true."
+                },
+                "emailAwaitApprovalOnPayment": {
+                    "type": "boolean",
+                    "description": "Send email when a payment is awaiting approval, defaulted to true."
+                },
+                "emailAwaitApprovalOnReport": {
+                    "type": "boolean",
+                    "description": "Send email when a report is awaiting approval, defaulted to true."
+                },
+                "emailAwaitApprovalOnTravelRequest": {
+                    "type": "boolean",
+                    "description": "Send email when a travel request is awaiting approval, defaulted to true."
+                },
+                "emailStatusChangeOnCashAdvance": {
+                    "type": "boolean",
+                    "description": "Send email when the cash advance status changes, defaulted to true."
+                },
+                "emailStatusChangeOnPayment": {
+                    "type": "boolean",
+                    "description": "Send email when the payment status changes, defaulted to true."
+                },
+                "emailStatusChangeOnReport": {
+                    "type": "boolean",
+                    "description": "Send email when the report status changes, defaulted to true."
+                },
+                "emailStatusChangeOnTravelRequest": {
+                    "type": "boolean",
+                    "description": "Send email when the travel request status changes, defaulted to true."
+                },
+                "promptForApproverOnPaymentSubmit": {
+                    "type": "boolean",
+                    "description": "Prompt for approver when submitting a payment, defaulted to false."
+                },
+                "promptForApproverOnReportSubmit": {
+                    "type": "boolean",
+                    "description": "Prompt for approver when submitting a report, defaulted to false."
+                },
+                "promptForApproverOnTravelRequestSubmit": {
+                    "type": "boolean",
+                    "description": "Prompt for approver when submitting a travel request, defaulted to false."
+                }
             }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/BulkResponse"
-            }
-          },
-          "401": {
-            "description": "authorization failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "permissions denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "too many requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}": {
-      "get": {
-        "summary": "get a provisioning request by ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": ""
-          },
-          {
-            "in": "path",
-            "description": "provisioning request",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/ProvisionResponse"
-            }
-          },
-          "401": {
-            "description": "authorization failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "permissions denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "too many requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}/status": {
-      "get": {
-        "summary": "Get status by request ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "description": "ID of the request",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/BulkRequestStatus"
-            }
-          },
-          "401": {
-            "description": "authorization failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "permissions denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "too many requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}/operations": {
-      "get": {
-        "summary": "get operation list in a provisioning request by ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "description": "ID of the request",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/OperationsListResponse"
-            }
-          },
-          "401": {
-            "description": "authorization failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "permissions denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "too many requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}/operations/{operationId}": {
-      "get": {
-        "summary": "get operation list in a provisioning request by operating ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "description": "Provisioning ID",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "description": "Operation ID",
-            "name": "operationId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/OperationsResponse"
-            }
-          },
-          "401": {
-            "description": "authorization failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "permissions denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "too many requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}/operations/{operationId}/Status": {
-      "get": {
-        "summary": "get operation status by operating ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "description": "Numeric ID of the user",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "description": "Operation ID",
-            "name": "operationId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/OperationsResponse"
-            }
-          },
-          "401": {
-            "description": "authorization failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "permissions denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "too many requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "internal server error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "BulkResponse": {
-      "properties": {
-        "id": {
-          "type": "string"
         },
-        "created": {
-          "type": "string"
+        "BulkRequest": {
+            "type": "object",
+            "properties": {
+                "schemas": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+                        ]
+                    }
+                },
+                "Operations": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "data": {
+                                "$ref": "#/definitions/User"
+                            },
+                            "method": {
+                                "type": "string",
+                                "description": "HTTP Method",
+                                "enum": [
+                                    "POST",
+                                    "PUT",
+                                    "PATCH"
+                                ]
+                            },
+                            "bulkId": {
+                                "type": "string",
+                                "description": "Transient identifier of newly created resource, unique within a bulk request. REQUIRED when \"method\" is \"POST\""
+                            },
+                            "path": {
+                                "type": "string",
+                                "description": "Resource Path",
+                                "enum": [
+                                    "/Users"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
         },
-        "resourceType": {
-          "type": "string"
+        "SpendDelegate": {
+            "type": "object",
+            "properties": {
+                "delegateProdCode": {
+                    "type": "array",
+                    "description": "A list of Delegate associated with the Delegate's product code.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "canApprove": {
+                                "type": "boolean",
+                                "description": "Determines if delegate can approve"
+                            },
+                            "canPrepare": {
+                                "type": "boolean",
+                                "description": "Determines if delegate can prepare"
+                            },
+                            "canPrepareForApproval": {
+                                "type": "boolean",
+                                "description": "Determines if delegate can prepare for approval"
+                            },
+                            "canReceiveApprovalEmail": {
+                                "type": "boolean",
+                                "description": "Determines if delegate can receive approval emails"
+                            },
+                            "canReceiveEmail": {
+                                "type": "boolean",
+                                "description": "Determines if delegate can receive emails"
+                            },
+                            "canSubmit": {
+                                "type": "boolean",
+                                "description": "Determines if delegate can submit"
+                            },
+                            "canSubmitTravelRequest": {
+                                "type": "boolean",
+                                "description": "Determines if delegate can submit travel request"
+                            },
+                            "canUseBi": {
+                                "type": "boolean",
+                                "description": "Determines if delegate can use BI"
+                            },
+                            "canViewReceipt": {
+                                "type": "boolean",
+                                "description": "Determines if delegate can view receipts"
+                            },
+                            "delegate": {
+                                "type": "object",
+                                "description": "UserReference for the delegate",
+                                "properties": {
+                                    "$ref": {
+                                        "type": "string",
+                                        "description": "The URI reference for the user"
+                                    },
+                                    "displayName": {
+                                        "type": "string",
+                                        "description": "The username for the user"
+                                    },
+                                    "employeeNumber": {
+                                        "type": "string",
+                                        "description": "The employee number for the user"
+                                    },
+                                    "value": {
+                                        "type": "object",
+                                        "description": "The internal UUID identifier for the user"
+                                    }
+                                },
+                                "required": [
+                                    "employeeNumber"
+                                ]
+                            },
+                            "temporaryDelegation": {
+                                "type": "object",
+                                "description": "Determines if delegate can temporarily approve",
+                                "properties": {
+                                    "temporaryDelegationFromDate": {
+                                        "type": "string",
+                                        "description": "Start date for delegates temporary approval permissions"
+                                    },
+                                    "temporaryDelegationToDate": {
+                                        "type": "string",
+                                        "description": "End date for delegates temporary approval permissions"
+                                    }
+                                }
+                            }
+                        },
+                        "enum": [
+                            "payment",
+                            "expense",
+                            "purchaseRequest"
+                        ],
+                        "required": [
+                            "delegate"
+                        ]
+                    }
+                }
+            }
         },
-        "resourceSubType": {
-          "type": "string"
-        },
-        "createdby": {
-          "type": "string"
-        },
-        "location": {
-          "type": "string"
-        }
-      }
-    },
-    "ProvisionResponse": {
-      "properties": {
-        "resourceSubType": {
-          "type": "string"
-        },
-        "createdBy": {
-          "type": "string"
-        },
-        "created": {
-          "type": "string"
-        },
-        "location": {
-          "type": "string"
-        },
-        "resourceType": {
-          "type": "string"
-        },
-        "originalRequest": {
-          "type": "object",
-          "items": {
-            "$ref": "#/definitions/BulkRequest"
-          }
-        }
-      }
-    },
-    "BulkOperation": {
-      "properties": {
-        "path": {
-          "type": "string"
-        },
-        "method": {
-          "type": "string"
-        },
-        "data": {
-          "type": "string"
-        }
-      }
-    },
-    "BulkRequest": {
-      "properties": {
-        "schemas": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "failOnErrors": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "operations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BulkOperation"
-          }
-        }
-      }
-    },
-    "BulkRequestStatus": {
-      "properties": {
-        "completed": {
-          "type": "string"
-        },
-        "status": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StatusResponse"
-          }
-        }
-      }
-    },
-    "StatusResponse": {
-      "properties": {
-        "operationId": {
-          "type": "string"
-        },
-        "extensions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ExtensionResponse"
-          }
-        },
-        "completed": {
-          "type": "boolean"
-        }
-      }
-    },
-    "ExtensionResponse": {
-      "properties": {
-        "message": {
-          "type": "array"
-        },
-        "completed": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        }
-      }
-    },
-    "OperationsListResponse": {
-      "properties": {
-        "operationId": {
-          "type": "string"
-        },
-        "operations": {
-          "type": "object",
-          "items": {
-            "$ref": "#/definitions/BulkOperation"
-          }
-        }
-      }
-    },
-    "OperationsResponse": {
-      "properties": {
-        "location": {
-          "type": "string"
-        },
-        "userId": {
-          "type": "string"
-        },
-        "resourceType": {
-          "type": "string"
-        },
-        "operationId": {
-          "type": "integer"
-        },
-        "originalRequest": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BulkOperation"
-          }
-        }
-      }
-    },
-    "OperationsStatusResonse": {
-      "properties": {
-        "completed": {
-          "type": "string"
-        },
-        "extentions": {
-          "$ref": "StatusResponse"
-        }
-      }
-    },
-    "ErrorResponse": {
-      "type": "object",
-      "properties": {
-        "detail": {
-          "type": "string",
-          "description": "detail error message"
-        },
-        "schemas": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "urn:ietf:params:scim:api:messages:2.0:Error"
+        "TravelUser": {
+            "type": "object",
+            "properties": {
+                "customFields": {
+                    "type": "array",
+                    "description": "user can set values to custom data fields",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Name of the custom field"
+                            },
+                            "value": {
+                                "type": "string",
+                                "description": "Value for the given custom field"
+                            }
+                        }
+                    }
+                },
+                "groups": {
+                    "type": "array",
+                    "description": "List of user groups that user belongs to for certain permissions",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "manager": {
+                    "type": "object",
+                    "description": "Travel approver of this user",
+                    "properties": {
+                        "employeeNumber": {
+                            "type": "string",
+                            "description": "The referenced user's employee number"
+                        },
+                        "value": {
+                            "type": "string",
+                            "description": "The referenced user's UUID"
+                        }
+                    }
+                },
+                "ruleClass": {
+                    "type": "object",
+                    "description": "Defines the rule class for the travel user either id or name should be provided",
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "description": "valid Rule class id to be assigned"
+                        },
+                        "name": {
+                            "type": "string",
+                            "description": "valid name of rule class"
+                        }
+                    }
+                },
+                "travelCrsName": {
+                    "type": "string",
+                    "description": "The name of the profile in the GDS system"
+                },
+                "travelNameRemark": {
+                    "type": "string",
+                    "description": "ravel name remark"
+                },
+                "xmlProfileSyncId": {
+                    "type": "string",
+                    "description": "client-assigned Travel user identifier that allows the user profile to be synchronized with other vendors"
+                }
+            },
+            "required": [
+                "ruleClass",
+                "travelCrsName"
             ]
-          }
         },
-        "scimType": {
-          "type": "string",
-          "description": "bad request type when status code is 400",
-          "enum": [
-            "uniqueness",
-            "tooMany",
-            "mutability",
-            "sensitive",
-            "invalidSyntax",
-            "invalidFilter",
-            "invalidPath",
-            "invalidValue",
-            "invalidVers",{
-  "swagger": "2.0",
-  "info": {
-    "description": "User Provisioning API",
-    "version": "2.0.0",
-    "title": "Concur User Provisioning API",
-    "termsOfService": ""
-  },
-  "host": "us.api.concursolutions.com",
-  "basePath": "/api",
-  "tags": [
-    {
-      "name": "scimv2Bulk"
-    }
-  ],
-  "schemes": [
-    "https"
-  ],
-  "paths": {
-    "/provisioning/v1/provisions": {
-      "post": {
-        "tags": [
-          "scimv2Bulk"
-        ],
-        "summary": "Bulk Operation",
-        "description": "SCIM Bulk Operation (https://tools.ietf.org/html/draft-ietf-scim-api-19#section-3.7)",
-        "operationId": "bulkOperation",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": ""
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": ""
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "description": "BulkRequest",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/BulkRequest"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Successful Operation",
-            "schema": {
-              "$ref": "#/definitions/BulkResponse"
-            }
-          },
-          "401": {
-            "description": "Authorization Failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "Permissions Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "Too Many Requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}": {
-      "get": {
-        "summary": "get a provisioning request by ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": ""
-          },
-          {
-            "in": "path",
-            "description": "Provisioning Request",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Successful Operation",
-            "schema": {
-              "$ref": "#/definitions/ProvisionResponse"
-            }
-          },
-          "401": {
-            "description": "Authorization Failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "Permissions Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "Too Many Requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}/status": {
-      "get": {
-        "summary": "Get status by request ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "description": "ID of the request",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Successful Operation",
-            "schema": {
-              "$ref": "#/definitions/BulkRequestStatus"
-            }
-          },
-          "401": {
-            "description": "Authorization Failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "Permissions Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "Too Many Requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}/operations": {
-      "get": {
-        "summary": "get operation list in a provisioning request by ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "description": "ID of the request",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Successful Operation",
-            "schema": {
-              "$ref": "#/definitions/OperationsListResponse"
-            }
-          },
-          "401": {
-            "description": "Authorization Failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "Permissions Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "Too Many Requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}/operations/{operationId}": {
-      "get": {
-        "summary": "get operation list in a provisioning request by operating ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "description": "Provisioning ID",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "description": "Operation ID",
-            "name": "operationId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Successful Operation",
-            "schema": {
-              "$ref": "#/definitions/OperationsResponse"
-            }
-          },
-          "401": {
-            "description": "Authorization Failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "Permissions Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "Too Many Requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/provisioning/v1/provisions/{provisioningId}/operations/{operationId}/Status": {
-      "get": {
-        "summary": "get operation status by operating ID",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "description": "Numeric ID of the user",
-            "name": "provisioningId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "description": "Operation ID",
-            "name": "operationId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Successful Operation",
-            "schema": {
-              "$ref": "#/definitions/OperationsResponse"
-            }
-          },
-          "401": {
-            "description": "Authorization Failure",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "Permissions Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "429": {
-            "description": "Too Many Requests",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "BulkResponse": {
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "created": {
-          "type": "string"
-        },
-        "resourceType": {
-          "type": "string"
-        },
-        "resourceSubType": {
-          "type": "string"
-        },
-        "createdby": {
-          "type": "string"
-        },
-        "location": {
-          "type": "string"
-        }
-      }
-    },
-    "ProvisionResponse": {
-      "properties": {
-        "resourceSubType": {
-          "type": "string"
-        },
-        "createdBy": {
-          "type": "string"
-        },
-        "created": {
-          "type": "string"
-        },
-        "location": {
-          "type": "string"
-        },
-        "resourceType": {
-          "type": "string"
-        },
-        "originalRequest": {
-          "type": "object",
-          "items": {
-            "$ref": "#/definitions/BulkRequest"
-          }
-        }
-      }
-    },
-    "BulkOperation": {
-      "properties": {
-        "path": {
-          "type": "string"
-        },
-        "method": {
-          "type": "string"
-        },
-        "data": {
-          "type": "string"
-        }
-      }
-    },
-    "BulkRequest": {
-      "properties": {
-        "schemas": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "failOnErrors": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "operations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BulkOperation"
-          }
-        }
-      }
-    },
-    "BulkRequestStatus": {
-      "properties": {
-        "completed": {
-          "type": "string"
-        },
-        "status": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StatusResponse"
-          }
-        }
-      }
-    },
-    "StatusResponse": {
-      "properties": {
-        "operationId": {
-          "type": "string"
-        },
-        "extensions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ExtensionResponse"
-          }
-        },
-        "completed": {
-          "type": "boolean"
-        }
-      }
-    },
-    "ExtensionResponse": {
-      "properties": {
-        "message": {
-          "type": "object"
-        },
-        "completed": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        }
-      }
-    },
-    "OperationsListResponse": {
-      "properties": {
-        "operationId": {
-          "type": "string"
-        },
-        "operations": {
-          "type": "object",
-          "items": {
-            "$ref": "#/definitions/BulkOperation"
-          }
-        }
-      }
-    },
-    "OperationsResponse": {
-      "properties": {
-        "location": {
-          "type": "string"
-        },
-        "userId": {
-          "type": "string"
-        },
-        "resourceType": {
-          "type": "string"
-        },
-        "operationId": {
-          "type": "integer"
-        },
-        "originalRequest": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BulkOperation"
-          }
-        }
-      }
-    },
-    "ErrorResponse": {
-      "type": "object",
-      "properties": {
-        "detail": {
-          "type": "string",
-          "description": "detail error message"
-        },
-        "schemas": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "urn:ietf:params:scim:api:messages:2.0:Error"
+        "User": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "A Boolean value indicating whether the User is active."
+                },
+                "addresses": {
+                    "type": "array",
+                    "description": "A physical mailing address for this User. Canonical type values of 'work', 'home', and 'other'. This attribute is a complex type with the following sub-attributes.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "country": {
+                                "type": "string",
+                                "description": "A two-letter country code defined in ISO 3166-1 alpha-2"
+                            },
+                            "locality": {
+                                "type": "string",
+                                "description": "The city or locality."
+                            },
+                            "postalCode": {
+                                "type": "string",
+                                "description": "The zip code or postal code."
+                            },
+                            "region": {
+                                "type": "string",
+                                "description": "The state or region."
+                            },
+                            "streetAddress": {
+                                "type": "string",
+                                "description": "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines."
+                            },
+                            "type": {
+                                "type": "string",
+                                "description": "A label indicating the function of the address, e.g., 'work' or 'home'.",
+                                "enum": [
+                                    "work",
+                                    "home",
+                                    "other",
+                                    "billing",
+                                    "bank",
+                                    "shipping"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "dateOfBirth": {
+                    "type": "string",
+                    "description": "The user's date of birth , in YYYY-MM-DD format"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the User, suitable for display to end-users."
+                },
+                "emails": {
+                    "type": "array",
+                    "description": "Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "dateAdded": {
+                                "type": "string",
+                                "description": "The date and time the email was added to the user's profile."
+                            },
+                            "dateVerified": {
+                                "type": "string",
+                                "description": "The date and time the email was verified"
+                            },
+                            "notifications": {
+                                "type": "boolean",
+                                "description": "Notifications opt-in for emails"
+                            },
+                            "type": {
+                                "type": "string",
+                                "description": "A label indicating the attribute's function, e.g., 'Work' or 'Home'.",
+                                "enum": [
+                                    "work",
+                                    "home",
+                                    "other",
+                                    "other2",
+                                    "work2",
+                                    "sms"
+                                ]
+                            },
+                            "value": {
+                                "type": "string",
+                                "description": "Email address value"
+                            },
+                            "verified": {
+                                "type": "boolean",
+                                "description": "flag to note which email has been verified by the user."
+                            }
+                        },
+                        "required": [
+                            "value"
+                        ]
+                    }
+                },
+                "emergencyContacts": {
+                    "type": "array",
+                    "description": "Emergency Contact information for the User.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "country": {
+                                "type": "string",
+                                "description": "A two-letter country code defined in ISO 3166-1 alpha-2"
+                            },
+                            "emails": {
+                                "type": "array",
+                                "description": "Emails of the contact",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "locality": {
+                                "type": "string",
+                                "description": "The city or locality."
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "Contact name."
+                            },
+                            "phones": {
+                                "type": "array",
+                                "description": "Phone numbers of the contact",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "postalCode": {
+                                "type": "string",
+                                "description": "The zip code or postal code."
+                            },
+                            "region": {
+                                "type": "string",
+                                "description": "The state or region."
+                            },
+                            "relationship": {
+                                "type": "string",
+                                "description": "Emergency contact relationship.",
+                                "enum": [
+                                    "Spouse",
+                                    "Brother",
+                                    "Parent",
+                                    "Sister",
+                                    "Life Partner",
+                                    "Other"
+                                ]
+                            },
+                            "streetAddress": {
+                                "type": "string",
+                                "description": "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines."
+                            }
+                        },
+                        "required": [
+                            "relationship"
+                        ]
+                    }
+                },
+                "entitlements": {
+                    "type": "array",
+                    "description": "The features enabled for the user",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "Expense",
+                            "Invoice",
+                            "Locate",
+                            "Request",
+                            "Travel"
+                        ]
+                    }
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "User identifier from the provisioning client"
+                },
+                "gender": {
+                    "type": "string",
+                    "description": "The user's gender",
+                    "enum": [
+                        "Male",
+                        "Female",
+                        "Others"
+                    ]
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the user - a uuid"
+                },
+                "localeOverrides": {
+                    "type": "object",
+                    "description": "Support for users who want to override locale settings",
+                    "properties": {
+                        "preference24Hour": {
+                            "type": "string",
+                            "description": "preferred 24 hour format for the user",
+                            "enum": [
+                                "h:mm AM/PM",
+                                "H:mm"
+                            ]
+                        },
+                        "preferenceCurrencySymbolLocation": {
+                            "type": "string",
+                            "description": "preferred currency symbol location for the user",
+                            "enum": [
+                                "BeforeAmount",
+                                "AfterAmount"
+                            ]
+                        },
+                        "preferenceDateFormat": {
+                            "type": "string",
+                            "description": "preferred date format for the user",
+                            "enum": [
+                                "mm/dd/yyyy",
+                                "mm.dd.yyyy",
+                                "mm-dd-yyyy",
+                                "dd/mm/yyyy",
+                                "dd.mm.yyyy",
+                                "dd-mm-yyyy",
+                                "yyyy/mm/dd",
+                                "yyyy.mm.dd",
+                                "yyyy-mm-dd"
+                            ]
+                        },
+                        "preferenceDefaultCalView": {
+                            "type": "string",
+                            "description": "preferred default calendar view for the user",
+                            "enum": [
+                                "day",
+                                "week",
+                                "month"
+                            ]
+                        },
+                        "preferenceDistance": {
+                            "type": "string",
+                            "description": "preferred distance metric",
+                            "enum": [
+                                "mile",
+                                "km"
+                            ]
+                        },
+                        "preferenceEndDayViewHour": {
+                            "type": "integer",
+                            "description": "preferred hour setting for the end of day, 0-23"
+                        },
+                        "preferenceFirstDayOfWeek": {
+                            "type": "string",
+                            "description": "preferred first day of the week for the user",
+                            "enum": [
+                                "Monday",
+                                "Tuesday",
+                                "Wednesday",
+                                "Thursday",
+                                "Friday",
+                                "Saturday",
+                                "Sunday"
+                            ]
+                        },
+                        "preferenceHourMinuteSeparator": {
+                            "type": "string",
+                            "description": "preferred separator between hour and minute",
+                            "enum": [
+                                ":",
+                                "."
+                            ]
+                        },
+                        "preferenceNegativeCurrencyFormat": {
+                            "type": "string",
+                            "description": "preferred negative currency format for the user",
+                            "enum": [
+                                "-100",
+                                "(100)"
+                            ]
+                        },
+                        "preferenceNegativeNumberFormat": {
+                            "type": "string",
+                            "description": "preferred negative number format for the user",
+                            "enum": [
+                                "-100",
+                                "(100)"
+                            ]
+                        },
+                        "preferenceNumberFormat": {
+                            "type": "string",
+                            "description": "preferred number format for the user",
+                            "enum": [
+                                "1,000.00",
+                                "1.000,00",
+                                "1 000,00",
+                                "1'000.00",
+                                "1'000,00"
+                            ]
+                        },
+                        "preferenceStartDayViewHour": {
+                            "type": "integer",
+                            "description": "preferred start of day for the user, from 1"
+                        }
+                    }
+                },
+                "meta": {
+                    "type": "object",
+                    "description": ""
+                },
+                "name": {
+                    "type": "object",
+                    "description": "The user's name",
+                    "properties": {
+                        "familyName": {
+                            "type": "string",
+                            "description": "The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III')."
+                        },
+                        "formatted": {
+                            "type": "string",
+                            "description": "The full name, formatted for display (e.g., 'Jensen, Barbara Jane')."
+                        },
+                        "givenName": {
+                            "type": "string",
+                            "description": "The given name of the User, or first name in most Western languages (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III')."
+                        },
+                        "hasNoMiddleName": {
+                            "type": "boolean",
+                            "description": "A boolean indicating that the user does not have a middle name"
+                        },
+                        "honorificPrefix": {
+                            "type": "string",
+                            "description": "The honorific prefix(es) of the User, or title in most Western languages (e.g., 'Ms.' given the full name 'Ms. Barbara J Jensen, III').",
+                            "enum": [
+                                "Miss",
+                                "Mr",
+                                "Mrs",
+                                "Ms",
+                                "Mx",
+                                "B.A.",
+                                "B.Sc.",
+                                "CPA",
+                                "D.D.",
+                                "D.D.S.",
+                                "D.P.S.",
+                                "Dr",
+                                "Dr Mr",
+                                "Dr Mrs",
+                                "Dr Ms",
+                                "Eng.",
+                                "Ing.",
+                                "Lady",
+                                "Lord",
+                                "M.D.",
+                                "MBA",
+                                "P.Eng.",
+                                "Ph.D",
+                                "Ph.D.",
+                                "Prof",
+                                "Prof Dr",
+                                "Prof Dr Mr",
+                                "Prof Dr Mrs",
+                                "Prof Dr Ms",
+                                "Prof Mr",
+                                "Prof Mrs",
+                                "Prof Ms",
+                                "Rev",
+                                "Sir"
+                            ]
+                        },
+                        "honorificSuffix": {
+                            "type": "string",
+                            "description": "The honorific suffix(es) of the User, or  suffix in most Western languages (e.g., 'III' given the full name  'Ms. Barbara J Jensen, III').",
+                            "enum": [
+                                "Jr.",
+                                "Sr.",
+                                "I",
+                                "II",
+                                "III",
+                                "IV",
+                                "V",
+                                "VI"
+                            ]
+                        },
+                        "legalName": {
+                            "type": "string",
+                            "description": "The legal name of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III')."
+                        },
+                        "middleInitial": {
+                            "type": "string",
+                            "description": "middle initial, if the user has a middle name"
+                        },
+                        "middleName": {
+                            "type": "string",
+                            "description": "The middle name(s) of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III')."
+                        }
+                    },
+                    "required": [
+                        "familyName",
+                        "givenName"
+                    ]
+                },
+                "nickName": {
+                    "type": "string",
+                    "description": "The casual way to address the user in real  life, e.g., 'Bob' or 'Bobby' instead of 'Robert'.  This attribute  SHOULD NOT be used to represent a User's username (e.g., 'bjensen' or  'mpepperidge')."
+                },
+                "phoneNumbers": {
+                    "type": "array",
+                    "description": "Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'work', 'home', 'mobile', 'fax', 'pager', and 'other'.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "countryCode": {
+                                "type": "string",
+                                "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country the phone number was issued in. e.g., US"
+                            },
+                            "display": {
+                                "type": "string",
+                                "description": "A human-readable phone number for display"
+                            },
+                            "notifications": {
+                                "type": "boolean",
+                                "description": "LNA Opt-in for mobile devices (type=Mobile)"
+                            },
+                            "operatingSystem": {
+                                "type": "string",
+                                "description": "The OS of the  device, when the phone is a cellphone type",
+                                "enum": [
+                                    "Android Phone",
+                                    "Android Tablet",
+                                    "Blackberry",
+                                    "iOS Phone",
+                                    "iOS Tablet",
+                                    "Not a smartphone",
+                                    "Other iOS device",
+                                    "Other smartphone",
+                                    "Unknown",
+                                    "Window Mobile"
+                                ]
+                            },
+                            "primary": {
+                                "type": "boolean",
+                                "description": "Primary device for mobile devices (type=Mobile)"
+                            },
+                            "type": {
+                                "type": "string",
+                                "description": "A label indicating the attribute's function, e.g., 'Work', 'Home'.",
+                                "enum": [
+                                    "work",
+                                    "home",
+                                    "mobile",
+                                    "fax",
+                                    "pager",
+                                    "other",
+                                    "work2"
+                                ]
+                            },
+                            "value": {
+                                "type": "string",
+                                "description": "Phone number value"
+                            }
+                        }
+                    }
+                },
+                "preferredLanguage": {
+                    "type": "string",
+                    "description": "Indicates the User's preferred written or spoken language.  Generally used for selecting a localized user interface"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "The User's time zone in the 'Olson' time zone database format, e.g., 'America/Los_Angeles'."
+                },
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": {
+                    "$ref": "#/definitions/PayrollExtension"
+                },
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                    "$ref": "#/definitions/EnterpriseUser"
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
+                    "$ref": "#/definitions/SpendApprover"
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": {
+                    "$ref": "#/definitions/SpendDelegate"
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
+                    "$ref": "#/definitions/SpendRole"
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+                    "$ref": "#/definitions/SpendUser"
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
+                    "$ref": "#/definitions/ExpenseUserPreferenceExtension"
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
+                    "$ref": "#/definitions/WorkflowPreferenceExtension"
+                },
+                "urn:ietf:params:scim:schemas:extension:travel:2.0:User": {
+                    "$ref": "#/definitions/TravelUser"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The name that can be used to login to CTE"
+                }
+            },
+            "required": [
+                "name",
+                "active",
+                "id",
+                "emails",
+                "userName"
             ]
-          }
         },
-        "scimType": {
-          "type": "string",
-          "description": "bad request type when status code is 400",
-          "enum": [
-            "uniqueness",
-            "tooMany",
-            "mutability",
-            "sensitive",
-            "invalidSyntax",
-            "invalidFilter",
-            "invalidPath",
-            "invalidValue",
-            "invalidVers",
-            "noTarget"
-          ]
+        "ConcurError": {
+            "type": "object",
+            "properties": {
+                "messages": {
+                    "type": "object",
+                    "description": "Additional messages in case of errors / warnings",
+                    "properties": {
+                        "code": {
+                            "type": "string",
+                            "description": "Message Code"
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "Message description"
+                        },
+                        "schemaPath": {
+                            "type": "string",
+                            "description": "Relative schema path of attribute"
+                        },
+                        "type": {
+                            "type": "string",
+                            "description": "Message Type",
+                            "enum": [
+                                "error",
+                                "warning"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "code",
+                        "type"
+                    ]
+                }
+            }
         },
-        "status": {
-          "type": "string",
-          "description": "same as HTTP status code, e.g. 400, 401, etc."
+        "SpendApprover": {
+            "type": "object",
+            "properties": {
+                "approverType": {
+                    "type": "array",
+                    "description": "A list of Approvers associated with the Approver's type.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "approver": {
+                                "type": "object",
+                                "description": "The user reference for the approver",
+                                "properties": {
+                                    "$ref": {
+                                        "type": "string",
+                                        "description": "The URI reference for the user"
+                                    },
+                                    "displayName": {
+                                        "type": "string",
+                                        "description": "The username for the user"
+                                    },
+                                    "employeeNumber": {
+                                        "type": "string",
+                                        "description": "The employee number for the user"
+                                    },
+                                    "value": {
+                                        "type": "object",
+                                        "description": "The internal UUID identifier for the user"
+                                    }
+                                },
+                                "required": [
+                                    "employeeNumber"
+                                ]
+                            },
+                            "primary": {
+                                "type": "boolean",
+                                "description": "The value for indicating whether the associated user is primary approver"
+                            }
+                        },
+                        "enum": [
+                            "request",
+                            "report",
+                            "statement",
+                            "authorizationRequest",
+                            "payment",
+                            "cashAdvance",
+                            "purchaseRequest",
+                            "budget"
+                        ],
+                        "required": [
+                            "primary"
+                        ]
+                    }
+                }
+            }
+        },
+        "PayrollExtension": {
+            "type": "object",
+            "properties": {
+                "adp": {
+                    "type": "object",
+                    "description": "Adp settings for Employee",
+                    "properties": {
+                        "companyCode": {
+                            "type": "string",
+                            "description": "The company code for the employee within ADP."
+                        },
+                        "deductionCode": {
+                            "type": "string",
+                            "description": "The deduction code for the employee within ADP."
+                        },
+                        "employeeFileNumber": {
+                            "type": "string",
+                            "description": "The identifier for the employee within ADP, also known as the \"Employee File Number\"."
+                        }
+                    },
+                    "required": [
+                        "companyCode",
+                        "deductionCode",
+                        "employeeFileNumber"
+                    ]
+                }
+            }
+        },
+        "EnterpriseUser": {
+            "type": "object",
+            "properties": {
+                "companyId": {
+                    "type": "string",
+                    "description": "Concur ID of the company"
+                },
+                "costCenter": {
+                    "type": "string",
+                    "description": "employee cost center for product"
+                },
+                "department": {
+                    "type": "string",
+                    "description": "Client supplied department name"
+                },
+                "division": {
+                    "type": "string",
+                    "description": "Client supplied division name"
+                },
+                "employeeNumber": {
+                    "type": "string",
+                    "description": "Client supplied employee's number within the company, unique for the company"
+                },
+                "jobTitle": {
+                    "type": "string",
+                    "description": "user's job title in the company"
+                },
+                "manager": {
+                    "type": "object",
+                    "description": "The manager of this user",
+                    "properties": {
+                        "$ref": {
+                            "type": "string",
+                            "description": "The URI of the SCIM resource representing the referenced user."
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "description": "The referenced user's display name"
+                        },
+                        "employeeNumber": {
+                            "type": "string",
+                            "description": "The referenced user's employee number, if it is an Enterprise user"
+                        },
+                        "value": {
+                            "type": "string",
+                            "description": "The referenced user's UUID"
+                        }
+                    }
+                },
+                "orgUnit": {
+                    "type": "string",
+                    "description": "Client supplied org unit name"
+                },
+                "organization": {
+                    "type": "string",
+                    "description": "Company name"
+                },
+                "self": {
+                    "type": "object",
+                    "description": "A reference to this user",
+                    "properties": {
+                        "$ref": {
+                            "type": "string",
+                            "description": "The URI of the SCIM resource representing the referenced user."
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "description": "The referenced user's display name"
+                        },
+                        "employeeNumber": {
+                            "type": "string",
+                            "description": "The referenced user's employee number, if it is an Enterprise user"
+                        },
+                        "value": {
+                            "type": "string",
+                            "description": "The referenced user's UUID"
+                        }
+                    }
+                },
+                "startDate": {
+                    "type": "string",
+                    "description": "Start Date, in YYYY-MM-DD format"
+                },
+                "terminationDate": {
+                    "type": "string",
+                    "description": "Termination Date, in YYYY-MM-DD format, if the employee is terminated, this can also be used to calculate the data retention period"
+                }
+            },
+            "required": [
+                "companyId"
+            ]
+        },
+        "ExpenseUserPreferenceExtension": {
+            "type": "object",
+            "properties": {
+                "allowCreditCardTransArrivalEmails": {
+                    "type": "boolean",
+                    "description": "Allow Credit Card Transaction Arrival Notification Emails, defaulted to true."
+                },
+                "allowReceiptImageAvailEmails": {
+                    "type": "boolean",
+                    "description": "Send email when faxed receipts are successfully received, defaulted to true."
+                },
+                "autoAddTripCardTransOnReport": {
+                    "type": "boolean",
+                    "description": "Add company card transactions within trip dates to 1 click expense report."
+                },
+                "defaultReportPrintFormat": {
+                    "type": "string",
+                    "description": "Default expense report print type.",
+                    "enum": [
+                        "RECEIPTS",
+                        "DETAILED",
+                        "FAX"
+                    ]
+                },
+                "expenseAuditRequired": {
+                    "type": "string",
+                    "description": "Expense Audit is required.",
+                    "enum": [
+                        "NEVER",
+                        "REQUIRED",
+                        "ALWAYS"
+                    ]
+                },
+                "processorReportAccess": {
+                    "type": "string",
+                    "description": "Report access for processor roles (Expense Processor, Expense Processor Audit, Expense Processor Manager)",
+                    "enum": [
+                        "All reports excluding returned",
+                        "All reports including returned",
+                        "All reports Pending processor and above"
+                    ]
+                },
+                "promptForCardTransactionsOnReport": {
+                    "type": "boolean",
+                    "description": "Prompt for Company Card Transactions when creating a new report, defaulted to true."
+                },
+                "promptForReportPrintFormat": {
+                    "type": "boolean",
+                    "description": "Always prompt for the report format before printing."
+                },
+                "showExpenseOnReport": {
+                    "type": "string",
+                    "description": "Show expenses on detailed report.",
+                    "enum": [
+                        "ALL",
+                        "PARENT",
+                        "NOTHING"
+                    ]
+                },
+                "showImagingIntro": {
+                    "type": "boolean",
+                    "description": "Display imaging introduction, defaulted to true."
+                },
+                "showInstructHelpPanel": {
+                    "type": "boolean",
+                    "description": "Display instructional help, defaulted to true."
+                },
+                "showTotalOnReport": {
+                    "type": "boolean",
+                    "description": "Show Report Totals on Detailed Report."
+                },
+                "useQuickItinAsDefault": {
+                    "type": "boolean",
+                    "description": "Use quick itinerary as default."
+                }
+            }
+        },
+        "SpendUser": {
+            "type": "object",
+            "properties": {
+                "budgetCountryCode": {
+                    "type": "string",
+                    "description": "Valid ISO 3166 country code for Budget"
+                },
+                "cashAdvanceAccountCode": {
+                    "type": "string",
+                    "description": "Valid cash advance account code"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Valid ISO 3166 country code"
+                },
+                "ledgerCode": {
+                    "type": "string",
+                    "description": "Ledger code to associate with the user"
+                },
+                "locale": {
+                    "type": "string",
+                    "description": "Valid locale from the list of configured locales as defined in [RFC5646], i.e en-US"
+                },
+                "reimbursementCurrency": {
+                    "type": "string",
+                    "description": "Valid three digit currency code in the list of system reimbursement currencies"
+                },
+                "reimbursementType": {
+                    "type": "object",
+                    "description": "The reimbursement type for the user",
+                    "enum": [
+                        "OTHER",
+                        "PAY_PAL",
+                        "CONCUR_PAY",
+                        "ADP_PAYROLL",
+                        "ACCOUNTS_PAYABLE"
+                    ]
+                },
+                "schemaCustomData": {
+                    "type": "array",
+                    "description": "The Custom Data associated with this user",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "custom1 - custom22, orgUnit1 - orgUnit6"
+                            },
+                            "value": {
+                                "type": "string",
+                                "description": "Value of the custom field - For list = List Item Code"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "value"
+                        ]
+                    }
+                },
+                "stateProvince": {
+                    "type": "string",
+                    "description": "Valid ISO sub country code, i.e - WA"
+                },
+                "testEmployee": {
+                    "type": "boolean",
+                    "description": "A Boolean value indicating whether the User is a test user. Can't be modified after the user is created."
+                }
+            },
+            "required": [
+                "cashAdvanceAccountCode",
+                "country",
+                "locale",
+                "reimbursementCurrency",
+                "reimbursementType"
+            ]
+        },
+        "ProvisionStatus": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier (uuid) for the provisioning request"
+                },
+                "itemsPerPage": {
+                    "type": "integer",
+                    "description": "The number of operations returned in current response"
+                },
+                "operations": {
+                    "type": "array",
+                    "description": "Status of each operation of the provisioning request",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "bulkId": {
+                                "type": "string",
+                                "description": "Transient identifier of newly created resource, unique within a bulk request"
+                            },
+                            "extensions": {
+                                "type": "array",
+                                "description": "extensions' status",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "messages": {
+                                            "type": "object",
+                                            "description": "Additional messages in case of errors / warnings",
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string",
+                                                    "description": "Message Code"
+                                                },
+                                                "message": {
+                                                    "type": "string",
+                                                    "description": "Message description"
+                                                },
+                                                "schemaPath": {
+                                                    "type": "string",
+                                                    "description": "Relative schema path of attribute"
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "description": "Message Type",
+                                                    "enum": [
+                                                        "error",
+                                                        "warning"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "code",
+                                                "type"
+                                            ]
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "Extension Name"
+                                        },
+                                        "status": {
+                                            "type": "object",
+                                            "description": "Status of the operation",
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string",
+                                                    "description": "http status code"
+                                                },
+                                                "completed": {
+                                                    "type": "boolean",
+                                                    "description": "Is processing extension completed?"
+                                                },
+                                                "result": {
+                                                    "type": "string",
+                                                    "description": "result of action on resource",
+                                                    "enum": [
+                                                        "success",
+                                                        "error",
+                                                        "no-op",
+                                                        "not-processed"
+                                                    ]
+                                                },
+                                                "success": {
+                                                    "type": "boolean",
+                                                    "description": "Is processing extension success?"
+                                                }
+                                            },
+                                            "required": [
+                                                "completed"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "status"
+                                    ]
+                                }
+                            },
+                            "id": {
+                                "type": "string",
+                                "description": "Identifier of the operation (generated by provisioning service)"
+                            },
+                            "resource": {
+                                "type": "object",
+                                "description": "resource details",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "description": "Unique Identifier (UUID) of the resource"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "resource type",
+                                        "enum": [
+                                            "User"
+                                        ]
+                                    }
+                                }
+                            },
+                            "status": {
+                                "type": "object",
+                                "description": "Status of the operation",
+                                "properties": {
+                                    "completed": {
+                                        "type": "boolean",
+                                        "description": "Is provisioning completed?"
+                                    },
+                                    "success": {
+                                        "type": "boolean",
+                                        "description": "Is provisioning success?"
+                                    }
+                                },
+                                "required": [
+                                    "completed"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "status"
+                        ]
+                    }
+                },
+                "startIndex": {
+                    "type": "integer",
+                    "description": "The 1-based index of the first operation in the current set of operations"
+                },
+                "status": {
+                    "type": "object",
+                    "description": "Status of the provision request",
+                    "properties": {
+                        "completed": {
+                            "type": "boolean",
+                            "description": "Is provisioning completed?"
+                        },
+                        "success": {
+                            "type": "boolean",
+                            "description": "Is provisioning successful?"
+                        }
+                    },
+                    "required": [
+                        "completed"
+                    ]
+                },
+                "totalResults": {
+                    "type": "integer",
+                    "description": "The total number of operations in a bulk provisioning request"
+                }
+            },
+            "required": [
+                "id",
+                "status"
+            ]
+        },
+        "SpendRole": {
+            "type": "object",
+            "properties": {
+                "roles": {
+                    "type": "array",
+                    "description": "Expense Roles for Employee",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "roleGroups": {
+                                "type": "array",
+                                "description": "Group(s) to be associated with the Expense Role",
+                                "items": {
+                                    "type": "object"
+                                }
+                            },
+                            "roleName": {
+                                "type": "object",
+                                "description": "Expense Role for Employee"
+                            }
+                        },
+                        "required": [
+                            "roleName"
+                        ]
+                    }
+                }
+            }
         }
-      }
-    }
-  }
-}
-            "noTarget"
-          ]
-        },
-        "status": {
-          "type": "string",
-          "description": "same as HTTP status code, e.g. 400, 401, etc."
+    },
+    "consumes": [
+        "application/json",
+        "application/scim+json"
+    ],
+    "security": [
+        {
+            "ApiKeyAuth": []
         }
-      }
-    }
-  }
+    ],
+    "basePath": "/provisioning/v4",
+    "host": "us.api.concursolutions.com",
+    "info": {
+        "contact": {
+            "email": "profile@concur.com"
+        },
+        "version": "v4",
+        "description": "Provisioning APIs",
+        "license": {
+            "name": "Concur",
+            "url": "https://developer.concur.com/Terms-of-Use.html"
+        },
+        "title": "Provisioning APIs",
+        "termsOfService": "http://us.api.concursolutions.com/terms"
+    },
+    "paths": {
+        "/provisions/{id}/status": {
+            "get": {
+                "operationId": "provisions.id.status.get",
+                "summary": "Get the status of a provisioning request.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "description": "Provision Id",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "attributes",
+                        "type": "string",
+                        "description": "Additional attributes to include in response",
+                        "enum": [
+                            "operations"
+                        ],
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "startIndex",
+                        "type": "integer",
+                        "description": "The 1-based index of the first operation in the set of operations",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "count",
+                        "type": "integer",
+                        "description": "The number of operations to be returned in response",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    },
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/ProvisionStatus"
+                        },
+                        "description": "provision status"
+                    }
+                },
+                "tags": [
+                    "Provisions"
+                ]
+            }
+        },
+        "/Bulk": {
+            "post": {
+                "operationId": "bulk.provision.create",
+                "summary": "Create a bulk provisioning request.",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Bulk Request",
+                        "schema": {
+                            "$ref": "#/definitions/BulkRequest"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    },
+                    "202": {
+                        "schema": {
+                            "$ref": "#/definitions/ProvisionStatus"
+                        },
+                        "description": "accepted provision request"
+                    }
+                },
+                "tags": [
+                    "Bulk"
+                ]
+            }
+        },
+        "/Schemas": {
+            "get": {
+                "operationId": "schema.get",
+                "summary": "Get all supported schemas.",
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Schemas"
+                ]
+            }
+        },
+        "/Schemas/{id}": {
+            "get": {
+                "operationId": "schema.id.get",
+                "summary": "Get a schema.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Schemas"
+                ]
+            }
+        },
+        "/ServiceProviderConfig": {
+            "get": {
+                "operationId": "serviceproviderconfig.get",
+                "summary": "SCIM service provider configuration representation/implementation details.",
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "ServiceProviderConfig"
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+        }
+    },
+    "schemes": [
+        "https"
+    ],
+    "produces": [
+        "application/json",
+        "application/scim+json"
+    ],
+    "swagger": "2.0"
 }
