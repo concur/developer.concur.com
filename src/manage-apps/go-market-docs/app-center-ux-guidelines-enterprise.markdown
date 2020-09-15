@@ -170,7 +170,7 @@ This section provides a summarized checklist of the required and recommended com
 * All pages
   * Must support a form factor of 800x600 (required)
   * Must provide back/forward navigation, where applicable. (required)
-  * Should be Section 508 Compliance (strongly recommended)
+  * Should be Section 508 compliant (strongly recommended)
   * Should include support and help options clearly throughout the process.
   * Must support major browsers and versions. The full list of SAP Concur-supported browsers is available [here](https://www.concurtraining.com/customers/tech_pubs/Docs/Z_SuppConfig/Supported_Configurations_for_Concur_Travel_and_Expense_Client-Facing.pdf). (required)
   * Should adhere to your company’s brand and marketing guidelines
