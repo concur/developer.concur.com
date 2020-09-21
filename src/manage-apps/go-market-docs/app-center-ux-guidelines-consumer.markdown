@@ -90,12 +90,12 @@ The user accepts the SAP Concur Terms & Conditions. These terms apply to the use
 ### <a name="design-guidelines-landing-page"></a>Landing Page
 
 This will be the first page the user sees upon redirect from SAP Concur to your application. The SAP Concur App Center will open a new window to your pre-defined redirect URI (referred to as your “Connect URI”).
-This page should include your brand and the application the customer is connecting to. In addition, the page should clearly indicate that the customer is activating an integration with SAP Concur.
+This page should include your brand and the application the customer is connecting to. In addition, the page should clearly indicate that the customer is activating an integration with SAP Concur solutions.
 The first page should give the user the option to sign in with an existing account or sign up for a new account.
 
 This page should:
 
-* Clearly indicate the integration with SAP Concur in text
+* Clearly indicate the integration with SAP Concur solutions in text
 * Include links to your terms and conditions and privacy policy
 * Include links to your “support” and “help” options
 
@@ -135,7 +135,7 @@ This section provides a summarized checklist of the required and recommended com
   * Should adhere to your company’s brand and marketing guidelines
   * Must include your company branding and specific application brand, if applicable (required)
 * On the first page (at a minimum),
-  * Must clearly indicate this is an integration with SAP Concur (required)
+  * Must clearly indicate this is an integration with SAP Concur solutions (required)
   * Must include links to your terms and conditions and privacy policy (required)
 
 
