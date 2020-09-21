@@ -9,6 +9,7 @@ layout: reference
 * [April](#april)
 * [May](#may)
 * [June](#june)
+* [September](#september)
 
 ## <a name="january"></a>January 2020
 
@@ -342,7 +343,7 @@ PayPay works with Expense for Concur Standard and Expense for Concur Professiona
   * [RoadGoat](#roadgoat-june)
 * [User Connection Apps Coming Soon](#user-connection-coming-soon-june)
 
-### <a href="user-connection-now-available-may"></a>User Connection Apps Now Available
+### <a href="user-connection-now-available-june"></a>User Connection Apps Now Available
 
 ### <a name="paypay-june"></a>PayPay
 
@@ -410,3 +411,69 @@ RoadGoat works with Expense for Concur Standard and Expense for Concur Professio
 ## <a name="user-connection-coming-soon-june"></a>User Connection Apps Coming Soon
 
 None at this time.
+
+## <a name="September"></a>September 2020
+
+* [User Connection Apps Now Available](#user-connection-now-available-september)
+  * [eHi Itinerary Expense Autosync](#eHi-september)
+  * [S.RIDE](#sride-september)
+* [User Connection Apps Coming Soon](#user-connection-coming-soon-september)
+  * [The Ascott Limited](#ascott-limited-september)
+
+### <a href="user-connection-now-available-september"></a>User Connection Apps Now Available
+
+### <a name="eHi-september"></a>eHi Itinerary Expense Autosync
+
+![eHi Logo](./app-center-2020-09-21-ehi-logo.png)
+
+eHi Car Rental provides comprehensive car rental services for individuals and enterprises. Headquartered in Shanghai, eHi has opened more than 6,000 outlets in more than 450 cities across China since it was established in 2006. eHi now offers more than 200 models and over 80,000 vehicles and its service covers the whole country.
+
+eHi provides a full range of car service solutions, including long lease, fleet management, self-driving short lease, conference vehicles, and high-end vehicles. From the very beginning, eHi Car Rental has established a core value of "attentive service," becoming the designated business car company of many Fortune 500 enterprises in China.
+
+Through the integration of eHi Car Rental and SAP Concur solutions, customers can experience high-quality, integrated car solutions and simplified expense reimbursement in Concur Expense. The automated itinerary sync means that any rental car transactions processed by eHi will be sent directly to an available expense report as an expense item and e-receipt.
+
+The partnership between eHi and SAP Concur helps businesses operate more efficiently and reduces the administrative burden to procurement, finance, and employees. The solution makes it easy to book and expense a wide variety of car service solutions, decreasing the time and cost to procure car service, ensuring compliance with business policies and regulations, and simplifying the expense reimbursement process.
+
+eHi Itinerary Expense Autosync works with Expense for Concur Standard and Expense for Concur Professional. It is now  available in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the eHi integration, visit [https://www.1hai.cn/](https://www.1hai.cn/).
+
+### <a name="sride-september"></a>S.RIDE
+
+![S.RIDE Logo](./app-center-2020-09-21-sride-logo.png)
+
+Simple.
+
+##### One-Swipe Taxi Dispatch
+
+Call the nearest taxi with a single swipe. The taxi pick-up location will be automatically adjusted for you, with no need to make detailed adjustments. While you wait, enter your destination for an even smoother trip. If you run into trouble, you can easily contact your driver with text messages.
+
+Smart.
+
+##### Cashless Means Your Trip Ends Smoothly
+
+Register your credit card with S.RIDE to pay for taxi rides online. Pay for rides on the move with S.RIDE WALLET merely by scanning the 2D barcode displayed on the backseat monitor with your smartphone. This means that you can finish your trip taxi smoothly without having to deal with cash. Digital service usage statements can be issued using the app as well, so you don’t need to worry about losing your receipt.
+
+Speedy.
+
+##### One of Tokyo’s Biggest Networks
+
+The nearest taxi to your location will be dispatched from one of Tokyo’s largest taxi networks. Users can get to their destination smoothly without wasting time.
+
+##### SAP Concur Integration
+
+Receipts from taxi rides booked with the S.RIDE app are automatically sent to Concur Expense. This helps eliminate the hassle of entering the location, date, and cost, greatly reducing the amount of work required for expense settlement.
+
+S.RIDE works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the S.RIDE integration, visit [https://www.sride.jp/en/](https://www.sride.jp/en/).
+
+## <a name="user-connection-coming-soon-september"></a>User Connection Apps Coming Soon
+
+### <a name="ascott-limited-september"></a>The Ascott Limited
+
+![The Ascott Limited Logo](./app-center-2020-09-21-ascott-logo.png)
+
+Travel should take you places. Not just physically, but mentally. Whether on a business or leisure trip, Ascott The Residence will take care of your every need. Enjoy the rest and relaxation you have earned in exclusive residential spaces worldwide, without worrying about the details. Through the partnership with SAP Concur, your receipts and transaction information will auto-populate in Concur Expense after a trip for hassle-free expense reimbursement.
+
+A global leader in service, The Ascott Limited believes in delivering a memorable stay through its Heartware philosophy. The Ascott team uses local knowledge to help you settle quickly into your host city and integrate with the local culture. Admire the modern surroundings of your new home and enjoy quality service from The Ascott Limited teams around the world.
+
+The Ascott Limited is a member of CapitaLand. It is one of the leading international lodging owner-operators with more than 720 properties in over 180 cities spanning more than 30 countries across Asia Pacific, Europe, the Middle East, Africa, and the USA. Its portfolio of serviced residence and hotel brands includes Ascott, Citadines, Citadines Connect, Somerset, Quest, The Crest Collection, lyf, and the Tauzia portfolio of brands. To link The Ascott Limited to Concur Expense and begin receiving e-receipts, click the “Connect” button.
+
+The Ascott Limited works with Expense for Concur Standard and Expense for Concur Professional. It will  be  available soon in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the The Ascott Limited integration, visit [http://www.the-ascott.com/](http://www.the-ascott.com/).
