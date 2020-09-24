@@ -422,6 +422,7 @@
                             }
                         },
                         "required": [
+                            "name",
                             "relationship"
                         ]
                     }
@@ -673,10 +674,6 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "countryCode": {
-                                "type": "string",
-                                "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country the phone number was issued in. e.g., US"
-                            },
                             "display": {
                                 "type": "string",
                                 "description": "A human-readable phone number for display"
@@ -720,7 +717,7 @@
                             },
                             "value": {
                                 "type": "string",
-                                "description": "Phone number value"
+                                "description": "Phone number value. Attempts to format to RFC3966 standards on create/update"
                             }
                         }
                     }
@@ -1084,6 +1081,10 @@
                     "type": "string",
                     "description": "Valid locale from the list of configured locales as defined in [RFC5646], i.e en-US"
                 },
+                "nonEmployee": {
+                    "type": "boolean",
+                    "description": "A Boolean value indicating whether the User is a NonEmployee"
+                },
                 "reimbursementCurrency": {
                     "type": "string",
                     "description": "Valid three digit currency code in the list of system reimbursement currencies"
@@ -1133,8 +1134,7 @@
                 "cashAdvanceAccountCode",
                 "country",
                 "locale",
-                "reimbursementCurrency",
-                "reimbursementType"
+                "reimbursementCurrency"
             ]
         },
         "ProvisionStatus": {
@@ -1281,6 +1281,34 @@
                         ]
                     }
                 },
+                "operationsCount": {
+                    "type": "object",
+                    "description": "Count of operations in a provision request",
+                    "properties": {
+                        "failed": {
+                            "type": "number",
+                            "description": "Is operation failed?"
+                        },
+                        "pending": {
+                            "type": "number",
+                            "description": "Is operation pending?"
+                        },
+                        "success": {
+                            "type": "number",
+                            "description": "Is operation successful?"
+                        },
+                        "total": {
+                            "type": "number",
+                            "description": "All operations"
+                        }
+                    },
+                    "required": [
+                        "total",
+                        "success",
+                        "failed",
+                        "pending"
+                    ]
+                },
                 "startIndex": {
                     "type": "integer",
                     "description": "The 1-based index of the first operation in the current set of operations"
@@ -1309,7 +1337,8 @@
             },
             "required": [
                 "id",
-                "status"
+                "status",
+                "operationsCount"
             ]
         },
         "SpendRole": {
@@ -1351,7 +1380,7 @@
         }
     ],
     "basePath": "/provisioning/v4",
-    "host": "us.api.concursolutions.com",
+    "host": "provisioning.seapr1.uscom.cnqr.delivery",
     "info": {
         "contact": {
             "email": "profile@concur.com"
@@ -1400,6 +1429,18 @@
                         "name": "count",
                         "type": "integer",
                         "description": "The number of operations to be returned in response",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "state",
+                        "type": "string",
+                        "description": "Filter operations to be returned in response based on status",
+                        "enum": [
+                            "success",
+                            "failed",
+                            "pending"
+                        ],
                         "required": false
                     }
                 ],
