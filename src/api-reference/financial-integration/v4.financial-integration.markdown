@@ -789,8 +789,8 @@ Name|Type|Format|Description
 `concurTransactionLineItemId`|`string`|-|Report relevant line item id.
 `messageId`|`string`|-|External System message identifier.
 `messageLanguage`|`string`|-|Message Language code, example EN, FR.
-`messageLongText`|`array`|-|Message text, will be posted on the audit trail in SAP Concur.
-`messageShortText`|`string`|-|Message text, will be posted on the audit trail in SAP Concur.
+`messageLongText`|`array`|-|Message text, will be posted on the audit trail in SAP Concur. Maximum 1300 characters.
+`messageShortText`|`string`|-|Message text, will be posted on the audit trail in SAP Concur. Maximum 1300 characters.
 
 ### <a name="schema-postingconfirmationresponse"></a>Posting Confirmation Response
 
