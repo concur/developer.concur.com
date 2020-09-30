@@ -78,7 +78,6 @@
         url: /api-explorer/v4-0/Budget.html
       - title: Financial Integration Service
         url: /api-explorer/v4-0/FinancialIntegrationService.html
-
       - title: Invoice Pay
         url: /api-explorer/v4-0/InvoicePay.html
       - title: Notifications
