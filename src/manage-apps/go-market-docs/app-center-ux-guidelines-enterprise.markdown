@@ -73,7 +73,7 @@ There are two possible configurations for enterprise listings that modify the pr
 
 ### <a name="design-guidelines-connect-activate"></a>Activate + Connect
 
-In this configuration **Connect** is the prominent call to action. This should be used in cases where the user can self-service and connect their Concur account to your application automatically.
+In this configuration **Connect** is the prominent call to action. This should be used in cases where the user can self-service and connect their SAP Concur account to your application automatically.
 
 ![Connect - Activate](./app-center-ux-guidelines-enterprise-activate.png)
 
@@ -93,7 +93,7 @@ For more information on the terms & conditions, please refer to the [documentati
 
 This will be the first page the user sees upon redirect from SAP Concur. The SAP Concur App Center will open a new window to your pre-defined redirect URI (referred to as your “Connect URI”).
 
-This page should include your brand and the application the customer is connecting to. In addition, the page should clearly indicate that the customer is activating an integration with SAP Concur.
+This page should include your brand and the application the customer is connecting to. In addition, the page should clearly indicate that the customer is activating an integration with SAP Concur solutions.
 
 On this page, you must use one of the below calls to action:
 
@@ -125,7 +125,7 @@ The first page should give the user the option to sign in with an existing accou
 
 This page should:
 
-* Clearly indicate the integration with SAP Concur in text
+* Clearly indicate the integration with SAP Concur solutions in text
 * Include links to your terms and conditions and privacy policy
 * In all cases, links to your “support” and “help” should be provided.
 
@@ -170,13 +170,13 @@ This section provides a summarized checklist of the required and recommended com
 * All pages
   * Must support a form factor of 800x600 (required)
   * Must provide back/forward navigation, where applicable. (required)
-  * Should be Section 508 Compliance (strongly recommended)
+  * Should be Section 508 compliant (strongly recommended)
   * Should include support and help options clearly throughout the process.
   * Must support major browsers and versions. The full list of SAP Concur-supported browsers is available [here](https://www.concurtraining.com/customers/tech_pubs/Docs/Z_SuppConfig/Supported_Configurations_for_Concur_Travel_and_Expense_Client-Facing.pdf). (required)
   * Should adhere to your company’s brand and marketing guidelines
   * Must include your company branding and specific application brand, if applicable (required)
 * On the first page (at a minimum),
-  * Must clearly indicate this is an integration with SAP Concur (required)
+  * Must clearly indicate this is an integration with SAP Concur solutions (required)
   * Must include links to your terms and conditions and privacy policy (required)
   * Verification apps, should provide a link to the inquiry form (strongly recommended)
   * The Partner application should not exchange the Request token for the Access token until the User has completed all of the actions on your Landing Page.

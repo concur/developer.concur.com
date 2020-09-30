@@ -241,7 +241,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |----------------|-------------------|-------------|
-|`CardCode`|`upperCaseAlphaLength1to2`|Issuer code. Example: `MC`, `VI`, `AX`.|
+|`CardCode`|`upperCaseAlphaLength1to2`|Issuer code. Example: `AX`, `CA`, `DC`, `DS`, `JC`, `VI`. Map to AMEX, Mastercard, Diners Club, Discover, JCB, Visa|
 |`ExpireDate`|`MMYYDate`|Indicates the ending date.|
 |`CardType`|`stringLength1to32`|**Required** Payment card type. Example: `MasterCard`|
 |`CardHolderName`|`stringLength1to32`|**Required** Card holder name.|
@@ -524,8 +524,8 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 
 |Value|Description|
 |-----------|----------|
-|`Cancelled`|-|
-|`Committed`|-|
+|`Cancelled`|The item is cancelled.|
+|`Committed`|The item is reserved.|
 |`Unsuccessful`|-|
 |`Reserved`|The item is reserved.|
 

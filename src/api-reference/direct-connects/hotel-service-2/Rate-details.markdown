@@ -460,7 +460,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |----------|-----------|-------------|
-|`Code`|`string`|If `CardType` is `Other_`, use this attribute for card code. Examples: `AX`, `VI`.|
+|`Code`|`string`|If `CardType` is `Other_`, use this attribute for card code. Examples: `AX`, `CA`, `DC`, `DS`, `JC`, `VI`. Map to AMEX, Mastercard, Diners Club, Discover, JCB, Visa|
 |`Description`|`string`|If `CardType` is `Other_`, use this attribute for card description.|
 
 #### <a name="total"></a>Total
