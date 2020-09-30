@@ -161,6 +161,17 @@
         url: /api-reference/expense/payment-batch/v1.payment-batches.html
       - title: Quick Expense v4
         url: /api-reference/expense/quick-expense/v4.quick-expense.html
+- title: Financial Integration Service v4
+  url: ''
+  children:
+      - title: Getting Started
+        url: /api-reference/financial-integration/v4.financial-integration.html
+      - title: Use Cases
+        url: /api-reference/financial-integration/v4.financial-integration-service-use-cases.html
+      - title: Use Cases Extract Information
+        url: /api-reference/financial-integration/v4.financial-integration-use-cases-extract-information.html
+      - title: Schemas
+        url: /api-reference/financial-integration/v4.financial-documents-schema.html
 - title: Insights
   url: ''
   children:
