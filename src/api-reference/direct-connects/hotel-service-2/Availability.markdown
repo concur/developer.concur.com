@@ -339,7 +339,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |------------------------|--------------------|-------------|
-|`AbsoluteDeadline`|`time` or `datetime` |**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
+|`AbsoluteDeadline`|`time` or `datetime` |**Required** Defines the absolute deadline. Either this or the offset attributes may be used. Must be set inside `Deadline` field if that is provided|
 
 #### <a name="cancel-penalties"></a>CancelPenalties
 
@@ -352,7 +352,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |Name|Type|Description|
 |--------------------|-----------|-------------|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. This element may contain a maximum of 9 children text fields. Any excess text elements are dropped.|
-|`Deadline`|`complex`|**Required** Cancellation deadline, absolute or relative. See Deadline above.|
+|`Deadline`|`complex`| Cancellation deadline, absolute or relative. See Deadline above.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
