@@ -11,7 +11,7 @@ The application connector can use web services to send information to SAP Concur
 
 This callout differs from the standard SAP Concur web services in the following ways:
 
-* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. The connector domain and IP address must be whitelisted by SAP Concur during the configuration process.  
+* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. The connector domain and IP address must be added to an SAP Concur safe list during the configuration process.  
 * The application connector can also use the web services to retrieve or send SAP Concur data.
 * The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by SAP Concur. This guide specifies the request and response format required by SAP Concur.
 * The client Expense administrator must configure a new form field and add the field to the desired form before this service can be used.
