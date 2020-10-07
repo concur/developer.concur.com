@@ -41,38 +41,39 @@ These are the list of scopes for the v4+ APIs.
 
 Scope|Description
 ---|---
-budgetitem.read|Read access to budget data including fiscal calendar.
-budgetitem.write|Read and write access to budget data including fiscal calendar.
+budgetitem.read|Read access to budget data including fiscal calendar
+budgetitem.write|Read and write access to budget data including fiscal calendar
 company.read|Read company profile
 company.write|Read and Write company profile
 creditcardaccount.read|Read credit card account data
-quickexpense.writeonly|Write quick expense
 fiscalcalendar.read|Access to fiscal calendar
-fiscalcalendar.write|Read and write access to fiscal calendar.
-mileage.journey.read|Read-only access to mileage journey resources.
-mileage.journey.writeonly|Write-only access to mileage journey resources.
-mileage.vehicle.read|Read-only access to vehicle resources.
-mileage.vehicle.writeonly|Write-only access to vehicle resources.
-mileage.rate.read|Read-only access to rate configuration resources.
-mileage.rate.writeonly|Write-only access to rate configuration resources.
-notifications.messages.writeonly|Write messages to the notifications platform
-openid|Return OPENID Token
-realtimeingest.location.writeonly|Post user location object upon trip completion|
+fiscalcalendar.write|Read and write access to fiscal calendar
+invoice.providerpayment.write |	Read access to pending payments, and write access to payment status
+mileage.journey.read|Read-only access to mileage journey resources
+mileage.journey.writeonly|Write-only access to mileage journey resources
+mileage.rate.read|Read-only access to rate configuration resources
+mileage.rate.writeonly|Write-only access to rate configuration resources
+mileage.vehicle.read|Read-only access to vehicle resources
+mileage.vehicle.writeonly|Write-only access to vehicle resources
+openid|Return OPENID token
+purchaserequest.write|Write only access to purchase requests
+purchaserequest.read|Read only access purchase requests
+quickexpense.writeonly|Write quick expense
+realtimeingest.location.writeonly|Post user location object upon trip completion
 receipts.read|Read receipts and invoices
 receipts.write|Read and Write receipts and invoices
 receipts.writeonly|Write only access for receipts and invoices
+travelallowance.itinerary.read|Read only access to itinerary data
+travelallowance.itinerary.writeonly|Write only access to itinerary data
+travelallowance.configuration.read|Read only access to itinerary configuration data
+travelallowance.configuration.writeonly|Write only access to itinerary configuration data
+travelallowance.itineraryresult.read|Read only access to itinerary result data
 travel.receipts.read|Read requests for travel receipts
-travel.receipts.write|Read and Write travel receipts|
-travelallowance.itinerary.read|Read only access to Itinerary data|
-travelallowance.itinerary.writeonly|Write only access to Itinerary Data|
-travelallowance.configuration.read|Read only access to Itinerary Configuration data
-travelallowance.configuration.writeonly|Write only access to Itinerary Configuration data
-travelallowance.itineraryresult.read|Read only access to Itinerary Result data
-travelrequest.write|Read and write Travel Requests
+travel.receipts.write|Read and write travel receipts
+travelrequest.write|Read and write travel requests
 user.read|Read user profile
-user.write|Read and Write user profile
-purchaserequest.write | Write only access to Purchase Requests
-purchaserequest.read | Read only access Purchase Requests
+user.write|Read and write user profile
+
 
 ## <a name="connectscopes"></a>List of Connect API scopes
 

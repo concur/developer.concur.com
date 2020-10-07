@@ -22,7 +22,7 @@ Callouts from SAP Concur allow clients to add an interaction with an outside sys
 
 Third-party developers can create callouts to provide SAP Concur clients access to information systems they manage. These developers partner with SAP Concur to have their application connectors reviewed. Once reviewed, applications are available for SAP Concur clients to purchase and configure.
 
-Partner apps that want to use callout services must have their endpoint server(s) whitelisted with SAP Concur.
+Partner apps that want to use callout services must have their endpoint server(s) added to an SAP Concur safe list.
 
 The available callouts are:
 

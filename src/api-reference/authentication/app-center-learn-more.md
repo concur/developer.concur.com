@@ -18,8 +18,8 @@ The table below lists all the possible scopes that an SAP Concur Partner Applica
 
 Scope|User Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|APIs
 ---|---|---
-receipts.read|Read receipt data|[Receipts v4](/api-reference/receipts/get-started.html) 
-receipts.write|Read receipt data and post receipts|[Receipts v4](/api-reference/receipts/get-started.html) 
+receipts.read|Read receipt data|[Receipts v4](/api-reference/receipts/get-started.html)
+receipts.write|Read receipt data and post receipts|[Receipts v4](/api-reference/receipts/get-started.html)
 receipts.writeonly|Post receipts on your behalf|[Receipts v4](/api-reference/receipts/get-started.html)
 travel.receipts.read|Read travel receipt requests|[Travel Receipts](/api-reference/travel-receipts/getting-started.html), [Travel Receipts Sample](/api-reference/travel-receipts/sample.html)
 travel.receipts.write|Post travel receipts|[Travel Receipts](/api-reference/travel-receipts/getting-started.html), [Travel Receipts Sample](/api-reference/travel-receipts/sample.html)
@@ -71,4 +71,3 @@ budgetitem.read|Grants read access to the budget resources|[Budget v4](/api-refe
 budgetitem.write|Grants read and write access to the budget resources|[Budget v4](/api-reference/budget/getting-started.html)
 fiscalcalendar.read|Grants read access to the fiscal calendar|[Budget v4](/api-reference/budget/getting-started.html)
 fiscalcalendar.write|Grants read and write access to the fiscal calendar|[Budget v4](/api-reference/budget/getting-started.html)
-notifications.messages.writeonly|Write messages to the notifications platform|[Notifications v4](/api-reference/notifications/v4.notifications.html)
