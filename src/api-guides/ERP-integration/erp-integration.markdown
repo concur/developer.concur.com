@@ -8,6 +8,7 @@ layout: reference
 * [Integration](#integration)
   * [Quick Connect](#quick-connect)
   * [Company Profile](#profile)
+  * [Financial Integration Service](#posting-fis)
   * [Financial posting via Extract](#integration-extract)
   * [Manage lists of Cost Object codes](#integration-manage-lists)
   * [Add and update Vendor data](#integration-vendor-data)
@@ -44,6 +45,10 @@ Financial posting via Financial Integration Service|Send Purchase Order data to 
 ### <a name="profile"></a>Company Profile
 
 [Profile Company API v1 ERP Integration](/api-reference/profile/v1.company.html#erp-integration)
+
+### <a name="posting-fis"></a>Financial Integration Service
+
+[Posting via Financial Integration Service](./posting-via-financial-integration-service.html)
 
 ### <a name="integration-extract"></a>Financial posting via Extract
 
