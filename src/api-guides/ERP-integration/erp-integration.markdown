@@ -48,7 +48,7 @@ Financial posting via Financial Integration Service|Send Purchase Order data to 
 
 ### <a name="posting-fis"></a>Financial Integration Service
 
-[Posting via Financial Integration Service](/api-guides/ERP-integration/posting-via-financial-integration-service)
+[Posting via Financial Integration Service](./posting-via-financial-integration-service.html)
 
 ### <a name="integration-extract"></a>Financial posting via Extract
 
