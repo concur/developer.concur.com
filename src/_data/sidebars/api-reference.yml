@@ -106,6 +106,8 @@
         url: /api-reference/direct-connects/hotel-service-2/Availability.html
       - title: Descriptive Information
         url: /api-reference/direct-connects/hotel-service-2/Descriptive-info.html
+      - title: Rate Details
+        url: /api-reference/direct-connects/hotel-service-2/Rate-details.html
       - title: Reservation
         url: /api-reference/direct-connects/hotel-service-2/Reservation.html
       - title: Read Itinerary
