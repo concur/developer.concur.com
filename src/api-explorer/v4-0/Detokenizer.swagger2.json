@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "host": "us.api.concursolutions.com",
-  "basePath": "/detokenizer/v1",
+  "basePath": "/detokenizer/v4",
   "schemes": [
     "https"
   ],

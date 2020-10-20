@@ -524,8 +524,8 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 
 |Value|Description|
 |-----------|----------|
-|`Cancelled`|-|
-|`Committed`|-|
+|`Cancelled`|The item is cancelled.|
+|`Committed`|The item is reserved.|
 |`Unsuccessful`|-|
 |`Reserved`|The item is reserved.|
 

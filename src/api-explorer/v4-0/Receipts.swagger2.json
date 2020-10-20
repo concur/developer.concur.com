@@ -108,6 +108,9 @@
                     },
                     "401": {
                         "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "The caller does not have permission to perform the intended action."
                     }
                 }
             }
@@ -216,6 +219,9 @@
                     },
                     "401": {
                         "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "The caller does not have permission to perform the intended action."
                     },
                     "404": {
                         "description": "No receipt exists with this ID"
