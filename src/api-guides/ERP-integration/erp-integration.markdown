@@ -8,7 +8,7 @@ layout: reference
 * [Integration](#integration)
   * [Quick Connect](#quick-connect)
   * [Company Profile](#profile)
-  * [Financial Integration Service](#posting-fis)
+  * [Financial posting via Financial Integration Service](./posting-via-financial-integration-service.html)
   * [Financial posting via Extract](#integration-extract)
   * [Manage lists of Cost Object codes](#integration-manage-lists)
   * [Add and update Vendor data](#integration-vendor-data)
@@ -38,19 +38,22 @@ Financial posting via Financial Integration Service|Send Purchase Order data to 
 
 ### <a name="quick-connect"></a>Quick Connect
 
+**Quick Connect** describes the process customers use to connect their SAP Concur site with an App Center Partner's Enterprise application. See the separate Quick Connect scope document for details to guide you through the development of this required piece to your certified application.
+
 [Quick Connect Scope for Enterprise Apps](./quick-connect-scope-for-enterprise-apps.html)
 
-**Quick Connect** describes the process customers use to connect their SAP Concur site with an App Center Partner's Enterprise application. See the separate Quick Connect scope document for details to guide you through the development of this required piece to your certified application.
+If you're already familiar with Quick Connect and just need information about Authorization, see [Authentication - Enterprise Business Applications](/api-reference/authentication/apidoc.html#enterprise-business-applications).
 
 ### <a name="profile"></a>Company Profile
 
-[Profile Company API v1 ERP Integration](/api-reference/profile/v1.company.html#erp-integration)
+This API provides the partner with 2 key pieces of information:
 
-### <a name="posting-fis"></a>Financial Integration Service
+*  Company `UUID` - Partner will record this value per customer connection and use it when submitting Support cases.
+*  `MarketingName` data element - Partner will record this value per customer. This will indicate the edition type a customer is using:
+  * `CTE` or `Enterprise` means the customer is using Professional Edition.
+  * `Standard` means the customer is using Standard Edition.
 
-[Posting via Financial Integration Service](./posting-via-financial-integration-service.html)
-
-### <a name="integration-extract"></a>Financial posting via Extract
+### <a name="integration-extract"></a>Financial Posting via Extract
 
 **Professional Edition**: Typical code flow is listed in the [Extracts v1 API ERP Integration](/api-reference/common/extracts/v1.extracts.html#erp-integration).
 
