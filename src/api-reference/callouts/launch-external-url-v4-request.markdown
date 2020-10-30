@@ -58,7 +58,7 @@ Value | Description
 `signature` |  The URL-encoded signature hash.
 `is_mobile` |  True or false indicating if the end-user is coming from the web-based instance of Concur Expense or mobile. This allows the client to display different UI for mobile devices.
 `client_auth_code` |  URL encoded temporary client authorization code. This will allow to call OAuth service to get a refresh and access token to access `item_url`.
-`language_code` |  Language code of the logged in user. Length between two to five characters. Default is "en". The code may be xx-XX (e.g., en-GB for British English), where xx indicates the base language and correlates to ISO 639-1, and XX specifies the local dialect, if applicable. SAP Concur supported languages are [here](https://www.concurtraining.com/customers/tech_pubs/SupportedLanguages-client/SupportedLanguages-client.pdf). Information on language identifiers can be found [here](https://www.concurtraining.com/customers/tech_pubs/Docs/_Current/SPC/Spc_Shr/Shr_SPEC_Emp_Imp.pdf) in the appendix (Note: a hyphen is the expected separator for this API for languages with dialects, e.g., en-GB).
+`language_code` |  Language code from the logged in user's profile (or overriden language from the manually selected language at login for the session). Length between two to five characters. Default is "en". The code may be xx-XX (e.g., en-GB for British English), where xx indicates the base language and correlates to ISO 639-1, and XX specifies the local dialect, if applicable. SAP Concur supported languages are [here](https://www.concurtraining.com/customers/tech_pubs/SupportedLanguages-client/SupportedLanguages-client.pdf). Information on language identifiers can be found [here](https://www.concurtraining.com/customers/tech_pubs/Docs/_Current/SPC/Spc_Shr/Shr_SPEC_Emp_Imp.pdf) in the appendix (Note: a hyphen is the expected separator for this API for languages with dialects, e.g., en-GB).
 
 ## <a name="auth"></a>Authentication
 
@@ -89,7 +89,7 @@ When the request is received by the connector:
 4. Calculate your own base signature string by appending the values as such:
 {company_domain} + {logged_in_user_id} + {report_owner_user_id} + {report_owner_employee_id} +  {item_url} + {connector username} + {connector password} + {nonce}
 
-5. Use HMacSHA1 to generate a signature hash using the base signature string. To generate the key, concatenate the lower-case value for {connector username} and the exact {connector password}. For example, if the connector username is JohnDoe, and the password is password, the key would be johndoepassword.
+5. Use HMacSHA256 to generate a signature hash using the base signature string. To generate the key, concatenate the lower-case value for {connector username} and the exact {connector password}. For example, if the connector username is JohnDoe, and the password is password, the key would be johndoepassword.
 
 6. Compare the generated signature hash with the signature hash provided in the request query string. If the signature hashes match, then you know the credentials are valid and the request has not been tampered with.
 

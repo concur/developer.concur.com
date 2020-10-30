@@ -12,7 +12,7 @@ layout: reference
 * [Subscribing](#subscribing)
 * [Endpoint Requirements](#endpoint-requirements)
 * [Authentication](#ess-authentication)
-* [Service behavior](#ess-behavior")
+* [Service behavior](#ess-behavior)
 
 # <a name="ess"></a>Event Subscription Service (ESS)
 
