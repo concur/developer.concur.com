@@ -253,7 +253,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |----------|-----------|-------------|
-|`Rating`|`integer`|**Required** Hotel rating should be an integer number from 0 to 5, representing its star rating.|
+|`Rating`|`integer`|**Required** Hotel rating should be an integer number from 0 to 5, representing its star rating. A rating value of 0 will be ignored and treated as N/A.|
 
 #### <a name="hotel-amenity"></a>HotelAmenity
 
