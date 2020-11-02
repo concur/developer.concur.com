@@ -202,10 +202,10 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |----------------|-------------------|-------------|
-|`ChainCode`|`stringLength1to32`|2-letter GDS chain code. The code that identifies a hotel chain or management group. Used for chain filter in UI, and for travel rules based on GDS codes.|
-|`ChainName`|`stringLength1to32`|The name of the hotel chain. Examples: `Hilton`, `Marriott`, `Hyatt`, `Starwood`|
-|`HotelCode`|`stringLength1to32`|**Required** The code that uniquely identifies a single hotel property. Used in other OTA messages.|
-|`HotelName`|`stringLength1to32`|**Required** A text field used to communicate the proper name of the hotel.|
+|`ChainCode`|`stringLength1to8`|2-letter valid GDS chain code. The code that identifies a hotel chain or management group. Must be present to support filtering, preferences or travel rules base on chains|
+|`ChainName`|`stringLength1to64`|The name of the hotel chain. Examples: `Hilton`, `Marriott`, `Hyatt`, `Starwood`|
+|`HotelCode`|`stringLength1to16`|**Required** The code that uniquely identifies a single hotel property. Used in other OTA messages.|
+|`HotelName`|`stringLength1to128`|**Required** A text field used to communicate the proper name of the hotel.|
 |`Position`|`complex`|**Required** Refer to `Position` in the Request.|
 |`Address`|`complex`|**Required** Public address of the hotel property.|
 |`ContactNumbers`|`complex`|Contact numbers.|
@@ -253,7 +253,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |----------|-----------|-------------|
-|`Rating`|`integer`|**Required** Hotel rating should be an integer number from 0 to 5, representing its star rating.|
+|`Rating`|`integer`|**Required** Hotel rating should be an integer number from 0 to 5, representing its star rating. A rating value of 0 will be ignored and treated as N/A.|
 
 #### <a name="hotel-amenity"></a>HotelAmenity
 

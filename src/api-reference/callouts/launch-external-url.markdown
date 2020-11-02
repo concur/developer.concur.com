@@ -11,7 +11,7 @@ The application connector can use web services to send information to SAP Concur
 
 This callout differs from the standard SAP Concur web services in the following ways:
 
-* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. The connector domain and IP address must be whitelisted by SAP Concur during the configuration process.  
+* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. The connector domain and IP address must be added to an SAP Concur safe list during the configuration process.  
 * The application connector can also use the web services to retrieve or send SAP Concur data.
 * The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by SAP Concur. This guide specifies the request and response format required by SAP Concur.
 * The client Expense administrator must configure a new form field and add the field to the desired form before this service can be used.
@@ -42,6 +42,8 @@ This callout is not supported in the SAP Concur mobile application.
 
 SAP Concur products are highly configurable, and not all clients will have access to all features.
 
+Only the Employee role can interact with the Launch External URL configured field. Other roles such as the Approver and Processor are not able to trigger the pop-up window.
+
 Partner developers must determine which configurations are required for their solution prior to the review process.
 
 Existing clients can work with SAP Concur Integration Services to create custom applications that work with their configuration.
@@ -55,7 +57,7 @@ Information on how to download, install, and configure the application connector
 The configuration process has the following steps:
 
 1. Third-party developer, client or SAP Concur downloads, installs, configures, and customizes the application connector. The application connector may make requests to the inbound web services.  
-2. SAP Concur registers the application connector. SAP Concur must whitelist the IP address and domain of the application connector. Be ready to supply the test and production domain information.  
+2. SAP Concur registers the application connector. SAP Concur must add the IP address and domain of the application connector to an include list. Be ready to supply the test and production domain information.  
 3. Expense Admin creates a new form field with the Launch External URL control type and adds the field to the expense entry form(s).
 
 Once the configuration is complete, the callout uses the following process:

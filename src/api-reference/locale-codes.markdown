@@ -78,4 +78,5 @@ Spanish (Spain)|es_ES
 Spanish (Uruguay)|es_UY
 Spanish (Venezuela)|es_VE
 Swedish (Sweden)|sv_SE
+Thai (Thailand)|th_TH
 Turkish (Turkey)|tr_TR

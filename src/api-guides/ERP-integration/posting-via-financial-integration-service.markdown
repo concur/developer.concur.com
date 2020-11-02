@@ -1,9 +1,10 @@
 ---
-title: Posting via Financial Integration Service
+title: Financial Posting via Financial Integration Service
 layout: reference
 ---
 
 * [Learn More](#learn)
+  * [Comparison of extract files vs. FIS data](#comparison)
 * [Quick Connect](#quick-connect)
 * [API Sequence Flow](#sequence-flow)
   * [FI Sequence Flow Matrix](#matrix)
@@ -36,11 +37,11 @@ FIS has these benefits over the Extract file process:
   * ERP partners have the ability to post a payment status of reports into SAP Concur solutions (Expense only at this time).
   *	Expense Pay customers who use FIS only reimburse reports that have been successfully posted into their ERP. Conversely, reports processed using the SAE/extract file process have reimbursements sent to the bank independent of the customer’s financial posting.
 
-  To see the mapping of extract files vs. FIS, review the [Standard Accounting Extract (SAE)](/ERP-integration/standard-accounting-extract-expense.xlsx) and/or [Payment Request Accounting Extract (PRAE)](/ERP-integration/payment-request-accounting-extract-invoice.xlsx) files.
+<a name="comparison"></a>To see the mapping of extract files vs. FIS, review the [Standard Accounting Extract (SAE)](./standard-accounting-extract-expense.xlsx) and/or [Payment Request Accounting Extract (PRAE)](./payment-request-accounting-extract-invoice.xlsx) files.
 
 ## <a name="quick-connect"></a>Quick Connect
 
-Quick Connect describes the process customers use to connect their SAP Concur site with an App Center Partner’s Enterprise application. See the separate [Quick Connect](/ERP-integration/quick-connect-scope-for-enterprise-apps.html) scope document for details to guide you through the development of this required piece to your certified application.
+Quick Connect describes the process customers use to connect their SAP Concur site with an App Center Partner’s Enterprise application. See the separate [Quick Connect](./quick-connect-scope-for-enterprise-apps.html) scope document for details to guide you through the development of this required piece to your certified application.
 
 ## <a name="sequence-flow"></a>API Sequence Flow
 
@@ -94,7 +95,7 @@ Sequence|Expected Event|Concur Expense Payment Status|FIS Posting Document Statu
 
 **Expense**
 
-Use the entryreceiptID to obtain a short-lived URL (15 minutes ttl) that can be rendered to obtain the receipt image.  
+Use the `entryreceiptID` to obtain a short-lived URL (15 minutes ttl) that can be rendered to obtain the receipt image.  
 
 ```
 https://www.concursolutions.com/api/image/v1.0/report/{entryreceiptID}
@@ -102,7 +103,7 @@ https://www.concursolutions.com/api/image/v1.0/report/{entryreceiptID}
 
 **Invoice**
 
-Use the requestID to obtain a URL, copy the portion up to the "?" and render the image in a separate browser.
+Use the `requestID` to obtain a URL, copy the portion up to the "?" and render the image in a separate browser.
 
 ```
 https://www.concursolutions.com/api/image/v1.0/invoice/{requestID}

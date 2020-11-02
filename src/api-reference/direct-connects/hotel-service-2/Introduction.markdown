@@ -58,7 +58,7 @@ To allow SAP Concur performing testing, the Hotel Supplier needs to provide test
 As sensitive data and payment card details are transferred via API, the Hotel Suppliers need to comply with PCI DSS standard. SAP Concur is compliant with PCI DSS standard and undergoes regular security audits.
 
 #### HTTPS
-SAP Concur prefers to use the newer TLS 1.2, however TLS 1.1 is still supported. TLS 1.0 is **not** supported. The Hotel Supplier will provide SAP Concur HTTPS URL of its end-point. Standard HTTPS port 443 should be used.
+SAP Concur requires TLS 1.2 (Transport Layer Security) SSL protocol for file transfers. The Hotel Supplier will provide SAP Concur HTTPS URL of its end-point. Standard HTTPS port 443 should be used.
 
 ## <a name="urls"></a>URLs
 SAP Concur will receive a single URL from the Hotel Supplier. All requests will go to that URL.

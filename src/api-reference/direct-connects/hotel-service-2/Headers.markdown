@@ -19,11 +19,13 @@ SAP Concur will send the following HTTP headers in every request.  The contents 
 |Name|Type|Description|
 |----------------|-----------|-------------|
 |`Authorization`|`string`|A Base64 encoded string in the form of `Basic <username:password>`.|
-|`Soapaction`|`string`|The message type. The action will always be sent in lowercase. Example: `search`|
+|`SOAPAction`|`string`|The message type. The action will always be sent in lowercase. Example: `search`|
 |`Content-Type`|`string`|All communication with the HS2 API is by way of a `application/xml` content type.|
 |`Accept`|`string`|SAP Concur will always set the `Accept` header to `application/xml`.|
 |`Accept-Charset`|`string`|SAP Concur will always set the `Accept-Charset` header to `utf-8`.|
-|`Concur-Correlationid`|`string`|This unique code can be used during troubleshooting as it identifies the API call in the log files.|
+|`concur-correlationid`|`string`|This unique code can be used during troubleshooting as it identifies the API call in the log files.|
+|`concur-traveleruuid`|`string`|UUID that identifies the traveler within concur, will always be sent once profile creation is completed.|
+|`concur-loginid`|`string`|Login ID of traveler within concur. Only sent when available.|
 
 Supported Soapactions:
 
@@ -46,9 +48,11 @@ Example HTTP Header from network capture:
 Accept: application/xml
 Accept-Charset: utf-8
 Authorization: *******************
-Concur-Correlationid: A75CE5BC-90BA-4BF8-8DEA-69FA2E66E936
+concur-correlationid: A75CE5BC-90BA-4BF8-8DEA-69FA2E66E936
+concur-loginid: abc@concur.com
+concur-traveleruuid: <valid uuid>
 Content-Type: application/xml; charset="utf-8"
-Soapaction: search
+SOAPAction: search
 Accept-Encoding: gzip
 ```
 

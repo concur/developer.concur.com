@@ -3,7 +3,17 @@ title: Financial Integration Use Cases Extract Information
 layout: reference
 ---
 
-{% include prerelease.html %}
+## Menu
+
+* [Getting Started](./v4.financial-integration.html)
+* [Use Cases](./v4.financial-integration-service-use-cases.html)
+* [Use Cases Extract Information](./v4.financial-integration-use-cases-extract-information.html)
+* [Financial Document Schemas](/api-reference/financial-integration/v4.financial-documents-schema.html)
+  * [Expense](/api-reference/financial-integration/v4.financial-documents-schema.html#scexpense)
+  * [Invoice](/api-reference/financial-integration/v4.financial-documents-schema.html#scinvoice)
+  * [Cash Advance](/api-reference/financial-integration/v4.financial-documents-schema.html#sccashadv)
+
+## Financial Integration Use Cases Extract Information
 
 * [Simple Expense Posting Without Tax](#esepwt)
   * [Simple Out-of-Pocket Cash Expense](#esopce)
