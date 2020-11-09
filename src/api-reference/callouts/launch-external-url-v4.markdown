@@ -41,7 +41,8 @@ The [Launch External URL v1](https://developer.concur.com/api-reference/callouts
 
 ## <a name="products-editions"></a>Products and Editions
 
-* Concur Expense Professional Edition, running NextGen UI for Concur Expense.
+* Concur Expense Professional Edition, running NextGen UI for Concur Expense
+* The SAP Concur mobile app
 
 ## <a name="limitations"></a>Limitations
 
