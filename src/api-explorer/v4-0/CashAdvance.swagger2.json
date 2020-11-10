@@ -510,13 +510,17 @@
      "CashAdvanceIssueRequest": {
       "type": "object",
       "properties": {
+        "accountCode": {
+          "type": "string",
+          "description": "Account Code linked to the employee"
+        },
         "comment": {
           "type": "string",
           "description": "The comment for issuing this cash advance"
         },
         "exchangeRate": {
           "type": "number",
-          "description": "The exchange rate that applies to the expected expense"
+          "description": "The exchange rate that applies to the expected expense, if exchange rate is not provided default value will be 1"
         }
       }
     },
