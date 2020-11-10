@@ -404,6 +404,8 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 |`reportVersion`|`integer`|`int32`|**Required** The current version of the report.|
 |`startDate`|`string`|`YYYY-MM-DD`|The start date of the report as used for trip-based reporting.|
 |`submitDate`|`string`|`YYYY-MM-DDTHH:mm:ssZ`|The UTC datetime when the user submitted the report.|
+|`submitterId`|`string`|The unique identifier of the employee who submitted the report.|
+|`taxConfigId`|`string`|The The tax config ID of the report.|
 |`userId`|`string`|-|**Required** The unique identifier of the Concur user who is the report owner.|
 
 ### <a name="update-report-schema"></a>UpdateReport
