@@ -40,6 +40,13 @@
                       "required": true
                   },
                   {
+                    "type": "string",
+                    "description": "Accepts gzip",
+                    "name": "Accept-Encoding",                    
+                    "in": "header",
+                    "required": true
+                  },
+                  {
                     "type": "string",                    
                     "description": "Supports application/xml and application/json",
                     "name": "Accept",
