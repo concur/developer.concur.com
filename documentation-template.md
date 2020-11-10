@@ -412,7 +412,7 @@ Name|Type|Format|Description
 ---|---|---|---
 `accountCode`|`string`|-|Account Code linked to the employee.
 `comment`|`string`|-|Comment while issuing a cash advance.
-`exchangeRate`|`number`|-|Details on exchange rate.
+`exchangeRate`|`number`|-|The exchange rate that applies to the expected expense, if exchange rate is not provided default value will be 1.
 
 ### <a name="issue-cash-advance-response-schema"></a>Issue Cash Advance Response
 
