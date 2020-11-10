@@ -13,10 +13,10 @@
       },
       "version": "v4"
   },
-  "host": "localhost",
-  "basePath": "/api",
+  "host": "us.api.concursolutions.com",
+  "basePath": "/travel/trips/api/v4",
   "paths": {
-      "/v4/trip/{tripID}": {
+      "/trip/{tripID}": {
           "get": {
               "description": "Gets the trip record",
               "produces": [
