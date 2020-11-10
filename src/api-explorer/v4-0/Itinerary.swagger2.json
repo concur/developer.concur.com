@@ -15,13 +15,17 @@
   },
   "host": "us.api.concursolutions.com",
   "basePath": "/travel/trips/api/v4",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json"
+  ],
   "paths": {
       "/trip/{tripID}": {
           "get": {
-              "description": "Gets the trip record",
-              "produces": [
-                  "application/json"
-              ],
+              "description": "Gets the trip record",              
               "tags": [
                   "trip"
               ],
@@ -34,7 +38,14 @@
                       "name": "tripID",
                       "in": "path",
                       "required": true
-                  }
+                  },
+                  {
+                    "type": "string",                    
+                    "description": "Supports application/xml and application/json",
+                    "name": "Accept",
+                    "in": "header",
+                    "required": false
+                }
               ],
               "responses": {
                   "200": {
@@ -54,6 +65,15 @@
                       "schema": {
                           "$ref": "#/definitions/model.ErrorAPIResponse"
                       }
+                  },
+                  "403": {
+                    "description": "Forbidden"
+                  },
+                  "404": {
+                    "description": "ID Not Found",
+                    "schema": {
+                        "$ref": "#/definitions/model.ErrorAPIResponse"
+                    }
                   },
                   "500": {
                       "description": "Internal Server Error",
