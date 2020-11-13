@@ -1,0 +1,3016 @@
+{
+  "schemes": [
+      "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+      "description": "This is the api specification for the Itinerary API.\n\n# Introduction\nThe Itinerary API provides clients and authorized partners access to travel itinerary data. They can now subscribe to events and fetch trips by ID.\n",
+      "title": "Itinerary API",
+      "termsOfService": "http://us.api.concursolutions.com/terms",
+      "license": {
+          "name": "Concur",
+          "url": "https://developer.concur.com/Terms-of-Use.html"
+      },
+      "version": "v4"
+  },
+  "host": "us.api.concursolutions.com",
+  "basePath": "/travel/trips/api/v4",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "paths": {
+      "/trip/{tripID}": {
+          "get": {
+              "description": "Gets the trip record",              
+              "tags": [
+                  "trip"
+              ],
+              "summary": "v4 - Get Trip record",
+              "parameters": [
+                  {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "trip id",
+                      "name": "tripID",
+                      "in": "path",
+                      "required": true
+                  },
+                  {
+                    "type": "string",
+                    "description": "Accepts gzip",
+                    "name": "Accept-Encoding",                    
+                    "in": "header",
+                    "required": true
+                  },
+                  {
+                    "type": "string",                    
+                    "description": "Supports application/xml and application/json",
+                    "name": "Accept",
+                    "in": "header",
+                    "required": false
+                }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/Itinerary"
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/model.ErrorAPIResponse"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/model.ErrorAPIResponse"
+                      }
+                  },
+                  "403": {
+                    "description": "Forbidden"
+                  },
+                  "404": {
+                    "description": "ID Not Found",
+                    "schema": {
+                        "$ref": "#/definitions/model.ErrorAPIResponse"
+                    }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/model.ErrorAPIResponse"
+                      }
+                  }
+              }
+          }
+      }
+  },
+  "definitions": {
+      "AccountingLine": {
+          "type": "object",
+          "properties": {
+              "AirlineCode": {
+                  "type": "string"
+              },
+              "AmountPaid": {
+                  "type": "string"
+              },
+              "AmountPaidCurrency": {
+                  "type": "string"
+              },
+              "CCNumber": {
+                  "type": "string"
+              },
+              "Comment": {
+                  "type": "string"
+              },
+              "Commission": {
+                  "type": "string"
+              },
+              "CommissionCurrency": {
+                  "type": "string"
+              },
+              "ExchangedTicketNumber": {
+                  "type": "string"
+              },
+              "FOPMethod": {
+                  "type": "string"
+              },
+              "Fare": {
+                  "type": "string"
+              },
+              "FareCurrency": {
+                  "type": "string"
+              },
+              "IssueDate": {
+                  "type": "string"
+              },
+              "MCOType": {
+                  "type": "string"
+              },
+              "Tax": {
+                  "type": "string"
+              },
+              "TaxCurrency": {
+                  "type": "string"
+              },
+              "TranControlNbr": {
+                  "type": "string"
+              },
+              "TranPlatingNbr": {
+                  "type": "string"
+              }
+          }
+      },
+      "Air": {
+          "type": "object",
+          "properties": {
+              "AircraftCode": {
+                  "type": "string"
+              },
+              "Bags": {
+                  "type": "string"
+              },
+              "Cabin": {
+                  "type": "string"
+              },
+              "CancellationNumber": {
+                  "type": "string"
+              },
+              "CancellationPolicy": {
+                  "type": "string"
+              },
+              "CarbonEmissionLbs": {
+                  "type": "number"
+              },
+              "CarbonModel": {
+                  "type": "integer"
+              },
+              "Charges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "CheckedBaggage": {
+                  "type": "string"
+              },
+              "ClassOfService": {
+                  "type": "string"
+              },
+              "ConfirmationNumber": {
+                  "type": "string"
+              },
+              "DateCancelledUtc": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "Duration": {
+                  "type": "integer"
+              },
+              "ETicket": {
+                  "type": "string"
+              },
+              "EndCityCode": {
+                  "type": "string"
+              },
+              "EndDateLocal": {
+                  "type": "string"
+              },
+              "EndDateUtc": {
+                  "type": "string"
+              },
+              "EndGate": {
+                  "type": "string"
+              },
+              "EndTerminal": {
+                  "type": "string"
+              },
+              "FlightNumber": {
+                  "type": "string"
+              },
+              "FrequentTravelerId": {
+                  "type": "string"
+              },
+              "IsOpenSegment": {
+                  "type": "boolean"
+              },
+              "IsPreferredVendor": {
+                  "type": "integer"
+              },
+              "IsUpgradeAllowed": {
+                  "type": "boolean"
+              },
+              "LegId": {
+                  "type": "integer"
+              },
+              "Meals": {
+                  "type": "string"
+              },
+              "Miles": {
+                  "type": "integer"
+              },
+              "Notes": {
+                  "type": "string"
+              },
+              "NumStops": {
+                  "type": "integer"
+              },
+              "OpenSegment": {
+                  "type": "string"
+              },
+              "OperatedByFlightNumber": {
+                  "type": "string"
+              },
+              "OperatedByVendor": {
+                  "type": "string"
+              },
+              "OperatedByVendorName": {
+                  "type": "string"
+              },
+              "Remarks": {
+                  "$ref": "#/definitions/Remarks"
+              },
+              "RuleViolations": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/RuleViolation"
+                  }
+              },
+              "Seats": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/AirSeat"
+                  }
+              },
+              "Services": {
+                  "type": "string"
+              },
+              "SpecialInstructions": {
+                  "type": "string"
+              },
+              "StartCityCode": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "StartDateUtc": {
+                  "type": "string"
+              },
+              "StartGate": {
+                  "type": "string"
+              },
+              "StartTerminal": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "TimeZone": {
+                  "type": "string"
+              },
+              "TimeZoneId": {
+                  "type": "integer"
+              },
+              "UpgradedDateTime": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorFlags": {
+                  "type": "string"
+              },
+              "VendorName": {
+                  "type": "string"
+              }
+          }
+      },
+      "AirSeat": {
+          "type": "object",
+          "properties": {
+              "PassengerRph": {
+                  "type": "integer"
+              },
+              "SeatNumber": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              }
+          }
+      },
+      "AirlineAdjustment": {
+          "type": "object",
+          "properties": {
+              "AddCollectAmount": {
+                  "type": "number"
+              },
+              "AdjustmentDateTime": {
+                  "type": "string"
+              },
+              "AdjustmentDateTimeUTC": {
+                  "type": "string"
+              },
+              "AdjustmentType": {
+                  "type": "string"
+              },
+              "AirlineCharges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "PassengerName": {
+                  "type": "string"
+              },
+              "PlatingCarrierNumericCode": {
+                  "type": "string"
+              },
+              "PlatingControlNumber": {
+                  "type": "string"
+              },
+              "RecordLocator": {
+                  "type": "string"
+              },
+              "Taxes": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Tax"
+                  }
+              },
+              "TotalAdjustment": {
+                  "type": "number"
+              },
+              "TotalAdjustmentCurrency": {
+                  "type": "string"
+              }
+          }
+      },
+      "AirlineTicket": {
+          "type": "object",
+          "properties": {
+              "AccountingLine": {
+                  "$ref": "#/definitions/AccountingLine"
+              },
+              "AddCollectAmount": {
+                  "type": "number"
+              },
+              "AirlineCharges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "AirlineTicketCoupons": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/AirlineTicketCoupon"
+                  }
+              },
+              "AirlineTicketExchanges": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/AirlineTicketExchange"
+                  }
+              },
+              "AirlineTicketFareBreakups": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/AirlineTicketFareBreakup"
+                  }
+              },
+              "BaseFare": {
+                  "type": "number"
+              },
+              "BaseFareCurrency": {
+                  "type": "string"
+              },
+              "BaseFareNuc": {
+                  "type": "number"
+              },
+              "BaseFareNucCurrency": {
+                  "type": "string"
+              },
+              "ComparisonFare": {
+                  "type": "number"
+              },
+              "ComparisonFareCurrency": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "Endorsements": {
+                  "type": "string"
+              },
+              "InvoiceNumber": {
+                  "type": "string"
+              },
+              "IssueDateTime": {
+                  "type": "string"
+              },
+              "IssueDateTimeUTC": {
+                  "type": "string"
+              },
+              "IssuingIataAgencyNumber": {
+                  "type": "integer"
+              },
+              "IssuingPseudoCity": {
+                  "type": "string"
+              },
+              "LinearFareConstructor": {
+                  "type": "string"
+              },
+              "MasterTicketNumber": {
+                  "type": "string"
+              },
+              "NameReference": {
+                  "type": "string"
+              },
+              "PassengerName": {
+                  "type": "string"
+              },
+              "PlatingCarrierNumericCode": {
+                  "type": "string"
+              },
+              "PlatingControlNumber": {
+                  "type": "string"
+              },
+              "ProgramCarrierCode": {
+                  "type": "string"
+              },
+              "ProgramMembershipNumber": {
+                  "type": "string"
+              },
+              "RecordLocator": {
+                  "type": "string"
+              },
+              "SabreDkNumber": {
+                  "type": "string"
+              },
+              "Taxes": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Tax"
+                  }
+              },
+              "TicketType": {
+                  "type": "string"
+              },
+              "Ticketless": {
+                  "type": "boolean"
+              },
+              "TotalFare": {
+                  "type": "number"
+              },
+              "TotalFareCurrency": {
+                  "type": "string"
+              },
+              "TourIdentifier": {
+                  "type": "string"
+              }
+          }
+      },
+      "AirlineTicketCoupon": {
+          "type": "object",
+          "properties": {
+              "ClassOfService": {
+                  "type": "string"
+              },
+              "CouponNumber": {
+                  "type": "integer"
+              },
+              "CouponStatus": {
+                  "type": "string"
+              },
+              "EndCityCode": {
+                  "type": "string"
+              },
+              "FlightNumber": {
+                  "type": "string"
+              },
+              "NotValidAfterDate": {
+                  "type": "string"
+              },
+              "NotValidBeforeDate": {
+                  "type": "string"
+              },
+              "RateCode": {
+                  "type": "string"
+              },
+              "StartCityCode": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "TicketDesignator": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              }
+          }
+      },
+      "AirlineTicketExchange": {
+          "type": "object",
+          "properties": {
+              "Amount": {
+                  "type": "number"
+              },
+              "AppliedSegment1": {
+                  "type": "integer"
+              },
+              "AppliedSegment10": {
+                  "type": "integer"
+              },
+              "AppliedSegment2": {
+                  "type": "integer"
+              },
+              "AppliedSegment3": {
+                  "type": "integer"
+              },
+              "AppliedSegment4": {
+                  "type": "integer"
+              },
+              "AppliedSegment5": {
+                  "type": "integer"
+              },
+              "AppliedSegment6": {
+                  "type": "integer"
+              },
+              "AppliedSegment7": {
+                  "type": "integer"
+              },
+              "AppliedSegment8": {
+                  "type": "integer"
+              },
+              "AppliedSegment9": {
+                  "type": "integer"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "OldRecordLocator": {
+                  "type": "string"
+              },
+              "PlatingCarrierNumericCode": {
+                  "type": "string"
+              },
+              "PlatingControlNumber": {
+                  "type": "string"
+              }
+          }
+      },
+      "AirlineTicketFareBreakup": {
+          "type": "object",
+          "properties": {
+              "BaseFare": {
+                  "type": "number"
+              },
+              "ClassOfService": {
+                  "type": "string"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "EndCityCode": {
+                  "type": "string"
+              },
+              "IsRefundable": {
+                  "type": "boolean"
+              },
+              "StartCityCode": {
+                  "type": "string"
+              },
+              "TotalFare": {
+                  "type": "number"
+              },
+              "Vendor": {
+                  "type": "string"
+              }
+          }
+      },
+      "BaseAirlineTicket": {
+          "type": "object",
+          "properties": {
+              "AirlineAdjustment": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/AirlineAdjustment"
+                  }
+              },
+              "AirlineTicket": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/AirlineTicket"
+                  }
+              },
+              "ManualAirlineTicket": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/ManualAirlineTicket"
+                  }
+              }
+          }
+      },
+      "BaseRailPayment": {
+          "type": "object",
+          "properties": {
+              "RailAdjustment": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/RailAdjustment"
+                  }
+              },
+              "RailPayment": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/RailPayment"
+                  }
+              }
+          }
+      },
+      "Booking": {
+          "type": "object",
+          "properties": {
+              "AgencyName": {
+                  "type": "string"
+              },
+              "AgencyPCC": {
+                  "type": "string"
+              },
+              "AirfareQuotes": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Quote"
+                  }
+              },
+              "AirlineTickets": {
+                  "$ref": "#/definitions/BaseAirlineTicket"
+              },
+              "BookingOwner": {
+                  "type": "string"
+              },
+              "BookingSource": {
+                  "type": "string"
+              },
+              "Charges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "DateBookedLocal": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "Delivery": {
+                  "$ref": "#/definitions/Delivery"
+              },
+              "FormOfPaymentName": {
+                  "type": "string"
+              },
+              "FormOfPaymentType": {
+                  "type": "string"
+              },
+              "IsGhostCard": {
+                  "type": "boolean"
+              },
+              "ItinSourceName": {
+                  "type": "string"
+              },
+              "LastTicketDateUtc": {
+                  "type": "string"
+              },
+              "MiscChargeOrders": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/MiscellaneousChargeOrder"
+                  }
+              },
+              "PassPrograms": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/PassProgram"
+                  }
+              },
+              "Passengers": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Passenger"
+                  }
+              },
+              "PhoneNumbers": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/PhoneNumberData"
+                  }
+              },
+              "RailPayments": {
+                  "$ref": "#/definitions/BaseRailPayment"
+              },
+              "RecordLocator": {
+                  "type": "string"
+              },
+              "Remarks": {
+                  "$ref": "#/definitions/Remarks"
+              },
+              "Segments": {
+                  "$ref": "#/definitions/Segment"
+              },
+              "TicketMailingAddress": {
+                  "type": "string"
+              },
+              "TicketPickupLocation": {
+                  "type": "string"
+              },
+              "TicketPickupNumber": {
+                  "type": "string"
+              },
+              "WaitListSegments": {
+                  "$ref": "#/definitions/WaitListSegments"
+              },
+              "Warnings": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Warning"
+                  }
+              },
+              "WebAddresses": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/WebAddressData"
+                  }
+              }
+          }
+      },
+      "Car": {
+          "type": "object",
+          "properties": {
+              "AirCondition": {
+                  "type": "string"
+              },
+              "Body": {
+                  "type": "string"
+              },
+              "CancellationNumber": {
+                  "type": "string"
+              },
+              "Charges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "Class": {
+                  "type": "string"
+              },
+              "ConfirmationNumber": {
+                  "type": "string"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "DailyRate": {
+                  "type": "number"
+              },
+              "DateCancelledUtc": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "DiscountCode": {
+                  "type": "string"
+              },
+              "DropoffCollectionAddress1": {
+                  "type": "string"
+              },
+              "DropoffCollectionAddressType": {
+                  "type": "string"
+              },
+              "DropoffCollectionCategory": {
+                  "type": "string"
+              },
+              "DropoffCollectionCity": {
+                  "type": "string"
+              },
+              "DropoffCollectionCityCode": {
+                  "type": "string"
+              },
+              "DropoffCollectionCountry": {
+                  "type": "string"
+              },
+              "DropoffCollectionLatitude": {
+                  "type": "string"
+              },
+              "DropoffCollectionLongitude": {
+                  "type": "string"
+              },
+              "DropoffCollectionNumber": {
+                  "type": "string"
+              },
+              "DropoffCollectionPhoneNumber": {
+                  "type": "string"
+              },
+              "DropoffCollectionPostalCode": {
+                  "type": "string"
+              },
+              "DropoffCollectionState": {
+                  "type": "string"
+              },
+              "EndAddress": {
+                  "type": "string"
+              },
+              "EndAddress2": {
+                  "type": "string"
+              },
+              "EndCity": {
+                  "type": "string"
+              },
+              "EndCityCode": {
+                  "type": "string"
+              },
+              "EndCloseTime": {
+                  "type": "string"
+              },
+              "EndCountry": {
+                  "type": "string"
+              },
+              "EndDateLocal": {
+                  "type": "string"
+              },
+              "EndDateUtc": {
+                  "type": "string"
+              },
+              "EndLatitude": {
+                  "type": "number"
+              },
+              "EndLongitude": {
+                  "type": "number"
+              },
+              "EndOpenTime": {
+                  "type": "string"
+              },
+              "EndPhoneNumber": {
+                  "type": "string"
+              },
+              "EndPostalCode": {
+                  "type": "string"
+              },
+              "EndState": {
+                  "type": "string"
+              },
+              "IsGhostCard": {
+                  "type": "boolean"
+              },
+              "IsPreferredVendor": {
+                  "type": "integer"
+              },
+              "IsUpgradeAllowed": {
+                  "type": "boolean"
+              },
+              "Notes": {
+                  "type": "string"
+              },
+              "NumCars": {
+                  "type": "integer"
+              },
+              "NumPersons": {
+                  "type": "integer"
+              },
+              "PhoneNumber": {
+                  "type": "string"
+              },
+              "PickupDeliveryAddress1": {
+                  "type": "string"
+              },
+              "PickupDeliveryAddressType": {
+                  "type": "string"
+              },
+              "PickupDeliveryCategory": {
+                  "type": "string"
+              },
+              "PickupDeliveryCity": {
+                  "type": "string"
+              },
+              "PickupDeliveryCityCode": {
+                  "type": "string"
+              },
+              "PickupDeliveryCountry": {
+                  "type": "string"
+              },
+              "PickupDeliveryLatitude": {
+                  "type": "string"
+              },
+              "PickupDeliveryLongitude": {
+                  "type": "string"
+              },
+              "PickupDeliveryNumber": {
+                  "type": "string"
+              },
+              "PickupDeliveryPhoneNumber": {
+                  "type": "string"
+              },
+              "PickupDeliveryPostalCode": {
+                  "type": "string"
+              },
+              "PickupDeliveryState": {
+                  "type": "string"
+              },
+              "RateCode": {
+                  "type": "string"
+              },
+              "RateType": {
+                  "type": "string"
+              },
+              "Remarks": {
+                  "$ref": "#/definitions/Remarks"
+              },
+              "SpecialEquipment": {
+                  "type": "string"
+              },
+              "SpecialInstructions": {
+                  "type": "string"
+              },
+              "StartAddress": {
+                  "type": "string"
+              },
+              "StartAddress2": {
+                  "type": "string"
+              },
+              "StartCity": {
+                  "type": "string"
+              },
+              "StartCityCode": {
+                  "type": "string"
+              },
+              "StartCloseTime": {
+                  "type": "string"
+              },
+              "StartCountry": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "StartDateUtc": {
+                  "type": "string"
+              },
+              "StartLatitude": {
+                  "type": "number"
+              },
+              "StartLocation": {
+                  "type": "string"
+              },
+              "StartLongitude": {
+                  "type": "number"
+              },
+              "StartOpenTime": {
+                  "type": "string"
+              },
+              "StartPostalCode": {
+                  "type": "string"
+              },
+              "StartState": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "TimeZone": {
+                  "type": "string"
+              },
+              "TimeZoneId": {
+                  "type": "integer"
+              },
+              "TotalRate": {
+                  "type": "number"
+              },
+              "Transmission": {
+                  "type": "string"
+              },
+              "UpgradedDateTime": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorFlags": {
+                  "type": "string"
+              },
+              "VendorName": {
+                  "type": "string"
+              }
+          }
+      },
+      "ChargeDetail": {
+          "type": "object",
+          "properties": {
+              "Fixed": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Fixed"
+                  }
+              },
+              "Percent": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Percent"
+                  }
+              },
+              "Rate": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Rate"
+                  }
+              },
+              "RateWithAllowance": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/RateWithAllowance"
+                  }
+              }
+          }
+      },
+      "CustomAttribute": {
+          "type": "object",
+          "properties": {
+              "Data": {
+                  "type": "string"
+              },
+              "DataType": {
+                  "type": "string"
+              },
+              "DisplayOnItinerary": {
+                  "type": "boolean"
+              },
+              "DisplayTitle": {
+                  "type": "string"
+              },
+              "ExternalId": {
+                  "type": "integer"
+              },
+              "Name": {
+                  "type": "string"
+              }
+          }
+      },
+      "Delivery": {
+          "type": "object",
+          "required": [
+              "Type"
+          ],
+          "properties": {
+              "AddressLine1": {
+                  "type": "string"
+              },
+              "AddressLine2": {
+                  "type": "string"
+              },
+              "City": {
+                  "type": "string"
+              },
+              "Country": {
+                  "type": "string"
+              },
+              "Email": {
+                  "type": "string"
+              },
+              "Latitude": {
+                  "type": "number"
+              },
+              "LocationAdditionalDetails": {
+                  "type": "string"
+              },
+              "LocationDesc": {
+                  "type": "string"
+              },
+              "LocationName": {
+                  "type": "string"
+              },
+              "Longitude": {
+                  "type": "number"
+              },
+              "PhoneNumber": {
+                  "type": "string"
+              },
+              "ReferenceNumber": {
+                  "type": "string"
+              },
+              "State": {
+                  "type": "string"
+              },
+              "Type": {
+                  "type": "string"
+              },
+              "Zip": {
+                  "type": "string"
+              }
+          }
+      },
+      "Dining": {
+          "type": "object",
+          "properties": {
+              "CancellationNumber": {
+                  "type": "string"
+              },
+              "Charges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "ConfirmationNumber": {
+                  "type": "string"
+              },
+              "DateCancelledUtc": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "EndDateLocal": {
+                  "type": "string"
+              },
+              "EndDateUtc": {
+                  "type": "string"
+              },
+              "FrequentTravelerId": {
+                  "type": "string"
+              },
+              "IsPreferredVendor": {
+                  "type": "integer"
+              },
+              "IsUpgradeAllowed": {
+                  "type": "boolean"
+              },
+              "Name": {
+                  "type": "string"
+              },
+              "Notes": {
+                  "type": "string"
+              },
+              "NumPersons": {
+                  "type": "integer"
+              },
+              "PhoneNumber": {
+                  "type": "string"
+              },
+              "Remarks": {
+                  "$ref": "#/definitions/Remarks"
+              },
+              "ReservationId": {
+                  "type": "string"
+              },
+              "StartAddress": {
+                  "type": "string"
+              },
+              "StartAddress2": {
+                  "type": "string"
+              },
+              "StartCity": {
+                  "type": "string"
+              },
+              "StartCountry": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "StartDateUtc": {
+                  "type": "string"
+              },
+              "StartLatitude": {
+                  "type": "number"
+              },
+              "StartLongitude": {
+                  "type": "number"
+              },
+              "StartPostalCode": {
+                  "type": "string"
+              },
+              "StartState": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "TimeZone": {
+                  "type": "string"
+              },
+              "TimeZoneId": {
+                  "type": "integer"
+              },
+              "UpgradedDateTime": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorFlags": {
+                  "type": "string"
+              },
+              "VendorName": {
+                  "type": "string"
+              }
+          }
+      },
+      "Fixed": {
+          "type": "object",
+          "properties": {
+              "Amount": {
+                  "type": "number"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "Description": {
+                  "type": "string"
+              },
+              "IsPaid": {
+                  "type": "boolean"
+              },
+              "IsPrimary": {
+                  "type": "boolean"
+              },
+              "SemanticsCode": {
+                  "type": "string"
+              },
+              "SemanticsVendorType": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorChargeCode": {
+                  "type": "string"
+              }
+          }
+      },
+      "FrequentFlyer": {
+          "type": "object",
+          "properties": {
+              "AirlineVendor": {
+                  "type": "string"
+              },
+              "Description": {
+                  "type": "string"
+              },
+              "DiscountProgramExpirationDate": {
+                  "type": "string"
+              },
+              "DiscountProgramType": {
+                  "type": "string"
+              },
+              "FrequentFlyerNumber": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "StatusExpirationDate": {
+                  "type": "string"
+              }
+          }
+      },
+      "FrequentTravelerProgram": {
+          "type": "object",
+          "properties": {
+              "FrequentFlyer": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/FrequentFlyer"
+                  }
+              },
+              "RailProgram": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/RailProgram"
+                  }
+              }
+          }
+      },
+      "Hotel": {
+          "type": "object",
+          "properties": {
+              "Breakfast": {
+                  "type": "boolean"
+              },
+              "CancellationNumber": {
+                  "type": "string"
+              },
+              "CancellationPolicy": {
+                  "type": "string"
+              },
+              "Charges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "CheckinTime": {
+                  "type": "string"
+              },
+              "CheckoutTime": {
+                  "type": "string"
+              },
+              "ConfirmationNumber": {
+                  "type": "string"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "DailyRate": {
+                  "type": "number"
+              },
+              "DateCancelledUtc": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "DirectBill": {
+                  "type": "boolean"
+              },
+              "DiscountCode": {
+                  "type": "string"
+              },
+              "Email": {
+                  "type": "string"
+              },
+              "EndDateLocal": {
+                  "type": "string"
+              },
+              "EndDateUtc": {
+                  "type": "string"
+              },
+              "EquipmentCode": {
+                  "type": "string"
+              },
+              "FaxNumber": {
+                  "type": "string"
+              },
+              "FrequentTravelerId": {
+                  "type": "string"
+              },
+              "HotelPropertyId": {
+                  "type": "string"
+              },
+              "IncludedCustomAmenities": {
+                  "type": "string"
+              },
+              "IsGhostCard": {
+                  "type": "boolean"
+              },
+              "IsPreferredVendor": {
+                  "type": "integer"
+              },
+              "IsUpgradeAllowed": {
+                  "type": "boolean"
+              },
+              "ModificationCode": {
+                  "type": "string"
+              },
+              "Name": {
+                  "type": "string"
+              },
+              "Notes": {
+                  "type": "string"
+              },
+              "NumPersons": {
+                  "type": "integer"
+              },
+              "NumRooms": {
+                  "type": "integer"
+              },
+              "Parking": {
+                  "type": "boolean"
+              },
+              "PartnerMembershipId": {
+                  "type": "string"
+              },
+              "PassiveType": {
+                  "type": "string"
+              },
+              "PhoneNumber": {
+                  "type": "string"
+              },
+              "RateAccess": {
+                  "type": "string"
+              },
+              "RateCode": {
+                  "type": "string"
+              },
+              "RateType": {
+                  "type": "string"
+              },
+              "Remarks": {
+                  "$ref": "#/definitions/Remarks"
+              },
+              "RoomDescription": {
+                  "type": "string"
+              },
+              "RoomType": {
+                  "type": "string"
+              },
+              "SpecialInstructions": {
+                  "type": "string"
+              },
+              "StartAddress": {
+                  "type": "string"
+              },
+              "StartAddress2": {
+                  "type": "string"
+              },
+              "StartCity": {
+                  "type": "string"
+              },
+              "StartCityCode": {
+                  "type": "string"
+              },
+              "StartCountry": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "StartDateUtc": {
+                  "type": "string"
+              },
+              "StartLatitude": {
+                  "type": "number"
+              },
+              "StartLongitude": {
+                  "type": "number"
+              },
+              "StartPostalCode": {
+                  "type": "string"
+              },
+              "StartState": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "TimeZone": {
+                  "type": "string"
+              },
+              "TimeZoneId": {
+                  "type": "integer"
+              },
+              "TotalRate": {
+                  "type": "number"
+              },
+              "UpgradedDateTime": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorFlags": {
+                  "type": "string"
+              },
+              "VendorName": {
+                  "type": "string"
+              },
+              "Wifi": {
+                  "type": "boolean"
+              }
+          }
+      },
+      "Itinerary": {
+          "type": "object",
+          "properties": {
+              "BookedByFirstName": {
+                  "type": "string"
+              },
+              "BookedByLastName": {
+                  "type": "string"
+              },
+              "BookedVia": {
+                  "type": "string"
+              },
+              "Bookings": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Booking"
+                  }
+              },
+              "CancelComments": {
+                  "type": "string"
+              },
+              "ClientLocator": {
+                  "type": "string"
+              },
+              "Comments": {
+                  "type": "string"
+              },
+              "CustomAttributes": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/CustomAttribute"
+                  }
+              },
+              "DateBookedLocal": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "Description": {
+                  "type": "string"
+              },
+              "EndDateLocal": {
+                  "type": "string"
+              },
+              "EndDateUtc": {
+                  "type": "string"
+              },
+              "HasOpenBookingPassive": {
+                  "type": "boolean"
+              },
+              "IsPersonal": {
+                  "type": "boolean"
+              },
+              "ItinLocator": {
+                  "type": "string"
+              },
+              "ProjectName": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "StartDateUtc": {
+                  "type": "string"
+              },
+              "TravelRequestId": {
+                  "type": "string"
+              },
+              "TripLinkLocator": {
+                  "type": "string"
+              },
+              "TripName": {
+                  "type": "string"
+              },
+              "TripStatus": {
+                  "type": "integer"
+              },
+              "UserLoginId": {
+                  "type": "string"
+              },
+              "id": {
+                  "type": "string"
+              }
+          }
+      },
+      "ManualAirlineTicket": {
+          "type": "object",
+          "properties": {
+              "AirlineCharges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "BaseFare": {
+                  "type": "number"
+              },
+              "BaseFareCurrency": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "Taxes": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Tax"
+                  }
+              },
+              "TotalFare": {
+                  "type": "number"
+              },
+              "TotalFareCurrency": {
+                  "type": "string"
+              }
+          }
+      },
+      "MiscellaneousChargeOrder": {
+          "type": "object",
+          "required": [
+              "PlatingCarrierNumericCode",
+              "PlatingControlNumber",
+              "TotalAmount",
+              "TotalAmountCurrency"
+          ],
+          "properties": {
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "IssueDate": {
+                  "type": "string"
+              },
+              "PlatingCarrierNumericCode": {
+                  "type": "string"
+              },
+              "PlatingControlNumber": {
+                  "type": "string"
+              },
+              "TotalAmount": {
+                  "type": "number"
+              },
+              "TotalAmountCurrency": {
+                  "type": "string"
+              }
+          }
+      },
+      "Parking": {
+          "type": "object",
+          "required": [
+              "StartDateLocal"
+          ],
+          "properties": {
+              "CancellationNumber": {
+                  "type": "string"
+              },
+              "Charges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "ClassOfService": {
+                  "type": "string"
+              },
+              "ConfirmationNumber": {
+                  "type": "string"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "DateCancelledUtc": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "EndDateLocal": {
+                  "type": "string"
+              },
+              "EndDateUtc": {
+                  "type": "string"
+              },
+              "FrequentTravelerId": {
+                  "type": "string"
+              },
+              "IsPreferredVendor": {
+                  "type": "integer"
+              },
+              "IsUpgradeAllowed": {
+                  "type": "boolean"
+              },
+              "Name": {
+                  "type": "string"
+              },
+              "Notes": {
+                  "type": "string"
+              },
+              "OperatedByVendor": {
+                  "type": "string"
+              },
+              "ParkingLocationId": {
+                  "type": "string"
+              },
+              "PhoneNumber": {
+                  "type": "string"
+              },
+              "Pin": {
+                  "type": "string"
+              },
+              "RateCode": {
+                  "type": "string"
+              },
+              "Remarks": {
+                  "$ref": "#/definitions/Remarks"
+              },
+              "StartAddress": {
+                  "type": "string"
+              },
+              "StartAddress2": {
+                  "type": "string"
+              },
+              "StartCity": {
+                  "type": "string"
+              },
+              "StartCityCode": {
+                  "type": "string"
+              },
+              "StartCountry": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "StartDateUtc": {
+                  "type": "string"
+              },
+              "StartLocation": {
+                  "type": "string"
+              },
+              "StartPostalCode": {
+                  "type": "string"
+              },
+              "StartState": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "TimeZone": {
+                  "type": "string"
+              },
+              "TimeZoneId": {
+                  "type": "integer"
+              },
+              "TotalRate": {
+                  "type": "number"
+              },
+              "UpgradedDateTime": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorFlags": {
+                  "type": "string"
+              },
+              "VendorName": {
+                  "type": "string"
+              }
+          }
+      },
+      "PassProgram": {
+          "type": "object",
+          "properties": {
+              "Amount": {
+                  "type": "number"
+              },
+              "Name": {
+                  "type": "string"
+              },
+              "Type": {
+                  "type": "string"
+              },
+              "UserFirstName": {
+                  "type": "string"
+              },
+              "UserLastName": {
+                  "type": "string"
+              }
+          }
+      },
+      "Passenger": {
+          "type": "object",
+          "properties": {
+              "City": {
+                  "type": "string"
+              },
+              "Country": {
+                  "type": "string"
+              },
+              "FirstNameNumber": {
+                  "type": "integer"
+              },
+              "FrequentTravelerPrograms": {
+                  "$ref": "#/definitions/FrequentTravelerProgram"
+              },
+              "LastNameNumber": {
+                  "type": "integer"
+              },
+              "NameFirst": {
+                  "type": "string"
+              },
+              "NameLast": {
+                  "type": "string"
+              },
+              "NameMiddle": {
+                  "type": "string"
+              },
+              "NamePrefix": {
+                  "type": "string"
+              },
+              "NameRemark": {
+                  "type": "string"
+              },
+              "NameSuffix": {
+                  "type": "string"
+              },
+              "NameTitle": {
+                  "type": "string"
+              },
+              "PostalCode": {
+                  "type": "string"
+              },
+              "State": {
+                  "type": "string"
+              },
+              "StreetAddress": {
+                  "type": "string"
+              },
+              "StreetAddress2": {
+                  "type": "string"
+              },
+              "TextName": {
+                  "type": "string"
+              }
+          }
+      },
+      "Percent": {
+          "type": "object",
+          "properties": {
+              "Amount": {
+                  "type": "number"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "Description": {
+                  "type": "string"
+              },
+              "IsPaid": {
+                  "type": "boolean"
+              },
+              "IsPrimary": {
+                  "type": "boolean"
+              },
+              "SemanticsCode": {
+                  "type": "string"
+              },
+              "SemanticsVendorType": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorChargeCode": {
+                  "type": "string"
+              }
+          }
+      },
+      "PhoneNumberData": {
+          "type": "object",
+          "properties": {
+              "Description": {
+                  "type": "string"
+              },
+              "PassengerRPH": {
+                  "type": "integer"
+              },
+              "PhoneNumber": {
+                  "type": "string"
+              },
+              "Type": {
+                  "type": "string"
+              }
+          }
+      },
+      "Quote": {
+          "type": "object",
+          "properties": {
+              "AirlineCharges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "BaseFare": {
+                  "type": "number"
+              },
+              "BaseFareCurrency": {
+                  "type": "string"
+              },
+              "BaseFareNuc": {
+                  "type": "number"
+              },
+              "BaseFareNucCurrency": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "Endorsements": {
+                  "type": "string"
+              },
+              "IssueByDate": {
+                  "type": "string"
+              },
+              "TotalFare": {
+                  "type": "number"
+              },
+              "TotalFareCurrency": {
+                  "type": "string"
+              }
+          }
+      },
+      "Rail": {
+          "type": "object",
+          "required": [
+              "StartDateLocal"
+          ],
+          "properties": {
+              "Amenities": {
+                  "type": "string"
+              },
+              "Cabin": {
+                  "type": "string"
+              },
+              "CancellationNumber": {
+                  "type": "string"
+              },
+              "CarbonEmissionLbs": {
+                  "type": "number"
+              },
+              "CarbonModel": {
+                  "type": "integer"
+              },
+              "Charges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "ClassOfService": {
+                  "type": "string"
+              },
+              "ConfirmationNumber": {
+                  "type": "string"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "DateCancelledUtc": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "DiscountCode": {
+                  "type": "string"
+              },
+              "Duration": {
+                  "type": "integer"
+              },
+              "ETicket": {
+                  "type": "string"
+              },
+              "EndCity": {
+                  "type": "string"
+              },
+              "EndCityCode": {
+                  "type": "string"
+              },
+              "EndCountry": {
+                  "type": "string"
+              },
+              "EndDateLocal": {
+                  "type": "string"
+              },
+              "EndDateUtc": {
+                  "type": "string"
+              },
+              "EndLatitude": {
+                  "type": "number"
+              },
+              "EndLongitude": {
+                  "type": "number"
+              },
+              "EndPlatform": {
+                  "type": "string"
+              },
+              "EndRailStation": {
+                  "type": "string"
+              },
+              "EndRailStationName": {
+                  "type": "string"
+              },
+              "EndState": {
+                  "type": "string"
+              },
+              "FrequentTravelerId": {
+                  "type": "string"
+              },
+              "IsPreferredVendor": {
+                  "type": "integer"
+              },
+              "IsUpgradeAllowed": {
+                  "type": "boolean"
+              },
+              "LegId": {
+                  "type": "integer"
+              },
+              "Meals": {
+                  "type": "string"
+              },
+              "Miles": {
+                  "type": "integer"
+              },
+              "Notes": {
+                  "type": "string"
+              },
+              "NumPersons": {
+                  "type": "integer"
+              },
+              "NumStops": {
+                  "type": "integer"
+              },
+              "OperatedByTrainNumber": {
+                  "type": "string"
+              },
+              "OperatedByVendor": {
+                  "type": "string"
+              },
+              "RateCode": {
+                  "type": "string"
+              },
+              "Remarks": {
+                  "$ref": "#/definitions/Remarks"
+              },
+              "RouteRestrictCode": {
+                  "type": "string"
+              },
+              "Seats": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/RailSeat"
+                  }
+              },
+              "SpecialInstructions": {
+                  "type": "string"
+              },
+              "StartCity": {
+                  "type": "string"
+              },
+              "StartCityCode": {
+                  "type": "string"
+              },
+              "StartCountry": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "StartDateUtc": {
+                  "type": "string"
+              },
+              "StartLatitude": {
+                  "type": "number"
+              },
+              "StartLongitude": {
+                  "type": "number"
+              },
+              "StartPlatform": {
+                  "type": "string"
+              },
+              "StartRailStation": {
+                  "type": "string"
+              },
+              "StartRailStationName": {
+                  "type": "string"
+              },
+              "StartState": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "TimeZone": {
+                  "type": "string"
+              },
+              "TimeZoneId": {
+                  "type": "integer"
+              },
+              "TotalRate": {
+                  "type": "number"
+              },
+              "TrainNumber": {
+                  "type": "string"
+              },
+              "TrainTypeCode": {
+                  "type": "string"
+              },
+              "TrainTypeName": {
+                  "type": "string"
+              },
+              "TransportMode": {
+                  "type": "string"
+              },
+              "UpgradedDateTime": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorFlags": {
+                  "type": "string"
+              },
+              "VendorName": {
+                  "type": "string"
+              },
+              "WagonNumber": {
+                  "type": "string"
+              }
+          }
+      },
+      "RailAdjustment": {
+          "type": "object",
+          "properties": {
+              "AdjustmentDateTime": {
+                  "type": "string"
+              },
+              "AdjustmentDateTimeUTC": {
+                  "type": "string"
+              },
+              "AdjustmentType": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "RailCharges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "Taxes": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Tax"
+                  }
+              },
+              "TicketDocumentIdentifier": {
+                  "type": "string"
+              },
+              "TotalAdjustment": {
+                  "type": "number"
+              },
+              "TotalAdjustmentCurrency": {
+                  "type": "string"
+              }
+          }
+      },
+      "RailPayment": {
+          "type": "object",
+          "properties": {
+              "BaseFare": {
+                  "type": "number"
+              },
+              "BaseFareCurrency": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "IncludesVAT": {
+                  "type": "boolean"
+              },
+              "IssueByDate": {
+                  "type": "string"
+              },
+              "IssueDateTime": {
+                  "type": "string"
+              },
+              "IssueDateTimeUTC": {
+                  "type": "string"
+              },
+              "RailCharges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "TaxInvoice": {
+                  "type": "boolean"
+              },
+              "Taxes": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Tax"
+                  }
+              },
+              "TicketDocumentIdentifier": {
+                  "type": "string"
+              },
+              "TicketType": {
+                  "type": "string"
+              },
+              "TotalFare": {
+                  "type": "number"
+              },
+              "TotalFareCurrency": {
+                  "type": "string"
+              },
+              "vatApplicable": {
+                  "type": "boolean"
+              }
+          }
+      },
+      "RailProgram": {
+          "type": "object",
+          "properties": {
+              "Description": {
+                  "type": "string"
+              },
+              "DiscountProgramExpirationDate": {
+                  "type": "string"
+              },
+              "DiscountProgramType": {
+                  "type": "string"
+              },
+              "ProgramNumber": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "StatusExpirationDate": {
+                  "type": "string"
+              }
+          }
+      },
+      "RailSeat": {
+          "type": "object",
+          "properties": {
+              "Amenities": {
+                  "type": "string"
+              },
+              "BerthPosition": {
+                  "type": "string"
+              },
+              "Deck": {
+                  "type": "string"
+              },
+              "FacingForward": {
+                  "type": "string"
+              },
+              "FareSpaceComfort": {
+                  "type": "string"
+              },
+              "PassengerRph": {
+                  "type": "integer"
+              },
+              "SeatNumber": {
+                  "type": "string"
+              },
+              "SeatPosition": {
+                  "type": "string"
+              },
+              "SeatType": {
+                  "type": "string"
+              },
+              "SpaceType": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "WagonNumber": {
+                  "type": "string"
+              },
+              "WagonType": {
+                  "type": "string"
+              }
+          }
+      },
+      "Rate": {
+          "type": "object",
+          "properties": {
+              "Amount": {
+                  "type": "number"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "Description": {
+                  "type": "string"
+              },
+              "IsPaid": {
+                  "type": "boolean"
+              },
+              "IsPrimary": {
+                  "type": "boolean"
+              },
+              "NumUnits": {
+                  "type": "number"
+              },
+              "PerUnit": {
+                  "type": "string"
+              },
+              "SemanticsCode": {
+                  "type": "string"
+              },
+              "SemanticsVendorType": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorChargeCode": {
+                  "type": "string"
+              }
+          }
+      },
+      "RateWithAllowance": {
+          "type": "object",
+          "properties": {
+              "AllowanceAmount": {
+                  "type": "number"
+              },
+              "AllowanceIsUnlimited": {
+                  "type": "boolean"
+              },
+              "AllowanceNumUnits": {
+                  "type": "number"
+              },
+              "AllowanceUnit": {
+                  "type": "string"
+              },
+              "Amount": {
+                  "type": "number"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "Description": {
+                  "type": "string"
+              },
+              "IsPaid": {
+                  "type": "boolean"
+              },
+              "IsPrimary": {
+                  "type": "boolean"
+              },
+              "NumUnits": {
+                  "type": "number"
+              },
+              "PerUnit": {
+                  "type": "string"
+              },
+              "SemanticsCode": {
+                  "type": "string"
+              },
+              "SemanticsVendorType": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorChargeCode": {
+                  "type": "string"
+              }
+          }
+      },
+      "Remarks": {
+          "type": "object",
+          "properties": {
+              "TripLinkRemarks": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/TripLinkRemarks"
+                  }
+              }
+          }
+      },
+      "Ride": {
+          "type": "object",
+          "properties": {
+              "CancellationNumber": {
+                  "type": "string"
+              },
+              "CancellationPolicy": {
+                  "type": "string"
+              },
+              "Charges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "ConfirmationNumber": {
+                  "type": "string"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "DateCancelledUtc": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "DropoffInstructions": {
+                  "type": "string"
+              },
+              "Duration": {
+                  "type": "integer"
+              },
+              "EndAddress": {
+                  "type": "string"
+              },
+              "EndAddress2": {
+                  "type": "string"
+              },
+              "EndCity": {
+                  "type": "string"
+              },
+              "EndCityCode": {
+                  "type": "string"
+              },
+              "EndCountry": {
+                  "type": "string"
+              },
+              "EndDateLocal": {
+                  "type": "string"
+              },
+              "EndDateUtc": {
+                  "type": "string"
+              },
+              "EndLatitude": {
+                  "type": "number"
+              },
+              "EndLocationCode": {
+                  "type": "string"
+              },
+              "EndLongitude": {
+                  "type": "number"
+              },
+              "EndPostalCode": {
+                  "type": "string"
+              },
+              "EndState": {
+                  "type": "string"
+              },
+              "IsGhostCard": {
+                  "type": "boolean"
+              },
+              "IsPreferredVendor": {
+                  "type": "integer"
+              },
+              "IsUpgradeAllowed": {
+                  "type": "boolean"
+              },
+              "MeetingInstructions": {
+                  "type": "string"
+              },
+              "Miles": {
+                  "type": "integer"
+              },
+              "Name": {
+                  "type": "string"
+              },
+              "Notes": {
+                  "type": "string"
+              },
+              "NumPersons": {
+                  "type": "integer"
+              },
+              "NumberOfHours": {
+                  "type": "number"
+              },
+              "OperatedByVendorName": {
+                  "type": "string"
+              },
+              "PassiveCityCode": {
+                  "type": "string"
+              },
+              "PhoneNumber": {
+                  "type": "string"
+              },
+              "PickupInstructions": {
+                  "type": "string"
+              },
+              "ProviderFeedback": {
+                  "type": "string"
+              },
+              "Rate": {
+                  "type": "number"
+              },
+              "RateDescription": {
+                  "type": "string"
+              },
+              "RateNotes": {
+                  "type": "string"
+              },
+              "RateType": {
+                  "type": "string"
+              },
+              "Remarks": {
+                  "$ref": "#/definitions/Remarks"
+              },
+              "ReservationId": {
+                  "type": "string"
+              },
+              "SpecialInstructions": {
+                  "type": "string"
+              },
+              "StartAddress": {
+                  "type": "string"
+              },
+              "StartAddress2": {
+                  "type": "string"
+              },
+              "StartCity": {
+                  "type": "string"
+              },
+              "StartCityCode": {
+                  "type": "string"
+              },
+              "StartCountry": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "StartDateUtc": {
+                  "type": "string"
+              },
+              "StartLatitude": {
+                  "type": "number"
+              },
+              "StartLocation": {
+                  "type": "string"
+              },
+              "StartLocationCode": {
+                  "type": "string"
+              },
+              "StartLocationName": {
+                  "type": "string"
+              },
+              "StartLongitude": {
+                  "type": "number"
+              },
+              "StartPostalCode": {
+                  "type": "string"
+              },
+              "StartState": {
+                  "type": "string"
+              },
+              "TimeZone": {
+                  "type": "string"
+              },
+              "TimeZoneId": {
+                  "type": "integer"
+              },
+              "TotalRate": {
+                  "type": "number"
+              },
+              "UpgradedDateTime": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorFlags": {
+                  "type": "string"
+              },
+              "VendorName": {
+                  "type": "string"
+              }
+          }
+      },
+      "RuleViolation": {
+          "type": "object",
+          "properties": {
+              "CompanyReasonCode": {
+                  "type": "string"
+              },
+              "CompanyRuleText": {
+                  "type": "string"
+              },
+              "ViolationReasonCode": {
+                  "type": "integer"
+              }
+          }
+      },
+      "Segment": {
+          "type": "object",
+          "properties": {
+              "Air": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Air"
+                  }
+              },
+              "Car": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Car"
+                  }
+              },
+              "Dining": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Dining"
+                  }
+              },
+              "Hotel": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Hotel"
+                  }
+              },
+              "Parking": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Parking"
+                  }
+              },
+              "Rail": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Rail"
+                  }
+              },
+              "Ride": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Ride"
+                  }
+              },
+              "Travel": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/Travel"
+                  }
+              }
+          }
+      },
+      "SegmentOptionFlightType": {
+          "type": "object",
+          "properties": {
+              "ArrAirp": {
+                  "type": "string"
+              },
+              "Cabin": {
+                  "type": "string"
+              },
+              "Carrier": {
+                  "type": "string"
+              },
+              "DepAirp": {
+                  "type": "string"
+              },
+              "FlightNum": {
+                  "type": "string"
+              }
+          }
+      },
+      "SegmentOptionItem": {
+          "type": "object",
+          "properties": {
+              "Flight": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/SegmentOptionFlightType"
+                  }
+              },
+              "SegmentIndex": {
+                  "type": "string"
+              },
+              "StatusCode": {
+                  "type": "string"
+              },
+              "TimeStamp": {
+                  "type": "string"
+              }
+          }
+      },
+      "Tax": {
+          "type": "object",
+          "properties": {
+              "TaxAmount": {
+                  "type": "number"
+              },
+              "TaxAuthority": {
+                  "type": "string"
+              },
+              "TaxName": {
+                  "type": "string"
+              },
+              "TaxRate": {
+                  "type": "number"
+              },
+              "TaxType": {
+                  "type": "string"
+              }
+          }
+      },
+      "Travel": {
+          "type": "object",
+          "required": [
+              "StartDateLocal"
+          ],
+          "properties": {
+              "CancellationNumber": {
+                  "type": "string"
+              },
+              "Charges": {
+                  "$ref": "#/definitions/ChargeDetail"
+              },
+              "ConfirmationNumber": {
+                  "type": "string"
+              },
+              "Currency": {
+                  "type": "string"
+              },
+              "DailyRate": {
+                  "type": "number"
+              },
+              "DateCancelledUtc": {
+                  "type": "string"
+              },
+              "DateCreatedUtc": {
+                  "type": "string"
+              },
+              "DateModifiedUtc": {
+                  "type": "string"
+              },
+              "EndAddress": {
+                  "type": "string"
+              },
+              "EndAddress2": {
+                  "type": "string"
+              },
+              "EndCity": {
+                  "type": "string"
+              },
+              "EndCityCode": {
+                  "type": "string"
+              },
+              "EndCountry": {
+                  "type": "string"
+              },
+              "EndDateLocal": {
+                  "type": "string"
+              },
+              "EndDateUtc": {
+                  "type": "string"
+              },
+              "EndLatitude": {
+                  "type": "number"
+              },
+              "EndLocation": {
+                  "type": "string"
+              },
+              "EndLongitude": {
+                  "type": "number"
+              },
+              "EndPostalCode": {
+                  "type": "string"
+              },
+              "EndState": {
+                  "type": "string"
+              },
+              "IsGhostCard": {
+                  "type": "boolean"
+              },
+              "Notes": {
+                  "type": "string"
+              },
+              "NumPersons": {
+                  "type": "integer"
+              },
+              "PhoneNumber": {
+                  "type": "string"
+              },
+              "Remarks": {
+                  "$ref": "#/definitions/Remarks"
+              },
+              "SpecialInstructions": {
+                  "type": "string"
+              },
+              "StartAddress": {
+                  "type": "string"
+              },
+              "StartAddress2": {
+                  "type": "string"
+              },
+              "StartCity": {
+                  "type": "string"
+              },
+              "StartCityCode": {
+                  "type": "string"
+              },
+              "StartCountry": {
+                  "type": "string"
+              },
+              "StartDateLocal": {
+                  "type": "string"
+              },
+              "StartDateUtc": {
+                  "type": "string"
+              },
+              "StartLatitude": {
+                  "type": "number"
+              },
+              "StartLocation": {
+                  "type": "string"
+              },
+              "StartLongitude": {
+                  "type": "number"
+              },
+              "StartPostalCode": {
+                  "type": "string"
+              },
+              "StartState": {
+                  "type": "string"
+              },
+              "Status": {
+                  "type": "string"
+              },
+              "TimeZone": {
+                  "type": "string"
+              },
+              "TimeZoneId": {
+                  "type": "integer"
+              },
+              "TotalRate": {
+                  "type": "number"
+              },
+              "TransportMode": {
+                  "type": "string"
+              },
+              "Vendor": {
+                  "type": "string"
+              },
+              "VendorName": {
+                  "type": "string"
+              }
+          }
+      },
+      "TripLinkRemark": {
+          "type": "object",
+          "properties": {
+              "Text": {
+                  "type": "string"
+              }
+          }
+      },
+      "TripLinkRemarks": {
+          "type": "object",
+          "properties": {
+              "TripLinkRemark": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/TripLinkRemark"
+                  }
+              }
+          }
+      },
+      "WaitListSegments": {
+          "type": "object",
+          "properties": {
+              "SegmentOption": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/SegmentOptionItem"
+                  }
+              }
+          }
+      },
+      "Warning": {
+          "type": "object",
+          "properties": {
+              "Code": {
+                  "type": "array",
+                  "items": {
+                      "type": "string"
+                  }
+              },
+              "Text": {
+                  "type": "array",
+                  "items": {
+                      "type": "string"
+                  }
+              },
+              "Type": {
+                  "type": "array",
+                  "items": {
+                      "type": "string"
+                  }
+              }
+          }
+      },
+      "WebAddressData": {
+          "type": "object",
+          "properties": {
+              "Description": {
+                  "type": "string"
+              },
+              "Format": {
+                  "type": "string"
+              },
+              "PassengerRPH": {
+                  "type": "integer"
+              },
+              "Type": {
+                  "type": "string"
+              },
+              "WebAddress": {
+                  "type": "string"
+              }
+          }
+      },
+      "model.ErrorAPIResponse": {
+          "type": "object",
+          "properties": {
+              "errors": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/model.ExternalErrorObject"
+                  }
+              }
+          }
+      },
+      "model.ExternalErrorObject": {
+          "type": "object",
+          "properties": {
+              "errorCode": {
+                  "type": "string"
+              },
+              "errorMessage": {
+                  "type": "string"
+              },
+              "errors": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/model.ExternalErrorObject"
+                  }
+              }
+          }
+      }
+  }
+}
