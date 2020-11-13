@@ -102,6 +102,9 @@ Once the App for Business has been setup for an SAP Customer, use the following 
 - **A:** The App Center partner should open a case for when a partner needs this data for a company, to get this information.<br/><br/>
 Concur will provide a JSON document with any upcoming trips, booked within the last 365 days for a given company as the partner goes live with them. This document will contain the trip id and the URL for the partner to fetch these trips from this list as they do for any events received upfront.
 
+**Q:** Does Concur raise events for personal trips?
+- **A:** No, events will not be raised for personal trips. 
+
 ## <a name="get-trip"></a>Trip Endpoint
 
 Gets the trip record.
