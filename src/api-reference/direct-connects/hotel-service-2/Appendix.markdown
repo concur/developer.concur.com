@@ -229,7 +229,7 @@ The initial Search request (see above) is followed up by an multi-property Avail
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                  <Total AmountAfterTax="161.10" AmountBeforeTax="152.70" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <Total AmountAfterTax="161.10" AmountBeforeTax="152.70" CurrencyCode="EUR"/>
                   <RateDescription>
                     <Text>Tarif promotionnel</Text>
                     <Text>Gratuit pour les clients HRS: Quotidien gratuit, Parking attenant à l'hôtel</Text>
@@ -315,7 +315,7 @@ The initial Search request (see above) is followed up by an multi-property Avail
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                  <Total AmountAfterTax="149.00" AmountBeforeTax="141.23" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <Total AmountAfterTax="149.00" AmountBeforeTax="141.23" CurrencyCode="EUR"/>
                   <RateDescription>
                     <Text>Hot Deal</Text>
                     <Text>Gratuit pour les clients HRS: Quotidien gratuit, Parking attenant à l'hôtel</Text>
