@@ -2,6 +2,10 @@
 title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
+### 2020-11-13 :: November 2020 Release Notes Published
+
+SAP Concur has published release notes for the Request, Travel Profile Notification, and Launch External URL APIs in the November 2020 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
+
 ### 2020-10-20 :: October 2020 Release Notes Published
 
 SAP Concur has published release notes for the Request, Travel Profile Notification, and Hotel Services APIs in the October 2020 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
