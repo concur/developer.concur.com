@@ -1,14 +1,11 @@
 # Itinerary v4 API
 
-The GET Itinerary API provides clients and authorized partners access to travel itinerary data. They can now subscribe to events and fetch trips by ID.
-
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
-* [Authentication](#authentication)
-* [Events](#events)
-* [FAQ](#faq)
-* [Trip Endpoint](#get-trip)  
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Retrieve a Trip Record](#get-trip)  
 * [Schema](#schema)
   * [Payload Schema](#schema-one)
   * [Error Schema](#error-schema)
@@ -17,9 +14,15 @@ The GET Itinerary API provides clients and authorized partners access to travel 
   * [Hotel Vendor Codes](#hotel-vendor-codes)
   * [Ride Vendor Codes](#ride-vendor-codes)
 
+## <a name="overview"></a>Overview
+
+The GET Itinerary API provides clients and authorized partners access to travel itinerary data. They can now subscribe to events and fetch trips by ID.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
 ## Prior Versions
 
-- Itinerary API V1 documentation is available <a href="/api-reference/travel/itinerary/itinerary.html">here </a>
+* Itinerary v1 documentation is available <a href="/api-reference/travel/itinerary/itinerary.html">here</a>.
 
 ## <a name="process-flow"></a>Process Flow
 
@@ -32,82 +35,21 @@ The GET Itinerary API provides clients and authorized partners access to travel 
 
 ## <a name="scope-usage"></a>Scope Usage
 
-Events will be raised for all trips saved to Concur’s itinerary data store. This includes trips booked in Concur Travel, offline with a travel management company, or directly with a TripLink supplier. It also includes plans sent by users to TripIt or plans@concur.comand travel segments added to Concur Request.  Data sources can be differentiated by source, documented in the “References for Enumeration Types” section of this document.
-
-Because some sources of travel data are indirect (through email parsing, for example) or only signal traveler intent, it is not uncommon for records to be incomplete or populated with suspicious data.  Data customers must develop a strategy for incomplete records, as appropriate for their use cases.  In the case of duty of care services, a flight from JFK to LHR without a flight number (or a fake flight number), should be interpreted as traveler intent to be in London on that date.
-
 |Name|Description|Endpoint|
 |---|---|---|
-`travel.itinerary.read`|Allows user to read travel itinerary data|`GET /trip/{id}`
+`travel.itinerary.read`|Allows user to read travel itinerary data.|GET
 
-## <a name="authentication"></a>Authentication
+## <a name="dependencies"></a>Dependencies
 
-Authentication would be provided through an App for Business and the company JWT. More details [here](https://developer.concur.com/api-reference/authentication/getting-started.html).
+-
 
-The subscription to events for a given company UUID are managed by enabling the App for Business for a company. **The App should have ‘travel.itinerary.read’ scope.**
+## <a name="access-token-usage"></a>Access Token Usage
 
-**Note:** Please work with the Partner Enablement team’s contact to have this setup for you.
+-
 
-## <a name="events"></a>Events
+## <a name="get-trip"></a>Retrieve a Trip Record
 
-Once the App for Business has been setup for an SAP Customer, use the following topics and event types to subscribe for trip information.
-
-**Topic to subscribe:** `public.concur.travel.itinerary`
-
-**Event Types:**
-1. "ItineraryCreated" for when a new trip is created
-2. "ItineraryUpdated" for when any update to the trip is made, including segment cancellation
-   - Note: This event will be fired for every change to the trip document and can result in multiple events being returned within minutes (as multiple backend processes make updates), you can choose to handle that in a way that feels reasonable to you.
-3. "ItineraryCancelled" for when the trip reservations are cancelled
-4. "ItineraryDeleted" for when a trip is deleted permanently
-   - Note: This trip needs to be removed, as there will be no more further updates.
-5. "ItineraryAnonymized" for when a trip is anonymized on account of requests for GDPR, RTBF, and client termination
- 
-
-**Sample Event**
-```json
-{
-  "eventType": "ItineraryCreated",
-  "timeStamp": "2016-01-01T23:01:01.000Z",
-  "topic": "public.concur.travel.itinerary",
-  "correlationId": "b2fd900a-5935-46fc-8d29-599de9864e21",
-  "subtopic": "ab83bc5f-f66e-4ce0-9dcc-7dbf0195e061",
-  "facts": {
-    "id": "51519e89-2c1d-47ec-bd93-7c4ace9c57e6",
-    "userId": "b7d12989-0489-471a-81cd-175f8b78afa5",
-    "companyId": "ab83bc5f-f66e-4ce0-9dcc-7dbf0195e061",
-    "hrefs": {
-      "v4": "https://us.api.concursolutions.com/travel/trips/api/v4/trip/51519e89-2c1d-47ec-bd93-7c4ace9c57e6"
-    }
-  }
-}
-
-```
-
-## <a name="faq"></a>FAQ
-
-**Q:** Are all reservations returned from this API automatically updated when a traveler or a supplier makes a change?
-- **A:** No.  In some cases, the reservation was sent to Concur by a traveler or arranger.  When plans change, the user would have to take action to update Concur.  Some direct connect content booked in Concur Travel can be changed by calling the supplier directly and, in some cases, that causes Concur to lose visibility into the reservation.
-
-**Q:** Does Concur always have the latest information in the GDS?
-- **A:** Generally, yes, but TMC needs to ensure that PNR Acquisition is properly configured and the PNR is correctly documented with the required data points.
-
-**Q:** How often does Concur import bookings from GDS queues?
-- **A:** The process runs constantly but is impacted by volume.  It can take anywhere from a few minutes to a few hours for a change in the GDS to be reflected in Concur during normal operations.
-
-**Q:** Why do I see a delete and a create event raised in quick succession for a trip?
-- **A:** Due to internal processing within Concur Travel where trips are created and updated from many sources, the system will occasionally do a delete and create instead of an update.
-
-**Q:** How will I get upcoming trips (booked in the past) for accompany that signs with us?
-- **A:** The App Center partner should open a case for when a partner needs this data for a company, to get this information.<br/><br/>
-Concur will provide a JSON document with any upcoming trips, booked within the last 365 days for a given company as the partner goes live with them. This document will contain the trip id and the URL for the partner to fetch these trips from this list as they do for any events received upfront.
-
-**Q:** Does Concur raise events for personal trips?
-- **A:** No, events will not be raised for personal trips. 
-
-## <a name="get-trip"></a>Trip Endpoint
-
-Gets the trip record.
+Retrieves the record of a trip.
 
 ### Scopes
 
@@ -127,46 +69,25 @@ GET https://{region}.api.concursolutions.com/travel/trips/api/v4/trip/{id}
 
 Name|Type|Format|Description
 ---|---|---|---
-`region`|`string`|-|**Required**: `us` or `eu`
-`id`|`string`|-|**Required**
+`region`|`string`|-|**Required**: - Supported values: `us`, `eu`
+`id`|`string`|-|**Required** -
 
 #### Headers
 
-* Accept
-  * Default is application/json. If you prefer an xml response, you set this header to application/xml.
-* Accept-Encoding
-  * **Required**: Supports `gzip`
-* Authorization
-  * Authentication would be provided through an App for Business and the company JWT. More details can be found [here](https://developer.concur.com/api-reference/authentication/getting-started.html) 
-
-#### Notes
-
-1. The company JWT is data center specific. The auth service (/token endpoint) that signs the JWT determines which DC the JWT will work in. It is recommended that the partner should store the refresh token and geolocation response from the initial authgrantper company. So subsequent calls can utilize the same geolocation.
-2. To get a token or to refresh a token, use the curl command(s)specified [here](https://developer.concur.com/api-reference/authentication/getting-started.html). It is recommended to have a valid token to make the GET call for the trip.
-3. Once you have the tokenuse the following curl command to GET the trip details
-```sh
-curl 'https://us.api.concursolutions.com/travel/trips/api/v4/trip/51519e89-2c1d-47ec-bd93-7c4ace9c57e6' --header 'Accept: application/xml' --header 'Accept-Encoding: gzip' --header 'Authorization: Bearer <JWT token>'
-```
-4. The v4 API supports both XML and JSON responses; JSON is the default value. If you prefer XML responses instead, please pass in the Accept header with the value `application/xml`
-5. Application http clients should make sure that `Accept-encoding: gzip` header is set when making requests to the API if not set by default.
-6. Use the URI sent in the facts href to make a call to the right data center to GET trip details. No additional query parameters are available. This event driven API only supports GET by id calls.
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
 
 ### Response
 
 #### Error Codes
 
-Code|Description
----|---
-400|Individual validation errors in request body.
-401|Unauthorized (invalid JWT or expired etc..,)
-403|Forbidden (required or missing scope travel.itinerary.read)
-404|ID Not Found
-500|Error retrieving Itinerary
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
 
-#### Notes
-
-1. The only difference is the id primitive, that represents the identifier to use to retrieve the trip using this new API.
-2. The API supportsboth XML and JSON responses, theformat can be chosen using the Accept header, the default value is JSON.
 
 #### Payload
 
@@ -1045,20 +966,20 @@ Name|Type|Format|Description
 `BookedByFirstName`|`string`|-|The first name of the person who booked the trip.
 `BookedByLastName`|`string`|-|The last name of the person who booked the trip.
 `BookedVia`	|`string`|-|The booking method for the trip.
-`Bookings`|`array`|[Booking Element](#schema-booking)|A parent element that contains a `Booking` child element for each booking associated with this itinerary.
-`CancelComments`|`string`|-|The comments provided if the itinerary is cancelled. Maximum length: 256 characters.
-`ClientLocator`|`string`|-|Represents the unique identifier of the trip in an external (non-Concur) system. Maximum length 32 characters.
-`Comments`|`string`|-|Comments for this itinerary. Maximum length 512 characters.
-`CustomAttributes`|`array`|[Custom Attribute Element](#schema-custom-attribute)|A parent element that contains a CustomAttribute child element for all custom attributes configured for trip level that may or not may not have values set.
-`DateBookedLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the trip was booked, in the local time of the booking's location.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date that this trip was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The UTC date that this trip was last modified.
-`Description`|`string`|-|The trip description. Maximum length: 512 characters.
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The end date of the trip in the ending location’s timezone. 
-`EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The end date of the trip, in UTC.
-`HasOpenBookingPassive`|`boolean`|true/false|
-`ID`|`string`|-|The unique identifier for the itinerary, this is included in the event and is used for the callback to get details of the trip
-`IsPersonal`|`boolean`|true/false|Whether the trip is a Business or Leisure trip.
+`Bookings`|`array`|[`Booking Element`](#schema-booking)|A parent element that contains a `Booking` child element for each booking associated with this itinerary.
+`CancelComments`|`string`|-|The comments provided if the itinerary is cancelled. Maximum length: 256 characters
+`ClientLocator`|`string`|-|Represents the unique identifier of the trip in an external (non-SAP Concur) system. Maximum length: 32 characters
+`Comments`|`string`|-|Comments for this itinerary. Maximum length: 512 characters
+`CustomAttributes`|`array`|[`Custom Attribute Element`](#schema-custom-attribute)|A parent element that contains a `CustomAttribute` child element for all custom attributes configured for trip level that may or not may not have values set.
+`DateBookedLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the trip was booked, in the local time of the booking's location.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date that this trip was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The UTC date that this trip was last modified.
+`Description`|`string`|-|The trip description. Maximum length: 512 characters
+`EndDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The end date of the trip in the ending location’s timezone.
+`EndDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The end date of the trip, in UTC.
+`HasOpenBookingPassive`|`boolean`|`true`/`false`|-
+`ID`|`string`|-|The unique identifier for the itinerary, this is included in the event and is used for the callback to get details of the trip.
+`IsPersonal`|`boolean`|`true`/`false`|If `true`, the booking is a personal trip.
 `ItinLocator`|`string`|-|The itinerary locator. This element is now deprecated and only supported for backward compatibility.
 `ProjectName`|`string`|-|The associated project name for the trip. Maximum length: 255 characters.
 `StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The start date of the trip in the starting location’s timezone.
@@ -1084,14 +1005,14 @@ Name|Type|Format|Description
 `DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date that this booking was created, in UTC.
 `DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The UTC date that this booking was last modified.
 `Delivery` |`type`|[Delivery Element](#schema-delivery)|The method this booking was delivered.
-`FormOfPaymentName`|`string`|-|The name of the form of payment for the booking. 
+`FormOfPaymentName`|`string`|-|The name of the form of payment for the booking.
 `FormOfPaymentType`|`string`|-|The type of the form of payment.
 `IsGhostCard`|`boolean`|true/false|
 `ItinSourceName`|`string`|TravelSupplier|The itinerary source.
 `LastTicketDateUtc`|`dateTime`||YYYY-MM-DDThh:mm:ss|
 `MiscChargeOrders`|`array`|[Misc Charge Order Element](#schema-misc-charge)|This parent element has a MiscellaneousChargeOrder child element for each included miscellaneous charge. The MiscellaneousChargeOrder parent element contains Miscellaneous Charge Order Child Elements.
 `Passengers`|`array`|[Passenger Element](#schema-passenger)|Contains a `Passenger` child element for each included passenger.
-`PassPrograms`|`array`|[Pass Program Element](#schema-pass-program)|This parent element has Pass Program child elements for each pass program associated with the booking. 
+`PassPrograms`|`array`|[Pass Program Element](#schema-pass-program)|This parent element has Pass Program child elements for each pass program associated with the booking.
 `PhoneNumbers`|`array`|[Phone Number Data Element](#schema-phone-number)|List of phone numbers associated with this booking. This parent element has a `PhoneNumberData` child element for each phone number associated with the booking. The `PhoneNumberData` parent element has the following child elements: `PassengerRPH`, `PhoneNumber`, `Type`, and `Description`.
 `RailPayments`|`type`|[Rail Payment Child Element](#schema-rail-payment-base)|List of rail payments associated with rail segments in this booking. It has the following child elements: `RailPayment` that represents the payment information for a rail booking and `RailAdjustment` for the amount adjusted for a rail booking.
 `RecordLocator`|`string`|-|The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
@@ -1386,7 +1307,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`AllowanceAmount`|`decimal`|-|The cost of overage fees when the allowance is exceeded. For example,  if the allowance is 5000 miles, the cost could be $0.02 per mile. The overage  must be in the same currency as the basic rate. 
+`AllowanceAmount`|`decimal`|-|The cost of overage fees when the allowance is exceeded. For example,  if the allowance is 5000 miles, the cost could be $0.02 per mile. The overage  must be in the same currency as the basic rate.
 `AllowanceIsUnlimited`|`boolean`|true/false|Whether the allowance is unlimited.
 `AllowanceNumUnits`|`decimal`|-|The number of units for the allowance associated with the charge. For example, 5000 miles.
 `AllowanceUnit`|`string`|-|The unit of measure for the allowance associated with the charge. For example, a car weekly rate might allow 5000 miles included in the rate.
@@ -1647,7 +1568,7 @@ Name|Type|Format|Description
 `DirectBill`|`boolean`|true/false|
 `DiscountCode`|`string`|-|The discount code for the booking.
 `Email`|`string`|-|
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss| The booking ending time and date, in the booking location's local time. 
+`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss| The booking ending time and date, in the booking location's local time.
 `EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in UTC.
 `EquipmentCode`|`string`|-|
 `FaxNumber`|`string`|-|
@@ -1688,7 +1609,7 @@ Name|Type|Format|Description
 `TimeZoneID`|`integer`|-|
 `TotalRate`|`string`|-|The total rate amount of the booking.
 `UpgradedDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date and time the booking was upgraded.
-`Vendor`|`string`|-|The two letter GDS vendor code. See the [Hotel Vendor Codes](#hotel-vendor-codes) table for hotel vendor codes. 
+`Vendor`|`string`|-|The two letter GDS vendor code. See the [Hotel Vendor Codes](#hotel-vendor-codes) table for hotel vendor codes.
 `VendorFlags`|`string`|-| Semi-colon-delimited list of flags for free hotel service flags. For example, free breakfast (FB), internet (FI), Parking (FP), etc. If they were all present they can be concatenated as - FB;FI;FP;
 `VendorName`|`string`|-| The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.
 `WiFi`|`boolean`|true/false|
