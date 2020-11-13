@@ -219,7 +219,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                  <Total AmountAfterTax="348.00" AmountBeforeTax="248.00" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <Total AmountAfterTax="348.00" AmountBeforeTax="248.00" CurrencyCode="EUR"/>
                   <RateDescription>
                     <Text>Test rate description. Both before and after tax.</Text>
                   </RateDescription>
@@ -440,7 +440,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`AmountBeforeTax`|`string`|**Required** The total amount not including any associated tax. Examples: `sales tax`, `VAT`, `GST`|
 |`AmountAfterTax`|`string`|**Required** The total amount including all associated taxes. Examples: `sales tax`, `VAT`, `GST`|
 |`CurrencyCode`|`alphaLength3`|**Required** Currency code.|
-|`DecimalPlaces`|`integer`|Decimal places for currency code. This is an ISO 4217 standard "minor unit" for the number of decimal places for a particular currency.|
 
 #### <a name="rate-description"></a>RateDescription
 
