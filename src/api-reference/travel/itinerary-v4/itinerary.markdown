@@ -19,7 +19,7 @@ The GET Itinerary API provides clients and authorized partners access to travel 
 
 ## Prior Versions
 
-- Itinerary API V1 documentation is available [here](https://developer.concur.com/api-reference/travel/itinerary/itinerary.html)
+- Itinerary API V1 documentation is available <a href="/api-reference/travel/itinerary/itinerary.html">here </a>
 
 ## <a name="process-flow"></a>Process Flow
 
