@@ -47,27 +47,6 @@
             "format": "uuid"
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "page",
             "in": "query",
             "description": "Page number starting from 1",
@@ -86,7 +65,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -139,25 +118,28 @@
             "default": "en"
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
+            "name": "sortBy",
+            "in": "query",
+            "description": "Field to sort by, {name, levelcount, listcategory}",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "default": "name",
+            "enum": [
+              "name",
+              "levelcount",
+              "listcategory"
+            ]
           },
           {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "name": "sortDirection",
+            "in": "query",
+            "description": "Sort direction, {asc, desc}",
             "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
           },
           {
             "name": "page",
@@ -178,7 +160,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -218,25 +200,12 @@
         ],
         "parameters": [
           {
-            "name": "company-uuid",
+            "name": "Accept-Language",
             "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
+            "description": "Language code",
             "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
+            "type": "string",
+            "default": "en"
           },
           {
             "in": "body",
@@ -256,7 +225,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -315,27 +284,6 @@
             "default": "en"
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "listId",
             "in": "path",
             "description": "The unique identifier of the list",
@@ -352,7 +300,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -406,27 +354,6 @@
             "default": "en"
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "listId",
             "in": "path",
             "description": "The unique identifier of the list",
@@ -452,7 +379,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -506,27 +433,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
           {
             "name": "listId",
             "in": "path",
@@ -683,6 +589,24 @@
       },
       "title": "Link"
     },
+    "ListCategory": {
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The unique identifier of a category"
+        },
+        "type": {
+          "type": "string",
+          "description": "Category type"
+        }
+      },
+      "title": "ListCategory"
+    },
     "ListRequest": {
       "type": "object",
       "required": [
@@ -729,10 +653,8 @@
           "type": "string",
           "description": "Name of the list"
         },
-        "categoryId": {
-          "type": "string",
-          "format": "uuid",
-          "description": "Unique identifier of a Category"
+        "category": {
+          "$ref": "#/definitions/ListCategory"
         },
         "levelCount": {
           "type": "integer",

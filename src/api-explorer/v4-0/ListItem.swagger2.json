@@ -49,27 +49,6 @@
             "default": "en"
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "listItem",
             "description": "List Item object that is created for the company",
@@ -152,27 +131,6 @@
             "default": "en"
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "itemId",
             "in": "path",
             "description": "The unique identifier of the list item",
@@ -189,7 +147,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -243,27 +201,6 @@
             "default": "en"
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "itemId",
             "in": "path",
             "description": "The unique identifier of the list item",
@@ -289,7 +226,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -331,6 +268,57 @@
           }
         ],
         "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "List Item API"
+        ],
+        "summary": "Delete a list item by id",
+        "description": "Returns status code result",
+        "operationId": "deleteListItemUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "The unique identifier of the list item",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully deleted list item"
+          },
+          "400": {
+            "description": "Company does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "deprecated": false
       }
     },
     "/list/v4/items/{itemId}/children": {
@@ -354,34 +342,6 @@
             "default": "en"
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "endDate",
-            "in": "query",
-            "description": "Filter capabilities for EndDate",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "hasChildren",
             "in": "query",
             "description": "Show items with children",
@@ -400,6 +360,14 @@
             "in": "path",
             "description": "The unique identifier of the list item",
             "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "listId",
+            "in": "query",
+            "description": "The unique identifier of the list. For a list item shared between multiple lists this parameter enables retrieving children from a particular list.",
+            "required": false,
             "type": "string",
             "format": "uuid"
           },
@@ -451,13 +419,6 @@
             ]
           },
           {
-            "name": "startDate",
-            "in": "query",
-            "description": "Filter capabilities for StartDate",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "value",
             "in": "query",
             "description": "Filter capabilities for Value",
@@ -473,7 +434,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -524,34 +485,6 @@
             "required": false,
             "type": "string",
             "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "endDate",
-            "in": "query",
-            "description": "Filter capabilities for EndDate",
-            "required": false,
-            "type": "string"
           },
           {
             "name": "hasChildren",
@@ -623,13 +556,6 @@
             ]
           },
           {
-            "name": "startDate",
-            "in": "query",
-            "description": "Filter capabilities for StartDate",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "value",
             "in": "query",
             "description": "Filter capabilities for Value",
@@ -645,7 +571,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -674,6 +600,67 @@
             "JWT Token": []
           }
         ],
+        "deprecated": false
+      }
+    },
+    "/list/v4/lists/{listId}/items/{itemId}": {
+      "delete": {
+        "tags": [
+          "List Item API"
+        ],
+        "summary": "Delete a list item by list item id from a particular list",
+        "description": "Returns status code result",
+        "operationId": "deleteListItemFromListUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "The unique identifier of the list item",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully deleted list item with list id"
+          },
+          "400": {
+            "description": "Company does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
         "deprecated": false
       }
     }
@@ -847,6 +834,10 @@
           "format": "uuid",
           "description": "The unique identifier of the list that contains the list item"
         },
+        "parentCode": {
+          "type": "string",
+          "description": "The long code of parent list item"
+        },
         "parentId": {
           "type": "string",
           "format": "uuid",
@@ -870,6 +861,10 @@
           "type": "string",
           "format": "uuid",
           "description": "The unique identifier of the list that contains the list item"
+        },
+        "hasChildren": {
+          "type": "boolean",
+          "description": "Whether the list item has children in this particular list"
         }
       },
       "title": "ListItemMemberList"
