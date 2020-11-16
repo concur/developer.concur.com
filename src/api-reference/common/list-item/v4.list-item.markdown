@@ -31,6 +31,7 @@ The SAP Concur List Item API provides an automated solution to clients who would
   * [Link](#schema-link)
   * [Error Message](#schema-error-message)
   * [Validation Error](#schema-validation-error)
+* [Filtering](#filtering)
 
 ## Prior Versions
 
@@ -887,3 +888,108 @@ cache-control: no-cache, private
 |---|---|---|---|
 |`rel`|`string`|-|The link relation.|
 |`href`|`string`|-|The link href.|
+
+## <a name="filtering"></a>Filtering
+
+### <a name="filter-apis"></a>Supported APIs
+
+The List Item API supports filtering on the [Retrieve First Level Children Items of a List](#children-list-ID) API and [Retrieve Children of a List Item](#children-list-item-ID) API. The filter may be applied to the `value`, `shortCode`, and `shortCodeOrValue` query parameters.
+
+```shell
+/lists/v4/lists/{listId}/children?value=test
+/lists/v4/lists/{listId}/children?shortCode=test
+/lists/v4/lists/{listId}/children?shortCodeOrValue=test
+
+/lists/v4/items/{listId}/children?value=test
+/lists/v4/items/{listId}/children?shortCode=test
+/lists/v4/items/{listId}/children?shortCodeOrValue=test
+```
+
+### <a name="query-syntax"></a>Query Syntax
+
+The general format of a query syntax parameter is as follows:
+
+```shell
+/lists/v4/resource?field_name=<op>:<value>
+```
+
+* `field_name` - The name of the field that will be compared against.
+
+* `op` - (Optional) The [comparison operator](#comparison-operators) to use when comparing the specified value to the field. Defaults to `eq`.
+
+* `value` - The value being checked for. 
+
+Ensure the url generated is properly **`URL encoded`**. For example, if you have a `field_name` or `value` with a `&`, please convert it to `%26`.
+
+Examples:
+
+```shell
+/lists/v4/lists/{listId}/children?value=PSO
+```
+
+```shell
+/lists/v4/lists/{listId}/children?shortCode=sw:British
+```
+
+```shell
+/lists/v4/lists/{listId}/children?value=ew:Airlines&shortCode=not:British+Airlines
+```
+
+```shell
+/lists/v4/lists/{listId}/children?value=sw:Question%3FMark
+```
+
+### <a name="conjunction-operators"></a>Conjunction Operators
+
+Complex queries using parentheses are not supported. 
+
+There is basic support for OR functionality. `shortCodeOrValue` which will search both properties with the same `value` and return all resources that match either field name.
+
+### <a name="comparison-operators"></a>Comparison Operators
+
+#### equals
+
+`eq` is the default if no operator is specified. Returns results where a field is *equal to* the supplied value.
+
+```shell
+/lists/v4/lists/{listId}/children?value=test
+```
+
+```shell
+/lists/v4/items/{itemId}/children?value=eq:test
+```
+
+```shell
+/lists/v4/items/{itemId}/children?shortCodeOrValue=eq:test
+```
+
+#### contains pattern
+`cp` returns results where the provided pattern exists in the specified field. 
+
+```shell
+/lists/v4/lists/{listId}/children?value=cp:test
+```
+
+#### not
+
+`not` returns results where a field is *not equal to* the supplied value.
+
+```shell
+/lists/v4/items/{itemId}/children?shortCode=not:test
+```
+
+#### starts with
+
+`sw` returns results where a field *startsWith* the supplied value.
+
+```shell
+/lists/v4/lists/{listId}/children?shortCode=sw:test
+```
+
+#### ends with
+
+`ew` returns results where a field *endsWith* the supplied value.
+
+```shell
+/lists/v4/items/{itemId}/children?value=ew:test
+```
