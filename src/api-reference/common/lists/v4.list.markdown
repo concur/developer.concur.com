@@ -85,10 +85,9 @@ GET /list/v4/lists
 |Name|Type|Description|
 |---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
-|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
 |`page`|`integer($int32)`|Page number starting from 1. Default: `1` |
+|`sortBy`|`string`|Field to order by {name, levelcount, listcategory}. Order by `name` is order by `value`. Order by `levelcount` is order by `levelCount`. Order by `listcategory` is order by `category.type`. Default: `name` |
+|`sortDirection`|`string`|Sort direction {asc, desc}. Default: `asc` |
 
 #### Headers
 
@@ -102,7 +101,7 @@ GET /list/v4/lists
 #### Status Codes
 
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) - Successfully get all lists
-* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1) - Access Denied
 * [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
 
@@ -124,7 +123,7 @@ GET /list/v4/lists
 
 #### Request
 
-```http
+```shell
 GET https://us.api.concursolutions.com/list/v4/lists?page=1
 Accept: application/json
 Accept-Language: en
@@ -205,9 +204,7 @@ POST /list/v4/lists
 
 |Name|Type|Description|
 |---|---|---|
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
-|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`Accept-Language`|`string`|Language code. Default: `en` |
 |`listRequest`|-|**Required** List object that is created for the company.|
 
 #### Headers
@@ -226,7 +223,7 @@ POST /list/v4/lists
 #### Status Codes
 
 * [201 Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)
-* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
 * [415 Unsupported Media Type](https://tools.ietf.org/html/rfc7231#section-6.5.13)
@@ -328,9 +325,6 @@ PUT /list/v4/lists/{listId}
 |Name|Type|Description|
 |---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
-|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
 |`listId`|`string($uuid)`|**Required** The unique identifier of the list.|
 |`listUpdate`|-|**Required** List object that is updated for the company.|
 
@@ -350,7 +344,7 @@ PUT /list/v4/lists/{listId}
 #### Status Codes
 
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
-* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
 * [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) - List not found
@@ -374,7 +368,7 @@ PUT /list/v4/lists/{listId}
 
 #### Request
 
-```http
+```shell
 PUT https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f
 Accept: application/json
 Accept-Language: en
@@ -440,9 +434,6 @@ GET /list/v4/lists/{listId}
 |Name|Type|Description|
 |---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
-|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
 |`listId`|`string($uuid)`|**Required** The unique identifier of the list.|
 
 #### Headers
@@ -457,7 +448,7 @@ GET /list/v4/lists/{listId}
 #### Status Codes
 
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
-* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
 * [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
@@ -480,7 +471,7 @@ GET /list/v4/lists/{listId}
 
 #### Request
 
-```http
+```shell
 GET https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f
 Accept: application/json
 Accept-Language: en
@@ -534,12 +525,11 @@ GET /list/v4/categories/{categoryId}/lists
 ```
 
 ##### Parameters
+
 |Name|Type|Description|
 |---|---|---|
 |`Accept-Language`|`string`|Language code. Default: `en` |
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
-|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`categoryId`|`string($uuid)`|**Required** The unique identifier of the category.|
 |`page`|`integer($int32)`|Page number starting from 1. Default: `1`|
 
 #### Headers
@@ -555,7 +545,7 @@ GET /list/v4/categories/{categoryId}/lists
 #### Status Codes
 
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
-* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
 * [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) - List category not found
@@ -580,7 +570,7 @@ GET /list/v4/categories/{categoryId}/lists
 
 #### Request
 
-```http
+```shell
 GET https://us.api.concursolutions.com/list/v4/categories/77b85a76-8157-0c4e-b5e3-7785d8de1a6b/lists?page=1
 Accept: application/json
 Accept-Language: en
@@ -648,10 +638,7 @@ DELETE /list/v4/lists/{listId}
 
 |Name|Type|Description|
 |---|---|---|
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
-|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
-|'listId`|`string($uuid)`|**Required** The unique identifier of the list.|
+|`listId`|`string($uuid)`|**Required** The unique identifier of the list.|
 
 #### Headers
 
@@ -682,7 +669,7 @@ DELETE /list/v4/lists/{listId}
 
 #### Request
 
-```http
+```shell
 DELETE https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f
 Accept: application/json
 Authorization: Bearer {token}
@@ -704,8 +691,8 @@ cache-control: no-cache, private
 |Name|Type|Format|Description|
 |---|---|---|---|
 |`content`|`array`|[`ListResponse`](#schema-list-response)|-|
-|`page`|[`PageMetadata`](#schema-page-metadata)|-|Metadata for the page of data returned|
-|`links`|`array`|[`Link`](#schema-link)|Metadata for the page of data returned|
+|`page`|[`PageMetadata`](#schema-page-metadata)|-|Metadata for the page of data returned.|
+|`links`|`array`|[`Link`](#schema-link)|Href links to the next, previous, first, and/or last pages of data.|
 
 ### <a name="schema-list-response"></a>List Response
 
@@ -713,12 +700,19 @@ cache-control: no-cache, private
 |---|---|---|---|
 |`id`|`string`|`uuid`|Unique identifier of a list.|
 |`value`|`string`|-|Name of the list.|
-|`categoryId`|`string`|`uuid`|Unique identifier of a category.|
 |`levelCount`|`integer`|`int32`|Number of levels in the list.|
-|`searchCriteria`|`string`|-|What attribute to search by.|
-|`displayFormat`|`string`|-|Whether the code or value is displayed first.|
+|`searchCriteria`|`string`|-|What attribute to search by {`TEXT`, `CODE`}.|
+|`displayFormat`|`string`|-|Whether the code or value is displayed first {`(CODE) TEXT`, `TEXT (CODE)`}.|
+|`category`|[`ListCategory`](#schema-list-category)|-|The category of the list.|
 |`isReadOnly`|`boolean`|`true`/`false`|If `true`, the list is read-only.|
 |`isDeleted`|`boolean`|`true`/`false`|If `true`, the list has been deleted.|
+
+### <a name="schema-category"></a>List Category
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|`uuid`|Unique identifier of a category.|
+|`type`|`string`|-|Category type.|
 
 ### <a name="schema-list-request"></a>List Request
 
@@ -727,21 +721,21 @@ cache-control: no-cache, private
 |`searchCriteria`|`string`|-|What attribute to search by. Supported values: `TEXT`, `CODE`|
 |`value`|`string`|-|**Required** Name of the list.|
 |`categoryId`|`string`|`uuid`|The unique identifier of the category that the list belongs to.|
-|`displayFormat`|`string`|-|Whether we display code or value first.  Supported values: `TEXT`, `CODE`|
+|`displayFormat`|`string`|-|Whether we display code or value first.  Supported values: `(CODE) TEXT`, `TEXT (CODE)`|
 
 ### <a name="schema-list-update"></a>List Update
 
 |Name|Type|Format|Description|
 |---|---|---|---|
 |`value`|`string`|-|**Required** Name of the list.|
-|`searchCriteria`|`string`|-|What attribute to search by.|
-|`displayFormat`|`string`|-|Whether we display code or value first.|
+|`searchCriteria`|`string`|-|What attribute to search by. Supported values: `TEXT`, `CODE`|
+|`displayFormat`|`string`|-|Whether we display code or value first. Supported values: `(CODE) TEXT`, `TEXT (CODE)`|
 
 ### <a name="schema-message"></a>Message
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`msg`|`string`|-|The detailed error message.|
+|`message`|`string`|-|The detailed error message.|
 |`id`|`string`|-|The identifier of the error.|
 
 ### <a name="schema-page-metadata"></a>Page Metadata
@@ -749,7 +743,7 @@ cache-control: no-cache, private
 |Name|Type|Format|Description|
 |---|---|---|---|
 |`number`|`integer`|`int32`|The page number.|
-|`size`|`integer`|`int32`|The page size.|
+|`size`|`integer`|`int32`|The page size is set to 100.|
 |`totalElements`|`integer`|`int32`|The number of total elements.|
 |`totalPages`|`integer`|`int32`|The number of total pages.|
 
