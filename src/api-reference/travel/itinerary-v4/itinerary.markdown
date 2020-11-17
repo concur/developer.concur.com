@@ -1,5 +1,11 @@
-# Itinerary v4 API
+---
+title: Itinerary v4
+layout: reference
+---
 
+{% include prerelease.html %}
+
+* [Overview](#overview)
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
@@ -981,105 +987,105 @@ Name|Type|Format|Description
 `ID`|`string`|-|The unique identifier for the itinerary, this is included in the event and is used for the callback to get details of the trip.
 `IsPersonal`|`boolean`|`true`/`false`|If `true`, the booking is a personal trip.
 `ItinLocator`|`string`|-|The itinerary locator. This element is now deprecated and only supported for backward compatibility.
-`ProjectName`|`string`|-|The associated project name for the trip. Maximum length: 255 characters.
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The start date of the trip in the starting location’s timezone.
-`StartDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The start date of the trip, in UTC.
-`TravelRequestID`|`string`|-|
-`TripLinkLocator`|`string`|-|
-`TripName`|`string`|-|Name of the trip. Maximum length 255 characters.
-`TripStatus`|`string`|-|The status of the itinerary. One of the following: 0- Confirmed; 1- Ticketed by agent; 2- Canceled.
+`ProjectName`|`string`|-|The associated project name for the trip. Maximum length: 255 characters
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The start date of the trip in the starting location’s timezone.
+`StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The start date of the trip, in UTC.
+`TravelRequestID`|`string`|-|-
+`TripLinkLocator`|`string`|-|-
+`TripName`|`string`|-|Name of the trip. Maximum length: 255 characters
+`TripStatus`|`string`|-|The status of the itinerary. Supported values: `0` - Confirmed, `1` - Ticketed by agent, `2` - Cancelled
 `UserLoginID`|`string`|-|The user's login to SAP Concur.
 
 ### <a name="schema-booking"></a>Booking Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AgencyName`|`string`|-|
-`AgencyPCC`|`string`|-|
-`AirfareQuotes`|`array`|[Airfare Quotes Element](#schema-quote)|List of stored airfare quotes. This parent element has a Quote child element for each airfare quote. The Quote parent element contains the Airfare Quotes Child Elements.
-`AirlineTickets`|`type`|[Airline Ticket Child Element](#schema-airline-ticket-base)|List of Airline Tickets. This parent element contains Airline Tickets Child Elements
+`AgencyName`|`string`|-|The name of the agency.
+`AgencyPCC`|`string`|-|-
+`AirfareQuotes`|`array`|[`Airfare Quotes Element`](#schema-quote)|List of stored airfare quotes. This parent element has a `Quote` child element for each airfare quote. The `Quote` parent element contains the `Airfare Quotes Child Elements`.
+`AirlineTickets`|`type`|[`Airline Ticket Child Element`](#schema-airline-ticket-base)|List of airline tickets. This parent element contains Airline Tickets Child Elements.
 `BookingOwner`|`string`|-|Indicates the tool that supplied the booking to Concur Travel.
 `BookingSource`|`string`|-|The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place.
-`Charges`|`type`|[Charge Detail Element](#schema-charge-detail)|List of charges for this booking.
-`DateBookedLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was created, in the local time of the booking's location.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date that this booking was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The UTC date that this booking was last modified.
-`Delivery` |`type`|[Delivery Element](#schema-delivery)|The method this booking was delivered.
+`Charges`|`type`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this booking.
+`DateBookedLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was created, in the local time of the booking's location.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date that this booking was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The UTC date that this booking was last modified.
+`Delivery` |`type`|[`Delivery Element`](#schema-delivery)|The method this booking was delivered.
 `FormOfPaymentName`|`string`|-|The name of the form of payment for the booking.
 `FormOfPaymentType`|`string`|-|The type of the form of payment.
-`IsGhostCard`|`boolean`|true/false|
-`ItinSourceName`|`string`|TravelSupplier|The itinerary source.
-`LastTicketDateUtc`|`dateTime`||YYYY-MM-DDThh:mm:ss|
-`MiscChargeOrders`|`array`|[Misc Charge Order Element](#schema-misc-charge)|This parent element has a MiscellaneousChargeOrder child element for each included miscellaneous charge. The MiscellaneousChargeOrder parent element contains Miscellaneous Charge Order Child Elements.
-`Passengers`|`array`|[Passenger Element](#schema-passenger)|Contains a `Passenger` child element for each included passenger.
-`PassPrograms`|`array`|[Pass Program Element](#schema-pass-program)|This parent element has Pass Program child elements for each pass program associated with the booking.
-`PhoneNumbers`|`array`|[Phone Number Data Element](#schema-phone-number)|List of phone numbers associated with this booking. This parent element has a `PhoneNumberData` child element for each phone number associated with the booking. The `PhoneNumberData` parent element has the following child elements: `PassengerRPH`, `PhoneNumber`, `Type`, and `Description`.
-`RailPayments`|`type`|[Rail Payment Child Element](#schema-rail-payment-base)|List of rail payments associated with rail segments in this booking. It has the following child elements: `RailPayment` that represents the payment information for a rail booking and `RailAdjustment` for the amount adjusted for a rail booking.
+`IsGhostCard`|`boolean`|`true`/`false`|-
+`ItinSourceName`|`string`|`TravelSupplier`|The itinerary source.
+`LastTicketDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`MiscChargeOrders`|`array`|[`Misc Charge Order Element`](#schema-misc-charge)|This parent element has a `MiscellaneousChargeOrder` child element for each included miscellaneous charge. The `MiscellaneousChargeOrder` parent element contains `Miscellaneous Charge Order Child Elements`.
+`Passengers`|`array`|[`Passenger Element`](#schema-passenger)|Contains a `Passenger` child element for each included passenger.
+`PassPrograms`|`array`|[`Pass Program Element`](#schema-pass-program)|This parent element has `Pass Program` child elements for each pass program associated with the booking.
+`PhoneNumbers`|`array`|[`Phone Number Data Element`](#schema-phone-number)|List of phone numbers associated with this booking. This parent element has a `PhoneNumberData` child element for each phone number associated with the booking. The `PhoneNumberData` parent element has the following child elements: `PassengerRPH`, `PhoneNumber`, `Type`, and `Description`.
+`RailPayments`|`type`|`[Rail Payment Child Element`](#schema-rail-payment-base)|List of rail payments associated with rail segments in this booking. It has the following child elements: `RailPayment` that represents the payment information for a rail booking and `RailAdjustment` for the amount adjusted for a rail booking.
 `RecordLocator`|`string`|-|The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
-`Remarks`|`type`|[Remark Element](#schema-remark)|
-`Segments`|`type`|[Segment Element](#schema-segment)|List of segments in this booking. The child elements included in this element vary depending on whether a TMC, SAP Concur client,  third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Travel` parent elements. **For TripLink suppliers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, or `Ride` parent elements.
+`Remarks`|`type`|[`Remark Element`](#schema-remark)|
+`Segments`|`type`|[`Segment Element`](#schema-segment)|List of segments in this booking. The child elements included in this element vary depending on whether a TMC, SAP Concur client,  third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Travel` parent elements. **For TripLink suppliers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, or `Ride` parent elements.
 `TicketMailingAddress`|`string`|-|The mailing address for the booked ticket, if available.
 `TicketPickupLocation`|`string`|-|The pickup location for the booked ticket, if available.
 `TicketPickupNumber`|`string`|-|The confirmation number for the booked ticket, if available.
-`WaitListSegments` |`type`|[Wait List Segment Element](#schema-wait-list-segment)|The segments that the traveler is waitlisted for this booking.
-`Warning`|`array`|[Warning Element](#schema-warning)|The warnings associated with the booking.
-`WebAddresses`|`array`|[Web Address Element](#schema-web-address)|List of web addresses such as emails, pick-up URLs, and so on associated with this booking.
+`WaitListSegments` |`type`|[`Wait List Segment Element`](#schema-wait-list-segment)|The segments that the traveler is waitlisted for this booking.
+`Warning`|`array`|[`Warning Element`](#schema-warning)|The warnings associated with the booking.
+`WebAddresses`|`array`|[`Web Address Element`](#schema-web-address)|List of web addresses such as emails, pick-up URLs, and so on associated with this booking.
 
 ### <a name="schema-quote"></a>Airfare Quotes Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AirlineCharges`|`array`|[Charge Detail Element](#schema-charge-detail)| This parent element contains a Fixed and a Percent child element for each fixed charge and percent of fixed charge associated with this airfare quote. For information about these child elements, see the Fixed Elements table and the Percent Elements table later on this page.
+`AirlineCharges`|`array`|[`Charge Detail Element`](#schema-charge-detail)| This parent element contains a `Fixed` and a `Percent` child element for each fixed charge and percent of fixed charge associated with this airfare quote. For information about these child elements, see the `Fixed Elements` table and the `Percent Elements` table.
 `BaseFare`|`decimal`|-|The base fare of the airfare quote.
-`BaseFareCurrency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the base fare.
-`BaseFareNuc`|`decimal`|-|The base fare in [NUC](https://en.wikipedia.org/wiki/Neutral_unit_of_construction)
-`BaseFareNucCurrency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the base fare in NUC.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date that this airfare quote was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The UTC date that this airfare quote was last modified.
+`BaseFareCurrency`|`string`|-|The 3-letter ISO 4217 currency code for the base fare.
+`BaseFareNuc`|`decimal`|-|The base fare in NUC.
+`BaseFareNucCurrency`|`string`|-|The 3-letter ISO 4217 currency code for the base fare in NUC.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date that this airfare quote was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The UTC date that this airfare quote was last modified.
 `Endorsements`|`string`|-|Notes from the airline if it endorses the ticket as acceptable on a different airline.
-`IssueByDate`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the quote must be issued by.
+`IssueByDate`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the quote must be issued by.
 `TotalFare`|`decimal`|-|The total price of the booking.
-`TotalFareCurrency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the total fare.
+`TotalFareCurrency`|`string`|-|The 3-letter ISO 4217 currency code for the total fare.
 
 ### <a name="schema-airline-ticket-base"></a>Airline Ticket Child Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AirlineAdjustment`|`array`|[Airline Adjustment Element](#schema-airline-adjustment)|Any adjustment made to the booking. For information about the child elements of AirlineAdjustmentType, see the AirlineAdjustmentType Elements table later on this page.
-`AirlineTicket`|`array`|[Airline Ticket Element](#schema-airline-ticket)|The manual airline ticket for the booking. For information about the child elements of ManualAirlineTicket, see the ManualAirlineTicket Elements table later on this page.
-`ManualAirlineTicket`|`array`|[Manual Airline Ticket Element](#schema-manual-airline-ticket)|The airline ticket for the booking. For information about the child elements of AirlineTicket, see the AirlineTicket Elements table later on this page.
+`AirlineAdjustment`|`array`|[`Airline Adjustment Element`](#schema-airline-adjustment)|Any adjustment made to the booking. For information about the child elements of `AirlineAdjustmentType`, see the `AirlineAdjustmentType` Elements table.
+`AirlineTicket`|`array`|[`Airline Ticket Element`](#schema-airline-ticket)|The manual airline ticket for the booking. For information about the child elements of `ManualAirlineTicket`, see the `ManualAirlineTicket` Elements table.
+`ManualAirlineTicket`|`array`|[`Manual Airline Ticket Element`](#schema-manual-airline-ticket)|The airline ticket for the booking. For information about the child elements of `AirlineTicket`, see the `AirlineTicket` Elements table.
 
 ### <a name="schema-delivery"></a>Delivery Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AddressLine1`|`string`|-|The delivery address.
-`AddressLine2`|`string`|-|The delivery address.
-`City`|`string`|-|The delivery address.
-`Country`|`string`|-|The delivery address.
+`AddressLine1`|`string`|-|The delivery street address.
+`AddressLine2`|`string`|-|The delivery street address.
+`City`|`string`|-|The city of the delivery address.
+`Country`|`string`|-|The country of the delivery address.
 `Email`|`string`|-|The email of the delivery contact.
-`Latitude`|`decimal`|-|The delivery address.
+`Latitude`|`decimal`|-|The latitude of the delivery address.
 `LocationAdditionalDetails`|`string`|-|Additional information about the delivery location.
 `LocationDesc`|`string`|-|The description of the delivery location.
 `LocationName`|`string`|-|The name of the delivery location.
-`Longitude`|`decimal`|-|The delivery address.
+`Longitude`|`decimal`|-|The longitude of the delivery address.
 `PhoneNumber`|`string`|-|The phone number of the delivery contact.
 `ReferenceNumber`|`string`|-|The reference number for the delivery.
-`State`|`string`|-|The delivery address.
+`State`|`string`|-|The state of the delivery address.
 `Type`|`string`|-|The type of delivery address.
-`Zip`|`string`|-|The delivery address.
+`Zip`|`string`|-|The postal code or zip code of the delivery address.
 
 ### <a name="schema-misc-charge"></a>Miscellaneous Charge Order Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the charge order was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the charge order was last modified, in UTC.
-`IssueDate`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the charge order was issued.
-`PlatingCarrierNumericCode`|`string`|-|Part of the ticket number that indicates the airline code. This is a three digit number. For example: 001=American, 005=Continental, 006=Delta, 012=Northwest
-`PlatingControlNumber`|`string`|Ten digit number|Part of the ticket number that indicates the ticket control number.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the charge order was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the charge order was last modified, in UTC.
+`IssueDate`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the charge order was issued.
+`PlatingCarrierNumericCode`|`string`|-|The three-digit ticket number that indicates the airline code. Examples: `001` - American, `005` - Continental, `006` - Delta, `012` - Northwest
+`PlatingControlNumber`|`string`|-|Ten digits of the ticket number that indicates the ticket control number.
 `TotalAmount`|`decimal`|-|The total amount of charge orders for the ticket.
-`TotalAmountCurrency`|`string`|-|The [3-letter ISO 4217 currency code][1] for the total charge order amount.
+`TotalAmountCurrency`|`string`|-|The 3-letter ISO 4217 currency code for the total charge order amount.
 
 ### <a name="schema-pass-program"></a>Pass Program Element
 
@@ -1095,10 +1101,10 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`City`|`string`|-|The passenger's address.
-`Country`|`string`|-|The passenger's address.
+`City`|`string`|-|The city of the passenger's address.
+`Country`|`string`|-|The country of the passenger's address.
 `FirstNameNumber`|`integer`|-|The number of characters in the passenger's first name.
-`FrequentTravelerProgram`|`type`|[Frequent Traveler Program Element](#schema-frequent-traveler-program)|Passenger's loyalty programs.
+`FrequentTravelerProgram`|`type`|[`Frequent Traveler Program Element`](#schema-frequent-traveler-program)|Passenger's loyalty programs.
 `LastNameNumber`|`number`|-|The number of characters in the passenger's last name.
 `NameFirst`|`string`|-|The first name of the passenger.
 `NameLast`|`string`|-|The last name of the passenger.
@@ -1107,10 +1113,10 @@ Name|Type|Format|Description
 `NameRemark`|`string`|-|Additional details about the passenger's name.
 `NameSuffix`|`string`|-|The name suffix of the passenger.
 `NameTitle`|`string`|-|The title of the passenger.
-`PostalCode`|`string`|-|The passenger's address.
-`State`|`string`|-|The passengers's address.
-`StreetAddress`|`string`|-|The pasenger's address.
-`StreetAddress2`|`string`|-|The pasenger's address.
+`PostalCode`|`string`|-|The postal code or zip code of the passenger's address.
+`State`|`string`|-|The state of the passenger's address.
+`StreetAddress`|`string`|-|The passenger's street address.
+`StreetAddress2`|`string`|-|The passenger's street address.
 `TextName`|`string`|-|The user's full name as entered in the booking tool if different from the name in the database.
 
 ### <a name="schema-phone-number"></a>Phone Number Data Element
@@ -1126,20 +1132,20 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`RailAdjustment`|`array`|[Rail Adjustment Element](#schema-rail-adjustment)|The amount adjusted for a rail booking. For information about the RailAdjustment child elements, see the **Rail Adjustment Element** table later on this page.
-`RailPayment`|`array`|[Rail Payment Element](#schema-rail-payment)|The payment information for a rail booking. For information about the RailPayment child elements, see the **Rail Payment Element** table later on this page.
+`RailAdjustment`|`array`|[`Rail Adjustment Element`](#schema-rail-adjustment)|The amount adjusted for a rail booking. For information about the `RailAdjustment` child elements, see the `Rail Adjustment Element` table.
+`RailPayment`|`array`|[`Rail Payment Element`](#schema-rail-payment)|The payment information for a rail booking. For information about the `RailPayment` child elements, see the `Rail Payment Element` table.
 
 ### <a name="schema-remark"></a>Remark Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`TripLinkRemarks`|`array`|[TripLink Remarks Element](#schema-triplink-remarks)|-
+`TripLinkRemarks`|`array`|[`TripLink Remarks Element`](#schema-triplink-remarks)|-
 
 ### <a name="schema-triplink-remarks"></a>TripLink Remarks Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`TripLinkRemark`|`array`|[TripLink Remark Element](#schema-triplink-remark)|-
+`TripLinkRemark`|`array`|[`TripLink Remark Element`](#schema-triplink-remark)|-
 
 ### <a name="schema-triplink-remark"></a>TripLink Remark Element
 
@@ -1151,138 +1157,138 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`Air`|`array`|[Air Segment Element](#schema-air-segment)|-
-`Car`|`array`|[Car Segment Element](#schema-car-segment)|-
-`Dining`|`array`|[Dining Segment Element](#schema-dining-segment)|-
-`Hotel`|`array`|[Hotel Segment Element](#schema-hotel-segment)|-
-`Parking`|`array`|[Parking Segment Element](#schema-parking-segment)|-
-`Rail`|`array`|[Rail Segment Element](#schema-rail-segment)|-
-`Ride`|`array`|[Ride Segment Element](#schema-ride-segment)|-
-`Travel`|`array`|[Travel Segment Element](#schema-travel-segment)|-
+`Air`|`array`|[`Air Segment Element`](#schema-air-segment)|-
+`Car`|`array`|[`Car Segment Element`](#schema-car-segment)|-
+`Dining`|`array`|[`Dining Segment Element`](#schema-dining-segment)|-
+`Hotel`|`array`|[`Hotel Segment Element`](#schema-hotel-segment)|-
+`Parking`|`array`|[`Parking Segment Element`](#schema-parking-segment)|-
+`Rail`|`array`|[`Rail Segment Element`](#schema-rail-segment)|-
+`Ride`|`array`|[`Ride Segment Element`](#schema-ride-segment)|-
+`Travel`|`array`|[`Travel Segment Element`](#schema-travel-segment)|-
 
 ### <a name="schema-wait-list-segment"></a>Wait List Segment Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`SegmentOption`|`array`|[Segment Option Item Element](#schema-segment-option-item)|-
+`SegmentOption`|`array`|[`Segment Option Item Element`](#schema-segment-option-item)|-
 
 ### <a name="schema-warning"></a>Warning Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`Code`|`array`|-|
-`Text`|`array`|-|
-`Type`|`array`|-|
+`Code`|`array`|-|-
+`Text`|`array`|-|-
+`Type`|`array`|-|-
 
 ### <a name="schema-charge-detail"></a>Charge Detail Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`Fixed`|`array`|[Fixed Charge Element](#schema-fixed-charge)|The fixed charges.
-`Percent`|`array`|[Percent of Fixed Charges Element](#schema-percent-fixed)|The percent of fixed charges
-`Rate`|`array`|[Rate Charge Element](#schema-rate-charge)|The rate for the booking.
-`RateWithAllowance`|`array`|[Rate With Allowance Charge Element](#schema-rate-w-allowance-charge)|The rate for the booking, including any travel allowances.
+`Fixed`|`array`|[`Fixed Charge Element`](#schema-fixed-charge)|The fixed charges.
+`Percent`|`array`|[`Percent of Fixed Charges Element`](#schema-percent-fixed)|The percent of fixed charges.
+`Rate`|`array`|[`Rate Charge Element`](#schema-rate-charge)|The rate for the booking.
+`RateWithAllowance`|`array`|[`Rate With Allowance Charge Element`](#schema-rate-w-allowance-charge)|The rate for the booking, including any travel allowances.
 
 ### <a name="schema-airline-adjustment"></a>Airline Adjustment Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AddCollectAmount`|`decimal`|-|
-`AdjustmentDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`AdjustmentDateTimeUTC`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`AdjustmentType`|`string`|-|
-`AirlineCharges`|`array`|[Charge Detail Element](#schema-charge-detail)|
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`PassengerName`|`string`|-|
-`PlatingCarrierNumericCode`|`string`|-|
-`PlatingControlNumber`|`string`|-|
-`RecordLocator`|`string`|-|
-`Taxes`|`array`|[Tax Element](#schema-tax)|
-`TotalAdjustment`|`decimal`|-|
-`TotalAdjustmentCurrency`|`string`|-|
+`AddCollectAmount`|`decimal`|-|-
+`AdjustmentDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`AdjustmentDateTimeUTC`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`AdjustmentType`|`string`|-|-
+`AirlineCharges`|`array`|[`Charge Detail Element`](#schema-charge-detail)|-
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`PassengerName`|`string`|-|-
+`PlatingCarrierNumericCode`|`string`|-|-
+`PlatingControlNumber`|`string`|-|-
+`RecordLocator`|`string`|-|-
+`Taxes`|`array`|[`Tax Element`](#schema-tax)|-
+`TotalAdjustment`|`decimal`|-|-
+`TotalAdjustmentCurrency`|`string`|-|-
 
 ### <a name="schema-airline-ticket"></a>Airline Ticket Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AccountingLine`|`type`|[Accounting Line Element](#schema-accounting-line)|
-`AddCollectAmount`|`decimal`|-|
-`AirlineCharges`|`array`|[Charge Detail Element](#schema-charge-detail)|
-`AirlineTicketCoupons`|`array`|[Airline Ticket Coupon Element](#schema-airline-coupon)|A list of coupons for this ticket. This parent element has an **AirlineTicketCoupon** child element for each coupon associated with this airline ticket. For information about these child elements, see the **Airline Ticket Coupon Element** table later on this page.
-`AirlineTicketExchanges`|`array`|[Airline Ticket Exchanges Element](#schema-airline-exchanges)|A list of exchanges for this ticket. This parent element has an **AirlineTicketExchange** child element for each exchange associated with this airline ticket. For information about these child elements, see the **Airline Ticket Exchange Element** table later on this page.
-`AirlineTicketFareBreakups`|`array`|[Airline Ticket Fare Breakups Element](#schema-airline-ticket-fare-breakup)| A list of fare breakups for this ticket. This parent element has an **AirlineTicketFareBreakup** child element for each fare breakup associated with this airline ticket. For information about these child elements, see the **Airline Ticket Fare Breakup Element** table later on this page.
-`BaseFare`|`decimal`|-|
-`BaseFareCurrency`|`string`|-|
-`BaseFareNuc`|`decimal`|-|
-`BaseFareNucCurrency`|`string`|-|
-`ComparisonFare`|`decimal`|-|
-`ComparisonFareCurrency`|`string`|-|
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`Endorsements`|`string`|-|
-`InvoiceNumber`|`string`|-|
-`IssueDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`IssueDateTimeUTC`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`IssuingIataAgencyNumber`|`integer`|-|
-`IssuingPseudoCity`|`string`|-|
+`AccountingLine`|`type`|[`Accounting Line Element`](#schema-accounting-line)|-
+`AddCollectAmount`|`decimal`|-|-
+`AirlineCharges`|`array`|[`Charge Detail Element`](#schema-charge-detail)|-
+`AirlineTicketCoupons`|`array`|[`Airline Ticket Coupon Element`](#schema-airline-coupon)|A list of coupons for this ticket. This parent element has an `AirlineTicketCoupon` child element for each coupon associated with this airline ticket. For information about these child elements, see the `Airline Ticket Coupon Element` table.
+`AirlineTicketExchanges`|`array`|[`Airline Ticket Exchanges Element`](#schema-airline-exchanges)|A list of exchanges for this ticket. This parent element has an `AirlineTicketExchange` child element for each exchange associated with this airline ticket. For information about these child elements, see the `Airline Ticket Exchange Element` table.
+`AirlineTicketFareBreakups`|`array`|[`Airline Ticket Fare Breakups Element`](#schema-airline-ticket-fare-breakup)| A list of fare breakups for this ticket. This parent element has an `AirlineTicketFareBreakup` child element for each fare breakup associated with this airline ticket. For information about these child elements, see the `Airline Ticket Fare Breakup Element` table.
+`BaseFare`|`decimal`|-|-
+`BaseFareCurrency`|`string`|-|-
+`BaseFareNuc`|`decimal`|-|-
+`BaseFareNucCurrency`|`string`|-|-
+`ComparisonFare`|`decimal`|-|-
+`ComparisonFareCurrency`|`string`|-|-
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`Endorsements`|`string`|-|-
+`InvoiceNumber`|`string`|-|-
+`IssueDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`IssueDateTimeUTC`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`IssuingIataAgencyNumber`|`integer`|-|-
+`IssuingPseudoCity`|`string`|-|-
 `LinearFareConstructor`|`string`|-
-`MasterTicketNumber`|`string`|-|
-`NameReference`|`string`|-|
-`PassengerName`|`string`|-|
-`PlatingCarrierNumericCode`|`string`|-|
-`PlatingControlNumber`|`string`|-|
-`ProgramCarrierCode`|`string`|-|
-`ProgramMembershipNumber`|`string`|-|
-`RecordLocator`|`string`|-|
-`SabreDkNumber`|`string`|-|
-`Taxes`|`array`|[Tax Element](#schema-tax)|
-`Ticketless`|`boolean`|true/false|
-`TicketType`|`string`|-|
-`TotalFare`|`decimal`|-|
-`TotalFareCurrency`|`string`|-|
-`TourIdentifier`|`string`|-|
+`MasterTicketNumber`|`string`|-|-
+`NameReference`|`string`|-|-
+`PassengerName`|`string`|-|-
+`PlatingCarrierNumericCode`|`string`|-|-
+`PlatingControlNumber`|`string`|-|-
+`ProgramCarrierCode`|`string`|-|-
+`ProgramMembershipNumber`|`string`|-|-
+`RecordLocator`|`string`|-|-
+`SabreDkNumber`|`string`|-|-
+`Taxes`|`array`|[`Tax Element`](#schema-tax)|-
+`Ticketless`|`boolean`|`true`/`false`|-
+`TicketType`|`string`|-|-
+`TotalFare`|`decimal`|-|-
+`TotalFareCurrency`|`string`|-|-
+`TourIdentifier`|`string`|-|-
 
 ### <a name="schema-manual-airline-ticket"></a>Manual Airline Ticket Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AirlineCharges`|`array`|[Charge Detail Element](#schema-charge-detail)|
-`BaseFare`|`decimal`|-|
-`BaseFareCurrency`|`string`|-|
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`Taxes`|`array`|[Tax Element](#schema-tax)|
-`TotalFare`|`decimal`|-|
-`TotalFareCurrency`|`string`|-|
+`AirlineCharges`|`array`|[`Charge Detail Element`](#schema-charge-detail)|-
+`BaseFare`|`decimal`|-|-
+`BaseFareCurrency`|`string`|-|-
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`Taxes`|`array`|[`Tax Element`](#schema-tax)|-
+`TotalFare`|`decimal`|-|-
+`TotalFareCurrency`|`string`|-|-
 
 ### <a name="schema-fixed-charge"></a>Fixed Charge Element
 
 Name|Type|Format|Description
 ---|---|---|---
 `Amount`|`decimal`|-|The total amount for the rate for the booking.
-`Currency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the total amount.
+`Currency`|`string`|-|The 3-letter ISO 4217 currency code for the total amount.
 `Description`|`string`|-|The description for the rate.
-`IsPaid`|`boolean`|true/false|Whether the rate has been paid.
-`IsPrimary`|`boolean`|true/false|Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary.
-`SemanticsCode`|`string`|-|Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics-codes) table for more information.
-`SemanticsVendorType`|`string`|-|The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The start date of the booking, in the user's local time.
+`IsPaid`|`boolean`|`true`/`false`|If `true`, the rate has been paid.
+`IsPrimary`|`boolean`|`true`/`false`|If `true`, the rate is the primary rate. If one of the rates is the actual rate and the rest are penalties, the actual rate should be set as `IsPrimary`. Only one charge in a set should be set as primary.
+`SemanticsCode`|`string`|-|Indicates the charge category for the line item. Refer to the [`Semantics Codes`](#semantics-codes) table for more information.
+`SemanticsVendorType`|`string`|-|The vendor type. Supported values: `H` - Hotel, `C` - Car, `A` - Air, `G` - Ground, `R` - Rail
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The start date of the booking, in the user's local time.
 `Vendor`|`string`|-|The vendor for the booking charge.
 `VendorChargeCode`|`string`|-|The vendor's code for the charge.
 
-### <a name="schema-percent-fixed"></a>Perecent of Fixed Charges Element
+### <a name="schema-percent-fixed"></a>Percent of Fixed Charges Element
 
 Name|Type|Format|Description
 ---|---|---|---
 `Amount`|`decimal`|-|The total amount for the rate for the booking.
-`Currency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the total amount.
+`Currency`|`string`|-|The 3-letter ISO 4217 currency code for the total amount.
 `Description`|`string`|-|The description for the rate.
-`IsPaid`|`boolean`|true/false|Whether the rate has been paid.
-`IsPrimary`|`boolean`|true/false|Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary.
-`SemanticsCode`|`string`|-|Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics-codes) table for more information.
-`SemanticsVendorType`|`string`|-|The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The start date of the booking, in the user's local time.
+`IsPaid`|`boolean`|`true`/`false`|If `true`, the rate has been paid.
+`IsPrimary`|`boolean`|`true`/`false`|If `true`, the rate is the primary rate. If one of the rates is the actual rate and the rest are penalties, the actual rate should be set as `IsPrimary`. Only one charge in a set should be set as primary.
+`SemanticsCode`|`string`|-|Indicates the charge category for the line item. Refer to the [`Semantics Codes`](#semantics-codes) table for more information.
+`SemanticsVendorType`|`string`|-|The vendor type. Supported values: `H` - Hotel, `C` - Car, `A` - Air, `G` - Ground, `R` - Rail
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The start date of the booking, in the user's local time.
 `Vendor`|`string`|-|The vendor for the booking charge.
 `VendorChargeCode`|`string`|-|The vendor's code for the charge.
 
@@ -1291,15 +1297,15 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `Amount`|`decimal`|-|The total amount for the rate for the booking.
-`Currency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the total amount.
+`Currency`|`string`|-|The 3-letter ISO 4217 currency code for the total amount.
 `Description`|`string`|-|The description for the rate.
-`IsPaid`|`boolean`|true/false|Whether the rate has been paid.
-`IsPrimary`|`boolean`|true/false|Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary.
-`NumUnits`|`decimal`|-|The  number of units expected for the charge. For instance, 3 days.
-`PerUnit`|`string`|-|The  unit of measure for the charge. Values represent rates like per DAY, WEEK, or  MONTH.
-`SemanticsCode`|`string`|-|Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics-codes) table for more information.
-`SemanticsVendorType`|`string`|-|The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The start date of the booking, in the user's local time.
+`IsPaid`|`boolean`|`true`/`false`|If `true`, the rate has been paid.
+`IsPrimary`|`boolean`|`true`/`false`|If `true`, the rate is the primary rate. If one of the rates is the actual rate and the rest are penalties, the actual rate should be set as `IsPrimary`. Only one charge in a set should be set as primary.
+`NumUnits`|`decimal`|-|The  number of units expected for the charge.
+`PerUnit`|`string`|-|The  unit of measure for the charge. Example: `DAY`, `WEEK`, `MONTH`
+`SemanticsCode`|`string`|-|Indicates the charge category for the line item. Refer to the [`Semantics Codes`](#semantics-codes) table for more information.
+`SemanticsVendorType`|`string`|-|The vendor type. Supported values: `H` - Hotel, `C` - Car, `A` - Air, `G` - Ground, `R` - Rail
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The start date of the booking, in the user's local time.
 `Vendor`|`string`|-|The vendor for the booking charge.
 `VendorChargeCode`|`string`|-|The vendor's code for the charge.
 
@@ -1307,38 +1313,37 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`AllowanceAmount`|`decimal`|-|The cost of overage fees when the allowance is exceeded. For example,  if the allowance is 5000 miles, the cost could be $0.02 per mile. The overage  must be in the same currency as the basic rate.
-`AllowanceIsUnlimited`|`boolean`|true/false|Whether the allowance is unlimited.
-`AllowanceNumUnits`|`decimal`|-|The number of units for the allowance associated with the charge. For example, 5000 miles.
-`AllowanceUnit`|`string`|-|The unit of measure for the allowance associated with the charge. For example, a car weekly rate might allow 5000 miles included in the rate.
+`AllowanceAmount`|`decimal`|-|The cost of overage fees when the allowance is exceeded. For example, if the allowance is 5000 miles, the cost could be $0.02 per mile. The overage must be in the same currency as the basic rate.
+`AllowanceIsUnlimited`|`boolean`|`true`/`false`|If `true`, the allowance is  unlimited.
+`AllowanceNumUnits`|`decimal`|-|The number of units for the allowance associated with the charge.
+`AllowanceUnit`|`string`|-|The unit of measure for the allowance associated with the charge.
 `Amount`|`decimal`|-|The total amount for the rate for the booking.
-`Currency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the total amount.
+`Currency`|`string`|-|The 3-letter ISO 4217 currency code for the total amount.
 `Description`|`string`|-|The description for the rate.
-`IsPaid`|`boolean`|true/false|Whether the rate has been paid.
-`IsPrimary`|`boolean`|true/false|Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary.
-`NumUnits`|`decimal`|-|The  number of units expected for the charge. For instance, 3 days.
-`PerUnit`|`string`|-|The  unit of measure for the charge. Values represent rates like per DAY, WEEK, or  MONTH.
-`SemanticsCode`|`string`|-|Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics-codes) table for more information.
-`SemanticsVendorType`|`string`|-|The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The start date of the booking, in the user's local time.
+`IsPaid`|`boolean`|`true`/`false`|If `true`, the rate has been paid.
+`IsPrimary`|`boolean`|`true`/`false`|If `true`, the rate is the primary rate. If one of the rates is the actual rate and the rest are penalties, the actual rate should be set as `IsPrimary`. Only one charge in a set should be set as primary.
+`NumUnits`|`decimal`|-|The  number of units expected for the charge.
+`PerUnit`|`string`|-|The  unit of measure for the charge. Example: `DAY`, `WEEK`, `MONTH`
+`SemanticsCode`|`string`|-|Indicates the charge category for the line item. Refer to the [`Semantics Codes`](#semantics-codes) table for more information.
+`SemanticsVendorType`|`string`|-|The vendor type. Supported values: `H` - Hotel, `C` - Car, `A` - Air, `G` - Ground, `R` - Rail
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The start date of the booking, in the user's local time.
 `Vendor`|`string`|-|The vendor for the booking charge.
 `VendorChargeCode`|`string`|-|The vendor's code for the charge.
-
 
 ### <a name="schema-rail-adjustment"></a>Rail Adjustment Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AdjustmentDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`AdjustmentDateTimeUTC`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`AdjustmentType`|`string`|-|
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`RailCharges`|`array`|[Charge Detail Element](#schema-charge-detail)|List of charges for this rail booking.]
-`Taxes`|`array`|[Tax Element](#schema-tax)|
-`TicketDocumentIdentifier`|`string`|-|
-`TotalAdjustment`|`decimal`|-|
-`TotalAdjustmentCurrency`|`string`|-|
+`AdjustmentDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`AdjustmentDateTimeUTC`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`AdjustmentType`|`string`|-|-
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`RailCharges`|`array`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this rail booking.]
+`Taxes`|`array`|[`Tax Element`](#schema-tax)|-
+`TicketDocumentIdentifier`|`string`|-|-
+`TotalAdjustment`|`decimal`|-|-
+`TotalAdjustmentCurrency`|`string`|-|-
 
 
 ### <a name="schema-rail-payment"></a>Rail Payment Element
@@ -1346,21 +1351,21 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `BaseFare`|`decimal`|-|The base fare of the booking quote.
-`BaseFareCurrency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the total fare.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the quote was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the quote was last modified, in UTC.
-`IncludesVAT`|`boolean`|true/false|
-`IssueByDate`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the quote must be issued by.
-`IssueDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`IssueDateTimeUTC`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`RailCharges`|`array`|[Charge Detail Element](#schema-charge-detail)|List of charges for this rail booking.]
-`TaxInvoice`|`boolean`|true/false|
-`Taxes`|`array`|[Tax Element](#schema-tax)|
-`TicketDocumentIdentifier`|`string`|-|
-`TicketType`|`string`|-|
+`BaseFareCurrency`|`string`|-|The 3-letter ISO 4217 currency code for the total fare.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the quote was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the quote was last modified, in UTC.
+`IncludesVAT`|`boolean`|`true`/`false`|If `true`, includes the value add tax.
+`IssueByDate`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the quote must be issued by.
+`IssueDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`IssueDateTimeUTC`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`RailCharges`|`array`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this rail booking.
+`TaxInvoice`|`boolean`|`true`/`false`|-
+`Taxes`|`array`|[Tax Element](#schema-tax)|-
+`TicketDocumentIdentifier`|`string`|-|-
+`TicketType`|`string`|-|-
 `TotalFare`|`decimal`|-|The total price of the booking.
-`TotalFareCurrency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the total fare.
-`VatApplicable`|`boolean`|true/false|
+`TotalFareCurrency`|`string`|-|The 3-letter ISO 4217 currency code for the total fare.
+`VatApplicable`|`boolean`|`true`/`false`|If `true`, value add tax is applicable.
 
 
 ### <a name="schema-air-segment"></a>Air Segment Element
@@ -1374,137 +1379,137 @@ Name|Type|Format|Description
 `CancellationPolicy`|`string`|-|The cancellation policy from the vendor.
 `CarbonEmissionLbs`|`decimal`|-|The pounds of carbon emission for this booking.
 `CarbonModel`|`integer`|-|The model used to calculate the carbon emissions.
-`Charges`|`type`|[Charge Detail Element](#schema-charge-detail)|List of charges for this booking.
+`Charges`|`type`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this booking.
 `CheckedBaggage`|`string`|-|Whether the booking includes checked baggage.
 `ClassOfService`|`string`|-|The class of the booking.
 `ConfirmationNumber`|`string`|-|The record locator or confirmation number for the flight from the airline.
-`DateCancelledUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was cancelled, in UTC.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was modified, in UTC.
+`DateCancelledUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was cancelled, in UTC.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was modified, in UTC.
 `Duration`|`integer`|-|The duration of the booked flight.
-`EndCityCode`|`string`|-|The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the end city of the booking.
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in the booking location's local time.<br/> <br/>For  TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
-`EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in UTC. <br/><br/>For TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
-`EndGate`|`string`|-|The arrival gate for the booking. <br/><br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
-`EndTerminal`|`string`||The arrival terminal for the booking.<br/><br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
-`Eticket`|`string`|Y/N|Whether the booking has an  e-ticket.
+`EndCityCode`|`string`|-|The IATA airport code for the end city of the booking.
+`EndDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in the booking location's local time.**For  TripLink suppliers:** The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
+`EndDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in UTC. **For TripLink suppliers:** The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
+`EndGate`|`string`|-|The arrival gate for the booking. **For TripLink suppliers:** Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
+`EndTerminal`|`string`|-|The arrival terminal for the booking.**For TripLink suppliers:** Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
+`Eticket`|`string`|`Y`/`N`|Whether the booking has an  e-ticket.
 `FlightNumber`|`string`|-|The flight number for the booking.
 `FrequentTravelerId`|`string`|-|The traveler’s ID for the frequent traveler reward program.
-`IsOpenSegment`|`boolean`|true/false|Whether the segment is open.
-`IsPreferredVendor`|`boolean`|true/false|If the airline is marked as a preferred property by the company.
-`IsUpgradeAllowed`|`boolean`|true/false|Whether the booking can be upgraded.
+`IsOpenSegment`|`boolean`|`true`/`false`|If `true`, the segment is open.
+`IsPreferredVendor`|`boolean`|`true`/`false`|If `true`, the airline is marked as a preferred property by the company.
+`IsUpgradeAllowed`|`boolean`|`true`/`false`|If `true`, the booking can be upgraded.
 `LegID`|`string`|-|The leg ID of the booking. Leg IDs do not change on a connection. For each  unique leg ID in the trip, all flights subsequent to the first segment with the  same leg ID are connections.
 `Meals`|`string`|-|The meals included in the booking.
 `Miles`|`integer`|-|The number of miles included in the booking.
 `Notes`|`string`|-|Additional details about the booking.
 `NumStops`|`unsignedByte`|-|The number of stops in the booking.
 `OpenSegment`|`string`|-|Additional information about the open segment.
-`OperatedByFlightNumber`|`string`|-|Flight Number provided by the airline operating the flight on behalf of the booked airline.
+`OperatedByFlightNumber`|`string`|-|Flight number provided by the airline operating the flight on behalf of the booked airline.
 `OperatedByVendor`|`string`|-|The airline operating the flight on behalf of the booked airline.
 `OperatedByVendorName`|`string`|-|The name of the airline operating the flight on behalf of the booked airline.
-`Remarks`|`type`|[Remark Element](#schema-remark)|
-`RuleViolations`|`array`|[Rule Violation Element](#schema-rule-violation)|The list of rule violations associated with the itinerary. This parent element contains a `Rule Violation` child element for each associated rule violation.
-`Seats`|`array`|[Air Seat Element](#schema-air-seat)|The seats for the booking. This parent element contains an AirSeat element for each included seat. For more information, see the **Air Seat Elements** table later on this page.
+`Remarks`|`type`|[`Remark Element`](#schema-remark)|-
+`RuleViolations`|`array`|[`Rule Violation Element`](#schema-rule-violation)|The list of rule violations associated with the itinerary. This parent element contains a `Rule Violation` child element for each associated rule violation.
+`Seats`|`array`|[`Air Seat Element`](#schema-air-seat)|The seats for the booking. This parent element contains an `AirSeat` element for each included seat. For more information, see the `Air Seat Elements` table later on this page.
 `Services`|`string`|-|The services included in the booking.
-`SpecialInstructions`|`string`|-|Additional instructions regarding the booking.  Max Length: 256
-`StartCityCode`|`string`|-|The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the starting address for the booking.
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking starting time and date, in the booking location's local time. <br/><br/>For TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
-`StartDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking starting time and date, in UTC. <br/><br/>For  TripLink suppliers:The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
-`StartGate`|`string`|-|The departure gate for the booking. <br/><br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
-`StartTerminal`|`string`|-|The departure terminal for the booking. <br/><br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
-`Status`|`string`|-| The  GDS based booking status for the segment such as HK, HL, BK, etc.
-`TimeZone`|`string`|-|The time zone of the booking. Format: One of the supported Olson or Windows Time Zones.
+`SpecialInstructions`|`string`|-|Additional instructions regarding the booking. Maximum length: 256
+`StartCityCode`|`string`|-|The IATA airport code for the starting address for the booking.
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in the booking location's local time. **For TripLink suppliers:** The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
+`StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in UTC. **For TripLink suppliers:** The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
+`StartGate`|`string`|-|The departure gate for the booking. **For TripLink suppliers:** Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
+`StartTerminal`|`string`|-|The departure terminal for the booking. **For TripLink suppliers:** Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking.
+`Status`|`string`|-| The  GDS based booking status for the segment. Example: `HK`, `HL`, `BK`
+`TimeZone`|`string`|`Olson` or `Windows Time Zones`|The time zone of the booking.
 `TimeZoneID`|`integer`|-|
-`UpgradedDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date and time the booking was upgraded.
-`Vendor`|`string`|-|
-`VendorFlags`|`string`|-|
-`VendorName`|`string`|-|
+`UpgradedDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date and time the booking was upgraded.
+`Vendor`|`string`|-|-
+`VendorFlags`|`string`|-|-
+`VendorName`|`string`|-|-
 
 ### <a name="schema-car-segment"></a>Car Segment Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AirCondition`|`string`|-|The character code that indicates if car has air conditioner. R for AC, N for No AC.
-`Body`|`string`|-|The character code to indicate how many passengers the car can seat. B for 2-door, D for 4-door, F for Four-wheel drive, J for All Terrain, K for truck, L for Limo, P for pick-up, R for recreation, S for Sport, T for Convertible, V for Van, W for Wagon/Estate, X for special.
+`AirCondition`|`string`|-|The character code that indicates if car has air conditioner. Supported values: `R` - AC, `N` - No AC.
+`Body`|`string`|-|The character code to indicate how many passengers the car can seat. Supported values: `B` - Two-door sedan, `D` - Four-door sedan, `F` - Four-wheel drive, `J` - All terrain, `K` - Truck, `L` - Limo, `P` - Pickup, `R` - recreation, `S` - Sport, `T` - Convertible, `V` - Van, `W` - Wagon/Estate, `X` - Special
 `CancellationNumber`|`string`|-|The cancellation number from the vendor. This field should be set when you cancel a segment.
-`Charges`|`type`|[Charge Detail Element](#schema-charge-detail)|List of charges for this booking.
-`Class`|`string`|-|Character code to indicate the class of the car (for example, if it is economy, full size, compact, etc.). Varies by Vendor. C for compact, E for economy, F for full size, I for Intermediate, L for Luxury, M for Mini, P for Premium, S for Standard, X for special.
+`Charges`|`type`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this booking.
+`Class`|`string`|-|Character code to indicate the class of the car. Varies by vendor. Supported values: `C` - Compact, `E` - Economy, `F` - Full size, `I` - Intermediate, `L` - Luxury, `M` - Mini, `P` - Premium, `S` - Standard, `X` - Special
 `ConfirmationNumber`|`string`|-|The confirmation number from the vendor.
-`Currency`|`string`|-| The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the booking.
+`Currency`|`string`|-| The 3-letter ISO 4217 currency code for the booking.
 `DailyRate`|`decimal`|-|The daily rate for the booking.
-`DateCancelledUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was cancelled, in UTC.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was modified, in UTC.
-`DiscountCode`|`string`|-|The discount code used by the company/TMC to get a discounted rate.
-`DropoffCollectionAddress1`|`string`|-|The AddressLine1 for the dropoff address when the rental service offers dropoff.
-`DropoffCollectionAddressType`|`string`|-|
-`DropoffCollectionCategory`|`string`|-|
-`DropoffCollectionCityCode`|`string`|-|The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the  dropoff address when the rental service offers dropoff.
+`DateCancelledUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was cancelled, in UTC.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was modified, in UTC.
+`DiscountCode`|`string`|-|The discount code used by the company or TMC to get a discounted rate.
+`DropoffCollectionAddress1`|`string`|-|The `AddressLine1` for the dropoff address when the rental service offers dropoff.
+`DropoffCollectionAddressType`|`string`|-|-
+`DropoffCollectionCategory`|`string`|-|-
+`DropoffCollectionCityCode`|`string`|-|The IATA airport code for the  dropoff address when the rental service offers dropoff.
 `DropoffCollectionCity`|`string`|-|City for the dropoff address when the rental service offers dropoff.
 `DropoffCollectionCountry`|`string`|-|The country for the dropoff address when the rental service offers dropoff.
 `DropoffCollectionLatitude`|`string`|-|The latitude for the dropoff address when the rental service offers dropoff.
 `DropoffCollectionLongitude`|`string`|-|The longitude for the dropoff address when the rental service offers dropoff.
-`DropoffCollectionNumber`|`string`|-|
+`DropoffCollectionNumber`|`string`|-|-
 `DropoffCollectionPhoneNumber`|`string`|-|The phone number for the dropoff address when the rental service offers dropoff.
 `DropoffCollectionPostalCode`|`string`|-|The postal code for the dropoff address when the rental service offers dropoff.
 `DropoffCollectionState`|`string`|-|The state for the dropoff address when the rental service offers dropoff.
 `EndAddress2`|`string`|-|The ending address for the booking.
 `EndAddress`|`string`|-|The ending address for the booking.
-`EndCityCode`|`string`|-| The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the ending address for the booking.
+`EndCityCode`|`string`|-| The IATA airport code for the ending address for the booking.
 `EndCity`|`string`|-|The ending address for the booking.
 `EndCloseTime`|`string`|-|The closing time for the dropoff location.
 `EndCountry`|`string`|-|The ending address for the booking.
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in the booking location's local time.
-`EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in UTC.
+`EndDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in the booking location's local time.
+`EndDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in UTC.
 `EndLatitude`|`string`|-|The latitude for the ending location of the booking.
 `EndLongitude`|`string`|-|The longitude for the ending location of the booking.
 `EndOpenTime`|`string`|-|The opening time of the dropoff location.
 `EndPhoneNumber`|`string`|-|The phone number of the dropoff location.
 `EndPostalCode`|`string`|-| The ending address for the booking.
 `EndState`|`string`|-|The ending address for the booking.
-`IsGhostCard`|`boolean`|true/false|
+`IsGhostCard`|`boolean`|`true`/`false`|-
 `IsPreferredVendor`|`integer`|-|
-`IsUpgradeAllowed`|`boolean`|true/false|Whether the booking can be upgraded.
+`IsUpgradeAllowed`|`boolean`|`true`/`false`|If `true`, the booking can be upgraded.
 `Notes`|`string`|-|Additional information about the booking.
 `NumCars`|`unsignedByte`|-|The number of cars rented.
 `NumPersons`|`unsignedByte`|-|The number of people including the driver that the rental is for.
 `PhoneNumber`|`string`|-|The phone number for the user.
-`PickupDeliveryAddress1`|`string`|-|The AddressLine1 for the pickup address when the rental service offers pickup.
-`PickupDeliveryAddressType`|`string`|-|
-`PickupDeliveryCategory`|`string`|-|
-`PickupDeliveryCityCode`|`string`|-| The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A)for the pickup address when the rental service offers pickup.
+`PickupDeliveryAddress1`|`string`|-|The `AddressLine1` for the pickup address when the rental service offers pickup.
+`PickupDeliveryAddressType`|`string`|-|-
+`PickupDeliveryCategory`|`string`|-|-
+`PickupDeliveryCityCode`|`string`|-| The IATA airport code for the pickup address when the rental service offers pickup.
 `PickupDeliveryCity`|`string`|-|The city for the pickup address when the rental service offers pickup.
 `PickupDeliveryCountry`|`string`|-|The country for the pickup address when the rental service offers pickup.
 `PickupDeliveryLatitude`|`string`|-|The latitude for the pickup address when the rental service offers pickup.
 `PickupDeliveryLongitude`|`string`|-|The longitude for the pickup address when the rental service offers pickup.
-`PickupDeliveryNumber`|`string`|-|
+`PickupDeliveryNumber`|`string`|-|-
 `PickupDeliveryPhoneNumber`|`string`|-|The phone number for the pickup address when the rental service offers pickup.
 `PickupDeliveryPostalCode`|`string`|-|The postal code for the pickup address when the rental service offers pickup.
 `PickupDeliveryState`|`string`|-|The state for the pickup address when the rental service offers pickup.
 `RateCode`|`string`|-|The rate code for the booking.
 `RateType`|`string`|-|The rate type for the booking.
-`Remarks`|`type`|[Remark Element](#schema-remark)|
+`Remarks`|`type`|[`Remark Element`](#schema-remark)|
 `SpecialEquipment`|`string`|-|Any special equipment required by the renter.
-`SpecialInstructions`|`string`|-|Additional instructions regarding the booking. Max Length: 256
+`SpecialInstructions`|`string`|-|Additional instructions regarding the booking. Maximum length: 256
 `StartAddress2`|`string`|-| The starting address for the booking.
 `StartAddress`|`string`|-|The starting address of the booking.
-`StartCityCode`|`string`|-|The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the starting address for the booking.
+`StartCityCode`|`string`|-|The IATA airport code for the starting address for the booking.
 `StartCity`|`string`|-|The starting address for the booking.
 `StartCloseTime`|`string`|-|The closing time for the pickup location.
 `StartCountry`|`string`|-|The starting address for the booking.
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking starting time and date, in the booking location's local time.
-`StartDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking starting time and date, in UTC.
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in the booking location's local time.
+`StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in UTC.
 `StartLatitude`|`string`|-|The latitude for the starting location of the booking.
 `StartLocation`|`string`|-|The starting location of the booking.
 `StartLongitude`|`string`|-|The longitude for the starting location of the booking.
-`StartOpenTime`|`string`|-|The opening time for the pickup location.
+`StartOpenTime`|`string`|-|The opening time for the pick-up location.
 `StartPostalCode`|`string`|-|The starting address for the booking.
 `StartState`|`string`|-|The starting address for the booking.
 `Status`|`string`|-|The booking  status.
-`TimeZone`|`string`|-|The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.
-`TimeZoneID`|`integer`|-|
+`TimeZone`|`string`|`Olson` or `Windows Time Zones|`The time zone of the booking.
+`TimeZoneID`|`integer`|-|-
 `TotalRate`|`decimal`|-|The total rate amount of the booking.
-`Transmission`|`string`|-|The character code that indicates if the car has auto-transmission. A for Auto, M for Manual
+`Transmission`|`string`|-|The character code that indicates if the car has auto-transmission. Supported values: `A` for Auto, M for Manual
 `UpgradedDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date and time the booking was upgraded.
 `VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.
 `VendorFlags`|`string`|-|
