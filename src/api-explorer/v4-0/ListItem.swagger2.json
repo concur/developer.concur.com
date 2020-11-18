@@ -8,15 +8,8 @@
   ],
   "info": {
     "title": "List Item",
-    "description": "Provides an automated solution to clients who would like to manage list items. This API provides methods to view, add or update list items owned by the specified lists.",
+    "description": "Provides an automated solution to clients who would like to manage list items. This API provides methods to view, add, update or delete list items owned by the specified lists.",
     "version": "4.0"
-  },
-  "securityDefinitions": {
-    "Bearer": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header"
-    }
   },
   "tags": [
     {
@@ -101,11 +94,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -169,11 +157,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       },
       "put": {
@@ -259,11 +242,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       },
       "delete": {
@@ -315,11 +293,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -451,11 +424,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -464,7 +432,7 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Get the first level list items for a given list ID",
+        "summary": "Get the first level list items for a given List ID",
         "description": "Returns the first level children list items for a list",
         "operationId": "getFirstLevelListItemsUsingGET",
         "produces": [
@@ -587,11 +555,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -653,11 +616,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -797,11 +755,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       }
     }

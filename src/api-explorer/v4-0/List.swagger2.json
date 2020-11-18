@@ -88,11 +88,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -176,11 +171,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       },
       "post": {
@@ -252,11 +242,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -320,11 +305,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       },
       "put": {
@@ -410,11 +390,6 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       },
       "delete": {
@@ -466,20 +441,8 @@
             }
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "deprecated": false
       }
-    }
-  },
-  "securityDefinitions": {
-    "Bearer": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header"
     }
   },
   "definitions": {
