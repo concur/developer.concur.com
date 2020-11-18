@@ -12,7 +12,7 @@
     "version": "4.0"
   },
   "securityDefinitions": {
-    "JWT Token": {
+    "Bearer": {
       "type": "apiKey",
       "name": "Authorization",
       "in": "header"
@@ -45,8 +45,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "in": "body",
@@ -104,7 +103,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -115,7 +114,7 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Gets list item by id",
+        "summary": "Gets list item by ID",
         "description": "Returns list item",
         "operationId": "getListItemUsingGET",
         "produces": [
@@ -127,8 +126,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "name": "itemId",
@@ -173,7 +171,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -197,8 +195,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "name": "itemId",
@@ -264,7 +261,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -273,7 +270,7 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Delete a list item by id",
+        "summary": "Delete a list item by ID",
         "description": "Returns status code result",
         "operationId": "deleteListItemUsingDELETE",
         "produces": [
@@ -318,6 +315,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "deprecated": false
       }
     },
@@ -338,8 +340,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "name": "hasChildren",
@@ -366,7 +367,7 @@
           {
             "name": "listId",
             "in": "query",
-            "description": "The unique identifier of the list. For a list item shared between multiple lists this parameter enables retrieving children from a particular list.",
+            "description": "The unique identifier of the list. For a list item shared between multiple lists, this parameter enables retrieving children from a particular list.",
             "required": false,
             "type": "string",
             "format": "uuid"
@@ -460,7 +461,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -483,8 +484,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "name": "hasChildren",
@@ -597,7 +597,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -608,7 +608,7 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Delete a list item by list item id from a particular list",
+        "summary": "Delete a list item by list item ID from a particular list",
         "description": "Returns status code result",
         "operationId": "deleteListItemFromListUsingDELETE",
         "produces": [
@@ -634,7 +634,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Successfully deleted list item with list id"
+            "description": "Successfully deleted list item with list ID"
           },
           "400": {
             "description": "Company does not exist",
@@ -661,6 +661,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "deprecated": false
       }
     }
@@ -802,10 +807,6 @@
           "format": "int32",
           "example": 1,
           "description": "Level of the list item within the list"
-        },
-        "hasChildren": {
-          "type": "boolean",
-          "description": "Whether the list item has children"
         },
         "lists": {
           "type": "array",

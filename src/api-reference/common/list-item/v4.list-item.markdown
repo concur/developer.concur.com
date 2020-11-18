@@ -88,7 +88,7 @@ GET /list/v4/items/{itemId}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`itemId`|`string`| **Required** The unique identifier of the list item.|
 
 #### Headers
@@ -153,7 +153,6 @@ cache-control: no-cache, private
   "value": "SECOND LEVEL ITEM",
   "parentId": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
   "level": 2,
-  "hasChildren": false,
   "isDeleted": false,
   "lists": [
     {
@@ -186,7 +185,7 @@ POST /list/v4/items
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`listItem`|-|**Required** List Item object that is created for the company.|
 
 #### Headers
@@ -286,7 +285,6 @@ Example 1:
   "value": "ITEM",
   "parentId": null,
   "level": 1,
-  "hasChildren": false,
   "isDeleted": false,
   "lists": [
     {
@@ -305,7 +303,6 @@ Example 2 and Example 3:
   "value": "SECOND LEVEL ITEM",
   "parentId": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
   "level": 2,
-  "hasChildren": false,
   "isDeleted": false,
   "lists": [
     {
@@ -338,7 +335,7 @@ PUT /list/v4/items/{itemId}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`itemId`|`string`| **Required** The unique identifier of the list item.|
 |`listItem`|-|**Required** List Item object that is updated.|
 
@@ -417,7 +414,6 @@ cache-control: no-cache, private
   "value": "ITEM UPDATED",
   "parentId": null,
   "level": 1,
-  "hasChildren": true,
   "isDeleted": false,
   "lists": [
     {
@@ -552,7 +548,7 @@ DELETE /list/v4/lists/{listId}/items/{itemId}
 #### Request
 
 ```shell
-DELETE https://us.api.concursolutions.com/list/v4/items/7c6d0435-c4d1-8b48-8492-7e7b625e148d
+DELETE https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f/items/7c6d0435-c4d1-8b48-8492-7e7b625e148d
 Accept: application/json
 Authorization: Bearer {token}
 ```
@@ -588,11 +584,10 @@ GET /list/v4/items/{itemId}/children?page={page}&sortBy={sortBy}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en`|
+|`Accept-Language`|`string`|Language code. Default: Company defined default language|
 |`hasChildren`|`boolean`|If `true`, displays items with children.|
 |`isDeleted`|`boolean`|If `true`, displays deleted items.|
 |`itemId`|`string`|**Required** The unique identifier of the list item.|
-|`listId`|`string`|The unique identifier of the list. For a list item shared between multiple lists this parameter enables retrieving children from a particular list.|
 |`page`|`integer`|Page number starting from 1. Default: `1`|
 |`shortCode`|`string`|Filter capabilities for `shortCode`.|
 |`shortCodeOrValue`|`string`|Filter capabilities for `value` or `shortCode`.|
@@ -628,7 +623,7 @@ GET /list/v4/items/{itemId}/children?page={page}&sortBy={sortBy}
 
 #### Payload
 
-* [List Item](#schema-list-item)
+* [Paged Resources List Item](#schema-paged-resources-list-item)
 * [Error Message](#schema-error-message)
 
 ### Example
@@ -665,7 +660,6 @@ cache-control: no-cache, private
       "value": "SECOND LEVEL ITEM",
       "parentId": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
       "level": 2,
-      "hasChildren": false,
       "isDeleted": false,
       "lists": [
         {
@@ -706,7 +700,7 @@ GET /list/v4/lists/{listId}/children?page={page}&sortBy={sortBy}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en`|
+|`Accept-Language`|`string`|Language code. Default: Company defined default language|
 |`hasChildren`|`boolean`|If `true`, displays items with children.|
 |`isDeleted`|`boolean`|If `true`, displays deleted items.|
 |`listId`|`string`|**Required** The unique identifier of the list.|
@@ -745,7 +739,7 @@ GET /list/v4/lists/{listId}/children?page={page}&sortBy={sortBy}
 
 #### Payload
 
-* [List Item](#schema-list-item)
+* [Paged Resources List Item](#schema-paged-resources-list-item)
 * [Error Message](#schema-error-message)
 
 ### Example
@@ -781,7 +775,6 @@ cache-control: no-cache, private
       "shortCode": "FIRST LEVEL ITEM",
       "value": "FIRST LEVEL ITEM",
       "level": 1,
-      "hasChildren": false,
       "isDeleted": false,
       "lists": [
         {
@@ -813,7 +806,6 @@ cache-control: no-cache, private
 |`parentId`|`string`|`uuid`|The unique identifier of the parent list item.|
 |`listId`|`string`|`uuid`|The unique identifier of the list that contains the list item.|
 |`level`|`integer`|`int32`|Level of the list item within the list.|
-|`hasChildren`|`boolean`|`true`/`false`|If `true`, the list item has children.|
 |`lists`|[`ListItemMemberList`](#schema-list-item-member-list)|-|The unique identifiers of the lists that contains the list item.|
 |`isDeleted`|`boolean`|`true`/`false`|If `true`, the list item is deleted.|
 
