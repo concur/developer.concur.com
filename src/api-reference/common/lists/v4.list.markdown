@@ -84,7 +84,7 @@ GET /list/v4/lists
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`page`|`integer($int32)`|Page number starting from 1. Default: `1` |
 |`sortBy`|`string`|Field to order by {name, levelcount, listcategory}. Order by `name` is order by `value`. Order by `levelcount` is order by `levelCount`. Order by `listcategory` is order by `category.type`. Default: `name` |
 |`sortDirection`|`string`|Sort direction {asc, desc}. Default: `asc` |
@@ -204,7 +204,7 @@ POST /list/v4/lists
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`listRequest`|-|**Required** List object that is created for the company.|
 
 #### Headers
@@ -324,7 +324,7 @@ PUT /list/v4/lists/{listId}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`listId`|`string($uuid)`|**Required** The unique identifier of the list.|
 |`listUpdate`|-|**Required** List object that is updated for the company.|
 
@@ -433,7 +433,7 @@ GET /list/v4/lists/{listId}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`listId`|`string($uuid)`|**Required** The unique identifier of the list.|
 
 #### Headers
@@ -528,7 +528,7 @@ GET /list/v4/categories/{categoryId}/lists
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`categoryId`|`string($uuid)`|**Required** The unique identifier of the category.|
 |`page`|`integer($int32)`|Page number starting from 1. Default: `1`|
 
