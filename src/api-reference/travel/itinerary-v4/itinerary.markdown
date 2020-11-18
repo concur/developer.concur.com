@@ -12,8 +12,7 @@ layout: reference
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
 * [Retrieve a Trip Record](#get-trip)  
-* [Schema](#schema)
-  * [Payload Schema](#schema-one)
+* [Schemas](#schema)
   * [Error Schema](#error-schema)
 * [Vendor Codes](#vendor-codes)
   * [Car Vendor Codes](#car-vendor-codes)
@@ -22,9 +21,9 @@ layout: reference
 
 ## <a name="overview"></a>Overview
 
-The GET Itinerary API provides clients and authorized partners access to travel itinerary data. They can now subscribe to events and fetch trips by ID.
+The Itinerary API provides clients and authorized partners access to travel itinerary data.
 
-> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+> **Limitations**: This API is only available to clients and partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
 ## Prior Versions
 
@@ -97,7 +96,6 @@ Name|Type|Format|Description
 
 #### Payload
 
-* [Schema](#schema)
 * [Error](#error-schema)
 
 ### Example
@@ -963,7 +961,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>Schemas
 
 ### <a name="schema-one"></a>Main Itinerary Level Elements
 
@@ -1025,7 +1023,7 @@ Name|Type|Format|Description
 `Remarks`|`type`|[`Remark Element`](#schema-remark)|
 `Segments`|`type`|[`Segment Element`](#schema-segment)|List of segments in this booking. The child elements included in this element vary depending on whether a TMC, SAP Concur client,  third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs, clients, and third-party developers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, `Dining`, `Ride`, `Rail`, `Parking`, or `Travel` parent elements. **For TripLink suppliers**, the `Segments` element contains one or more `Air`, `Car`, `Hotel`, or `Ride` parent elements.
 `TicketMailingAddress`|`string`|-|The mailing address for the booked ticket, if available.
-`TicketPickupLocation`|`string`|-|The pickup location for the booked ticket, if available.
+`TicketPickupLocation`|`string`|-|The pick-up location for the booked ticket, if available.
 `TicketPickupNumber`|`string`|-|The confirmation number for the booked ticket, if available.
 `WaitListSegments` |`type`|[`Wait List Segment Element`](#schema-wait-list-segment)|The segments that the traveler is waitlisted for this booking.
 `Warning`|`array`|[`Warning Element`](#schema-warning)|The warnings associated with the booking.
@@ -1474,18 +1472,18 @@ Name|Type|Format|Description
 `NumCars`|`unsignedByte`|-|The number of cars rented.
 `NumPersons`|`unsignedByte`|-|The number of people including the driver that the rental is for.
 `PhoneNumber`|`string`|-|The phone number for the user.
-`PickupDeliveryAddress1`|`string`|-|The `AddressLine1` for the pickup address when the rental service offers pickup.
+`PickupDeliveryAddress1`|`string`|-|The `AddressLine1` for the pick-up address when the rental service offers pick-up.
 `PickupDeliveryAddressType`|`string`|-|-
 `PickupDeliveryCategory`|`string`|-|-
-`PickupDeliveryCityCode`|`string`|-| The IATA airport code for the pickup address when the rental service offers pickup.
-`PickupDeliveryCity`|`string`|-|The city for the pickup address when the rental service offers pickup.
-`PickupDeliveryCountry`|`string`|-|The country for the pickup address when the rental service offers pickup.
-`PickupDeliveryLatitude`|`string`|-|The latitude for the pickup address when the rental service offers pickup.
-`PickupDeliveryLongitude`|`string`|-|The longitude for the pickup address when the rental service offers pickup.
+`PickupDeliveryCityCode`|`string`|-| The IATA airport code for the pick-up address when the rental service offers pick-up.
+`PickupDeliveryCity`|`string`|-|The city for the pick-up address when the rental service offers pick-up.
+`PickupDeliveryCountry`|`string`|-|The country for the pick-up address when the rental service offers pick-up.
+`PickupDeliveryLatitude`|`string`|-|The latitude for the pick-up address when the rental service offers pick-up.
+`PickupDeliveryLongitude`|`string`|-|The longitude for the pick-up address when the rental service offers pick-up.
 `PickupDeliveryNumber`|`string`|-|-
-`PickupDeliveryPhoneNumber`|`string`|-|The phone number for the pickup address when the rental service offers pickup.
-`PickupDeliveryPostalCode`|`string`|-|The postal code for the pickup address when the rental service offers pickup.
-`PickupDeliveryState`|`string`|-|The state for the pickup address when the rental service offers pickup.
+`PickupDeliveryPhoneNumber`|`string`|-|The phone number for the pick-up address when the rental service offers pick-up.
+`PickupDeliveryPostalCode`|`string`|-|The postal code for the pick-up address when the rental service offers pick-up.
+`PickupDeliveryState`|`string`|-|The state for the pick-up address when the rental service offers pick-up.
 `RateCode`|`string`|-|The rate code for the booking.
 `RateType`|`string`|-|The rate type for the booking.
 `Remarks`|`type`|[`Remark Element`](#schema-remark)|
@@ -1495,7 +1493,7 @@ Name|Type|Format|Description
 `StartAddress`|`string`|-|The starting address of the booking.
 `StartCityCode`|`string`|-|The IATA airport code for the starting address for the booking.
 `StartCity`|`string`|-|The starting address for the booking.
-`StartCloseTime`|`string`|-|The closing time for the pickup location.
+`StartCloseTime`|`string`|-|The closing time for the pick-up location.
 `StartCountry`|`string`|-|The starting address for the booking.
 `StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in the booking location's local time.
 `StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in UTC.
@@ -1506,118 +1504,118 @@ Name|Type|Format|Description
 `StartPostalCode`|`string`|-|The starting address for the booking.
 `StartState`|`string`|-|The starting address for the booking.
 `Status`|`string`|-|The booking  status.
-`TimeZone`|`string`|`Olson` or `Windows Time Zones|`The time zone of the booking.
+`TimeZone`|`string`|`Olson` or `Windows Time Zones`|The time zone of the booking.
 `TimeZoneID`|`integer`|-|-
 `TotalRate`|`decimal`|-|The total rate amount of the booking.
-`Transmission`|`string`|-|The character code that indicates if the car has auto-transmission. Supported values: `A` for Auto, M for Manual
-`UpgradedDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date and time the booking was upgraded.
-`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.
-`VendorFlags`|`string`|-|
-`Vendor`|`string`|-| The two letter GDS vendor code. See the [Car Vendor Codes](#car-vendor-codes) table for car vendor codes.
+`Transmission`|`string`|-|The character code that indicates if the car has auto-transmission. Supported values: `A` - Auto, `M` - Manual
+`UpgradedDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date and time the booking was upgraded.
+`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code (`$$`), this value appears as the vendor in the itinerary.
+`VendorFlags`|`string`|-|-
+`Vendor`|`string`|-| The two letter GDS vendor code. See the [`Car Vendor Codes`](#car-vendor-codes) table for car vendor codes.
 
 ### <a name="schema-dining-segment"></a>Dining Segment Element
 
 Name|Type|Format|Description
 ---|---|---|---
 `CancellationNumber`|`string`|-|The cancellation number from the vendor. This field should be set when you cancel a segment.
-`Charges`|`type`|[Charge Detail Element](#schema-charge-detail)|List of charges for this booking.
+`Charges`|`type`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this booking.
 `ConfirmationNumber`|`string`|-|The confirmation number from the vendor.
-`DateCancelledUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was cancelled, in UTC.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was modified, in UTC.
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in the booking location's local time.
-`EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in UTC.
+`DateCancelledUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was cancelled, in UTC.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was modified, in UTC.
+`EndDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in the booking location's local time.
+`EndDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in UTC.
 `FrequentTravelerId`|`string`|-|The loyalty program ID for the user.
-`IsPreferredVendor`|`integer`|-|
-`IsUpgradeAllowed`|`boolean`|true/false|Whether the booking can be upgraded.
+`IsPreferredVendor`|`integer`|-|-
+`IsUpgradeAllowed`|`boolean`|`true`/`false`|If `true`, the booking can be upgraded.
 `Name`|`string`|-|The name of the restaurant. Maximum length: 80
 `Notes`|`string`|-|Additional information about the booking.
 `NumPersons`|`unsignedByte`|-|The number of persons for the booking.
-`PhoneNumber`|`string`|-| The restaurant phone number. |
-`Remarks`|`type`|[Remark Element](#schema-remark)|
-`ReservationID`|`string`|-|
+`PhoneNumber`|`string`|-| The restaurant phone number.
+`Remarks`|`type`|[`Remark Element`](#schema-remark)|-
+`ReservationID`|`string`|-|-
 `StartAddress`|`string`|-|The restaurant address. Maximum length: 80
 `StartAddress2`|`string`|-|The restaurant address. Maximum length: 80
 `StartCity`|`string`|-|The restaurant address. Maximum length: 50
 `StartCountry`|`string`|-|The restaurant address.
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking starting time and date, in the booking location's local time.
-`StartDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking starting time and date, in UTC.
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in the booking location's local time.
+`StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in UTC.
 `StartLatitude`|`string`|-|The latitude of the restaurant.
 `StartLongitude`|`string`|-|The longitude of the restaurant.
 `StartPostalCode`|`string`|-|The restaurant address. Maximum length: 24
 `StartState`|`string`|-|The restaurant address. Maximum length: 50
 `Status`|`string`|-|The status of the segment.
-`TimeZone`|`string`|-|The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.
-`TimeZoneID`|`integer`|-|
-`UpgradedDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date and time the booking was upgraded.
+`TimeZone`|`string`|`Olson` or `Windows Time Zones`|The time zone of the booking.
+`TimeZoneID`|`integer`|-|-
+`UpgradedDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date and time the booking was upgraded.
 `Vendor`|`string`|-|The two letter GDS vendor code.
-`VendorFlags`|`string`|-|
-`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.
+`VendorFlags`|`string`|-|-
+`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code (`$$`), this value appears as the vendor in the itinerary.
 
 ### <a name="schema-hotel-segment"></a>Hotel Segment Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`Breakfast`|`boolean`|true/false|
+`Breakfast`|`boolean`|`true`/`false`|-
 `CancellationNumber`|`string`|-|The cancellation number from the vendor. This field should be set when you cancel a segment.
 `CancellationPolicy`|`string`|-|The cancellation policy from the vendor.
-`Charges`|`type`|[Charge Detail Element](#schema-charge-detail)|List of charges for this booking.
+`Charges`|`type`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this booking.
 `CheckinTime`|`string`|-|The check in time for the hotel booking.
 `CheckoutTime`|`string`|-|The check out time for the hotel booking.
 `ConfirmationNumber`|`string`|-|The confirmation number from the vendor.
-`Currency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the booking.
+`Currency`|`string`|-|The 3-letter ISO 4217 currency code for the booking.
 `DailyRate`|`decimal`|-|Average per day rate for the hotel. If the rate varies over the duration, it can be specified using the charges model.
-`DateCancelledUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was cancelled, in UTC.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was modified, in UTC.
-`DirectBill`|`boolean`|true/false|
+`DateCancelledUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was cancelled, in UTC.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was modified, in UTC.
+`DirectBill`|`boolean`|`true`/`false`|-
 `DiscountCode`|`string`|-|The discount code for the booking.
-`Email`|`string`|-|
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss| The booking ending time and date, in the booking location's local time.
-`EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in UTC.
-`EquipmentCode`|`string`|-|
-`FaxNumber`|`string`|-|
+`Email`|`string`|-|-
+`EndDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`| The booking ending time and date, in the booking location's local time.
+`EndDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in UTC.
+`EquipmentCode`|`string`|-|-
+`FaxNumber`|`string`|-|-
 `FrequentTravelerId`|`string`|-|The traveler’s ID for the frequent traveler reward program.
 `HotelPropertyID`|`string`|-|The hotel's property ID.
 `IncludedCustomAmenities`|`string`|-|
-`IsGhostCard`|`boolean`|true/false|
-`IsPreferredVendor`|`integer`|-|
-`IsUpgradeAllowed`|`boolean`|true/false|Whether the booking can be upgraded.
+`IsGhostCard`|`boolean`|`true`/`false`|-
+`IsPreferredVendor`|`integer`|-|-
+`IsUpgradeAllowed`|`boolean`|`true`/`false`|If `true`, the booking can be upgraded.
 `ModificationCode`|`string`|-|The code for the modification to the booking.
 `Name`|`string`|-|The hotel name for the booking.
 `Notes`|`string`|-|Additional information about the booking.
 `NumPersons`|`unsignedByte`|-|The number of people the booking is for.
 `NumRooms`|`unsignedByte`|-|The number of rooms the booking is for.
-`Parking`|`boolean`|true/false|
+`Parking`|`boolean`|`true`/`false`|-
 `PartnerMembershipId`|`string`|-|The membership ID of the partner associated with the booking.
 `PassiveType`|`string`|-|The type of the booking.
 `PhoneNumber`|`string`|-|The phone number for the booking.
 `RateAccess`|`string`|-|The rate access for the booking.
 `RateCode`|`string`|-|The rate code for the booking.
 `RateType`|`string`|-|The rate type for the booking.
-`RoomDescription`|`string`|-|The room description for the booking.  Max Length: 200
+`RoomDescription`|`string`|-|The room description for the booking.  Maximum length: 200
 `RoomType`|`string`|-|The room type for the booking.
-`SpecialInstructions`|`string`|-|Additional instructions regarding the booking. Max Length: 256
+`SpecialInstructions`|`string`|-|Additional instructions regarding the booking. Maximum length: 256
 `StartAddress`|`string`|-|The starting address of the booking.
 `StartAddress2`|`string`|-|The starting address for the booking.
 `StartCity`|`string`|-|The starting address for the booking.
-`StartCityCode`|`string`|-| The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the starting address for the booking.
+`StartCityCode`|`string`|-| The IATA airport code for the starting address for the booking.
 `StartCountry`|`string`|-|The starting address for the booking.
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss| The booking starting time and date, in the booking location's local time.
-`StartDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking starting time and date, in UTC.
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`| The booking starting time and date, in the booking location's local time.
+`StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in UTC.
 `StartLatitude`|`string`|-|The latitude for the starting location of the booking.
 `StartLongitude`|`string`|-|The longitude for the starting location of the booking.
 `StartPostalCode`|`string`|-|The starting address for the booking.
 `StartState`|`string`|-|The starting address for the booking.
 `Status`|`string`|-|The booking  status.
-`TimeZone`|`string`|-|The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.
-`TimeZoneID`|`integer`|-|
+`TimeZone`|`string`|`Olson` or `Windows  Time Zones`|The time zone of the booking.
+`TimeZoneID`|`integer`|-|-
 `TotalRate`|`string`|-|The total rate amount of the booking.
-`UpgradedDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date and time the booking was upgraded.
-`Vendor`|`string`|-|The two letter GDS vendor code. See the [Hotel Vendor Codes](#hotel-vendor-codes) table for hotel vendor codes.
-`VendorFlags`|`string`|-| Semi-colon-delimited list of flags for free hotel service flags. For example, free breakfast (FB), internet (FI), Parking (FP), etc. If they were all present they can be concatenated as - FB;FI;FP;
-`VendorName`|`string`|-| The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.
-`WiFi`|`boolean`|true/false|
+`UpgradedDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date and time the booking was upgraded.
+`Vendor`|`string`|-|The two letter GDS vendor code. See the [`Hotel Vendor Codes`](#hotel-vendor-codes) table for hotel vendor codes.
+`VendorFlags`|`string`|-| Semi-colon-delimited list of flags for free hotel service flags. If multiple are present, they can be concatenated. Example: `FB` - Free breakfast, `FI` - Internet, `FP` - Parking, `FB`;`FI`;`FP`
+`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code (`$$`), this value appears as the vendor in the itinerary.
+`WiFi`|`boolean`|`true`/`false`|-
 
 
 ### <a name="schema-parking-segment"></a>Parking Segment Element
@@ -1625,44 +1623,44 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `CancellationNumber`|`string`|-|The cancellation number from the vendor. This field should be set when you cancel a segment.
-`Charges`|`type`|[Charge Detail Element](#schema-charge-detail)|List of charges for this booking.
+`Charges`|`type`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this booking.
 `ClassOfService`|`string`|-|The class of the booking.
 `ConfirmationNumber`|`string`|-|The confirmation number from the vendor.
-`Currency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the booking.
-`DateCancelledUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss| The date the booking was cancelled, in UTC.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was created, in UTC.
-`DateModifiedUtc`|`dateTime`|-|The date the booking was modified, in UTC.
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in the booking location's local time.
-`EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in UTC.
-`FrequentTravelerId|`string|-|The traveler’s ID for the frequent traveler reward program.
-`IsPreferredVendor`|`integer`|-|
-`IsUpgradeAllowed`|`boolean`|true/false|Whether the booking can be upgraded.
-`Name`|`string`|-|
+`Currency`|`string`|-|The 3-letter ISO 4217 currency code for the booking.
+`DateCancelledUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`| The date the booking was cancelled, in UTC.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was modified, in UTC.
+`EndDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in the booking location's local time.
+`EndDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in UTC.
+`FrequentTravelerId`|`string`|-|The traveler’s ID for the frequent traveler reward program.
+`IsPreferredVendor`|`integer`|-
+`IsUpgradeAllowed`|`boolean`|`true`/`false`|If `true`, the booking can be upgraded.
+`Name`|`string`|-|-
 `Notes`|`string`|-|Additional information about the booking.
 `OperatedByVendor`|`string`|-|The operating vendor of the booking.
 `ParkingLocationId`|`string`|-|The location of the parking booking.
 `PhoneNumber`|`string`|-|The parking phone number.
 `Pin`|`string`|-|The PIN number for the booking.
 `RateCode`|`string`|-|The vendor's code for the rate of the booking.
-`Remarks`|`type`|[Remark Element](#schema-remark)|
+`Remarks`|`type`|[`Remark Element`](#schema-remark)|
 `StartAddress`|`string`|-|The starting address of the booking.
 `StartAddress2`|`string`|-|The starting address of the booking.
 `StartCity`|`string`|-|The starting address of the booking.
-`StartCityCode`|`string`|| The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the starting city of the booking.
+`StartCityCode`|`string`|| The IATA airport code for the starting city of the booking.
 `StartCountry`|`string`|-|The starting address of the booking.
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The starting date of travel for this segment, in the local time of to the starting point.
-`StartDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The starting date of travel for this segment, in UTC.
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The starting date of travel for this segment, in the local time of to the starting point.
+`StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The starting date of travel for this segment, in UTC.
 `StartLocation`|`string`|-|The parking location.
 `StartPostalCode`|`string`|-|The starting address of the booking. Maximum length: 24
 `StartState`|`string`|-|The starting address of the booking. Maximum length: 50
 `Status`|`string`|-|The booking  status.
-`TimeZone`|`string`|-|The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.
-`TimeZoneID`|`integer`|-|
+`TimeZone`|`string`|`Olson` or `Windows  Time Zones`|The time zone of the booking.
+`TimeZoneID`|`integer`|-|-
 `TotalRate`|`string`|-|The total rate amount of the booking.
-`UpgradedDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date and time the booking was upgraded.
+`UpgradedDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date and time the booking was upgraded.
 `Vendor`|`string`||The two letter GDS vendor code.
-`VendorFlags`|`string`|-|
-`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.
+`VendorFlags`|`string`|-|-
+`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code (`$$`), this value appears as the vendor in the itinerary.
 
 ### <a name="schema-rail-segment"></a>Rail Segment Element
 
@@ -1673,30 +1671,30 @@ Name|Type|Format|Description
 `CancellationNumber`|`string`|-|The cancellation number from the vendor. This field should be set when you cancel a segment.
 `CarbonEmissionLbs`|`decimal`|-|The pounds of carbon emission for this booking.
 `CarbonModel`|`integer`|-|The model used to calculate the carbon emissions.
-`Charges`|`type`|[Charge Detail Element](#schema-charge-detail)|List of charges for this booking.
+`Charges`|`type`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this booking.
 `ClassOfService`|`string`|-|The class of the booking.
 `ConfirmationNumber`|`string`|-|The confirmation number from the vendor.
-`Currency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the booking.
-`DateCancelledUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was cancelled, in UTC.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was modified, in UTC.
+`Currency`|`string`|-|The 3-letter ISO 4217 currency code for the booking.
+`DateCancelledUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was cancelled, in UTC.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was modified, in UTC.
 `DiscountCode`|`string`|-|The discount code for the booking.
 `Duration`|`integer`|-|The duration of the trip booked.
 `EndCity`|`string`|-|The end city for the rail trip.
-`EndCityCode`|`string`|-|The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the end city of the trip.
+`EndCityCode`|`string`|-|The IATA airport code for the end city of the trip.
 `EndCountry`|`string`|-|The country code for the booking.
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in the booking location's local time.
-`EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in UTC.
+`EndDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in the booking location's local time.
+`EndDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in UTC.
 `EndLatitude`|`string`|-|The latitude of the ending point of the booking.
 `EndLongitude`|`integer`|-|The longitude of the ending point of the booking.
 `EndPlatform`|`string`|-|The ending platform location of the booking.
 `EndRailStation`|`string`|-|The code for the ending station of the booking.
 `EndRailStationName`|`string`|-|The name of the ending station of the booking.
-`EndState`|`string`|-|
+`EndState`|`string`|-|-
 `Eticket`|`integer`|-|The e-ticket number.
 `FrequentTravelerId`|`string`|-|The traveler’s ID for the frequent traveler reward program.
-`IsPreferredVendor`|`integer`|-|
-`IsUpgradeAllowed`|`boolean`|true/false|Whether the booking can be upgraded.
+`IsPreferredVendor`|`integer`|-|-
+`IsUpgradeAllowed`|`boolean`|`true`/`false`|If `true`, the booking can be upgraded.
 `LegId`|`string`|-|The trip leg ID.
 `Meals`|`string`|-|The booked meals.
 `Miles`|`integer`|-|The number of miles booked.
@@ -1706,33 +1704,33 @@ Name|Type|Format|Description
 `OperatedByTrainNumber`|`string`|-|The train identifier of the operating vendor of the booked trip.
 `OperatedByVendor`|`string`|-|The operating vendor of the booked trip.
 `RateCode`|`string`|-|The vendor's code for the rate of the booking.
-`Remarks`|`type`|[Remark Element](#schema-remark)|
+`Remarks`|`type`|[`Remark Element`](#schema-remark)|
 `RouteRestrictCode`|`string`|-|The code to restrict the route of the booking.
-`Seats`|`array`|[Rail Seat Element](#schema-rail-seat)|The booked seats. This parent element contains a Rail Seat element for each included seat. For more information, see the **Rail Seat Elements** table later on this page.
-`SpecialInstructions`|`string`|-|The instructions for the booking. Max Length: 256
+`Seats`|`array`|[`Rail Seat Element`](#schema-rail-seat)|The booked seats. This parent element contains a `Rail Seat` element for each included seat. For more information, see the `Rail Seat Elements` table.
+`SpecialInstructions`|`string`|-|The instructions for the booking. Maximum length: 256
 `StartCity`|`string`|-|The starting city of the booking.
-`StartCityCode`|`string`|-|The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the starting city of the booking.
+`StartCityCode`|`string`|-|The IATA airport code for the starting city of the booking.
 `StartCountry`|`string`|-|The starting country of the booking.
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The starting date of travel for this segment, in the local time of to the starting point.
-`StartDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The starting date of travel for this segment, in UTC.
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The starting date of travel for this segment, in the local time of to the starting point.
+`StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The starting date of travel for this segment, in UTC.
 `StartLatitude`|`string`|-|The latitude of the starting location of the booking.
 `StartLongitude`|`string`|-|The longitude of the starting location of the booking.
 `StartPlatform`|`string`|-|The starting platform location of the booking.
 `StartRailStation`|`string`|-|The code of the starting station of the booking.
 `StartRailStationName`|`string`|-|The name of the starting station of the booking.
-`StartState`|`string`|-|
+`StartState`|`string`|-|-
 `Status`|`string`|-|The booking  status.
-`TimeZone`|`string`|-|The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.
-`TimeZoneID`|`integer`|-|
+`TimeZone`|`string`|`Olson` or `Windows  Time Zones`|The time zone of the booking.
+`TimeZoneID`|`integer`|-|-
 `TotalRate`|`decimal`|-|The total rate amount of the booking.
 `TrainNumber`|`string`|-|The number for the booked train.
 `TrainTypeCode`|`string`|-|The code for the type of train used in the booking.
 `TrainTypeName`|`string`|-|The name of the type of train used in the booking.
 `TransportMode`|`string`|-|The transport mode of the booking.
-`UpgradedDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date and time the booking was upgraded.
+`UpgradedDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date and time the booking was upgraded.
 `Vendor`|`string`|-|The two letter GDS vendor code.
-`VendorFlags`|`string`|-|
-`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.
+`VendorFlags`|`string`|-|-
+`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code (`$$`), this value appears as the vendor in the itinerary.
 `WagonNumber`|`string`|-|The wagon number of the train car.
 
 ### <a name="schema-ride-segment"></a>Ride Element
@@ -1741,29 +1739,29 @@ Name|Type|Format|Description
 ---|---|---|---
 `CancellationNumber`|`string`|-|The cancellation number from the vendor. This field should be set when you cancel a segment.
 `CancellationPolicy`|`string`|-|The cancellation policy from the vendor.
-`Charges`|`type`|[Charge Detail Element](#schema-charge-detail)|List of charges for this booking.
+`Charges`|`type`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this booking.
 `ConfirmationNumber`|`string`|-|The confirmation number from the vendor.
-`Currency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the booking.
-`DateCancelledUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was cancelled, in UTC.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was modified, in UTC.
+`Currency`|`string`|-|The 3-letter ISO 4217 currency code for the booking.
+`DateCancelledUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was cancelled, in UTC.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was modified, in UTC.
 `DropoffInstructions`|`string`|-|Instructions regarding the booking.
 `Duration`|`integer`|-|The duration of the booking.
 `EndAddress`|`string`|-|The ending address of the booking.
 `EndAddress2`|`string`|-|The ending address of the booking.
 `EndCity`|`string`|-|The ending address of the booking.
-`EndCityCode`|`string`|-|The ending [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) of the booking.
+`EndCityCode`|`string`|-|The ending IATA airport code of the booking.
 `EndCountry`|`string`|-|The ending address of the booking.
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in the booking location's local time.
-`EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in UTC.
+`EndDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in the booking location's local time.
+`EndDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in UTC.
 `EndLatitude`|`string`|-|The latitude for the ending location of the booking.
 `EndLocationCode`|`string`|-|The ending location code of the booking.
 `EndLongitude`|`string`|-|The longitude of the ending point of the booking.
 `EndPostalCode`|`string`|-|The ending address of the booking.
 `EndState`|`string`|-|The ending address of the booking.
-`IsGhostCard`|`boolean`|true/false|
+`IsGhostCard`|`boolean`|`true`/`false`|-
 `IsPreferredVendor`|`integer`|-|
-`IsUpgradeAllowed`|`boolean`|true/false|Whether the booking can be upgraded.
+`IsUpgradeAllowed`|`boolean`|`true`/`false`|If `true`, the booking can be upgraded.
 `MeetingInstructions`|`string`|-|The instructions for the meeting location of the booking.
 `Miles`|`integer`|-|The number of miles for the booking.
 `Name`|`string`|-|The name on the booking.
@@ -1774,21 +1772,21 @@ Name|Type|Format|Description
 `PassiveCityCode`|`string`|-|The passive city code of the booking.
 `PhoneNumber`|`string`|-|The ride vendor phone number.
 `PickupInstructions`|`string`|-|Instructions regarding the booking.
-`ProviderFeedback`|`string`|-|
+`ProviderFeedback`|`string`|-|-
 `Rate`|`string`|-|The rate for the booking.
 `RateDescription`|`string`|-|The rate description for the booking.
 `RateNotes`|`string`|-|The rate notes for the booking.
 `RateType`|`string`|-|The rate type for the booking.
-`Remarks`|`type`|[Remark Element](#schema-remark)|
+`Remarks`|`type`|[`Remark Element`](#schema-remark)|-
 `ReservationID`|`string`|-|The booking vendor’s reservation ID.
-`SpecialInstructions`|`string`|-|The special instructions for the ride. Max Length: 256
+`SpecialInstructions`|`string`|-|The special instructions for the ride. Maximum length: 256
 `StartAddress`|`string`|-|The starting address of the booking.
 `StartAddress2`|`string`|-|The starting address of the booking.
 `StartCity`|`string`|-|The starting address of the booking.
-`StartCityCode`|`string`|-|The starting [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) of the booking.
+`StartCityCode`|`string`|-|The starting IATA airport code of the booking.
 `StartCountry`|`string`|-|The starting address of the booking.
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking starting time and date, in the booking location's local time.
-`StartDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking starting time and date, in UTC.
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in the booking location's local time.
+`StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking starting time and date, in UTC.
 `StartLatitude`|`string`||The latitude of the booking start location.
 `StartLocation`|`string`|-|The starting location of the booking.
 `StartLocationCode`|`string`|-|The code of the starting location of the booking.
@@ -1796,85 +1794,85 @@ Name|Type|Format|Description
 `StartLongitude`|`string`|-|The longitude of the booking start location.
 `StartPostalCode`|`string`|-|The starting address of the booking.
 `StartState`|`string`|-|The starting address of the booking.
-`TimeZone`|`string`|-|The time zone of the booking. Format: One of the supported Olson or Windows Time Zones.
-`TimeZoneID`|`integer`|-|
+`TimeZone`|`string`|`Olson` or `Windows  Time Zones`|The time zone of the booking.
+`TimeZoneID`|`integer`|-|-
 `TotalRate`|`decimal`|-|The total rate amount of the booking.
-`UpgradedDateTime`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date and time the booking was upgraded.
-`Vendor`|`string`|-|The two letter GDS vendor code. See the [Ride Vendor Codes](#ride-vendor-codes) table for ride vendor codes. For an unknown vendor, use the code value $$.
-`VendorFlags`|`string`|-|
-`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.
+`UpgradedDateTime`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date and time the booking was upgraded.
+`Vendor`|`string`|-|The two letter GDS vendor code. See the [`Ride Vendor Codes`](#ride-vendor-codes) table for ride vendor codes. For an unknown vendor, use the code value: `$$`.
+`VendorFlags`|`string`|-|-
+`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code (`$$`), this value appears as the vendor in the itinerary.
 
 ### <a name="schema-travel-segment"></a>Travel Segment Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`CancellationNumber`| string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
-`Charges`|`type`|[Charge Detail Element](#schema-charge-detail)|List of charges for this booking.
+`CancellationNumber`| string |-|The cancellation number from the vendor. This field should be set when you cancel a segment. |
+`Charges`|`type`|[`Charge Detail Element`](#schema-charge-detail)|List of charges for this booking.
 `ConfirmationNumber`|`string`|-|The confirmation number from the vendor.
-`Currency`|`string`|-|The [3-letter ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html) for the booking.
+`Currency`|`string`|-|The 3-letter ISO 4217 currency code for the booking.
 `DailyRate`|`decimal`|-|Average per day rate for the booking. If the rate varies over the duration, it can be specified using the charges model.
-`DateCancelledUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss| The date the booking was cancelled, in UTC.
-`DateCreatedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was created, in UTC.
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The date the booking was modified, in UTC.
+`DateCancelledUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was cancelled, in UTC.
+`DateCreatedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was created, in UTC.
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The date the booking was modified, in UTC.
 `EndAddress`|`string`|-|The ending address of the booking.
 `EndAddress2`|`string`|-|The ending address of the booking.
 `EndCity`|`string`|-|The ending address of the booking.
-`EndCityCode`|`string`|-|The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the ending city of the booking.
+`EndCityCode`|`string`|-|The IATA airport code for the ending city of the booking.
 `EndCountry`|`string`|-|The ending address of the booking.
-`EndDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in the booking location's local time.
-`EndDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The booking ending time and date, in UTC.
+`EndDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in the booking location's local time.
+`EndDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The booking ending time and date, in UTC.
 `EndLatitude`|`string`|-|The latitude for the ending location of the booking.
 `EndLocation`|`string`|-|The ending location of the booking.
 `EndLongitude`|`string`|-|The longitude of the ending point of the booking.
 `EndPostalCode`|`string`|-|The ending address of the booking.
 `EndState`|`string`|-|The ending address of the booking.
-`IsGhostCard`|`boolean`|true/false|
+`IsGhostCard`|`boolean`|`true`/`false`|-
 `Notes`|`string`|-|Additional information about the booking.
 `NumPersons`|`unsignedByte`|-|The number of persons booked for the trip.
 `PhoneNumber`|`string`|-|The booking phone number.
-`Remarks`|`type`|[Remark Element](#schema-remark)|
-`SpecialInstructions`|`string`|-|The instructions for the booking. Max Length: 256
+`Remarks`|`type`|[`Remark Element`](#schema-remark)|
+`SpecialInstructions`|`string`|-|The instructions for the booking. Maximum length: 256
 `StartAddress`|`string`|-|The starting address of the booking.
 `StartAddress2`|`string`|-|The starting address of the booking.
 `StartCity`|`string`|-|The starting address of the booking.
-`StartCityCode`|`string`|-|The [IATA airport code](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_A) for the starting city of the booking.
+`StartCityCode`|`string`|-|The IATA airport code for the starting city of the booking.
 `StartCountry`|`string`|-|The starting address of the booking.
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|The starting date of travel for this segment, in the local time of to the starting point.
-`StartDateUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|The starting date of travel for this segment, in UTC.
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The starting date of travel for this segment, in the local time of to the starting point.
+`StartDateUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|The starting date of travel for this segment, in UTC.
 `StartLatitude`|`string`|-|The latitude of the booking.
-`StartLocation`|`string`|-|
+`StartLocation`|`string`|-|The start location of the booking.
 `StartLongitude`|`string`|-|The longitude of the booking.
 `StartPostalCode`|`string`|-|The starting address of the booking. Maximum length: 24
 `StartState`|`string`|-|The starting address of the booking. Maximum length: 50
 `Status`|`string`|-|The booking  status.
-`TimeZone`|`string`|-|The time zone of the booking. Format: One of the supported Olson or Windows Time Zones.
-`TimeZoneID`|`integer`|-|
+`TimeZone`|`string`|`Olson` or `Windows  Time Zones`|The time zone of the booking.
+`TimeZoneID`|`integer`|-|-
 `TotalRate`|`decimal`|-|The total rate amount of the booking.
 `TransportMode`|`string`|-|The transport mode of the booking.
 `Vendor`|`string`|-|The two letter GDS vendor code.
-`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.
+`VendorName`|`string`|-|The name of the vendor. When using the Unknown Vendor Code (`$$`), this value appears as the vendor in the itinerary.
 
 ### <a name="schema-accounting-line"></a>Accounting Line Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AirlineCode`|`string`|-|
-`AmountPaid`|`string`|-|
-`AmountPaidCurrency`|`string`|-|
-`Ccnumber`|`string`|-|
-`Comment`|`string`|-|
-`Commission`|`string`|-|
-`CommissionCurrency`|`string`|-|
-`ExchangedTicketNumber`|`string`|-|
-`Fare`|`string`|-|
-`FareCurrency`|`string`|-|
-`Fopmethod`|`string`|-|
-`IssueDate`|`string`|-|
-`McOType`|`string`|-|
-`Tax`|`string`|-|
-`TaxCurrency`|`string`|-|
-`TranControlNbr`|`string`|-|
-`TranPlatingNbr`|`string`|-|
+`AirlineCode`|`string`|-|-
+`AmountPaid`|`string`|-|-
+`AmountPaidCurrency`|`string`|-|-
+`Ccnumber`|`string`|-|-
+`Comment`|`string`|-|-
+`Commission`|`string`|-|-
+`CommissionCurrency`|`string`|-|-
+`ExchangedTicketNumber`|`string`|-|-
+`Fare`|`string`|-|-
+`FareCurrency`|`string`|-|-
+`Fopmethod`|`string`|-|-
+`IssueDate`|`string`|-|-
+`McOType`|`string`|-|-
+`Tax`|`string`|-|-
+`TaxCurrency`|`string`|-|-
+`TranControlNbr`|`string`|-|-
+`TranPlatingNbr`|`string`|-|-
 
 ### <a name="schema-air-seat"></a>Air Seat Element
 
@@ -1882,101 +1880,101 @@ Name|Type|Format|Description
 ---|---|---|---
 `PassengerRph`|`integer`|-|The passenger assigned to the seat.
 `SeatNumber`|`string`|-|The number of the seat.
-`Status`|`string`|-|
+`Status`|`string`|-|-
 
 ### <a name="schema-airline-coupon"></a>Airline Ticket Coupon Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`ClassOfService`|`string`|-|
-`CouponNumber`|`integer`|-|
-`CouponStatus`|`string`|-|
-`EndCityCode`|`string`|-|
-`FlightNumber`|`string`|-|
-`NotValidAfterDate`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`NotValidBeforeDate`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`RateCode`|`string`|-|
-`StartCityCode`|`string`|-|
-`StartDateLocal`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`Status`|`string`|-|
-`TicketDesignator`|`string`|-|
-`Vendor`|`string`|-|
+`ClassOfService`|`string`|-|-
+`CouponNumber`|`integer`|-|-
+`CouponStatus`|`string`|-|-
+`EndCityCode`|`string`|-|-
+`FlightNumber`|`string`|-|-
+`NotValidAfterDate`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`NotValidBeforeDate`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`RateCode`|`string`|-|-
+`StartCityCode`|`string`|-|-
+`StartDateLocal`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`Status`|`string`|-|-
+`TicketDesignator`|`string`|-|-
+`Vendor`|`string`|-|-
 
 ### <a name="schema-airline-exchanges"></a>Airline Ticket Exchanges Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`Amount`|`decimal`|-|
-`AppliedSegment1`|`integer`|-|
-`AppliedSegment10`|`integer`|-|
-`AppliedSegment2`|`unsignedByte`|  |   |
-`AppliedSegment3`|`integer`|-|
-`AppliedSegment4`|`integer`|-|
-`AppliedSegment5`|`integer`|-|
-`AppliedSegment6`|`integer`|-|
-`AppliedSegment7`|`integer`|-|
-`AppliedSegment8`|`integer`|-|
-`AppliedSegment9`|`integer`|-|
-`Currency`|`string`|-|
-`DateModifiedUtc`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`OldRecordLocator`|`string`|-|
-`PlatingCarrierNumericCode`|`string`|-|
-`PlatingControlNumber`|`string`|-|
+`Amount`|`decimal`|-|-
+`AppliedSegment1`|`integer`|-|-
+`AppliedSegment10`|`integer`|-|-
+`AppliedSegment2`|`unsignedByte`|-|-
+`AppliedSegment3`|`integer`|-|-
+`AppliedSegment4`|`integer`|-|-
+`AppliedSegment5`|`integer`|-|-
+`AppliedSegment6`|`integer`|-|-
+`AppliedSegment7`|`integer`|-|-
+`AppliedSegment8`|`integer`|-|-
+`AppliedSegment9`|`integer`|-|-
+`Currency`|`string`|-|-
+`DateModifiedUtc`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`OldRecordLocator`|`string`|-|-
+`PlatingCarrierNumericCode`|`string`|-|-
+`PlatingControlNumber`|`string`|-|-
 
 
 ### <a name="schema-airline-ticket-fare-breakup"></a>Airline Ticket Fare Breakups Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`BaseFare`|`decimal`|-|
-`ClassOfService`|`string`|-|
-`Currency`|`string`|-|
-`EndCityCode`|`string`|-|
-`IsRefundable`|`boolean`|true/false|
-`StartCityCode`|`string`|-|
-`TotalFare`|`decimal`|-|
-`Vendor`|`string`|-|
+`BaseFare`|`decimal`|-|-
+`ClassOfService`|`string`|-|-
+`Currency`|`string`|-|-
+`EndCityCode`|`string`|-|-
+`IsRefundable`|`boolean`|`true`/`false`|-
+`StartCityCode`|`string`|-|-
+`TotalFare`|`decimal`|-|-
+`Vendor`|`string`|-|-
 
 ### <a name="schema-custom-attribute"></a>Custom Attribute Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`Data`|`string`|-|
-`DataType`|`string`|-|
-`DisplayOnItinerary`|`boolean`|true/false|
-`DisplayTitle`|`string`|-|
-`ExternalId`|`integer`|-|
-`Name`|`string`|-|
+`Data`|`string`|-|-
+`DataType`|`string`|-|-
+`DisplayOnItinerary`|`boolean`|`true`/`false`|-
+`DisplayTitle`|`string`|-|-
+`ExternalId`|`integer`|-|-
+`Name`|`string`|-|-
 
 ### <a name="schema-frequent-traveler-program"></a>Frequent Traveler Program Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`FrequentFlyer`|`array`|[Frequent Flyer Element](#schema-frequent-flyer)|
-`RailProgram`|`array`|[Rail Program Element](#schema-rail-program)|
+`FrequentFlyer`|`array`|[`Frequent Flyer Element`](#schema-frequent-flyer)|-
+`RailProgram`|`array`|[`Rail Program Element`](#schema-rail-program)|-
 
 ### <a name="schema-frequent-flyer"></a>Frequent Flyer Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`AirlineVendor`|`string`|-|
-`Description`|`string`|-|
-`DiscountProgramExpirationDate`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`DiscountProgramType`|`string`|-|
-`FrequentFlyerNumber`|`string`|-|
-`Status`|`string`|-|
-`StatusExpirationDate`|`dateTime`|YYYY-MM-DDThh:mm:ss|
+`AirlineVendor`|`string`|-|-
+`Description`|`string`|-|-
+`DiscountProgramExpirationDate`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`DiscountProgramType`|`string`|-|-
+`FrequentFlyerNumber`|`string`|-|-
+`Status`|`string`|-|-
+`StatusExpirationDate`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
 
 ### <a name="schema-rail-program"></a>Rail Program Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`Description`|`string`|-|
-`DiscountProgramExpirationDate`|`dateTime`|YYYY-MM-DDThh:mm:ss|
-`DiscountProgramType`|`string`|-|
-`ProgramNumber`|`string`|-|
-`Status`|`string`|-|
-`StatusExpirationDate`|`dateTime`|YYYY-MM-DDThh:mm:ss|
+`Description`|`string`|-|-
+`DiscountProgramExpirationDate`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
+`DiscountProgramType`|`string`|-|-
+`ProgramNumber`|`string`|-|-
+`Status`|`string`|-|-
+`StatusExpirationDate`|`dateTime`|`YYYY-MM-DDThh:mm:ss`|-
 
 ### <a name="schema-rail-seat"></a>Rail Seat Element
 
@@ -1990,7 +1988,7 @@ Name|Type|Format|Description
 `PassengerRph`|`integer`|-|Which passenger the seat is assigned to.
 `SeatNumber`|`string`|-|The number of the seat.
 `SeatPosition`|`string`|-|The location of the seat.
-`SeatType`|`string`|-|
+`SeatType`|`string`|-|-
 `SpaceType`|`string`|-|The type of space around the seat.
 `Status`|`string`|-|The status of the seat booking.
 `WagonNumber`|`string`|-|The number of the wagon the seat is on.
@@ -2000,37 +1998,37 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`CompanyReasonCode`|`string`|-|
-`CompanyRuleText`|`string`|-|
-`ViolationReasonCode`|`integer`|-|
+`CompanyReasonCode`|`string`|-|-
+`CompanyRuleText`|`string`|-|-
+`ViolationReasonCode`|`integer`|-|-
 
 ### <a name="schema-segment-option-item"></a>Segment Option Item Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`Flight`|`array`|[Segment Option Flight Type Element](#schema-segment-option-flight-type)|
-`SegmentIndex`|`string`|-|
-`StatusCode`|`string`|-|
-`TimeStamp`|`string`|-|
+`Flight`|`array`|[`Segment Option Flight Type Element`](#schema-segment-option-flight-type)|-
+`SegmentIndex`|`string`|-|-
+`StatusCode`|`string`|-|-
+`TimeStamp`|`string`|-|-
 
 ### <a name="schema-segment-option-flight-type"></a>Segment Option Flight Type Element
 
 Name|Type|Format|Description
 ---|---|---|---
-`ArrAirp`|`string`|-|
-`Cabin`|`string`|-|
-`Carrier`|`string`|-|
-`DepAirp`|`string`|-|
-`FlightNum`|`string`|-|
+`ArrAirp`|`string`|-|-
+`Cabin`|`string`|-|-
+`Carrier`|`string`|-|-
+`DepAirp`|`string`|-|-
+`FlightNum`|`string`|-|-
 
 ### <a name="schema-tax"></a>Tax Element
 
 Name|Type|Format|Description
 ---|---|---|---
 `TaxAmount`|`decimal`|-|The amount of the tax.
-`TaxAuthority`|`string`|-|
-`TaxName`|`string`|-|
-`TaxRate`|`decimal`|-|
+`TaxAuthority`|`string`|-|-
+`TaxName`|`string`|-|The name of the tax.
+`TaxRate`|`decimal`|-|-
 `TaxType`|`string`|-|The type of the tax.
 
 ## <a name="error-schema"></a>Error Schema
@@ -2039,7 +2037,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`errors`|`array`|[Error Element](#schema-error)|-
+`errors`|`array`|[`Error Element`](#schema-error)|-
 
 ### <a name="schema-error"></a>Error Element
 
@@ -2047,531 +2045,531 @@ Name|Type|Format|Description
 ---|---|---|---
 `errorCode`|`string`|-|-
 `errorMessage`|`string`|-|-
-`errors`|`array`|[Error Element](#schema-error)|-
+`errors`|`array`|[`Error Element`](#schema-error)|-
 
 ## <a name="vendor-codes"></a>Vendor Codes
 
 ### <a name="car-vendor-codes"></a>Car Vendor Codes
 
-The following car vendor codes are used in the Car Booking Elements.
+The following car vendor codes are used in the `Car Booking` Elements.
 
 Vendor Code|Vendor Name
 ---|---
-FA|Able |
-AC|Ace |
-AD|Advantage |
-AL|Alamo |
-LV|Allstate |
-AF|Americar |
-ZU|AutoEurope |
-ZI|Avis |
-CH|Charlie |
-CP|Compass |
-CO|Continental |
-DS|Discount |
-ZR|Dollar |
-ET|Enterprise |
-ED|Eurodollar |
-EP|Europcar |
-FH|Falles Hire Cars |
-FD|Ford Dealer |
-HO|Holiday Car |
-IM|Imperial |
-IA|Independent Auto |
-TS|Intl Travel |
-KG|Kemwel Holiday |
-KN|Kenning |
-LL|Localiza |
-ZW|Montgomery Ward |
-NE|Nationwide |
-ZA|Payless |
-PI|Pinellas |
-BL|Red And Blue |
-RR|Rent Rite |
-RS|Resort |
-ZS|Sears |
-SX|Sixt |
-ZT|Thrifty |
-CC|Country Car |
-TR|Triangle |
-CT|TT/Key Services |
-SV|U-Save |
-CY|Carey International |
-CV|Capps Vans |
-AB|All American |
-EE|Exoticar Express |
-LX|Limo Service |
-MW|Midway |
-NF|New Frontier |
-SL|SL I.T.S. |
-US|US Rent a Car |
-VR|Specialty Van |
-WC|West Coast |
-ZH|Simply Wheelz |
-NU|Nu Car Rentals |
-EY|Economy Rent a Car |
-$$|Unknown Car Vendor |
-ZM|Zoom Rent a Car |
-ZD|Budget |
-ZE|Hertz |
-ZL|National |
-AU|Austrian |
-DR|DER Travel Svcs |
-EN|Vip Car Rental |
-ML|Merlin |
-EZ|Ez Rent A Car |
-FX|Fox |
-LM|L & M Car Rental |
-SW|Southwest |
-NW|New Frontier |
+`FA`|Able
+`AC`|Ace
+`AD`|Advantage
+`AL`|Alamo
+`LV`|Allstate
+`AF`|Americar
+`ZU`|AutoEurope
+`ZI`|Avis
+`CH`|Charlie
+`CP`|Compass
+`C`O|Continental
+`DS`|Discount
+`ZR`|Dollar
+`ET`|Enterprise
+`ED`|Eurodollar
+`EP`|Europcar
+`FH`|Falles Hire Cars
+`FD`|Ford Dealer
+`HO`|Holiday Car
+`IM`|Imperial
+`IA`|Independent Auto
+`TS`|Intl Travel
+`KG`|Kemwel Holiday
+`KN`|Kenning
+`LL`|Localiza
+`ZW`|Montgomery Ward
+`NE`|Nationwide
+`ZA`|Payless
+`PI`|Pinellas
+`BL`|Red And Blue
+`RR`|Rent Rite
+`RS`|Resort
+`ZS`|Sears
+`SX`|Sixt
+`ZT`|Thrifty
+`CC`|Country Car
+`TR`|Triangle
+`CT`|TT/Key Services
+`SV`|U-Save
+`CY`|Carey International
+`CV`|Capps Vans
+`AB`|All American
+`EE`|Exoticar Express
+`LX`|Limo Service
+`MW`|Midway
+`NF`|New Frontier
+`SL`|SL I.T.S.
+`US`|US Rent a Car
+`VR`|Specialty Van
+`WC`|West Coast
+`ZH`|Simply Wheelz
+`NU`|Nu Car Rentals
+`EY`|Economy Rent a Car
+`$$`|Unknown Car Vendor
+`ZM`|Zoom Rent a Car
+`ZD`|Budget
+`ZE`|Hertz
+`ZL`|National
+`AU`|Austrian
+`DR`|DER Travel Svcs
+`EN`|Vip Car Rental
+`ML`|Merlin
+`EZ`|Ez Rent A Car
+`FX`|Fox
+`LM`|L & M Car Rental
+`SW`|Southwest
+`NW`|New Frontier
 
 
 ### <a name="hotel-vendor-codes"></a>Hotel Vendor Codes
 
 Vendor Code|Vendor Name
 ---|---
-| RT | AccorHotels |
-| AM | Adams Mark |
-| AZ | The Ascott Limited |
-| AS | All Suites |
-| AR | AC Hoteles |
-| AJ | AmeriSuites |
-| AN | Ana Hotels |
-| AX | Anasazi Service |
-| AQ | ATA Hotels |
-| AO | Atlantis Hotel |
-| AH | Aston Hotels |
-| AP | Andre Balazs |
-| AC | Atel France |
-| BB | Bartell Hotels |
-| BW | Best Western |
-| BM | Biltmore |
-| BU | Baymont Inns |
-| CJ | Caesar Park |
-| QC | Camberly |
-| CA | Confortel |
-| CO | Camino Real Htls |
-| CV | COMO Hotels and Resorts |
-| CE | Chalet Susse |
-| CR | Clarion |
-| CH | CIH Hotels |
-| WX | Coast Hotels |
-| CS | Classical Hotels |
-| CI | Comfort Inns |
-| CD | Concord Hotels|
-| WA | Waldorf Astoria |
-| BC | Boutiquw|
-| CX | Country Inn |
-| CL | Corus Hotels |
-| DC | Dorchester Htls |
-| DE | Delta Hotels |
-| DS | Design Hotels |
-| FT | Grande Hotels |
-| DV | De Vere |
-| DA | Doral Hotels |
-| DO | Dorintresorts |
-| DT | Doubletree |
-| DY | Doyle Hotels|
-| DR | Drury Inns |
-| EE | Marriott Exec Ap |
-| EO | Econo Lodge |
-| ER | Electronic Rep |
-| EU | Exclusive Htls |
-| RM | Hetras |
-| XH | Extra Holidays |
-| FA | Fairmont Hotels |
-| FQ | Fauriel |
-| FM | Fiesta American |
-| FE | Forte Hotels |
-| FS | Four Seasons |
-| FZ | Friendship Inns |
-| FC | Rocco Forte |
-| GX | Global Conextion |
-| HN | Linkhotel |
-| GR | Six Senses Hotel |
-| GT | Golden Tulip |
-| AG | Gouverner Hotel |
-| GN | Gramercy Park Hotel |
-| GH | Grand Heritage |
-| GD | Grand Tradition |
-| HB | Hbs Hotel Booki |
-| HX | Hampton Inns |
-| HR | Harrah's |
-| HV | Harvey Hotels |
-| HP | Hyatt Place |
-| BH | Hawthorn Suites |
-| HL | Hilton Intl |
-| BE | Homestead Studio |
-| HG | Homewood Suites |
-| HO | Hotelrez |
-| AI | Armani Hotels |
-| HW | Hotel World |
-| HQ | Hotelink Intl |
-| HA | HOTUSA Hotels |
-| MR | Morgans Hotel Group |
-| IL | Innlink Res Svc |
-| IP | InnPoints |
-| IG | Insignia Resorts |
-| IC | InterContinental |
-| IE | InterEurope Htls |
-| IT | Intl Trvl Resort |
-| TS | Intl Trvl Svcs |
-| IR | Innpoints |
-| JA | Jarvinen Hotels |
-| JY | Jolly Hotels |
-| KA | Karos Hotels |
-| KI | Kempinski |
-| KY | Keytel |
-| KC | Kimpton Hotels |
-| KN | Kintetsu Intl |
-| NV | Las Vegas Travel |
-| LW | Leading Hotels |
-| LM | Vantis Hotel GRP |
-| LA | Little America |
-| LZ | Loews Hotels |
-| LR | LRI |
-| LU | Luxor Hotel |
-| MY | Personality Hotels |
-| MZ | Mainstay Suites |
-| MO | Mandarin Orientl |
-| MH | Marco Polo Htls |
-| MM | Maritim Hotels |
-| ET | Marriott Cnf Ctr |
-| MG | Magnolia Hotels |
-| MF | Micros Fidelio |
-| MT | Microtel Hotels |
-| MU | Millennium Htls |
-| MP | Mantra Group |
-| MN | Montage Hotels A |
-| MI | Malmaison Hotels |
-| MK | Movenpick Htls |
-| ND | National Hotels |
-| NO | New Otani |
-| NK | Nikko Hotels |
-| NH | Nippon Travel |
-| OB | Oberoi Group |
-| OC | Okura Hotels |
-| OM | Omni Hotels |
-| OH | Oslo Hotel |
-| OR | Outrigger |
-| PS | Sandman Hotels |
-| PF | Pan Pacific |
-| PL | Parkroyal Hotels |
-| PQ | Purple Hotels |
-| PH | Preferred Hotels |
-| PW | Prima Hotels |
-| PN | Peninsula Hotels |
-| PR | Protea Hotels |
-| QI| Quality Inns |
-| QL | Queens Hotels |
-| QM | Queens Moat Htls |
-| QH | QHotels |
-| RD| Radisson |
-| NR| Ramada Intl |
-| ON | Reconline |
-| RL | Red Lion Inns |
-| RF | Red Roof Inns |
-| RQ | Regal Hotels |
-| KR | Regal Hotels UK |
-| RE | Regent Intl |
-| RH | Reservations Hub |
-| BR | Renaissance Intl |
-| RC | Residence Inns |
-| RR | Righa Royal |
-| RZ | Ritz-Carlton |
-| RW | Rosewood |
-| RI | Rodeway Inns |
-| RO | Rotana Hotels and Resorts |
-| RB | Resort Bookings |
-| RG | Rydges Group |
-| SH | Scandic Hotels |
-| IQ | Myfidelio |
-| SC | Sceptre Hotels |
-| SQ | Select Hotels |
-| SG | Shangri-La |
-| BP | Shilo Inns |
-| US | Sierra Hotels |
-| SJ | Jameson Inns |
-| SZ | Sleep Inns |
-| SB | Sofitel |
-| LX | Small Luxury |
-| SM | InnLink Res Svc |
-| SN | Sonesta Hotels |
-| ST | Sorat Hotels |
-| SP | Special Prop-IHG |
-| XV | SpringHill Suites |
-| SR | Steigenberger |
-| SK | Stakis Hotels |
-| YS | Stamford Hotels |
-| LV | Las Vegas Test |
-| YZ | Staybridge Ste |
-| WR | Sterling Intl |
-| SS | Studio 6 |
-| XL | Summit Hotels |
-| SX | Supranational |
-| UK | Swallow Hotels |
-| SL | Swissotel |
-| TI | Thistle Hotels |
-| TM | Tianma |
-| TP | Top Intnl Htls |
-| TH | Trident Hotels |
-| TO | TownePlace Suites |
-| TA | Reservhotel |
-| TX | Treff Hotels |
-| TR | Cendant Trip Rewards |
-| VP | VIP Intl |
-| VA | OneTech Solution |
-| VI | Vienna International |
-| WH | W Hotels |
-| DW | Walt Disney Htl |
-| WK | Warwick Hotels |
-| WL | Wellesley Inns |
-| WM | Westmark Hotel |
-| EJ | Williams |
-| WC | WestCoast Hotels |
-| WW | World Hotels |
-| WY | Wyndham Hotels |
-| SW | Starwood (All) |
-| AL | Aloft Hotels |
-| BY | Banyan Tree |
-| EL | Elements |
-| GA | Global Alliance |
-| IW | Hotels & Preference |
-| QX | Luxury Lifestyle |
-| RP | Rendezvous Hospitality Group |
-| RU | Hard Rock |
-| TY | Tradyso Global Distribution |
-| ZX | Marriott Affliat|
-| TB | GTA TravelBound |
-| DX | Dolce Hotels |
-| JI | Jurys Inns |
-| LD | Leonardo |
-| LJ | Lalit |
-| NZ | Ascend|
-| IN | Indigo Hotels|
-| LC | Luxury Collection|
-| LI | LeisureLink Inc |
-| OT | Othon Hotels |
-| PX | Performance Conn |
-| PY | Peabody Hotels |
-| SE | Sercotel |
-| WF | West Coast Famil |
-| ZC | Ritz Club |
-| XO | Luxury Resorts |
-| AT | Address Hotels |
-| CQ | Club Quarters |
-| ML | Melrose Hotels |
-| DH | Distinguished Hotels |
-| PI | Premier Inn |
-| ZZ | Independent |
-| JT | Jumeirah |
-| EZ | Cambria Suites |
-| UB | Suburban Extended Stay |
-| FB | Fontainebleau |
-| GV | Graves Hotels |
-| IM | Independent Htls |
-| JL | Jumeriah |
-| LP | Lexington |
-| OP | Omni Partners |
-| PV | Preferred Group |
-| RJ | Resort Condos |
-| RK | Rezlink Intl |
-| UV | Univisit |
-| VK | Vacationclick |
-| VR | Vacation Rentals |
-| XN | Global Res |
-| XX | New Synxis |
-| XZ | Hotelzon |
-| OI | Amadeus LinkHotel |
-| GF | Grange Hotels |
-| EP | Epoque Hotels |
-| LO | Langham Hotels |
-| PM | Barcelo Hotels |
-| QV | ResortQuest Intl |
-| XW | WebRes |
-| YH | Booking Services |
-| YP | Altiuspar Soluti |
-| DD | Derag Hotels |
-| XR | St Regis |
-| 6C | Intercontinental Hotels Group |
-| AB | Abba Hotels |
-| AE | AmeriHost Inn |
-| AV | Allegience Svcs |
-| AW | Astra Worldwide |
-| BA | Boscolo Hotels |
-| BG | Bulgari Hotels |
-| BN | Barcelo Hotels |
-| BV | Best Value Inns |
-| CG | City Lodge Group |
-| CN | Conrad |
-| CP | Crowne Plaza |
-| CU | Charming Hotels |
-| CW | Carlson Brands (All) |
-| CZ | Comfort Suites |
-| DI | Days Inn |
-| DM | Domina Hotels |
-| DU | Destinations Unl |
-| EC | Choice Brands |
-| EH | Hilton (All) |
-| EK | Sercotel |
-| EM | Marriott (All) |
-| GI | Hilton Garden Inn |
-| GM | Meritus |
-| GW | Great Hotels |
-| HE | Historic Hotels |
-| HF | HomeGate Studios |
-| HU | Hyatt Vacation |
-| ID | Resnet |
-| IF | ACC-NIFOS |
-| IS | Ian Schrager |
-| IU | Intourist Travel |
-| JC | Cendant Brands (All) |
-| JU | Jumer |
-| KL | ClubHouse Inns |
-| LT | Travelodge AU |
-| MS | Magnuson Hotels |
-| MV | MGM Mirage |
-| NN | Louvre Hotels |
-| NY | Denihan Hospitality Group |
-| OE | Orient Express |
-| OK | Alesia |
-| OS | Sweden Hotels |
-| PK | Park Plaza Intl |
-| PT | Prime Hotels |
-| RA | Ramada Hotels |
-| RN | Expotel |
-| RX | Ringhotels |
-| SO | Sonesta |
-| SV | Sarova Hotels |
-| SY | Starhotels |
-| TL | Travelodge |
-| TV | ReservHotel |
-| VC | Marriott Vacation Club |
-| WD | Chase Suite Hotels |
-| WG | Wingate Inn |
-| XS | Summerfield Suites |
-| II | Indecorp |
-| GZ | Genares Worldwide |
-| GE | Gaylord Hotels |
-| FV | Flairview |
-| EW | Exclusive World |
-| GQ | Genre Hotels |
-| FX | First Hotel |
-| WT | Tryp by Wyndham |
-| UN | Carino Hotels |
-| GP | Husa Hotels |
-| IV | InnVite |
-| LG | Lindner Hotels |
-| JJ | Jin Jiang Hotels |
-| CK | Black Pepper Hotels |
-| QO | Swiss Quality Hotels |
-| AK | Autograph |
-| EB | Edition |
-| EQ | Eaton |
-| FD | Etours |
-| HM | Missoni |
-| JG | JG Black Book |
-| OO | One And Only |
-| UA | Premier Connect |
-| PU | Pullman |
-| QG | Quest |
-| TW | Trump Hotel Collection |
-| TF | Thon Hotels |
-| IA | Corinthia Hotels |
-| NU | Northwood Hospitality |
-| HC | hotel.de |
-| $$ | Unknown Hotel Vendor |
-| QU | Aqua Hotels and Resorts |
-| FG | FastBooking |
-| BL | Balladins Hotels |
-| ZW | CWT Private Hotels |
-| DN | Destination |
-| XE | Excalibur |
-| CY | Courtyard |
-| ES | Embassy Suites |
-| FN | Fairfield Inns |
-| HH | Hilton |
-| HI | Holiday Inn |
-| HJ | Howard Johnson |
-| HY | Hyatt|
-| MC | Marriott|
-| SI | Sheraton|
-| WI | Westin|
-| CB | Classic British |
-| HT | Home2 Suites|
-| JH | Jumer Hotels |
-| LQ | La Quinta Inns|
-| QR | Quality Htl Res |
-| SU | Southern Sun |
-| UI | Utell |
-| PD | Park Inn|
-| SF | Sutton Place Htl |
-| YO | Candlewood Stes|
-| KG | Knights Inn|
-| VG | Villager|
-| OZ | Super 8|
-| VY | Maybourne Hotels |
-| JD | Doyle Collection |
-| EA | Extended Stay |
-| VE | Vantis Hotels |
-| YX | Synxis Res Svcs |
-| BK | Interstate Hotels and Resorts |
-| MD | Le Meridien|
-| LE | Luxe Worldwide |
-| KH | K Hotels |
-| FW | Flag Hotels|
-| UZ | Unirez |
-| GO | Guesthouse International |
-| TG | Travelodge UK |
-| WO | WorldRes |
-| JV | Joie De Vivre |
-| PJ | Prince Resorts |
-| BI | Best Inns |
-| MB | Mandalay Bay |
-| YR | Raffles Intl |
-| FH | Fiesta Americana |
-| NS | NH Hotels |
-| NC | Noble House |
-| OG | Olympus Hospitality |
-| RS | Rockresorts Intl |
-| GB | MacDonald Group |
-| WB | Relais/Chateaux |
-| GG | Grand Hosp. |
-| AA | AmericInns |
-| MX | Motel 6 |
-| DL | Doral Resorts |
-| CC | Clarion |
-| BT | BT Advantage |
-| SA | Sabre Exclusives |
-| RV | Red Roof Inns |
-| TJ | Taj Hotels |
-| BX | Columbus Res Svc |
-| BZ | Cmnet Brazil |
-| CM | Camino Real |
-| DJ | Hotel Port |
-| EI | Executive Hotels |
-| HK | Hot Key Intl. |
-| IH | CIH Hotels |
-| KO | KSL Resorts |
-| ME | Sol Melia |
-| NW | Newtrade |
-| PG | Phillips Hotel |
-| UE | Universal Resort |
-| WS | World Res |
-| WV | TravelCLICK |
+`RT`| AccorHotels |
+`AM`| Adams Mark |
+`AZ`| The Ascott Limited |
+`AS`| All Suites |
+`AR`| AC Hoteles |
+`AJ`| AmeriSuites |
+`AN`| Ana Hotels |
+`AX`| Anasazi Service |
+`AQ`| ATA Hotels |
+`AO`| Atlantis Hotel |
+`AH`| Aston Hotels |
+`AP`| Andre Balazs |
+`AC`| Atel France |
+`BB`| Bartell Hotels |
+`BW`| Best Western |
+`BM`| Biltmore |
+`BU`| Baymont Inns |
+`CJ`| Caesar Park |
+`QC`| Camberly |
+`CA`| Confortel |
+`CO`| Camino Real Htls |
+`CV`| COMO Hotels and Resorts |
+`CE`| Chalet Susse |
+`CR`| Clarion |
+`CH`| CIH Hotels |
+`WX`| Coast Hotels |
+`CS`| Classical Hotels |
+`CI`| Comfort Inns |
+`CD`| Concord Hotels|
+`WA`| Waldorf Astoria |
+`BC`| Boutiquw|
+`CX`| Country Inn |
+`CL`| Corus Hotels |
+`DC`| Dorchester Htls |
+`DE`| Delta Hotels |
+`DS`| Design Hotels |
+`FT`| Grande Hotels |
+`DV`| De Vere |
+`DA`| Doral Hotels |
+`DO`| Dorintresorts |
+`DT`| Doubletree |
+`DY`| Doyle Hotels|
+`DR`| Drury Inns |
+`EE`| Marriott Exec Ap |
+`EO`| Econo Lodge |
+`ER`| Electronic Rep |
+`EU`| Exclusive Htls |
+`RM`| Hetras |
+`XH`| Extra Holidays |
+`FA`| Fairmont Hotels |
+`FQ`| Fauriel |
+`FM`| Fiesta American |
+`FE`| Forte Hotels |
+`FS`| Four Seasons |
+`FZ`| Friendship Inns |
+`FC`| Rocco Forte |
+`GX`| Global Conextion |
+`HN`| Linkhotel |
+`GR`| Six Senses Hotel |
+`GT`| Golden Tulip |
+`AG`| Gouverner Hotel |
+`GN`| Gramercy Park Hotel |
+`GH`| Grand Heritage |
+`GD`| Grand Tradition |
+`HB`| Hbs Hotel Booki |
+`HX`| Hampton Inns |
+`HR`| Harrah's |
+`HV`| Harvey Hotels |
+`HP`| Hyatt Place |
+`BH`| Hawthorn Suites |
+`HL`| Hilton Intl |
+`BE`| Homestead Studio |
+`HG`| Homewood Suites |
+`HO`| Hotelrez |
+`AI`| Armani Hotels |
+`HW`| Hotel World |
+`HQ`| Hotelink Intl |
+`HA`| HOTUSA Hotels |
+`MR`| Morgans Hotel Group |
+`IL`| Innlink Res Svc |
+`IP`| InnPoints |
+`IG`| Insignia Resorts |
+`IC`| InterContinental |
+`IE`| InterEurope Htls |
+`IT`| Intl Trvl Resort |
+`TS`| Intl Trvl Svcs |
+`IR`| Innpoints |
+`JA`| Jarvinen Hotels |
+`JY`| Jolly Hotels |
+`KA`| Karos Hotels |
+`KI`| Kempinski |
+`KY`| Keytel |
+`KC`| Kimpton Hotels |
+`KN`| Kintetsu Intl |
+`NV`| Las Vegas Travel |
+`LW`| Leading Hotels |
+`LM`| Vantis Hotel GRP |
+`LA`| Little America |
+`LZ`| Loews Hotels |
+`LR`| LRI |
+`LU`| Luxor Hotel |
+`MY`| Personality Hotels |
+`MZ`| Mainstay Suites |
+`MO`| Mandarin Orientl |
+`MH`| Marco Polo Htls |
+`MM`| Maritim Hotels |
+`ET`| Marriott Cnf Ctr |
+`MG`| Magnolia Hotels |
+`MF`| Micros Fidelio |
+`MT`| Microtel Hotels |
+`MU`| Millennium Htls |
+`MP`| Mantra Group |
+`MN`| Montage Hotels A |
+`MI`| Malmaison Hotels |
+`MK`| Movenpick Htls |
+`ND`| National Hotels
+`NO`| New Otani
+`NK`| Nikko Hotels
+`NH`| Nippon Travel
+`OB`| Oberoi Group
+`OC`| Okura Hotels
+`OM`| Omni Hotels
+`OH`| Oslo Hotel
+`OR`| Outrigger
+`PS`| Sandman Hotels
+`PF`| Pan Pacific
+`PL`| Parkroyal Hotels
+`PQ`| Purple Hotels
+`PH`| Preferred Hotels
+`PW`| Prima Hotels
+`PN`| Peninsula Hotels
+`PR`| Protea Hotels
+`QI`| Quality Inns
+`QL`| Queens Hotels
+`QM`| Queens Moat Htls
+`QH`| QHotels
+`RD`| Radisson
+`NR`| Ramada Intl
+`ON`| Reconline
+`RL`| Red Lion Inns
+`RF`| Red Roof Inns
+`RQ`| Regal Hotels
+`KR`| Regal Hotels UK
+`RE`| Regent Intl
+`RH`| Reservations Hub
+`BR`| Renaissance Intl
+`RC`| Residence Inns
+`RR`| Righa Royal
+`RZ`| Ritz-Carlton
+`RW`| Rosewood
+`RI`| Rodeway Inns
+`RO`| Rotana Hotels and Resorts
+`RB`| Resort Bookings
+`RG`| Rydges Group
+`SH`| Scandic Hotels
+`IQ`| Myfidelio
+`SC`| Sceptre Hotels
+`SQ`| Select Hotels
+`SG`| Shangri-La
+`BP`| Shilo Inns
+`US`| Sierra Hotels
+`SJ`| Jameson Inns
+`SZ`| Sleep Inns
+`SB`| Sofitel
+`LX`| Small Luxury
+`SM`| InnLink Res Svc
+`SN`| Sonesta Hotels
+`ST`| Sorat Hotels
+`SP`| Special Prop-IHG
+`XV`| SpringHill Suites
+`SR`| Steigenberger
+`SK`| Stakis Hotels
+`YS`| Stamford Hotels
+`LV`| Las Vegas Test
+`YZ`| Staybridge Ste
+`WR`| Sterling Intl
+`SS`| Studio 6
+`XL`| Summit Hotels
+`SX`| Supranational
+`UK`| Swallow Hotels
+`SL`| Swissotel
+`TI`| Thistle Hotels
+`TM`| Tianma
+`TP`| Top Intnl Htls
+`TH`| Trident Hotels
+`TO`| TownePlace Suites
+`TA`| Reservhotel
+`TX`| Treff Hotels
+`TR`| Cendant Trip Rewards
+`VP`| VIP Intl
+`VA`| OneTech Solution
+`VI`| Vienna International
+`WH`| W Hotels
+`DW`| Walt Disney Htl
+`WK`| Warwick Hotels
+`WL`| Wellesley Inns
+`WM`| Westmark Hotel
+`EJ`| Williams
+`WC`| WestCoast Hotels
+`WW`| World Hotels
+`WY`| Wyndham Hotels
+`SW`| Starwood (All)
+`AL`| Aloft Hotels
+`BY`| Banyan Tree
+`EL`| Elements
+`GA`| Global Alliance
+`IW`| Hotels & Preference
+`QX`| Luxury Lifestyle
+`RP`| Rendezvous Hospitality Group
+`RU`| Hard Rock
+`TY`| Tradyso Global Distribution
+`ZX`| Marriott Affliat
+`TB`| GTA TravelBound
+`DX`| Dolce Hotels
+`JI`| Jurys Inns
+`LD`| Leonardo
+`LJ`| Lalit
+`NZ`| Ascend
+`IN`| Indigo Hotels
+`LC`| Luxury Collection
+`LI`| LeisureLink Inc
+`OT`| Othon Hotels
+`PX`| Performance Conn
+`PY`| Peabody Hotels
+`SE`| Sercotel
+`WF`| West Coast Famil
+`ZC`| Ritz Club
+`XO`| Luxury Resorts
+`AT`| Address Hotels
+`CQ`| Club Quarters
+`ML`| Melrose Hotels
+`DH`| Distinguished Hotels
+`PI`| Premier Inn
+`ZZ`| Independent
+`JT`| Jumeirah
+`EZ`| Cambria Suites
+`UB`| Suburban Extended Stay
+`FB`| Fontainebleau
+`GV`| Graves Hotels
+`IM`| Independent Htls
+`JL`| Jumeriah
+`LP`| Lexington
+`OP`| Omni Partners
+`PV`| Preferred Group
+`RJ`| Resort Condos
+`RK`| Rezlink Intl
+`UV`| Univisit
+`VK`| Vacationclick
+`VR`| Vacation Rentals
+`XN`| Global Res
+`XX`| New Synxis
+`XZ`| Hotelzon
+`OI`| Amadeus LinkHotel
+`GF`| Grange Hotels
+`EP`| Epoque Hotels
+`LO`| Langham Hotels
+`PM`| Barcelo Hotels
+`QV`| ResortQuest Intl
+`XW`| WebRes
+`YH`| Booking Services
+`YP`| Altiuspar Soluti
+`DD`| Derag Hotels
+`XR`| St Regis
+`6C`| Intercontinental Hotels Group
+`AB`| Abba Hotels
+`AE`| AmeriHost Inn
+`AV`| Allegience Svcs
+`AW`| Astra Worldwide
+`BA`| Boscolo Hotels
+`BG`| Bulgari Hotels
+`BN`| Barcelo Hotels
+`BV`| Best Value Inns
+`CG`| City Lodge Group
+`CN`| Conrad
+`CP`| Crowne Plaza
+`CU`| Charming Hotels
+`CW`| Carlson Brands (All)
+`CZ`| Comfort Suites
+`DI`| Days Inn
+`DM`| Domina Hotels
+`DU`| Destinations Unl
+`EC`| Choice Brands
+`EH`| Hilton (All)
+`EK`| Sercotel
+`EM`| Marriott (All)
+`GI`| Hilton Garden Inn
+`GM`| Meritus
+`GW`| Great Hotels
+`HE`| Historic Hotels
+`HF`| HomeGate Studios
+`HU`| Hyatt Vacation
+`ID`| Resnet
+`IF`| ACC-NIFOS
+`IS`| Ian Schrager
+`IU`| Intourist Travel
+`JC`| Cendant Brands (All)
+`JU`| Jumer
+`KL`| ClubHouse Inns
+`LT`| Travelodge AU
+`MS`| Magnuson Hotels
+`MV`| MGM Mirage
+`NN`| Louvre Hotels
+`NY`| Denihan Hospitality Group
+`OE`| Orient Express
+`OK`| Alesia
+`OS`| Sweden Hotels
+`PK`| Park Plaza Intl
+`PT`| Prime Hotels
+`RA`| Ramada Hotels
+`RN`| Expotel
+`RX`| Ringhotels
+`SO`| Sonesta
+`SV`| Sarova Hotels
+`SY`| Starhotels
+`TL`| Travelodge
+`TV`| ReservHotel
+`VC`| Marriott Vacation Club
+`WD`| Chase Suite Hotels
+`WG`| Wingate Inn
+`XS`| Summerfield Suites
+`II`| Indecorp
+`GZ`| Genares Worldwide
+`GE`| Gaylord Hotels
+`FV`| Flairview
+`EW`| Exclusive World
+`GQ`| Genre Hotels
+`FX`| First Hotel
+`WT`| Tryp by Wyndham
+`UN`| Carino Hotels
+`GP`| Husa Hotels
+`IV`| InnVite
+`LG`| Lindner Hotels
+`JJ`| Jin Jiang Hotels
+`CK`| Black Pepper Hotels
+`QO`| Swiss Quality Hotels
+`AK`| Autograph
+`EB`| Edition
+`EQ`| Eaton
+`FD`| Etours
+`HM`| Missoni
+`JG`| JG Black Book
+`OO`| One And Only
+`UA`| Premier Connect
+`PU`| Pullman
+`QG`| Quest
+`TW`| Trump Hotel Collection
+`TF`| Thon Hotels
+`IA`| Corinthia Hotels
+`NU`| Northwood Hospitality
+`HC`| hotel.de
+`$$`| Unknown Hotel Vendor
+`QU`| Aqua Hotels and Resorts
+`FG`| FastBooking
+`BL`| Balladins Hotels
+`ZW`| CWT Private Hotels
+`DN`| Destination
+`XE`| Excalibur
+`CY`| Courtyard
+`ES`| Embassy Suites
+`FN`| Fairfield Inns
+`HH`| Hilton
+`HI`| Holiday Inn
+`HJ`| Howard Johnson
+`HY`| Hyatt
+`MC`| Marriott
+`SI`| Sheraton
+`WI`| Westin
+`CB`| Classic British
+`HT`| Home2 Suites
+`JH`| Jumer Hotels
+`LQ`| La Quinta Inns
+`QR`| Quality Htl Res
+`SU`| Southern Sun
+`UI`| Utell
+`PD`| Park Inn
+`SF`| Sutton Place Htl
+`YO`| Candlewood Stes
+`KG`| Knights Inn
+`VG`| Villager
+`OZ`| Super 8
+`VY`| Maybourne Hotels
+`JD`| Doyle Collection
+`EA`| Extended Stay
+`VE`| Vantis Hotels
+`YX`| Synxis Res Svcs
+`BK`| Interstate Hotels and Resorts
+`MD`| Le Meridien
+`LE`| Luxe Worldwide
+`KH`| K Hotels
+`FW`| Flag Hotels
+`UZ`| Unirez
+`GO`| Guesthouse International
+`TG`| Travelodge UK
+`WO`| WorldRes
+`JV`| Joie De Vivre
+`PJ`| Prince Resorts
+`BI`| Best Inns
+`MB`| Mandalay Bay
+`YR`| Raffles Intl.
+`FH`| Fiesta Americana
+`NS`| NH Hotels
+`NC`| Noble House
+`OG`| Olympus Hospitality
+`RS`| Rockresorts Intl.
+`GB`| MacDonald Group
+`WB`| Relais/Chateaux
+`GG`| Grand Hosp.
+`AA`| AmericInns
+`MX`| Motel 6
+`DL`| Doral Resorts
+`CC`| Clarion
+`BT`| BT Advantage
+`SA`| Sabre Exclusives
+`RV`| Red Roof Inns
+`TJ`| Taj Hotels
+`BX`| Columbus Res Svc
+`BZ`| Cmnet Brazil
+`CM`| Camino Real
+`DJ`| Hotel Port
+`EI`| Executive Hotels
+`HK`| Hot Key Intl.
+`IH`| CIH Hotels
+`KO`| KSL Resorts
+`ME`| Sol Melia
+`NW`| Newtrade
+`PG`| Phillips Hotel
+`UE`| Universal Resort
+`WS`| World Res
+`WV`| TravelCLICK
 
 
 ### <a name="ride-vendor-codes"></a>Ride Vendor Codes
 
 Vendor Code|Vendor Name
 ---|---
-|  $R |  RideCharge |
-|  AL |  AddisonLee |
-|  DG |  DeemGroundLimo |
-|  GC |  GroundScope |
-|  GS |  GroundSpan |
-|  LC |  Limoscom |
-|  SQ |  SummitQwest |
-|  SW |  SummitQwest |
-|  TD |  Tandem |
-|  TV |  Transvip |
+`$R`|  RideCharge
+`AL`|  AddisonLee
+`DG`|  DeemGroundLimo
+`GC`|  GroundScope
+`GS`|  GroundSpan
+`LC`|  Limoscom
+`SQ`|  SummitQwest
+`SW`|  SummitQwest
+`TD`|  Tandem
+`TV`|  Transvip
