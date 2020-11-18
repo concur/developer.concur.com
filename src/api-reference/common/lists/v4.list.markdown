@@ -743,7 +743,7 @@ cache-control: no-cache, private
 |Name|Type|Format|Description|
 |---|---|---|---|
 |`number`|`integer`|`int32`|The page number.|
-|`size`|`integer`|`int32`|The page size is set to 100.|
+|`size`|`integer`|`int32`|The number of lists per page, which is fixed at 100.|
 |`totalElements`|`integer`|`int32`|The number of total elements.|
 |`totalPages`|`integer`|`int32`|The number of total pages.|
 
