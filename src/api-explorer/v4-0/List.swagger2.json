@@ -23,7 +23,7 @@
         "tags": [
           "List API"
         ],
-        "summary": "Get the lists for a given category id",
+        "summary": "Get the lists for a given category ID",
         "description": "Returns lists for the category",
         "operationId": "getListsForCategoryUsingGET",
         "produces": [
@@ -35,8 +35,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "name": "categoryId",
@@ -91,7 +90,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -114,8 +113,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "name": "sortBy",
@@ -180,7 +178,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -204,8 +202,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "in": "body",
@@ -257,7 +254,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -268,7 +265,7 @@
         "tags": [
           "List API"
         ],
-        "summary": "Get a list with provided list id",
+        "summary": "Get a list with provided list ID",
         "description": "Returns an existing list",
         "operationId": "getListUsingGET",
         "produces": [
@@ -280,8 +277,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "name": "listId",
@@ -326,7 +322,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -350,8 +346,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "name": "listId",
@@ -417,7 +412,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -473,7 +468,7 @@
         },
         "security": [
           {
-            "JWT Token": []
+            "Bearer": []
           }
         ],
         "deprecated": false
@@ -481,7 +476,7 @@
     }
   },
   "securityDefinitions": {
-    "JWT Token": {
+    "Bearer": {
       "type": "apiKey",
       "name": "Authorization",
       "in": "header"
