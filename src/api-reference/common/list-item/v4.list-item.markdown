@@ -19,6 +19,7 @@ The SAP Concur List Item API provides an automated solution to clients who would
 * [Delete a List Item](#delete-list-item)
 * [Delete a List Item from List](#delete-list-item-from-list)
 * [Retrieve Children of a List Item](#children-list-item-ID)
+* [Retrieve Children of a List Item by List](#children-list-item-by-list)
 * [Retrieve First Level Children of a List](#children-list-ID)
 * [Schema](#schema)
   * [List Item](#schema-list-item)
@@ -678,9 +679,126 @@ cache-control: no-cache, private
 }
 ```
 
+## <a name="children-list-item-by-list"></a>Retrieve Children of a List Item by List
+
+Retrieve the direct children for a given list item in a particular list. For a list item shared between multiple lists, this API enables retrieving children from a particular list.
+
+### Scopes
+
+`spend.listitem.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+GET /list/v4/lists/{listId}/items/{itemId}/children?page={page}&sortBy={sortBy}
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: Company defined default language|
+|`hasChildren`|`boolean`|If `true`, displays items with children.|
+|`isDeleted`|`boolean`|If `true`, displays deleted items.|
+|`itemId`|`string`|**Required** The unique identifier of the list item.|
+|`listId`|`string`|The unique identifier of the list.|
+|`page`|`integer`|Page number starting from 1. Default: `1`|
+|`shortCode`|`string`|Filter capabilities for `shortCode`.|
+|`shortCodeOrValue`|`string`|Filter capabilities for `value` or `shortCode`.|
+|`sortBy`|`string`|Field to sort by. Supported values: `value`, `shortCode`. Default: `value`|
+|`sortDirection`|`string`|Sort direction. Supported values: `asc`, `desc`|
+|`value`|`string`|Filter capabilities for `value`. |
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [Paged Resources List Item](#schema-paged-resources-list-item)
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f/items/7c6d0435-c4d1-8b48-8492-7e7b625e148d/children?page=1&sortBy=value
+Accept: application/json
+Accept-Language: en
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200
+concur-correlationid: 50dcec14-c984-479c-84e2-186a7e62f87e
+content-length: 449
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 14:27:13 GMT
+etag: "05cb0f0ed5a73bedf1e8cd4171e360e41"
+cache-control: no-cache, private
+```
+
+```json
+{
+  "links": [],
+  "content": [
+    {
+      "id": "63b7fbd9-ae08-0840-abdb-62b0b9160081",
+      "code": "ITEM-SECOND LEVEL ITEM",
+      "shortCode": "SECOND LEVEL ITEM",
+      "value": "SECOND LEVEL ITEM",
+      "parentId": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
+      "level": 2,
+      "isDeleted": false,
+      "lists": [
+        {
+          "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+          "hasChildren": false
+        }
+      ]
+    }
+  ],
+  "page": {
+    "size": 100,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 1
+  }
+}
+```
+
 ## <a name="children-list-ID"></a>Retrieve First Level Children Items of a List
 
-Retrieves the first level list items for a given List ID.
+Retrieves the first level list items for a given list ID.
 
 ### Scopes
 
@@ -870,7 +988,7 @@ cache-control: no-cache, private
 |Name|Type|Format|Description|
 |---|---|---|---|
 |`number`|`integer`|`int32`|The page number.|
-|`size`|`integer`|`int32`|The page size is set to 100.|
+|`size`|`integer`|`int32`|The number of items per page, which is fixed at 100.|
 |`totalElements`|`integer`|`int32`|The number of total elements.|
 |`totalPages`|`integer`|`int32`|The number of total pages.|
 
@@ -885,16 +1003,29 @@ cache-control: no-cache, private
 
 ### <a name="filter-apis"></a>Supported APIs
 
-The List Item API supports filtering on the [Retrieve First Level Children Items of a List](#children-list-ID) API and [Retrieve Children of a List Item](#children-list-item-ID) API. The filter may be applied to the `value`, `shortCode`, and `shortCodeOrValue` query parameters.
+The List Item API supports filtering on the [Retrieve First Level Children Items of a List](#children-list-ID), 
+[Retrieve Children of a List Item](#children-list-item-ID), and [Retrieve Children of a List Item by List](#children-list-item-by-list) APIs.
+The filter may be applied to the `value`, `shortCode`, and `shortCodeOrValue` query parameters.
 
+Retrieve First Level Children Items of a List
 ```shell
-/lists/v4/lists/{listId}/children?value=test
-/lists/v4/lists/{listId}/children?shortCode=test
-/lists/v4/lists/{listId}/children?shortCodeOrValue=test
+GET /lists/v4/lists/{listId}/children?value=test
+GET /lists/v4/lists/{listId}/children?shortCode=test
+GET /lists/v4/lists/{listId}/children?shortCodeOrValue=test
+```
 
-/lists/v4/items/{listId}/children?value=test
-/lists/v4/items/{listId}/children?shortCode=test
-/lists/v4/items/{listId}/children?shortCodeOrValue=test
+Retrieve Children of a List Item
+```shell
+GET /lists/v4/items/{listId}/children?value=test
+GET /lists/v4/items/{listId}/children?shortCode=test
+GET /lists/v4/items/{listId}/children?shortCodeOrValue=test
+```
+
+Retrieve Children of a List Item by List
+```shell
+GET /list/v4/lists/{listId}/items/{itemId}/children?value=test
+GET /list/v4/lists/{listId}/items/{itemId}/children?shortCode=test
+GET /list/v4/lists/{listId}/items/{itemId}/children?shortCodeOrValue=test
 ```
 
 ### <a name="query-syntax"></a>Query Syntax
@@ -935,13 +1066,13 @@ Examples:
 
 Complex queries using parentheses are not supported. 
 
-There is basic support for OR functionality. `shortCodeOrValue` which will search both properties with the same `value` and return all resources that match either field name.
+There is basic support for OR functionality with the `shortCodeOrValue` query parameter. `shortCodeOrValue` will search both `shortCode` and `value` properties and return all resources that match either field.
 
 ### <a name="comparison-operators"></a>Comparison Operators
 
-#### equals
+#### Equals
 
-`eq` is the default if no operator is specified. Returns results where a field is *equal to* the supplied value.
+`eq` returns results where a field is *equal to* the supplied value. This is the default if no operator is specified.
 
 ```shell
 /lists/v4/lists/{listId}/children?value=test
@@ -955,14 +1086,15 @@ There is basic support for OR functionality. `shortCodeOrValue` which will searc
 /lists/v4/items/{itemId}/children?shortCodeOrValue=eq:test
 ```
 
-#### contains pattern
+#### Contains Pattern
+
 `cp` returns results where the provided pattern exists in the specified field. 
 
 ```shell
 /lists/v4/lists/{listId}/children?value=cp:test
 ```
 
-#### not
+#### Not
 
 `not` returns results where a field is *not equal to* the supplied value.
 
@@ -970,7 +1102,7 @@ There is basic support for OR functionality. `shortCodeOrValue` which will searc
 /lists/v4/items/{itemId}/children?shortCode=not:test
 ```
 
-#### starts with
+#### Starts With
 
 `sw` returns results where a field *startsWith* the supplied value.
 
@@ -978,7 +1110,7 @@ There is basic support for OR functionality. `shortCodeOrValue` which will searc
 /lists/v4/lists/{listId}/children?shortCode=sw:test
 ```
 
-#### ends with
+#### Ends With
 
 `ew` returns results where a field *endsWith* the supplied value.
 

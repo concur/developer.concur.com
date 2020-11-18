@@ -365,14 +365,6 @@
             "format": "uuid"
           },
           {
-            "name": "listId",
-            "in": "query",
-            "description": "The unique identifier of the list. For a list item shared between multiple lists, this parameter enables retrieving children from a particular list.",
-            "required": false,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
             "name": "page",
             "in": "query",
             "description": "Page number starting from 1",
@@ -472,7 +464,7 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Get the first level list items for a given List ID",
+        "summary": "Get the first level list items for a given list ID",
         "description": "Returns the first level children list items for a list",
         "operationId": "getFirstLevelListItemsUsingGET",
         "produces": [
@@ -650,6 +642,150 @@
           },
           "403": {
             "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/list/v4/lists/{listId}/items/{itemId}/children": {
+      "get": {
+        "tags": [
+          "List Item API"
+        ],
+        "summary": "Get direct children of list item in a particular list",
+        "description": "Returns list item children",
+        "operationId": "getChildrenInListUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "hasChildren",
+            "in": "query",
+            "description": "Show items with children",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "Show deleted items",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "The unique identifier of the list item",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list. For a list item shared between multiple lists, this parameter enables retrieving children from a particular list.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number starting from 1",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32",
+            "x-example": 1
+          },
+          {
+            "name": "shortCode",
+            "in": "query",
+            "description": "Filter capabilities for ShortCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "shortCodeOrValue",
+            "in": "query",
+            "description": "Filter capabilities for Value OR ShortCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Field to sort by, {value, shortcode}",
+            "required": false,
+            "type": "string",
+            "default": "value",
+            "enum": [
+              "value",
+              "shortcode"
+            ]
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "description": "Sort direction, {asc, desc}",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "Filter capabilities for Value",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully got children of list item",
+            "schema": {
+              "$ref": "#/definitions/PagedResourcesListItem"
+            }
+          },
+          "400": {
+            "description": "Company does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "listItem not found",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
