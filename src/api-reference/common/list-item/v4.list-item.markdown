@@ -246,7 +246,7 @@ Example 1 (create first level list item):
 }
 ```
 
-Example 2 (create second level list item by parent list item id):
+Example 2 (create second level list item by parent list item ID):
 ```json
 {
   "listId": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
@@ -427,7 +427,7 @@ cache-control: no-cache, private
 
 ## <a name="delete-list-item"></a>Delete a List Item
 
-Delete a list item by list item id. A list item shared between multiple lists will be deleted from all lists.
+Delete a list item by list item ID. A list item shared between multiple lists will be deleted from all lists.
 
 ### Scopes
 
@@ -496,7 +496,7 @@ cache-control: no-cache, private
 
 ## <a name="delete-list-item-from-list"></a>Delete a List Item from List
 
-Delete a list item by list item id from a particular list. This enables deleting a shared list item from one list, not all lists.
+Delete a list item by list item ID from a particular list. This enables deleting a shared list item from one list, not all lists.
 
 ### Scopes
 
@@ -528,7 +528,7 @@ DELETE /list/v4/lists/{listId}/items/{itemId}
 
 #### Status Codes
 
-* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5) - Successfully deleted list item with list id
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5) - Successfully deleted list item with list ID
 * [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
@@ -705,7 +705,7 @@ GET /list/v4/lists/{listId}/items/{itemId}/children?page={page}&sortBy={sortBy}
 |`hasChildren`|`boolean`|If `true`, displays items with children.|
 |`isDeleted`|`boolean`|If `true`, displays deleted items.|
 |`itemId`|`string`|**Required** The unique identifier of the list item.|
-|`listId`|`string`|The unique identifier of the list.|
+|`listId`|`string`|**Required** The unique identifier of the list.|
 |`page`|`integer`|Page number starting from 1. Default: `1`|
 |`shortCode`|`string`|Filter capabilities for `shortCode`.|
 |`shortCodeOrValue`|`string`|Filter capabilities for `value` or `shortCode`.|
@@ -798,7 +798,7 @@ cache-control: no-cache, private
 
 ## <a name="children-list-ID"></a>Retrieve First Level Children Items of a List
 
-Retrieves the first level list items for a given list ID.
+Retrieves the first level list items for a given List ID.
 
 ### Scopes
 
