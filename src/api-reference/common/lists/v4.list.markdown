@@ -86,7 +86,7 @@ GET /list/v4/lists
 |---|---|---|
 |`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`page`|`integer($int32)`|Page number starting from 1. Default: `1` |
-|`sortBy`|`string`|Field to order by {name, levelcount, listcategory}. Order by `name` is order by `value`. Order by `levelcount` is order by `levelCount`. Order by `listcategory` is order by `category.type`. Default: `name` |
+|`sortBy`|`string`|Field to order by {name, levelcount, listcategory}. Sort by `name` is ordered by `value`. Sort by `levelcount` is ordered by `levelCount`. Sort by `listcategory` is ordered by `category.type`. Default: `name` |
 |`sortDirection`|`string`|Sort direction {asc, desc}. Default: `asc` |
 
 #### Headers
