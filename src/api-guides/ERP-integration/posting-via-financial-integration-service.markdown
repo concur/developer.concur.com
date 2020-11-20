@@ -13,6 +13,7 @@ layout: reference
   * [Non-Expense Pay Payment Batches (Standard Edition and S2P)](#nonexpense-pay)
 * [Imaging](#imaging)
 * [Timing to Run FIS](#timing)
+* [Get Started](#start)
 
 ## <a name="learn"></a>Learn More
 
@@ -136,3 +137,7 @@ https://www.concursolutions.com/api/image/v1.0/invoice/{requestID}
 Review the timing of the FIS API requests to ensure they are not interfering with the customer administrator's ability to send an expense report (or invoice) back to the employee prior to ERP integration. This may require the development of a button in the UI of the integration to allow the customer to initiate the FIS process on demand. This would eliminate the need to coordinate the timing.
 
 For example, the SAP Concur workflow typically includes a final approval step that is completed by Finance/Accounting. Once the accountant final-approves a report (or invoice), the report is queued into FIS. If necessary, the accountant can pull this report back and send it back to the employee for adjustment prior to ERP integration, but only if you have not yet picked up the report. So, the process should include awareness of the timing between you and your customer.
+
+## <a name="start"></a>Get Started
+
+Now that you have an overview of how posting using FIS works you may want to move on to reviewing the API documentation. There's a lot of helpful information available including use cases and JSON examples. We recommend starting [here](/api-reference/financial-integration/v4.financial-integration.html).
