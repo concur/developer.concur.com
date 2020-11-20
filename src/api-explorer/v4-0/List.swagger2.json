@@ -24,7 +24,7 @@
           "List API"
         ],
         "summary": "Get the lists for a given category ID",
-        "description": "Returns lists for the category",
+        "description": "Returns the lists for the category",
         "operationId": "getListsForCategoryUsingGET",
         "produces": [
           "application/json"
@@ -96,7 +96,7 @@
         "tags": [
           "List API"
         ],
-        "summary": "Gets all lists for the given company",
+        "summary": "Get all lists for the given company",
         "description": "Returns all lists",
         "operationId": "getAllListsUsingGET",
         "produces": [
@@ -312,7 +312,7 @@
           "List API"
         ],
         "summary": "Update a list with provided request body",
-        "description": "Returns updated list",
+        "description": "Returns the updated list",
         "operationId": "putListUsingPUT",
         "consumes": [
           "application/json"
@@ -397,7 +397,7 @@
           "List API"
         ],
         "summary": "Delete a list",
-        "description": "Returns status code result",
+        "description": "Returns a status code result",
         "operationId": "deleteListUsingDELETE",
         "produces": [
           "application/json"

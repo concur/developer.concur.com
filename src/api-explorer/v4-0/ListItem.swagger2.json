@@ -102,8 +102,8 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Gets list item by ID",
-        "description": "Returns list item",
+        "summary": "Get a list item by ID",
+        "description": "Returns the list item",
         "operationId": "getListItemUsingGET",
         "produces": [
           "application/json"
@@ -249,7 +249,7 @@
           "List Item API"
         ],
         "summary": "Delete a list item by ID",
-        "description": "Returns status code result",
+        "description": "Returns a status code result",
         "operationId": "deleteListItemUsingDELETE",
         "produces": [
           "application/json"
@@ -301,8 +301,8 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Get direct children of list item",
-        "description": "Returns list item children",
+        "summary": "Get the direct children of a list item",
+        "description": "Returns the list item children",
         "operationId": "getChildrenUsingGET",
         "produces": [
           "application/json"
@@ -564,7 +564,7 @@
           "List Item API"
         ],
         "summary": "Delete a list item by list item ID from a particular list",
-        "description": "Returns status code result",
+        "description": "Returns a status code result",
         "operationId": "deleteListItemFromListUsingDELETE",
         "produces": [
           "application/json"
@@ -624,8 +624,8 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Get direct children of list item in a particular list",
-        "description": "Returns list item children",
+        "summary": "Get the direct children of a list item in a particular list",
+        "description": "Returns the list item children",
         "operationId": "getChildrenInListUsingGET",
         "produces": [
           "application/json"

@@ -13,7 +13,7 @@ The SAP Concur List Item API provides an automated solution to clients who would
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Access Token Usage](#access-token-usage)
-* [Retrieve List Item by ID](#get-list-item-ID)
+* [Retrieve a List Item by ID](#get-list-item-ID)
 * [Create a List Item](#post-list-item)
 * [Update a List Item](#put-list-item)
 * [Delete a List Item](#delete-list-item)
@@ -67,7 +67,7 @@ Users must be an Expense, Invoice, Shared or Request Configuration Administrator
 
 This API supports both company level and user level access tokens.
 
-## <a name="get-list-item-ID"></a>Retrieve List Item by ID
+## <a name="get-list-item-ID"></a>Retrieve a List Item by ID
 
 Retrieve a list item by ID.
 
@@ -458,7 +458,7 @@ DELETE /list/v4/items/{itemId}
 
 #### Status Codes
 
-* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5) - Successfully deleted list item
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
 * [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
@@ -528,7 +528,7 @@ DELETE /list/v4/lists/{listId}/items/{itemId}
 
 #### Status Codes
 
-* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5) - Successfully deleted list item with list ID
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
 * [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)

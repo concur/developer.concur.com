@@ -100,7 +100,7 @@ GET /list/v4/lists
 
 #### Status Codes
 
-* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) - Successfully get all lists
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
 * [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1) - Access Denied
 * [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
