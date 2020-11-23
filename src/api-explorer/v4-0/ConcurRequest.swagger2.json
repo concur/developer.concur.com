@@ -178,7 +178,7 @@
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -194,7 +194,7 @@
             }
           },
           "404": {
-            "description": "Not found",
+            "description": "Not found - You tried to get a non-existing request.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -287,8 +287,8 @@
               "application/json": {
                 "errors": [
                   {
-                    "errorCode": "invalidLocation",
-                    "errorMessage": "The location cannot be resolved, no location found for countryCode=IN, cityName=Pune and locationCode=XXA1."
+                    "errorCode": "missingRequiredField",
+                    "errorMessage": "At least 1 required field has an empty value."
                   }
                 ]
               }
@@ -298,7 +298,7 @@
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation",
             "examples": {
               "application/json": {
                 "errors": [
@@ -314,7 +314,7 @@
             }
           },
           "404": {
-            "description": "NotFound - You tried to get a non-existing request",
+            "description": "Not found - You tried to get a non-existing request.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -400,8 +400,8 @@
               "application/json": {
                 "errors": [
                   {
-                    "errorCode": "invalidUuid",
-                    "errorMessage": "Invalid id xxx"
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found"
                   }
                 ]
               }
@@ -411,7 +411,7 @@
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation",
             "examples": {
               "application/json": {
                 "errors": [
@@ -427,7 +427,7 @@
             }
           },
           "404": {
-            "description": "Not found",
+            "description": "Not found - You tried to get a non-existing request",
             "examples": {
               "application/json": {
                 "errors": [
@@ -527,8 +527,8 @@
               "application/json": {
                 "errors": [
                   {
-                    "errorCode": "invalidLocation",
-                    "errorMessage": "The location cannot be resolved, no station found for countryCode=ES and Name=Mad12345."
+                    "errorCode": "missingRequiredField",
+                    "errorMessage": "At least 1 required field has an empty value."
                   }
                 ]
               }
@@ -538,7 +538,7 @@
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation",
             "examples": {
               "application/json": {
                 "errors": [
@@ -645,8 +645,8 @@
               "application/json": {
                 "errors": [
                   {
-                    "errorCode": "invalidUuid",
-                    "errorMessage": "Invalid id xxx"
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found"
                   }
                 ]
               }
@@ -656,7 +656,7 @@
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -756,7 +756,7 @@
             }
           },
           "400": {
-            "description": "Bad param(s) : the request is invalid (user Id for this request has not been found, concur correlation id of the request is not a valid UUID, etc.) ",
+            "description": "Bad param(s) : the request is invalid (user Id for this request has not been found, concur correlation id of the request is not a valid UUID, etc.)",
             "examples": {
               "application/json": {
                 "errors": [
@@ -772,7 +772,7 @@
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -1156,13 +1156,13 @@
             }
           },
           "403": {
-            "description": "permissionDenied - User approving their own Request, or without approver/processor role",
+            "description": "You do not have permission to perform this operation - User approving their own Request, or without approver/processor role",
             "examples": {
               "application/json": {
                 "errors": [
                   {
-                    "errorCode": "cannot_approve_your_own_ar",
-                    "errorMessage": "This request was created by you. You cannot approve your own request."
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
                   }
                 ]
               }
@@ -1308,7 +1308,7 @@
             }
           },
           "404": {
-            "description": "Not found - You tried to get a non-existing request",
+            "description": "Not found - You tried to get a non-existing request.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -1408,8 +1408,8 @@
               "application/json":{
                 "errors":[
                   {
-                    "errorCode":"MISSING_REQUIRED_FIELD",
-                    "errorMessage":"At least one required field in this request lacks data. Please, provide a value and then submit the request."
+                    "errorCode":"invalidLocation",
+                    "errorMessage":"The location cannot be resolved, no location found for countryCode=IN, cityName=Pune and locationCode=XXA1."
                   }
                 ]
               }
@@ -1435,7 +1435,7 @@
             }
           },
           "404": {
-            "description": "Not found - You tried to get a non-existing request",
+            "description": "Not found - You tried to get a non-existing request.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -1555,7 +1555,7 @@
             }
           },
           "404": {
-            "description": "Not found - You tried to get a non-existing expense",
+            "description": "Not found - You tried to get a non-existing request.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -1681,6 +1681,22 @@
               "$ref": "#/definitions/ErrorResponse"
             }
           },
+          "404": {
+            "description": "Not found - You tried to get a non-existing request.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "resource not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
           "500": {
             "description": "An unexpected error has prevented the operation",
             "examples": {
@@ -1784,7 +1800,7 @@
             }
           },
           "404": {
-            "description": "Not found - You tried to get a non-existing expense",
+            "description": "Not found - You tried to get a non-existing request.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -2104,7 +2120,7 @@
             }
           },
           "404": {
-            "description": "Not found - You tried to get a non-existing expense",
+            "description": "Not found - You tried to get a non-existing request",
             "examples": {
               "application/json": {
                 "errors": [
@@ -2217,7 +2233,7 @@
             }
           },
           "404": {
-            "description": "Not found",
+            "description": "Not found - You tried to get a non-existing request.",
             "examples": {
               "application/json": {
                 "errors": [
@@ -2228,12 +2244,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "408": {
-            "description": "Time out",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -2932,10 +2942,12 @@
       "type": "object",
       "properties": {
         "errorCode": {
-          "type": "string"
+          "type": "string",
+          "description": "An error code."
         },
         "errorMessage": {
-          "type": "string"
+          "type": "string",
+          "description": "A message indicates where te problem comes from."
         }
       }
     },
