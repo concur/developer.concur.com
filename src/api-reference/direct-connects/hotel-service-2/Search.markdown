@@ -34,6 +34,7 @@ Message to perform the initial search for hotels.
     * [Contact Number](#contact-number)
     * [Award](#award)
     * [Hotel Amenity](#hotel-amenity)
+    * [Supported Hotel Amenities](#supported-hotel-amenities)
     * [TPA Extensions](#res-tpa-extensions)
     * [TPA Hotel Preview Image URI](#tpa-hotel-preview)
 
@@ -168,7 +169,8 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
             <ContactNumber CountryAccessCode="49" PhoneNumber="56940033" PhoneTechType="1"/>
           </ContactNumbers>
           <Award Rating="4"/>
-          <HotelAmenity Code="68"/>
+          <HotelAmenity Code="173"/>
+          <HotelAmenity Code="255"/>
           <TPA_Extensions>
             <HotelPreference>not_preferred</HotelPreference>
             <TPA_HotelPreviewImageURI>
@@ -259,7 +261,30 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |---------|--------------|-------------|
-|`Code`|`string`|**Required** Refer to OpenTravel Code List Hotel Amenity Code (HAC).|
+|`Code`|`string`|Refer to `Supported Hotel Amenities`|
+
+#### <a name="supported-hotel-amenities"></a>Supported Hotel Amenities
+
+|Code|Description|
+|-------------------|-------------|  
+|`173`|Breakfast|
+|`255`|Broadband Internet|
+|`228`|Business Center|
+|`215`|Convention Center|
+|`96`|Dry Cleaning|
+|`48`|Fitness Center|
+|`44`|Game Room|
+|`236`|Golf Course|
+|`54`|Indoor Pool|
+|`289`|Kids Activities|
+|`269`|Meeting Rooms|
+|`198`|Non-smoking Rooms|
+|`66`|Outdoor Pool|
+|`224`|Pets Allowed|
+|`76`|Restaurant|
+|`71`|Swimming Pool|
+|`233`|Tennis Court|
+|`101`|Wheelchair Accessible|
 
 #### <a name="res-tpa-extensions"></a>TPA Extensions
 
