@@ -200,7 +200,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -248,7 +248,7 @@
           "Request Resource"
         ],
         "summary": "Create a new Request",
-        "description": "Enables to create a new Request for a traveler.",
+        "description": "Creates a new Request for a traveler.",
         "operationId": "createUsingPOST_4",
         "consumes": [
           "application/json"
@@ -320,7 +320,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -433,7 +433,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -481,7 +481,7 @@
           "Request Resource"
         ],
         "summary": "Update the content of an existing Request",
-        "description": "Enables to update the content of an existing Request. Update of the following fields is supported : `comment`, `startDate`, `startTime`, `endDate`, `endTime`, `expensePolicy`, `name`, `businessPurpose`, `mainDestination`, `travelAgency`, and `custom fields`. Other fields will be ignored. Partial update is supported, you may submit only the fields to update in the body, fields not present in the body will remain unchanged.",
+        "description": "Updates the content of an existing Request. Update of the following fields is supported : `comment`, `startDate`, `startTime`, `endDate`, `endTime`, `expensePolicy`, `name`, `businessPurpose`, `mainDestination`, `travelAgency`, and `custom fields`. Other fields will be ignored. Partial update is supported, you may submit only the fields to update in the body, fields not present in the body will remain unchanged.",
         "operationId": "updateUsingPUT_2",
         "consumes": [
           "application/json"
@@ -560,7 +560,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -608,7 +608,7 @@
           "Request Resource"
         ],
         "summary": "Delete an existing Request",
-        "description": "Enables to delete an existing Request, possible only if a Request can be deleted.",
+        "description": "Deletes an existing Request. Possible only if a Request can be deleted.",
         "operationId": "deleteUsingDELETE_1",
         "consumes": [
           "application/json"
@@ -678,7 +678,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -728,7 +728,7 @@
           "Request Resource"
         ],
         "summary": "Get the list of comments for an existing Request",
-        "description": "Provides the list of comments for an existing Request (information displayed in the `comment`field of the Request header). Historization of comments is possible on the Request header, this endpoint will provide all the comments written during the life of the Request.",
+        "description": "Provides the list of comments for an existing Request (information displayed in the `comment`field of the Request header). Historization of comments is possible on the Request header. This endpoint will provide all the comments written during the life of the Request.",
         "operationId": "getCommentsByRequestUsingGET",
         "consumes": [
           "application/json"
@@ -794,7 +794,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -910,7 +910,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -960,7 +960,7 @@
           "Request Resource"
         ],
         "summary": "Get the list of exceptions linked to an existing Request",
-        "description": "Provides the list of exceptions linked to an existing Request. All alerts raised within the Request header (exception messages generated via audit rules) will be provide via this endpoint.",
+        "description": "Provides the list of exceptions linked to an existing Request. All alerts raised within the Request header (exception messages generated via audit rules) will be provided via this endpoint.",
         "operationId": "getExceptionsByRequestUsingGET",
         "consumes": [
           "application/json"
@@ -1026,7 +1026,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -1076,7 +1076,7 @@
           "Workflow Resource"
         ],
         "summary": "Move an existing Request in the approval workflow",
-        "description": "Enables to move an existing Request within the approval workflow. All available workflow actions are displayed in the `action` parameter.",
+        "description": "Moves an existing Request within the approval workflow. All available workflow actions are displayed in the `action` parameter.",
         "operationId": "workflowActionUsingPOST",
         "consumes": [
           "application/json"
@@ -1178,7 +1178,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -1314,7 +1314,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -1362,7 +1362,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Create a new expected expense",
-        "description": "Enables to create a new expected expense within an existing Request.",
+        "description": "Creates a new expected expense within an existing Request.",
         "operationId": "createUsingPOST_2",
         "consumes": [
           "application/json"
@@ -1441,7 +1441,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -1561,7 +1561,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -1609,7 +1609,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Update the content of an expected expense",
-        "description": "Enables to update the content of an expected expense. Partial update is not supported, the full body needs to be provided to update a field.",
+        "description": "Updates the content of an expected expense. Partial update is not supported, the full body needs to be provided to update a field.",
         "operationId": "updateUsingPUT",
         "consumes": [
           "application/json"
@@ -1688,7 +1688,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -1736,7 +1736,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Delete an expected expense from the Request",
-        "description": "Enables to delete an expected expense from the Request. Self-booked trip segments (created from the online Concur Travel booking tool) cannot be deleted from a Request, only Concur Travel may perform this action.",
+        "description": "Deletes an expected expense from the Request. Self-booked trip segments (created from the online Concur Travel booking tool) cannot be deleted from a Request, only Concur Travel may perform this action.",
         "operationId": "deleteUsingDELETE",
         "consumes": [
           "application/json"
@@ -1806,7 +1806,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -1856,7 +1856,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Get the list of comments for an existing expected expense",
-        "description": "Provides the list of comments for an existing expected expense. (information displayed in the `comment`field of the expected expense). Historization of comments is possible on an expected expense, this endpoint will provide all the comments written within an expected expense during the life of the Request.",
+        "description": "Provides the list of comments for an existing expected expense (information displayed in the `comment`field of the expected expense). Historization of comments is possible on an expected expense. This endpoint will provide all the comments written within an expected expense during the life of the Request.",
         "operationId": "getCommentsByExpenseUsingGET",
         "consumes": [
           "application/json"
@@ -2126,7 +2126,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -2176,7 +2176,7 @@
           "Cash Advance Resource"
         ],
         "summary": "Get the content of an existing cash advance",
-        "description": "Provides the content of an existing cash advance (soon deprecated when the Cash Advance API provided by the Cash Advance service will be GA).",
+        "description": "Provides the content of an existing cash advance.",
         "operationId": "getUsingGET_1",
         "consumes": [
           "application/json"
@@ -2239,7 +2239,7 @@
                 "errors": [
                   {
                     "errorCode": "notFound",
-                    "errorMessage": "resource not found"
+                    "errorMessage": "Resource not found"
                   }
                 ]
               }
@@ -2947,7 +2947,7 @@
         },
         "errorMessage": {
           "type": "string",
-          "description": "A message indicates where te problem comes from."
+          "description": "An error message."
         }
       }
     },
