@@ -40,6 +40,7 @@
           "Request Resource"
         ],
         "summary": "Get the list of existing Requests",
+        "description": "Provides the list of existing Requests. Can be based on the Request owner, the workflow status of the Request and other available parameters.",
         "operationId": "getListUsingGET",
         "consumes": [
           "application/json"
@@ -162,42 +163,80 @@
           },
           "400": {
             "description": "Bad param(s) : the request is invalid",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "401": {
-            "description": "Invalid or nonexistent authorization HTTP header",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
-            "description": "Not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "408": {
-            "description": "Time out",
+            "description": "Not found - You tried to get a non-existing request.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "500": {
             "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "timeOut",
+                    "errorMessage": "Time out"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -209,6 +248,7 @@
           "Request Resource"
         ],
         "summary": "Create a new Request",
+        "description": "Creates a new Request for a traveler.",
         "operationId": "createUsingPOST_4",
         "consumes": [
           "application/json"
@@ -242,43 +282,81 @@
             }
           },
           "400": {
-            "description": "Invalid request body",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "401": {
-            "description": "Invalid or nonexistent authorization HTTP header",
+            "description": "Invalid request body (no location found matching the country code and city name provided, invalid date, etc.)",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "missingRequiredField",
+                    "errorMessage": "At least 1 required field has an empty value."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
-            "description": "Not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "408": {
-            "description": "Time out",
+            "description": "Not found - You tried to get a non-existing request.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "500": {
             "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -292,6 +370,7 @@
           "Request Resource"
         ],
         "summary": "Get the content of an existing Request",
+        "description": "Provides the content of an existing Request, mainly the content of the Request header.",
         "operationId": "getUsingGET_6",
         "consumes": [
           "application/json"
@@ -316,43 +395,81 @@
             }
           },
           "400": {
-            "description": "Bad param: invalid Guid",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "401": {
-            "description": "Invalid or nonexistent authorization HTTP header",
+            "description": "Bad param(s) : the request is invalid (user Id for this request has not been found, concur correlation id of the request is not a valid UUID, etc.) ",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
-            "description": "Not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "408": {
-            "description": "Time out",
+            "description": "Not found - You tried to get a non-existing request",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "500": {
             "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -364,6 +481,7 @@
           "Request Resource"
         ],
         "summary": "Update the content of an existing Request",
+        "description": "Updates the content of an existing Request. Update of the following fields is supported : `comment`, `startDate`, `startTime`, `endDate`, `endTime`, `expensePolicy`, `name`, `businessPurpose`, `mainDestination`, `travelAgency`, and `custom fields`. Other fields will be ignored. Partial update is supported, you may submit only the fields to update in the body, fields not present in the body will remain unchanged.",
         "operationId": "updateUsingPUT_2",
         "consumes": [
           "application/json"
@@ -404,43 +522,81 @@
             }
           },
           "400": {
-            "description": "Bad param(s) : the request is invalid",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "401": {
-            "description": "Invalid or nonexistent authorization HTTP header",
+            "description": "Invalid request body (no location found matching the country code and city name provided, invalid date, etc.)",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "missingRequiredField",
+                    "errorMessage": "At least 1 required field has an empty value."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
-            "description": "Not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "408": {
-            "description": "Time out",
+            "description": "Not found - You tried to get a non-existing request",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "500": {
             "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -452,6 +608,7 @@
           "Request Resource"
         ],
         "summary": "Delete an existing Request",
+        "description": "Deletes an existing Request. Possible only if a Request can be deleted.",
         "operationId": "deleteUsingDELETE_1",
         "consumes": [
           "application/json"
@@ -483,43 +640,81 @@
             }
           },
           "400": {
-            "description": "Bad param: invalid Guid",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "401": {
-            "description": "Invalid or nonexistent authorization HTTP header",
+            "description": "Bad param(s):the request is invalid",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
-            "description": "Not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "408": {
-            "description": "Time out",
+            "description": "Not found - You tried to get a non-existing request",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "500": {
             "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -533,6 +728,7 @@
           "Request Resource"
         ],
         "summary": "Get the list of comments for an existing Request",
+        "description": "Provides the list of comments for an existing Request (information displayed in the `comment`field of the Request header). Historization of comments is possible on the Request header. This endpoint will provide all the comments written during the life of the Request.",
         "operationId": "getCommentsByRequestUsingGET",
         "consumes": [
           "application/json"
@@ -560,43 +756,81 @@
             }
           },
           "400": {
-            "description": "Bad param: invalid Guid",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "401": {
-            "description": "Invalid or nonexistent authorization HTTP header",
+            "description": "Bad param(s) : the request is invalid (user Id for this request has not been found, concur correlation id of the request is not a valid UUID, etc.)",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
-            "description": "Permission Denied",
+            "description": "You do not have permission to perform this operation.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
-            "description": "Not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "408": {
-            "description": "Time out",
+            "description": "Not found - You tried to get a non-existing request",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "500": {
             "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -610,6 +844,7 @@
           "Request Resource"
         ],
         "summary": "Get the list of cash advances assigned to an existing Request",
+        "description": "Provides the list of cash advances assigned to an existing Request.",
         "operationId": "getCashAdvancesByRequestUsingGET",
         "consumes": [
           "application/json"
@@ -637,43 +872,81 @@
             }
           },
           "400": {
-            "description": "Bad param: invalid Guid",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "401": {
-            "description": "Invalid or nonexistent authorization HTTP header",
+            "description": "Bad param(s) : the request is invalid (user Id for this request has not been found, concur correlation id of the request is not a valid UUID, etc.) ",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
             "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
-            "description": "Not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "408": {
-            "description": "Time out",
+            "description": "Not found - You tried to get a non-existing request",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -687,6 +960,7 @@
           "Request Resource"
         ],
         "summary": "Get the list of exceptions linked to an existing Request",
+        "description": "Provides the list of exceptions linked to an existing Request. All alerts raised within the Request header (exception messages generated via audit rules) will be provided via this endpoint.",
         "operationId": "getExceptionsByRequestUsingGET",
         "consumes": [
           "application/json"
@@ -714,43 +988,81 @@
             }
           },
           "400": {
-            "description": "Bad param: invalid Guid",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "401": {
-            "description": "Invalid or nonexistent authorization HTTP header",
+            "description": "Bad param(s) : the request is invalid (user Id for this request has not been found, concur correlation id of the request is not a valid UUID, etc.)",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
             "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
-            "description": "Not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "408": {
-            "description": "Time out",
+            "description": "Not found - You tried to get a non-existing request",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -764,6 +1076,7 @@
           "Workflow Resource"
         ],
         "summary": "Move an existing Request in the approval workflow",
+        "description": "Moves an existing Request within the approval workflow. All available workflow actions are displayed in the `action` parameter.",
         "operationId": "workflowActionUsingPOST",
         "consumes": [
           "application/json"
@@ -827,25 +1140,94 @@
             }
           },
           "400": {
-            "description": "The request is invalid",
+            "description": "Bad param(s):the request is invalid",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "401": {
-            "description": "Request is not authenticated"
-          },
           "403": {
-            "description": "You do not have permission to perform this operation"
+            "description": "You do not have permission to perform this operation - User approving their own Request, or without approver/processor role",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found - You tried to get a non-existing request",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "409": {
+            "description": "You must identify an approver before the Request moves on to the next workflow step.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "NO_APPROVER",
+                    "errorMessage": "You must identify an approver before the Request moves on to the next workflow step."
+                  }
+                ]
+              }
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -859,6 +1241,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Get the list of expected expenses attached to a Request",
+        "description": "Provides the list of expected expenses created within a Request with some content of each expected expense.",
         "operationId": "listUsingGET",
         "consumes": [
           "application/json"
@@ -893,25 +1276,81 @@
             }
           },
           "400": {
-            "description": "The request is invalid",
+            "description": "Bad param(s):the request is invalid",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "401": {
-            "description": "Request is not authenticated"
-          },
           "403": {
-            "description": "You do not have permission to perform this operation"
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found - You tried to get a non-existing request.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -923,6 +1362,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Create a new expected expense",
+        "description": "Creates a new expected expense within an existing Request.",
         "operationId": "createUsingPOST_2",
         "consumes": [
           "application/json"
@@ -963,25 +1403,81 @@
             }
           },
           "400": {
-            "description": "The request is invalid",
+            "description": "A request with no value on a mandatory field has been submitted",
+            "examples":{
+              "application/json":{
+                "errors":[
+                  {
+                    "errorCode":"invalidLocation",
+                    "errorMessage":"The location cannot be resolved, no location found for countryCode=IN, cityName=Pune and locationCode=XXA1."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "401": {
-            "description": "Request is not authenticated"
-          },
           "403": {
-            "description": "You do not have permission to perform this operation"
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found - You tried to get a non-existing request.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -995,6 +1491,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Get the content of an expected expense",
+        "description": "Provides the content of an expected expense.",
         "operationId": "getUsingGET_2",
         "consumes": [
           "application/json"
@@ -1026,25 +1523,81 @@
             }
           },
           "400": {
-            "description": "The request is invalid",
+            "description": "Bad param(s):the request is invalid",
+            "examples":{
+              "application/json":{
+                "errors":[
+                  {
+                    "errorCode":"userNotFound",
+                    "errorMessage":"User is not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "401": {
-            "description": "Request is not authenticated"
-          },
           "403": {
-            "description": "You do not have permission to perform this operation"
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found - You tried to get a non-existing request.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -1056,6 +1609,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Update the content of an expected expense",
+        "description": "Updates the content of an expected expense. Partial update is not supported, the full body needs to be provided to update a field.",
         "operationId": "updateUsingPUT",
         "consumes": [
           "application/json"
@@ -1096,25 +1650,81 @@
             }
           },
           "400": {
-            "description": "The request is invalid",
+            "description": "Bad param(s):the request is invalid (no location found matching the country code and city name provided, invalid date, etc.)",
+            "examples":{
+              "application/json":{
+                "errors":[
+                  {
+                    "errorCode":"invalidLocation",
+                    "errorMessage":"The location cannot be resolved, no city found for countryCode=FR, sub-Country=null and cityName=MARSEILLES XXX"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "401": {
-            "description": "Request is not authenticated"
-          },
           "403": {
-            "description": "You do not have permission to perform this operation"
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found - You tried to get a non-existing request.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -1126,6 +1736,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Delete an expected expense from the Request",
+        "description": "Deletes an expected expense from the Request. Self-booked trip segments (created from the online Concur Travel booking tool) cannot be deleted from a Request, only Concur Travel may perform this action.",
         "operationId": "deleteUsingDELETE",
         "consumes": [
           "application/json"
@@ -1157,25 +1768,81 @@
             }
           },
           "400": {
-            "description": "The request is invalid",
+            "description": "Bad param(s):the request is invalid",
+            "examples":{
+              "application/json":{
+                "errors":[
+                  {
+                    "errorCode":"userNotFound",
+                    "errorMessage":"User is not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "401": {
-            "description": "Request is not authenticated"
-          },
           "403": {
-            "description": "You do not have permission to perform this operation"
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found - You tried to get a non-existing request.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -1189,6 +1856,7 @@
           "Expected Expense Resource"
         ],
         "summary": "Get the list of comments for an existing expected expense",
+        "description": "Provides the list of comments for an existing expected expense (information displayed in the `comment`field of the expected expense). Historization of comments is possible on an expected expense. This endpoint will provide all the comments written within an expected expense during the life of the Request.",
         "operationId": "getCommentsByExpenseUsingGET",
         "consumes": [
           "application/json"
@@ -1223,25 +1891,65 @@
             }
           },
           "400": {
-            "description": "The request is invalid",
+            "description": "Bad param(s) : the request is invalid.",
+            "examples":{
+              "application/json":{
+                "errors":[
+                  {
+                    "errorCode":"userNotFound",
+                    "errorMessage":"User is not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "401": {
-            "description": "Request is not authenticated"
-          },
           "403": {
-            "description": "You do not have permission to perform this operation"
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -1255,6 +1963,7 @@
           "Policy Resource"
         ],
         "summary": "Get the list of existing Request Policies for a given user",
+        "description": "Provides the list of existing Request policies active for a given user.",
         "operationId": "getListForUserUsingGET",
         "consumes": [
           "application/json"
@@ -1282,25 +1991,65 @@
             }
           },
           "400": {
-            "description": "The request is invalid",
+            "description": "Bad param(s):the request is invalid",
+            "examples":{
+              "application/json":{
+                "errors":[
+                  {
+                    "errorCode":"userNotFound",
+                    "errorMessage":"User is not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "401": {
-            "description": "Request is not authenticated"
-          },
           "403": {
-            "description": "You do not have permission to perform this operation"
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -1314,6 +2063,7 @@
           "Travel Agency Resource"
         ],
         "summary": "Get the description of a Travel Agency office",
+        "description": "Provides a high-level description of an given Travel Agency Office.",
         "operationId": "getUsingGET_7",
         "consumes": [
           "application/json"
@@ -1338,25 +2088,81 @@
             }
           },
           "400": {
-            "description": "The request is invalid",
+            "description": "Bad param(s):the request is invalid",
+            "examples":{
+              "application/json":{
+                "errors":[
+                  {
+                    "errorCode":"userNotFound",
+                    "errorMessage":"User is not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "401": {
-            "description": "Request is not authenticated"
-          },
           "403": {
-            "description": "You do not have permission to perform this operation"
+            "description": "You do not have permission to perform this operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Not found - You tried to get a non-existing request",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -1370,6 +2176,7 @@
           "Cash Advance Resource"
         ],
         "summary": "Get the content of an existing cash advance",
+        "description": "Provides the content of an existing cash advance.",
         "operationId": "getUsingGET_1",
         "consumes": [
           "application/json"
@@ -1394,40 +2201,81 @@
             }
           },
           "400": {
-            "description": "Bad param: invalid Guid",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "401": {
-            "description": "Invalid or nonexistent authorization HTTP header",
+            "description": "Bad param(s):the request is invalid",
+            "examples":{
+              "application/json":{
+                "errors":[
+                  {
+                    "errorCode":"userNotFound",
+                    "errorMessage":"User is not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "403": {
-            "description": "Principal is not allowed to perform operation"
-          },
-          "404": {
-            "description": "Not found",
+            "description": "Principal is not allowed to perform operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
-          "408": {
-            "description": "Time out",
+          "404": {
+            "description": "Not found - You tried to get a non-existing request.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "notFound",
+                    "errorMessage": "Resource not found"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -2085,21 +2933,21 @@
         "errors": {
           "type": "array",
           "items": {
-            "type": "object"
+            "$ref": "#/definitions/ErrorResponseDetails"
           }
+        }
+      }
+    },
+    "ErrorResponseDetails": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string",
+          "description": "An error code."
         },
-        "exception": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        },
-        "path": {
-          "type": "string"
-        },
-        "timestamp": {
-          "type": "integer",
-          "format": "int64"
+        "errorMessage": {
+          "type": "string",
+          "description": "An error message."
         }
       }
     },
