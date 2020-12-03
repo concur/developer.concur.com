@@ -54,11 +54,10 @@ layout: reference
             <CountryName Code="FR">French Republic France</CountryName>
           </Address>
           <Award Rating="2"/>
-          <HotelAmenity Code="68"/>
-          <HotelAmenity Code="198"/>
+          <HotelAmenity Code="255"/>
           <HotelAmenity Code="71"/>
-          <HotelAmenity Code="101"/>
-          <HotelAmenity Code="33"/>
+          <HotelAmenity Code="224"/>
+          <HotelAmenity Code="96"/>
           <Policy CheckInTime="14:00:00" CheckOutTime="12:00:00"/>
           <TPA_Extensions>
             <HotelPreference>not_preferred</HotelPreference>
