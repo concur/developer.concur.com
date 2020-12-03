@@ -363,8 +363,9 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 #### <a name="meals-included"></a>MealsIncluded
 
 |Name|Type|Description|
-|`Breakfast`|`boolean`|If `true`, indicates breakfast is included. If `false`, indicates it is excluded. In both cases this information is shown to a customer in the rate description. The `MealsIncluded` element must be omitted to avoid any adjustment to the rate description.|
 |-------------|-----------|-------------|
+|`Breakfast`|`boolean`|If `true`, indicates breakfast is included. If `false`, indicates it is excluded. In both cases this information is shown to a customer in the rate description. The `MealsIncluded` element must be omitted to avoid any adjustment to the rate description.|
+
 
 #### <a name="room-rates"></a>RoomRates
 
