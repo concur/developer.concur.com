@@ -106,8 +106,10 @@ Name|Type|Format|Description
 `page`|`int32`|`query`|Starting page number.
 `limit`|`int32`|`query`|Number of records to return per page. Default: 25.
 `docId`|`string`|`query`|The transaction unique identifier, it could be expense report ID, payment request ID or cash advance ID. If specified, a single document that matches `docId` is returned.
-`ignoreDocumentStatus`|`string`|`query`|Ignores the financial documents status. If `yes`, a document is returned regardless of status. If `no`, only documents that have not been acknowledged/confirmed are returned. Supported values: `yes`, `no`.
+`ignoreDocumentStatus`|`string`|`query`|Ignores the financial documents status. If `yes`, a document is returned regardless of status. If `no`, only documents that have not been acknowledged/confirmed are returned. Supported values: `yes`, `no`. (See note below)
 `systemId`|`string`|`query`|The external system ID that processed the document. Maximum 50 characters.
+
+>**Note** The `ignoreDocumentStatus` parameter is useful for Universal (Standard Edition) customers who are using a Test ERP with a production SAP Concur expense report (Universal customers don't have SAP Concur test sites or Test User functionality, so real reports are used for testing).  Once the test is confirmed, the partner can call the report again so they can post into the production ERP.
 
 #### Headers
 
