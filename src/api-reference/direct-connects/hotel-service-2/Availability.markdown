@@ -353,7 +353,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |--------------------|-----------|-------------|
 |`NoCancelInd`|`boolean`| If true, the reservation may not be cancelled once the cancellation deadline has expired. False or missing flag will be treated as rate being not cancellable.|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. This element may contain a maximum of 9 children text fields. Any excess text elements are dropped.|
-|`Deadline`|`complex`| Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be in UTC timezone. |
+|`Deadline`|`complex`| Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone. |
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
