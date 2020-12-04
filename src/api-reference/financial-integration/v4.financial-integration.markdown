@@ -232,6 +232,8 @@ Content-Length: 491
 
 Allows an external system to acknowledge that it has successfully retrieved one or more financial transactions from SAP Concur and will begin processing those transactions. The transactions in the POST request are then taken out of the ready queue.
 
+An app should execute the POST request immediately after the GET request. Eliminating any time between the requests will avoid a variance between the ERP and SAP Concur. For example, if there is a time lag, the customer administrator could use the SAP Concur Processor tool to recall or send a report (or invoice) back to the report owner where he or she can change it or even delete it. This would create a discrepancy between SAP Concur and the ERP.
+
 ### Scopes
 
 `FISVC` - Refer to [Scope Usage](#scope-usage) for full details.
