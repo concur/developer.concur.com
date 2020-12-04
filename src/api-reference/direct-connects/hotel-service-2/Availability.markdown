@@ -13,14 +13,14 @@ Message to retrieved the availability of hotels.
 
 * [Request](#request)
   * [Schema](#req-schema)
-    * [Available Request Segments](#available-req-segments)
-    * [Available Request Segment](#available-req-segment)
+    * [Available Request Segments](#available-request-segments)
+    * [Available Request Segment](#available-request-segment)
     * [Hotel Search Criteria](#hotel-search-criteria)
     * [Criterion](#criterion)
     * [Stay Date Range](#stay-date-range)
-    * [Room Stay Candidates](#room-stay-cadidates)
+    * [Room Stay Candidates](#room-stay-candidates)
     * [Room Stay Candidate](#room-stay-candidate)
-    * [Guest Counts](#guest-counds)
+    * [Guest Counts](#guest-counts)
     * [Guest Count](#guest-count)
 * [Response](#response)
   * [Schema](#res-schema)
@@ -28,7 +28,7 @@ Message to retrieved the availability of hotels.
     * [Room Stay](#room-stay)
     * [Room Types](#room-types)
     * [Room Type](#room-type)
-    * [Room Descriptions](#room-descriptions)
+    * [Room Description](#room-description)
     * [Rate Plans](#rate-plans)
     * [Rate Plan](#rate-plan)
     * [Rate Plan Description](#rate-plan-description)
@@ -38,7 +38,7 @@ Message to retrieved the availability of hotels.
     * [Deadline](#deadline)
     * [Cancel Penalties](#cancel-penalties)
     * [Cancel Penalty](#cancel-penalty)
-    * [Meals Included](#meal-included)
+    * [Meals Included](#meals-included)
     * [Rooms Rates](#room-rates)
     * [Room Rate](#room-rate)
     * [Rates](#rates)
@@ -50,7 +50,7 @@ Message to retrieved the availability of hotels.
     * [Payment Card](#payment-card)
     * [Card Type](#card-type)
     * [Total](#total)
-    * [Rate Descriptions](#rate-descriptions)
+    * [Rate Description](#rate-description)
     * [TPA Extensions](#tpa-extensions)
     * [Timespan](#timespan)
     * [Basic Property Info](#basic-property-info)
@@ -219,7 +219,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                  <Total AmountAfterTax="348.00" AmountBeforeTax="248.00" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <Total AmountAfterTax="348.00" AmountBeforeTax="248.00" CurrencyCode="EUR"/>
                   <RateDescription>
                     <Text>Test rate description. Both before and after tax.</Text>
                   </RateDescription>
@@ -300,7 +300,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`AvailabilityStatus`|`stringLength1to32`|**Required** Used to specify an availability status for the rate plan. Supported values: `AvailableForSale`, `ChangeDuringStay`.|
 |`Guarantee`|`complex`|**Required** Guarantee information that applies to the rate plan. SAP Concur only expects one (1) Guarantee element per `RatePlan`.|
 |`CancelPenalties`|`complex`|**Required if `RateDetailsInd` is `true` or not present** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
-|`MealsIncluded`|`complex`|**Required if `RateDetailsInd` is `true` or not present** Defines which meals are included with this rate program.|
+|`MealsIncluded`|`complex`|Defines which meals are included with this rate program.|
 |`RatePlanDescription`|`complex`|Textual information regarding the Rate Plan.|
 
 #### <a name="rate-plan-description"></a>RatePlanDescription
@@ -327,7 +327,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`None`|In SAP Concur this value is seen as `Never`. No guarantee is required if user books a room with this type.|
 |`GuaranteeRequired`|`RequiredGuarantee`. If the Guarantee type cannot be mapped to any accepted type, it will be set to `RequiredGuarantee`. This value is the default.|
 
-#### <a name="supported-gurantee-required"></a>Supported GuaranteeRequired
+#### <a name="supported-guarantee-required"></a>Supported GuaranteeRequired
 
 |GuaranteeRequired|Description|
 |-------------------|-------------|  
@@ -363,8 +363,8 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 #### <a name="meals-included"></a>MealsIncluded
 
 |Name|Type|Description|
+|`Breakfast`|`boolean`|If `true`, indicates breakfast is included. If `false`, indicates it is excluded. In both cases this information is shown to a customer in the rate description. The `MealsIncluded` element must be omitted to avoid any adjustment to the rate description.|
 |-------------|-----------|-------------|
-|`Breakfast`|`boolean`|If `true`, indicates breakfast is included. If `false`, indicates it is excluded. In both cases this information is shown to a customer in the rate description.|
 
 #### <a name="room-rates"></a>RoomRates
 
@@ -426,7 +426,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |----------|-----------|-------------|
 |`CardType`|`complex`|**Required** String representation of a card type. Allowed values: `AmericanExpress`, `BankOfAmerica`, `BritishAirways`, `CapitalOne`, `Chase`, `Citibank`, `ContinentalAirlines`, `DeltaAirlines`, `DiscoverCard`, `Disney`, `Eurocard`, `Hilton`, `Hyatt`, `Mariott`, `Mastercard`, `RitzCarlton`, `SouthwestAirlines`, `StarwoodHotels`, `UnitedAirlines`, `USAirways`, `VISA`, `Other_`. See `Code` and `Description` if card type is `other_`.|
 
-#### <a name="cardtype"></a>CardType
+#### <a name="card-type"></a>CardType
 
 |Name|Type|Description|
 |----------|-----------|-------------|
@@ -440,7 +440,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`AmountBeforeTax`|`string`|**Required** The total amount not including any associated tax. Examples: `sales tax`, `VAT`, `GST`|
 |`AmountAfterTax`|`string`|**Required** The total amount including all associated taxes. Examples: `sales tax`, `VAT`, `GST`|
 |`CurrencyCode`|`alphaLength3`|**Required** Currency code.|
-|`DecimalPlaces`|`integer`|Decimal places for currency code. This is an ISO 4217 standard "minor unit" for the number of decimal places for a particular currency.|
 
 #### <a name="rate-description"></a>RateDescription
 

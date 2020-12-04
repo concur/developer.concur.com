@@ -34,7 +34,7 @@ GET list of reports can be found [here](/api-reference/expense/expense-report/v2
 |-----------------|--------|-----------------------------|
 |_reportId_| required | The identifier for the desired report.|
 
-Example: `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId}`
+Example: `https://us.api.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId}`
 
 **URI Source**: The ReportId is returned in the **ReportId** element of the Get List of Reports function
 
@@ -296,7 +296,7 @@ This request will return a **ReportDetails** parent element.
 ### XML Example Request
 
 ```http
-GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTP/1.1
+GET https://us.api.concursolutions.com/api/expense/expensereport/v2.0/report/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTP/1.1
 Authorization: OAuth {access token}
 ...
 ```
@@ -308,7 +308,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 
 <?xml version="1.0" encoding="utf-8"?>
-<ReportDetails xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ReportDetails xmlns="http://us.api.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
     <UserLoginID>cm@example.com</UserLoginID>
     <EmployeeName>Miller, Chris</EmployeeName>
     <ReportID>425FE2ADB4954FCA90CD</ReportID>
