@@ -6,7 +6,7 @@ layout: reference
 
 The Launch External URL callout gives clients and developers the ability to extend the functionality of the SAP Concur platform providing a means to deliver custom user interactions, or access functionality found in an external system. The client can add a Report Header, Expense Entry, or Allocation form field that is configured to use the Launch External URL callout. Concur Expense will display this field with an attached button that launches a separate browser window when clicked. The window is controlled by an application connector, created by a third-party developer or the client. The application connector is a web server that presents information in the window.
 
-The application connector can access SAP Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), they click a button such as “Done” that indicates the user has concluded their work in the window. Then application connector or user closes the window.
+The application connector can access SAP Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), they click a button such as “Done” that indicates the user has concluded their work in the window. The application connector or user closes the window.
 
 The application connector can use web services to send information to update field values on the Report Header, Expense Entry, or Allocation form types. The application connector may send the updates before or after the user closes the window. When the user returns to the SAP Concur platform, the page refreshes and they see the updated values only if the updates are made before the window is closed.  
 
@@ -64,7 +64,7 @@ The system requires certain named fields (not custom fields) to be completed bef
 Any audit rules configured as Save actions will not be visible to the end user until the user returns to the SAP Concur Expense application from the pop-up window.
 
 ## <a name="callout-details"></a>Callout Details
-Information on how to create, install, and configure the application connector is included in [Callouts and Application Connectors](https://developer.concur.com/api-reference/callouts/callouts-application-connectors.html) and below.
+Information on how to create, install, and configure the application connector is included in [Callouts and Application Connectors](https://developer.concur.com/api-reference/callouts/callouts-application-connectors.html) below.
 
 ## <a name="leu-process-overview"></a>Launch URL Process Overview
 
