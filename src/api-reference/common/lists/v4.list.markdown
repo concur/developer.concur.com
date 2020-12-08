@@ -3,16 +3,16 @@ title: List v4
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 The Lists APIs allow you to view your configured lists within SAP Concur products and create new lists. The lists are shared between multiple SAP Concur products.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
 ## Contents
+
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
 * [Get All Lists](#get-all-lists)
 * [Create a New List](#create-a-new-list)
@@ -33,7 +33,7 @@ The Lists APIs allow you to view your configured lists within SAP Concur product
 
 ## Prior Versions
 
-Lists V3 documentation is available [here](https://developer.concur.com/api-reference/common/lists/v3.lists.html#create-response).
+List v3 documentation is available [here](https://developer.concur.com/api-reference/common/lists/v3.lists.html#create-response).
 
 ## <a name="process-flow"></a>Process Flow
 

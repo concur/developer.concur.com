@@ -1,252 +1,84 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "",
-    "version": "4",
-    "title": "Exchange Rate API",
-    "termsOfService": "http://www.concur.com",
-    "license": {
-      "name": "Concur",
-      "url": "http://www.concur.com"
-    }
+    "description": "Rest API for Exchange Rate Broker",
+    "title": "Exchange Rate Broker"
   },
   "host": "us.api.concursolutions.com",
-  "basePath": "/exchangeratebroker",
+  "basePath": "/",
   "tags": [
-    {
-      "name": "Exchange Rate API",
-      "description": "Exchange Rate Endpoints"
-    }
+    { "name": "Exchange Rate API", "description": "Exchange Rate Controller" }
   ],
   "paths": {
-    "/v4/rates": {
+    "/exchangerate/v4/rates": {
       "post": {
-        "tags": [
-          "Exchange Rate API"
-        ],
-        "summary": "upload custom exchange rates for an entity",
-        "description": "Upload rates",
+        "tags": ["Exchange Rate API"],
+        "summary": "Upload custom exchange rates for an entity.",
         "operationId": "uploadExchangeRateUsingPOST",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
         "parameters": [
           {
             "in": "body",
             "name": "bulkExchangeRateUploadRequest",
             "description": "bulkExchangeRateUploadRequest",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/BulkExchangeRateUploadRequest"
-            }
-          },
-          {
-            "name": "company-uid",
-            "in": "header",
-            "description": "The unique identifier of the company",
-            "required": true,
-            "type": "string"
+            "schema": { "$ref": "#/definitions/BulkExchangeRateUploadRequest" }
           },
           {
             "name": "concur-correlationid",
             "in": "header",
             "description": "concur-correlationid",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "The Concur unique identifier of the caller",
-            "required": false,
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successfully uploaded exchange rates",
-            "schema": {
-              "$ref": "#/definitions/BulkExchangeRateUploadResponse"
-            }
+            "schema": { "$ref": "#/definitions/BulkExchangeRateUploadResponse" }
           },
           "400": {
             "description": "Invalid request received",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
+            "schema": { "$ref": "#/definitions/ErrorMessage" }
           },
           "401": {
             "description": "Access Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
+            "schema": { "$ref": "#/definitions/ErrorMessage" }
           },
           "404": {
             "description": "Unable to find exchange rate",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
+            "schema": { "$ref": "#/definitions/ErrorMessage" }
           },
           "500": {
             "description": "Internal server error, please contact the administrator.",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
+            "schema": { "$ref": "#/definitions/ErrorMessage" }
           },
           "503": {
             "description": "The service is unavailable either due to being offline or refusing the connection",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
+            "schema": { "$ref": "#/definitions/ErrorMessage" }
           }
         },
-        "security": [
-          {
-            "JWT": []
-          },
-          {
-            "CN": []
-          }
-        ],
-        "deprecated": false
-      }
-    },
-    "/v4/rates/{baseCurrency}/{date}/{quoteCurrency}": {
-      "get": {
-        "tags": [
-          "Exchange Rate API"
-        ],
-        "summary": "Retrieve a rate based on base currrency and quote currency for a closed date",
-        "description": "Returns rate",
-        "operationId": "getRateUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "baseCurrency",
-            "in": "path",
-            "description": "Base currency",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "company-uid",
-            "in": "header",
-            "description": "The unique identifier of the company",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "concur-correlationid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "The Concur unique identifier of the caller",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "date",
-            "in": "path",
-            "description": "Date",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "quoteCurrency",
-            "in": "path",
-            "description": "Quote currency",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved exchange rate",
-            "schema": {
-              "$ref": "#/definitions/ExchangeRateResponse"
-            }
-          },
-          "400": {
-            "description": "Invalid request received",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "401": {
-            "description": "Access Denied",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "404": {
-            "description": "Unable to find exchange rate",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "500": {
-            "description": "Internal server error, please contact the administrator.",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          },
-          "503": {
-            "description": "The service is unavailable either due to being offline or refusing the connection",
-            "schema": {
-              "$ref": "#/definitions/ErrorMessage"
-            }
-          }
-        },
-        "security": [
-          {
-            "JWT": []
-          },
-          {
-            "CN": []
-          }
-        ],
-        "deprecated": false
+        "security": [{ "JWT": [] }, { "CN": [] }]
       }
     }
   },
   "securityDefinitions": {
-    "CN": {
-      "type": "apiKey",
-      "name": "concur-forwarded-for",
-      "in": "header"
-    },
-    "JWT": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header"
-    }
+    "JWT": { "type": "apiKey", "name": "Authorization", "in": "header" }
   },
   "definitions": {
     "BulkExchangeRateUploadRequest": {
       "type": "object",
-      "required": [
-        "currency_sets"
-      ],
+      "required": ["currency_sets"],
       "properties": {
         "currency_sets": {
           "type": "array",
-          "description": "Currencies, rate and date",
-          "items": {
-            "$ref": "#/definitions/ExchangeRateUploadRequest"
-          }
+          "description": "List of currency pairs with exchange rate, and start date",
+          "items": { "$ref": "#/definitions/ExchangeRateUploadRequest" }
         }
       },
-      "title": "BulkExchangeRateUploadRequest"
+      "title": "BulkExchangeRateUploadRequest",
+      "description": "This object contains a currency set to be uploaded."
     },
     "BulkExchangeRateUploadResponse": {
       "type": "object",
@@ -254,29 +86,25 @@
         "currencySets": {
           "type": "array",
           "description": "Currency set response",
-          "items": {
-            "$ref": "#/definitions/ExchangeRateUploadResponse"
-          }
+          "items": { "$ref": "#/definitions/ExchangeRateUploadResponse" }
         },
         "message": {
           "type": "string",
+          "example": "Requests completed successfully",
           "description": "Overall message for the response"
         },
         "overallStatus": {
           "type": "string",
+          "example": "Success",
           "description": "Overall status of the response"
         }
       },
-      "title": "BulkExchangeRateUploadResponse"
+      "title": "BulkExchangeRateUploadResponse",
+      "description": "This object contains an overall status on a bulk upload request along with the currency set which was uploaded. Additionally, each individual ExchangeRateUploadResponse object has an upload status code and message."
     },
     "ErrorMessage": {
       "type": "object",
-      "required": [
-        "errorMessage",
-        "httpStatus",
-        "path",
-        "timestamp"
-      ],
+      "required": ["errorMessage", "httpStatus", "path", "timestamp"],
       "properties": {
         "errorId": {
           "type": "string",
@@ -288,6 +116,7 @@
         },
         "httpStatus": {
           "type": "string",
+          "example": 400,
           "description": "The http response code and phrase for the response"
         },
         "path": {
@@ -303,81 +132,69 @@
         "validationErrors": {
           "type": "array",
           "description": "The validation error messages",
-          "items": {
-            "$ref": "#/definitions/ValidationError"
-          }
+          "items": { "$ref": "#/definitions/ValidationError" }
         }
       },
-      "title": "ErrorMessage"
-    },
-    "ExchangeRateResponse": {
-      "type": "object",
-      "properties": {
-        "rate": {
-          "type": "number",
-          "description": "Exchange Rate"
-        }
-      },
-      "title": "ExchangeRateResponse"
+      "title": "ErrorMessage",
+      "description": "Contains detailed information about an error."
     },
     "ExchangeRateUploadRequest": {
       "type": "object",
-      "required": [
-        "from_crn_code",
-        "rate",
-        "start_date",
-        "to_crn_code"
-      ],
+      "required": ["from_crn_code", "rate", "start_date", "to_crn_code"],
       "properties": {
         "from_crn_code": {
           "type": "string",
-          "description": "From currency code"
+          "example": "USD",
+          "description": "From currency code (ISO 4217 alphabetic code)"
         },
+        "rate": { "type": "number", "example": 1.0005, "description": "Rate" },
         "start_date": {
           "type": "string",
+          "example": "2020-01-30",
           "description": "Start date"
-        },
-        "rate": {
-          "type": "number",
-          "description": "Rate"
         },
         "to_crn_code": {
           "type": "string",
-          "description": "To currency code"
+          "example": "CNY",
+          "description": "To currency code (ISO 4217 alphabetic code)"
         }
       },
-      "title": "ExchangeRateUploadRequest"
+      "title": "ExchangeRateUploadRequest",
+      "description": "Exchange Rate Upload Request. This object specifies a currency pair (ISO 4217 alphabetic code), exchange rate, and start date."
     },
     "ExchangeRateUploadResponse": {
       "type": "object",
       "properties": {
         "from_crn_code": {
           "type": "string",
-          "description": "From currency code"
+          "example": "USD",
+          "description": "From currency code (ISO 4217 alphabetic code)"
         },
-        "rate": {
-          "type": "number",
-          "description": "Rate"
-        },
+        "rate": { "type": "number", "example": 1.0005, "description": "Rate" },
         "start_date": {
           "type": "string",
+          "example": "2020-01-30",
           "description": "Start date"
         },
         "statusCode": {
           "type": "integer",
           "format": "int32",
-          "description": "Status Code "
+          "example": 200,
+          "description": "Status Code"
         },
         "statusMessage": {
           "type": "string",
+          "example": "success",
           "description": "Status Message"
         },
         "to_crn_code": {
           "type": "string",
-          "description": "To currency code"
+          "example": "CNY",
+          "description": "To currency code (ISO 4217 alphabetic code)"
         }
       },
-      "title": "ExchangeRateUploadResponse"
+      "title": "ExchangeRateUploadResponse",
+      "description": "Exchange Rate Upload Response. This object specifies a currency pair (ISO 4217 alphabetic code), exchange rate, and start date, along with status message and HTTP status code."
     },
     "ValidationError": {
       "type": "object",
