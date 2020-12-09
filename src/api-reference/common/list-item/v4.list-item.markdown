@@ -3,11 +3,11 @@ title: List Item v4
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 The SAP Concur List Item API provides an automated solution to clients who would like to retrieve and add list items. Use of the API is subject to some limitations on the volume of list data. You may need to manage the initial load of large volumes of data via a file import due to capacity limitations. This is also true if ongoing maintenance of list values involves a large volume.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+## Contents
 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
@@ -21,6 +21,7 @@ The SAP Concur List Item API provides an automated solution to clients who would
 * [Retrieve Children of a List Item](#children-list-item-ID)
 * [Retrieve Children of a List Item by List](#children-list-item-by-list)
 * [Retrieve First Level Children of a List](#children-list-ID)
+* [Filtering](#filtering)
 * [Schema](#schema)
   * [List Item](#schema-list-item)
   * [List Item Create](#schema-list-item-create)
@@ -32,7 +33,6 @@ The SAP Concur List Item API provides an automated solution to clients who would
   * [Link](#schema-link)
   * [Error Message](#schema-error-message)
   * [Validation Error](#schema-validation-error)
-* [Filtering](#filtering)
 
 ## Prior Versions
 
@@ -911,6 +911,127 @@ cache-control: no-cache, private
 }
 ```
 
+## <a name="filtering"></a>Filtering
+
+### <a name="filter-apis"></a>Supported APIs
+
+The List Item API supports filtering on the [Retrieve First Level Children Items of a List](#children-list-ID),
+[Retrieve Children of a List Item](#children-list-item-ID), and [Retrieve Children of a List Item by List](#children-list-item-by-list) APIs.
+The filter may be applied to the `value`, `shortCode`, and `shortCodeOrValue` query parameters.
+
+##### Retrieve First Level Children Items of a List
+
+```shell
+GET /lists/v4/lists/{listId}/children?value=test
+GET /lists/v4/lists/{listId}/children?shortCode=test
+GET /lists/v4/lists/{listId}/children?shortCodeOrValue=test
+```
+
+##### Retrieve Children of a List Item
+
+```shell
+GET /lists/v4/items/{listId}/children?value=test
+GET /lists/v4/items/{listId}/children?shortCode=test
+GET /lists/v4/items/{listId}/children?shortCodeOrValue=test
+```
+
+##### Retrieve Children of a List Item by List
+
+```shell
+GET /list/v4/lists/{listId}/items/{itemId}/children?value=test
+GET /list/v4/lists/{listId}/items/{itemId}/children?shortCode=test
+GET /list/v4/lists/{listId}/items/{itemId}/children?shortCodeOrValue=test
+```
+
+### <a name="query-syntax"></a>Query Syntax
+
+The general format of a query syntax parameter is as follows:
+
+```shell
+/lists/v4/resource?field_name=<op>:<value>
+```
+
+* `field_name` - The name of the field that will be compared against.
+
+* `op` - (Optional) The [comparison operator](#comparison-operators) to use when comparing the specified value to the field. Defaults to `eq`.
+
+* `value` - The value being checked for.
+
+Ensure the url generated is properly **`URL encoded`**. For example, if you have a `field_name` or `value` with a `&`, please convert it to `%26`.
+
+Examples:
+
+```shell
+/lists/v4/lists/{listId}/children?value=PSO
+```
+
+```shell
+/lists/v4/lists/{listId}/children?shortCode=sw:British
+```
+
+```shell
+/lists/v4/lists/{listId}/children?value=ew:Airlines&shortCode=not:British+Airlines
+```
+
+```shell
+/lists/v4/lists/{listId}/children?value=sw:Question%3FMark
+```
+
+### <a name="conjunction-operators"></a>Conjunction Operators
+
+Complex queries using parentheses are not supported.
+
+There is basic support for OR functionality with the `shortCodeOrValue` query parameter. `shortCodeOrValue` will search both `shortCode` and `value` properties and return all resources that match either field.
+
+### <a name="comparison-operators"></a>Comparison Operators
+
+#### Equals
+
+`eq` returns results where a field is *equal to* the supplied value. This is the default if no operator is specified.
+
+```shell
+/lists/v4/lists/{listId}/children?value=test
+```
+
+```shell
+/lists/v4/items/{itemId}/children?value=eq:test
+```
+
+```shell
+/lists/v4/items/{itemId}/children?shortCodeOrValue=eq:test
+```
+
+#### Contains Pattern
+
+`cp` returns results where the provided pattern exists in the specified field.
+
+```shell
+/lists/v4/lists/{listId}/children?value=cp:test
+```
+
+#### Not
+
+`not` returns results where a field is *not equal to* the supplied value.
+
+```shell
+/lists/v4/items/{itemId}/children?shortCode=not:test
+```
+
+#### Starts With
+
+`sw` returns results where a field *startsWith* the supplied value.
+
+```shell
+/lists/v4/lists/{listId}/children?shortCode=sw:test
+```
+
+#### Ends With
+
+`ew` returns results where a field *endsWith* the supplied value.
+
+```shell
+/lists/v4/items/{itemId}/children?value=ew:test
+```
 ## <a name="schema"></a>Schema
 
 ### <a name="schema-list-item"></a>List Item
@@ -998,122 +1119,3 @@ cache-control: no-cache, private
 |---|---|---|---|
 |`rel`|`string`|-|The link relation.|
 |`href`|`string`|-|The link href.|
-
-## <a name="filtering"></a>Filtering
-
-### <a name="filter-apis"></a>Supported APIs
-
-The List Item API supports filtering on the [Retrieve First Level Children Items of a List](#children-list-ID), 
-[Retrieve Children of a List Item](#children-list-item-ID), and [Retrieve Children of a List Item by List](#children-list-item-by-list) APIs.
-The filter may be applied to the `value`, `shortCode`, and `shortCodeOrValue` query parameters.
-
-Retrieve First Level Children Items of a List
-```shell
-GET /lists/v4/lists/{listId}/children?value=test
-GET /lists/v4/lists/{listId}/children?shortCode=test
-GET /lists/v4/lists/{listId}/children?shortCodeOrValue=test
-```
-
-Retrieve Children of a List Item
-```shell
-GET /lists/v4/items/{listId}/children?value=test
-GET /lists/v4/items/{listId}/children?shortCode=test
-GET /lists/v4/items/{listId}/children?shortCodeOrValue=test
-```
-
-Retrieve Children of a List Item by List
-```shell
-GET /list/v4/lists/{listId}/items/{itemId}/children?value=test
-GET /list/v4/lists/{listId}/items/{itemId}/children?shortCode=test
-GET /list/v4/lists/{listId}/items/{itemId}/children?shortCodeOrValue=test
-```
-
-### <a name="query-syntax"></a>Query Syntax
-
-The general format of a query syntax parameter is as follows:
-
-```shell
-/lists/v4/resource?field_name=<op>:<value>
-```
-
-* `field_name` - The name of the field that will be compared against.
-
-* `op` - (Optional) The [comparison operator](#comparison-operators) to use when comparing the specified value to the field. Defaults to `eq`.
-
-* `value` - The value being checked for. 
-
-Ensure the url generated is properly **`URL encoded`**. For example, if you have a `field_name` or `value` with a `&`, please convert it to `%26`.
-
-Examples:
-
-```shell
-/lists/v4/lists/{listId}/children?value=PSO
-```
-
-```shell
-/lists/v4/lists/{listId}/children?shortCode=sw:British
-```
-
-```shell
-/lists/v4/lists/{listId}/children?value=ew:Airlines&shortCode=not:British+Airlines
-```
-
-```shell
-/lists/v4/lists/{listId}/children?value=sw:Question%3FMark
-```
-
-### <a name="conjunction-operators"></a>Conjunction Operators
-
-Complex queries using parentheses are not supported. 
-
-There is basic support for OR functionality with the `shortCodeOrValue` query parameter. `shortCodeOrValue` will search both `shortCode` and `value` properties and return all resources that match either field.
-
-### <a name="comparison-operators"></a>Comparison Operators
-
-#### Equals
-
-`eq` returns results where a field is *equal to* the supplied value. This is the default if no operator is specified.
-
-```shell
-/lists/v4/lists/{listId}/children?value=test
-```
-
-```shell
-/lists/v4/items/{itemId}/children?value=eq:test
-```
-
-```shell
-/lists/v4/items/{itemId}/children?shortCodeOrValue=eq:test
-```
-
-#### Contains Pattern
-
-`cp` returns results where the provided pattern exists in the specified field. 
-
-```shell
-/lists/v4/lists/{listId}/children?value=cp:test
-```
-
-#### Not
-
-`not` returns results where a field is *not equal to* the supplied value.
-
-```shell
-/lists/v4/items/{itemId}/children?shortCode=not:test
-```
-
-#### Starts With
-
-`sw` returns results where a field *startsWith* the supplied value.
-
-```shell
-/lists/v4/lists/{listId}/children?shortCode=sw:test
-```
-
-#### Ends With
-
-`ew` returns results where a field *endsWith* the supplied value.
-
-```shell
-/lists/v4/items/{itemId}/children?value=ew:test
-```
