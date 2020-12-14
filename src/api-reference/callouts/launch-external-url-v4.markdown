@@ -110,8 +110,6 @@ Concur Expense sends requests to the application connector using anonymous autho
 
 The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that Concur Expense supplies. Two of the required variables for the signature hash are username and password, which are entered in Concur Expense on the Register Application Connector page in web services under Administration. The application connector must use the same username and password pair to generate its validation signature hash.
 
-Details on registering your client ID can be found on the [Authentication Grant](https://developer.concur.com/api-reference/authentication/apidoc.html#auth_grant) page.
-
 ## <a name="functions"></a>Functions
 Details of the URI used for the Launch External URL request can be found on the [V4 Launch External URL Request](\api-reference\callouts\launch-external-url-v4-request.html) page.
 
@@ -135,6 +133,12 @@ Information on how to create, install, and configure the application connector i
 
 ## <a name="config-leu"></a>Configure Launch External URL - V4 Service
 
+Your client ID must first be registered. Details on registering your client ID can be found on the [Authentication Grant](https://developer.concur.com/api-reference/authentication/apidoc.html#auth_grant) page. The client ID used for the callout should have below scopes, grants assigned, and redirect URL registered.
+* Scopes: expense.report.read and expense.report.readwrite
+* Grants: refresh_token, password, client_credentials, and authorization_code
+
+The following steps explain how to register an application connector. 
+
 1. On the **Application Connector Registration** page, select the desired registration from the list.
 
 2. Click **Modify**.
@@ -148,12 +152,17 @@ Information on how to create, install, and configure the application connector i
    * Confirm that the endpoint matches the actual endpoint of the remote service.
    * "Host Name" configured above plus "endpoint" will be the actual endpoint used when Concur Expense connects to the clients' application connector.
 
-
 6. Select the **Active** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
 
-7. Click **OK**. The service is configured for your host.
+7.	Ensure the Service Version is set to **V4** (only required if moving from V1 to V4).
 
-8. Click **Save**, to return to the Application Connector Registration page.
+8.	Enter the Client ID (used to identify your application).
+
+9.	Enter the Redirect URL (base URL from which client will call to get User JWT).
+
+10. Click **OK**. The service is configured for your host.
+
+11. Click **Save**, to return to the Application Connector Registration page.
 
 ## <a name="leu-field-config"></a>Launch External URL Form Field Configuration
 
