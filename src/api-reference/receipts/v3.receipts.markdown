@@ -1,5 +1,5 @@
 ---
-title: Receipts v3 (Deprecated)
+title: Receipts v3 (Decommissioned)
 layout: reference
 ---
 
