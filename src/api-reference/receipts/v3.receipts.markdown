@@ -5,6 +5,8 @@ layout: reference
 
 {% capture deprecation_content %}
 
+Decommissioned Date: 01/31/2021
+
 [Receipts v4](./get-started.html) which replaces this API opens doors to global availability, enriched schemas, and better support for detailed tax content.
 
 {% endcapture %}

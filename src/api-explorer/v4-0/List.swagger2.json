@@ -23,8 +23,8 @@
         "tags": [
           "List API"
         ],
-        "summary": "Get the lists for a given category id",
-        "description": "Returns lists for the category",
+        "summary": "Get the lists for a given category ID",
+        "description": "Returns the lists for the category",
         "operationId": "getListsForCategoryUsingGET",
         "produces": [
           "application/json"
@@ -35,8 +35,7 @@
             "in": "header",
             "description": "Language code",
             "required": false,
-            "type": "string",
-            "default": "en"
+            "type": "string"
           },
           {
             "name": "categoryId",
@@ -45,27 +44,6 @@
             "required": true,
             "type": "string",
             "format": "uuid"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
           },
           {
             "name": "page",
@@ -86,7 +64,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -110,11 +88,6 @@
             }
           }
         },
-        "security": [
-          {
-            "JWT Token": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -123,7 +96,7 @@
         "tags": [
           "List API"
         ],
-        "summary": "Gets all lists for the given company",
+        "summary": "Get all lists for the given company",
         "description": "Returns all lists",
         "operationId": "getAllListsUsingGET",
         "produces": [
@@ -135,29 +108,31 @@
             "in": "header",
             "description": "Language code",
             "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Field to sort by, {name, levelcount, listcategory}",
+            "required": false,
             "type": "string",
-            "default": "en"
+            "default": "name",
+            "enum": [
+              "name",
+              "levelcount",
+              "listcategory"
+            ]
           },
           {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
+            "name": "sortDirection",
+            "in": "query",
+            "description": "Sort direction, {asc, desc}",
             "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
           },
           {
             "name": "page",
@@ -178,7 +153,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -196,11 +171,6 @@
             }
           }
         },
-        "security": [
-          {
-            "JWT Token": []
-          }
-        ],
         "deprecated": false
       },
       "post": {
@@ -218,23 +188,9 @@
         ],
         "parameters": [
           {
-            "name": "company-uuid",
+            "name": "Accept-Language",
             "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+            "description": "Language code",
             "required": false,
             "type": "string"
           },
@@ -256,7 +212,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -286,11 +242,6 @@
             }
           }
         },
-        "security": [
-          {
-            "JWT Token": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -299,7 +250,7 @@
         "tags": [
           "List API"
         ],
-        "summary": "Get a list with provided list id",
+        "summary": "Get a list with provided list ID",
         "description": "Returns an existing list",
         "operationId": "getListUsingGET",
         "produces": [
@@ -310,28 +261,6 @@
             "name": "Accept-Language",
             "in": "header",
             "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
             "required": false,
             "type": "string"
           },
@@ -352,7 +281,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -376,11 +305,6 @@
             }
           }
         },
-        "security": [
-          {
-            "JWT Token": []
-          }
-        ],
         "deprecated": false
       },
       "put": {
@@ -388,7 +312,7 @@
           "List API"
         ],
         "summary": "Update a list with provided request body",
-        "description": "Returns updated list",
+        "description": "Returns the updated list",
         "operationId": "putListUsingPUT",
         "consumes": [
           "application/json"
@@ -401,28 +325,6 @@
             "name": "Accept-Language",
             "in": "header",
             "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
             "required": false,
             "type": "string"
           },
@@ -452,7 +354,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -488,11 +390,6 @@
             }
           }
         },
-        "security": [
-          {
-            "JWT Token": []
-          }
-        ],
         "deprecated": false
       },
       "delete": {
@@ -500,33 +397,12 @@
           "List API"
         ],
         "summary": "Delete a list",
-        "description": "Returns status code result",
+        "description": "Returns a status code result",
         "operationId": "deleteListUsingDELETE",
         "produces": [
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
           {
             "name": "listId",
             "in": "path",
@@ -565,20 +441,8 @@
             }
           }
         },
-        "security": [
-          {
-            "JWT Token": []
-          }
-        ],
         "deprecated": false
       }
-    }
-  },
-  "securityDefinitions": {
-    "JWT Token": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header"
     }
   },
   "definitions": {
@@ -621,34 +485,10 @@
     "Link": {
       "type": "object",
       "properties": {
-        "deprecation": {
-          "type": "string",
-          "xml": {
-            "name": "deprecation",
-            "attribute": true,
-            "wrapped": false
-          }
-        },
         "href": {
           "type": "string",
           "xml": {
             "name": "href",
-            "attribute": true,
-            "wrapped": false
-          }
-        },
-        "hreflang": {
-          "type": "string",
-          "xml": {
-            "name": "hreflang",
-            "attribute": true,
-            "wrapped": false
-          }
-        },
-        "media": {
-          "type": "string",
-          "xml": {
-            "name": "media",
             "attribute": true,
             "wrapped": false
           }
@@ -660,28 +500,27 @@
             "attribute": true,
             "wrapped": false
           }
-        },
-        "templated": {
-          "type": "boolean"
-        },
-        "title": {
-          "type": "string",
-          "xml": {
-            "name": "title",
-            "attribute": true,
-            "wrapped": false
-          }
-        },
-        "type": {
-          "type": "string",
-          "xml": {
-            "name": "type",
-            "attribute": true,
-            "wrapped": false
-          }
         }
       },
       "title": "Link"
+    },
+    "ListCategory": {
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The unique identifier of a category"
+        },
+        "type": {
+          "type": "string",
+          "description": "Category type"
+        }
+      },
+      "title": "ListCategory"
     },
     "ListRequest": {
       "type": "object",
@@ -729,10 +568,8 @@
           "type": "string",
           "description": "Name of the list"
         },
-        "categoryId": {
-          "type": "string",
-          "format": "uuid",
-          "description": "Unique identifier of a Category"
+        "category": {
+          "$ref": "#/definitions/ListCategory"
         },
         "levelCount": {
           "type": "integer",
@@ -811,7 +648,8 @@
             "name": "number",
             "attribute": true,
             "wrapped": false
-          }
+          },
+          "example": 1
         },
         "size": {
           "type": "integer",
@@ -820,7 +658,8 @@
             "name": "size",
             "attribute": true,
             "wrapped": false
-          }
+          },
+          "example": 100
         },
         "totalElements": {
           "type": "integer",
@@ -829,7 +668,8 @@
             "name": "totalElements",
             "attribute": true,
             "wrapped": false
-          }
+          },
+          "example": 1
         },
         "totalPages": {
           "type": "integer",
@@ -838,7 +678,8 @@
             "name": "totalPages",
             "attribute": true,
             "wrapped": false
-          }
+          },
+          "example": 1
         }
       },
       "title": "PageMetadata"
