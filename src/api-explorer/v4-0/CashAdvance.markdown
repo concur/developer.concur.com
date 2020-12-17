@@ -1,5 +1,5 @@
 ---
-title: Concur Cash Advance
+title: Cash Advance
 layout: reference
 reference-type: swagger
 ---
