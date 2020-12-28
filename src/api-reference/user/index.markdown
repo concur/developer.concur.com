@@ -187,6 +187,9 @@ Name|Type|Format|Description
 
 Updates passwords for up to 500 users.
 
+Please keep in mind that this method will not update the user password expiry date, if you are updating the password to overcome password expiration policy.
+User will still have to change his password when they login to SAP Concur if the original password before update was expired.
+
 ### <a name="updatePwdRequestSchema"></a>Update User's Password Request Schema
 
 This function requires as its arguments a `UserBatch` element containing a User child element for each user. The `User` element must have the following elements:
