@@ -1046,7 +1046,7 @@ There is basic support for OR functionality with the `shortCodeOrValue` query pa
 |`listId`|`string`|`uuid`|The unique identifier of the list that contains the list item.|
 |`level`|`integer`|`int32`|Level of the list item within the list.|
 |`lists`|[`ListItemMemberList`](#schema-list-item-member-list)|-|The unique identifiers of the lists that contains the list item. The list item may exist under one or more lists.|
-|`isDeleted`|`boolean`|`true`/`false`|If `true`, the list item is deleted from all lists. The `lists` field includes all lists that contain the list item. If `false`, the list item is not deleted from one or more lists. The `lists` field includes only the lists that contain the list item in not-deleted state.|
+|`isDeleted`|`boolean`|`true`/`false`|Indicates the deleted state of the item in a particular list. If `false`, the list item is not deleted from one or more lists. The `lists` field will include only the lists that contain the list item in a not-deleted state. `isDeleted` will only be `true` when the list item is deleted from all lists. The `lists` field will include all lists that contain the list item.|
 
 ### <a name="schema-list-item-create"></a>List Item Create
 
