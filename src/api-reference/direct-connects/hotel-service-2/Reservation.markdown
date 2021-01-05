@@ -55,6 +55,7 @@ Message to reserve a hotel.
     * [Rate Plan](#res-rate-plan)
     * [Cancel Penalty](#cancel-penalty)
     * [Penalty Description](#penalty-description)
+    * [Deadline](#deadline)
 
 ## <a name="request"></a>Request
 
@@ -585,9 +586,16 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |Name|Type|Description|
 |---------|------------|-------------|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. Maximum elements: `9`|
+|`Deadline`|`complex`|**Required** Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
 |Name|Type|Description|
 |---------|------------|-------------|
 |`Text`|`formattedTextTextType`|Formatted text content.|
+
+#### <a name="deadline"></a>Deadline
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`AbsoluteDeadline`|`time` or `datetime` |**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
