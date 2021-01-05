@@ -375,8 +375,8 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |--------------|-----------|-------------|
-|`RoomID`|`complex`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
-|`RatePlanID`|`complex`|**Required** Rate plan ID for which this rate is applicable for.|
+|`RoomID`|`stringLength1to16`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
+|`RatePlanID`|`stringLength1to64`|**Required** Rate plan ID for which this rate is applicable for.|
 |`Rates`|`complex`|**Required** Contains the rate for the given room.  SAP Concur only expects one (1) rate inside the `Rates` element. Refer to [Rate Details](/api-reference/direct-connects/hotel-service-2/Rate-details.html) for rate change details.|
 
 #### <a name="rates"></a>Rates
