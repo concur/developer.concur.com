@@ -188,9 +188,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
           </RoomTypes>
           <RatePlans>
             <RatePlan RatePlanID="XNFYP4I" AvailabilityStatus="ChangeDuringStay">
-              <Guarantee>
-                <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
-              </Guarantee>
+              <Guarantee GuaranteeType="GuaranteeRequired" />
               <CancelPenalties>
                 <CancelPenalty>
                   <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
@@ -314,7 +312,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |Name|Type|Description|
 |-----------------|-----------|-------------|
 |`GuaranteeType`|`string`|**Required** The guarantee information to hold a reservation.|
-|`Deadline`|`complex`|Guarantee deadline, absolute or relative.|
 
 #### <a name="supported-guarantee-types"></a>Supported GuaranteeTypes
 
