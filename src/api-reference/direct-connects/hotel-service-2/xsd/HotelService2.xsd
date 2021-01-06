@@ -2410,7 +2410,7 @@
     <xs:attribute name="CardCode" type="PaymentCardCodeType" use="optional">
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">Issuer code.</xs:documentation>
-        <xs:documentation source="Example" xml:lang="en">Example: MC, VI, AX</xs:documentation>
+        <xs:documentation source="Example" xml:lang="en">Example: AX, CA, DC, DS, JC, VI</xs:documentation>
         <xs:documentation source="Deprecation" xml:lang="en">DEPRECATION WARNING: This attribute will be deprecated in
           the 2012B publication. It will be replaced with the List_PaymentCardCode Open List.
         </xs:documentation>
@@ -3613,12 +3613,17 @@
               <xs:documentation xml:lang="en">Carte Bleu</xs:documentation>
             </xs:annotation>
           </xs:enumeration>
+          <xs:enumeration value="CA">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Mastercard</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
           <xs:enumeration value="CB">
             <xs:annotation>
               <xs:documentation xml:lang="en">Carte Blanche</xs:documentation>
             </xs:annotation>
           </xs:enumeration>
-          <xs:enumeration value="DN">
+          <xs:enumeration value="DC">
             <xs:annotation>
               <xs:documentation xml:lang="en">Diners Club</xs:documentation>
             </xs:annotation>
@@ -3641,11 +3646,6 @@
           <xs:enumeration value="MA">
             <xs:annotation>
               <xs:documentation xml:lang="en">Maestro</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="MC">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Master Card</xs:documentation>
             </xs:annotation>
           </xs:enumeration>
           <xs:enumeration value="TP">
@@ -4028,17 +4028,6 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="DecimalPlaces" type="xs:nonNegativeInteger" use="optional">
-      <xs:annotation>
-        <xs:documentation source="Description" xml:lang="en">The ISO 4217 standard "minor unit" for the number of
-          decimal places for a particular currency.
-        </xs:documentation>
-        <xs:documentation source="Implementer" xml:lang="en">Implementer: The ISO 4217 standard "minor unit" is
-          typically used when the amount provided includes the minor unit of currency without a decimal point (e.g., USD
-          8500 needs DecimalPlaces="2" to represent $85).
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
   </xs:attributeGroup>
 
   <xs:attributeGroup name="LanguageGroup">
@@ -4171,14 +4160,6 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="DecimalPlaces" type="xs:nonNegativeInteger" use="optional">
-      <xs:annotation>
-        <xs:documentation source="Description" xml:lang="en">Decimal places for currency code.</xs:documentation>
-        <xs:documentation source="Implementer" xml:lang="en">Implementer: This is an ISO 4217 standard "minor unit" for
-          the number of decimal places for a particular currency.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
     <xs:attribute name="Percent" type="Percentage" use="optional">
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">Fee percentage; if zero, assume use of the Amount attribute
@@ -4222,17 +4203,6 @@
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">An ISO 4217 (3) alpha character code that specifies a
           monetary unit.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="DecimalPlaces" type="xs:nonNegativeInteger" use="optional">
-      <xs:annotation>
-        <xs:documentation source="Description" xml:lang="en">The ISO 4217 standard "minor unit" for the number of
-          decimal places for a particular currency.
-        </xs:documentation>
-        <xs:documentation source="Implementer" xml:lang="en">Implementer: The ISO 4217 standard "minor unit" is
-          typically used when the amount provided includes the minor unit of currency without a decimal point (e.g., USD
-          8500 needs DecimalPlaces="2" to represent $85).
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>

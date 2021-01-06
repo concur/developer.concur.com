@@ -11,7 +11,7 @@ The application connector can use web services to send information to SAP Concur
 
 This callout differs from the standard SAP Concur web services in the following ways:
 
-* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. The connector domain and IP address must be whitelisted by SAP Concur during the configuration process.  
+* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. The connector domain and IP address must be added to an SAP Concur safe list during the configuration process.  
 * The application connector can also use the web services to retrieve or send SAP Concur data.
 * The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by SAP Concur. This guide specifies the request and response format required by SAP Concur.
 * The client Expense administrator must configure a new form field and add the field to the desired form before this service can be used.
@@ -57,7 +57,7 @@ Information on how to download, install, and configure the application connector
 The configuration process has the following steps:
 
 1. Third-party developer, client or SAP Concur downloads, installs, configures, and customizes the application connector. The application connector may make requests to the inbound web services.  
-2. SAP Concur registers the application connector. SAP Concur must whitelist the IP address and domain of the application connector. Be ready to supply the test and production domain information.  
+2. SAP Concur registers the application connector. SAP Concur must add the IP address and domain of the application connector to an include list. Be ready to supply the test and production domain information.  
 3. Expense Admin creates a new form field with the Launch External URL control type and adds the field to the expense entry form(s).
 
 Once the configuration is complete, the callout uses the following process:
@@ -84,7 +84,7 @@ Expense will not be able to connect to the application connector until a certifi
 
 SAP Concur sends requests to the application connector using anonymous authorization (no username and password are provided) over HTTPS.
 
-The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that SAP Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in SAP Concur on the **Register Application Connector** page in **Web Services** under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash.
+The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that SAP Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in SAP Concur on the **Register Application Connector** page in **Web Services** under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash. Note: both the username and password must be at least 10 characters for increased security and the maximum allowed length is 50 characters.
 
 ### <a name="functions"></a>Functions
 [Launch External URL Request][4]

@@ -109,7 +109,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`amountRequested`|`object`|[`Amount`](#schema-amount)|The amount of the cash advance in the Request, expressed in the reimbursement currency of the employee at the time they created the cash advance.
+`amountRequested`|`object`|[`Amount`](#schema-amount)|The amount of the cash advance in the Request, expressed in the currency of the requested cash advance. <br>For the Cash Advance detail endpoint only, the Amount schema will contain an additional `amount` field for feature parity purpose with the new planned Cash Advance API part of the cash advance service. The `value` field will be soon deprecated, it is highly recommended to rely on the `amount` field in that case.
 `approvalStatus`|`object`|[`Cash Advance Approval Status`](#schema-cashadvance-approvalstatus)|The approval status of the cash advance.
 `cashAdvanceId`|`string`|-|The unique identifier of the cash advance.
 `comment`|`string`|-|The last comment related to this cash advance.
@@ -199,16 +199,16 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`city`|`string`|-|**Required for all city location type (not airport, or rail station)** The city name of the location.
+`city`|`string`|-|**Required for all city location type (not airport, or rail station - except for STD location type)** The city name of the location. <br>Note: STD location type for rail is considered as a city location type, `city` and `countryCode` fields are required in that case.
 `countryCode`|`string`|[ISO 3166-1]|**Required if `city` or `name` is used** The ISO 3166-1 country code.
 `countrySubDivisionCode`|`string`|[ISO 3166-2]|The ISO 3166-2 country sub code.
-`iataCode`|`string`|-|The IATA code of an airport location.
+`iataCode`|`string`|-|**Required if `air` is used** The IATA code of an airport location.
 `id`|`string`|-|The id of the location.
 `latitude`|`number`|-|The latitude of the location.
-`locationCode`|`string`|-|**Required if `rail` is used** The code of the location.
+`locationCode`|`string`|-|**Required if `rail` is used with RAIL_xx locationType** The code of the location. Optional for segments based on city locations (will be required in case of duplicate locations within database). 
 `locationType`|`string`|-|**Required if `rail` is used** The type of the location.
 `longitude`|`number`|-|The longitude of the location.
-`name`|`string`|-|**Required for rail station** The name of the location. Always provide the `countryCode` value in addition to the `name`.
+`name`|`string`|-|The name of the location. Always provide the `countryCode` value in addition to the `name`.
 
 Below are the different node expected in the POST endpoints by location type (City, Rail station, or Airport) - example for `endLocation` field:
 
@@ -252,7 +252,7 @@ Location Type|Railway company
 `RAIL_9F`|Eurostar International Limited
 `RAIL_XH`|China Railway
 `RAIL_Z0`|UK Rail
-`STD`|Standard rail locations
+`STD`|Standard locations
 
 
 ### <a name="schema-resourcelink"></a>ResourceLink
@@ -281,7 +281,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`code`|`string`|-|The code of the type inherited from the Request Policy type.
+`code`|`string`|-|The code of the type inherited from the Request Policy type. Possible values: `Authorization`, `Cash Advance`, `Travel`.
 `label`|`string`|-|The label of the type inherited from the Request Policy Type.
 
 ### <a name="schema-expected-expense"></a>Expected Expense

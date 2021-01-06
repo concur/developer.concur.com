@@ -22,7 +22,7 @@ Callouts from SAP Concur allow clients to add an interaction with an outside sys
 
 Third-party developers can create callouts to provide SAP Concur clients access to information systems they manage. These developers partner with SAP Concur to have their application connectors reviewed. Once reviewed, applications are available for SAP Concur clients to purchase and configure.
 
-Partner apps that want to use callout services must have their endpoint server(s) whitelisted with SAP Concur.
+Partner apps that want to use callout services must have their endpoint server(s) added to an SAP Concur safe list.
 
 The available callouts are:
 
@@ -106,8 +106,8 @@ Once a development partner has configured a application connector, it must be re
     Name| Enter the name that should appear in the list of connectors.|
     Description | Enter the description of the function of the connector, such as what back-end system it might connect to.|
     Host Name | Enter the hostname for the connector. Example: https://{servername} |
-    User Name | Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector.|
-    Password | Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector.|
+    User Name | Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector. Note: the user name must be at least 10 characters and the maximum allowed length is 50 characters.|
+    Password | Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector. Note: the password must be at least 10 characters and the maximum allowed length is 50 characters.|
 
 3. Click **Test Connection**. SAP Concur will attempt to connect to the test connection endpoint https://(host name)/system/v1.0/testconnection, using a GET method with the supplied credentials as HTTP Basic Authentication. If you have not configured the test connection endpoint, the test will fail.
 

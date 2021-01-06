@@ -1,4 +1,355 @@
 {
+  "host": "us.api.concursolutions.com",
+  "swagger": "2.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/scim+json"
+  ],
+  "basePath": "/profile/identity/",
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "consumes": [
+    "application/json",
+    "application/scim+json"
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/v4/Users/{id}/": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Replace User Identity",
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "description": "successful updation of user identity"
+          },
+          "default": {
+            "description": "error updating user identity",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "name": "id",
+            "description": "user's uuid",
+            "in": "path"
+          },
+          {
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "in": "body",
+            "name": "user",
+            "description": "the user identity to update"
+          }
+        ]
+      },
+      "get": {
+        "summary": "Fetch User Identity",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched User Identity",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "default": {
+            "description": "error fetching user identity",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "description": "user's uuid",
+            "name": "id",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Patch User Identity",
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "in": "path",
+            "description": "user's uuid",
+            "name": "id"
+          },
+          {
+            "schema": {
+              "type": "object",
+              "description": "https://tools.ietf.org/html/rfc7644#section-3.5.2"
+            },
+            "required": true,
+            "name": "patch operations",
+            "description": "patch operations to apply on the user identity",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "description": "Successfully patched User Identity"
+          },
+          "default": {
+            "description": "Error patching user identity",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+
+
+    "/v4/Users": {
+      "post": {
+        "summary": "Create User Identity",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "created User Identity",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "default": {
+            "description": "error creating user identity",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user",
+            "description": "the user identity to create",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "required": true
+          }
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "name": "filter",
+            "description": "The filter string used to request a subset of resources",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "attributes",
+            "description": "A multi-valued list of strings indicating the names of resource attributes to return in the response",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "excludedAttributes",
+            "description": "A multi-valued list of strings indicating the names of resource attributes to be removed from the default set of attributes to return",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "startIndex",
+            "description": "The 1-based index of the first query result",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "count",
+            "description": "The desired maximum number of query results per page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/UserList"
+            },
+            "description": "successfully fetched user identities"
+          },
+          "default": {
+            "description": "Error fetching user identity",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "User"
+        ],
+        "summary": "Lookup User(s) for Company"
+      }
+    },
+    "/v4/Schemas/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "All supported schemas"
+          },
+          "default": {
+            "description": "error fetching schemas",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Get all schemas"
+      }
+    },
+    "/v4/Schemas/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successfully fetched schema"
+          },
+          "default": {
+            "description": "error fetching schema",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "enum": [
+              "com:concur:cte:user:2.0",
+              "com:concur:cte:company:2.0"
+            ],
+            "description": "schema id",
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Get Schema"
+      }
+    },
+    "/v4/ServiceProviderConfig": {
+      "get": {
+        "description": "Queries service provider configurations.",
+        "operationId": "getServiceProviderConfig",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ServiceProviderConfig"
+            }
+          },
+          "403": {
+            "description": "Invalid token passed"
+          },
+          "502": {
+            "description": "Authentication or account gateway error occurred"
+          },
+          "504": {
+            "description": "Authentication or account gateway timeout occurred"
+          }
+        },
+        "summary": "Get Service Provider Configurations",
+        "tags": [
+          "Schema"
+        ]
+      }
+    },
+    "/v4/ResourceTypes": {
+      "get": {
+        "description": "Queries service provider resource types.",
+        "operationId": "getServiceProviderResourceTypes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid token passed"
+          },
+          "502": {
+            "description": "Authentication or account gateway error occurred"
+          },
+          "504": {
+            "description": "Authentication or account gateway timeout occurred"
+          }
+        },
+        "summary": "Get Service Provider Configurations",
+        "tags": [
+          "Schema"
+        ]
+      }
+    }
+  },
+  "info": {
+    "contact": {
+      "email": "profile@concur.com"
+    },
+    "version": "v4",
+    "description": "Identity APIs",
+    "license": {
+      "name": "Concur",
+      "url": "https://developer.concur.com/Terms-of-Use.html"
+    },
+    "title": "Identity APIs",
+    "termsOfService": "http://us.api.concursolutions.com/terms"
+  },
   "definitions": {
     "User": {
       "type": "object",
@@ -17,25 +368,9 @@
                 "type": "string",
                 "description": "A two-letter country code defined in ISO 3166-1 alpha-2"
               },
-              "formatted": {
-                "type": "string",
-                "description": "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines."
-              },
-              "id": {
-                "type": "string",
-                "description": "Unique identifier for the User's physical addresses."
-              },
-              "latitude": {
-                "type": "string",
-                "description": ""
-              },
               "locality": {
                 "type": "string",
                 "description": "The city or locality."
-              },
-              "longitude": {
-                "type": "string",
-                "description": ""
               },
               "postalCode": {
                 "type": "string",
@@ -53,12 +388,12 @@
                 "type": "string",
                 "description": "A label indicating the function of the address, e.g., 'work' or 'home'.",
                 "enum": [
-                  "Work",
-                  "Home",
-                  "Other",
-                  "Billing",
-                  "Bank",
-                  "Shipping"
+                  "work",
+                  "home",
+                  "other",
+                  "billing",
+                  "bank",
+                  "shipping"
                 ]
               }
             }
@@ -70,7 +405,7 @@
         },
         "displayName": {
           "type": "string",
-          "description": "The name of the User, suitable for display  to end-users.  The name SHOULD be the full name of the User being  described, if known."
+          "description": "The name of the User, suitable for display to end-users."
         },
         "emails": {
           "type": "array",
@@ -86,32 +421,20 @@
                 "type": "string",
                 "description": "The date and time the email was verified"
               },
-              "display": {
-                "type": "string",
-                "description": "A human-readable email address."
-              },
-              "id": {
-                "type": "string",
-                "description": "Unique identifier for the emails."
-              },
               "notifications": {
                 "type": "boolean",
                 "description": "Notifications opt-in for emails"
-              },
-              "primary": {
-                "type": "boolean",
-                "description": "A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred mailing address or primary email address.  The primary attribute value 'true' MUST appear no more than once."
               },
               "type": {
                 "type": "string",
                 "description": "A label indicating the attribute's function, e.g., 'Work' or 'Home'.",
                 "enum": [
-                  "Work",
-                  "Home",
-                  "Other",
-                  "Other2",
-                  "Work2",
-                  "SMS"
+                  "work",
+                  "home",
+                  "other",
+                  "other2",
+                  "work2",
+                  "sms"
                 ]
               },
               "value": {
@@ -145,21 +468,9 @@
                   "type": "string"
                 }
               },
-              "formatted": {
-                "type": "string",
-                "description": "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines."
-              },
-              "latitude": {
-                "type": "string",
-                "description": ""
-              },
               "locality": {
                 "type": "string",
                 "description": "The city or locality."
-              },
-              "longitude": {
-                "type": "string",
-                "description": ""
               },
               "name": {
                 "type": "string",
@@ -198,24 +509,28 @@
               }
             },
             "required": [
+              "name",
               "relationship"
             ]
           }
         },
-        "externalClient": {
-          "type": "string",
-          "description": "The provisioning Client that generates the externalId",
-          "enum": [
-            "Concur.Travel",
-            "Concur.ProvisioningService",
-            "SAP.WBS",
-            "Microsoft.AzureAD",
-            "Okta"
-          ]
+        "entitlements": {
+          "type": "array",
+          "description": "The features enabled for the user",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Expense",
+              "Invoice",
+              "Locate",
+              "Request",
+              "Travel"
+            ]
+          }
         },
         "externalId": {
           "type": "string",
-          "description": "User identifilier from the provisioning client"
+          "description": "User identifier from the provisioning client"
         },
         "gender": {
           "type": "string",
@@ -348,13 +663,30 @@
           "type": "object",
           "description": "The user's name",
           "properties": {
+            "academicTitle": {
+              "type": "array",
+              "description": "Title signifying level of academic achievement",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Dr.",
+                  "Doctor",
+                  "Prof.",
+                  "Professor"
+                ]
+              }
+            },
             "familyName": {
               "type": "string",
               "description": "The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III')."
             },
+            "familyNamePrefix": {
+              "type": "string",
+              "description": "The family name prefix of the User (e.g. 'van' given the full name 'Vincent van Gogh')"
+            },
             "formatted": {
               "type": "string",
-              "description": "The full name, including all middle names, title, and suffixes as appropriate, formatted for display (e.g., 'Ms. Barbara J Jensen, III')."
+              "description": "The full name, formatted for display (e.g., 'Jensen, Barbara Jane')."
             },
             "givenName": {
               "type": "string",
@@ -446,25 +778,9 @@
           "items": {
             "type": "object",
             "properties": {
-              "countryCode": {
-                "type": "string",
-                "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country the phone number was issued in. e.g., US"
-              },
-              "countryISDCode": {
-                "type": "string",
-                "description": "E164 assigned country code"
-              },
               "display": {
                 "type": "string",
                 "description": "A human-readable phone number for display"
-              },
-              "extension": {
-                "type": "string",
-                "description": "phone number extension"
-              },
-              "id": {
-                "type": "string",
-                "description": "Unique identifier for phone numbers."
               },
               "notifications": {
                 "type": "boolean",
@@ -494,22 +810,18 @@
                 "type": "string",
                 "description": "A label indicating the attribute's function, e.g., 'Work', 'Home'.",
                 "enum": [
-                  "Work",
-                  "Home",
-                  "Mobile",
-                  "Fax",
-                  "Pager",
-                  "Other",
-                  "Work2"
+                  "work",
+                  "home",
+                  "mobile",
+                  "fax",
+                  "pager",
+                  "other",
+                  "work2"
                 ]
               },
               "value": {
                 "type": "string",
-                "description": "Phone number value"
-              },
-              "verified": {
-                "type": "boolean",
-                "description": "Phone number verification status"
+                "description": "Phone number value. Attempts to format to RFC3966 standards on create/update"
               }
             }
           }
@@ -525,14 +837,17 @@
             "type": "string",
             "enum": [
               "urn:ietf:params:scim:schemas:core:2.0:User",
-              "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-              "urn:ietf:params:scim:schemas:extension:enterprise:legacy:2.0:User"
+              "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
             ]
           }
         },
         "timezone": {
           "type": "string",
           "description": "The User's time zone in the 'Olson' time zone database format, e.g., 'America/Los_Angeles'."
+        },
+        "title": {
+          "type": "string",
+          "description": "user's job title in the company"
         },
         "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
           "type": "object",
@@ -546,23 +861,6 @@
               "type": "string",
               "description": "employee cost center for product"
             },
-            "dataRetention": {
-              "type": "object",
-              "description": "",
-              "properties": {
-                "isDoNotTouch": {
-                  "type": "boolean",
-                  "description": "Whether we should delete user record or not, according to the user's data retention policies."
-                },
-                "policyIds": {
-                  "type": "array",
-                  "description": "User's active data retention policy Ids.",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            },
             "department": {
               "type": "string",
               "description": "Client supplied department name"
@@ -574,24 +872,6 @@
             "employeeNumber": {
               "type": "string",
               "description": "Client supplied employee's number within the company, unique for the company"
-            },
-            "entitlements": {
-              "type": "array",
-              "description": "The features enabled for the user",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "Expense",
-                  "Invoice",
-                  "Locate",
-                  "Request",
-                  "Travel"
-                ]
-              }
-            },
-            "jobTitle": {
-              "type": "string",
-              "description": "user's job title in the company"
             },
             "manager": {
               "type": "object",
@@ -658,115 +938,6 @@
             "companyId"
           ]
         },
-        "urn:ietf:params:scim:schemas:extension:enterprise:legacy:2.0:User": {
-          "type": "object",
-          "description": "",
-          "properties": {
-            "expense": {
-              "type": "object",
-              "description": "",
-              "properties": {
-                "enableExpenseAssistant": {
-                  "type": "string",
-                  "description": "How trip report should be created by Expense Assistant",
-                  "enum": [
-                    "Calendar",
-                    "Trip",
-                    "None"
-                  ]
-                },
-                "enablePersonalCardAutoCreate": {
-                  "type": "boolean",
-                  "description": ""
-                }
-              }
-            },
-            "identifiers": {
-              "type": "object",
-              "description": "",
-              "properties": {
-                "entityId": {
-                  "type": "string",
-                  "description": "entity_id for this CTE user"
-                },
-                "guuid": {
-                  "type": "string",
-                  "description": "OUM.guuid for this CTE.Expense user. Not set if this is not a CTE expense user"
-                },
-                "outtaskCompanyId": {
-                  "type": "integer",
-                  "description": "outtask_company.id for this CTE user. Not set if this is not a CTE user"
-                },
-                "outtaskUserId": {
-                  "type": "integer",
-                  "description": "outtask_user.user_id. Not set if this is not a CTE user"
-                }
-              }
-            },
-            "legacyRole": {
-              "type": "string",
-              "description": "",
-              "enum": [
-                "User",
-                "Boardmember",
-                "Boardmember and user",
-                "Meeting user",
-                "Webservice user",
-                "System User"
-              ]
-            },
-            "locateRoles": {
-              "type": "array",
-              "description": "external facing roles for the User for Locate",
-              "items": {
-                "type": "string"
-              }
-            },
-            "privateData": {
-              "type": "object",
-              "description": "",
-              "properties": {
-                "expense": {
-                  "type": "object",
-                  "description": "Any private info expense wants to store"
-                },
-                "expenseIt": {
-                  "type": "object",
-                  "description": "Any private info ExpenseIt wants to store"
-                },
-                "locate": {
-                  "type": "object",
-                  "description": "Any private info Locate wants to store"
-                },
-                "notifications": {
-                  "type": "object",
-                  "description": "Any private info Notifications Platform wants to store"
-                },
-                "travel": {
-                  "type": "object",
-                  "description": "Any private info travel wants to store"
-                }
-              }
-            },
-            "supplierSearchRoles": {
-              "type": "array",
-              "description": "roles for supplier search",
-              "items": {
-                "type": "string"
-              }
-            },
-            "travel": {
-              "type": "object",
-              "description": "",
-              "properties": {
-                "vacationBackupManagerId": {
-                  "type": "string",
-                  "description": "backup manager (UUID)"
-                }
-              }
-            }
-          }
-        },
         "userName": {
           "type": "string",
           "description": "The name that can be used to login to CTE"
@@ -781,6 +952,38 @@
         "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
       ]
     },
+    "UserList": {
+      "type": "object",
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "description": "The total number of results matching the client query"
+        },
+        "itemsPerPage": {
+          "type": "integer",
+          "description": "The number of query results returned in a query response page"
+        },
+        "startIndex": {
+          "type": "integer",
+          "description": "The 1-based index of the first result in the current set of query results"
+        },
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+            ]
+          }
+        },
+        "Resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      }
+    },
     "Company": {
       "type": "object",
       "properties": {
@@ -790,7 +993,7 @@
         },
         "addresses": {
           "type": "array",
-          "description": "A physical mailing address for this company.",
+          "description": "",
           "items": {
             "type": "object",
             "properties": {
@@ -798,21 +1001,9 @@
                 "type": "string",
                 "description": "A two-letter country code defined in ISO 3166-1 alpha-2"
               },
-              "formatted": {
-                "type": "string",
-                "description": "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines."
-              },
-              "latitude": {
-                "type": "string",
-                "description": ""
-              },
               "locality": {
                 "type": "string",
                 "description": "The city or locality."
-              },
-              "longitude": {
-                "type": "string",
-                "description": ""
               },
               "postalCode": {
                 "type": "string",
@@ -835,7 +1026,7 @@
         },
         "contact": {
           "type": "object",
-          "description": "Contact information for the company.",
+          "description": "",
           "properties": {
             "country": {
               "type": "string",
@@ -848,21 +1039,9 @@
                 "type": "string"
               }
             },
-            "formatted": {
-              "type": "string",
-              "description": "The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain  newlines."
-            },
-            "latitude": {
-              "type": "string",
-              "description": ""
-            },
             "locality": {
               "type": "string",
               "description": "The city or locality."
-            },
-            "longitude": {
-              "type": "string",
-              "description": ""
             },
             "name": {
               "type": "string",
@@ -891,53 +1070,6 @@
           "required": [
             "name"
           ]
-        },
-        "dataRetention": {
-          "type": "array",
-          "description": "",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "Unique identifier for the data retention policy"
-              },
-              "name": {
-                "type": "string",
-                "description": "Name of the company data retention policy"
-              },
-              "scope": {
-                "type": "string",
-                "description": "",
-                "enum": [
-                  "dataretention.concur.expense",
-                  "dataretention.concur.expense.default",
-                  "dataretention.concur.invoice",
-                  "dataretention.concur.invoice.default",
-                  "dataretention.concur.locate",
-                  "dataretention.concur.locate.default",
-                  "dataretention.concur.request",
-                  "dataretention.concur.request.default",
-                  "dataretention.concur.travel",
-                  "dataretention.concur.travel.default",
-                  "dataretention.data.sensitive"
-                ]
-              },
-              "unit": {
-                "type": "string",
-                "description": "Period of the data retention policy",
-                "enum": [
-                  "day",
-                  "month",
-                  "year"
-                ]
-              },
-              "value": {
-                "type": "integer",
-                "description": "Period of the data retention policy"
-              }
-            }
-          }
         },
         "defaultLanguage": {
           "type": "string",
@@ -972,29 +1104,6 @@
         "name": {
           "type": "string",
           "description": "The name of the company"
-        },
-        "notifications": {
-          "type": "object",
-          "description": "",
-          "properties": {
-            "channels": {
-              "type": "array",
-              "description": "",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "Slack",
-                  "SMS",
-                  "Email",
-                  "Push"
-                ]
-              }
-            },
-            "enabled": {
-              "type": "boolean",
-              "description": ""
-            }
-          }
         },
         "schemas": {
           "type": "array",
@@ -1130,41 +1239,40 @@
             }
           }
         },
-        "urn:ietf:params:scim:schemas:extension:legacy:2.0:Company": {
+        "urn:ietf:params:scim:schemas:extension:notification:2.0:Company": {
           "type": "object",
           "description": "",
           "properties": {
-            "identifiers": {
-              "type": "object",
+            "channels": {
+              "type": "array",
               "description": "",
-              "properties": {
-                "entityId": {
-                  "type": "string",
-                  "description": "entity_id for the company"
-                },
-                "greatPlainsId": {
-                  "type": "string",
-                  "description": "GreatPlains Id for the company"
-                },
-                "outtaskCompanyId": {
-                  "type": "integer",
-                  "description": "outtask_company ID for the company"
-                },
-                "salesforceId": {
-                  "type": "string",
-                  "description": "Salesforce Id for the company"
-                }
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Slack",
+                  "SMS",
+                  "Email",
+                  "Push"
+                ]
               }
             },
-            "mobile": {
-              "type": "object",
-              "description": "",
-              "properties": {
-                "isHighSecurityAccount": {
-                  "type": "boolean",
-                  "description": "Whether the company is a high security account"
-                }
-              }
+            "enabled": {
+              "type": "boolean",
+              "description": ""
+            }
+          }
+        },
+        "urn:ietf:params:scim:schemas:extension:sap:2.0:Company": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "tenantIdSpend": {
+              "type": "string",
+              "description": "Spend tenant ID for the company"
+            },
+            "tenantIdTravel": {
+              "type": "string",
+              "description": "Travel tenant ID for the company"
             }
           }
         }
@@ -1174,461 +1282,208 @@
         "id"
       ]
     },
-    "error-response": {
+    "ConcurError": {
+      "type": "object",
       "properties": {
+        "messages": {
+          "type": "array",
+          "description": "Additional messages in case of errors / warnings",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Message Code"
+              },
+              "message": {
+                "type": "string",
+                "description": "Message description"
+              },
+              "schemaPath": {
+                "type": "string",
+                "description": "Relative schema path of attribute"
+              },
+              "type": {
+                "type": "string",
+                "description": "Message Type",
+                "enum": [
+                  "error",
+                  "warning"
+                ]
+              }
+            },
+            "required": [
+              "code",
+              "type"
+            ]
+          }
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "scimType": {
+          "type": "string",
+          "description": "SCIM detail error keyword"
+        },
+        "detail": {
+          "type": "string",
+          "description": "Human readable message"
+        },
         "status": {
           "type": "string",
-          "description": "same as HTTP status code, e.g. 400, 401, etc."
+          "description": "HTTP status code"
         },
-        "schemas": {
+        "urn:ietf:params:scim:api:messages:concur:2.0:Error": {
+          "type": "object",
+          "$ref": "#/definitions/ConcurError",
+          "description": "Concur custom error"
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "SchemaExtension": {
+      "description": "Describes an extension of a schema",
+      "properties": {
+        "schema": {
+          "description": "The string identifier of the extension",
+          "type": "string"
+        },
+        "required": {
+          "description": "Whether this existention is a required part of the schema",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schema",
+        "required"
+      ]
+    },
+    "ResourceType": {
+      "description": "Describes the extension and metadata constituting a resource like a user.",
+      "properties": {
+        "attributes": {
+          "description": "The resource's extensions",
           "items": {
-            "type": "string",
-            "enum": [
-              "urn:ietf:params:scim:api:messages:2.0:Error"
-            ]
+            "$ref": "#/definitions/SchemaExtension"
           },
           "type": "array"
+        },
+        "description": {
+          "description": "The resource's description",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "The resource's HTTP addressable endpoint relative to the base URL, e.g. /Users.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource's id, e.g. urn:scim:schemas:core:1.0:User",
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource's name, e.g. \"User\"",
+          "type": "string"
+        },
+        "schema": {
+          "description": "The resource's associated schema, e.g. urn:scim:schemas:core:1.0",
+          "type": "string"
         }
       },
-      "type": "object"
-    }
-  },
-  "consumes": [
-    "application/json",
-    "application/scim+json"
-  ],
-  "security": [
-    {
-      "ApiKeyAuth": []
-    }
-  ],
-  "basePath": "/profile/identity/",
-  "host": "us.api.concursolutions.com",
-  "info": {
-    "contact": {
-      "email": "profile@concur.com"
+      "required": [
+        "id",
+        "name",
+        "description",
+        "schema",
+        "endpoint",
+        "attributes"
+      ]
     },
-    "version": "v4",
-    "description": "Identity APIs",
-    "license": {
-      "name": "Concur",
-      "url": "https://developer.concur.com/Terms-of-Use.html"
-    },
-    "title": "Identity APIs",
-    "termsOfService": "http://us.api.concursolutions.com/terms"
-  },
-  "paths": {
-    "/v4/users/lookup/": {
-      "get": {
-        "parameters": [
-          {
-            "in": "query",
-            "name": "userName",
-            "description": "username to find",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "companyId",
-            "description": "companyId that the user belongs to (used along with employeeNumber)",
-            "in": "query",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "query",
-            "description": "user's employeeNumber (used along with companyId)",
-            "name": "employeeNumber",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "schema": {
-              "$ref": "#/definitions/User"
-            },
-            "description": "successfully fetched user identity"
-          },
-          "default": {
-            "description": "Error fetching user identity",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
+    "AuthenticationSchemes": {
+      "description": "Specifies supported Authentication Scheme properties",
+      "properties": {
+        "description": {
+          "description": "The description of the Authentication Scheme",
+          "type": "string"
         },
-        "tags": [
-          "User"
-        ],
-        "summary": "Lookup User Identity"
-      }
-    },
-    "/v4/users/{id}/": {
-      "put": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Replace User Identity",
-        "responses": {
-          "200": {
-            "schema": {
-              "$ref": "#/definitions/User"
-            },
-            "description": "successful updation of user identity"
-          },
-          "default": {
-            "description": "error updating user identity",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
+        "documentationUrl": {
+          "description": "A HTTP addressable URL pointing to the Authentication Scheme's usage documentation",
+          "type": "string"
         },
-        "parameters": [
-          {
-            "required": true,
-            "type": "string",
-            "name": "id",
-            "description": "user's uuid",
-            "in": "path"
-          },
-          {
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/User"
-            },
-            "in": "body",
-            "name": "user",
-            "description": "the user identity to update"
-          }
-        ]
+        "name": {
+          "description": "The common authentication scheme name, e.g. HTTP Basic",
+          "type": "string"
+        },
+        "specUrl": {
+          "description": "A HTTP addressable URL pointing to the Authentication Scheme's specification",
+          "type": "string"
+        }
       },
-      "get": {
-        "summary": "Fetch User Identity",
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched User Identity",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          },
-          "default": {
-            "description": "error fetching user identity",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "description": "user's uuid",
-            "name": "id",
-            "type": "string",
-            "required": true
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Patch User Identity",
-        "parameters": [
-          {
-            "required": true,
-            "type": "string",
-            "in": "path",
-            "description": "user's uuid",
-            "name": "id"
-          },
-          {
-            "schema": {
-              "type": "object",
-              "description": "https://tools.ietf.org/html/rfc7644#section-3.5.2"
-            },
-            "required": true,
-            "name": "patch operations",
-            "description": "patch operations to apply on the user identity",
-            "in": "body"
-          }
-        ],
-        "responses": {
-          "200": {
-            "schema": {
-              "$ref": "#/definitions/User"
-            },
-            "description": "Successfully patched User Identity"
-          },
-          "default": {
-            "description": "Error patching user identity",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
+      "required": [
+        "name",
+        "description",
+        "specUrl",
+        "documentationUrl"
+      ]
+    },
+    "ServiceProviderConfigSetting": {
+      "description": "Details about feature support for this service provider",
+      "properties": {
+        "supported": {
+          "description": "Whether the feature is supported",
+          "type": "boolean"
         }
       }
     },
-    "/v4/companies/lookup/": {
-      "get": {
-        "responses": {
-          "200": {
-            "schema": {
-              "$ref": "#/definitions/Company"
-            },
-            "description": "Company"
-          },
-          "default": {
-            "description": "Error fetching company",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
+    "ServiceProviderConfig": {
+      "description": "Represents the Service Provider's configuration",
+      "properties": {
+        "authenticationSchemes": {
+          "$ref": "#/definitions/AuthenticationSchemes",
+          "description": "Specifies whether the XML data format is supported"
         },
-        "parameters": [
-          {
-            "type": "string",
-            "required": false,
-            "in": "query",
-            "description": "company's outtaskCompanyId (one of outtaskCompanyId or entityId must be specified)",
-            "name": "outtaskCompanyId"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "in": "query",
-            "description": "company's entityId (one of outtaskCompanyId or entityId must be specified)",
-            "name": "entityId"
-          }
-        ],
-        "tags": [
-          "Company"
-        ],
-        "summary": "Lookup Company"
-      }
-    },
-    "/v4/companies/": {
-      "post": {
-        "responses": {
-          "200": {
-            "schema": {
-              "$ref": "#/definitions/Company"
-            },
-            "description": "Created Company"
-          },
-          "default": {
-            "description": "error creating company",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
+        "bulk": {
+          "$ref": "#/definitions/ServiceProviderConfigSetting",
+          "description": "Specifies BULK configuration options"
         },
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/definitions/Company"
-            },
-            "required": true,
-            "in": "body",
-            "name": "company",
-            "description": "the company to create"
-          }
-        ],
-        "summary": "Create Company",
-        "tags": [
-          "Company"
-        ]
-      }
-    },
-    "/v4/users": {
-      "post": {
-        "summary": "Create User Identity",
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "created User Identity",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          },
-          "default": {
-            "description": "error creating user identity",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
+        "changePassword": {
+          "$ref": "#/definitions/ServiceProviderConfigSetting",
+          "description": "Specifies Change Password configuration options"
         },
-        "parameters": [
-          {
-            "name": "user",
-            "description": "the user identity to create",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/User"
-            },
-            "required": true
-          }
-        ]
-      }
-    },
-    "/v4/companies/{id}/": {
-      "put": {
-        "summary": "Replace Company",
-        "tags": [
-          "Company"
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully replaced company",
-            "schema": {
-              "$ref": "#/definitions/Company"
-            }
-          },
-          "default": {
-            "description": "error updating company",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
+        "documentationUrl": {
+          "description": "An HTTP addressable URL pointing to the Service Provider's help documentation",
+          "type": "string"
         },
-        "parameters": [
-          {
-            "required": true,
-            "type": "string",
-            "in": "path",
-            "name": "id",
-            "description": "company's uuid"
-          },
-          {
-            "name": "company",
-            "description": "the company to update",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/Company"
-            },
-            "required": true
-          }
-        ]
+        "etag": {
+          "$ref": "#/definitions/ServiceProviderConfigSetting",
+          "description": "Specifies Etag configuration options"
+        },
+        "filter": {
+          "$ref": "#/definitions/ServiceProviderConfigSetting",
+          "description": "Specifies FILTER options"
+        },
+        "patch": {
+          "$ref": "#/definitions/ServiceProviderConfigSetting",
+          "description": "Specifies PATCH configuration options"
+        },
+        "sort": {
+          "$ref": "#/definitions/ServiceProviderConfigSetting",
+          "description": "Specifies Sort configuration options"
+        }
       },
-      "patch": {
-        "parameters": [
-          {
-            "required": true,
-            "type": "string",
-            "in": "path",
-            "description": "Company's uuid",
-            "name": "id"
-          },
-          {
-            "required": true,
-            "schema": {
-              "description": "https://tools.ietf.org/html/rfc7644#section-3.5.2",
-              "type": "object"
-            },
-            "name": "company",
-            "description": "the company to update",
-            "in": "body"
-          }
-        ],
-        "responses": {
-          "200": {
-            "schema": {
-              "$ref": "#/definitions/Company"
-            },
-            "description": "Updated Company"
-          },
-          "default": {
-            "description": "error patching company",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
-        },
-        "summary": "Patch Company",
-        "tags": [
-          "Company"
-        ]
-      },
-      "get": {
-        "parameters": [
-          {
-            "description": "company's uuid",
-            "name": "id",
-            "in": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "schema": {
-              "$ref": "#/definitions/Company"
-            },
-            "description": "Company"
-          },
-          "default": {
-            "description": "error fetching company",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
-        },
-        "tags": [
-          "Company"
-        ],
-        "summary": "Find Company by Id"
-      }
-    },
-    "/v4/schemas/{id}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "Successfully fetched schema"
-          },
-          "default": {
-            "description": "error fetching schema",
-            "schema": {
-              "$ref": "#/definitions/error-response"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "required": true,
-            "type": "string",
-            "enum": [
-              "com:concur:cte:user:2.0",
-              "com:concur:cte:company:2.0"
-            ],
-            "description": "schema id",
-            "name": "id",
-            "in": "path"
-          }
-        ],
-        "tags": [
-          "Schema"
-        ],
-        "summary": "Get Schema"
-      }
+      "required": [
+        "documentationUrl",
+        "patch",
+        "bulk",
+        "filter",
+        "changePassword",
+        "sort",
+        "etag",
+        "authenticationSchemes"
+      ]
     }
-  },
-  "securityDefinitions": {
-    "ApiKeyAuth": {
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey"
-    }
-  },
-  "schemes": [
-    "https"
-  ],
-  "produces": [
-    "application/json",
-    "application/scim+json"
-  ],
-  "swagger": "2.0"
+  }
 }

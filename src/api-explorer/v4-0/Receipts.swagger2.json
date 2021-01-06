@@ -1,0 +1,1484 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Receipts",
+        "version": "4.0"
+    },
+    "host": "us.api.concursolutions.com",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/receipts/v4/status": {
+            "post": {
+                "description": "Get status information for multiple receipts at once. Either receiptIds or forwardIds can be used. Maximum 50 receipts per call.",
+                "summary": "Bulk status",
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "IDs",
+                        "in": "body",
+                        "description": "Either receiptIds or forwardIds. Include only receiptIds OR forwardIds, but not both. Limitations of Swagger 2.0 mean that the oneOf directive can't be used to properly model these parameters.",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "receiptIds": {
+                                    "type": "array",
+                                    "description": "Array of up to 50 receiptIds to retrieve status for",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "forwardIds": {
+                                    "type": "array",
+                                    "description": "Array of forwardIds (max 50) associated with receipts. When using forwardIds receipts will only be retrievable if the caller uses the same auth mechanism used to post the receipt. If both a JWT and client cert were used, the JWT will take precedence",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Bulk status results",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "receiptId": {
+                                        "type": "string",
+                                        "description": "The v4 receiptId"
+                                    },
+                                    "responseCode": {
+                                        "type": "number",
+                                        "description": "The response code associated with the status entry for this individual receipt. When calling for status of multiple receipts at once, some statuses might come back with a 200, but other might fail with a different status code, such as 404. In these cases, the failed status results will include the response code and the receiptId, but no status information."
+                                    },
+                                    "receiptStatus": {
+                                        "type": "object",
+                                        "properties": {
+                                            "status": {
+                                                "type": "string",
+                                                "description": "The overall processing status of the receipt.",
+                                                "enum": [
+                                                    "ACCEPTED",
+                                                    "PROCESSING",
+                                                    "PROCESSED",
+                                                    "FAILED"
+                                                ]
+                                            },
+                                            "digitizationStatus": {
+                                                "type": "string",
+                                                "description": "Status of any back-end processing related to the digitization of a physical paper receipt.",
+                                                "enum": [
+                                                    "NO_PROCESSING_REQUIRED",
+                                                    "ACCEPTED",
+                                                    "PROCESSING",
+                                                    "PROCESSED",
+                                                    "FAILED"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "receiptEventLogs": {
+                                        "type": "string",
+                                        "description": "Link to the detailed status entries for this individual receipt."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request. Fix the body of the request before trying again."
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "The caller does not have permission to perform the intended action."
+                    }
+                }
+            }
+        },
+        "/receipts/v4/{receiptId}/digitizedImage": {
+            "get": {
+                "description": "Get a digitized receipt image. These digitized images are the result of special processing and comply with legal regulations in certain jurisdictions.",
+                "summary": "Digitized image by ID",
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/pdf"
+                ],
+                "parameters": [
+                    {
+                        "name": "receiptId",
+                        "in": "path",
+                        "description": "The ID of the receipt.",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The digitized (certified) copy of the image, complete with any accompanying PDF metadata"
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No v4 receipt image exists for this receiptId"
+                    }
+                }
+            }
+        },
+        "/receipts/v4/digitizedImages": {
+            "get": {
+                "description": "Get a digitized receipt image. These digitized images are the result of special processing and comply with legal regulations in certain jurisdictions. This route is an alternative method for retrieving a digitized image, and should only be used if the caller does not have access to the receiptId associated with the image.",
+                "summary": "Digitized image by alternate query parameters",
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/pdf"
+                ],
+                "parameters": [
+                    {
+                        "name": "forwardId",
+                        "in": "query",
+                        "description": "The forwardId submitted along with the original receipt POST request",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The digitized (certified) copy of the image, complete with any accompanying PDF metadata"
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No v4 receipt image exists for this receiptId"
+                    }
+                }
+            }
+        },
+        "/receipts/v4/image-only-receipts/{receiptId}": {
+            "get": {
+                "description": "Get an individual image-only receipt by receiptId.",
+                "summary": "Image-only receipt by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "receiptId",
+                        "in": "path",
+                        "description": "The ID of the receipt",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON representing a receipt and its associated metadata.",
+                        "schema": {
+                            "$ref": "#/definitions/imageOnlyReceipt"
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "The caller does not have permission to perform the intended action."
+                    },
+                    "404": {
+                        "description": "No receipt exists with this ID"
+                    }
+                }
+            }
+        },
+        "/receipts/v4/image-only-receipts/{receiptId}/image": {
+            "get": {
+                "description": "Get the image file for a given receiptId",
+                "summary": "Image by ID",
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/pdf",
+                    "image/png",
+                    "image/jpeg",
+                    "image/jpg",
+                    "image/gif",
+                    "image/tiff"
+                ],
+                "parameters": [
+                    {
+                        "name": "receiptId",
+                        "in": "path",
+                        "description": "The ID of the receipt",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The v4 image file associated with the receiptId. This is not the Imaging Service copy of the image but might be visually similar."
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No v4 receipt image exists for this receiptId"
+                    }
+                }
+            }
+        },
+        "/receipts/v4/": {
+            "get": {
+                "description": "Get a list of links to all the receipts endpoints in this environment. Call this endpoint first, then use the url templates in your code to make subsequent calls.",
+                "summary": "Service index",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of Receipts API endpoints available in this environment",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/linkObject"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    }
+                }
+            }
+        },
+        "/receipts/v4/{receiptId}": {
+            "get": {
+                "description": "Get an individual receipt by receiptId.",
+                "summary": "Receipt by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "receiptId",
+                        "in": "path",
+                        "description": "The ID of the receipt",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON representing an E-receipt and its associated metadata.",
+                        "schema": {
+                            "$ref": "#/definitions/eReceipt"
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No receipt exists with this ID"
+                    }
+                }
+            }
+        },
+        "/receipts/v4/{receiptId}/image": {
+            "get": {
+                "description": "Get the image file for a given receiptId",
+                "summary": "Image by ID",
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/pdf",
+                    "image/png",
+                    "image/jpeg",
+                    "image/jpg",
+                    "image/gif",
+                    "image/tiff"
+                ],
+                "parameters": [
+                    {
+                        "name": "receiptId",
+                        "in": "path",
+                        "description": "The ID of the receipt",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The v4 image file associated with the receiptId. This is not the Imaging Service copy of the image but might be visually similar."
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No v4 receipt image exists for this receiptId"
+                    }
+                }
+            }
+        },
+        "/receipts/v4/status/{receiptId}": {
+            "get": {
+                "description": "Get status information about a receipt.",
+                "summary": "Receipt status",
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "receiptId",
+                        "in": "path",
+                        "description": "The ID of the receipt",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Status information about the receipt, including logs about the back-end processing of the receipt."
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No status record exists for this receiptId"
+                    }
+                }
+            }
+        },
+        "/receipts/v4/{receiptId}/states": {
+            "get": {
+                "description": "Get an individual receipt by receiptId, including state metadata. The JSON will include links that can be called to change the state of the receipt.",
+                "summary": "Receipt by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "receiptId",
+                        "in": "path",
+                        "description": "The ID of the receipt",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON representing an E-receipt and its associated metadata.",
+                        "schema": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/eReceipt"
+                                }
+                            ],
+                            "properties": {
+                                "links": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "href": {
+                                                "type": "string",
+                                                "description": "HATEOAS link to call to change the state of the receipt"
+                                            },
+                                            "method": {
+                                                "type": "string",
+                                                "description": "HTTP method to use with the href"
+                                            },
+                                            "rel": {
+                                                "type": "string",
+                                                "description": "HATEOAS relationship of the link to the current resource"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No receipt exists with this ID"
+                    }
+                }
+            }
+        },
+        "/receipts/schemas/": {
+            "get": {
+                "description": "Returns objects with links to all available schemas, including the schemas used to validate E-receipts. Call the links returned from this route to retrieve individual schemas.",
+                "summary": "Schema index",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of JSON schemas",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "receiptSchemas": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/linkObject"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "receiptSchemas"
+                            ]
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    }
+                }
+            }
+        },
+        "/receipts/schemas/{schemaId}": {
+            "get": {
+                "description": "Get an individual schema by schemaId. Find schemaIds by calling the schema index.",
+                "summary": "Schema by ID",
+                "parameters": [
+                    {
+                        "name": "schemaId",
+                        "in": "path",
+                        "description": "The ID of the schema",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A single JSON schema",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/receipts/v4/{receiptId}/sdr": {
+            "get": {
+                "description": "Get the structured data record (SDR) for a receipt. This data is related to tax regulations in certain jurisdictions.",
+                "summary": "SDR",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "receiptId",
+                        "in": "path",
+                        "description": "The ID of the receipt",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON representing an SDR.",
+                        "schema": {
+                            "$ref": "#/definitions/sdr"
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No receipt exists with this ID"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create/update SDR data for a receipt. The receipt MUST have been successfully digitized (digitizationStatus is PROCESSED) for the request to succeed. Digitization status can be checked by calling GET /receipts/receipts/v4/status/{receiptId}",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "receiptId",
+                        "in": "path",
+                        "description": "The ID of the receipt",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "link",
+                        "in": "header",
+                        "description": "A link to the SDR schema to be used to validate the incoming E-receipt data. Currently, Spain is the only locality supported for SDR.",
+                        "type": "string",
+                        "enum": [
+                            "<http://schema.concursolutions.com/spain-sdr.schema.json>;rel=describedBy"
+                        ]
+                    },
+                    {
+                        "name": "sdr",
+                        "in": "body",
+                        "description": "JSON representation of SDR data to be updated. Nested JSON objects/arrays (supplierAddress and taxes) must also have at least one key value pair from the associated schema. For updates of a field, object, or array a non empty value must be provided. For deletion of a field, object, or array the value must be null. rateType is the only exception to this rule. To delete data associated with a tax rate, set the rateType to one of the allowed values and set any other related fields to null. Empty objects or values will not be accepted.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "sdrData": {
+                                    "$ref": "#/definitions/sdr"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "The SDR has been accepted for processing."
+                    },
+                    "400": {
+                        "description": "Malformed or bad request. Fix the request parameters before trying again."
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No receipt exists with this ID"
+                    },
+                    "422": {
+                        "description": "Only digitized receipts are eligible for SDR"
+                    }
+                }
+            }
+        },
+        "/receipts/v4/sdrExtracts": {
+            "get": {
+                "description": "Get a compressed extract file containing all SDR records for a given company from a one-month fiscal period. Extracts are generated at the end of each month.",
+                "summary": "SDR extract",
+                "produces": [
+                    "application/zip"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "company-id",
+                        "in": "query",
+                        "description": "Company UUID",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "fiscal-period",
+                        "in": "query",
+                        "description": "One month fiscal period in the format YYYY-MM",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Zip file containing all SDR records for the company during the specified fiscal period"
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "404": {
+                        "description": "No extract found for this company and fiscal period. If no SDRs were generated for this company during the fiscal period, then no extract will be generated for that company."
+                    }
+                }
+            }
+        },
+        "/receipts/v4/users/{userId}/image-only-receipts/{state}": {
+            "get": {
+                "description": "Get all v4 image-only receipts for a single user with a certain state. Valid states are consumable (not attached to an expense report), consumed (attached), and discarded (deleted by the user). Maximum 50 receipts per page. If there are more results after the first page, a next page link will be provided in the results.  Calling that link will retrieve the next page of receipts.",
+                "summary": "Receipts for a user by state",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "UUID (not login ID) of the user",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "description": "Desired state for the set of returned receipts. Valid states are consumable (not attached to an expense report), consumed (attached), and discarded (deleted by the user). Not to be confused with \"status\", which refers to the processing status of the receipt, not the state of the receipt within Expense.",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "consumed",
+                            "consumable",
+                            "discarded"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON representing the receipts owned by this user. If no receipts are found for this user, an empty array of receipts is returned.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "imageOnlyReceipts": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/eReceipt"
+                                    }
+                                },
+                                "next": {
+                                    "type": "string",
+                                    "description": "Link to the next page of receipts, if the response included the maximum of 50 receipts. The next page of receipts is available at this URL. If the next page also contains 50 receipt, it will also contain  a next page link, and so on."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    }
+                }
+            }
+        },
+        "/receipts/v4/users/{userId}/image-only-receipts": {
+            "get": {
+                "description": "Get all v4 image-only receipts for a single user. Maximum 50 receipts per page. If there are more results after the first page, a next page link will be provided in the results. Calling that link will retrieve the next page of receipts.",
+                "summary": "Image-only receipts by userId",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "UUID (not login ID) of the user",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON representing the image-only receipts owned by this user. If no receipts are found for this user, an empty array of receipts is returned.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "imageOnlyReceipts": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/imageOnlyReceipt"
+                                    }
+                                },
+                                "next": {
+                                    "type": "string",
+                                    "description": "Link to the next page of receipts, if the response included the maximum of 50 receipts. The next page of receipts is available at this URL. If the next page also contains 50 receipt, it will also contain  a next page link, and so on."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    }
+                }
+            },
+            "post": {
+                "description": "Create a new image-only receipt. Image-only receipts consist of an image without the JSON data that is included with E-receipts.",
+                "summary": "New image-only receipt",
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "consumes": [
+                    "multipart/form-data",
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "UUID (not login ID) of the user",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "image",
+                        "in": "formData",
+                        "description": "The receipt image",
+                        "type": "file",
+                        "required": true
+                    },
+                    {
+                        "name": "clientData",
+                        "in": "formData",
+                        "type": "file",
+                        "description": "Metadata about the capture of a paper receipt. Required for special GRDC processing rules to take effect. This parameter should be JSON. Please see the model for clientData for more details.",
+                        "required": false
+                    },
+                    {
+                        "name": "forwardId",
+                        "in": "formData",
+                        "type": "string",
+                        "maxLength": 40,
+                        "description": "A user provided string of up to 40 characters used to identify a receipt submission. Should be unique from the  perspective of the client application. If a receipt is submitted with a forwardId that already exists in the system for that particular client, the request will be rejected with a 304 Not Modified response. This helps prevent duplicate receipt submissions from mobile clients.",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "The receipt has been accepted and will be processed soon.",
+                        "headers": {
+                            "Location": {
+                                "description": "The URL location of the receipt. This link will return a 404 until the receipt has finished processing. After the receipt has finished processing, the receipt data will be available at this URL.",
+                                "type": "string"
+                            },
+                            "Link": {
+                                "description": "Contains a link to status information about the receipt. Receipt processing happens asynchronously, so calling this link can provide information about the receipt if it has not yet shown up at the URL from the Location header.",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "304": {
+                        "description": "The forwardId provided was already present in the system, indicating a duplicate receipt submission."
+                    },
+                    "400": {
+                        "description": "Bad request. The request was malformed or lacked required fields."
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "413": {
+                        "description": "The uploaded file was too large"
+                    },
+                    "415": {
+                        "description": "The content-type header was wrong, or the uploaded image was not of a supported type. Images must be .pdf, .png, .jpg, .jpeg, .tiff, or .gif."
+                    }
+                }
+            }
+        },
+        "/receipts/v4/users/{userId}/{state}": {
+            "get": {
+                "description": "Get all v4 receipts for a single user with a certain state. Valid states are consumable (not attached to an expense report), consumed (attached), and discarded (deleted by the user). Maximum 50 receipts per page. If there are more results after the first page, a next page link will be provided in the results.  Calling that link will retrieve the next page of receipts.",
+                "summary": "Receipts for a user by state",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "UUID (not login ID) of the user",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "description": "Desired state for the set of returned receipts. Valid states are consumable (not attached to an expense report), consumed (attached), and discarded (deleted by the user). Not to be confused with \"status\", which refers to the processing status of the receipt, not the state of the receipt within Expense.",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "consumed",
+                            "consumable",
+                            "discarded"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON representing the receipts owned by this user. If no receipts are found for this user, an empty array of receipts is returned.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "receipts": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/eReceipt"
+                                    }
+                                },
+                                "next": {
+                                    "type": "string",
+                                    "description": "Link to the next page of receipts, if the response included the maximum of 50 receipts. The next page of receipts is available at this URL. If the next page also contains 50 receipt, it will also contain  a next page link, and so on."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    }
+                }
+            },
+            "post": {
+                "description": "Change the state of a receipt. Valid states are consumable (not attached to an expense report), consumed (attached), and discarded (deleted by the user). This is an asynchronous operation, so the receipt state change might not take effect immediately.",
+                "summary": "Receipt state",
+                "consumes": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "UUID (not login ID) of the user",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "description": "Desired state for the set of returned receipts. Valid states are consumable (not attached to an expense report), consumed (attached), and discarded (deleted by the user). Not to be confused with \"status\", which refers to the processing status of the receipt, not the state of the receipt within Expense.",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "consumed",
+                            "consumable",
+                            "discarded"
+                        ]
+                    },
+                    {
+                        "name": "receiptIdObject",
+                        "in": "body",
+                        "description": "An object containing the id of the receipt to be modified",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/receiptIdObject"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "The state change request has been accepted. The new state might not be reflected immediately."
+                    },
+                    "400": {
+                        "description": "Bad request. Fix the request body and before trying again."
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    }
+                }
+            }
+        },
+        "/receipts/v4/users/{userId}": {
+            "get": {
+                "description": "Get all v4 receipts for a single user. Maximum 50 receipts per page. If there are more results after the first page, a next page link will be provided in the results. Calling that link will retrieve the next page of receipts.",
+                "summary": "Receipts by userId",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "UUID (not login ID) of the user",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON representing the receipts owned by this user. If no receipts are found for this user, an empty array of receipts is returned.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "receipts": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/eReceipt"
+                                    }
+                                },
+                                "next": {
+                                    "type": "string",
+                                    "description": "Link to the next page of receipts, if the response included the maximum of 50 receipts. The next page of receipts is available at this URL. If the next page also contains 50 receipt, it will also contain  a next page link, and so on."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    }
+                }
+            },
+            "post": {
+                "description": "Create a new E-receipt for a user.",
+                "summary": "New E-receipt",
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "consumes": [
+                    "multipart/form-data",
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "UUID (not login ID) of the user",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "link",
+                        "in": "header",
+                        "description": "A link to the E-receipt schema to be used to validate the incoming E-receipt data. Retrieve the list of schemas from the GET schemas route.",
+                        "type": "string",
+                        "required": true,
+                        "enum": [
+                            "<http://schema.concursolutions.com/general-receipt.schema.json>;rel=describedBy",
+                            "<http://schema.concursolutions.com/car-rental-receipt.schema.json>;rel=describedBy",
+                            "<http://schema.concursolutions.com/air-receipt.schema.json>;rel=describedBy",
+                            "<http://schema.concursolutions.com/ground-transport-receipt.schema.json>;rel=describedBy",
+                            "<http://schema.concursolutions.com/hotel-receipt.schema.json>;rel=describedBy",
+                            "<http://schema.concursolutions.com/rail-receipt.schema.json>;rel=describedBy"
+                        ]
+                    },
+                    {
+                        "name": "receipt",
+                        "in": "formData",
+                        "description": "The JSON data for the receipt",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "image",
+                        "in": "formData",
+                        "description": "The image for this E-receipt. If no image is submitted, one will be generated automatically based on the JSON data.",
+                        "type": "file",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "The receipt has been accepted and will be processed soon.",
+                        "headers": {
+                            "Location": {
+                                "description": "The URL location of the receipt. This link will return a 404 until the receipt has finished processing. After the receipt has finished processing, the receipt data will be available at this URL.",
+                                "type": "string"
+                            },
+                            "Link": {
+                                "description": "Contains two links: one with `rel=\"describedBy\"` and one with `rel=\"processing-status\"`. The describedBy link represents the JSON schema that was used to validate the receipt when it was submitted. This is the same link that was provided in the `schema` header in the request. The processing-status link can be called for status information about the receipt. Receipt processing happens asynchronously, so calling this link can provide information about the receipt if it has not yet shown up at the URL from the Location header.",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request. The request was malformed or lacked required fields."
+                    },
+                    "401": {
+                        "description": "Callers must provide a valid JWT and/or Concur-issued X.509 client certificate"
+                    },
+                    "403": {
+                        "description": "Caller does not have the required scope, or, depending on the type of JWT, may not have permission to access receipts for this specific user or company. In rare cases, this error code might mean that special functionality is limited to certain applications."
+                    },
+                    "413": {
+                        "description": "The uploaded file was too large"
+                    },
+                    "415": {
+                        "description": "The content-type header was wrong, or the uploaded image was not of a supported type. Images must be .pdf, .png, .jpg, .jpeg, .tiff, or .gif."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "receiptIdObject": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "v4 receipt ID"
+                }
+            }
+        },
+        "clientData": {
+            "type": "object",
+            "properties": {
+                "captureMethod": {
+                    "type": "string",
+                    "description": "The method used to capture the image of the paper receipt. For images captured directly from the Concur mobile app using the device camera, use `mobileCapture` or `expenseItCapture` respectively, depending on whether or not expenseIt functionality is enabled for the user. The other capture methods, `mobileUpload` and `expenseItUpload`, are for images uploaded from the device local storage. In order to be eligible for digitization in France or Spain, images must be captured and cannot be uploaded from local storage.",
+                    "enum": [
+                        "mobileCapture",
+                        "mobileUpload",
+                        "expenseItCapture",
+                        "expenseItUpload"
+                    ]
+                },
+                "hashCode": {
+                    "type": "string",
+                    "description": "SHA512 hash of the image"
+                }
+            },
+            "required": [
+                "captureMethod",
+                "hashCode"
+            ]
+        },
+        "bulkStatusByReceiptId": {
+            "type": "object",
+            "properties": {
+                "receiptIds": {
+                    "type": "array",
+                    "description": "Array of up to 50 receiptIds to retrieve status for",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "receiptIds"
+            ],
+            "minProperties": 1,
+            "additionalProperties": false
+        },
+        "bulkStatusByForwardId": {
+            "type": "object",
+            "properties": {
+                "forwardIds": {
+                    "type": "array",
+                    "description": "Array of forwardIds (max 50) associated with receipts. When using forwardIds receipts will only be retrievable if the caller uses the same auth mechanism used to post the receipt. If both a JWT and client cert were used, the JWT will take precedence",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+        },
+        "linkObject": {
+            "type": "object",
+            "properties": {
+                "rel": {
+                    "type": "string",
+                    "description": "HATEOAS \"relationship\" to the current resource"
+                },
+                "href": {
+                    "type": "string",
+                    "description": "URI template for this resource"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "HTTP method to use against this resource"
+                }
+            }
+        },
+        "eReceipt": {
+            "type": "object",
+            "properties": {
+                "modifiedAt": {
+                    "type": "string",
+                    "description": "Timestamp corresponding to the last time the receipt record was modified"
+                },
+                "companyId": {
+                    "type": "string",
+                    "description": "UUID of the company that the receipt owner belongs to"
+                },
+                "dateTimeReceived": {
+                    "type": "string",
+                    "description": "Timestamp corresponding to when the receipt was saved to the system"
+                },
+                "entityId": {
+                    "type": "string",
+                    "description": "Expense entityId of the company that the receipt owner belongs to"
+                },
+                "validationSchema": {
+                    "type": "string",
+                    "description": "The JSON schema used to validate the E-receipt data",
+                    "enum": [
+                        "http://schema.concursolutions.com/general-receipt.schema.json",
+                        "http://schema.concursolutions.com/air-receipt.schema.json",
+                        "http://schema.concursolutions.com/car-rental-receipt.schema.json",
+                        "http://schema.concursolutions.com/ground-transport-receipt.schema.json",
+                        "http://schema.concursolutions.com/hotel-receipt.schema.json",
+                        "http://schema.concursolutions.com/jpt-ic-card-receipt.schema.json",
+                        "http://schema.concursolutions.com/rail-receipt.schema.json"
+                    ]
+                },
+                "receipt": {
+                    "type": "object",
+                    "description": "The actual data of the E-receipt"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "Link to the v4 copy of the image that corresponds to this E-receipt."
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "The UUID of the user to whom the receipt belongs"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "An opaque string identifier for this receipt"
+                },
+                "digitizationStatus": {
+                    "type": "string",
+                    "description": "Status of any back-end processing related to the digitization of a physical paper receipt.",
+                    "enum": [
+                        "NO_PROCESSING_REQUIRED",
+                        "PROCESSING",
+                        "PROCESSED",
+                        "FAILED"
+                    ]
+                },
+                "forwardId": {
+                    "type": "object",
+                    "description": "The forwardId, if one was submitted with the original POST request to create this receipt"
+                },
+                "self": {
+                    "type": "string",
+                    "description": "Self-link for this receipt"
+                },
+                "template": {
+                    "type": "string",
+                    "description": "URL template for this resource"
+                }
+            }
+        },
+        "imageOnlyReceipt": {
+            "type": "object",
+            "properties": {
+                "modifiedAt": {
+                    "type": "string",
+                    "description": "Timestamp corresponding to the last time the receipt record was modified"
+                },
+                "companyId": {
+                    "type": "string",
+                    "description": "UUID of the company that the receipt owner belongs to"
+                },
+                "dateTimeReceived": {
+                    "type": "string",
+                    "description": "Timestamp corresponding to when the receipt was saved to the system"
+                },
+                "entityId": {
+                    "type": "string",
+                    "description": "Expense entityId of the company that the receipt owner belongs to"
+                },
+                "digitizationData": {
+                    "type": "object",
+                    "properties": {
+                        "captureMethod": {
+                            "type": "string",
+                            "description": "The method used to capture this image of a paper receipt for digitization",
+                            "enum": [
+                                "expenseItCapture",
+                                "mobileCapture"
+                            ]
+                        },
+                        "hashCode": {
+                            "type": "string",
+                            "description": "SHA-512 hash of the image. Used to verify the provenance of the image."
+                        }
+                    }
+                },
+                "image": {
+                    "type": "string",
+                    "description": "Link to the v4 copy of the receipt image"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "The UUID of the user to whom the receipt belongs"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "An opaque string identifier for this receipt"
+                },
+                "digitizationStatus": {
+                    "type": "string",
+                    "description": "Status of any back-end processing related to the digitization of a physical paper receipt.",
+                    "enum": [
+                        "NO_PROCESSING_REQUIRED",
+                        "ACCEPTED",
+                        "PROCESSING",
+                        "PROCESSED",
+                        "FAILED"
+                    ]
+                },
+                "forwardId": {
+                    "type": "object",
+                    "description": "The forwardId, if one was submitted with the original POST request to create this receipt"
+                },
+                "self": {
+                    "type": "string",
+                    "description": "Self-link for this receipt"
+                },
+                "template": {
+                    "type": "string",
+                    "description": "URL template for this resource"
+                }
+            }
+        },
+        "sdr": {
+            "type": "object",
+            "minProperties": 1,
+            "maxProperties": 11,
+            "additionalProperties": false,
+            "properties": {
+                "invoiceNumber": {
+                    "type": "string"
+                },
+                "invoiceType": {
+                    "type": "string",
+                    "description": "Invoice Types for Spain. FA, FC, & OT represent a Simplified Invoice, a Full Invoice, and Other respectively",
+                    "enum": [
+                        "FA",
+                        "FC",
+                        "OT"
+                    ]
+                },
+                "supplierName": {
+                    "type": "string"
+                },
+                "supplierTaxId": {
+                    "type": "string"
+                },
+                "supplierAddress": {
+                    "type": "object",
+                    "properties": {
+                        "streetAddress": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 80
+                        },
+                        "addressLocality": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 80
+                        },
+                        "addressRegion": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 80
+                        },
+                        "addressCountry": {
+                            "type": "string",
+                            "description": "2-character country code",
+                            "minLength": 2,
+                            "maxLength": 2
+                        },
+                        "postalCode": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2
+                        }
+                    }
+                },
+                "transactionDate": {
+                    "type": "string"
+                },
+                "issueDate": {
+                    "type": "string"
+                },
+                "taxes": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 4,
+                    "uniqueItems": true,
+                    "additionalProperties": false,
+                    "items": {
+                        "type": "object",
+                        "minProperties": 2,
+                        "maxProperties": 4,
+                        "additionalProperties": false,
+                        "required": [
+                            "rateType"
+                        ],
+                        "properties": {
+                            "taxRate": {
+                                "type": "string",
+                                "pattern": "^\\d{0,2}(?:\\.\\d{1,6})$",
+                                "description": "String representation of Tax Rate as a decimal."
+                            },
+                            "taxBase": {
+                                "type": "string",
+                                "pattern": "^\\d+(\\.\\d{2,8})?$",
+                                "minLength": 1,
+                                "maxLength": 21
+                            },
+                            "rateType": {
+                                "type": "string",
+                                "enum": [
+                                    "reduced",
+                                    "superReduced",
+                                    "standard",
+                                    "parking"
+                                ],
+                                "description": "The rate type for the tax charged. For value added tax this could be Reduced, Super Reduced, Standard, or Parking."
+                            },
+                            "amount": {
+                                "type": "string",
+                                "pattern": "^\\d+(\\.\\d{2,8})?$",
+                                "minLength": 1,
+                                "maxLength": 21
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "responses": {},
+    "parameters": {},
+    "securityDefinitions": {
+        "JWT": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "Authorization"
+        }
+    },
+    "tags": []
+}
