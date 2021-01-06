@@ -540,7 +540,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |---------|------------|-------------|
 |`HotelReservation`|`complex`|**Required** A reference to identify the booking.|
 
-#### <a name="hotel-reservation"></a>HotelReservation
+#### <a name="res-hotel-reservation"></a>HotelReservation
 
 |Name|Type|Description|
 |---------|------------|-------------|
@@ -578,7 +578,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |`Timespan`|`complex`|**Required** Refer to `Time-span` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 |`BasicPropertyInfo`|`complex`|**Required** See [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 
-#### <a name="rate-plan"></a>RatePlan
+#### <a name="res-rate-plan"></a>RatePlan
 
 |Name|Type|Description|
 |---------|------------|-------------|
