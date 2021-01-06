@@ -56,6 +56,10 @@ Message to reserve a hotel.
     * [Cancel Penalty](#cancel-penalty)
     * [Penalty Description](#penalty-description)
     * [Deadline](#deadline)
+    * [RoomRates](#room-rates)
+    * [RoomRate](#room-rate)
+    * [Rates](#rates)
+    * [Rate](#rate)
 
 ## <a name="request"></a>Request
 
@@ -599,3 +603,28 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |Name|Type|Description|
 |------------------------|--------------------|-------------|
 |`AbsoluteDeadline`|`time` or `datetime` |**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
+
+#### <a name="room-rates"></a>RoomRates
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`RoomRate`|`complex`|**Required** `RoomRate` used for reservation. SAP Concur only expects one (1) `RoomRate`.|
+
+#### <a name="room-rate"></a>RoomRate
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`Rates`|`complex`|**Required** SAP Concur only expects one (1) `Rates`.|
+
+#### <a name="rates"></a>Rates
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`Rate`|`complex`|**Required** Contains the payment policy for the given room. SAP Concur only expects one (1) `Rate`.|
+
+#### <a name="rate"></a>Rate
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`PaymentPolicies`|`complex`|**Required** Payment policies for this rate. Refer to `PaymentPolicies` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#payment-policies).|
+|`Total`|`complex`|**Required** A description of the rate. Refer to `Total` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#total).|
