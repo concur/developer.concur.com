@@ -107,7 +107,7 @@ Concur Expense sends requests to the application connector using anonymous autho
 
 The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that Concur Expense supplies. Two of the required variables for the signature hash are username and password, which are entered in Concur Expense on the Register Application Connector page in web services under Administration. The application connector must use the same username and password pair to generate its validation signature hash. Note: both the username and password must be at least 10 characters for increased security and the maximum allowed length is 50 characters.
 
-Details on registering your client ID can be found on the [Authentication Grant](https://developer.concur.com/api-reference/authentication/apidoc.html#auth_grant) page.
+Details on registering your client ID can be found on the [Authentication Grant](https://developer.concur.com/api-reference/authentication/apidoc.html#auth_grant) page. Information on the grants required are provided in the [Configure Launch External URL - V4 Service](https://developer.concur.com/api-reference/authentication/apidoc.html#config-leu) section below.
 
 ## <a name="functions"></a>Functions
 Details of the URI used for the Launch External URL request can be found on the [V4 Launch External URL Request](\api-reference\callouts\launch-external-url-v4-request.html) page.
@@ -132,11 +132,13 @@ Information on how to create, install, and configure the application connector i
 
 ## <a name="config-leu"></a>Configure Launch External URL - V4 Service
 
-Your client ID must first be registered. Details on registering your client ID can be found on the [Authentication Grant](https://developer.concur.com/api-reference/authentication/apidoc.html#auth_grant) page. The client ID used for the callout should have below scopes, grants assigned, and redirect URL registered.
-* Scopes: expense.report.read and expense.report.readwrite
-* Grants: refresh_token, password, client_credentials, and authorization_code
+Your client ID must first be registered. Details on registering your client ID can be found on the [Authentication Grant](https://developer.concur.com/api-reference/authentication/apidoc.html#auth_grant) page. The client ID used for the callout must have the redirect URL registered and the following grants assigned. 
 
-The following steps explain how to register an application connector. 
+  **Required Grants**: refresh_token, password, client_credentials, and authorization_code
+
+No scopes are required to use the Launch External URL callout. However, if the Launch External URL callout is used as part of a process with other Concur APIs, scopes for those other APIs will be needed.
+
+The following steps explain **how to register an application connector**. 
 
 1. On the **Application Connector Registration** page, select the desired registration from the list.
 
