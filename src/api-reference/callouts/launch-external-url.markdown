@@ -84,7 +84,7 @@ Expense will not be able to connect to the application connector until a certifi
 
 SAP Concur sends requests to the application connector using anonymous authorization (no username and password are provided) over HTTPS.
 
-The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that SAP Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in SAP Concur on the **Register Application Connector** page in **Web Services** under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash.
+The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that SAP Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in SAP Concur on the **Register Application Connector** page in **Web Services** under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash. Note: both the username and password must be at least 10 characters for increased security and the maximum allowed length is 50 characters.
 
 ### <a name="functions"></a>Functions
 [Launch External URL Request][4]

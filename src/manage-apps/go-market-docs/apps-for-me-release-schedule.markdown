@@ -3,7 +3,7 @@ title: SAP Concur App Center - User Connection / Apps for Me Release Schedule
 layout: reference
 ---
 
-Last Update May 2020
+Last Update December 2020
 
 ## Listing Requirements
 
@@ -23,16 +23,16 @@ Please send any questions to Concur_AppCenterMarketing@sap.com.
 
 Release Date|App Certification & App Center Listing Form Submission Deadline
 ---|---
-December 7th, 2019|November 9th, 2019
-January 18th, 2020|December 21st, 2019
-February 15th, 2020|January 18th, 2020
-March 14th, 2020|February 15th, 2020
-April 18th, 2020|March 21st, 2020
-May 16th, 2020|April 18th, 2020
-June 20th, 2020|May 23rd, 2020
-July 18th, 2020|June 20th, 2020
-August 15th, 2020|July 18th, 2020
-September 19th, 2020|August 22nd, 2020
-October 17th, 2020|September 19th, 2020
-November 14th, 2020|October 17th, 2020
-December 12th, 2020|November 14th, 2020
+December 5, 2020|November 6, 2020
+January 16, 2021|December 18, 2020
+February 20, 2021|January 22, 2021
+March 20, 2021|February 19, 2021
+April 17, 2021|March 19, 2021
+May 22, 2021|April 23, 2021
+June 19, 2021|May 21, 2021
+July 17, 2021|June 18, 2021
+August 21, 2021|July 23, 2021
+September 18, 2021|August 20, 2021
+October 16, 2021|September 17, 2021
+November 13, 2021|October 15, 2021
+December 11, 2021|November 12, 2021
