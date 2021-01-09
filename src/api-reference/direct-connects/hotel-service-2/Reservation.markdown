@@ -559,7 +559,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |`40`|Confirmation number for future use (not used now).|
 |`1000`|Cancellation/modification code. This will be rendered on itinerary page and can be used to change the reservation outside of the SAP Concur system. SAP Concur-specific OTA extension. |
 
-#### <a name="room-stays"></a>RoomStays
+#### <a name="res-room-stays"></a>RoomStays
 
 |Name|Type|Description|
 |---------|------------|-------------|
@@ -570,6 +570,8 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |Name|Type|Description|
 |---------|------------|-------------|
 |`RatePlans`|`complex`|**Required** A collection of rate plans associated with a particular room stay.|
+|`Timespan`|`complex`|**Required** Refer to `Time-span` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
+|`BasicPropertyInfo`|`complex`|**Required** See [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 
 #### <a name="rate-plan"></a>RatePlan
 
