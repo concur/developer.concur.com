@@ -377,7 +377,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|----------|-----------------------|
-|`Text`|`formattedText`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
 
 #### <a name="meals-included"></a>MealsIncluded
 
@@ -422,7 +422,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |------------------|-----------|-------------|
-|`Text`|`formattedText`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
 
 #### <a name="payment-policies"></a>PaymentPolicies
 
@@ -473,7 +473,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`formattedText`|**Required** SAP Concur only expects one (1) text field for the rate description. Any excess text elements will be ignored. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** SAP Concur only expects one (1) text field for the rate description. Any excess text elements will be ignored. All text passed is HTML encoded.|
 
 #### <a name="tpa-extensions"></a>TPA_Extensions
 

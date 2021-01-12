@@ -596,7 +596,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 
 |Name|Type|Description|
 |---------|------------|-------------|
-|`Text`|`formattedTextTextType`|Formatted text content.|
+|`Text`|`string`|Formatted text content.|
 
 #### <a name="deadline"></a>Deadline
 
