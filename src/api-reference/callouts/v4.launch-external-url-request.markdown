@@ -2,7 +2,6 @@
 title: Launch External URL Request v4
 layout: reference
 ---
-{% include prerelease.html %}
 
 * [Launch External URL Request v4](#request)
 * [URI](#uri)

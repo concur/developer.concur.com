@@ -3,6 +3,8 @@ title: Launch External URL Callout
 layout: reference
 ---
 
+> **Limitations**: For all new Launch External URL solutions, please migrate to [Launch External URL v4](https://developer.concur.com/api-reference/callouts/v4.launch-external-url.html)
+
 The Launch External URL callout gives clients and developers a platform to extend the functionality of SAP Concur providing a means to deliver custom user interactions, or access functionality found in an external system. The client can arrange to add an Expense Entry form field that is configured to use the Launch External URL callout to a Concur Expense Entry form. Concur Expense will display this field with an attached button that launches a separate window when clicked. The window is controlled by an application connector, created by a third-party developer, the client, or SAP Concur. The application connector is a web server that presents information in the window.
 
 The application connector can access SAP Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), he/she clicks a button such as "Done" that indicates the user has concluded their work in the window. The application connector then closes the window. 
