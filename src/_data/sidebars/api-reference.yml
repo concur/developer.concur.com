@@ -49,7 +49,7 @@
         url: /api-reference/callouts/launch-external-url-request.html
       - title: Launch External URL Callout
         url: /api-reference/callouts/launch-external-url.html
-        - title: Launch External URL v4
+      - title: Launch External URL v4
         url: /api-reference/callouts/v4.launch-external-url.html
       - title: Post an event notification request
         url: /api-reference/callouts/post-event-notification.html
