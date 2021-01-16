@@ -22,29 +22,29 @@ layout: reference
   * [GET Image-Only Receipt by Receipt ID](#endpoint-get-an-image-only-receipt-by-id)
   * [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image-image-only)
 
-### Definitions of Resources
+## Definitions of Resources
 
 * *__E-Receipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
 * *__Image-Only Receipt__* - A standalone image without data.
 
 > **Note**: The Receipts V4 API only provides GET access to individual or user’s receipts that have been submitted through this API, and, therefore the response will not be comprehensive of every user receipt within SAP Concur. All other images should be obtained via the [Image v1 API](https://developer.concur.com/api-reference/image/v1.image.html). Additionally, only the receipts will be returned, there will not be any corresponding entry data. Examples of Enterprise apps that should use the Image v1 API include: ERP integrations for financial journal entry postings, VAT reclaim integrations that obtain transactions to calculate VAT reclaim, project billing integrations used to substantiate expenses billed back, etc.
 
-#### <a name="supported-image-formats"></a>Supported Image Formats
+### <a name="supported-image-formats"></a>Supported Image Formats
 
 * Image size must not exceed 25MB.
 * Images with any dimension exceeding 2,200 pixels will be reduced, with the longest dimension reduced to 2,200 pixels and the remaining dimensions scaled down using a fixed aspect ratio.
 * Image must be one of the supported file types: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf. Images provided in image/tiff and image/tif will be converted to a PDF document with the image embedded within.
 
-### General
+## General
 
 |Endpoint|Response Format|Request Summary|
 |---|---|---|
 |[GET /](#endpoint-service-index)|JSON|Get service index URLs|
 |[GET /v4/status/:receiptId](#endpoint-get-receipt-status)|JSON|Get the status of a receipt|
 
-##### Endpoint: Service Index
+#### Endpoint: Service Index
 
-###### _GET /_
+##### _GET /_
 
 Making a GET request to the root of the service will return a list of current endpoints. If endpoint URLs ever change, the service index will be updated. To ensure that you are using the correct URLs, the safest practice is to check the service index before every request. The response will include current URLs for all endpoints in the receipt service.
 
@@ -97,7 +97,7 @@ _Example Response:_
 
 [Back to Top](#endpoints)
 
-### E-Receipts
+## E-Receipts
 
 |Endpoint|Response Format|Request Summary|
 |---|---|---|
@@ -107,9 +107,9 @@ _Example Response:_
 |[GET /v4/:receiptId](#endpoint-get-a-receipt-by-id)|JSON|Get a receipt by ID|
 |[GET /v4/:receiptId/image](#endpoint-get-receipt-image)|image file|Get a receipt image.|
 
-##### Endpoint: Schemas
+#### Endpoint: Schemas
 
-###### _GET /schemas/:schemaId_
+##### _GET /schemas/:schemaId_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -245,9 +245,9 @@ _Example Response:_
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Get Receipt Status
+#### Endpoint: Get Receipt Status
 
-###### GET /v4/status/:receiptId
+##### GET /v4/status/:receiptId
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -320,9 +320,9 @@ _Example Response:_
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Post a Receipt
+#### Endpoint: Post a Receipt
 
-###### _POST /v4/users/:userId_
+##### _POST /v4/users/:userId_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -331,6 +331,8 @@ _Example Response:_
 |image|optional|Image of the receipt. If an image isn't provided, one will be generated automatically from the JSON. Refer to [Supported Image Formats](#supported-image-formats) for more information.|
 
 Creating a receipt requires JSON data about the transaction and, optionally, an image of the receipt. If an image is not supplied with the request, SAP Concur will automatically generate a receipt image based on the data provided. [JSON schemas](https://developer.concur.com/api-reference/receipts/get-started.html#endpoint-schemas) are used to validate the format of receipt data received in POST requests.
+
+SAP Concur systems and clients rely on e-receipts to be legally valid tax documents in the relevant government jurisdictions. Please see this information regarding [important usage restrictions](./get-started.html#usage-restrictions).
 
 Successful POST requests will receive a response of 201 Created. The `Location` header of the response contains a URL for your receipt. Once the receipt has been processed, it can be retrieved at this URL. The `Link` header of the response contains a processing-status URL for your receipt. More information can be found [here](#endpoint-get-receipt-status).
 
@@ -387,9 +389,9 @@ Connection: keep-alive
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Get a Receipt by ID
+#### Endpoint: Get a Receipt by ID
 
-###### _GET /v4/:receiptId_
+##### _GET /v4/:receiptId_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -430,9 +432,9 @@ _Example Response_
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Get Receipts By UserId
+#### Endpoint: Get Receipts By UserId
 
-###### _GET /v4/users/:userId_
+##### _GET /v4/users/:userId_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -490,9 +492,9 @@ _Example Response:_
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Get Receipt Image
+#### Endpoint: Get Receipt Image
 
-###### _GET /v4/:receiptId/image_
+##### _GET /v4/:receiptId/image_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -516,7 +518,7 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 
 [Back to Top](#endpoints)
 
-### Image-Only Receipts
+## Image-Only Receipts
 
 > **Note**: This API is not designed to obtain the receipt images attached to an expense report. If you are an Enterprise Partner creating integrations that are intended to obtain final-approved Expense or Invoice data, and the accompanying receipt images that substantiate those transactions you will need to use [Image v1](https://developer.concur.com/api-reference/image/v1.image.html). These scenarios include, but are not limited to: ERP integrations for financial journal entry postings, VAT reclaim integrations that obtain transactions to calculate VAT reclaim, project billing integrations used to substantiate expenses billed back, etc.
 
@@ -526,9 +528,9 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 |[GET /v4/users/:userId/image-only-receipts](#endpoint-get-image-only-receipts-by-userid)|JSON|Get a user's image-only receipts|
 |[GET /v4/image-only-receipts/:receiptId](#endpoint-get-an-image-only-receipt-by-id)|JSON|Get an image-only receipt by ID|
 
-##### Endpoint: Post an Image-Only Receipt
+#### Endpoint: Post an Image-Only Receipt
 
-###### _POST /v4/users/:userId/image-only-receipts_
+##### _POST /v4/users/:userId/image-only-receipts_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -566,9 +568,9 @@ Connection: keep-alive
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Get Image-Only Receipts By UserId
+#### Endpoint: Get Image-Only Receipts By UserId
 
-###### _GET /v4/users/:userId/image-only-receipts_
+##### _GET /v4/users/:userId/image-only-receipts_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -613,9 +615,9 @@ Connection: keep-alive
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Get an Image-Only Receipt by ID
+#### Endpoint: Get an Image-Only Receipt by ID
 
-###### _GET /v4/image-only-receipts/:receiptId_
+##### _GET /v4/image-only-receipts/:receiptId_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -655,9 +657,9 @@ Connection: keep-alive
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Get Receipt Image (Image-Only)
+#### Endpoint: Get Receipt Image (Image-Only)
 
-###### _GET /v4/image-only-receipts/:receiptId/image_
+##### _GET /v4/image-only-receipts/:receiptId/image_
 
 |Parameter|Requirement|Value|
 |---|---|---|

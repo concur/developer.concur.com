@@ -55,6 +55,11 @@ Message to reserve a hotel.
     * [Rate Plan](#res-rate-plan)
     * [Cancel Penalty](#cancel-penalty)
     * [Penalty Description](#penalty-description)
+    * [Deadline](#deadline)
+    * [RoomRates](#room-rates)
+    * [RoomRate](#room-rate)
+    * [Rates](#rates)
+    * [Rate](#rate)
 
 ## <a name="request"></a>Request
 
@@ -535,7 +540,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |---------|------------|-------------|
 |`HotelReservation`|`complex`|**Required** A reference to identify the booking.|
 
-#### <a name="hotel-reservation"></a>HotelReservation
+#### <a name="res-hotel-reservation"></a>HotelReservation
 
 |Name|Type|Description|
 |---------|------------|-------------|
@@ -573,7 +578,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |`Timespan`|`complex`|**Required** Refer to `Time-span` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 |`BasicPropertyInfo`|`complex`|**Required** See [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 
-#### <a name="rate-plan"></a>RatePlan
+#### <a name="res-rate-plan"></a>RatePlan
 
 |Name|Type|Description|
 |---------|------------|-------------|
@@ -585,9 +590,41 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |Name|Type|Description|
 |---------|------------|-------------|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. Maximum elements: `9`|
+|`Deadline`|`complex`|**Required** Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
 |Name|Type|Description|
 |---------|------------|-------------|
-|`Text`|`formattedTextTextType`|Formatted text content.|
+|`Text`|`string`|Formatted text content.|
+
+#### <a name="deadline"></a>Deadline
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`AbsoluteDeadline`|`time` or `datetime` |**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
+
+#### <a name="room-rates"></a>RoomRates
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`RoomRate`|`complex`|**Required** `RoomRate` used for reservation. SAP Concur only expects one (1) `RoomRate`.|
+
+#### <a name="room-rate"></a>RoomRate
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`Rates`|`complex`|**Required** SAP Concur only expects one (1) `Rates`.|
+
+#### <a name="rates"></a>Rates
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`Rate`|`complex`|**Required** Contains the payment policy for the given room. SAP Concur only expects one (1) `Rate`.|
+
+#### <a name="rate"></a>Rate
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`PaymentPolicies`|`complex`|**Required** Payment policies for this rate. Refer to `PaymentPolicies` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#payment-policies).|
+|`Total`|`complex`|**Required** A description of the rate. Refer to `Total` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#total).|

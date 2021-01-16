@@ -1729,14 +1729,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" name="Deadline">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Guarantee deadline, absolute or relative.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:attributeGroup ref="DeadlineGroup"/>
-        </xs:complexType>
-      </xs:element>
       <xs:element maxOccurs="9" minOccurs="0" name="GuaranteeDescription" type="ParagraphType">
         <xs:annotation>
           <xs:documentation xml:lang="en">Text description of the Guarantee in a given language.</xs:documentation>
@@ -2089,7 +2081,7 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="AmountAfterTax" type="Money" use="optional">
+    <xs:attribute name="AmountAfterTax" type="Money" use="required">
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">The total amount including all associated taxes (e.g.,
           sales tax, VAT, GST or any associated tax).

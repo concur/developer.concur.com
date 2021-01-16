@@ -191,9 +191,7 @@ The initial Search request (see above) is followed up by an multi-property Avail
           </RoomTypes>
           <RatePlans>
             <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="TOGG3BU">
-              <Guarantee GuaranteeType="GuaranteeRequired">
-                <Deadline AbsoluteDeadline="2019-05-08T23:59:59"/>
-              </Guarantee>
+              <Guarantee GuaranteeType="GuaranteeRequired" />
               <CancelPenalties>
                 <CancelPenalty NonRefundable="false">
                   <Deadline AbsoluteDeadline="2019-05-08T23:59:59" OffsetDropTime="BeforeArrival" OffsetTimeUnit="Day"
