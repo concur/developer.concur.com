@@ -1,37 +1,66 @@
 ---
-title: Getting Started
+title: ESS geting started
 layout: reference
+
 ---
 
 {% include prerelease.html %}
 
-* [Overview](#ess)
-* [Terminology](#ess-terminology)
-* [Delivery model](#ess-delivery)
-* [Access control](#access-control)
-* [Subscribing](#subscribing)
-* [Endpoint Requirements](#endpoint-requirements)
-* [Authentication](#ess-authentication)
-* [Service behavior](#ess-behavior)
+## Menu
 
-# <a name="ess"></a>Event Subscription Service (ESS)
+- [Getting Started](#getting-started)
+
+- [Subscription Management](./subscription-management.html)
+
+ 
 
 The Event Subscription Service (ESS) implements Publish/Subscribe pattern using principles of Event Driven Architecture in SAP Concur. It allows clients and partners to be notified through web services when certain actions take place in connected SAP Concur companies. When the business/system event occurs in SAP Concur, ESS sends that event to the configured endpoint with relevant information.
 
-## <a name="ess-terminology"></a>ESS Terminology
+## <a name="getting-started"></a>Getting Started
+
+* [Overview](#ess-terminology)
+
+* [Scope Usage](#scope-usage)
+
+* [Process Flow](#processflow)
+
+* [Access control](#access-control)
+
+* [Delivery model](#ess-delivery)
+
+* [Endpoint Requirements](#endpoint-requirements)
+
+* [Authentication](#ess-authentication)
+
+* [Service behavior](#ess-behavior")
+
+  
+
+## <a name="ess-terminology"></a>ESS Overview
+
 * Event - a state of business/system object or entity. Always has EventType that represents a type of entity change or specific state in a workflow. Example: Report Created, Report Submitted, etc
 * Topic - a stream of events of business/system object or entity. Example: Concur.user, Concur.expense.report, Concur.travel.request. There is always a topic owner in Concur, it can be team, product or system.
 * Subscription - a topic consumer. Each subscription has a topic it is subscribed to.  
 * Webhook - an ESS application that uses subscription and delivers events to the endpoint.
 
-## <a name="ess-delivery"></a>ESS Delivery model
 
-It is important to remember that ESS doesn't have any API that you can call for SAP Concur events, ESS delivers events to your endpoint.
 
-* It uses an outbound callout where SAP Concur calls a public facing URL provided by client or partner, which is a web server hosted by the third-party developer or client.
+## <a name="scope-usage"></a>Scope Usage
 
-* The application endpoint can also use the related web services to retrieve or send SAP Concur data. For example, an event may be generated when a request for travel is submitted. The application endpoint may then leverage data from the event, such as the request ID, to retrieve the relevant travel request record from the published Request APIs.
+There are two levels of scopes required for creating subscription. 
 
+| Name                | Description                       | Endpoint               |
+| ------------------- | --------------------------------- | ---------------------- |
+| `events.topic.read` | Access to ESS API                 | GET, POST, PUT, DELETE |
+| `%topic scope%`     | Access to specific topic (events) | GET, POST, PUT, DELETE |
+
+* If application has only `events.topic.read` scope empty list of topics will always be returned. 
+
+## <a name="processflow"></a>Process Flow
+
+In order to begin receiving events, you must first subscribe to the relevant topic(s) for your application.
+
+To subscribe to an event, you must work with your relevant SAP Concur technical contact; for partners, please work with your technical enablement contact. For customers, your web services consultant will subscribe on your behalf to the relevant topic(s).
 
 ## <a name="access-control"></a>Access control
 
@@ -44,16 +73,19 @@ A caller must have types of scopes
 
 All required scopes can be requested for a caller Application by Partner Enablement team.
 
+## <a name="ess-delivery"></a>ESS Delivery model
 
-## <a name="subscribing"></a>Subscribing your endpoint
+It is important to remember that ESS doesn't have any API that you can call for SAP Concur events, ESS delivers events to your endpoint.
 
-In order to begin receiving events, you must first subscribe to the relevant topic(s) for your application.
+* It uses an outbound callout where SAP Concur calls a public facing URL provided by client or partner, which is a web server hosted by the third-party developer or client.
+* The application endpoint can also use the related web services to retrieve or send SAP Concur data. For example, an event may be generated when a request for travel is submitted. The application endpoint may then leverage data from the event, such as the request ID, to retrieve the relevant travel request record from the published Request APIs.
 
-To subscribe to an event, you must work with your relevant SAP Concur technical contact; for partners, please work with your technical enablement contact. For customers, your web services consultant will subscribe on your behalf to the relevant topic(s).
+
 
 ## <a name="endpoint-requirements"></a>Endpoint Requirements
 
 The Event Subscription Service provides guaranteed at least once event delivery.  This is accomplished through retrying posting of the event payload to the subscribers' endpoint until the response indicates successful receipt.  The expected acknowledgment max for a request to the subscribers' endpoint is 30 seconds.  The service will attempt posting to the endpoint and then back-off and retry until the subscriber endpoint responds with delivered or not accepted, the service will retry at least 3 days and skip to the next event after unsuccessful delivery.  SAP Concur suggests the subscriber to consider following:
+
 * Endpoint response time requirements depend on the topic throughput. Please contact topic owner to calculate acceptable throughput, generally we recommend to keep response time as low   as possible (< 3 seconds)
 * We highly recommend to implement queue behind the subscriber' endpoint in order to keep response time as low as possible   
 * The subscriber must maintain reasonable uptime to support the requirements of the integration scenario.
@@ -63,8 +95,10 @@ The Event Subscription Service provides guaranteed at least once event delivery.
 ### <a name="ess-authentication"></a> ESS Authentication
 
 There are several way how you can be sure that your endpoint being accessed by our service.
+
 * We will always use the same client x509 certificate. Common name is "CN=webhook.api.concursolutions.com,O=Concur Technologies\, Inc.,L=Bellevue,ST=Washington,C=US" and certificate serial number is "0AE315A13AB9EF8CADB9A46255C87283"
 * We will always use Digital Signature, it will be supplied in request header "Concur-Signature". If you decide to use this authentication method you will need  our
+
 <details><summary>PUBLIC KEY</summary>
 <p>
 ```
@@ -80,7 +114,6 @@ HlbTP6jE7MqB5sJ9r2EEzrJzJZjD13UqlzvI61tTC8SKpuk5AEaSsUV7RKlKUCjB
 ```
 </p>
 </details>
-
 
 
 ### <a name="ess-behavior"></a>ESS Behavior
