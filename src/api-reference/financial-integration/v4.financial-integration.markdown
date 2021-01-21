@@ -360,7 +360,7 @@ Name|Type|Format|Description
 
 #### Payload
 
-[Confirmation Request](schema-confirmationrequest)
+[Confirmation Request](#schema-confirmationrequest)
 
 ### Response
 

@@ -62,7 +62,7 @@ https://www.concursolutions.com/api/image/v1.0/report/{reportId}
 Name|Type|Format|Description
 ---|---|---|---
 `receipt`|`string`|-|Uploads a receipt image and associates it with the OAuth consumer. The user can view the image in the receipt management section of SAP Concur.
-`entryReceiptID/{entryReceiptId}`|`string`|-|Obtains a short-lived URL (15 minute ttl) that can be rendered to obtain the receipt image. 
+`entryReceiptID/{entryReceiptId}`|`string`|-|Obtains a short-lived URL (15 minute ttl) that can be rendered to obtain the receipt image.
 `expenseentry/{entryID}`|`string`|-|Uploads a receipt image and associates it with the expense entry that matches the supplied entry ID. Once an image is attached to the entry, you cannot append additional images.
 `invoice/{requestID}`|`string`|-|Uploads an invoice image and associates it with the invoice that matches the supplied request ID. Each invoice is uniquely identified by the request ID value. Once an image is attached to the invoice, you cannot append additional images. The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
 `report/{reportID}`|`string`|-|Uploads a receipt image and associates it with the report that matches the supplied report ID. If a report image already exists for the report, the new image will be appended to the existing image.
@@ -141,7 +141,7 @@ Retrieves a URL to the following images:
 * Expense Report (PDF)
   * If receipts have been uploaded to specific expense entries, they will all be bundled into one PDF at the report level.
 
-The URL is valid for 30 minutes after the request.
+The URL is valid for 15 minutes after the request.
 
 ### Request
 
