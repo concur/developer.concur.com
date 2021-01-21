@@ -48,6 +48,7 @@ layout: reference
 
 # App Center Release Notes
 
+* [2021 Consolidated Release Notes](./app-center-2021.html)
 * [2020 Consolidated Release Notes](./app-center-2020.html)
 * [2019 Consolidated Release Notes](./app-center-2019.html)
 * [October 2018](./app-center-2018-10-19.html)
@@ -96,15 +97,6 @@ layout: reference
 
 # Combined App Center and Developer Platform Release Notes
 
-* [April 2015](./app-center-dev-platform-2015-04-01.pdf)
-* [April 2014](./app-center-dev-platform-2014-04-01.pdf)
-* [March 2014](./app-center-dev-platform-2014-03-01.pdf)
-* [February 2014](./app-center-dev-platform-2014-02-01.pdf)
-* [January 2014](./app-center-dev-platform-2014-01-01.pdf)
-* [November 2013](./app-center-dev-platform-2013-11-01.pdf)
-* [October 2013](./app-center-dev-platform-2013-10-01.pdf)
-* [September 2013](./app-center-dev-platform-2013-09-01.pdf)
-* [August 2013](./app-center-dev-platform-2013-08-01.pdf)
-* [July 2013](./app-center-dev-platform-2013-07-01.pdf)
-* [June 2013](./app-center-dev-platform-2013-06-01.pdf)
-* [May 2013](./app-center-dev-platform-2013-05-01.pdf)
+* [April 2015 Release Notes](./app-center-dev-platform-2015-04-01.pdf)
+* [2014 Release Notes](./2014-archive-app-center-dev.md)
+* [2013 Release Notes](./2013-archive-app-center-dev.md)
