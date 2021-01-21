@@ -336,7 +336,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |------------------------|--------------------|-------------|
-|`AbsoluteDeadline`|`time` or `datetime` |Defines the absolute deadline. Either this or the offset attributes may be used.|
+|`AbsoluteDeadline`|`time` or `datetime`|**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
 
 #### <a name="cancel-penalties"></a>CancelPenalties
 

@@ -590,7 +590,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |Name|Type|Description|
 |---------|------------|-------------|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. Maximum elements: `9`|
-|`Deadline`|`complex`|**Required** Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
+|`Deadline`|`complex`|Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
