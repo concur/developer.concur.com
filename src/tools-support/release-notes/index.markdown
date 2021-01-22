@@ -25,7 +25,7 @@ layout: reference
 * [January 2020](./api/2020-01-17.html)
 * [2019 Release Notes](./api/archive/2019-archive-dev.html)
 * [2018 Release Notes](./api/archive/2018-archive-dev.html)
-* [March 2017 Release Notes](./api/archive/dev-platform-2017-03-01.html)
+* [2017 Release Notes](./api/archive/dev-platform-2017-03-01.html)
 * [2016 Release Notes](./api/archive/2016-archive-dev.html)
 * [2015 Release Notes](./api/archive/2015-archive-dev.html)
 * [2014 Release Notes](./api/archive/2014-archive-dev.html)
