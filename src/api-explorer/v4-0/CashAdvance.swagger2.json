@@ -404,7 +404,7 @@
           "$ref": "#/definitions/CashAdvanceExchangeRate"
         },
         "hasReceipts": {
-          "type": boolean,
+          "type": "boolean",
           "description": "Indicates cash advance has receipts"
         },
         "issuedDate": {
@@ -534,7 +534,7 @@
         "status": {
           "description": "Cash Advance Status",
           "$ref": "#/definitions/CashAdvanceStatus"
-        },
+        }
       }
     },
      "CashAdvanceStatus": {

@@ -3,7 +3,7 @@ title: SAP Concur Deprecated API List
 layout: reference
 ---
 
-The following application programming interfaces (APIs) have been deprecated according to the [API Lifecycle & Deprecation Policy](/tools-support/deprecation-policy.html).
+The following application programming interfaces (APIs) and other resources have been deprecated according to the [API Lifecycle & Deprecation Policy](/tools-support/deprecation-policy.html).
 
 * [Attendees v1](/api-reference/expense/attendees/v1.attendees.html)
 * [Attendees v1.1](/api-reference/expense/attendees/v1dot1.attendees.html)
@@ -47,3 +47,7 @@ The following application programming interfaces (APIs) have been deprecated acc
 * Travel Web Service v1
   * [Profile Resource](/api-reference/travel-profile/v1.profile-resource.html)
 * [Trip Approval v1](/api-reference/travel/trip-approval/v1.trip-approval-resource.html)
+
+* Resources
+  * [Videos](/tools-support/videos/index.html)
+  * [Samples](/tools-support/samples/index.html)
