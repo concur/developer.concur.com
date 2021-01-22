@@ -98,5 +98,5 @@ layout: reference
 # Combined App Center and Developer Platform Release Notes
 
 * [April 2015 Release Notes](./archive/app-center-dev-platform-2015-04-01.pdf)
-* [2014 Release Notes](./archive/2014-archive-app-center-dev.md)
-* [2013 Release Notes](./archive/2013-archive-app-center-dev.md)
+* [2014 Release Notes](./archive/2014-archive-app-center-dev.html)
+* [2013 Release Notes](./archive/2013-archive-app-center-dev.html)
