@@ -93,8 +93,6 @@
         url: /api-reference/direct-connects/ground-transportation/post-transportation-search.html
       - title: Update reservation with supplier
         url: /api-reference/direct-connects/ground-transportation/update-reservation-supplier.html
-      - title: Update reservation with Travel
-        url: /api-reference/direct-connects/ground-transportation/update-reservation-travel.html
 - title: Direct Connect - Hotel v2
   url: ''
   children:
