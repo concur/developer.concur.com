@@ -6,6 +6,7 @@ redirect_from:
 ---
 
 * [Overview](#overview)
+  * [Important Usage Restrictions](#usage-restrictions)
 * [Version](#version)
 * [Regional Availability](#regional-availability)
 * [Explore the API](#explore-the-api)
@@ -13,7 +14,7 @@ redirect_from:
   * [Acquire an Access Token](#retrieve-a-user-access-token)
   * [Explore the API in JavaScript](#explore-the-api-in-javascript)
 
-### Overview
+## <a name="overview"></a>Overview
 
 The Receipts V4 API accepts three different formulae for posting a receipt:
 
@@ -25,38 +26,34 @@ All of the above are receipt resources, but the service draws a distinction betw
 
 Resources with data are schema-enforced and are referred to as e-receipts.
 
-Resources of standalone images are referred to as as Image-Only Receipts.
+Resources of standalone images are referred to as Image-Only Receipts.
 
 These two different resources are sent/fetched from the Receipts V4 API via different endpoints:
 * E-Receipts (Receipts With Data) - Use E-Receipt Endpoints
 * Image-Only Receipts (Standalone Images Without Data) - Use Image-Only Receipt Endpoints
 
-> **Note**: The Receipts V4 API only provides GET access to individual or user’s receipts that have been submitted through this API, and, therefore the response will not be comprehensive of every user receipt within SAP Concur. All other images should be obtained via the [Image v1 API](https://developer.concur.com/api-reference/image/v1.image.html). Additionally, only the receipts will be returned, there will not be any corresponding entry data. Examples of Enterprise apps that should use the Image v1 API include: ERP integrations for financial journal entry postings, VAT reclaim integrations that obtain transactions to calculate VAT reclaim, project billing integrations used to substantiate expenses billed back, etc. 
+> **Note**: The Receipts V4 API only provides GET access to individual or user’s receipts that have been submitted through this API, and, therefore the response will not be comprehensive of every user receipt within SAP Concur. All other images should be obtained via the [Image v1 API](https://developer.concur.com/api-reference/image/v1.image.html). Additionally, only the receipts will be returned, there will not be any corresponding entry data. Examples of Enterprise apps that should use the Image v1 API include: ERP integrations for financial journal entry postings, VAT reclaim integrations that obtain transactions to calculate VAT reclaim, project billing integrations used to substantiate expenses billed back, etc.
 
-### Prior Versions
+### <a name="usage-restrictions"></a>Important Usage Restrictions
+
+ SAP Concur systems and clients rely on e-receipts to be legally valid tax documents in the relevant government jurisdictions. Use of the Receipts endpoint to post e-receipts must therefore meet the following criteria:
+
+* The e-receipt must come directly from the original merchant issuing the receipt or from a third party authorized by the merchant to issue receipts on behalf of the merchant.
+* All receipt data fields that are required by the relevant government jurisdiction must be provided even if the SAP Concur documentation indicates the data field is optional. If a government required data field is not available in the current schema then a legally compliant receipt image must be attached.
+
+## Prior Versions
 
 * Receipts v3 (Deprecated) documentation is available [here](./v3.receipts.html)
 
-### Overview of Version 4.0
+## <a name="version"></a>Overview of Version 4.0
 
 Version 4.0 of the Receipts API offers features like more receipt types, automatic e-receipt generation in end user’s preferred language and ability for partners to provide detailed tax information. Unlike version 3.0, we are discontinuing the use of matching facts; instead the partner will have to create a receipt for a specific end user. Receipts 4.0 works only with the new [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
-### Regional Availability
+## <a name="explore-the-api"></a>Explore the API
 
-```
-https://us.api.concursolutions.com/receipts/
-```
+### <a name="prerequisites"></a>Prerequisites
 
-```
-https://emea.api.concursolutions.com/receipts/
-```
-
-### Explore the API
-
-#### Prerequisites
-
-1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
+Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
 Once you have registered your application, read about the [API endpoints](/api-reference/receipts/endpoints.html), or click the button to download a request collection for Postman.
 
@@ -64,7 +61,7 @@ Once you have registered your application, read about the [API endpoints](/api-r
   <img src="https://run.pstmn.io/button.svg" alt="Run in Postman">
 </a>
 
-#### Retrieve a User Access Token:
+### <a name="retrieve-a-user-access-token"></a>Retrieve a User Access Token:
 
 Before making requests to the Receipts API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
 
@@ -84,11 +81,11 @@ HTTPie:
 http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=password username={YOUR USERNAME} password=P{YOUR PASSWORD}
 ```
 
-#### Explore the API in JavaScript
+### <a name="explore-the-api-in-javascript"></a>Explore the API in JavaScript
 
 Below are some simple NodeJS code snippets for getting a token and posting a receipt.
 
-##### Retrieve a User Access Token:
+#### Retrieve a User Access Token:
 
 ```js
 'use strict';
@@ -110,7 +107,7 @@ request.post({
     });
 ```
 
-##### Post a Receipt
+#### Post a Receipt
 
 ```js
 'use strict';

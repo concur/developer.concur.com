@@ -49,6 +49,8 @@
         url: /api-reference/callouts/launch-external-url-request.html
       - title: Launch External URL Callout
         url: /api-reference/callouts/launch-external-url.html
+      - title: Launch External URL v4
+        url: /api-reference/callouts/v4.launch-external-url.html
       - title: Post an event notification request
         url: /api-reference/callouts/post-event-notification.html
       - title: Post an attendee search request
@@ -66,8 +68,12 @@
         url: /api-reference/common/extracts/v1.extracts.html
       - title: Lists v3
         url: /api-reference/common/lists/v3.lists.html
+      - title: List v4
+        url: /api-reference/common/lists/v4.list.html
       - title: List Item v3
         url: /api-reference/common/list-item/v3.list-item.html
+      - title: List Item v4
+        url: /api-reference/common/list-item/v4.list-item.html
       - title: Locations v3
         url: /api-reference/common/locations/v3.locations.html
       - title: Suppliers v3
@@ -87,8 +93,6 @@
         url: /api-reference/direct-connects/ground-transportation/post-transportation-search.html
       - title: Update reservation with supplier
         url: /api-reference/direct-connects/ground-transportation/update-reservation-supplier.html
-      - title: Update reservation with Travel
-        url: /api-reference/direct-connects/ground-transportation/update-reservation-travel.html
 - title: Direct Connect - Hotel v2
   url: ''
   children:

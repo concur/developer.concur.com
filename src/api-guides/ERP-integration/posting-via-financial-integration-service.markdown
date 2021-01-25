@@ -7,11 +7,13 @@ layout: reference
   * [Comparison of extract files vs. FIS data](#comparison)
 * [Quick Connect](#quick-connect)
 * [API Sequence Flow](#sequence-flow)
-  * [FI Sequence Flow Matrix](#matrix)
+  * [FI Sequence Flow Matrix - Expense](#expense-matrix)
+  * [FI Sequence Flow Matrix - Invoice](#invoice-matrix)
   * [Expense Pay](#expense-pay)
   * [Non-Expense Pay Payment Batches (Standard Edition and S2P)](#nonexpense-pay)
 * [Imaging](#imaging)
 * [Timing to Run FIS](#timing)
+* [Get Started](#start)
 
 ## <a name="learn"></a>Learn More
 
@@ -48,9 +50,9 @@ Quick Connect describes the process customers use to connect their SAP Concur si
 The flow consists of calling the API in this sequence:
 
 1. [Get Financial Transactions](/api-reference/financial-integration/v4.financial-integration.html#get-transactions) - Obtain final-approved reports (or invoices) from the FIS queue.
-1. [Post Financial Transaction Acknowledgements](/api-reference/financial-integration/v4.financial-integration.html#post-acknowledgements) - Acknowledge each report or invoice has been obtained.
-1. [Post Financial Transactions Confirmations](/api-reference/financial-integration/v4.financial-integration.html#post-confirmations) - Post the status of the ERP integration for each report (success or failure) back into the SAP Concur solution after integrating into the customer's ERP.
-1. [Post Financial Payment Confirmations](/api-reference/financial-integration/v4.financial-integration.html#payment-confirmations) - Post the financial payment results into the SAP Concur solution.
+1. [Post Financial Transaction Acknowledgements](/api-reference/financial-integration/v4.financial-integration.html#post-acknowledgements) - **Required step** Acknowledge each report or invoice has been obtained.
+1. [Post Financial Transactions Confirmations](/api-reference/financial-integration/v4.financial-integration.html#post-confirmations) - **Required step** Post the status of the ERP integration for each report (success or failure) back into the SAP Concur solution after integrating into the customer's ERP.
+1. [Post Financial Payment Confirmations](/api-reference/financial-integration/v4.financial-integration.html#payment-confirmations) - **Recommended** Post the financial payment results into the SAP Concur solution.
 
 The following are the recommended steps when you create a file based on FIS data prior to importing into the ERP:
 
@@ -61,7 +63,7 @@ The following are the recommended steps when you create a file based on FIS data
 
 The above steps will maintain consistency between the customer's ERP and their SAP Concur Spend Management service. If they cannot be performed due to error-handling logistics between you and customer, then you can post successes for the file content back into the SAP Concur solution. The customer will handle the errors directly with the ERP. However, their ERP and the SAP Concur data will not be in sync at this point.
 
-### <a name="matrix"></a>FI Sequence Flow Matrix
+### <a name="expense-matrix"></a>FI Sequence Flow Matrix - Expense
 
 The following table describes the expected events and their statuses.
 
@@ -76,6 +78,20 @@ Sequence|Expected Event|Concur Expense Payment Status|FIS Posting Document Statu
 7| Report is re-submitted with corrections and re-enters workflow (steps 1-4 repeat)| Submitted/Not Paid| Posting Failed| Posting Failed| N/A
 8| ERP Sends Posting Feedback – Success| Paid| Posting Success| Posting Success | POST Posting Feedback
 9| ERP Sends Payment Feedback (Optional)| Payment Confirmed| Payment Confirmed| Paid | POST Payment Confirmation
+
+### <a name="invoice-matrix"></a>FI Sequence Flow Matrix - Invoice
+
+Sequence |Expected Event |Concur Expense Payment Status |FIS Posting Document Status |ERP| FIS
+----|----|----|----|----|----
+1 | Report is submitted by user and enters workflow | Submitted/Not Paid| Doesn’t exist| Doesn’t exist  | NA
+2 | Report is “final approved” in Processor workflow step | Processing Payment| Queued and Ready | Doesn’t exist   | NA
+3 | ERP calls FIS for “ready” posting documents| Processing Payment| Queued and Ready  | Received | GET financial documents
+4 | ERP calls FIS to acknowledge documents retrieved |Processing Payment |Acknowledged | Acknowledged| POST acknowledge financial documents
+5 | ERP Sends Posting Feedback - Failed | Financial Posting Failed| Posting Failed | Posting Failed  | POST Posting Feedback
+6 | Processor Recalls Report for Posting Corrections | Not Paid | Posting Failed | Posting Failed  | N/A
+7 | Report is re-submitted with corrections and re-enters workflow (steps 1-4 repeat)| Submitted/Not Paid | Posting Failed | Posting Failed | N/A
+8 | ERP Sends Posting Feedback – Success | Paid| Posting Success | Posting Success |POST Posting Feedback
+9 | ERP Sends Payment Feedback (Optional)| Payment Confirmed | Payment Confirmed | Paid | POST Payment Confirmation
 
 ### <a name="expense-pay"></a>Expense Pay
 
@@ -121,3 +137,7 @@ https://www.concursolutions.com/api/image/v1.0/invoice/{requestID}
 Review the timing of the FIS API requests to ensure they are not interfering with the customer administrator's ability to send an expense report (or invoice) back to the employee prior to ERP integration. This may require the development of a button in the UI of the integration to allow the customer to initiate the FIS process on demand. This would eliminate the need to coordinate the timing.
 
 For example, the SAP Concur workflow typically includes a final approval step that is completed by Finance/Accounting. Once the accountant final-approves a report (or invoice), the report is queued into FIS. If necessary, the accountant can pull this report back and send it back to the employee for adjustment prior to ERP integration, but only if you have not yet picked up the report. So, the process should include awareness of the timing between you and your customer.
+
+## <a name="start"></a>Get Started
+
+Now that you have an overview of how posting using FIS works you may want to move on to reviewing the API documentation. There's a lot of helpful information available including use cases and JSON examples. We recommend starting [here](/api-reference/financial-integration/v4.financial-integration.html).

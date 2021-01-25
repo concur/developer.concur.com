@@ -54,11 +54,10 @@ layout: reference
             <CountryName Code="FR">French Republic France</CountryName>
           </Address>
           <Award Rating="2"/>
-          <HotelAmenity Code="68"/>
-          <HotelAmenity Code="198"/>
+          <HotelAmenity Code="255"/>
           <HotelAmenity Code="71"/>
-          <HotelAmenity Code="101"/>
-          <HotelAmenity Code="33"/>
+          <HotelAmenity Code="224"/>
+          <HotelAmenity Code="96"/>
           <Policy CheckInTime="14:00:00" CheckOutTime="12:00:00"/>
           <TPA_Extensions>
             <HotelPreference>not_preferred</HotelPreference>
@@ -192,9 +191,7 @@ The initial Search request (see above) is followed up by an multi-property Avail
           </RoomTypes>
           <RatePlans>
             <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="TOGG3BU">
-              <Guarantee GuaranteeType="GuaranteeRequired">
-                <Deadline AbsoluteDeadline="2019-05-08T23:59:59"/>
-              </Guarantee>
+              <Guarantee GuaranteeType="GuaranteeRequired" />
               <CancelPenalties>
                 <CancelPenalty NonRefundable="false">
                   <Deadline AbsoluteDeadline="2019-05-08T23:59:59" OffsetDropTime="BeforeArrival" OffsetTimeUnit="Day"
@@ -229,7 +226,7 @@ The initial Search request (see above) is followed up by an multi-property Avail
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                  <Total AmountAfterTax="161.10" AmountBeforeTax="152.70" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <Total AmountAfterTax="161.10" AmountBeforeTax="152.70" CurrencyCode="EUR"/>
                   <RateDescription>
                     <Text>Tarif promotionnel</Text>
                     <Text>Gratuit pour les clients HRS: Quotidien gratuit, Parking attenant à l'hôtel</Text>
@@ -315,7 +312,7 @@ The initial Search request (see above) is followed up by an multi-property Avail
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                  <Total AmountAfterTax="149.00" AmountBeforeTax="141.23" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <Total AmountAfterTax="149.00" AmountBeforeTax="141.23" CurrencyCode="EUR"/>
                   <RateDescription>
                     <Text>Hot Deal</Text>
                     <Text>Gratuit pour les clients HRS: Quotidien gratuit, Parking attenant à l'hôtel</Text>

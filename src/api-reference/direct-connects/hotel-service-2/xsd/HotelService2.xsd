@@ -1729,14 +1729,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" name="Deadline">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Guarantee deadline, absolute or relative.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:attributeGroup ref="DeadlineGroup"/>
-        </xs:complexType>
-      </xs:element>
       <xs:element maxOccurs="9" minOccurs="0" name="GuaranteeDescription" type="ParagraphType">
         <xs:annotation>
           <xs:documentation xml:lang="en">Text description of the Guarantee in a given language.</xs:documentation>
@@ -2089,7 +2081,7 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="AmountAfterTax" type="Money" use="optional">
+    <xs:attribute name="AmountAfterTax" type="Money" use="required">
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">The total amount including all associated taxes (e.g.,
           sales tax, VAT, GST or any associated tax).
@@ -4028,17 +4020,6 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="DecimalPlaces" type="xs:nonNegativeInteger" use="optional">
-      <xs:annotation>
-        <xs:documentation source="Description" xml:lang="en">The ISO 4217 standard "minor unit" for the number of
-          decimal places for a particular currency.
-        </xs:documentation>
-        <xs:documentation source="Implementer" xml:lang="en">Implementer: The ISO 4217 standard "minor unit" is
-          typically used when the amount provided includes the minor unit of currency without a decimal point (e.g., USD
-          8500 needs DecimalPlaces="2" to represent $85).
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
   </xs:attributeGroup>
 
   <xs:attributeGroup name="LanguageGroup">
@@ -4171,14 +4152,6 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="DecimalPlaces" type="xs:nonNegativeInteger" use="optional">
-      <xs:annotation>
-        <xs:documentation source="Description" xml:lang="en">Decimal places for currency code.</xs:documentation>
-        <xs:documentation source="Implementer" xml:lang="en">Implementer: This is an ISO 4217 standard "minor unit" for
-          the number of decimal places for a particular currency.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
     <xs:attribute name="Percent" type="Percentage" use="optional">
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">Fee percentage; if zero, assume use of the Amount attribute
@@ -4222,17 +4195,6 @@
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">An ISO 4217 (3) alpha character code that specifies a
           monetary unit.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="DecimalPlaces" type="xs:nonNegativeInteger" use="optional">
-      <xs:annotation>
-        <xs:documentation source="Description" xml:lang="en">The ISO 4217 standard "minor unit" for the number of
-          decimal places for a particular currency.
-        </xs:documentation>
-        <xs:documentation source="Implementer" xml:lang="en">Implementer: The ISO 4217 standard "minor unit" is
-          typically used when the amount provided includes the minor unit of currency without a decimal point (e.g., USD
-          8500 needs DecimalPlaces="2" to represent $85).
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>

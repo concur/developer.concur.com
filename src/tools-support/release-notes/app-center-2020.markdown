@@ -11,6 +11,7 @@ layout: reference
 * [June](#june)
 * [September](#september)
 * [October](#october)
+* [November](#November)
 
 ## <a name="january"></a>January 2020
 
@@ -563,5 +564,37 @@ If you have a corporate Sharebite account, click the “Connect” button to ena
 Sharebite with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Sharebite integration, visit [https://sharebite.com/](https://sharebite.com/).
 
 ## <a name="user-connection-coming-soon-october"></a>User Connection Apps Coming Soon
+
+None.
+
+## <a name="november"></a>November 2020
+
+* [User Connection Apps Now Available](#user-connection-now-available-november)
+  * [Mobicity](#mobicity-november)
+* [User Connection Apps Coming Soon](#user-connection-coming-soon-november)
+
+### <a href="user-connection-now-available-november"></a>User Connection Apps Now Available
+
+### <a name="mobicity-november"></a>Mobicity
+
+![Mobicity Logo](./app-center-2020-11-18-mobicity-logo.png)
+
+Mobicity offers Brazilian companies a unique platform for integrating transport solutions, optimizing choices, automating management, and encouraging ride sharing. Coworkers use a mobile or web app to plan routes and order rides and managers have real-time visibility and control.
+
+Benefits of Mobicity:
+
+* Multimodal System: Mobicity is integrated with a diverse array of transportation options and allows you to choose one or more modes of transport. Mobicity integrates with company fleets, taxi apps, private drivers, rentals, vans, and more.
+* 360º management: Managers can access reporting and monitor your company's mobility in real time.
+* User Experience: Mobicity is focused on providing an optimal service for employees.
+* Simplified Expense-Reporting: By enabling the connection between Mobicity and Concur Expense, you can automatically send e-receipts for trips to Concur Expense.
+
+**Success story:** Enel SP managed to reduce its fleet by 27 vehicles and reduced the cost of average travel tickets by approximately 40% .
+
+If you are interested in using Mobicity to optimize your organization’s transportation, email us at [contato@mobicity.com.br](contato@mobicity.com.br). Or, if your company is a customer of Mobicity, click the “Connect” button to enable the integration with Concur Expense.
+
+Mobicity with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Mobicity integration, visit [http://mobicity.com.br/](http://mobicity.com.br/).
+
+
+## <a name="user-connection-coming-soon-november"></a>User Connection Apps Coming Soon
 
 None.

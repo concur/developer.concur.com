@@ -3,6 +3,8 @@ title: Launch External URL Callout
 layout: reference
 ---
 
+> **Limitations**: For all new Launch External URL solutions, please use the [Launch External URL v4](https://developer.concur.com/api-reference/callouts/v4.launch-external-url.html) API.
+
 The Launch External URL callout gives clients and developers a platform to extend the functionality of SAP Concur providing a means to deliver custom user interactions, or access functionality found in an external system. The client can arrange to add an Expense Entry form field that is configured to use the Launch External URL callout to a Concur Expense Entry form. Concur Expense will display this field with an attached button that launches a separate window when clicked. The window is controlled by an application connector, created by a third-party developer, the client, or SAP Concur. The application connector is a web server that presents information in the window.
 
 The application connector can access SAP Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), he/she clicks a button such as "Done" that indicates the user has concluded their work in the window. The application connector then closes the window. 
@@ -84,7 +86,7 @@ Expense will not be able to connect to the application connector until a certifi
 
 SAP Concur sends requests to the application connector using anonymous authorization (no username and password are provided) over HTTPS.
 
-The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that SAP Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in SAP Concur on the **Register Application Connector** page in **Web Services** under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash.
+The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that SAP Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in SAP Concur on the **Register Application Connector** page in **Web Services** under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash. Note: both the username and password must be at least 10 characters for increased security and the maximum allowed length is 50 characters.
 
 ### <a name="functions"></a>Functions
 [Launch External URL Request][4]

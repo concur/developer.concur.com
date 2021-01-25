@@ -76,10 +76,12 @@
   children:
       - title: Budget
         url: /api-explorer/v4-0/Budget.html
-      - title: Financial Integration Service
-        url: /api-explorer/v4-0/FinancialIntegrationService.html
       - title: Invoice Pay
         url: /api-explorer/v4-0/InvoicePay.html
+      - title: List
+        url: /api-explorer/v4-0/List.html
+      - title: List Item
+        url: /api-explorer/v4-0/ListItem.html
       - title: Purchase Requests
         url: /api-explorer/v4-0/PurchaseRequest.html
       - title: Quick Expenses

@@ -8,15 +8,8 @@
   ],
   "info": {
     "title": "List Item",
-    "description": "Provides an automated solution to clients who would like to manage list items. This API provides methods to view, add or update list items owned by the specified lists.",
+    "description": "Provides an automated solution to clients who would like to manage list items. This API provides methods to view, add, update or delete list items owned by the specified lists.",
     "version": "4.0"
-  },
-  "securityDefinitions": {
-    "JWT Token": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header"
-    }
   },
   "tags": [
     {
@@ -44,28 +37,6 @@
             "name": "Accept-Language",
             "in": "header",
             "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
             "required": false,
             "type": "string"
           },
@@ -123,11 +94,6 @@
             }
           }
         },
-        "security": [
-          {
-            "JWT Token": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -136,8 +102,8 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Gets list item by id",
-        "description": "Returns list item",
+        "summary": "Get a list item by ID",
+        "description": "Returns the list item",
         "operationId": "getListItemUsingGET",
         "produces": [
           "application/json"
@@ -147,28 +113,6 @@
             "name": "Accept-Language",
             "in": "header",
             "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
             "required": false,
             "type": "string"
           },
@@ -189,7 +133,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -213,11 +157,6 @@
             }
           }
         },
-        "security": [
-          {
-            "JWT Token": []
-          }
-        ],
         "deprecated": false
       },
       "put": {
@@ -238,28 +177,6 @@
             "name": "Accept-Language",
             "in": "header",
             "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
             "required": false,
             "type": "string"
           },
@@ -289,7 +206,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -325,11 +242,57 @@
             }
           }
         },
-        "security": [
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "List Item API"
+        ],
+        "summary": "Delete a list item by ID",
+        "description": "Returns a status code result",
+        "operationId": "deleteListItemUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
           {
-            "JWT Token": []
+            "name": "itemId",
+            "in": "path",
+            "description": "The unique identifier of the list item",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
           }
         ],
+        "responses": {
+          "204": {
+            "description": "Successfully deleted list item"
+          },
+          "400": {
+            "description": "Company does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
         "deprecated": false
       }
     },
@@ -338,8 +301,8 @@
         "tags": [
           "List Item API"
         ],
-        "summary": "Get direct children of list item",
-        "description": "Returns list item children",
+        "summary": "Get the direct children of a list item",
+        "description": "Returns the list item children",
         "operationId": "getChildrenUsingGET",
         "produces": [
           "application/json"
@@ -349,35 +312,6 @@
             "name": "Accept-Language",
             "in": "header",
             "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "endDate",
-            "in": "query",
-            "description": "Filter capabilities for EndDate",
             "required": false,
             "type": "string"
           },
@@ -451,13 +385,6 @@
             ]
           },
           {
-            "name": "startDate",
-            "in": "query",
-            "description": "Filter capabilities for StartDate",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "value",
             "in": "query",
             "description": "Filter capabilities for Value",
@@ -473,7 +400,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -497,11 +424,6 @@
             }
           }
         },
-        "security": [
-          {
-            "JWT Token": []
-          }
-        ],
         "deprecated": false
       }
     },
@@ -521,35 +443,6 @@
             "name": "Accept-Language",
             "in": "header",
             "description": "Language code",
-            "required": false,
-            "type": "string",
-            "default": "en"
-          },
-          {
-            "name": "company-uuid",
-            "in": "header",
-            "description": "Company UUID of the user (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "concur-uid",
-            "in": "header",
-            "description": "Concur Employee UUID of the caller (Used for x509 authorization)",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "endDate",
-            "in": "query",
-            "description": "Filter capabilities for EndDate",
             "required": false,
             "type": "string"
           },
@@ -623,13 +516,6 @@
             ]
           },
           {
-            "name": "startDate",
-            "in": "query",
-            "description": "Filter capabilities for StartDate",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "value",
             "in": "query",
             "description": "Filter capabilities for Value",
@@ -645,7 +531,7 @@
             }
           },
           "400": {
-            "description": "Entity does not exist",
+            "description": "Company does not exist",
             "schema": {
               "$ref": "#/definitions/ErrorMessage"
             }
@@ -669,11 +555,206 @@
             }
           }
         },
-        "security": [
+        "deprecated": false
+      }
+    },
+    "/list/v4/lists/{listId}/items/{itemId}": {
+      "delete": {
+        "tags": [
+          "List Item API"
+        ],
+        "summary": "Delete a list item by list item ID from a particular list",
+        "description": "Returns a status code result",
+        "operationId": "deleteListItemFromListUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
           {
-            "JWT Token": []
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "The unique identifier of the list item",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
           }
         ],
+        "responses": {
+          "204": {
+            "description": "Successfully deleted list item with list ID"
+          },
+          "400": {
+            "description": "Company does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/list/v4/lists/{listId}/items/{itemId}/children": {
+      "get": {
+        "tags": [
+          "List Item API"
+        ],
+        "summary": "Get the direct children of a list item in a particular list",
+        "description": "Returns the list item children",
+        "operationId": "getChildrenInListUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "hasChildren",
+            "in": "query",
+            "description": "Show items with children",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "Show deleted items",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "The unique identifier of the list item",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "listId",
+            "in": "path",
+            "description": "The unique identifier of the list. For a list item shared between multiple lists, this parameter enables retrieving children from a particular list.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number starting from 1",
+            "required": false,
+            "type": "integer",
+            "default": 1,
+            "format": "int32",
+            "x-example": 1
+          },
+          {
+            "name": "shortCode",
+            "in": "query",
+            "description": "Filter capabilities for ShortCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "shortCodeOrValue",
+            "in": "query",
+            "description": "Filter capabilities for Value OR ShortCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Field to sort by, {value, shortcode}",
+            "required": false,
+            "type": "string",
+            "default": "value",
+            "enum": [
+              "value",
+              "shortcode"
+            ]
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "description": "Sort direction, {asc, desc}",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "Filter capabilities for Value",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully got children of list item",
+            "schema": {
+              "$ref": "#/definitions/PagedResourcesListItem"
+            }
+          },
+          "400": {
+            "description": "Company does not exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "401": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "listItem not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        },
         "deprecated": false
       }
     }
@@ -718,14 +799,6 @@
     "Link": {
       "type": "object",
       "properties": {
-        "deprecation": {
-          "type": "string",
-          "xml": {
-            "name": "deprecation",
-            "attribute": true,
-            "wrapped": false
-          }
-        },
         "href": {
           "type": "string",
           "xml": {
@@ -734,45 +807,10 @@
             "wrapped": false
           }
         },
-        "hreflang": {
-          "type": "string",
-          "xml": {
-            "name": "hreflang",
-            "attribute": true,
-            "wrapped": false
-          }
-        },
-        "media": {
-          "type": "string",
-          "xml": {
-            "name": "media",
-            "attribute": true,
-            "wrapped": false
-          }
-        },
         "rel": {
           "type": "string",
           "xml": {
             "name": "rel",
-            "attribute": true,
-            "wrapped": false
-          }
-        },
-        "templated": {
-          "type": "boolean"
-        },
-        "title": {
-          "type": "string",
-          "xml": {
-            "name": "title",
-            "attribute": true,
-            "wrapped": false
-          }
-        },
-        "type": {
-          "type": "string",
-          "xml": {
-            "name": "type",
             "attribute": true,
             "wrapped": false
           }
@@ -816,10 +854,6 @@
           "example": 1,
           "description": "Level of the list item within the list"
         },
-        "hasChildren": {
-          "type": "boolean",
-          "description": "Whether the list item has children"
-        },
         "lists": {
           "type": "array",
           "description": "The unique identifiers of the lists that contains the list item",
@@ -847,6 +881,10 @@
           "format": "uuid",
           "description": "The unique identifier of the list that contains the list item"
         },
+        "parentCode": {
+          "type": "string",
+          "description": "The long code of parent list item"
+        },
         "parentId": {
           "type": "string",
           "format": "uuid",
@@ -870,6 +908,10 @@
           "type": "string",
           "format": "uuid",
           "description": "The unique identifier of the list that contains the list item"
+        },
+        "hasChildren": {
+          "type": "boolean",
+          "description": "Whether the list item has children in this particular list"
         }
       },
       "title": "ListItemMemberList"
@@ -915,7 +957,8 @@
             "name": "number",
             "attribute": true,
             "wrapped": false
-          }
+          },
+          "example": 1
         },
         "size": {
           "type": "integer",
@@ -924,7 +967,8 @@
             "name": "size",
             "attribute": true,
             "wrapped": false
-          }
+          },
+          "example": 100
         },
         "totalElements": {
           "type": "integer",
@@ -933,7 +977,8 @@
             "name": "totalElements",
             "attribute": true,
             "wrapped": false
-          }
+          },
+          "example": 1
         },
         "totalPages": {
           "type": "integer",
@@ -942,7 +987,8 @@
             "name": "totalPages",
             "attribute": true,
             "wrapped": false
-          }
+          },
+          "example": 1
         }
       },
       "title": "PageMetadata"
