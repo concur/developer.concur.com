@@ -14,7 +14,7 @@ This guide will provide the steps to enable an enterprise application, which doe
 
 Depending on the application, there are two methods of enabling the integration:
 
-* [Connect from the App Center](#connect-app). Note: Apps eligible for this type of connection utilize [OAuth 2.0 Company-Level Authorization](/api-reference/authentication/company-auth.html) and will have a Connect button displayed within the app listing.
+* [Connect from the App Center](#connect-app). **Note**: Apps eligible for this type of connection utilize [OAuth 2.0 Company-Level Authorization](/api-reference/authentication/company-auth.html) and will have a Connect button displayed within the app listing.
 
 ![Connect from SAP Concur App Center Image](./guide-to-enabling-app-center-solutions-basic-connect-from-app-center.png)
 
@@ -51,7 +51,7 @@ The full client guide covering the subsequent enablement steps can be found here
 
 [App Center Administration Guide](https://www.concurtraining.com/customers/tech_pubs/Docs/ConcurPremier/UG_Shr/Shr_UG_AppCenterAdmin.pdf)
 
-**Note: This step can either be completed by your own authorized SAP Concur Administrator or you can log a ticket with the SAP Concur Helpdesk to have this step completed for you by our support team.**
+> **Note: This step can either be completed by your own authorized SAP Concur Administrator or you can log a ticket with the SAP Concur Helpdesk to have this step completed for you by our support team.**
 
 If you do not have the appropriate permissions to activate the app, the Connect button will be disabled as shown below. If the Connect button is disabled, please refer to the section [Assigning Authorized SAP Concur Administrator Permissions](#permissions) below.
 
@@ -80,13 +80,13 @@ A user at your company with the appropriate permissions is required to activate 
 
 ![Professional Enabling WS Admin Image](./guide-to-enabling-app-center-solutions-basic-enable-ws-admin-professional.png)
 
-
-
 ## <a name="name-password"></a>Connecting Using a Username and Password
+
+> **Note: The following instructions only apply to Partner apps that do not use OAuth2. The Partner will know if their app is using OAuth2.**
 
 ### Step 1: Create & Transfer Credentials
 
-> Note: This step can be completed by your own authorized SAP Concur Administrator. That individual must have the ability to authorize data sharing on behalf of your company. It is important that this Web Services Admin User Profile is not the same as any actual user of the system. **If an actual user’s credentials are utilized for this purpose and they leave the company, the applications will no longer function**.
+> **Note**: This step can be completed by your own authorized SAP Concur Administrator. That individual must have the ability to authorize data sharing on behalf of your company. It is important that this Web Services Admin User Profile is not the same as any actual user of the system. **If an actual user’s credentials are utilized for this purpose and they leave the company, the applications will no longer function**.
 
 #### How to Create a WSAdmin User Profile in Concur Standard Edition
 
