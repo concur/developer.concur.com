@@ -1,5 +1,5 @@
 ---
-title: SAP Concur App Center - User Experience Guidelines for "Apps for Me"
+title: SAP Concur App Center - User Experience Guidelines for User Connections
 layout: reference
 ---
 
