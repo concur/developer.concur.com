@@ -10,7 +10,7 @@ The SAP Concur App Center provides partner apps and services that extend the val
 If you have SAP Concur App Center questions not covered in this document please, email [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com).
 
 * [What is the SAP Concur App Center?](#what)
-* [Will users be downloading apps in SAP Concur?](#downloading)
+* [Will users be downloading apps?](#downloading)
 * [How do I access the SAP Concur App Center?](#access)
 * [Who can see the SAP Concur App Center tab?](#visibility)
 * [How does SAP Concur review App Center Partners and integrations?](#review)
@@ -36,20 +36,20 @@ If you have SAP Concur App Center questions not covered in this document please,
 
 ## <a name="what"></a>What is the SAP Concur App Center?
 
-The SAP Concur App Center is a listing of applications that offer pre-built integration with Concur. The SAP Concur App Center is available within Concur Solutions and at www.concur.com/appcenter. There are both apps for companies and apps for individual users:
+The SAP Concur App Center is a listing of applications that offer pre-built integration with the SAP Concur platform. The SAP Concur App Center is available within SAP Concur Solutions and at www.concur.com/appcenter. There are both apps for companies and apps for individual users:
 
-* **Enterprise Applications (formerly Apps for My Business)**: Clients can discover turnkey business solutions that seamlessly integrate with Concur. Examples include apps like Taxback international, which helps companies reclaim Value Added Tax for international travel and industry solutions from IMS to help ensure compliance with international regulations for the Life Sciences industry.
-* **User Connections (Apps for Me)**: Individual users can link user connection apps to their own Concur account. These links are created in a secure fashion, using authentication tokens, rather than through manual sharing of usernames and passwords, which is prohibited. Examples include Uber, Lyft, and a variety of apps to help users manage their expenses more efficiently. Additionally, users with TripLink will be able to link their accounts with travel suppliers like IHG or Starwood so reservations made on their websites flow automatically into Concur.
+* **Enterprise Applications**: Clients can discover turnkey business solutions that seamlessly integrate with the SAP Concur platform. Examples include apps like Taxback international, which helps companies reclaim Value Added Tax for international travel and industry solutions from IMS to help ensure compliance with international regulations for the Life Sciences industry.
+* **User Connections**: Individual users can link user connection apps to their own SAP Concur account. These links are created in a secure fashion, using authentication tokens, rather than through manual sharing of usernames and passwords, which is prohibited. Examples include Uber, Lyft, and a variety of apps to help users manage their expenses more efficiently. Additionally, users with TripLink will be able to link their accounts with travel suppliers like IHG or Starwood so reservations made on their websites flow automatically into Concur Travel.
 
 The SAP Concur App Center helps companies improve spend management and compliance while making travel and expensing easier for users. Pre-built integrations allow for easy adoption and deployment.
 
-## <a name="downloading"></a>Will users be downloading apps in SAP Concur?
+## <a name="downloading"></a>Will users be downloading apps?
 
-No, because our App Center is only about enabling the flow of data between Concur and other tools, there is nothing to download in Concur. If they don’t already use an app, users would need to first set up an account with that provider (and in some cases download the provider’s app on their mobile device) and then link their accounts.
+No, because our App Center is only about enabling the flow of data between the SAP Concur platform and other tools, there is nothing to download. If they don’t already use an app, users would need to first set up an account with that provider (and in some cases download the provider’s app on their mobile device) and then link their accounts.
 
 ## <a name="access"></a>How do I access the SAP Concur App Center?
 
-The App Center is available on SAP Concur’s public website, the “In-Product” solution and in Concur for Mobile (only user apps).
+The App Center is available on the SAP Concur website, the “In-Product” solution and in Concur for Mobile (only user apps).
 
 * Public Website: [https://www.concur.com/en-us/app-center](https://www.concur.com/en-us/app-center)
 * In-Product: [https://www.concursolutions.com/](https://www.concursolutions.com/)
@@ -57,19 +57,19 @@ The App Center is available on SAP Concur’s public website, the “In-Product�
 
 ## <a name="visibility"></a>Who can see the SAP Concur App Center tab?
 
-All SAP Concur users and admins. All partner listings can be found in the public and “In-Product” App Center. The App Center on Concur for Mobile currently only displays apps in the user connections category. All Concur Standard, Professional and Premium Edition clients and users have access.
+All SAP Concur users and admins. All partner listings can be found in the public and “In-Product” App Center. The App Center on Concur for Mobile currently only displays apps in the user connections category. All SAP Concur Standard, Professional and Premium Edition clients and users have access.
 
-## <a name="review"></a>How does SAP Concur review App Center Partners and integrations?
+## <a name="review"></a>How are App Center Partners and integrations reviewed?
 
-Each app appearing in the App Center is reviewed by Concur before clients or end users can connect with the application. SAP Concur reviews the application to confirm the following:
+Each app appearing in the App Center is reviewed by before clients or end users can connect with the application. The application is reviewed to confirm the following:
 
 * The app requests permission to access only web services suitable for the purpose of the app (Enterprise Applications).
-* For apps that request access to credit card information, SAP Concur confirms that the app provider is PCI compliant.
+* For apps that request access to credit card information, we confirm that the app provider is PCI compliant.
 * The app does not generate unacceptable volumes of requests.
 * The app does not generate unacceptable levels of error messages.
 * The app’s user interface generally conforms to the app provider’s documentation.
 
-SAP Concur ensures that the partner informs the user of the type of data they will be sharing with the partner if they connect. This provides complete transparency to the user on the data they are sharing with the partner.
+We ensure that the partner informs the user of the type of data they will be sharing with the partner if they connect. This provides complete transparency to the user on the data they are sharing with the partner.
 
 ## <a name="filters"></a> What should I do if I cannot find an application?
 
@@ -77,11 +77,11 @@ End users will only see applications that are available in their country. If an 
 
 ## <a name="secure"></a>How do I know the app I’m connecting with is secure?
 
-SAP Concur's platform enforces several layers of security:
+The SAP Concur platform enforces several layers of security:
 
 * OAuth 2.0 is used to control information sharing so that an app cannot access information associated with a user or customer without approval from the user or customer.
 * Secure Sockets Layer (SSL) is used to manage the security of data transmissions.
-* App registration and formal certification ensures only known apps may integrate with Concur.
+* App registration and formal certification ensures only known apps may integrate with the SAP Concur platform.
 
 ## <a name="oauth"></a>What is “OAuth 2.0”?
 
@@ -89,19 +89,19 @@ OAuth is an open standard for authorization. OAuth provides a method for clients
 
 ## <a name="user-enterprise"></a>There are two sections in the App Center, “user connections” and “enterprise applications”. What’s the difference?
 
-**User connections** (formerly Apps for Me) are end-user apps. Users can “connect” their accounts enabling relevant data to flow between the two solutions. An example would be TripIt, an app which provides a Concur Travel integration. It’s important to note that the apps displayed on this tab are based on the client’s product configuration; for example, a user with Concur Travel only will not see expense related apps.
+**User connections** are end-user apps. Users can “connect” their accounts enabling relevant data to flow between the two solutions. An example would be TripIt, an app which provides a Concur Travel integration. It’s important to note that the apps displayed on this tab are based on the client’s product configuration; for example, a user with Concur Travel only will not see expense related apps.
 
-**Enterprise applications** (formerly Apps for My Business) are enterprise apps that need to be procured and activated by the appropriate SAP Concur administrator in an organization. In the App Center, individuals can learn about the apps that are available and send an inquiry to the partner. Once you have contracted with the partner and provided SAP Concur with a signed Letter of Authorization (provided by the partner) signifying that you authorize SAP Concur to enable the integration the app can be enabled. There will typically be a few steps to configure the integration, depending on the application type. An example would be Taxback International, which provides an Expense integration.
+**Enterprise applications** are enterprise apps that need to be procured and activated by the appropriate SAP Concur administrator in an organization. In the App Center, individuals can learn about the apps that are available and send an inquiry to the partner. Once you have contracted with the partner and provided the SAP Concur organization with a signed Letter of Authorization (provided by the partner) signifying that you authorize us to enable the integration the app can be enabled. There will typically be a few steps to configure the integration, depending on the application type. An example would be Taxback International, which provides an Expense integration.
 
 > Note: Some partners, such as Uber for Business, use a connection process that allows the Letter of Authorization to be agreed upon online by an administrator. Screenshots of this process appear in the answer to “Can any user connect to an enterprise application?“ on page 8 below.
 
 ## <a name="triplink"></a>If a company is NOT a TripLink client, will they see TripLink apps?
 
-No, if a company does not have TripLink they will not see Concur TripLink apps in the “user connections” section when logged in to Concur.
+No, if a company does not have TripLink they will not see Concur TripLink apps in the “user connections” section when logged in to the SAP Concur platform.
 
 ## <a name="actions"></a>What actions can a user take from the App Center?
 
-On each App Center Partner listing, a “Request Information” button will be available for users to click to complete an inquiry form that will be submitted directly to the App Center Partner; this is for apps in the enterprise category. User connection apps will have a “Login to connect” button requiring them to log into their Concur account to connect their account.
+On each App Center Partner listing, a “Request Information” button will be available for users to click to complete an inquiry form that will be submitted directly to the App Center Partner; this is for apps in the enterprise category. User connection apps will have a “Login to connect” button requiring them to log into their SAP Concur account to connect their account.
 
 Users can also view brochures, videos, contact information and the partner’s website for both types of apps.
 
@@ -119,7 +119,7 @@ User applications in the “in-product” App Center are also filtered by the us
 
 ## <a name="download"></a>I’m an Administrator. What if I don’t want my users to download an app from the SAP Concur App Center?
 
-Users cannot download apps directly from the SAP Concur App Center, it’s simply a means to open a secure gateway to share relevant data between their Concur account and their account with the partner. If you have concerns about your users being able to connect with any of the user apps, you’re able to disable them following the [App Center Administrator User Guide](https://www.concurtraining.com/customers/tech_pubs/Docs/ConcurPremier/UG_Shr/Shr_UG_AppCenterAdmin.pdf).
+Users cannot download apps directly from the SAP Concur App Center, it’s simply a means to open a secure gateway to share relevant data between their SAP Concur account and their account with the partner. If you have concerns about your users being able to connect with any of the user apps, you’re able to disable them following the [App Center Administrator User Guide](https://www.concurtraining.com/customers/tech_pubs/Docs/ConcurPremier/UG_Shr/Shr_UG_AppCenterAdmin.pdf).
 
 ## <a name="control"></a>I’m an Administrator. I’m not sure I want my users to see certain apps because I’m concerned that will encourage them to book out of policy – will it?
 
@@ -169,7 +169,7 @@ Regional availability is noted in the details page of each app listing in the Ap
 
 ![Regions Available](./app-center-client-faq-regions-available.png)
 
-Additionally, SAP Concur is adding regional public App Centers. So far, we have pages with specially-curated apps for Japan, the UK, and Australia, with more to come. <!-- ToDo Broken Link -->
+Additionally, we are adding regional public App Centers. So far, we have pages with specially-curated apps for Japan, the UK, and Australia, with more to come.
 
 ## <a name="look"></a>What does the App Center look like?
 

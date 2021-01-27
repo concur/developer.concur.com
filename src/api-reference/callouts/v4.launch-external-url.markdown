@@ -25,7 +25,7 @@ This callout differs from the standard SAP Concur web services in the following 
 * [Security](#security)
 * [Authentication](#auth)
 * [Functions](#functions)
-* [SAP Concur Expense Configuration](#config)
+* [Concur Expense Configuration](#config)
 * [Responses and Errors](#responses-errors)
 * [Launch External URL Form Field Configuration](#leu-field-config)
 * [Application Connector Management](#app-connector)
@@ -59,7 +59,7 @@ The system requires certain named fields (not custom fields) to be completed bef
 * At the Report Header level: Report Name, Report Date, Policy, and Start/End Date.
 * At the Expense Entry level: Expense Type, Amount, Transaction Date, Payment Type, and Currency.
 
-Any audit rules configured as Save actions will not be visible to the end user until the user returns to the SAP Concur Expense application from the pop-up window.
+Any audit rules configured as Save actions will not be visible to the end user until the user returns to the Concur Expense application from the pop-up window.
 
 ## <a name="leu-process-overview"></a>Launch URL Process Overview
 

@@ -45,9 +45,9 @@
         url: /api-reference/callouts/fetch-list.html
       - title: Get notifications by status
         url: /api-reference/callouts/get-notifications-status.html
-      - title: Launch an external URL request
+      - title: Launch an external URL request v1
         url: /api-reference/callouts/launch-external-url-request.html
-      - title: Launch External URL Callout
+      - title: Launch External URL Callout v1
         url: /api-reference/callouts/launch-external-url.html
       - title: Launch External URL v4
         url: /api-reference/callouts/v4.launch-external-url.html
@@ -93,8 +93,6 @@
         url: /api-reference/direct-connects/ground-transportation/post-transportation-search.html
       - title: Update reservation with supplier
         url: /api-reference/direct-connects/ground-transportation/update-reservation-supplier.html
-      - title: Update reservation with Travel
-        url: /api-reference/direct-connects/ground-transportation/update-reservation-travel.html
 - title: Direct Connect - Hotel v2
   url: ''
   children:
