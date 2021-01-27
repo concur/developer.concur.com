@@ -29,7 +29,7 @@ Streamline user onboarding with **Sign in with Concur** – a new feature that a
 _For partners_
 
 - Streamlines account set-up: User's profile is pre-validated, including basic PII information plus travel preferences
-- Simplifies development and integration: Quickly obtain authentication tokens for the user and call Concur's APIs
+- Simplifies development and integration: Quickly obtain authentication tokens for the user and call SAP Concur APIs
 
 _For users_
 
@@ -60,7 +60,7 @@ _Back office applications_
 
 - Automate the process of provisioning users for your application using data from Concur.
 
-- Simplify log in and support for users that log in infrequently by leveraging Concur's authentication.
+- Simplify log in and support for users that log in infrequently by leveraging the SAP Concur authentication.
 
 # <a name="how_it_works"></a>How it Works
 

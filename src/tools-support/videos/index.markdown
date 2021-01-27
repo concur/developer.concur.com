@@ -23,7 +23,7 @@ For integration developers building SAP Concur Web Services API integrations. Ov
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/If1jCwgZedA" frameborder="0" allowfullscreen></iframe>
 
-## Guide to running the SAP Concur Extract API
+## Guide to running the Extract API
 
 Allows SAP Concur clients to pull approved Expense Reports or Invoices from SAP Concur to send to the ERP general ledger. This video goes through the preliminary checks and four step process for running the Extract API job and retrieving the Extract file.
 
@@ -31,6 +31,6 @@ Allows SAP Concur clients to pull approved Expense Reports or Invoices from SAP 
 
 ## List Item API Guide
 
-Adding, updating, or deleting list items appearing in SAP Concur Expense, Invoice, Travel, or Request forms using the List Item API. The List Item API provides a real-time mechanism for pushing general ledger account entries, cost center, project codes, job codes, etc. from your Enterprise Platform to SAP Concur.
+Adding, updating, or deleting list items appearing in Concur Expense, Invoice, Travel, or Request forms using the List Item API. The List Item API provides a real-time mechanism for pushing general ledger account entries, cost center, project codes, job codes, etc. from your Enterprise Platform to SAP Concur.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YAy4Y0R3lWg" frameborder="0" allowfullscreen></iframe>

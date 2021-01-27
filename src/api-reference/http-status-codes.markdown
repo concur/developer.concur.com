@@ -32,7 +32,7 @@ Content|A parent element that contains an **Error** child element.
 Element|Description
 ---|---
 Message|The error message.
-Server-Time|The time the error was generated, based on Concur's server's time zone.
+Server-Time|The time the error was generated, based on the SAP Concur server's time zone.
 Id|The ID of the error within Concur.
 
 Refer to the individual function documentation for function-specific error formats.
