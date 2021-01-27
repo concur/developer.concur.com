@@ -18,7 +18,7 @@ Development Item|Resources
 ---|---
 Authorization|[Authentication - Enterprise Business Applications](/api-reference/authentication/apidoc.html#enterprise-business-applications)
 Development & Certification|[Enterprise App Development & Certification](https://prezi.com/p/lw0qqy51zcmd/)
-Landing Page|To develop the **Landing Page** read the [Apps for My Business](/manage-apps/go-market-docs/app-center-ux-guidelines-enterprise.html) and / or [Apps for Me](/manage-apps/go-market-docs/app-center-ux-guidelines-consumer.html) User Experience Guidelines to learn more about certification. The Certification PM will provide you a checklist that will be adhered to during the Certification walkthrough call.
+Landing Page|To develop the **Landing Page** read the [Enterprise Applications](/manage-apps/go-market-docs/app-center-ux-guidelines-enterprise.html) and / or [User Connections](/manage-apps/go-market-docs/app-center-ux-guidelines-consumer.html) User Experience Guidelines to learn more about certification. The Certification PM will provide you a checklist that will be adhered to during the Certification walkthrough call.
 ERP applications (only)|ERP Partner Integrations - the Partner will need to develop a solution that facilitates a way for the customer / partner to refresh the OAuth2 Access Token when the customer uses an on-premise ERP system.
 
 This diagram is part of the above presentation content:
