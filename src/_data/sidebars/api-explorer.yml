@@ -78,8 +78,6 @@
         url: /api-explorer/v4-0/Reports.html
       - title: Budget
         url: /api-explorer/v4-0/Budget.html
-      - title: Budget
-        url: /api-explorer/v4-0/Budget.html
       - title: Expenses
         url: /api-explorer/v4-0/Reports.html
       - title: Invoice Pay
