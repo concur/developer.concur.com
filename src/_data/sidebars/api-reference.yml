@@ -129,6 +129,8 @@
   children:
       - title: Allocations v3
         url: /api-reference/expense/allocations/expense-allocations.html
+      - title: Allocations v4
+        url: /api-reference/expense/expense-report/v4.allocations.html
       - title: Attendee Types v3
         url: /api-reference/expense/attendee-types/v3.attendee-types.html
       - title: Attendees v3
@@ -143,6 +145,8 @@
         url: /api-reference/expense/expense-report/v3.expense-entry-attendee.html
       - title: Entries v3
         url: /api-reference/expense/expense-report/expense-entry.html
+      - title: Expenses v4
+        url: /api-reference/expense/expense-report/v4.expenses.html
       - title: Expense Form Field v1.1
         url: /api-reference/expense/expense-report/expense-form-field.html
       - title: Expense Form v1.1
@@ -161,6 +165,8 @@
         url: /api-reference/expense/expense-report/post-report-workflow-action.html
       - title: Reports v3
         url: /api-reference/expense/expense-report/v3.reports.html
+      - title: Reports v4
+        url: /api-reference/expense/expense-report/v4.reports.html
       - title: Report Details
         url: /api-reference/expense/expense-report/expense-report-get.html
       - title: Payment Batches v1.1
