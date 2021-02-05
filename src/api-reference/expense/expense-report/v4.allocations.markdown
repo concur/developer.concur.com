@@ -2,10 +2,7 @@
 title: Allocations v4
 layout: reference
 
-
 ---
-
-{% include prerelease.html %}
 
 The Allocations API can be used to read the allocations that belong to a specific expense on an expense report and modify an allocation on an existing expense in an expense report. This API can be used to change custom field attributes, etc.
 
