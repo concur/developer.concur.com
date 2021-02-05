@@ -307,7 +307,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |-------------|-------------------|-------------|
-|`NamePrefix`|`stringLength1to16`|Salutation of honorific. Supported values: `Mr`, `Mrs`, `Ms`, `Miss`, `Dr`, `Rev`, `Sir`, `Lord`, `Lady`, `Dr Mr`, `Dr Mrs`, `Dr Ms`, `Prof Mr`, `Prof Mrs`, `Prof Ms`, `Prof Dr Mr`, `Prof Dr Mrs`, `Prof Dr Ms`|
+|`NamePrefix`|`stringLength1to16`|Salutation of honorific. List subject to change. Example values: `Mr`, `Mrs`, `Ms`, `Miss`, `Dr`, `Rev`, `Sir`, `Lord`, `Lady`, `Dr Mr`, `Dr Mrs`, `Dr Ms`, `Prof Mr`, `Prof Mrs`, `Prof Ms`, `Prof Dr Mr`, `Prof Dr Mrs`, `Prof Dr Ms`|
 |`GivenName`|`stringLength1to64`|Given name, first name or names.|
 |`Surname`|`stringLength1to64`|**Required** Family name, last name. May also be used for full name if the sending system does not have the ability to separate a full name into its parts. Example: the surname element may be used to pass the full name.|
 
@@ -626,5 +626,5 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 
 |Name|Type|Description|
 |------------------------|--------------------|-------------|
-|`PaymentPolicies`|`complex`|**Required** Payment policies for this rate. Refer to `PaymentPolicies` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#payment-policies).|
+|`PaymentPolicies`|`complex`|Payment policies for this rate. Refer to `PaymentPolicies` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#payment-policies).|
 |`Total`|`complex`|**Required** A description of the rate. Refer to `Total` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#total).|
