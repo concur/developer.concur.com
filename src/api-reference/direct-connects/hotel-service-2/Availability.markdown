@@ -188,9 +188,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
           </RoomTypes>
           <RatePlans>
             <RatePlan RatePlanID="XNFYP4I" AvailabilityStatus="ChangeDuringStay">
-              <Guarantee>
-                <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
-              </Guarantee>
+              <Guarantee GuaranteeType="GuaranteeRequired" />
               <CancelPenalties>
                 <CancelPenalty>
                   <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
@@ -314,7 +312,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |Name|Type|Description|
 |-----------------|-----------|-------------|
 |`GuaranteeType`|`string`|**Required** The guarantee information to hold a reservation.|
-|`Deadline`|`complex`|Guarantee deadline, absolute or relative.|
 
 #### <a name="supported-guarantee-types"></a>Supported GuaranteeTypes
 
@@ -339,7 +336,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |------------------------|--------------------|-------------|
-|`AbsoluteDeadline`|`time` or `datetime` |Defines the absolute deadline. Either this or the offset attributes may be used.|
+|`AbsoluteDeadline`|`time` or `datetime`|**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
 
 #### <a name="cancel-penalties"></a>CancelPenalties
 
@@ -359,7 +356,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|----------|-----------------------|
-|`Text`|`formattedText`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
 
 #### <a name="meals-included"></a>MealsIncluded
 
@@ -378,8 +375,8 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |--------------|-----------|-------------|
-|`RoomID`|`complex`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
-|`RatePlanID`|`complex`|**Required** Rate plan ID for which this rate is applicable for.|
+|`RoomID`|`stringLength1to16`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
+|`RatePlanID`|`stringLength1to64`|**Required** Rate plan ID for which this rate is applicable for.|
 |`Rates`|`complex`|**Required** Contains the rate for the given room.  SAP Concur only expects one (1) rate inside the `Rates` element. Refer to [Rate Details](/api-reference/direct-connects/hotel-service-2/Rate-details.html) for rate change details.|
 
 #### <a name="rates"></a>Rates
@@ -439,7 +436,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |-------------------|--------------|-------------|
-|`AmountBeforeTax`|`string`|**Required** The total amount not including any associated tax. Examples: `sales tax`, `VAT`, `GST`|
+|`AmountBeforeTax`|`string`|The total amount not including any associated tax. Examples: `sales tax`, `VAT`, `GST`|
 |`AmountAfterTax`|`string`|**Required** The total amount including all associated taxes. Examples: `sales tax`, `VAT`, `GST`|
 |`CurrencyCode`|`alphaLength3`|**Required** Currency code.|
 

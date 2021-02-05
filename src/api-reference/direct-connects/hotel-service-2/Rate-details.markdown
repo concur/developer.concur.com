@@ -203,9 +203,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
           </RoomTypes>
           <RatePlans>
             <RatePlan RatePlanID="XNFYP4I" AvailabilityStatus="ChangeDuringStay">
-              <Guarantee>
-                <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
-              </Guarantee>
+              <Guarantee GuaranteeType="GuaranteeRequired" />
               <CancelPenalties>
                 <CancelPenalty>
                   <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
@@ -335,7 +333,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |Name|Type|Description|
 |-----------------|-----------|-------------|
 |`GuaranteeType`|`string`|**Required** The guarantee information to hold a reservation.|
-|`Deadline`|`complex`|**Required** Guarantee deadline, absolute or relative.|
 
 #### <a name="supported-guarantee-types"></a>Supported GuaranteeTypes
 
@@ -374,13 +371,13 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |--------------------|-----------|-------------|
 |`NoCancelInd`|`boolean`| If true, the reservation cannot be cancelled once the cancellation deadline has expired. False or missing flag will be treated as rate being not cancellable.|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. This element may contain a maximum of 9 children text fields. Any excess text elements are dropped.|
-|`Deadline`|`complex`|**Required** Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
+|`Deadline`|`complex`|Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
 |Name|Type|Description|
 |---------|----------|-----------------------|
-|`Text`|`formattedText`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
 
 #### <a name="meals-included"></a>MealsIncluded
 
@@ -398,8 +395,8 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |--------------|-----------|-------------|
-|`RoomID`|`complex`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
-|`RatePlanID`|`complex`|**Required** Rate plan ID for which this rate is applicable for.|
+|`RoomID`|`stringLength1to16`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
+|`RatePlanID`|`stringLength1to64`|**Required** Rate plan ID for which this rate is applicable for.|
 |`Rates`|`complex`|**Required** Contains the rate for the given room.  SAP Concur only expects one (1) `Rate` inside the `Rates` element if `AvailabilityStatus` is `AvailableForSale`. It is optional to include multiple `Rate` for `ChangeDuringStay`|
 |`RoomRateDescription`|`complex`|The description or name of a room rate.|
 
@@ -425,7 +422,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |------------------|-----------|-------------|
-|`Text`|`formattedText`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
 
 #### <a name="payment-policies"></a>PaymentPolicies
 
@@ -468,7 +465,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |-------------------|--------------|-------------|
-|`AmountBeforeTax`|`string`|**Required** The total amount not including any associated tax. Examples: `sales tax`, `VAT`, `GST`|
+|`AmountBeforeTax`|`string`|The total amount not including any associated tax. Examples: `sales tax`, `VAT`, `GST`|
 |`AmountAfterTax`|`string`|**Required** The total amount including all associated taxes. Examples: `sales tax`, `VAT`, `GST`|
 |`CurrencyCode`|`alphaLength3`|**Required** Currency code.|
 
@@ -476,7 +473,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`stringLength1to32`|**Required** SAP Concur only expects one (1) text field for the rate description. Any excess text elements will be ignored. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** SAP Concur only expects one (1) text field for the rate description. Any excess text elements will be ignored. All text passed is HTML encoded.|
 
 #### <a name="tpa-extensions"></a>TPA_Extensions
 

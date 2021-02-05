@@ -61,6 +61,14 @@ PUT /events/v4/subscriptions/webhook
   }
 }
 ```
+**Request Parameters**
+| Name     | Type   | Format              | Description                                                  |
+| :------- | :----- | :------------------ | :----------------------------------------------------------- |
+| Id       | String | Low case letters, numbers, "." and  "-"| Your unique subscription name. We suggest to use something usefull and self explanatory: my-company.my-scenario.env.version |
+| Filter   | String | regular expression  | Allows you to reduce the number of delivered events to a certain type. Example, setting to "eventCreated" will get only this event types delivered, other event types will be skipped. Set to ".*" to receive ALL events in the topic. |
+| Topic    | String | -                   | Topic, stream of events you are subscribing to.              |
+| Endpoint | String | URL                 | Your endpoint where events will be delivered.                |
+
 **Response**
 ```json
 {"message":"Subscription 'my-unique-subscription-id' saved successfully"}
@@ -93,6 +101,21 @@ GET /events/v4/subscriptions/my-unique-subscription-id
     }
 ]
 ```
+**Response Parameters**
+
+| Name          | Type   | Format              | Description                                                  |
+| :------------ | :----- | :------------------ | :----------------------------------------------------------- |
+| Id            | String | Low case and . - \d | Your unique subscription name. We suggest to use something usefull and self explanatory: my-company.my-scenario.env.version |
+| Filter        | String | regular expression  | Allows you to reduce the number of delivered events to a certain type. Example, setting to "eventCreated" will get only this event types delivered, other event types will be skipped. Set to ".*" to receive ALL events in the topic. |
+| Topic         | String | -                   | Topic, stream of events you are subscribing to.              |
+| Endpoint      | String | URL                 | Your endpoint where events will be delivered.                |
+| applicationId | String | UUID                | Concur application that was used to generate JWT. Application is used to estavblish subscription owner. |
+| companyIds    | List   | list of UUID        | Company UUID, tenant whose even will be delivered to specified endpoint. In order to receive events of a certain company a trust MUST be established between company and application on Concursolution app center page. |
+| groups        | List   | -                   | Reserved for future scenarios support                        |
+| scope         | String | -                   | Reserved for future scenarios support                        |
+
+
+
 ## <a name="get-subscription-list"></a> 5. Browse existing subscriptions
 If you happen to forget your subscription name/id, you can always retrieve all of your subscriptions by calling next endpoint:  
 **Request**

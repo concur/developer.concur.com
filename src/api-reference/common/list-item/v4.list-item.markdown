@@ -17,7 +17,7 @@ The SAP Concur List Item API provides an automated solution to clients who would
 * [Create a List Item](#post-list-item)
 * [Update a List Item](#put-list-item)
 * [Delete a List Item](#delete-list-item)
-* [Delete a List Item from List](#delete-list-item-from-list)
+* [Delete a List Item from a List](#delete-list-item-from-list)
 * [Retrieve Children of a List Item](#children-list-item-ID)
 * [Retrieve Children of a List Item by List](#children-list-item-by-list)
 * [Retrieve First Level Children of a List](#children-list-ID)
@@ -494,7 +494,7 @@ date: Wed, 08 Jul 2020 14:16:21 GMT
 cache-control: no-cache, private
 ```
 
-## <a name="delete-list-item-from-list"></a>Delete a List Item from List
+## <a name="delete-list-item-from-list"></a>Delete a List Item from a List
 
 Delete a list item by list item ID from a particular list. This enables deleting a shared list item from one list, not all lists.
 
@@ -1045,8 +1045,8 @@ There is basic support for OR functionality with the `shortCodeOrValue` query pa
 |`parentId`|`string`|`uuid`|The unique identifier of the parent list item.|
 |`listId`|`string`|`uuid`|The unique identifier of the list that contains the list item.|
 |`level`|`integer`|`int32`|Level of the list item within the list.|
-|`lists`|[`ListItemMemberList`](#schema-list-item-member-list)|-|The unique identifiers of the lists that contains the list item.|
-|`isDeleted`|`boolean`|`true`/`false`|If `true`, the list item is deleted.|
+|`lists`|[`ListItemMemberList`](#schema-list-item-member-list)|-|The unique identifiers of the lists that contains the list item. The list item may exist under one or more lists.|
+|`isDeleted`|`boolean`|`true`/`false`|Indicates the deleted state of the item in a particular list. If `false`, the list item is not deleted from one or more lists. The `lists` field will include only the lists that contain the list item in a not-deleted state. `isDeleted` will only be `true` when the list item is deleted from all lists. The `lists` field will include all lists that contain the list item.|
 
 ### <a name="schema-list-item-create"></a>List Item Create
 
