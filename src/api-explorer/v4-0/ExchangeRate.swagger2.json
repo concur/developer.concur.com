@@ -24,13 +24,6 @@
             "description": "bulkUploadRequest",
             "required": true,
             "schema": { "$ref": "#/definitions/BulkExchangeRateUploadRequest" }
-          },
-          {
-            "name": "company-uid",
-            "in": "header",
-            "description": "The unique identifier of the company",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
