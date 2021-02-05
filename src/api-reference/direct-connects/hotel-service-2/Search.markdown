@@ -297,4 +297,4 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`URL`|`stringLength1to32`|**Required** URL of the multimedia item for a specific format. SAP Concur supports one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message. The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
+|`URL`|`string`|**Required** URL of the multimedia item for a specific format. SAP Concur supports one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message. The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |

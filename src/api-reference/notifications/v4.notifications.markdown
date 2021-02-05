@@ -3,7 +3,7 @@ title: Partner Notifications v4
 layout: reference
 ---
 
-The purpose of this API is to provide SAP Concur's partners the ability to message users through the web and mobile product.
+The purpose of this API is to provide SAP Concur partners the ability to message users through the web and mobile product.
 
 **Sample use case:** A business traveller starts a travel booking. That user is notified that a visa is required for their trip.
 

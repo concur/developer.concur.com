@@ -218,7 +218,7 @@ Name | Type | Format | Description
 `client_id`|`string`|[`{key}`](#key)|**Required** The application key.
 `scope`|`string`|[`{scope}`](#scope)|The comma separated list of APIs for which authorization will be granted.
 `redirect_uri`|`string`|-|The URI of the partner application where Concur will redirect the user after authentication and access approval.
-`state`|`string`|-|  Optional partner application-defined state variable. This variable is specified by the partner application and will be returned intact by the Concur's OAuth provider when the user is redirected to the redirect URL. Values are generally passed in this parameter when the state of the value cannot be maintained by the partner application, for instance when making calls between multiple, disparate web pages. Example: The state variable can contain the ID of the user in the partner application, so that the token returned in the callback can be associated to the specified user and subsequently saved in the database of the partner application.
+`state`|`string`|-|  Optional partner application-defined state variable. This variable is specified by the partner application and will be returned intact by the the SAP Concur OAuth provider when the user is redirected to the redirect URL. Values are generally passed in this parameter when the state of the value cannot be maintained by the partner application, for instance when making calls between multiple, disparate web pages. Example: The state variable can contain the ID of the user in the partner application, so that the token returned in the callback can be associated to the specified user and subsequently saved in the database of the partner application.
 
 <a name="scope"></a>Scope | Description
 ------|------------

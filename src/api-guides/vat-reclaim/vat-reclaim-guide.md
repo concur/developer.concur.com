@@ -12,7 +12,7 @@ layout: reference
   * [Obtain Expense Report Data for VAT Reclaim](#obtain-expense-report-data-for-vat-reclaim)
   * [Obtain Invoice Data for VAT Reclaim](#obtain-invoice-data-for-vat-reclaim)
 
-The VAT Reclaim app category streamlines the VAT recovery process for SAP Concur customers. The VAT Reclaim Partner's certified app will obtain Expense Report and Invoice data from our customer's SAP Concur site using the "Quick Connect" process and executing their app using SAP Concur's Expense and Invoice APIs. To be certified, the Partner must support both products: Expense & Invoice with SAP Concur Standard Edition and Professional Edition.
+The VAT Reclaim app category streamlines the VAT recovery process for SAP Concur customers. The VAT Reclaim Partner's certified app will obtain Expense Report and Invoice data from our customer's SAP Concur site using the "Quick Connect" process and executing their app using the SAP Concur Expense and Invoice APIs. To be certified, the Partner must support both products: Expense & Invoice with SAP Concur Standard Edition and Professional Edition.
 
 The Partner's application should use the API's search parameters so the response includes only Expense Reports or Invoices that have reached the end of the approval workflow within the customer's SAP Concur system. Those Expense Reports and Invoices that reached the end of the approval process ("Extracted" or "Payment Confirmed") can no longer be edited within the SAP Concur system. The Partner's app will therefore be simplified by only obtaining data that is finalized.
 
