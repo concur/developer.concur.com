@@ -164,7 +164,7 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
 |Name|Type|Description|
 |---------|--------------------|-------------|
 |`name`|`stringLength1to64`|The contents of this element will be rendered as a heading on the hotel details page.|
-|`Text`|`stringLength1to255`|**Required** The contents of this element will be rendered as a paragraph. SAP Concur expects a maximum of 20 text elements per description, which will be concatenated to into one (1) paragraph.|
+|`Text`|`string`|**Required** The contents of this element will be rendered as a paragraph. SAP Concur expects a maximum of 20 text elements per description, which will be concatenated to into one (1) paragraph.|
 
 #### <a name="multi-descs"></a>MultimediaDescriptions
 
