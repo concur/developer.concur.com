@@ -31,6 +31,8 @@ The Event Subscription Service (ESS) implements the Publish/Subscribe pattern us
 * **Subscription** - a topic consumer. Each subscription has a topic it is subscribed to.  
 * **Webhook** - an ESS application that uses a subscription model and delivers events to the endpoint.
 
+In order to begin receiving events, you must first subscribe to the relevant topic(s) for your application. To subscribe to an event, you must work with your relevant SAP Concur technical contact; for partners, please work with your technical enablement contact. For customers, your web services consultant will subscribe on your behalf to the relevant topic(s).
+
 ## <a name="scope-usage"></a>Scope Usage
 
 There are two levels of scopes required for creating subscription.
@@ -44,9 +46,6 @@ Name                | Description                       | Endpoint
 
 ## <a name="process-flow"></a>Process Flow
 
-In order to begin receiving events, you must first subscribe to the relevant topic(s) for your application.
-
-To subscribe to an event, you must work with your relevant SAP Concur technical contact; for partners, please work with your technical enablement contact. For customers, your web services consultant will subscribe on your behalf to the relevant topic(s).
 
 ## <a name="access-control"></a>Access Control
 
