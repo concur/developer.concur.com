@@ -4,9 +4,7 @@ layout: reference
 
 ---
 
-{% include prerelease.html %}
-
-The Expenses API can be used to read the expenses that belong to a specific expense report and modify an expense on an existing expense report. This API can be used to change attributes like transaction date, transaction amount, location, etc
+The Expenses API can be used to read the expenses that belong to a specific expense report and modify an expense on an existing expense report. This API can be used to change attributes like transaction date, transaction amount, location, etc.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 

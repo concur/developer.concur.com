@@ -15,7 +15,7 @@ layout: reference
 * [Updating a payment with status](#Updating-a-payment-with-status)
 * [Learn](#learn)
 
-The Payment Provider App Category streamlines the Invoice Payment process for SAP-Concur customers. The Payment Provider Partner's certified app will obtain Invoice data from our customers' Concur site by using the "Quick Connect" process and executing their app using Concur's Invoice APIs. To be certified, the Partner must support both Editions of SAP-Concur Invoice: Standard Edition and Professional Edition.
+The Payment Provider App Category streamlines the Invoice Payment process for SAP Concur customers. The Payment Provider Partner's certified app will obtain Invoice data from our customers' Concur site by using the "Quick Connect" process and executing their app using Invoice APIs. To be certified, the Partner must support both Editions of Concur Invoice: Standard Edition and Professional Edition.
 
 ## <a name="integration"></a>Integration
 
@@ -33,13 +33,13 @@ The Payment Provider App Category streamlines the Invoice Payment process for SA
 
 **These topics should be completed prior to obtaining Invoices pending payment:**
 
-#### Topic 1: Update the field called, "Payment Method Type" within the SAP-Concur Invoice Vendor record
+#### Topic 1: Update the field called, "Payment Method Type" within the Concur Invoice Vendor record
 
-In order to pay a customer's invoices, the SAP-Concur Invoice Vendor record must have the value of **PAYPVD** populated within the "Payment Method Type" field.  This can be populated in 3 ways, one of which is via API.  The Partner and customer need to agree who will be responsible for updating the Vendors initially and on an on-going basis. Here are the methods the Vendor (aka Supplier) record can be updated:
+In order to pay a customer's invoices, the Concur Invoice Vendor record must have the value of **PAYPVD** populated within the "Payment Method Type" field.  This can be populated in 3 ways, one of which is via API.  The Partner and customer need to agree who will be responsible for updating the Vendors initially and on an on-going basis. Here are the methods the Vendor (aka Supplier) record can be updated:
 
 Option|Technique|Owner responsible for update
 ---|---|---
-Option 1|File import-On-Demand Import via an Excel template within the SAP-Concur Invoice product|Customer completes
+Option 1|File import-On-Demand Import via an Excel template within Concur Invoice |Customer completes
 Option 2|File import-Scheduled Import via a csv file|Customer completes
 Option 3|App integration|Customer and Partner need to coordinate since Vendor master data most likely resides in their ERP
 
@@ -47,7 +47,7 @@ Option 3|App integration|Customer and Partner need to coordinate since Vendor ma
 
 [Vendor Update API v3](/api-reference/invoice/v3.vendor.html#put)
 
-#### Topic 2: Customer ensures the Vendor Contact Email addresses exist within the SAP-Concur Invoice Vendor record for the Vendors that the Partner will pay
+#### Topic 2: Customer ensures the Vendor Contact Email addresses exist within the Concur Invoice Vendor record for the Vendors that the Partner will pay
 
 Confirm that the customer adminsitrator has created a Concur Audit Rule to require the Vendor (Supplier) email address has been populated for those Vendor invoices that will be paid via this integration. The Customer can take the following steps to create the Audit Rule:
 
@@ -104,7 +104,7 @@ Editable By:      This depends on the customer configuration
 
 If the customer wants invoices paid early in order to take advantage of the Vendor's discount terms, the customer and partner will need to work together. The customer will need to configure search queries within the administrative tool called, "Invoice Processor". The search parameters will based on invoice due date and Payment Method Type field.  The search query parameters need to include enough days to allow the customer and partner to meet the invoice terms. Once the customer administrator final-approves those invoices, the Partner will be able to obtain the invoices that are pending payment. In order to obtain the discount terms, the Partner will have to use the GET Payment Request API using the invoice ID from the GET Payments response.
 
-> Note: the customer and partner need to discuss how the customer manages the discounts within the SAP-Concur Invoice product. The customer may elect to adjust the invoice amount field and then add credited line items within the invoice to reflect the discount.  In this case, the partner will **not** need to compute the discount and will just use the value in the Invoice Amount field.
+> Note: the customer and partner need to discuss how the customer manages the discounts within  Concur Invoice. The customer may elect to adjust the invoice amount field and then add credited line items within the invoice to reflect the discount.  In this case, the partner will **not** need to compute the discount and will just use the value in the Invoice Amount field.
 
 ### <a name="Updating-a-payment-with-status"></a>Updating a payment with status
 

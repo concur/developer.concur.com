@@ -13,7 +13,7 @@ layout: reference
 
 ## <a name="overview"></a>Overview
 
-The topic 'concur.travel.search' provides travel search information.  Subscribers to this event will receive search criteria for travel searches performed within SAP Concur's online booking tool.
+The topic 'concur.travel.search' provides travel search information.  Subscribers to this event will receive search criteria for travel searches performed within the SAP Concur online booking tool.
 
 This event is relevant for applications that are interacting with travelers before they book their trip such as applications that context to the traveler regarding company policy, preferences, or general compliance requirements for booking travel.
 

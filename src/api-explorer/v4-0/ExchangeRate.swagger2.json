@@ -20,17 +20,10 @@
         "parameters": [
           {
             "in": "body",
-            "name": "bulkExchangeRateUploadRequest",
-            "description": "bulkExchangeRateUploadRequest",
+            "name": "bulkUploadRequest",
+            "description": "bulkUploadRequest",
             "required": true,
             "schema": { "$ref": "#/definitions/BulkExchangeRateUploadRequest" }
-          },
-          {
-            "name": "concur-correlationid",
-            "in": "header",
-            "description": "concur-correlationid",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -44,6 +37,10 @@
           },
           "401": {
             "description": "Access Denied",
+            "schema": { "$ref": "#/definitions/ErrorMessage" }
+          },
+          "403": {
+            "description": "Invalid JWT. Expected a valid company JWT",
             "schema": { "$ref": "#/definitions/ErrorMessage" }
           },
           "404": {
@@ -108,7 +105,7 @@
       "properties": {
         "errorId": {
           "type": "string",
-          "description": "The unique identifier of the error associated with the response or is it error response itself"
+          "description": "The unique identifier of the error associated with the response or the error response itself"
         },
         "errorMessage": {
           "type": "string",

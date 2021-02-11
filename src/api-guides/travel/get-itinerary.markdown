@@ -5,7 +5,7 @@ layout: reference
 ---
 
 ## API Recipes: API Tasks
-This series of API Recipes describes API tasks associated with developing apps,  apps for Travel Management Companies, (TMC), Travel Suppliers and businesses who need to get data about their employees' travel related booking.  This recipe assumes you are a current Concur customer or platform partner.
+This series of API Recipes describes API tasks associated with developing apps,  apps for Travel Management Companies, (TMC), Travel Suppliers and businesses who need to get data about their employees' travel related booking.  This recipe assumes you are a current customer or platform partner.
 
 ### Before you begin
 Review the following checklist to ensure you are able to perform the task in this recipe. To see reference information, click the link in the bullet point
@@ -15,7 +15,7 @@ Review the following checklist to ensure you are able to perform the task in thi
 - Be able to access the [Itinerary Web Service (TMC & Third Party)](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html)
 - Ensure you have a definition [XSD](https://developer.concur.com/api-reference/travel/itinerary/ItinServices_Public_0.xsd), usable for architecting your solution
 
-### Get Itinerary and Trip Details: Pulling Itinerary Trip data from Concur
+### Get Itinerary and Trip Details: Pulling Itinerary Trip Data
 
 Developers, travel suppliers and travel management companies will want to use the processes described in this recipe.
 
@@ -23,7 +23,7 @@ Developers, travel suppliers and travel management companies will want to use th
 - **Travel Suppliers** can use the processes to analyze itineraries/trips for gaps in such services as car rental and hotel accommodations, and use the information to offer these services. This is particularly useful if you want to provide an enhanced travel experience for your users
 - **Travel Management Companies** can use these processes to analyze individual or company travel data, offer traveler support services, Triplink support or business intelligence and analytics
 
-The order in which most Concur partners obtain travel data from Concur is:
+The order in which most partners obtain travel data is:
 
 1. Manually add a new itinerary. This creates a sample trip that allows the developer to retrieve their first itinerary via the API and with the response and the XSD, build a schema or data structure.
 2. Populate internal systems by building a scheduled process to poll for itineraries based on specific function parameters.
@@ -32,13 +32,13 @@ The order in which most Concur partners obtain travel data from Concur is:
 Each of these processes can be used by itself. For example if a travel supplier only wanted to obtain itinerary details, they can follow the Get Itinerary Details process described below.
 
 #### Get List of Itineraries:
-The GET List of Itineraries required for the Get Itinerary endpoint is located in the official Concur developer page [here](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html#getlist).
+The GET List of Itineraries required for the Get Itinerary endpoint is located in the official SAP Concur developer page [here](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html#getlist).
 
 ##### If you are a developer and only want to get the GET Itinerary API use the process which follows:
 
-If you have not configured your sandbox to obtain access, you can make that request from the Support Page [here](https://developer.concur.com/api-reference/ ).  Remember to include the name of the Concur representative you with whom you are working in the form.
+If you have not configured your sandbox to obtain access, you can make that request from the Support Page [here](https://developer.concur.com/api-reference/ ).  Remember to include the name of the SAP Concur representative you with whom you are working in the form.
 
-If you have configured your sandbox, the GET List of Itineraries required for the Get Itinerary endpoint is located in the official Concur developer page [here](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html).
+If you have configured your sandbox, the GET List of Itineraries required for the Get Itinerary endpoint is located in the official SAP Concur developer page [here](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html).
 
 ##### Important
 - Use the Itinerary scope. More details [here](/api-reference/authentication/apidoc.html). Use the search term ITINER
@@ -79,7 +79,7 @@ createdAfterDate****={_date_} |	The URL-encoded UTC date for when the trip was c
 createdBeforeDate****={_date_} | The last modified UTC date of the trips and any their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time
 lastModifiedDate****={_date_} |	The trip includes at least one booking of this type. Format: Air, Car, Dining, Hotel, Parking, Rail, or Ride
 bookingType={_type_} |	The trip includes at least one booking of this type. Format: Air, Car, Dining, Hotel, Parking, Rail, or Ride
-userid_type=login&userid_value=_{loginID}_ |	The loginID is the user's Concur login ID. The userid_value of ALL can be sent to get trip summaries for all users at the company. The userid_type and userid_value parameters can only be used if the OAuth consumer has one of the user roles listed above.
+userid_type=login&userid_value=_{loginID}_ |	The loginID is the user's SAP Concur login ID. The userid_value of ALL can be sent to get trip summaries for all users at the company. The userid_type and userid_value parameters can only be used if the OAuth consumer has one of the user roles listed above.
 includeMetadata=true&ItemsPerPage={_number_}&Page={_number_} |	The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters will cause the response to be divided into pages.
 includeVirtualTrip=_1_ |	Virtual trips are segments booked offline through the Travel Request product. Set the includeVirtualTrip query parameter to 1 to include those trips in the list
 includeCanceledTrips=_{true/false}_ |	The includeCanceledTrips query parameter will cause the request to also return trips with a status of Canceled.
@@ -87,14 +87,14 @@ includeCanceledTrips=_{true/false}_ |	The includeCanceledTrips query parameter w
 Refer to the sample [XML GET Itinerary Details Get request](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html#getdetails) for guidance.
 
 ### Get Itinerary details
-This process allows developers, travel suppliers and travel management companies to obtain details on itineraries for specific trips. By default, the Oauth consumer should be the owner of the trip. The Get Itinerary endpoint can also be used to get details for trips that the Oauth consumer does not own. Travel management companies use this process to get trip details on behalf of a user. This assumes the TMC is registered with Concur and possesses a valid Concur account with one the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
+This process allows developers, travel suppliers and travel management companies to obtain details on itineraries for specific trips. By default, the Oauth consumer should be the owner of the trip. The Get Itinerary endpoint can also be used to get details for trips that the Oauth consumer does not own. Travel management companies use this process to get trip details on behalf of a user. This assumes the TMC is registered with SAP Concur and possesses a valid account with one the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 ##### Function Parameters
 
 Name | 	Description
 --------------- | ---------------
 {_tripId_} | Required. The identifier for the desired trip
-userid_type=login&userid_value=_{loginID}_ |	The loginID is the user's Concur login ID. The userid_value of ALL can be sent to get trip summaries for all users at the company.
+userid_type=login&userid_value=_{loginID}_ |	The loginID is the user's SAP Concur login ID. The userid_value of ALL can be sent to get trip summaries for all users at the company.
 systemFormat=_{format}_	|The systemFormat query parameter can be used to specify that the response is formatted for a different system. The supported value is Tripit.
 
 The request returns an itinerary parent element with a subset of child elements. A partial list appears below. The complete list is located [here]( https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html#getdetails).
@@ -163,14 +163,14 @@ Once you have the trip details, look for trips that lack your segment type.
 
 - If you are checking for upcoming trips when the traveler logs in to your mobile app or website to make a booking, you may choose to present to the traveler a list of their upcoming trips that lack your segment type.  For example, if you are a **TripLink** Car Supplier, you may choose to present a list of upcoming trips that lack a rental car reservation and allow the traveler to easily add a car rental to that trip, prepopulating the pickup and drop-off locations and dates/times using the information from the trip details.
 
-In the case of **Apps for me** customer who has booked a hotel through Concur:
+In the case of **User Connections** customer who has booked a hotel through the SAP Concur platform:
 
 - If your user has downloaded TV Food Maps, they will receive an email as the date of the trip approaches
 - The email will indicate which restaurants featured on which TV shows will be near the location at which the employee is staying
 
 ## Advanced Information
 
-The information in this section is _NOT_  intended for use by **Apps for me** developers.
+The information in this section is _NOT_  intended for use by **User Connections** developers.
 
 #### Itinerary Status and Booking Source
 
@@ -179,7 +179,7 @@ Travel Management Companies will find these two elements in the GET trips respon
 - The status of the itinerary:  0- Confirmed; 1- Ticketed by agent; 2- Canceled
 - Booking Source (refer to the table below)
 
-How the itinerary was sent to Concur | BookingOwner | BookingSource
+How the itinerary was sent to the SAP Concur platform | BookingOwner | BookingSource
 ----------------------------------------- | ---------------- | -------------
 Manually added itinerary | OpenBookingEmail | Manual
 Itinerary emailed to plans@concur.com | OpenBookingEmail | Supplier name, or Manual if parser can’t determine supplier
@@ -191,13 +191,13 @@ Amadeus e-Travel Management (AeTM) is an online self-booking tool integrated wit
 
 #### Subscribe and Unsubscribe
 
->**Note**: As part of a security improvement to our authentication infrastructure, the decision has been made to retire notifications for Profile, Form of Payment, and Itinerary for a user or a company because of their handling of OAuth tokens. This functionality has been deprecated as of June 2020. 
+>**Note**: As part of a security improvement to our authentication infrastructure, the decision has been made to retire notifications for Profile, Form of Payment, and Itinerary for a user or a company because of their handling of OAuth tokens. This functionality has been deprecated as of June 2020.
 
 Concur Travel Suppliers and Travel Management Companies may need to know how to post a company notification subscription for itinerary changes. Use the information which follows to guide you. More information on these topics can be found in the SAP Concur Developer Center in the resource: [Subscribe or unsubscribe from notifications]( /api-reference/travel-profile/v1.notification-company-resource.html).
 
-To subscribe to notifications to be alerted whenever employees who have booked travel through Concur change their travel plans by adding, modifying or canceling an itinerary is referred to as a **POST Company Notification Subscription for Itinerary Changes request**.
+To subscribe to notifications to be alerted whenever employees who have booked travel through Concur Travel change their travel plans by adding, modifying or canceling an itinerary is referred to as a **POST Company Notification Subscription for Itinerary Changes request**.
 
-To create this request, use the following example as a template. Notice that the request parameter is **Itinerary**. The Request XML string also requires an Oath token for an administrative user in the company. The user must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+To create this request, use the following example as a template. Notice that the request parameter is **Itinerary**. The Request XML string also requires an Oath token for an administrative user in the company. The user must have one of the following user roles: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 XML Example request to subscribe:
 
@@ -207,7 +207,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-The notification is sent to the Postback URL that the partner has registered with Concur during application review. Partners can only have one postback URL for all notification types. The notification will include the type, oauth_token_key, userid_type, and userid_value query parameters, specifying the updated user as seen in the example:
+The notification is sent to the Postback URL that the partner has registered during application review. Partners can only have one postback URL for all notification types. The notification will include the type, oauth_token_key, userid_type, and userid_value query parameters, specifying the updated user as seen in the example:
 
 ```
 https://postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com
