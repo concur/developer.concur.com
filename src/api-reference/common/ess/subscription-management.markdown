@@ -45,10 +45,10 @@ GET /events/v4/topics
 
 To create a subscription you need to:
 
-1. Know and have sufficient access to the topic.
-1. Get your receiving endpoint running, see the [endpoint requirements](/api-reference/common/ess/getting-started.html#endpoint-requirements).   
-1. Come up with unique name (id) of your subscription. Subscription names are globally unique, and you will get an error if the name is already in use.
-1. set filter to `.*` (regexp syntax), you can use it later to filter out unwanted types of events.
+* Know and have the sufficient access to the topic by having the correct scopes.
+* Get your receiving endpoint running, see the [endpoint requirements](/api-reference/common/ess/getting-started.html#endpoint-requirements).   
+* Come up with unique name (id) of your subscription. Subscription names are globally unique, and you will get an error if the name is already in use.
+* Set filter to `.*` (regexp syntax), you can use it later to filter out unwanted types of events.
 
 **Request**
 ```
@@ -115,8 +115,8 @@ Name  |Type |Format | Description
 `Filter` |`String` | regular expression  | Allows you to reduce the number of delivered events to a certain type. Example, setting to `eventCreated` will only get this event type delivered, other event types will be skipped. Set to ".*" to receive ALL events in the topic.
 `Topic` |`String` | -  | Topic, stream of events you are subscribing to.
 `Endpoint` |`String` | URL  | Your endpoint where events will be delivered.                |
-`applicationId` |`String` | UUID  | SAP Concur application that was used to generate the JWT. Application is used to establish subscription owner. |
-`companyIds`  | List   | list of UUIDs  | Company UUID, tenant whose events will be delivered to specified endpoint. In order to receive events of a certain company a trust MUST be established between company and application on Concursolution app center page.
+`applicationId` |`String` | UUID  | The partner application that was used to generate the JWT. Application is used to establish subscription owner. |
+`companyIds`  | List   | list of UUIDs  | List of Company UUIDs who have connected to a partner application allowing events to be delivered.  
 `groups` | List   | -  | Reserved for future support scenarios.
 `scope` | `String` | - | Reserved for future support scenarios.
 
