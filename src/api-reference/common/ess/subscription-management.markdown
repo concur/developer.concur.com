@@ -83,7 +83,7 @@ Name | Type | Format | Description
 
 You can always request a configuration of your subscription. You might notice that your subscription contains some parameters that you can not modify for security reasons, but you can use them for troubleshooting purposes.
 * `applicationId` - identifies your application as an owner of that subscription.
-* `companyIds` - a list of UUIDs of companies that allowed your application to access their data, the process of connecting a company to your application is described here (link)
+* `companyIds` - a list of UUIDs of companies that allowed your application to access their data, the process of connecting a company to your application is described [here](/manage-apps/go-market-docs/guide-to-enabling-app-center-solutions-basic.html).
 * groups and scope - are used for complex access control scenarios.  
 
 **Request**
