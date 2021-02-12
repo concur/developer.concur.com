@@ -6,11 +6,11 @@ layout: reference
 {% include prerelease.html %}
 
 * [Access Control (JWT)](#ac-jwt)
-* [Browse available topics](#get-topics)
-* [Create a subscription](#put-subscription)
-* [Verify your subscription](#get-subscription)
-* [Browse existing subscriptions](#get-subscription-list)
-* [Delete your subscription](#delete-subscription)
+* [Browse Available Topics](#get-topics)
+* [Create a Subscription](#put-subscription)
+* [Verify Your Subscription](#get-subscription)
+* [Browse Existing Subscriptions](#get-subscription-list)
+* [Delete Your Subscription](#delete-subscription)
 * [Request Example](#example)
 
 ## <a name="ac-jwt"></a>Access Control (JWT)
