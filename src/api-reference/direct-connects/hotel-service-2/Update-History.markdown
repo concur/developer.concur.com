@@ -7,6 +7,7 @@ History of changes in HS2 developer documentation
 
 |Date of Change|Description|
 |--------------|------------|
+|Feb 16, 2021| Added `TPA Property Reference Info` in Search Response|
 |Feb 8, 2021| Remove `PaymentPolicies` in Reservation Response. Change type `Text` to string in Descriptive Information Response. Change type and description of `Text` under `RatePlanDescription` in Availability and Rate Details Response.
 |Jan 29, 2021| Clarify `NamePrefix` in Reservation Request. Make `PaymentPolicies` in Reservation Response optional|
 |Jan 27, 2021| Update `Deadline` under `CancelPenalty` to optional node. Update `AbsoluteDeadline` attribute under `Deadline` to required.  Update type of `URL` in `TPA_HotelPreviewImageURI` to `string`.|
