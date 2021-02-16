@@ -309,4 +309,4 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 |Name|Type|Description|
 |---------|-------------------|-------------|
 |`ReferenceCatalogName`|`string`|**Required** which catalog the property reference comes from. Support `giata` only for now |
-|`ReferenceCatalogCode`|`string`|**Required** alternate property id for hotel from specified reference catalog |
+|`ReferenceCatalogCode`|`string`|**Required** alternate property id (only giata id of hotel for now) from specified reference catalog |
