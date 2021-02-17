@@ -349,7 +349,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |---------------|----------|-------------|
-|`ProgramCode`|`stringLength1to32`|**Required** The code or name of the reward program. Example: `HotelLoyaltyProgram`|
+|`ProgramCode`|`stringLength1to32`|**Required** Always `HotelLoyaltyProgram` for hotels|
 |`AccountID`|`stringLength1to64`|**Required** The account identification number for this particular member in this particular program.|
 
 #### <a name="comments-two"></a>Comments
