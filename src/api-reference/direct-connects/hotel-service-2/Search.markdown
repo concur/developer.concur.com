@@ -296,7 +296,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 |------------------------|-------------------|-------------|
 |`HotelPreference`|`stringLength1to32`|**Required** SAP Concur allows customers to override property preference in the system settings. Supported values: `not_preferred`, `less_preferred`, `preferred`, `most_preferred`|
 |`TPA_HotelPreviewImageURI`|`complex`|**Required** Details for an image of a given category.|
-|`TPA_PropertyReferenceInfo`|`complex`|Alternate property ID. **Required** for Corporate Discount Note support|
+|`TPA_PropertyReferenceInfo`|`complex`|Alternate property ID. Required for Corporate Discount Note support|
 
 #### <a name="tpa-hotel-preview"></a>TPA_HotelPreviewImageURI
 
