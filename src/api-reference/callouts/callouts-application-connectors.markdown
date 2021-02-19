@@ -85,12 +85,12 @@ The **Web Services** links can be accessed by users with the following permissio
 
 ###  <a name="accessing-app-connector-reg"></a>Accessing Application Connector Registration
 
-The **Manage Application Connectors** link on the **Web Services** page is used to register, test and enable or disable application connectors. 
+The **Manage Application Connectors** link on the **Web Services** page is used to register, test and enable or disable application connectors.
 
 #####  To Access Application Connector Registration:
 1. On the home page, select **Administration**.
 2. Select **Company**.
-3. Select **Web Services**. 
+3. Select **Web Services**.
 4. Click **Manage Application Connectors**. The **Application Connector Registration** page appears.
 
 Note you must be one of the roles specified in the [User Permission](#user-permission) section to complete these steps.
@@ -101,7 +101,7 @@ Once a development partner has configured a application connector, it must be re
 
 #####  To Register an Application Connector:
 
-1. On the **Application Connector Registration** page, click **New**. (Refer to the steps above in the [Accessing Application Connector Registration](#accessing-app-connector-reg) section for how to access this page.)
+1. On the **Application Connector Registration** page, click **New**. (Please refer to [Accessing Application Connector Registration](#accessing-app-connector-reg) section for how to access this page.)
 2. In the System area, complete all of the required fields.
 
     Field | Description
@@ -130,7 +130,7 @@ Once an application connector registration has been created, the fields can be m
 
 #####  To Modify an Application Connector:
 
-1. On the **Application Connector Registration** page, select the desired registration from the list. (Refer to the steps above in the [Accessing Application Connector Registration](#accessing-app-connector-reg) section for how to access this page.)
+1. On the **Application Connector Registration** page, select the desired registration from the list. (Please refer to [Accessing Application Connector Registration](#accessing-app-connector-reg) section for how to access this page.)
 2. Click **Modify**.
 3. Edit the system fields as necessary.
 4. Click **Test Connection** to verify your changes.
