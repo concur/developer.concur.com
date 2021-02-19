@@ -774,10 +774,10 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`docId`|`string`|-|The financial document ID to confirm. Maximum 32 characters.
-`overallPostingStatusCode`|`string`|-|Posting status. VALUES: error or success.
+`docId`|`string`|-|**Required** The financial document ID to confirm. Maximum 32 characters.
+`overallPostingStatusCode`|`string`|-|**Required** Posting status. VALUES: error or success.
 `postingDocs`|`array`|[Posting Documents Details](#schema-postingdocs)|Posting documents details, if any.
-`systemMessages`|`array`|[System Messages](#schema-systemmsg)|Messages to post to SAP Concur, if any.
+`systemMessages`|`array`|[System Messages](#schema-systemmsg)|**Required** Messages to post to SAP Concur, if any.
 
 ### <a name="schema-postingdocs"></a>Posting Documents Details
 
