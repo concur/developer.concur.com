@@ -1,0 +1,152 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This service provides SAP Concur's tenant data to SAP CLD Data Collector. SAP CLD Data Collector is the **only** allowed consumer for the service. Explicit approval is required otherwise.",
+      "version": "4.0.0",
+      "title": "Concur CLD Service"
+    },
+    "host": "us.api.concursolutions.com",
+    "basePath": "/cld/v4/tenants",
+    "schemes": [
+      "https"
+    ],
+    "paths": {
+      "/spend": {
+        "get": {
+          "summary": "Get SAP Concur Spend Tenant Information",
+          "operationId": "getSpendTenants",
+          "parameters": [
+            {
+              "name": "nextContinuationToken",
+              "type": "string",
+              "in": "query",
+              "description": "Optional parameter allowing the request to get the next list of tenants beginning where a previous call ended. The nextContinuationToken should only come from the result of a request to CLD, and is an obfuscated key that is not based on any tenant data.",
+              "required": false
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/tenants"
+              }
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/travel": {
+        "get": {
+          "summary": "Get SAP Concur Travel Tenant Information",
+          "operationId": "getTravelTenants",
+          "parameters": [
+            {
+              "name": "nextContinuationToken",
+              "type": "string",
+              "in": "query",
+              "description": "Optional parameter allowing the request to get the next list of tenants beginning where a previous call ended. The nextContinuationToken should only come from the result of a request to CLD, and is an obfuscated key that is not based on any tenant data.",
+              "required": false
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/tenants"
+              }
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "tenants": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/tenant"
+            }
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/navigation"
+            }
+          }
+        }
+      },
+      "tenant": {
+        "type": "object",
+        "properties": {
+          "concurCompanyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "concurOuttaskCompanyId": {
+            "type": "number"
+          },
+          "concurEntityId": {
+            "type": "string"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "productType": {
+            "type": "string"
+          },
+          "productEdition": {
+            "type": "string"
+          },
+          "tenantRole": {
+            "type": "string"
+          },
+          "tenantBusinessType": {
+            "type": "string"
+          },
+          "sapTenantId": {
+            "type": "string"
+          },
+          "concurSalesforceAccountId": {
+            "type": "string"
+          },
+          "mainUrl": {
+            "type": "string"
+          },
+          "activeProductModules": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "navigation": {
+        "type": "object",
+        "properties": {
+          "rel": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  }
