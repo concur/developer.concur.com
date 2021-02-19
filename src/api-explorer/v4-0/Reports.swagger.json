@@ -1532,23 +1532,6 @@
                 }
             }
         },
-        "UriTemplate": {
-            "type": "object",
-            "properties": {
-                "variableNames": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "variables": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/TemplateVariable"
-                    }
-                }
-            }
-        },
         "Link": {
             "type": "object",
             "required": [
@@ -1586,11 +1569,7 @@
                     "type": "string"
                 },
                 "rel": {
-                    "description": "The link relationship that describes how the href relates to the API call",
-                    "$ref": "#/definitions/LinkRelation"
-                },
-                "template": {
-                    "$ref": "#/definitions/UriTemplate"
+                    "type": "string"
                 },
                 "title": {
                     "type": "string"
@@ -1761,28 +1740,6 @@
                 "value": {
                     "type": "string",
                     "description": "The value of the custom field. This field can have values for all the supported data types such as 'text', 'integer', 'boolean' and 'listItemId'. Maximum length: 48 characters"
-                }
-            }
-        },
-        "TemplateVariable": {
-            "type": "object",
-            "properties": {
-                "description": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "",
-                        "?",
-                        "&",
-                        "/",
-                        "#",
-                        "*"
-                    ]
                 }
             }
         },
@@ -2580,9 +2537,6 @@
                     "description": "The percentage of the total expense that this allocation represents"
                 }
             }
-        },
-        "LinkRelation": {
-            "type": "object"
         },
         "RideTrip": {
             "type": "object",
