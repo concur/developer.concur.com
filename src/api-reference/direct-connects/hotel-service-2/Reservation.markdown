@@ -349,7 +349,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |---------------|----------|-------------|
-|`ProgramCode`|`stringLength1to32`|**Required** The code or name of the reward program. Example: `HotelLoyaltyProgram`|
+|`ProgramCode`|`stringLength1to32`|**Required** Always `HotelLoyaltyProgram` for hotels|
 |`AccountID`|`stringLength1to64`|**Required** The account identification number for this particular member in this particular program.|
 
 #### <a name="comments-two"></a>Comments
@@ -435,35 +435,6 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                 <RoomRate>
                   <Rates>
                     <Rate>
-                      <PaymentPolicies>
-                        <GuaranteePayment>
-                          <AcceptedPayments>
-                            <AcceptedPayment>
-                              <PaymentCard>
-                                <CardType>VISA</CardType>
-                              </PaymentCard>
-                            </AcceptedPayment>
-                          </AcceptedPayments>
-                        </GuaranteePayment>
-                        <GuaranteePayment>
-                          <AcceptedPayments>
-                            <AcceptedPayment>
-                              <PaymentCard>
-                                <CardType>Mastercard</CardType>
-                              </PaymentCard>
-                            </AcceptedPayment>
-                          </AcceptedPayments>
-                        </GuaranteePayment>
-                        <GuaranteePayment>
-                          <AcceptedPayments>
-                            <AcceptedPayment>
-                              <PaymentCard>
-                                <CardType>AmericanExpress</CardType>
-                              </PaymentCard>
-                            </AcceptedPayment>
-                          </AcceptedPayments>
-                        </GuaranteePayment>
-                      </PaymentPolicies>
                       <Total AmountAfterTax="185.00" AmountBeforeTax="85.00" CurrencyCode="EUR"/>
                     </Rate>
                   </Rates>
@@ -626,5 +597,4 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 
 |Name|Type|Description|
 |------------------------|--------------------|-------------|
-|`PaymentPolicies`|`complex`|Payment policies for this rate. Refer to `PaymentPolicies` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#payment-policies).|
 |`Total`|`complex`|**Required** A description of the rate. Refer to `Total` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#total).|
