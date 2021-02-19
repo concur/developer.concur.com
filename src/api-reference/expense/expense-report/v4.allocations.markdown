@@ -42,7 +42,7 @@ Required Scopes:
 |---|---|---|
 |`expense.report.read`|Get information about expense reports.|GET|
 |`expense.report.readwrite`|Read and write expense report headers.        |PATCH|
-|`user.read`|Get User Information, necessary for `userID`.|POST|
+|`user.read`|Get User Information, necessary for `userID`.|GET|
 
 Optional Scope:
 
@@ -69,15 +69,13 @@ Retrieves the allocations that belong to a specific expense ID on a specific rep
 
 ### Request
 
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/allocations
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
@@ -202,15 +200,13 @@ Retrieves the details of the specific allocation of an expense entry on a report
 
 ### Request
 
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/allocations/{allocationId}
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
@@ -305,15 +301,13 @@ Updates the attributes of a specific allocation.
 
 ### Request
 
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/allocations/{allocationId}
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
