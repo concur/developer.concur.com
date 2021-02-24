@@ -13,7 +13,7 @@ The Reports v4 API can be used to read and modify an expense report header of an
 * [Access Token Usage](#access-token-usage)
 * [Retrieve a Report by ID](#retrieve-report-header)
 * [Update a Report](#update-report-header)
-* [Approve/Sendback a report](#approve-or-send-back-a-report)
+* [Approve or Send Back a Report](#approve-or-send-back-a-report)
 * [Schema](#schema)
     * [Report Details](#report-details-schema)
     * [Update Report](#update-report-schema)
@@ -343,10 +343,9 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 ```shell
 204 No Content
 ```
-## <a name="approve-or-send-back-a-report"></a>Approve/Sendback a report
+## <a name="approve-or-send-back-a-report"></a>Approve or Send Back a Report
 
-Approve API - Advances the specified report to the next step if it is in a system step
-Sendback API - Sends back the specified report to report owner 
+The Approve function advances the specified report to the next step if it is in a system step. The Send Back function sends back the specified report to report owner .
 
 ### Scopes
 
