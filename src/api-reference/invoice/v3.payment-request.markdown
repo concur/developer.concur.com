@@ -92,7 +92,7 @@ Name|Type|Format|Description
 `PaymentDueDate`|`string`|-|The date the vendor needs to be paid by.
 `PaymentTermsDays`|`string`|-|This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid.
 `ProvincialTaxId`|`string`|-|The Vendor Provincial Tax ID.
-`PurchaseOrderId`|`string`|-|The ID of the Purchase Order to which the Invoice should be matched. This value is required if none of the following are provided: `LedgerCode`; `EmployeeLoginId`, `EmployeeId`, `EmployeeEmail`, `ExternalPolicyId`.
+`PurchaseOrderNumber`|`string`|-|The ID of the Purchase Order to which the Invoice should be matched. This value is required if none of the following are provided: `LedgerCode`; `EmployeeLoginId`, `EmployeeId`, `EmployeeEmail`, `ExternalPolicyId`.
 `ReceiptConfirmationType`|`string`|-|A code which indicates the receipt confirmation type for this Invoice (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text.
 `ShippingAmount`|`string`|-|The value for the Shipping Amount header field.
 `TaxAmount`|`string`|-|The value for the Tax Amount header field.
