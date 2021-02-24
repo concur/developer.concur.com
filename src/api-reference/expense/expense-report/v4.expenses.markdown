@@ -631,7 +631,7 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 ```shell
 204 No Content
 ```
-## <a name="update-expense-entry-in-a-submitted-report"></a>Update a Specific Expense Entry in a Submitted rReport
+## <a name="update-expense-entry-in-a-submitted-report"></a>Update a Specific Expense Entry in a Submitted Report
 
 Updates the specified expense in an un-submitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.
 
