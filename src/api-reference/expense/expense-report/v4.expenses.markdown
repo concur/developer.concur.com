@@ -535,7 +535,7 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 }
 ```
 
-## <a name="update-expense-entry-in-an-unsubmitted-report"></a>Update a Specific Expense Entry in an Unsubmitted Report 
+## <a name="update-expense-entry-in-an-unsubmitted-report"></a>Update a Specific Expense Entry in an Unsubmitted Report
 
 Updates the specified expense in an un-submitted report and is flexible for modifying multiple attributes in the schema detailed below
 
@@ -631,7 +631,7 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 ```shell
 204 No Content
 ```
-## <a name="update-expense-entry-in-a-submitted-report"></a>Update a Specific Expense Entry in a submitted report
+## <a name="update-expense-entry-in-a-submitted-report"></a>Update a Specific Expense Entry in a Submitted rReport
 
 Updates the specified expense in an un-submitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.
 
