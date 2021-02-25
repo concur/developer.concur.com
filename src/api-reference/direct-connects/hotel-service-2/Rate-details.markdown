@@ -326,7 +326,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`stringLength1to32`|**Required** Only one (1) text element is supported. If multiple text elements are specified, the last one is used and all others are dropped. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** If multiple text elements are specified, the contents of this element will be rendered as a paragraph. All text passed is HTML encoded.|
 
 #### <a name="guarantee"></a>Guarantee
 
@@ -371,7 +371,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |--------------------|-----------|-------------|
 |`NoCancelInd`|`boolean`| If true, the reservation cannot be cancelled once the cancellation deadline has expired. False or missing flag will be treated as rate being not cancellable.|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. This element may contain a maximum of 9 children text fields. Any excess text elements are dropped.|
-|`Deadline`|`complex`|**Required** Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
+|`Deadline`|`complex`|Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 

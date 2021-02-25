@@ -31,7 +31,7 @@ Usage details:
 * The beta does not support search and booking for flights that are in violation of company's travel policies.
 * The beta does not support checkout with custom field values.
 * The beta does not support hotel bookings or car rentals.
-* SAP Concur product betas developed by Hipmunk and Concur Labs are not part of a customer's agreement for other SAP Concur products and services and are subject to Beta Evaluation Terms, which specify, among other things, that SAP Concur may discontinue the beta at any time, betas are not covered by any product support or warranties, participation in a product beta does not impact or modify a customer’s agreement for other SAP products.
+* SAP Concur product betas developed by Concur Labs are not part of a customer's agreement for other SAP Concur products and services and are subject to Beta Evaluation Terms, which specify, among other things, that SAP Concur may discontinue the beta at any time, betas are not covered by any product support or warranties, participation in a product beta does not impact or modify a customer’s agreement for other SAP products.
 
 Concur Travel on Slack works with Travel for Concur Standard and Travel for Concur Professional. It is available now in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Concur Travel on Slack – Beta integration, visit [https://concur-blue.slack.com/apps/A9T8VTNNL-concur-travel-beta](https://concur-blue.slack.com/apps/A9T8VTNNL-concur-travel-beta).
 

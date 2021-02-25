@@ -746,7 +746,7 @@ This function requires as its arguments an **Itinerary** parent element. The par
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warning |  The warnings associated with the booking. |
 |  WebAddresses |  List of web addresses such as emails, pickup URLs, etc. associated with this booking. |
-|  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with SAP Concur, Supplier Mobile, Supplier Web |
+|  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Sign-in with SAP Concur, Supplier Mobile, Supplier Web |
 
 ###  XML Example Request
 
@@ -1488,7 +1488,7 @@ The request contains a Booking parent element with the following child elements:
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warnings |  The warnings associated with the booking. |
 |  WebAddresses |  List of web addresses such as emails, pickup URLs, etc. associated with this booking |
-|  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with SAP Concur, Supplier Mobile, Supplier Web |
+|  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Sign-in with SAP Concur, Supplier Mobile, Supplier Web |
 
 ### Passenger Child Elements
 

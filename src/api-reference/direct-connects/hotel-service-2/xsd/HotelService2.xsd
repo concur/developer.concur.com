@@ -219,7 +219,18 @@
       <xs:element minOccurs="0" name="HotelPreference" type="ConcurPreferenceLevelType"/>
       <xs:element minOccurs="0" name="TPA_HotelPreviewImageURI" type="ImageItemType"/>
       <xs:element name="TPA_RatingReview" type="TPA_RatingReviewType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TPA_PropertyReferenceInfo" type="TPA_PropertyReferenceInfoType" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TPA_PropertyReferenceInfoType">
+    <xs:sequence>
+      <xs:element name="PropertyReference" type="PropertyReferenceType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PropertyReferenceType">
+    <xs:attribute name="ReferenceCatalogCode" type="StringLength1to16"/>
+    <xs:attribute name="ReferenceCatalogName" type="StringLength1to32"/>
   </xs:complexType>
 
   <xs:complexType name="TPA_RatingReviewType">

@@ -174,7 +174,7 @@ HTTP/1.1 200 OK
 
 ## <a name="manage_token"></a>Managing tokens
 
-Refresh Tokens are UUID4 identifiers that allow your application to obtain a fresh `accessToken` on behalf of a user to access SAP Concur APIs.
+Refresh Tokens are strings that allow your application to obtain a fresh `accessToken` on behalf of a user to access SAP Concur APIs.  The exact format of the string can change, but may look similar to the following:
 
 ```
 e013335d-b4ce-4c43-a7e4-b67abc1adcb0
