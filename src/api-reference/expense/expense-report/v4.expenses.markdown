@@ -93,7 +93,7 @@ Retrieves the expenses that belong to a specific report ID.
 
 `expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
 
-### Request 
+### Request
 #### URI Template
 
 ```shell
@@ -332,7 +332,7 @@ Retrieves the details of the specific expense entry on a report.
 
 `expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
 
-### Request 
+### Request
 #### URI Template
 
 ```shell
@@ -535,7 +535,7 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 }
 ```
 
-## <a name="update-expense-entry-in-an-unsubmitted-report"></a>Update a Specific Expense Entry in an unsubmitted report 
+## <a name="update-expense-entry-in-an-unsubmitted-report"></a>Update a Specific Expense Entry in an Unsubmitted Report
 
 Updates the specified expense in an un-submitted report and is flexible for modifying multiple attributes in the schema detailed below
 
@@ -543,7 +543,7 @@ Updates the specified expense in an un-submitted report and is flexible for modi
 
 `expense.report.readwrite` - Refer to [Scope Usage](#scope-usage) for full details.
 
-### Request 
+### Request
 #### URI Template
 
 ```shell
@@ -631,7 +631,7 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 ```shell
 204 No Content
 ```
-## <a name="update-expense-entry-in-a-submitted-report"></a>Update a Specific Expense Entry in a submitted report 
+## <a name="update-expense-entry-in-a-submitted-report"></a>Update a Specific Expense Entry in a Submitted Report
 
 Updates the specified expense in an un-submitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.
 
@@ -639,7 +639,7 @@ Updates the specified expense in an un-submitted or submitted report and is rest
 
 `expense.report.readwrite` - Refer to [Scope Usage](#scope-usage) for full details.
 
-### Request 
+### Request
 #### URI Template
 
 ```shell
@@ -693,7 +693,7 @@ PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specifica
 
 * [Patch Submitted Expense Response](#patch-submitted-expense-response-schema)
 
-### <a name="update-report-expense-compact-schema"></a>Update Report Expense Compact Schema 
+### <a name="update-report-expense-compact-schema"></a>Update Report Expense Compact Schema
 
 |Name|Type|Format|Description|
 |---|---|---|---|
