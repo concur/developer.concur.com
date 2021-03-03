@@ -37,6 +37,7 @@ Message to perform the initial search for hotels.
     * [Supported Hotel Amenities](#supported-hotel-amenities)
     * [TPA Extensions](#res-tpa-extensions)
     * [TPA Hotel Preview Image URI](#tpa-hotel-preview)
+    * [TPA Property Reference Info](#tpa-property-reference-info)
 
 ## <a name="request"></a>Request
 
@@ -176,6 +177,9 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
             <TPA_HotelPreviewImageURI>
               <URL>url_to_the_picture.jpg</URL>
             </TPA_HotelPreviewImageURI>
+            <TPA_PropertyReferenceInfo>
+              <PropertyReference ReferenceCatalogCode="1376249" ReferenceCatalogName="giata"/>
+            </TPA_PropertyReferenceInfo>
           </TPA_Extensions>
         </Property>
       </Properties>
@@ -292,9 +296,17 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 |------------------------|-------------------|-------------|
 |`HotelPreference`|`stringLength1to32`|**Required** SAP Concur allows customers to override property preference in the system settings. Supported values: `not_preferred`, `less_preferred`, `preferred`, `most_preferred`|
 |`TPA_HotelPreviewImageURI`|`complex`|**Required** Details for an image of a given category.|
+|`TPA_PropertyReferenceInfo`|`complex`|Alternate property ID. Required for Corporate Discount Note support|
 
 #### <a name="tpa-hotel-preview"></a>TPA_HotelPreviewImageURI
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`URL`|`stringLength1to32`|**Required** URL of the multimedia item for a specific format. SAP Concur supports one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message. The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
+|`URL`|`string`|**Required** URL of the multimedia item for a specific format. SAP Concur supports one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message. The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
+
+#### <a name="tpa-property-reference-info"></a>TPA_PropertyReferenceInfo
+
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`ReferenceCatalogName`|`string`|**Required** which catalog the property reference comes from. Support `giata` only for now |
+|`ReferenceCatalogCode`|`string`|**Required** alternate property id (only giata id of hotel for now) from specified reference catalog |

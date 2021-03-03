@@ -19,7 +19,7 @@ In order to support new Oauth2, applications need to exchange old access token f
 
 The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications would need to call Oauth2's `/v0/token` endpoint using a `refresh_grant`, passing in the user's `refreshtoken` to obtain a fresh `accessToken`.
 
-This is significantly different from how the deprecated /net2/Oauth2's method of handling access tokens. Partner's would have to store the new Oauth2 `refreshToken` instead of the old access token. Before making a call to any of Concur's new v4 APIs, it is advisable to request for a new `accessToken` before making the API call.
+This is significantly different from how the deprecated /net2/Oauth2's method of handling access tokens. Partner's would have to store the new Oauth2 `refreshToken` instead of the old access token. Before making a call to any of the new v4 APIs, it is advisable to request for a new `accessToken` before making the API call.
 
 **Step 1: Obtain Application Token**
 Clients can exchange OLD tokens for NEW Oauth2 tokens by calling the `exchangeRefreshToken/me` endpoint. In order to call this endpoint, you would first need to obtain an Application Token by calling the `/v0/token` endpoint with the [client_credentials](https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) grant.

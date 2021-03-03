@@ -9,7 +9,7 @@ In version 3.2, connection requests can also associate users to either loyalty p
 
 The use of loyalty numbers and/or verified emails to identify users is based on the business agreement between Concur and the TripLink supplier and will be discussed during the TripLink integration kick-off process. Email or loyalty number will not be returned in the connection request if the supplier is not using these factors in their process to match a user in their system to a Concur user.
 
-Concur's recommendation for suppliers is to match users requesting to connect utilizing last name and loyalty number only. Or in the case of suppliers without loyalty numbers to use verified email and the last name of the user only. The first name and middle name fields have proved to generate a high degree of failures when utilized due to issues like nicknames within the supplier systems.
+Our recommendation for suppliers is to match users requesting to connect utilizing last name and loyalty number only. Or in the case of suppliers without loyalty numbers to use verified email and the last name of the user only. The first name and middle name fields have proved to generate a high degree of failures when utilized due to issues like nicknames within the supplier systems.
 
 
 * [Retrieve all connection requests that match the TripLink supplier ID](#get)

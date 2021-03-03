@@ -55,6 +55,11 @@ Message to reserve a hotel.
     * [Rate Plan](#res-rate-plan)
     * [Cancel Penalty](#cancel-penalty)
     * [Penalty Description](#penalty-description)
+    * [Deadline](#deadline)
+    * [RoomRates](#room-rates)
+    * [RoomRate](#room-rate)
+    * [Rates](#rates)
+    * [Rate](#rate)
 
 ## <a name="request"></a>Request
 
@@ -302,7 +307,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |-------------|-------------------|-------------|
-|`NamePrefix`|`stringLength1to16`|Salutation of honorific. Supported values: `Mr`, `Mrs`, `Ms`, `Miss`, `Dr`, `Rev`, `Sir`, `Lord`, `Lady`, `Dr Mr`, `Dr Mrs`, `Dr Ms`, `Prof Mr`, `Prof Mrs`, `Prof Ms`, `Prof Dr Mr`, `Prof Dr Mrs`, `Prof Dr Ms`|
+|`NamePrefix`|`stringLength1to16`|Salutation of honorific. List subject to change. Example values: `Mr`, `Mrs`, `Ms`, `Miss`, `Dr`, `Rev`, `Sir`, `Lord`, `Lady`, `Dr Mr`, `Dr Mrs`, `Dr Ms`, `Prof Mr`, `Prof Mrs`, `Prof Ms`, `Prof Dr Mr`, `Prof Dr Mrs`, `Prof Dr Ms`|
 |`GivenName`|`stringLength1to64`|Given name, first name or names.|
 |`Surname`|`stringLength1to64`|**Required** Family name, last name. May also be used for full name if the sending system does not have the ability to separate a full name into its parts. Example: the surname element may be used to pass the full name.|
 
@@ -344,7 +349,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |---------------|----------|-------------|
-|`ProgramCode`|`stringLength1to32`|**Required** The code or name of the reward program. Example: `HotelLoyaltyProgram`|
+|`ProgramCode`|`stringLength1to32`|**Required** Always `HotelLoyaltyProgram` for hotels|
 |`AccountID`|`stringLength1to64`|**Required** The account identification number for this particular member in this particular program.|
 
 #### <a name="comments-two"></a>Comments
@@ -430,35 +435,6 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                 <RoomRate>
                   <Rates>
                     <Rate>
-                      <PaymentPolicies>
-                        <GuaranteePayment>
-                          <AcceptedPayments>
-                            <AcceptedPayment>
-                              <PaymentCard>
-                                <CardType>VISA</CardType>
-                              </PaymentCard>
-                            </AcceptedPayment>
-                          </AcceptedPayments>
-                        </GuaranteePayment>
-                        <GuaranteePayment>
-                          <AcceptedPayments>
-                            <AcceptedPayment>
-                              <PaymentCard>
-                                <CardType>Mastercard</CardType>
-                              </PaymentCard>
-                            </AcceptedPayment>
-                          </AcceptedPayments>
-                        </GuaranteePayment>
-                        <GuaranteePayment>
-                          <AcceptedPayments>
-                            <AcceptedPayment>
-                              <PaymentCard>
-                                <CardType>AmericanExpress</CardType>
-                              </PaymentCard>
-                            </AcceptedPayment>
-                          </AcceptedPayments>
-                        </GuaranteePayment>
-                      </PaymentPolicies>
                       <Total AmountAfterTax="185.00" AmountBeforeTax="85.00" CurrencyCode="EUR"/>
                     </Rate>
                   </Rates>
@@ -535,7 +511,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |---------|------------|-------------|
 |`HotelReservation`|`complex`|**Required** A reference to identify the booking.|
 
-#### <a name="hotel-reservation"></a>HotelReservation
+#### <a name="res-hotel-reservation"></a>HotelReservation
 
 |Name|Type|Description|
 |---------|------------|-------------|
@@ -573,7 +549,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |`Timespan`|`complex`|**Required** Refer to `Time-span` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 |`BasicPropertyInfo`|`complex`|**Required** See [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 
-#### <a name="rate-plan"></a>RatePlan
+#### <a name="res-rate-plan"></a>RatePlan
 
 |Name|Type|Description|
 |---------|------------|-------------|
@@ -585,9 +561,40 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |Name|Type|Description|
 |---------|------------|-------------|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. Maximum elements: `9`|
+|`Deadline`|`complex`|Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
 |Name|Type|Description|
 |---------|------------|-------------|
-|`Text`|`formattedTextTextType`|Formatted text content.|
+|`Text`|`string`|Formatted text content.|
+
+#### <a name="deadline"></a>Deadline
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`AbsoluteDeadline`|`time` or `datetime` |**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
+
+#### <a name="room-rates"></a>RoomRates
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`RoomRate`|`complex`|**Required** `RoomRate` used for reservation. SAP Concur only expects one (1) `RoomRate`.|
+
+#### <a name="room-rate"></a>RoomRate
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`Rates`|`complex`|**Required** SAP Concur only expects one (1) `Rates`.|
+
+#### <a name="rates"></a>Rates
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`Rate`|`complex`|**Required** Contains the payment policy for the given room. SAP Concur only expects one (1) `Rate`.|
+
+#### <a name="rate"></a>Rate
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`Total`|`complex`|**Required** A description of the rate. Refer to `Total` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#total).|

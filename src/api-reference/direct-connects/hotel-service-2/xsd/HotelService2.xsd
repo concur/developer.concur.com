@@ -219,7 +219,18 @@
       <xs:element minOccurs="0" name="HotelPreference" type="ConcurPreferenceLevelType"/>
       <xs:element minOccurs="0" name="TPA_HotelPreviewImageURI" type="ImageItemType"/>
       <xs:element name="TPA_RatingReview" type="TPA_RatingReviewType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TPA_PropertyReferenceInfo" type="TPA_PropertyReferenceInfoType" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TPA_PropertyReferenceInfoType">
+    <xs:sequence>
+      <xs:element name="PropertyReference" type="PropertyReferenceType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PropertyReferenceType">
+    <xs:attribute name="ReferenceCatalogCode" type="StringLength1to16"/>
+    <xs:attribute name="ReferenceCatalogName" type="StringLength1to32"/>
   </xs:complexType>
 
   <xs:complexType name="TPA_RatingReviewType">
@@ -1729,14 +1740,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" name="Deadline">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Guarantee deadline, absolute or relative.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:attributeGroup ref="DeadlineGroup"/>
-        </xs:complexType>
-      </xs:element>
       <xs:element maxOccurs="9" minOccurs="0" name="GuaranteeDescription" type="ParagraphType">
         <xs:annotation>
           <xs:documentation xml:lang="en">Text description of the Guarantee in a given language.</xs:documentation>
@@ -2089,7 +2092,7 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="AmountAfterTax" type="Money" use="optional">
+    <xs:attribute name="AmountAfterTax" type="Money" use="required">
       <xs:annotation>
         <xs:documentation source="Description" xml:lang="en">The total amount including all associated taxes (e.g.,
           sales tax, VAT, GST or any associated tax).
