@@ -18,6 +18,7 @@ Message to retrieved the availability of hotels.
     * [Hotel Search Criteria](#hotel-search-criteria)
     * [Criterion](#criterion)
     * [Stay Date Range](#stay-date-range)
+    * [Rate Plan Candidates](#rate-plan-candidates)
     * [Room Stay Candidates](#room-stay-candidates)
     * [Room Stay Candidate](#room-stay-candidate)
     * [Guest Counts](#guest-counts)
@@ -79,6 +80,10 @@ Message to retrieved the availability of hotels.
           <HotelSearchCriteria>
             <Criterion>
               <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
+                <RatePlanCandidates>
+                  <RatePlanCandidate RatePlanType="8"></RatePlanCandidate>
+                  <RatePlanCandidate RatePlanType="9"></RatePlanCandidate>
+                </RatePlanCandidates>
             </Criterion>
           </HotelSearchCriteria>
           <StayDateRange Start="2018-10-26" End="2018-10-28"></StayDateRange>
@@ -132,6 +137,13 @@ Message to retrieved the availability of hotels.
 |---------|------------------|-------------|
 |`HotelRef/HotelCode`|`stringLength1to16`|**Required** The code that uniquely identifies a single hotel property. The hotel code is decided by vendors.|
 |`HotelRef/ChainCode`|`stringLength1to8`|The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the `HotelCode` attribute.|
+|`RatePlanCandidates`|`complex`|**Optional** Allow sending of requested rate categories. Only one `RatePlanCandidates` inside for each hotel.|
+
+#### <a name="rate-plan-candidates"></a>RatePlanCandidates
+|Name|Type|Description|
+|---------|------------------|-------------|
+|`RatePlanCandidate/RatePlanType`|`complex`|**Required** Element used to identify rate categories requested. There can be multiple `RatePlanCandidate` per hotel|
+
 
 #### <a name="stay-date-range"></a>StayDateRange
 
@@ -187,7 +199,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
             </RoomType>
           </RoomTypes>
           <RatePlans>
-            <RatePlan RatePlanID="XNFYP4I" AvailabilityStatus="ChangeDuringStay">
+            <RatePlan RatePlanID="XNFYP4I" AvailabilityStatus="ChangeDuringStay" RatePlanType="4">
               <Guarantee GuaranteeType="GuaranteeRequired" />
               <CancelPenalties>
                 <CancelPenalty>
@@ -300,6 +312,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`CancelPenalties`|`complex`|**Required if `RateDetailsInd` is `true` or not present** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
 |`MealsIncluded`|`complex`|Defines which meals are included with this rate program.|
 |`RatePlanDescription`|`complex`|Textual information regarding the Rate Plan.|
+|`RatePlanType`|`integer`|**Optional** specify the rate plan type of this rate. Refer to Open Travel Code List Rate Plan Type (RPT)|
 
 #### <a name="rate-plan-description"></a>RatePlanDescription
 
