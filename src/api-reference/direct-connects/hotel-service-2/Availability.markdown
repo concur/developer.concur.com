@@ -305,7 +305,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`string`|**Required** Only one (1) text element is supported. If multiple text elements are specified, the last one is used and all others are dropped. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** If multiple text elements are specified, the contents of this element will be rendered as a paragraph. All text passed is HTML encoded.|
 
 #### <a name="guarantee"></a>Guarantee
 

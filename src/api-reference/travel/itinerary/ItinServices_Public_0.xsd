@@ -8,7 +8,7 @@ Itinerary Model schema generated on 11/15/2017 3:28 PM
 
 Note. xs:all will support maxOccurs='unbounded' only in XSD v1.1
 Until then almost everywhere xs:choice is used instead of "future xs:all"
- or xs:sequence. 
+ or xs:sequence.
 Use of xs:choice will hide repeated elements during XML validation
 (xs:sequence can't be used because of elements order restriction)
 *********************************************************
@@ -21,12 +21,12 @@ Use of xs:choice will hide repeated elements during XML validation
       <xs:element name="id" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
 		<xs:element name="TripId" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
 		<xs:element name="ItinLocator" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
-      <xs:element name="BookedVia" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />      
+      <xs:element name="BookedVia" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="BookedByFirstName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="BookedByLastName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
 	  <xs:element name="HasOpenBookingPassive" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
 	  <xs:element name="UserLoginId"   maxOccurs="1" minOccurs="0"  nillable="true" type="xs:string" />
-								
+
 	<xs:element name="CancelComments" nillable="true" minOccurs="0" maxOccurs="1">
     <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -125,7 +125,6 @@ Use of xs:choice will hide repeated elements during XML validation
 	  <xs:simpleType>
 	    <xs:restriction base="xs:string">
 		<xs:enumeration value="Concur Travel"/>
-		<xs:enumeration value="Hipmunk"/>
 		<xs:enumeration value="Sign-in with Concur"/>
 		<xs:enumeration value="Supplier Mobile"/>
 		<xs:enumeration value="Supplier Web"/>
@@ -169,7 +168,7 @@ Use of xs:choice will hide repeated elements during XML validation
       <xs:element name="PassPrograms" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfPassPrograms" />
       <xs:element name="PhoneNumbers" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfPhoneNumbers" />
       <xs:element name="RailPayments" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfRailPayments" />
-	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfRemarks" />		
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfRemarks" />
       <xs:element name="Segments" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfSegments" />
       <xs:element name="Delivery" minOccurs="0" type="DeliveryType" />
       <xs:element name="WaitListSegments" minOccurs="0" maxOccurs="1">
@@ -187,10 +186,10 @@ Use of xs:choice will hide repeated elements during XML validation
         </xs:complexType>
       </xs:element>
       <xs:element name="WebAddresses" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfWebAddresses" />
-      <xs:element name="Source" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />    
-      <xs:element name="AgencyName" nillable="true"	  minOccurs="0" maxOccurs="1" type="xs:string" />    
-	  <xs:element name="AgencyPCC" nillable="true"	  minOccurs="0" maxOccurs="1" type="xs:string" />    
-	  <xs:element name="AgencyNumber" nillable="true"	  minOccurs="0" maxOccurs="1" type="xs:string" /> 
+      <xs:element name="Source" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="AgencyName" nillable="true"	  minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="AgencyPCC" nillable="true"	  minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="AgencyNumber" nillable="true"	  minOccurs="0" maxOccurs="1" type="xs:string" />
     </xs:choice>
   </xs:complexType>
 	<xs:complexType name="CustomAttributeType">
@@ -262,7 +261,7 @@ Use of xs:choice will hide repeated elements during XML validation
       </xs:element>
       <xs:element name="NumberOfStops" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
       <xs:element name="QuotedPrice" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
-	  <xs:element name="RuleAction" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />	
+	  <xs:element name="RuleAction" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="RuleName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="SegmentType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="SelectedOtherAmount" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
@@ -347,7 +346,7 @@ Use of xs:choice will hide repeated elements during XML validation
 				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
 			</xs:choice>
 		</xs:sequence>
-	</xs:complexType>	
+	</xs:complexType>
   <xs:complexType name="BookingRecord_ArrayOfSegments">
     <xs:sequence maxOccurs="unbounded">
       <xs:choice maxOccurs="unbounded">
@@ -1334,7 +1333,7 @@ Use of xs:choice will hide repeated elements during XML validation
         </xs:simpleType>
       </xs:element>
       <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
-      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />		
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="TotalRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
       <xs:element name="UpgradedDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
       <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
@@ -1742,9 +1741,9 @@ Use of xs:choice will hide repeated elements during XML validation
 		<xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="RideSegment_ArrayOfCharges" />
 	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="RideSegment_ArrayOfRemarks" />
-	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />	
+	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
 	  <xs:element name="CreditCardType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
-	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />	  
+	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="RailType">
@@ -2009,7 +2008,7 @@ Use of xs:choice will hide repeated elements during XML validation
       </xs:element>
       <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="RailSegment_ArrayOfCharges" />
       <xs:element name="Seats" minOccurs="0" maxOccurs="unbounded" type="RailSegment_ArrayOfSeats" />
-	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="RailSegment_ArrayOfRemarks" />		
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="RailSegment_ArrayOfRemarks" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="ParkingType">
@@ -2170,7 +2169,7 @@ Use of xs:choice will hide repeated elements during XML validation
       <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="ParkingSegment_ArrayOfCharges" />
-	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="ParkingSegment_ArrayOfRemarks" />		
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="ParkingSegment_ArrayOfRemarks" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="CarType">
@@ -2414,7 +2413,7 @@ Use of xs:choice will hide repeated elements during XML validation
       <xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="CarSegment_ArrayOfCharges" />
    	  <xs:element name="VendorName"	 minOccurs="0" maxOccurs="1" type="xs:string" />
-	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="CarSegment_ArrayOfRemarks" />		
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="CarSegment_ArrayOfRemarks" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="EventType">
@@ -2528,7 +2527,7 @@ Use of xs:choice will hide repeated elements during XML validation
       <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="EventSegment_ArrayOfCharges" />
       <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="EventSegment_ArrayOfRemarks" />
     </xs:choice>
-  </xs:complexType>  
+  </xs:complexType>
   <xs:complexType name="AirType">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="AircraftCode" nillable="true" minOccurs="0" maxOccurs="1">
@@ -2897,7 +2896,7 @@ Use of xs:choice will hide repeated elements during XML validation
    	  <xs:element name="VendorName"	 minOccurs="0" maxOccurs="1" type="xs:string" />
     </xs:choice>
   </xs:complexType>
-	  
+
   <xs:complexType name="WebAddressDataType">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="PassengerRPH" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
@@ -3065,7 +3064,7 @@ Use of xs:choice will hide repeated elements during XML validation
 				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
 			</xs:choice>
 		</xs:sequence>
-	</xs:complexType>		
+	</xs:complexType>
   <xs:complexType name="DiningSegment_ArrayOfCharges">
     <xs:sequence maxOccurs="unbounded">
       <xs:choice maxOccurs="unbounded">
@@ -3099,7 +3098,7 @@ Use of xs:choice will hide repeated elements during XML validation
 				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
 			</xs:choice>
 		</xs:sequence>
-	</xs:complexType>	
+	</xs:complexType>
   <xs:complexType name="RailSegment_ArrayOfCharges">
     <xs:sequence maxOccurs="unbounded">
       <xs:choice maxOccurs="unbounded">
@@ -3116,7 +3115,7 @@ Use of xs:choice will hide repeated elements during XML validation
 				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
 			</xs:choice>
 		</xs:sequence>
-	</xs:complexType>	
+	</xs:complexType>
   <xs:complexType name="RailSegment_ArrayOfSeats">
     <xs:sequence maxOccurs="unbounded">
       <xs:choice maxOccurs="unbounded">
@@ -3344,7 +3343,7 @@ Use of xs:choice will hide repeated elements during XML validation
       <xs:element name="AppliedSegment9" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
       <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="OldRecordLocator" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
-	  <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />	
+	  <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
       <xs:element name="PlatingCarrierNumericCode" nillable="true" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">

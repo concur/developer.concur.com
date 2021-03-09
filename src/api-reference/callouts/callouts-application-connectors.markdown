@@ -73,24 +73,27 @@ SAP Concur administrators use the **Manage Application Connectors** link in **We
 
 The **Web Services** links can be accessed by users with the following permission:
 
-**Developer Sandbox or Expense/Invoice/Travel/Travel Request Standard:**
+ * **Developer Sandbox or Expense/Invoice/Travel/Travel Request Standard:**
 
-**Can Administer**: Users with this permission can register and modify application connectors.
+    * **Administer**: Users with this permission can register and modify application connectors.
 
-**Expense/Invoice/Travel/Travel Request Professional:**
+  * **Expense/Invoice/Travel/Travel Request Professional:**
 
-**Web Services Administrator**: Users with this permission at companies that are Development Partners can register and modify application connectors.
+    * **Web Services Administrator**: Users with this permission at companies that are Development Partners can register and modify application connectors.
 
-**All Admin roles**: Users with this permission at companies that are Development Partners can register and modify application connectors.
+    * **All Admin roles**: Users with this permission at companies that are Development Partners can register and modify application connectors.
 
 ###  <a name="accessing-app-connector-reg"></a>Accessing Application Connector Registration
 
-The **Manage Application Connectors** link on the **Web Services** page is used to register, test and enable or disable application connectors. Only SAP Concur Internal staff can access the **Manage Application Connectors** link.
+The **Manage Application Connectors** link on the **Web Services** page is used to register, test and enable or disable application connectors.
 
 #####  To Access Application Connector Registration:
+1. On the home page, select **Administration**.
+2. Select **Company**.
+3. Select **Web Services**.
+4. Click **Manage Application Connectors**. The **Application Connector Registration** page appears.
 
-1. On the home page, select **Administration Web Services**. The **Web Services** page appears.
-2. Click **Manage Application Connectors**. The **Application Connector Registration** page appears.
+Note you must be one of the roles specified in the [User Permission](#user-permission) section to complete these steps.
 
 ###  <a name="registering-app-connector"></a>Registering an Application Connector
 
@@ -98,7 +101,7 @@ Once a development partner has configured a application connector, it must be re
 
 #####  To Register an Application Connector:
 
-1. On the **Application Connector Registration** page, click **New**.
+1. On the **Application Connector Registration** page, click **New**. (Please refer to [Accessing Application Connector Registration](#accessing-app-connector-reg) section for how to access this page.)
 2. In the System area, complete all of the required fields.
 
     Field | Description
@@ -127,7 +130,7 @@ Once an application connector registration has been created, the fields can be m
 
 #####  To Modify an Application Connector:
 
-1. On the **Application Connector Registration** page, select the desired registration from the list.
+1. On the **Application Connector Registration** page, select the desired registration from the list. (Please refer to [Accessing Application Connector Registration](#accessing-app-connector-reg) section for how to access this page.)
 2. Click **Modify**.
 3. Edit the system fields as necessary.
 4. Click **Test Connection** to verify your changes.
@@ -140,7 +143,7 @@ Application connector registrations can't be removed, but can be deactivated. Co
 
 ####  To Deactivate an Application Connector:
 
-1. On the **Application Connector Registration** page, select the desired connector.
+1. On the **Application Connector Registration** page, select the desired connector. (Refer to the steps above in the [Accessing Application Connector Registration](#accessing-app-connector-reg) section for how to access this page.)
 2. Click **Modify**.
 3. Select the active Service.
 4. Click **Configure**.

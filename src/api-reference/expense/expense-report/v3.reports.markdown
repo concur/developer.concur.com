@@ -305,7 +305,7 @@ Name|Type|Format|Description
 `PaymentStatusCode`|`string`|-|The code for the payment status of the report.
 `PaymentStatusName`|`string`|-|The report's payment status, in the OAuth consumer's language.
 `PersonalAmount`|`Decimal`|-|The total amount of expenses marked as personal. Maximum 23 characters.
-`PolicyID`|`string`|-|The unique identifier of the policy that applies to this report. Maximum 64 characters. User's default expense policy is being used when creating a new expense report
+`PolicyID`|`string`|-|The unique identifier of the policy that applies to this report. Maximum 64 characters. User's default expense policy is being used when creating a new expense report.  **Note**: Policy cannot be changed via the v3 Reports API.
 `ProcessingPaymentDate`|`DateTime`|-|The date that the report completed all approvals and was ready to be extracted for payment.
 `ReceiptsReceived`|`Boolean`|-|If Y, then this entry has been marked as confirmed by the Expense Processor. Format: Y/N
 `SubmitDate`|`DateTime`|-|The date the report was submitted.
