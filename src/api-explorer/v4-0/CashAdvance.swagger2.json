@@ -8,14 +8,14 @@
   "basePath": "/cashadvance/v4",
   "tags": [
     {
-      "name": "Cash Advance APIs"
+      "name": "Cash Advance API"
     }
   ],
   "paths": {
     "/cashadvances": {
       "post": {
         "tags": [
-          "Cash Advance APIs"
+          "Cash Advance API"
         ],
         "summary": "Create a Cash Advance",
         "consumes": [
@@ -97,7 +97,7 @@
     "/cashadvances/{cashadvanceId}": {
       "get": {
         "tags": [
-          "Cash Advance API's"
+          "Cash Advance API"
         ],
         "summary": "Get Details of a Cash Advance",
         "consumes": [
@@ -174,7 +174,7 @@
     "/cashadvances/{cashadvanceId}/issue": {
       "post": {
         "tags": [
-          "Cash Advance API's"
+          "Cash Advance API"
         ],
         "summary": "Issue a Cash Advance",
         "consumes": [
