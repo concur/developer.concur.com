@@ -246,7 +246,7 @@ You can choose any of the 2 parameter options below to make the API call:
 ```
     GET
     https://emea.api.concursolutions.com/profile/identity/v4/Users?filter=userName
-    eq “{[UserLoginId](mailto:pedro@terradottaeu.com)}”
+    eq “{UserLoginId}”
 
 ```
  Schema and Sample API Request and Response can be found in:
