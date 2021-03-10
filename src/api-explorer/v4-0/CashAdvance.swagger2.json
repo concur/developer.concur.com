@@ -209,8 +209,8 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "OK",
+          "200": {
+            "description": "Issued",
             "schema": {
               "$ref": "#/definitions/CashAdvanceIssueResponse"
             }
@@ -488,6 +488,10 @@
         "comment": {
           "type": "string",
           "description": "Comment while issuing a cash advance."
+        },
+        "exchangeRate": {
+          "type": "number",
+          "description": "The exchange rate that applies to the expected expense.If no exchange rate is provided system exchange rate will be considered."
         }
       }
     },
