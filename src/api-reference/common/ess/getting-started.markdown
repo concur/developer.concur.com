@@ -27,7 +27,7 @@ layout: reference
 The Event Subscription Service (ESS) implements the Publish/Subscribe pattern using principles of Event Driven Architecture in the SAP Concur platform. It allows clients and partners to be notified through web services when certain actions take place in connected companies. When the business/system event occurs ESS sends that event to the configured endpoint with relevant information.
 
 * **Event** - a state of a business/system object or entity. Always has an `EventType` that represents a type of entity change or specific state in a workflow. Example: Report Created, Report Submitted, etc.
-* **Topic** - a stream of events of business/system object or entity. Example: `concur.user`, `concur.expense.report`, `concur.travel.request`. There is always a topic owner in Concur, it can be a team, product, or system.
+* **Topic** - a stream of events of business/system object or entity. Example: `concur.user`, `concur.expense.report`, `concur.travel.request`.
 * **Subscription** - a topic consumer. Each subscription has a topic it is subscribed to.  
 * **Webhook** - an ESS application that uses a subscription model and delivers events to the endpoint.
 
@@ -46,6 +46,7 @@ Name                | Description                       | Endpoint
 
 ## <a name="process-flow"></a>Process Flow
 
+![Process flow for ESS](./ess-process-flow.png)
 
 ## <a name="access-control"></a>Access Control
 
@@ -65,12 +66,11 @@ It is important to remember that ESS doesn't have an API that you can call for e
 
 ## <a name="endpoint-requirements"></a>Endpoint Requirements
 
-ESS provides guaranteed at least once event delivery. This is accomplished through retrying posting of the event payload to the subscribers' endpoint until the response indicates successful receipt. The expected maximum acknowledgment time for a request to the subscribers' endpoint is 30 seconds. The service will attempt posting to the endpoint and then back-off and retry until the subscriber endpoint responds with delivered or not accepted. The service will retry at least 3 days and skip to the next event after unsuccessful delivery.  We suggest that the subscriber consider following:
+ESS guarantees at least once event delivery. This is accomplished through the retry posting the event payload to the subscribers' endpoint until the response indicates successful receipt. The expected maximum acknowledgment time for a request to the subscribers' endpoint is 30 seconds. The service will attempt posting to the endpoint and then hold and retry until the subscriber endpoint responds with delivered or not accepted. The service will retry at least 3 days and skip to the next event after unsuccessful delivery.  We suggest that the subscriber consider following:
 
-* Endpoint response time requirements depend on the topic throughput. Please contact the topic owner to calculate acceptable throughput, generally we recommend keeping the response time as low as possible (< 3 seconds).
-* We highly recommend implementing a queue behind the subscriber' endpoint in order to keep response time as low as possible.
+* Endpoint response time requirements depend on the topic throughput. Please review the topic documentation for throughput.
+* It is highly recommended to implement a queue behind the subscriber' endpoint in order to keep response time as low as possible.
 * The subscriber must maintain a reasonable uptime to support the requirements of the integration scenario.
-* We multithreaded application to deliver events to your endpoint, 24 threads by default.
 * Your HTTPS server endpoint must be accessible from the public web with a non-self-signed certificate.  The certificate should be signed by a known Certificate Authority and should be reachable through DNS.
 
 ### <a name="ess-authentication"></a> ESS Authentication

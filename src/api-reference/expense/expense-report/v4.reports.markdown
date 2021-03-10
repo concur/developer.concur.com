@@ -13,6 +13,7 @@ The Reports v4 API can be used to read and modify an expense report header of an
 * [Access Token Usage](#access-token-usage)
 * [Retrieve a Report by ID](#retrieve-report-header)
 * [Update a Report](#update-report-header)
+* [Approve or Send Back a Report](#approve-or-send-back-a-report)
 * [Schema](#schema)
     * [Report Details](#report-details-schema)
     * [Update Report](#update-report-schema)
@@ -20,7 +21,7 @@ The Reports v4 API can be used to read and modify an expense report header of an
     * [Amount](#amount-schema)
     * [Redirect Fund](#redirect-fund-schema)
     * [Report Send Back Request](#report-send-back-request-schema)
-    * [Workflow Transition Request](#workflow-transition-request-schema)
+    * [Report Approve Request](#report-approve-request-schema)
     * [Link](#link-schema)
 * [Error](#error-schema)
 * [Validation Errors](#validation-errors-schema)
@@ -43,13 +44,14 @@ Required Scopes:
 | ---|---|---|
 |`expense.report.read`| Get information about expense reports.|GET|
 |`expense.report.readwrite`|Read and write expense report headers.|PATCH|
-|`user.read`|Get User Information, necessary for `userID`.|POST|
+|`expense.report.workflowstatus.write`|Approve or Send Back the Report in the workflow|PATCH|
+|`user.read`|Get User Information, necessary for `userID`.|GET|
 
 Optional Scope:
 
 |Name|Description|Endpoint|
 |---|---|---|
-|`spend.listitem.read`|Read only access to spend list items `listItemId`.| GET|
+|`spend.listitem.read`|Read only access to spend list items `listItemId`.|GET|
 |`spend.list.read`|Read only access to spend list and category details.|GET|
 
 ## <a name="dependencies"></a>Dependencies
@@ -70,15 +72,13 @@ Retrieves the details of the specific report header.
 
 ### Request
 
-#### URI
-
-##### Template
+#### URI  Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
@@ -118,7 +118,7 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 ### Example
 
-#### Request
+#### <a name="report-header-request-schema"></a>Request
 
 ```shell
 curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB' \
@@ -127,7 +127,7 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 --header 'Content-Type: application/json'
 ```
 
-#### Response
+#### <a name="report-header-response-schema"></a>Response
 
 ```shell
 200 OK
@@ -262,15 +262,13 @@ Updates the attributes of a specific report.
 
 ### Request
 
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
@@ -320,7 +318,7 @@ PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specifica
 
 ### Example
 
-#### Request
+#### <a name="#patch-report-request-schema"></a>Request
 
 ```shell
 curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB' \
@@ -340,7 +338,89 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 }'
 ```
 
-#### Response
+#### <a name="patch-report-response-schema"></a>Response
+
+```shell
+204 No Content
+```
+## <a name="approve-or-send-back-a-report"></a>Approve or Send Back a Report
+
+The Approve function advances the specified report to the next step if it is in a system step. The Send Back function sends back the specified report to report owner .
+
+### Scopes
+
+`expense.report.workflowstatus.write` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/reports/{reportId}/approve
+https://{datacenterURI}/expensereports/v4/reports/{reportId}/sendBack
+```
+
+#### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`reportId`|string|-|**Required** The unique identifier of the report that is being approved or sent back.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### REST Design Specification
+
+PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specification:
+
+* [RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
+
+#### Payload
+
+* [Approve/Sendback Report Request](#patch-approve-sendback-report-request-schema)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Approve/Reject Report Response](#patch-approve-sendback-report-response-schema)
+
+### Example
+
+#### <a name="patch-approve-sendback-report-request-schema"></a>Request
+
+```shell
+curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/reports/764428DD6A664AF0BFCB/Approve' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Viswa test' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "reportSource":"OTHER"
+}'
+```
+
+#### <a name="patch-approve-sendback-report-response-schema"></a>Response
 
 ```shell
 204 No Content
@@ -459,7 +539,7 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 |`reasonCodeId`|`string`|-|The unique identifier of the Reason Code only by processor.|
 |`reportSource`|`string`|-|The source of the report. Supported values: `EA` - Expense Assistant, `MOB` - Mobile, `OTHER` - Unknown, `SE` - Smart Expense, `TR` - Travel Request, `UI` - Web UI|
 
-### <a name="workflow-transition-request-schema"></a>WorkflowTransitionRequest
+### <a name="report-approve-request-schema"></a>ReportApproveRequest
 
 |Name|Type|Format|Description|
 |---|---|---|---|

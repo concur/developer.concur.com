@@ -744,19 +744,20 @@ This endpoint provides a list of travel profile summaries that have been updated
 ### Request
 
 ```shell
-GET {InstanceURI}/api/travelprofile/v2.0/summary?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+GET {InstanceURI}/api/travelprofile/v2.0/summary?LastModifiedDate=2020-01-01T01:00:00&travelConfigs=100,200,3000 HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
 #### Request parameters
 
-All request parameters are optional. Available request parameters are as follows:
+LastModifiedDate is required. All other request parameters are optional. Available request parameters are as follows:
 
 Parameter Name|Required/Optional|Parameter Type|Data Type|Description
 ---|---|---|---|---
 `LastModifiedDate`|Required|path|`string`|The date and time, in UTC, that the profiles must be updated after to be included in the response. Format: `YYYY-MM-DDThh:mm:ss`
-`Page`|Optional|path|`string`|The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty
+`Page`|Optional|path|`string`|The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty.
 `ItemsPerPage`|Optional|path|`string`|The number of travel profiles per page. The maximum value is 200. The default value is 200.
+`travelConfigs`|Optional|path|`string`| One or more Config IDs, separated by commas.
 
 #### Headers
 
