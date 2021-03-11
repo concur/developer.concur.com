@@ -46,6 +46,7 @@ Name                | Description                       | Endpoint
 
 ## <a name="process-flow"></a>Process Flow
 
+![Process flow for ESS](./ess-process-flow.png)
 
 ## <a name="access-control"></a>Access Control
 
