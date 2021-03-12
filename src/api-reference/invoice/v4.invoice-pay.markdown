@@ -19,8 +19,8 @@ layout: reference
   * [Vendor](#schema-vendor)
   * [Amount](#schema-amount)
   * [Payment Update](#schema-payment-update)
-  * [Payment Update Result](#schema-payment-patch-result)
-  * [Payment Patch](#schema-payment-update)
+  * [Payment Update Result](#schema-payment-update-result)
+  * [Payment Patch](#schema-payment-patch)
   * [Payment Patch Result](#schema-payment-patch-result)
   * [Errors](#schema-errors)
 * [Definitions](#definitions)
@@ -77,7 +77,7 @@ GET https://us.api.concursolutions.com/invoice/provider-payment/v4/payments
 
 Name|Type|Format|Description
 ---|---|---|---
-`invoiceId`|`string`|-|**Optional**: Gets Specific payment info along with erpDocumentNumber.
+`invoiceId`|`string`|-|**Optional**: Gets specific payment info along with erpDocumentNumber.
 
 
 #### Headers
@@ -185,7 +185,7 @@ Payment providers can use this endpoint to provide erpdocumentnumber to the paym
 ##### Template
 
 ```
-POST https://us.api.concursolutions.com/invoice/provider-payment/v4/invoices/{invoiceId}/paymentmetadata
+PATCH https://us.api.concursolutions.com/invoice/provider-payment/v4/invoices/{invoiceId}/paymentmetadata
 ```
 
 #### Parameters
@@ -201,7 +201,7 @@ Name|Type|Format|Description
 
 #### Payload
 
-[Payment Update](#schema-payment-update)
+[Payment Patch](#schema-payment-patch)
 
 ### Response
 
@@ -220,7 +220,7 @@ Name|Type|Format|Description
 
 #### Payload
 
-[Payment Update Result](#schema-payment-update-result)
+[Payment Patch Result](#schema-payment-patch-result)
 
 ### Example
 
@@ -250,17 +250,6 @@ Content-Type: application/json
     "erpDocumentNumber": "patch erpDocumentNumber - success"
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
 
 ## <a name="updating-payment"></a>Updating a Payment With Status
 
