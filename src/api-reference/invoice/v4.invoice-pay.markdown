@@ -297,7 +297,7 @@ Name|Type|Format|Description
 
 #### Payload
 
-[Payment Patch Result](#schema-payment-patch-result)
+[Payment Update Result](#schema-payment-update-result)
 
 ### Example
 
