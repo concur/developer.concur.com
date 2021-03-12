@@ -144,7 +144,7 @@ Message to retrieved the availability of hotels.
 |---------|------------------|-------------|
 |`HotelRef/HotelCode`|`stringLength1to16`|**Required** The code that uniquely identifies a single hotel property. The hotel code is decided by vendors.|
 |`HotelRef/ChainCode`|`stringLength1to8`|The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the `HotelCode` attribute.|
-|`RatePlanCandidates`|`complex`|**Optional** Allow sending of requested rate categories. Only one `RatePlanCandidates` inside for each hotel.|
+|`RatePlanCandidates`|`complex`|Allow sending of requested rate categories. Only one `RatePlanCandidates` inside for each hotel.|
 
 #### <a name="rate-plan-candidates"></a>RatePlanCandidates
 |Name|Type|Description|
@@ -318,7 +318,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`CancelPenalties`|`complex`|**Required if `RateDetailsInd` is `true` or not present** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
 |`MealsIncluded`|`complex`|Defines which meals are included with this rate program.|
 |`RatePlanDescription`|`complex`|Textual information regarding the Rate Plan.|
-|`RatePlanType`|`integer`|**Optional** specify the rate plan type of this rate. Refer to Open Travel Code List Rate Plan Type (RPT)|
+|`RatePlanType`|`integer`|Specify the rate plan type of this rate. Refer to Open Travel Code List Rate Plan Type (RPT)|
 
 #### <a name="rate-plan-description"></a>RatePlanDescription
 
