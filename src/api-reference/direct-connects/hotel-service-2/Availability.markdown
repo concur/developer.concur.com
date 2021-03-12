@@ -85,6 +85,13 @@ Message to retrieved the availability of hotels.
                   <RatePlanCandidate RatePlanType="9"></RatePlanCandidate>
                 </RatePlanCandidates>
             </Criterion>
+            <Criterion>
+              <HotelRef ChainCode="ZZ" HotelCode="56012"></HotelRef>
+                <RatePlanCandidates>
+                  <RatePlanCandidate RatePlanType="8"></RatePlanCandidate>
+                  <RatePlanCandidate RatePlanType="9"></RatePlanCandidate>
+                </RatePlanCandidates>
+            </Criterion>
           </HotelSearchCriteria>
           <StayDateRange Start="2018-10-26" End="2018-10-28"></StayDateRange>
           <RoomStayCandidates>
@@ -142,8 +149,7 @@ Message to retrieved the availability of hotels.
 #### <a name="rate-plan-candidates"></a>RatePlanCandidates
 |Name|Type|Description|
 |---------|------------------|-------------|
-|`RatePlanCandidate/RatePlanType`|`complex`|**Required** Element used to identify rate categories requested. There can be multiple `RatePlanCandidate` per hotel|
-
+|`RatePlanCandidate/RatePlanType`|`complex`|**Required** Identify rate categories requested. Refer to Open Travel Code List Rate Plan Type (RPT). There can be multiple `RatePlanCandidate` per `RatePlanCandidates`|
 
 #### <a name="stay-date-range"></a>StayDateRange
 
