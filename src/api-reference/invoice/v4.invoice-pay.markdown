@@ -353,16 +353,6 @@ Content-Type: application/json
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
 ## <a name="schema"></a>Schema
 
 ### <a name="schema-payments"></a>Payments
