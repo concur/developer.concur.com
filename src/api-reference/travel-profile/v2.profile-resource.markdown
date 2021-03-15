@@ -276,13 +276,13 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-HasNoPassport"></a>HasNoPassport
 
-A flag which is triggered automatically when adding a new passport to a user.
+A flag which is set when adding a new passport to a user.
 
 * Passport Visa Information scope must be enabled to receive or update the data.
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
-`HasNoPassport`|`boolean`|Format: true\false.|-|If passport value added, then this value becomes false.
+`HasNoPassport`|`boolean`|Format: true\false.|-|If passport value added, then this value becomes false. |* If explicitely being set to false, passport information must exist in the user's profile or be provided within the same API call. </br> * If explicitely set to true, no passport information must exist in the user's profile.|
 
 #### <a name="schema-passports"></a>Passports
 

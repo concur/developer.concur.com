@@ -8,14 +8,14 @@
   "basePath": "/cashadvance/v4",
   "tags": [
     {
-      "name": "Cash Advance APIs"
+      "name": "Cash Advance API"
     }
   ],
   "paths": {
     "/cashadvances": {
       "post": {
         "tags": [
-          "Cash Advance APIs"
+          "Cash Advance API"
         ],
         "summary": "Create a Cash Advance",
         "consumes": [
@@ -97,7 +97,7 @@
     "/cashadvances/{cashadvanceId}": {
       "get": {
         "tags": [
-          "Cash Advance API's"
+          "Cash Advance API"
         ],
         "summary": "Get Details of a Cash Advance",
         "consumes": [
@@ -174,7 +174,7 @@
     "/cashadvances/{cashadvanceId}/issue": {
       "post": {
         "tags": [
-          "Cash Advance API's"
+          "Cash Advance API"
         ],
         "summary": "Issue a Cash Advance",
         "consumes": [
@@ -209,8 +209,8 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "OK",
+          "200": {
+            "description": "Issued",
             "schema": {
               "$ref": "#/definitions/CashAdvanceIssueResponse"
             }
@@ -488,6 +488,10 @@
         "comment": {
           "type": "string",
           "description": "Comment while issuing a cash advance."
+        },
+        "exchangeRate": {
+          "type": "number",
+          "description": "The exchange rate that applies to the expected expense.If no exchange rate is provided system exchange rate will be considered."
         }
       }
     },
