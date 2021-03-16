@@ -1,0 +1,653 @@
+---
+title: Spend User Service
+layout: reference
+---
+
+{% include prerelease.html %}
+
+The Spend User Service allows callers to provision a user in the SAP Concur Spend domain. This is an asynchronous downstream process from the User Provisioning Service.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+- [Products and Editions](#products-editions)
+- [Scope Usage](#scope-usage)
+- [Dependencies](#dependencies)
+- [Access Token Usage](#access-token-usage)
+- [`POST provisioning/v4/Bulk` endpoint for provisioning a new spend resource](#create-bulk-provision-post-request)
+- [`PATCH provisioning/v4/Bulk` endpoint for managing spend data](#create-bulk-provision-patch-request)
+- [`PUT provisioning/v4/Bulk` endpoint for managing spend data](#create-bulk-provision-put-request)
+- [`GET /spend/v4/Users` endpoint for retrieving all spend users in a company (paginated and filterable)](#get-users-endpoint)
+- [`GET /spend/v4/Users/{uuid}` endpoint for retrieving a user's specific aggregated spend information](#get-user-endpoint)
+
+- [Schemas](#schema)
+
+## <a name="products-editions"></a>Products and Editions
+
+- Concur Expense Professional Edition
+- Concur Expense Standard Edition
+- Concur Invoice Professional Edition
+- Concur Invoice Standard Edition
+- Concur Request Professional Edition
+- Concur Request Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+| Name                       | Description                    | Endpoint                                   |
+| -------------------------- | ------------------------------ | ------------------------------------------ |
+| `spend.user.general.read`  | View spend user information.   | `provisioning/v4/Bulk` & `/spend/v4/Users` |
+| `spend.user.general.write` | Change spend user information. | `provisioning/v4/Bulk`                     |
+
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur users must purchase Concur Expense in order to use the spend extensions to provision spend related data. This API only available to approved early access partners. Please contact your SAP Concur representative for more information.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports company level access tokens.
+
+## <a name="create-bulk-provision-post-request"></a>`POST provisioning/v4/Bulk` endpoint for provisioning spend data
+
+Creates one or more provisioning request containing spend relevant data using the `provision/v4/Bulk` endpoint. This section discusses the spend extensions and how to use them in tandem with a the core extensions to provision a user in SAP Concur with spend data. In order to create a user within concur, the provision request must contain the information required to also provision the core user within SAP Concur. The Spend User extension is the required foundation on which the other spend extensions depend. Without a successful Spend User save, the other spend extensions cannot succeed.
+
+POST is used to create a new resource within Concur.
+
+- DELETE operation is not supported at this time.
+
+### Scopes
+
+- `spend.user.general.read`
+- `spend.user.general.write`
+- `user.provision.read`
+- `user.provision.write`
+- `identity.user.coreenterprise.writeonly`
+- `identity.user.externalID.writeonly`
+
+Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+```shell
+POST https://www.us.api.concursolutions.com/provisioning/v4/Bulk/
+```
+
+#### URI
+
+```shell
+POST /provisioning/v4/Bulk/
+```
+
+#### Headers
+
+- `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+- `Content-Type` is used to specify the nature of the data in the body of an entity, by giving type and subtype identifiers, and by providing auxiliary information that may be required for certain types (https://www.w3.org/Protocols/rfc1341/4_Content-Type.html)
+  - `application/json`, `application/scim+json`
+
+#### Payload
+
+- [Bulk Request](#bulk-request-schema)
+
+The maximum file size allowed is 100 operations or 400kb per request. For creating a new spend user, the core and enterprise extensions are also required to successfully provision the user's core information which is a required step before the spend user information can be successfully provisioned. Each spend extension is processed independently however, for provisioning a new user, a SpendUser extension is required in order to be able to successfully provision the other spend extensions.
+
+#### POST Payload Example
+
+```shell
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+    ],
+    "failOnErrors": 1,
+    "Operations": [
+        {
+            "method": "POST",
+            "path": "/Users",
+            "bulkId": "bulk-operation-1",
+            "data": {
+                "userName": "Chris.doe198@sap.com",
+                "active": true,
+                "name": {
+                    "formatted": "Chris Doe",
+                    "legalName": "Chris Doe",
+                    "familyName": "Doe",
+                    "givenName": "Chris"
+                },
+                "emails": [
+                    {
+                        "value": "Chris.doe198@sap.com",
+                        "type": "Work"
+                    }
+                ],
+                "entitlements": [
+                    "Expense"
+                ],
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                    "employeeNumber": "3749",
+                    "companyId": "xxxxxxxx-xxx-xxx-xxx-9300b1c317xxx"
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+                    "reimbursementCurrency": "USD",
+                    "reimbursementType": "CONCUR_PAY",
+                    "ledgerCode": "DEFAULT",
+                    "country": "US",
+                    "budgetCountryCode": "US",
+                    "stateProvince": "WA",
+                    "locale": "en-US",
+                    "customData": [
+                        {
+                            "id": "custom1",
+                            "value": "testing"
+                        },
+                        {
+                            "id": "custom2",
+                            "value": "tested"
+                        },
+                        {
+                            "id": "orgUnit1",
+                            "value": "testDepartment"
+                        },
+                        {
+                            "id": "orgUnit2",
+                            "value": "testSquadAlpha"
+                        }
+                    ]
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
+                    "request": [
+                        {
+                        "approver": {
+                            "employeeNumber": "requestApprover"
+                        },
+                        "primary": true
+                        }
+                    ],
+                    "report": [
+                        {
+                        "approver": {
+                            "employeeNumber": "reportApprover"
+                        },
+                        "primary": false
+                        }
+                    ]
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": {
+                    "expense": [
+                        {
+                            "canApprove": true,
+                            "canPrepare": true,
+                            "canPrepareForApproval": true,
+                            "canReceiveApprovalEmail": true,
+                            "canReceiveEmail": true,
+                            "canSubmit": true,
+                            "canSubmitTravelRequest": true,
+                            "canUseBi": true,
+                            "canViewReceipt": true,
+                            "delegate": {
+                                "employeeNumber": "expenseDelegate"
+                            },
+                            "temporaryDelegatation": {
+                                "temporaryDelegationFromDate": "2020-02-19T03:15:00.000Z",
+                                "temporaryDelegationToDate": "2020-02-19T03:59:00.000Z"
+                            }
+                        },
+                        {
+                            "canApprove": true,
+                            "canPrepare": true,
+                            "canPrepareForApproval": true,
+                            "canReceiveApprovalEmail": true,
+                            "canReceiveEmail": true,
+                            "canSubmit": true,
+                            "canSubmitTravelRequest": true,
+                            "canUseBi": true,
+                            "canViewReceipt": true,
+                            "delegate": {
+                                "employeeNumber": "expenseDelegate"
+                            },
+                            "temporaryDelegatation": {
+                                "temporaryDelegationFromDate": "2020-02-19T03:15:00.000Z",
+                                "temporaryDelegationToDate": "2020-02-19T03:59:00.000Z"
+                            }
+                        }
+                    ]
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
+                    "roles": [
+                        {
+                            "roleName": "EXP_USER",
+                            "roleGroups": ["R&D-Dev-Exp", "R&D-QA-Exp"]
+                        }
+                    ]
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
+                    "emailStatusChangeOnCashAdvance": true,
+                    "emailAwaitApprovalOnCashAdvance": true,
+                    "emailStatusChangeOnReport": true,
+                    "emailAwaitApprovalOnReport": true,
+                    "promptForApproverOnReportSubmit": true,
+                    "emailStatusChangeOnTravelRequest": true,
+                    "emailAwaitApprovalOnTravelRequest": true,
+                    "promptForApproverOnTravelRequestSubmit": true,
+                    "emailStatusChangeOnPayment": true,
+                    "emailAwaitApprovalOnPayment": true,
+                    "promptForApproverOnPaymentSubmit": true
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
+                    "allowCreditCardTransArrivalEmails": true,
+                    "allowReceiptImageAvailEmails": true,
+                    "promptForCardTransactionsOnReport": true,
+                    "autoAddTripCardTransOnReport": true,
+                    "promptForReportPrintFormat": true,
+                    "defaultReportPrintFormat": "DETAILED",
+                    "showTotalOnReport": true,
+                    "showExpenseOnReport": "ALL",
+                    "showInstructHelpPanel": true,
+                    "showImagingIntro": true,
+                    "expenseAuditRequired": "REQUIRED",
+                    "useQuickItinAsDefault": true
+                },
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": {
+                    "adp": {
+                        "companyCode": "abcd",
+                        "deductionCode": "abcd",
+                        "employeeFileNumber": "1234"
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+## <a name="create-bulk-provision-patch-request"></a>`PATCH provisioning/v4/Bulk` endpoint for managing spend data
+
+Updates one or more provisioning request using the `provision/v4/Bulk` endpoint.
+PATCH requests modify the resource within Concur.
+
+#### Headers
+
+- `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### PATCH Payload Example
+
+- Note that Concur UUID must be in the path of the request.
+
+```shell
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:BulkRequest",
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "failOnErrors": 1,
+    "Operations": [
+        {
+            "method": "PATCH",
+            "path": "/Users/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "data": {
+                "Operations": [
+                    {
+                        "op": "replace",
+                        "path": "urn:ietf:params:scim:schemas:extension:spend:2.0:User:country",
+                        "value": "US"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+## <a name="create-bulk-provision-put-request"></a>`PUT provisioning/v4/Bulk` endpoint for managing spend user data
+
+Replaces one or more resource using the /Bulk endpoint.
+
+PUT is used to replace an existing resource within Concur.
+
+- In the case where all attributes are not provisioned, system default values will be provisioned.
+
+#### PUT Payload Example
+
+- Note that Concur UUID within the id attribute and path must be included within the data of the request.
+
+```shell
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+    ],
+    "failOnErrors": 1,
+    "Operations": [
+        {
+            "method": "PUT",
+            "path": "/Users/8f545a90-305f-441b-91cd-a69ad5f548f5",
+            "bulkId": "Seattle",
+            "data": {
+                "id": "8f545a90-305f-441b-91cd-a69ad5f548f5",
+                "userName": "john.doe21224@sap.com",
+                "active": false,
+                "name": {
+                    "formatted": "Mr. John Doe",
+                    "legalName": "Mr. John Doe",
+                    "middleName": "Joe",
+                    "middleInitial": "J",
+                    "familyName": "Doe",
+                    "givenName": "John",
+                    "honorificPrefix": "Prof Dr Mr",
+                    "honorificSuffix": "VI",
+                    "hasNoMiddleName": true
+                },
+                "emails": [
+                    {
+                        "value": "john.doe193@sap.com",
+                        "type": "work"
+                    }
+                ],
+                "entitlements": [
+                    "Expense"
+                ],
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                    "employeeNumber": "3749",
+                    "companyId": "xxxxxxxx-xxx-xxx-xxx-9300b1c317xxx"
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+                    "reimbursementCurrency": "USD",
+                    "reimbursementType": "CONCUR_PAY",
+                    "ledgerCode": "DEFAULT",
+                    "country": "US",
+                    "budgetCountryCode": "US",
+                    "stateProvince": "WA",
+                    "locale": "en-US",
+                    "customData": [
+                        {
+                            "id": "custom1",
+                            "value": "testing"
+                        },
+                        {
+                            "id": "orgUnit2",
+                            "value": "testSquadAlpha"
+                        }
+                    ]
+                },
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
+                    "request": [
+                        {
+                        "approver": {
+                            "employeeNumber": "requestApprover"
+                        },
+                        "primary": true
+                        }
+                    ],
+                },
+            }
+        }
+    ]
+}
+```
+
+## <a name="get-users-endpoint"></a> `GET /spend/v4/Users` endpoint for retrieving all spend users
+
+`spend/v4/Users` endpoint for retrieving all the spend users for a given company. The result is paginated and can be filtered using the params listed below.
+
+### Request
+
+```shell
+GET https://www.us.api.concursolutions.com/spend/v4/Users
+```
+
+#### URI
+
+```shell
+GET /spend/v4/Users
+```
+
+#### Headers
+
+- `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+- `company-uuid` the company UUID that users are being retrieved for and that your passed certificate has authority within.
+
+### Request Example
+
+```shell
+GET https://www.us.api.concursolutions.com/provisioning/v4/Users?&startIndex=1&itemsPerPage=4&filter=urn:ietf:params:scim:schemas:extension:spend:2.0:User:country+eq+%22US%22
+```
+
+#### Parameters
+
+| Name           | Type     | Format                                                     | Description                                                                |
+| -------------- | -------- | ---------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `startIndex`   | `int`    |                                                            | The starting index of the paginated result (indexes from 1)                |
+| `itemsPerPage` | `int`    |                                                            | The number of user resources to return on a single page (max: 100)         |
+| `filter`       | `string` | [RFC](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) | The SCIM compliant filter string to be used when retrieving user resources |
+
+Note: Currently not all aspects of SCIM filtering are supported. As of right now the following fields are implemented with the corresponding set of operators:
+
+- `CashAdvanceAccountCode` { **eq**, **ne** }
+- `Country` { **eq**, **ne** }
+- `CustomData` { **complexValue** that contains **and**, **eq** }
+- `LedgerCode` { **eq**, **ne** }
+- `Locale` { **eq**, **ne** }
+- `NonEmployee` { **eq**, **ne** }
+- `ReimbursementCurrency` { **eq**, **ne** }
+- `ReimbursementType` { **eq**, **ne** }
+- `StateProvince` { **eq**, **ne** }
+- `TestEmployee` { **eq**, **ne** }
+
+#### GET Response Example
+
+```shell
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "totalResults": 10000,
+    "Resources": [
+        {
+            "schemas": [
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Role",
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference",
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:User",
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll",
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference",
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver",
+                "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate",
+                "urn:ietf:params:scim:schemas:ScimResource"
+            ],
+            "id": "aaaaaaaa-xxxx-zzzz-xxxx-xxxxxxxxxxxx",
+            "urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
+                "roles": [
+                    {
+                        "roleName": "TRAVEL_USER"
+                    }
+                ]
+            },
+            "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
+                "emailStatusChangeOnCashAdvance": false,
+                "emailAwaitApprovalOnCashAdvance": false,
+                "emailStatusChangeOnReport": false,
+                "emailAwaitApprovalOnReport": false,
+                "promptForApproverOnReportSubmit": false,
+                "emailStatusChangeOnTravelRequest": false,
+                "emailAwaitApprovalOnTravelRequest": false,
+                "promptForApproverOnTravelRequestSubmit": false,
+                "emailStatusChangeOnPayment": false,
+                "emailAwaitApprovalOnPayment": false,
+                "promptForApproverOnPaymentSubmit": false
+            },
+            "urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+                "reimbursementCurrency": "USD",
+                "reimbursementType": "CONCUR_PAY",
+                "country": "US",
+                "locale": "en-US",
+                "testEmployee": false,
+                "nonEmployee": false,
+                "customData": []
+            },
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": {
+                "adp": {}
+            },
+            "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
+                "showImagingIntro": true,
+                "expenseAuditRequired": "REQUIRED",
+                "allowCreditCardTransArrivalEmails": true,
+                "allowReceiptImageAvailEmails": true,
+                "promptForCardTransactionsOnReport": true,
+                "autoAddTripCardTransOnReport": true,
+                "promptForReportPrintFormat": true,
+                "defaultReportPrintFormat": "RECEIPTS",
+                "showTotalOnReport": true,
+                "showExpenseOnReport": "PARENT",
+                "showInstructHelpPanel": true,
+                "useQuickItinAsDefault": false
+            },
+            "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {},
+            "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": {}
+        }
+    ],
+    "startIndex": 1,
+    "itemsPerPage": 1
+}
+```
+
+## <a name="get-user-endpoint"></a> `GET /spend/v4/Users/{uuid}` endpoint for retrieving a spend user
+
+`spend/v4/Users/{uuid}` endpoint for the retrieving a specific user's spend data.
+
+### Request
+
+```shell
+GET https://www.us.api.concursolutions.com/spend/v4/Users/{uuid}
+```
+
+#### URI
+
+```shell
+GET /spend/v4/Users/{uuid}
+```
+
+#### Headers
+
+- `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+### Request Example
+
+```shell
+GET https://www.us.api.concursolutions.com/provisioning/v4/Users/aaaaaaaa-bbbb-cccc-aaaa-bbbbbbbbbbb1
+```
+
+#### GET Response Example
+
+```shell
+{
+    "schemas": [
+        "urn:com.concur.spend.user.model.scim.ScimResource",
+        "urn:ietf:params:scim:schemas:extension:spend:2.0:Role",
+        "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference",
+        "urn:ietf:params:scim:schemas:extension:spend:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll",
+        "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference",
+        "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate",
+        "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver"
+    ],
+    "id": "f8eb1b79-25b7-4a86-ba7f-1d5b10c13b8f",
+    "urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
+        "roles": [
+            {
+                "roleName": "REQ_USER"
+            },
+            {
+                "roleName": "EXP_USER"
+            }
+        ]
+    },
+    "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
+        "emailStatusChangeOnCashAdvance": true,
+        "emailAwaitApprovalOnCashAdvance": true,
+        "emailStatusChangeOnReport": true,
+        "emailAwaitApprovalOnReport": true,
+        "promptForApproverOnReportSubmit": true,
+        "emailStatusChangeOnTravelRequest": true,
+        "emailAwaitApprovalOnTravelRequest": true,
+        "promptForApproverOnTravelRequestSubmit": true,
+        "emailStatusChangeOnPayment": true,
+        "emailAwaitApprovalOnPayment": true,
+        "promptForApproverOnPaymentSubmit": true
+    },
+    "urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+        "reimbursementCurrency": "USD",
+        "reimbursementType": "CONCUR_PAY",
+        "ledgerCode": "DEFAULT",
+        "country": "US",
+        "stateProvince": "WA",
+        "locale": "en-US",
+        "testEmployee": false,
+        "nonEmployee": false,
+        "customData": [
+            {
+                "id": "custom20",
+                "value": "testing"
+            },
+            {
+                "id": "custom9",
+                "value": "testing"
+            },
+            {
+                "id": "orgunit3",
+                "value": "testDepartment"
+            }
+        ]
+    },
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": {
+        "adp": {}
+    },
+    "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
+        "showImagingIntro": true,
+        "expenseAuditRequired": "REQUIRED",
+        "allowCreditCardTransArrivalEmails": true,
+        "allowReceiptImageAvailEmails": true,
+        "promptForCardTransactionsOnReport": true,
+        "autoAddTripCardTransOnReport": true,
+        "promptForReportPrintFormat": true,
+        "defaultReportPrintFormat": "DETAILED",
+        "showTotalOnReport": true,
+        "showExpenseOnReport": "ALL",
+        "showInstructHelpPanel": true,
+        "useQuickItinAsDefault": true
+    },
+    "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": {
+        "expense": [
+            {
+                "canApprove": true,
+                "canPrepare": true,
+                "canPrepareForApproval": false,
+                "canReceiveApprovalEmail": true,
+                "canReceiveEmail": true,
+                "canSubmit": true,
+                "canSubmitTravelRequest": true,
+                "canUseBi": false,
+                "canViewReceipt": true,
+                "delegate": {
+                    "value": "aaaaaaaa-bbbb-cccc-aaaa-bbbbbbbbbbb2"
+                }
+            }
+        ]
+    },
+    "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
+        "request": [
+            {
+                "approver": {
+                    "value": "aaaaaaaa-bbbb-cccc-aaaa-bbbbbbbbbbb2"
+                },
+                "primary": true
+            }
+        ],
+        "report": [
+            {
+                "approver": {
+                    "value": "aaaaaaaa-bbbb-cccc-aaaa-bbbbbbbbbbb2"
+                },
+                "primary": true
+            }
+        ]
+    }
+}
+```
+
+## <a name="schema"></a>Schema
+
+`TODO`
