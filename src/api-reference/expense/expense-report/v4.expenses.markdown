@@ -52,7 +52,7 @@ The Expenses API can be used to read the expenses that belong to a specific expe
 
 ## Prior Versions
 
-* Expense entry v1.1 (Deprecated) documentation is available [here](./api-reference/expense/expense-report/v1dot1.expense-entry.html)
+* Expense entry v1.1 (Deprecated) documentation is available [here](./v1dot1.expense-entry.html)
 * Expense Entry v3 documentation is available [here](./expense-entry.html)
 
 ## <a name="products-editions"></a>Products and Editions
