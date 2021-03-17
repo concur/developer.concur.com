@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "<b>Expense Report Service (ERS) is the next-generation v4 API for operations related to  creating and processing Expense Reports</b>. In order to interact with this API, a client  must include either an authorized User or Company JWT in the header of each request, or  use an X.509 client certificate with a CN included in the Allowed List by the ERS team.\n",
-        "version": "4.0.68",
+        "version": "4.0.70",
         "title": "Expense Report Service",
         "contact": {
             "name": "expensereportservice@sap.onmicrosoft.com",
@@ -129,8 +129,8 @@
                 "tags": [
                     "Expenses"
                 ],
-                "summary": "Updates the specified expense",
-                "description": "Updates the specified expense.",
+                "summary": "Updates the specified expense in an un-submitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.",
+                "description": "Updates the specified expense in an un-submitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.",
                 "operationId": "updateReportExpenseUsingShortURLUsingPATCH",
                 "consumes": [
                     "application/json"
@@ -173,7 +173,7 @@
                         "description": "Expense data",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/UpdateReportExpense"
+                            "$ref": "#/definitions/UpdateReportExpenseCompact"
                         }
                     }
                 ],
@@ -409,8 +409,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Updates the specified report",
-                "description": "Updates the specified report.",
+                "summary": "Updates the report header in an un-submitted expense report specified and is flexible for modifying multiple attributes in the schema",
+                "description": "Updates the report header in an un-submitted expense report specified and is flexible for modifying multiple attributes in the schema",
                 "operationId": "updateReportUsingPATCH",
                 "consumes": [
                     "application/json"
@@ -916,8 +916,8 @@
                 "tags": [
                     "Expenses"
                 ],
-                "summary": "Updates the specified expense",
-                "description": "Updates the specified expense.",
+                "summary": "Updates the specified expense in an un-submitted report and is flexible for modifying multiple attributes in the schema",
+                "description": "Updates the specified expense in an un-submitted report and is flexible for modifying multiple attributes in the schema.",
                 "operationId": "updateReportExpenseUsingPATCH",
                 "consumes": [
                     "application/json"
@@ -1562,9 +1562,14 @@
                     "type": "string",
                     "description": "The HTTP method required for the related call"
                 },
+                "name": {
+                    "type": "string"
+                },
+                "profile": {
+                    "type": "string"
+                },
                 "rel": {
-                    "type": "string",
-                    "description": "The link relationship that describes how the href relates to the API call"
+                    "type": "string"
                 },
                 "title": {
                     "type": "string"
@@ -3277,6 +3282,38 @@
                 "name": {
                     "type": "string",
                     "description": "The location name (localized as per accept-language header)"
+                }
+            }
+        },
+        "UpdateReportExpenseCompact": {
+            "type": "object",
+            "required": [
+                "expenseSource"
+            ],
+            "properties": {
+                "businessPurpose": {
+                    "type": "string",
+                    "description": "The text input for the business purpose by the user. Maximum length: 64 characters"
+                },
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "expenseSource": {
+                    "type": "string",
+                    "description": "The source of the expense. Possible values: EA - Expense Assistant, MOB - Mobile, OTHER - Unknown, SE - Smart Expense, TA - Travel Allowance, TR - Travel Request, UI - Web UI",
+                    "enum": [
+                        "EA",
+                        "MOB",
+                        "OTHER",
+                        "SE",
+                        "TA",
+                        "TR",
+                        "UI"
+                    ]
                 }
             }
         }

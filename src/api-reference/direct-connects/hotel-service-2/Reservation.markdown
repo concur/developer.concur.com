@@ -307,7 +307,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |-------------|-------------------|-------------|
-|`NamePrefix`|`stringLength1to16`|Salutation of honorific. Supported values: `Mr`, `Mrs`, `Ms`, `Miss`, `Dr`, `Rev`, `Sir`, `Lord`, `Lady`, `Dr Mr`, `Dr Mrs`, `Dr Ms`, `Prof Mr`, `Prof Mrs`, `Prof Ms`, `Prof Dr Mr`, `Prof Dr Mrs`, `Prof Dr Ms`|
+|`NamePrefix`|`stringLength1to16`|Salutation of honorific. List subject to change. Example values: `Mr`, `Mrs`, `Ms`, `Miss`, `Dr`, `Rev`, `Sir`, `Lord`, `Lady`, `Dr Mr`, `Dr Mrs`, `Dr Ms`, `Prof Mr`, `Prof Mrs`, `Prof Ms`, `Prof Dr Mr`, `Prof Dr Mrs`, `Prof Dr Ms`|
 |`GivenName`|`stringLength1to64`|Given name, first name or names.|
 |`Surname`|`stringLength1to64`|**Required** Family name, last name. May also be used for full name if the sending system does not have the ability to separate a full name into its parts. Example: the surname element may be used to pass the full name.|
 
@@ -349,7 +349,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |---------------|----------|-------------|
-|`ProgramCode`|`stringLength1to32`|**Required** The code or name of the reward program. Example: `HotelLoyaltyProgram`|
+|`ProgramCode`|`stringLength1to32`|**Required** Always `HotelLoyaltyProgram` for hotels|
 |`AccountID`|`stringLength1to64`|**Required** The account identification number for this particular member in this particular program.|
 
 #### <a name="comments-two"></a>Comments
@@ -435,35 +435,6 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                 <RoomRate>
                   <Rates>
                     <Rate>
-                      <PaymentPolicies>
-                        <GuaranteePayment>
-                          <AcceptedPayments>
-                            <AcceptedPayment>
-                              <PaymentCard>
-                                <CardType>VISA</CardType>
-                              </PaymentCard>
-                            </AcceptedPayment>
-                          </AcceptedPayments>
-                        </GuaranteePayment>
-                        <GuaranteePayment>
-                          <AcceptedPayments>
-                            <AcceptedPayment>
-                              <PaymentCard>
-                                <CardType>Mastercard</CardType>
-                              </PaymentCard>
-                            </AcceptedPayment>
-                          </AcceptedPayments>
-                        </GuaranteePayment>
-                        <GuaranteePayment>
-                          <AcceptedPayments>
-                            <AcceptedPayment>
-                              <PaymentCard>
-                                <CardType>AmericanExpress</CardType>
-                              </PaymentCard>
-                            </AcceptedPayment>
-                          </AcceptedPayments>
-                        </GuaranteePayment>
-                      </PaymentPolicies>
                       <Total AmountAfterTax="185.00" AmountBeforeTax="85.00" CurrencyCode="EUR"/>
                     </Rate>
                   </Rates>
@@ -590,7 +561,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |Name|Type|Description|
 |---------|------------|-------------|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. Maximum elements: `9`|
-|`Deadline`|`complex`|**Required** Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
+|`Deadline`|`complex`|Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
@@ -626,5 +597,4 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 
 |Name|Type|Description|
 |------------------------|--------------------|-------------|
-|`PaymentPolicies`|`complex`|**Required** Payment policies for this rate. Refer to `PaymentPolicies` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#payment-policies).|
 |`Total`|`complex`|**Required** A description of the rate. Refer to `Total` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html#total).|

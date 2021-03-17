@@ -32,7 +32,7 @@ Content|A parent element that contains an **Error** child element.
 Element|Description
 ---|---
 Message|The error message.
-Server-Time|The time the error was generated, based on Concur's server's time zone.
+Server-Time|The time the error was generated, based on the SAP Concur server's time zone.
 Id|The ID of the error within Concur.
 
 Refer to the individual function documentation for function-specific error formats.
@@ -48,5 +48,6 @@ Error Code|Message|Description
 403|Forbidden|This response is returned if any of these conditions is true:<br><br>* The Authorization header is included but it fails validation. This can happen if the OAuth consumer does not have access to the Concur product required by the web service.<br>* The partner application associated with the oauth_consumer_key has not been allowed access to the requested company.<br>* The Oauth token has expired or been revoked.
 404|Not Found|**Extract Web Service**: The Definition ID or Job ID specified in the URI is invalid.<br><br>**Imaging Web Service**: No image was found for the specified report Id or barcode.<br><br>**Itinerary Web Service**: The Trip ID or Booking ID specified in the URI is invalid.<br><br>**Payment Batch Web Service**: The Batch ID specified in the URI is invalid.
 409|Conflict|**Extract Web Service**: A job for the specified definition is already queued or running.
+429|Too Many Requests|This response is returned when services are overloaded either with too many requests from a single source or too many requests in aggregate. When this happens slow the rate of requests.
 500|Internal Server Error/Not Closed|**Expense Report Web Service**: This response is returned when the system is unable to calculate an exchange rate for a posted expense report entry.<br>**Payment Batch Web Service**: The specified batch could not be closed.
 503|Service Unavailable|This response is returned when the web service is down for maintenance. The partner application should sleep for 5 minutes then retry the request. If the request continues to fail after a few retries, the developer should contact concurconnecttech@concur.com.

@@ -1,5 +1,5 @@
 ---
-title: SAP Concur App Center - User Connection / Apps for Me Release Schedule
+title: SAP Concur App Center - User Connection Release Schedule
 layout: reference
 ---
 
