@@ -14,7 +14,7 @@ The Expenses API can be used to read the expenses that belong to a specific expe
 * [Access Token Usage](#access-token-usage)
 * [Retrieve expenses on a specific Report ID](#specific-report-expenses)
 * [Retrieve an Expense by ID](#retrieve-expense-entry)
-* [Update an Expense in an un-submitted report](#update-expense-entry-in-an-unsubmitted-report)
+* [Update an Expense in an unsubmitted report](#update-expense-entry-in-an-unsubmitted-report)
 * [Update an Expense in a submitted report](#update-expense-entry-in-a-submitted-report)
 * [Schema](#schema)
   * [Update Report Expense Compact Schema](#update-report-expense-compact-schema)
@@ -537,7 +537,7 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 
 ## <a name="update-expense-entry-in-an-unsubmitted-report"></a>Update a Specific Expense Entry in an Unsubmitted Report
 
-Updates the specified expense in an un-submitted report and is flexible for modifying multiple attributes in the schema detailed below
+Updates the specified expense in an unsubmitted report and is flexible for modifying multiple attributes in the schema detailed below
 
 ### Scopes
 
@@ -633,7 +633,7 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 ```
 ## <a name="update-expense-entry-in-a-submitted-report"></a>Update a Specific Expense Entry in a Submitted Report
 
-Updates the specified expense in an un-submitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.
+Updates the specified expense in an unsubmitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.
 
 ### Scopes
 
