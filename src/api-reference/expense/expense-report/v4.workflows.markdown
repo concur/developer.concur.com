@@ -13,8 +13,6 @@ The Workflows v4 API can be used to Approve or Send Back an expense report that 
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
 * [Approve or Send Back a Report](#approve-or-send-back-a-report)
-* [Create a resource](#create-resource)
-* [Obtain a representation](#obtain-representation)
 * [Schema](#schema)
   * [Report Send Back Request](#report-send-back-request-schema)
   * [Report Approve Request](#report-approve-request-schema)
