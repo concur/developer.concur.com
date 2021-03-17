@@ -28,8 +28,8 @@ The Reports v4 API can be used to read and modify an expense report header of an
 
 ## Prior Versions
 
-* Report Header v1 (Deprecated) documentation is available [here](./api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html)
-* Reports v3 (Deprecated) documentation is available [here](./v3.reports.html)
+* Report Header v1 (Deprecated) documentation is available [here](/api-reference/expense/expense-report/v1dot1.reports.html)
+* Reports v3 (Deprecated) documentation is available [here](/v3.reports.html)
 
 ## <a name="products-editions"></a>Products and Editions
 
