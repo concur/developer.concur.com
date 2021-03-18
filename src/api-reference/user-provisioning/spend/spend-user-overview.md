@@ -1,5 +1,5 @@
 ---
-title: Spend User
+title: Spend User Overview
 layout: reference
 ---
 
