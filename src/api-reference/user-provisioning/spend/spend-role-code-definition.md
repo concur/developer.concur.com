@@ -1,4 +1,9 @@
-# Spend Role Codes
+---
+title: Spend Role Codes
+layout: reference
+---
+
+{% include prerelease.html %}
 
 ## Table of Contents
 
