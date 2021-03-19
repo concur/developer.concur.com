@@ -137,7 +137,7 @@ Schema and Sample API Request and Response can be found in:
 
 #### Booking Owners Types
 
-"The BookingOwner" on the booking level identifies the system the booking originated from.
+The BookingOwner on the booking level identifies the system the booking originated from.
 
 BookingOwner Types|Description
 -----|-----
