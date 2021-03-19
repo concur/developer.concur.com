@@ -259,7 +259,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |-------------------|--------------|-------------|
-|`RoomTypes`|`complex`|**Required** Details on the room stay including guest counts, time span of this room stay, pointers to res guests, guest memberships, comments, and special requests pertaining to this particular room stay. Financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties.|
+|`RoomTypes`|`complex`|**Required** Details on the room type.|
 |`RatePlans`|`complex`|**Required** A collection of rate plans associated with a particular room stay. The rate plan element is used to contain all the rate information for a single rate plan Code (example: `RACK`) for a given date range. A given rate plan may have variable rates, over the effective period of the rate plan, this is represented by the child element rates.|
 |`RoomRates`|`complex`|**Required** List of room rates.|
 |`TimeSpan`|`datetimespan` |**Required** The time span which covers the room stay. The attributes of the OTA `DateTimeSpan` data type are based on the W3C base data types of `timeInstant` and `timeDuration` using ISO 8601.|
@@ -282,7 +282,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`stringLength1to32`|**Required** Only one (1) text element is supported. If multiple text elements are specified, the last one is used and all others are dropped. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** If multiple text elements are provided, the contents will be concatenated. All text passed is HTML encoded.|
 
 #### <a name="rate-plans"></a>RatePlans
 
@@ -332,12 +332,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`never`|Guarantee is never required.|
 |`default`|Guarantee is required if no deposit account is set up.|
 
-#### <a name="deadline"></a>Deadline
-
-|Name|Type|Description|
-|------------------------|--------------------|-------------|
-|`AbsoluteDeadline`|`time` or `datetime`|**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
-
 #### <a name="cancel-penalties"></a>CancelPenalties
 
 |Name|Type|Description|
@@ -348,9 +342,15 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |--------------------|-----------|-------------|
-|`NoCancelInd`|`boolean`| If true, the reservation cannot be cancelled once the cancellation deadline has expired. False or missing flag will be treated as rate being not cancellable.|
+|`NoCancelInd`|`boolean`| If `true`, the reservation cannot be cancelled once the cancellation deadline has expired. `False` or missing flag will be treated as rate being not cancellable.|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. This element may contain a maximum of 9 children text fields. Any excess text elements are dropped.|
-|`Deadline`|`complex`| Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone. |
+|`Deadline`|`complex`| Cancellation deadline.|
+
+#### <a name="deadline"></a>Deadline
+
+|Name|Type|Description|
+|------------------------|--------------------|-------------|
+|`AbsoluteDeadline`|`time` or `datetime`|**Required** Defines the absolute deadline in ISO8601 format and in UTC timezone.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
@@ -444,7 +444,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`string`|**Required** SAP Concur only expects one (1) text field for the rate description. Any excess text elements will be ignored. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** If multiple text elements are provided, the contents will be concatenated. All text passed is HTML encoded.|
 
 #### <a name="tpa-extensions"></a>TPA_Extensions
 
