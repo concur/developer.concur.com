@@ -18,7 +18,6 @@ Message to retrieved the availability of hotels.
     * [Hotel Search Criteria](#hotel-search-criteria)
     * [Criterion](#criterion)
     * [Stay Date Range](#stay-date-range)
-    * [Rate Plan Candidates](#rate-plan-candidates)
     * [Room Stay Candidates](#room-stay-candidates)
     * [Room Stay Candidate](#room-stay-candidate)
     * [Guest Counts](#guest-counts)
@@ -80,17 +79,6 @@ Message to retrieved the availability of hotels.
           <HotelSearchCriteria>
             <Criterion>
               <HotelRef ChainCode="ZZ" HotelCode="111222"></HotelRef>
-                <RatePlanCandidates>
-                  <RatePlanCandidate RatePlanType="8"></RatePlanCandidate>
-                  <RatePlanCandidate RatePlanType="9"></RatePlanCandidate>
-                </RatePlanCandidates>
-            </Criterion>
-            <Criterion>
-              <HotelRef ChainCode="ZZ" HotelCode="56012"></HotelRef>
-                <RatePlanCandidates>
-                  <RatePlanCandidate RatePlanType="8"></RatePlanCandidate>
-                  <RatePlanCandidate RatePlanType="9"></RatePlanCandidate>
-                </RatePlanCandidates>
             </Criterion>
           </HotelSearchCriteria>
           <StayDateRange Start="2018-10-26" End="2018-10-28"></StayDateRange>
@@ -144,12 +132,6 @@ Message to retrieved the availability of hotels.
 |---------|------------------|-------------|
 |`HotelRef/HotelCode`|`stringLength1to16`|**Required** The code that uniquely identifies a single hotel property. The hotel code is decided by vendors.|
 |`HotelRef/ChainCode`|`stringLength1to8`|The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the `HotelCode` attribute.|
-|`RatePlanCandidates`|`complex`|Allow sending of requested rate categories. Only one `RatePlanCandidates` inside for each hotel.|
-
-#### <a name="rate-plan-candidates"></a>RatePlanCandidates
-|Name|Type|Description|
-|---------|------------------|-------------|
-|`RatePlanCandidate/RatePlanType`|`complex`|**Required** Identify rate categories requested. Refer to Open Travel Code List Rate Plan Type (RPT). There can be multiple `RatePlanCandidate` per `RatePlanCandidates`|
 
 #### <a name="stay-date-range"></a>StayDateRange
 
