@@ -1,0 +1,974 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Spend User Service",
+    "description": "Rest API for Spend User Service",
+    "termsOfService": "http://www.concur.com",
+    "contact": {
+      "name": "Team Up",
+      "url": "",
+      "email": "Team_Up@sap.com"
+    },
+    "license": {
+      "name": "SAP Concur",
+      "url": "http://www.concur.com"
+    },
+    "version": "candidate"
+  },
+  "externalDocs": {
+    "description": "Spend User Provision Readme",
+    "url": "https://github.concur.com/spend-user/spend-user-service"
+  },
+  "servers": [
+    {
+      "url": "https://sus.k8s.cnqr.tech",
+      "description": "Generated server url"
+    }
+  ],
+  "security": [
+    {
+      "bearer-jwt": [
+        "read",
+        "write"
+      ],
+      "common-name": [
+        "read",
+        "write"
+      ]
+    }
+  ],
+  "paths": {
+    "/spend/v4/Users/{uuid}": {
+      "get": {
+        "tags": [
+          "Spend User APIs"
+        ],
+        "description": "Get the aggregated user.",
+        "operationId": "getAggregatedUser",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "UUID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompleteUserSwagger"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/spend/v4/Users": {
+      "get": {
+        "tags": [
+          "Spend User APIs"
+        ],
+        "description": "Get the filtered and paginated spend users from the specified company",
+        "operationId": "getSpendUsers",
+        "parameters": [
+          {
+            "name": "searchRequest",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SearchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponseUserResourceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not Implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponseUserResourceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "location": {
+            "type": "string",
+            "format": "uri"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchRequest": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "itemsPerPage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "filter": {
+            "type": "string"
+          }
+        }
+      },
+      "AttributeDefinition": {
+        "required": [
+          "multiValued",
+          "mutability",
+          "name",
+          "required",
+          "returned",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "string",
+              "boolean",
+              "decimal",
+              "integer",
+              "dateTime",
+              "binary",
+              "reference",
+              "complex"
+            ]
+          },
+          "subAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeDefinition"
+            }
+          },
+          "multiValued": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "canonicalValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "caseExact": {
+            "type": "boolean"
+          },
+          "mutability": {
+            "type": "string",
+            "enum": [
+              "readOnly",
+              "readWrite",
+              "immutable",
+              "writeOnly"
+            ]
+          },
+          "returned": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never",
+              "default",
+              "request"
+            ]
+          },
+          "uniqueness": {
+            "type": "string",
+            "enum": [
+              "none",
+              "server",
+              "global"
+            ]
+          },
+          "referenceTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "UserReference": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "employeeNumber": {
+            "type": "string"
+          },
+          "$ref": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "SpendDelegate": {
+        "type": "object",
+        "properties": {
+          "canApprove": {
+            "type": "boolean"
+          },
+          "canPrepare": {
+            "type": "boolean"
+          },
+          "canPrepareForApproval": {
+            "type": "boolean"
+          },
+          "canReceiveApprovalEmail": {
+            "type": "boolean"
+          },
+          "canReceiveEmail": {
+            "type": "boolean"
+          },
+          "canSubmit": {
+            "type": "boolean"
+          },
+          "canSubmitTravelRequest": {
+            "type": "boolean"
+          },
+          "canUseBi": {
+            "type": "boolean"
+          },
+          "canViewReceipt": {
+            "type": "boolean"
+          },
+          "delegate": {
+            "$ref": "#/components/schemas/UserReference"
+          },
+          "temporaryDelegation": {
+            "$ref": "#/components/schemas/TemporaryDelegate"
+          }
+        }
+      },
+      "Adp": {
+        "required": [
+          "companyCode",
+          "deductionCode",
+          "employeeFileNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "companyCode": {
+            "type": "string"
+          },
+          "deductionCode": {
+            "type": "string"
+          },
+          "employeeFileNumber": {
+            "type": "string"
+          }
+        }
+      },
+      "SpendUser": {
+        "required": [
+          "country",
+          "locale",
+          "reimbursementCurrency"
+        ],
+        "type": "object",
+        "properties": {
+          "reimbursementCurrency": {
+            "type": "string"
+          },
+          "reimbursementType": {
+            "type": "string",
+            "enum": [
+              "ACCOUNTS_PAYABLE",
+              "ADP_PAYROLL",
+              "CONCUR_PAY",
+              "OTHER",
+              "PAY_PAL"
+            ]
+          },
+          "ledgerCode": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "budgetCountryCode": {
+            "type": "string"
+          },
+          "stateProvince": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "cashAdvanceAccountCode": {
+            "type": "string"
+          },
+          "testEmployee": {
+            "type": "boolean"
+          },
+          "nonEmployee": {
+            "type": "boolean"
+          },
+          "customData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomData"
+            }
+          }
+        }
+      },
+      "UserResourceResponse": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "externalId": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "approverExtension": {
+            "$ref": "#/components/schemas/ApproverExtension"
+          },
+          "delegateExtension": {
+            "$ref": "#/components/schemas/DelegateExtension"
+          },
+          "spendRoleExtension": {
+            "$ref": "#/components/schemas/SpendRole"
+          }
+        }
+      },
+      "Role": {
+        "required": [
+          "roleName"
+        ],
+        "type": "object",
+        "properties": {
+          "roleName": {
+            "type": "string",
+            "enum": [
+              "EXP_FB_TAX_ADMIN",
+              "EXP_USER",
+              "EXP_TRAVEL_AND_EXPENSE_USER",
+              "EXP_PROXY_USER",
+              "EXP_APPROVER",
+              "EXP_CONFIG_ADMIN",
+              "EXP_CONFIG_ADMIN_CLIENT",
+              "EXP_CONFIG_ADMIN_RO",
+              "EXP_EMPLOYEE_ADMIN",
+              "EXP_CARD_ADMIN",
+              "EXP_CASHADVANCE_ADMIN",
+              "EXP_EXTRACT_ADMIN",
+              "EXP_PROCESSOR",
+              "EXP_PROCESSOR_AUDIT",
+              "EXP_PROCESSOR_ADMIN",
+              "EXP_PROCESSOR_CR",
+              "EXP_ATTENDEE_ADMIN",
+              "EXP_ATTENDEE_ADMIN_RO",
+              "EXP_REIMBURSEMENT_AUDITOR",
+              "EXP_REIMBURSEMENT_APPROVER",
+              "EXP_FIND_ATTENDEES_USER",
+              "EXP_PCARD_ADMIN",
+              "EXP_RECEIPT_PROCESSOR",
+              "STATEMENT_PROCESSOR_AUDITOR",
+              "STATEMENT_PROCESSOR",
+              "STATEMENT_PROCESSOR_ADMIN",
+              "STATEMENT_APPROVER",
+              "STATEMENT_USER",
+              "TRAVEL_USER",
+              "INV_PURCH_RECEIVER",
+              "INV_EMPLOYEE_ADMIN",
+              "INV_IMAGE_PROCESSOR",
+              "INV_RECEIPT_PROCESSOR",
+              "INV_PMT_MANAGER",
+              "INV_PURCH_USER",
+              "INV_APPROVER",
+              "INV_AP_USER",
+              "INV_PROCESSOR_AUDIT",
+              "INV_PMT_USER",
+              "INV_PROCESSOR",
+              "INV_PROCESSOR_MANAGER",
+              "INV_CONFIG_ADMIN",
+              "INV_CONFIG_ADMIN_RO",
+              "INV_IC_VERIFIER",
+              "INV_PROXY_USER",
+              "INV_TAX_ADMIN",
+              "INV_VENDOR_ADMIN",
+              "INV_PURCH_ORDER_PROCESSOR_AUDIT",
+              "INV_PURCH_ORDER_PROCESSOR",
+              "INV_PURCH_REQ_APPROVER",
+              "INV_PURCH_REQ_PROCESSOR_AUDIT",
+              "INV_PURCH_REQ_PROCESSOR",
+              "INV_PURCH_REQ_USER",
+              "INV_PURCH_REQ_PROXY_USER",
+              "INV_RECEIPT_USER",
+              "REQ_CONFIG_ADMIN",
+              "REQ_CONFIG_ADMIN_RO",
+              "REQ_EVENT_ADMIN",
+              "REQ_APPROVER",
+              "REQ_PROCESSOR",
+              "REQ_PROCESSOR_ADMIN",
+              "REQ_PROCESSOR_AUDIT",
+              "REQ_PROXY_USER",
+              "REQ_USER",
+              "REQ_RISK_ADMIN",
+              "BUDGET_REPORTING_USER",
+              "REPORTING_CONFIG_ADMIN",
+              "REPORTING_HIST_DATA_USER",
+              "REPORTING_DASHBOARD_USER",
+              "REPORTING_EMPLOYEE_ADMIN",
+              "REPORTING_CAS_ANALYST",
+              "REPORTING_BUSINESS_AUTHOR",
+              "REPORTING_CONSUMER",
+              "REPORTING_PRO_AUTHOR",
+              "SHD_APP_CENTER_ADMIN",
+              "SHD_AUTHORIZED_APPROVER",
+              "SHD_BUDGET_APPROVER",
+              "SHD_BILLING_ATTRIBUTES_USER",
+              "SHD_BUDGET_ADMIN",
+              "SHD_BUDGET_OWNER",
+              "SHD_BUDGET_VIEWER",
+              "SHD_COST_OBJECT_APPROVER",
+              "SHD_DATA_RETENTION_ADMIN",
+              "SHD_COMPANY_INFO_ADMIN",
+              "SHD_EMPLOYEE_ADMIN",
+              "SHD_EMPLOYEE_ADMIN_RO",
+              "SHD_IMPORT_EXTRACT_ADMIN",
+              "SHD_IMPORT_EXTRACT_ADMIN_RO",
+              "SHD_PASSWORD_ADMIN",
+              "SHD_ROLE_ADMIN",
+              "SHD_CONFIG_ADMIN",
+              "SHD_CONFIG_ADMIN_RO",
+              "SHD_TAX_ADMIN",
+              "SHD_TAX_ADMIN_RO",
+              "SHD_TRAINING_ADMIN",
+              "SHD_WEB_SERVICES_ADMIN"
+            ]
+          },
+          "roleGroups": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SpendRole": {
+        "type": "object",
+        "properties": {
+          "roles": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            }
+          }
+        }
+      },
+      "AdpExtension": {
+        "type": "object",
+        "properties": {
+          "adp": {
+            "$ref": "#/components/schemas/Adp"
+          }
+        }
+      },
+      "DelegateExtension": {
+        "type": "object",
+        "properties": {
+          "expense": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendDelegate"
+            }
+          },
+          "payment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendDelegate"
+            }
+          },
+          "purchaseRequest": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendDelegate"
+            }
+          }
+        }
+      },
+      "SpendApprover": {
+        "required": [
+          "approver",
+          "primary"
+        ],
+        "type": "object",
+        "properties": {
+          "approver": {
+            "$ref": "#/components/schemas/UserReference"
+          },
+          "primary": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CompleteUserSwagger": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "externalId": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+            "$ref": "#/components/schemas/SpendUser"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
+            "$ref": "#/components/schemas/ApproverExtension"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": {
+            "$ref": "#/components/schemas/DelegateExtension"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
+            "$ref": "#/components/schemas/SpendRole"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
+            "$ref": "#/components/schemas/UserPreferenceExtension"
+          },
+          "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": {
+            "$ref": "#/components/schemas/AdpExtension"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
+            "$ref": "#/components/schemas/WorkflowPreferenceExtension"
+          }
+        }
+      },
+      "CustomData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "TemporaryDelegate": {
+        "type": "object",
+        "properties": {
+          "temporaryDelegationFromDate": {
+            "type": "string"
+          },
+          "temporaryDelegationToDate": {
+            "type": "string"
+          }
+        }
+      },
+      "ListResponseUserResourceResponse": {
+        "required": [
+          "Resources",
+          "totalResults"
+        ],
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "externalId": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "totalResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Resources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResourceResponse"
+            }
+          },
+          "startIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "itemsPerPage": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "UserPreferenceExtension": {
+        "type": "object",
+        "properties": {
+          "showImagingIntro": {
+            "type": "boolean"
+          },
+          "expenseAuditRequired": {
+            "type": "string"
+          },
+          "processorReportAccess": {
+            "type": "string"
+          },
+          "allowCreditCardTransArrivalEmails": {
+            "type": "boolean"
+          },
+          "allowReceiptImageAvailEmails": {
+            "type": "boolean"
+          },
+          "promptForCardTransactionsOnReport": {
+            "type": "boolean"
+          },
+          "autoAddTripCardTransOnReport": {
+            "type": "boolean"
+          },
+          "promptForReportPrintFormat": {
+            "type": "boolean"
+          },
+          "defaultReportPrintFormat": {
+            "type": "string"
+          },
+          "showTotalOnReport": {
+            "type": "boolean"
+          },
+          "showExpenseOnReport": {
+            "type": "string"
+          },
+          "showInstructHelpPanel": {
+            "type": "boolean"
+          },
+          "useQuickItinAsDefault": {
+            "type": "boolean"
+          },
+          "allowAutoCreateTripReport": {
+            "type": "boolean"
+          }
+        }
+      },
+      "WorkflowPreferenceExtension": {
+        "type": "object",
+        "properties": {
+          "emailStatusChangeOnCashAdvance": {
+            "type": "boolean"
+          },
+          "emailAwaitApprovalOnCashAdvance": {
+            "type": "boolean"
+          },
+          "emailStatusChangeOnReport": {
+            "type": "boolean"
+          },
+          "emailAwaitApprovalOnReport": {
+            "type": "boolean"
+          },
+          "promptForApproverOnReportSubmit": {
+            "type": "boolean"
+          },
+          "emailStatusChangeOnTravelRequest": {
+            "type": "boolean"
+          },
+          "emailAwaitApprovalOnTravelRequest": {
+            "type": "boolean"
+          },
+          "promptForApproverOnTravelRequestSubmit": {
+            "type": "boolean"
+          },
+          "emailStatusChangeOnPayment": {
+            "type": "boolean"
+          },
+          "emailAwaitApprovalOnPayment": {
+            "type": "boolean"
+          },
+          "promptForApproverOnPaymentSubmit": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApproverExtension": {
+        "type": "object",
+        "properties": {
+          "report": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "cashAdvance": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "request": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "invoice": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "purchaseRequest": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "statement": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "budget": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          }
+        }
+      },
+      "ErrorMessageResponse": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "externalId": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "scimType": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "companyUuidHeader": {
+        "name": "company-uuid",
+        "in": "header",
+        "description": "company UUID header",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "userUuidHeader": {
+        "name": "concur-uid",
+        "in": "header",
+        "description": "user UUID header",
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer-jwt": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "common-name": {
+        "type": "apiKey",
+        "name": "concur-forwarded-for",
+        "in": "header"
+      }
+    }
+  }
+}

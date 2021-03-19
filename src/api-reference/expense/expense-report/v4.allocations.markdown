@@ -27,7 +27,7 @@ The Allocations API can be used to read the allocations that belong to a specifi
 
 ## Prior Versions
 
-* Allocations v3 documentation is available [here](./api-reference/expense/allocations/expense-allocations.html)
+* Allocations v3 documentation is available [here](/api-reference/expense/allocations/expense-allocations.html)
 
 ## <a name="products-editions"></a>Products and Editions
 
