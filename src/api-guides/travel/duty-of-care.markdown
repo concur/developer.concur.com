@@ -145,7 +145,7 @@ ConcurTravel | Bookings created using Concur Travel or booked directly with a TM
 OpenBookingEmail | Trip confirmation emails sent to plans@concur.com, a feature of Concur TripLink.
 ConcurConnectAPI | Bookings made on other booking tools and posted using the SAP Concur API.
 OpenBookingSupplier | Concur TripLink bookings made directly on supplier websites and mobile apps then posted using the SAP Concur API.
-TripIt | Trip confirmation emails sent to plans\@tripit.com, a feature of Concur TripLink.
+TripIt | Trip confirmation emails sent to plans@tripit.com, a feature of Concur TripLink.
 TravelRequest | Travel plans from Concur Request that signal traveler intent but might not yet have actual reservations in place.
 
 ### Trip Status Values
