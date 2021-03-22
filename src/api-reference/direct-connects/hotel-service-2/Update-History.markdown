@@ -7,6 +7,7 @@ History of changes in HS2 developer documentation
 
 |Date of Change|Description|
 |--------------|------------|
+|Mar 16, 2021| Clarify what value is sent in `GuaranteeType` in Reservation Request|
 |Feb 16, 2021| New node `TPA Property Reference Info` added to the Search Response. Description update to clarify that what value is sent in `HotelLoyaltyProgram` is always sent as `ProgramCode` in `Memberbship`|
 |Feb 8, 2021| Remove `PaymentPolicies` in Reservation Response. Change type `Text` to string in Descriptive Information Response. Change type and description of `Text` under `RatePlanDescription` in Availability and Rate Details Response.
 |Jan 29, 2021| Clarify `NamePrefix` in Reservation Request. Make `PaymentPolicies` in Reservation Response optional|
