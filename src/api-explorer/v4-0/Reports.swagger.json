@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "<b>Expense Report Service (ERS) is the next-generation v4 API for operations related to  creating and processing Expense Reports</b>. In order to interact with this API, a client  must include either an authorized User or Company JWT in the header of each request, or  use an X.509 client certificate with a CN included in the Allowed List by the ERS team.\n",
-        "version": "4.0.70",
+        "version": "4.0.72",
         "title": "Expense Report Service",
         "contact": {
             "name": "expensereportservice@sap.onmicrosoft.com",
@@ -15,6 +15,10 @@
     "host": "api.concursolutions.com",
     "basePath": "/",
     "tags": [
+        {
+            "name": "Comments",
+            "description": "Comments API "
+        },
         {
             "name": "Reports",
             "description": "Reports API "
@@ -498,6 +502,207 @@
                     },
                     "404": {
                         "description": "ReportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/comments": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Gets comments for the specified report",
+                "description": "Returns comments for the specified report.",
+                "operationId": "getReportCommentsUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Comments successfully retrieved",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CommentDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Specified context not supported",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type,\nUser is not authorized to access this report with this context type",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "ReportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/comments": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Gets comments for the specified expense",
+                "description": "Returns comments for the specified expense.",
+                "operationId": "getReportEntryCommentsUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "expenseId",
+                        "in": "path",
+                        "description": "The unique identifier of the expense",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Comments successfully retrieved",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CommentDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Specified context not supported",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type,\nUser is not authorized to access this report with this context type",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "ReportId not found,\nexpenseId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -1532,6 +1737,27 @@
                 }
             }
         },
+        "Employee": {
+            "type": "object",
+            "required": [
+                "firstName",
+                "lastName"
+            ],
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "description": "First name of the employee"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "Last name of the employee"
+                },
+                "middleInitial": {
+                    "type": "string",
+                    "description": "Middle initial of the employee"
+                }
+            }
+        },
         "Link": {
             "type": "object",
             "required": [
@@ -1740,6 +1966,44 @@
                 "value": {
                     "type": "string",
                     "description": "The value of the custom field. This field can have values for all the supported data types such as 'text', 'integer', 'boolean' and 'listItemId'. Maximum length: 48 characters"
+                }
+            }
+        },
+        "CommentDetails": {
+            "type": "object",
+            "required": [
+                "author",
+                "comment",
+                "createdForEmployee",
+                "createdForEmployeeId",
+                "creationDate",
+                "isLatest"
+            ],
+            "properties": {
+                "author": {
+                    "description": "The comment author's name",
+                    "$ref": "#/definitions/Employee"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "The comments input on the report/expense by all users"
+                },
+                "createdForEmployee": {
+                    "description": "The name of the Employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment",
+                    "$ref": "#/definitions/Employee"
+                },
+                "createdForEmployeeId": {
+                    "type": "string",
+                    "description": "The unique identifier of the Employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment"
+                },
+                "creationDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The UTC datetime when the comment was created on the report/expense (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DDTHH:mm:ssZ.SSS'Z'"
+                },
+                "isLatest": {
+                    "type": "boolean",
+                    "description": "This attribute represents whether a specific comment is the latest comment by the user."
                 }
             }
         },
