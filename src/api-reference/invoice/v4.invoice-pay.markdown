@@ -70,6 +70,12 @@ Payment providers can use this endpoint to get a list of payments.
 GET https://us.api.concursolutions.com/invoice/provider-payment/v4/payments
 ```
 
+##### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`invoiceId`|`string`|-|**Optional**: Gets specific payment info along with erpDocumentNumber.
+
 #### Headers
 
 * [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
@@ -137,7 +143,8 @@ Content-Type: application/json
             "amount": "30.00",
             "currency": "USD"
           },
-          "notesToSupplier": null
+          "notesToSupplier": null,
+          "erpDocumentNumber": "erp1234"
         }
       ],
       "vendor":{
@@ -293,6 +300,7 @@ Name | Type | Format | Description
 `invoiceId`|`string`|-|Unique identifier of the invoice in SAP Concur. This can be used to get additional invoice information from other APIs. This is the same as `paymentRequestID` in other Invoice APIs. Maximum 20 characters.
 `notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier. Maximum 500 characters.
 `paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice.
+`erpDocumentNumber`|`string`|-|ErpDocumentNumber of that invoice.
 
 ### <a name="schema-vendor"></a>Vendor
 
