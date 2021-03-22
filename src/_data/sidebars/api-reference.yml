@@ -124,6 +124,8 @@
         url: /api-reference/direct-connects/hotel-service-2/Appendix.html
       - title: XSD-schema
         url: /api-reference/direct-connects/hotel-service-2/xsd-schema.html
+- title: Exchange Rate v4
+  url: /api-reference/exchange-rate/v4.exchange-rate.html
 - title: Expense
   url: ''
   children:
