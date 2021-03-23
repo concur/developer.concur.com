@@ -46,6 +46,9 @@ budgetitem.write|Read and write access to budget data including fiscal calendar
 company.read|Read company profile
 company.write|Read and Write company profile
 creditcardaccount.read|Read credit card account data
+expense.report.read|Read only access to expense reports, expenses and allocations
+expense.report.readwrite|Read and write access from/to expense reports, expenses and allocations
+expense.report.workflowstatus.write|Access to approve/reject an expense report
 fiscalcalendar.read|Access to fiscal calendar
 fiscalcalendar.write|Read and write access to fiscal calendar
 invoice.providerpayment.write |	Read access to pending payments, and write access to payment status
