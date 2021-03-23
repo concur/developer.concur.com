@@ -29,7 +29,7 @@ This call-out differs from the in-bound SAP Concur web services in the following
   * [Responses](#responses)
 
 ## <a name="product-restrictions"></a>Product Restrictions
-Hotel Service 2 API inventory is not accessible from the SAP Concur mobile app. SAP Concur products are highly configurable, and not all clients will have access to all features.
+SAP Concur products are highly configurable, and not all clients will have access to all features.
 
 ## <a name="supported-ops"></a>Supported Operations
 

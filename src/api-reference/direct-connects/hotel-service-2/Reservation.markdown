@@ -227,7 +227,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |--------------------|-------------------|-------------|
-|`GuaranteeType`|`stringLength1to32`|**Required** Refer to `GuaranteeType` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
+|`GuaranteeType`|`stringLength1to32`|**Required** `CC/DC/Voucher` will be sent if credit card present, `None` otherwise.|
 |`GuaranteesAccepted`|`complex`|**Required** Guarantee and payment information.|
 
 #### <a name="guarantees-accepted"></a>GuaranteesAccepted
