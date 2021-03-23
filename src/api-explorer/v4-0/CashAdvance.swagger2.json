@@ -51,94 +51,45 @@
           },
           "400": {
             "description": "Invalid request body",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "403": {
             "description": "Permission Denied",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "404": {
             "description": "Not found",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "408": {
             "description": "Timed out",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "500": {
             "description": "Internal server error",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "503": {
             "description": "The service is currently unavailable",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           }
         }
       }
@@ -180,94 +131,45 @@
           },
           "400": {
             "description": "Bad Param: invalid Cash Advance Id.",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "403": {
             "description": "Permission Denied",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "404": {
             "description": "Not found",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "408": {
             "description": "Timed out",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "503": {
             "description": "The service is currently unavailable",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           }
         }
       }
@@ -318,100 +220,62 @@
           },
           "400": {
             "description": "Invalid request body",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "403": {
             "description": "Permission Denied",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "404": {
             "description": "Not found",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
-           "408": {
+          "408": {
             "description": "Timed out",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "500": {
             "description": "Internal server error",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           },
           "503": {
             "description": "The service is currently unavailable",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "integer",
-                    "errorMessage": "string"
-                  }
-                ]
-              }
-            },
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
           }
         }
       }
     }
   },
   "definitions": {
+    "Errors": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "integer"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      }
+    },
     "CreateCashAdvanceResponse": {
       "type": "object",
       "properties": {
@@ -421,7 +285,7 @@
         }
       }
     },
-     "CashAdvance": {
+    "CashAdvance": {
       "type": "object",
       "properties": {
         "accountCode": {
@@ -436,11 +300,11 @@
           "type": "string",
           "description": "Comment while creating a cash advance"
         },
-         "name": {
+        "name": {
           "type": "string",
           "description": "Cash advance name"
         },
-         "purpose": {
+        "purpose": {
           "type": "string",
           "description": "Purpose of raising a cash advance"
         },
@@ -532,7 +396,7 @@
         }
       }
     },
-     "RequestedAmount": {
+    "RequestedAmount": {
       "type": "object",
       "properties": {
         "amount": {
@@ -549,7 +413,7 @@
         }
       }
     },
-     "Status": {
+    "Status": {
       "type": "object",
       "properties": {
         "code": {
@@ -562,7 +426,7 @@
         }
       }
     },
-     "AvailableBalance": {
+    "AvailableBalance": {
       "type": "object",
       "properties": {
         "amount": {
@@ -575,7 +439,7 @@
         }
       }
     },
-     "CashAdvanceExchangeRate": {
+    "CashAdvanceExchangeRate": {
       "type": "object",
       "properties": {
         "operation": {
@@ -588,7 +452,7 @@
         }
       }
     },
-     "PaymentType": {
+    "PaymentType": {
       "type": "object",
       "properties": {
         "description": {
@@ -601,7 +465,7 @@
         }
       }
     },
-     "CashAdvanceIssueRequest": {
+    "CashAdvanceIssueRequest": {
       "type": "object",
       "properties": {
         "accountCode": {
@@ -618,7 +482,7 @@
         }
       }
     },
-     "CashAdvanceIssueResponse": {
+    "CashAdvanceIssueResponse": {
       "type": "object",
       "properties": {
         "issuedDate": {
@@ -631,7 +495,7 @@
         }
       }
     },
-     "CashAdvanceStatus": {
+    "CashAdvanceStatus": {
       "type": "object",
       "properties": {
         "code": {
