@@ -61,9 +61,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
@@ -77,9 +74,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "403": {
             "description": "Permission Denied",
@@ -93,9 +87,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "404": {
             "description": "Not found",
@@ -109,9 +100,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "408": {
             "description": "Timed out",
@@ -125,9 +113,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "500": {
             "description": "Internal server error",
@@ -141,9 +126,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "503": {
             "description": "The service is currently unavailable",
@@ -157,9 +139,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           }
         }
       }
@@ -211,9 +190,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
@@ -227,9 +203,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "403": {
             "description": "Permission Denied",
@@ -243,9 +216,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "404": {
             "description": "Not found",
@@ -259,9 +229,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "408": {
             "description": "Timed out",
@@ -275,9 +242,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
@@ -291,9 +255,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "503": {
             "description": "The service is currently unavailable",
@@ -307,9 +268,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           }
         }
       }
@@ -370,9 +328,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
@@ -386,9 +341,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "403": {
             "description": "Permission Denied",
@@ -402,9 +354,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "404": {
             "description": "Not found",
@@ -418,9 +367,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
            "408": {
             "description": "Timed out",
@@ -434,9 +380,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "500": {
             "description": "Internal server error",
@@ -450,9 +393,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           },
           "503": {
             "description": "The service is currently unavailable",
@@ -466,9 +406,6 @@
                 ]
               }
             },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           }
         }
       }
@@ -481,29 +418,6 @@
         "cashAdvanceId": {
           "type": "string",
           "description": "Unique cash advance identifier"
-        }
-      }
-    },
-    "ErrorResponse": {
-      "type": "object",
-      "properties": {
-        "errors": {
-          "type": "string",
-          "description": "The unique identifier of the error"
-        },
-        "message": {
-          "type": "string",
-          "description": "Message associated with the error"
-        },
-        "status": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Status"
-        },
-        "timestamp": {
-          "type": "string",
-          "format": "int64",
-          "description": "The timestamp for the error"
         }
       }
     },
