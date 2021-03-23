@@ -7,6 +7,7 @@ The Reports v4 API can be used to read and modify an expense report header of an
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
+* [Prior Versions](#prior-versions)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
@@ -26,7 +27,7 @@ The Reports v4 API can be used to read and modify an expense report header of an
 * [Error](#error-schema)
 * [Validation Errors](#validation-errors-schema)
 
-## Prior Versions
+## <a name="prior-versions"></a>Prior Versions
 
 * Report Header v1 (Deprecated) documentation is available [here](./v1dot1.reports.html)
 * Reports v3 documentation is available [here](./v3.reports.html)
