@@ -3,7 +3,9 @@ title: Comments v4
 layout: reference
 ---
 
-The Comments v4 API can be used to read the comments entered on the expense report header or on the expenses of an existing expense report. This API can be used to infer information about spend that occurs out of policy, which is justified by the report owner or inaccuracies pointed out by the approvers of the expense report.
+{% include prerelease.html %}
+
+The Comments v4 API is used to read the comments entered on the expense report header or expenses of an existing expense report. This API is used to infer information about Spend that occurs out of policy, which is justified by the report owner or inaccuracies pointed out by the approvers of the expense report.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
@@ -22,13 +24,9 @@ The Comments v4 API can be used to read the comments entered on the expense repo
 
 ## <a name="prior-versions"></a>Prior Versions
 
-The Reports V2 API provides only the last comment on the report. The documentation can be found [here](./v2.reports.html) 
-
->insert sample diagram here
+* Reports v2 documentation is available [here](./v2.reports.html).
 
 ## <a name="products-editions"></a>Products and Editions
-
-Delete any unsupported products or editions.
 
 * Concur Expense Professional Edition
 * Concur Expense Standard Edition
@@ -76,8 +74,8 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 #### Parameters
 
-Name|Type|Format|Description
----|---|---|---
+|Name|Type|Format|Description|
+|---|---|---|---|
 |`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
 |`reportId`|string|-|**Required** The unique identifier of the report that is being read.|
@@ -123,7 +121,7 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 --header 'Concur-CorrelationId: Expense-Report-test' \
 --header 'Content-Type: application/json'
 ```
- 
+
 #### Response
 
 
@@ -167,8 +165,8 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 #### Parameters
 
-Name|Type|Format|Description
----|---|---|---
+|Name|Type|Format|Description|
+|---|---|---|---|
 |`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
 |`reportId`|string|-|**Required** The unique identifier of the report to which this expense entry belongs.|
@@ -214,7 +212,7 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 --header 'Concur-CorrelationId: Expense-Report-test' \
 --header 'Content-Type: application/json'
 ```
- 
+
 #### <a name="expense-comments-response"></a> Expense Comments Response
 
 
@@ -247,24 +245,24 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 
 Name|Type|Format|Description
 ---|---|---|---
-`commentDetails`|`array`|[commentDetails](#comment-details)|A key linking to another schema for the format.
+`commentDetails`|`array`|[`commentDetails`](#comment-details)|A key linking to another schema for the format.
 
 ### <a name="expense-comments-response-schema"></a> Expense Comments
 
 Name|Type|Format|Description
 ---|---|---|---
-`commentDetails`|`array`|[commentDetails](#comment-details)|A key linking to another schema for the format.
+`commentDetails`|`array`|[`commentDetails`](#comment-details)|A key linking to another schema for the format.
 
 #### <a name="comment-details"></a>commentDetails
 
 Name|Type|Format|Description
 ---|---|---|---
 `author`|[`Employee`](#employee-schema)|-|**Required** The comment author's name.
-`comment`|`string`|-|**Required**The comments input on the report by all users.
-`createdForEmployee`|[`Employee`](#employee-schema)|-|**Required**The name of the Employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment.
-`createdForEmployeeId`|`string`|-|**Required**The unique identifier of the Employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment.
-`creationDate`|`string`|YYYY-MM-DDTHH:mm:ssZ.SSS'Z'|**Required**The UTC datetime when the comment was created on the report/expense (https://en.wikipedia.org/wiki/ISO_8601).
-`isLatest`|`boolean`|-|**Required**This attribute represents whether a specific comment is the latest comment by the user.
+`comment`|`string`|-|**Required** The comments input on the report by all users.
+`createdForEmployee`|[`Employee`](#employee-schema)|-|**Required** The name of the employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment.
+`createdForEmployeeId`|`string`|-|**Required** The unique identifier of the employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment.
+`creationDate`|`string`|`YYYY-MM-DDTHH:mm:ssZ.SSS'Z'`|**Required** The UTC datetime when the comment was created on the report or expense.
+`isLatest`|`boolean`|`true`/`false`|**Required** If `true`, this attribute represents the latest comment by the user.
 
 ### <a name="employee-schema"></a>Employee
 

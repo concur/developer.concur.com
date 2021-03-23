@@ -27,7 +27,7 @@ The Reports v4 API can be used to read and modify an expense report header of an
 * [Error](#error-schema)
 * [Validation Errors](#validation-errors-schema)
 
-## ## <a name="prior-versions"></a>Prior Versions
+## <a name="prior-versions"></a>Prior Versions
 
 * Report Header v1 (Deprecated) documentation is available [here](./v1dot1.reports.html)
 * Reports v3 documentation is available [here](./v3.reports.html)
