@@ -52,43 +52,43 @@
           "400": {
             "description": "Invalid request body",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "403": {
             "description": "Permission Denied",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "404": {
             "description": "Not found",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "408": {
             "description": "Timed out",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "500": {
             "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           }
         }
@@ -132,43 +132,43 @@
           "400": {
             "description": "Bad Param: invalid Cash Advance Id.",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "403": {
             "description": "Permission Denied",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "404": {
             "description": "Not found",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "408": {
             "description": "Timed out",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           }
         }
@@ -221,43 +221,43 @@
           "400": {
             "description": "Invalid request body",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "403": {
             "description": "Permission Denied",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "404": {
             "description": "Not found",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "408": {
             "description": "Timed out",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "500": {
             "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
             "schema": {
-              "$ref": "#/definitions/Errors"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           }
         }
@@ -265,7 +265,21 @@
     }
   },
   "definitions": {
-    "Errors": {
+    "ObjectArrayOfErrorItems": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "$ref": "#/definitions/ArrayOfErrorItems"
+        }
+      }
+    },
+    "ArrayOfErrorItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ErrorItems"
+      }
+    },
+    "ErrorItems": {
       "type": "object",
       "properties": {
         "errorCode": {
