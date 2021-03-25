@@ -11,6 +11,7 @@ layout: reference
 * [Access Token Usage](#access-token-usage)
 * [Obtaining Payments](#obtain-payment)
 * [Updating a Payment With Status](#updating-payment)
+* [Updating a Payment With ErpDocumentNumber](#updating-payment-erpdocumentnumber)
 * [Schema](#schema)
   * [Payments](#schema-payments)
   * [Payment](#schema-payment)
@@ -19,6 +20,8 @@ layout: reference
   * [Amount](#schema-amount)
   * [Payment Update](#schema-payment-update)
   * [Payment Update Result](#schema-payment-update-result)
+  * [Payment Patch](#schema-payment-patch)
+  * [Payment Patch Result](#schema-payment-patch-result)
   * [Errors](#schema-errors)
 * [Definitions](#definitions)
   * [Payment Update Status](#schema-payment-update-status)
@@ -69,6 +72,13 @@ Payment providers can use this endpoint to get a list of payments.
 ```
 GET https://us.api.concursolutions.com/invoice/provider-payment/v4/payments
 ```
+
+##### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`invoiceId`|`string`|-|**Optional**: Gets specific payment info along with erpDocumentNumber.
+
 
 #### Headers
 
@@ -137,7 +147,8 @@ Content-Type: application/json
             "amount": "30.00",
             "currency": "USD"
           },
-          "notesToSupplier": null
+          "notesToSupplier": null,
+          "erpDocumentNumber": "erp1234"
         }
       ],
       "vendor":{
@@ -160,6 +171,83 @@ Content-Type: application/json
       }
     }
   ]
+}
+```
+
+## <a name="updating-payment-erpdocumentnumber"></a>Updating a Payment With ErpDocumentNumber
+
+Payment providers can use this endpoint to provide erpdocumentnumber to the payments.
+
+### Request
+
+#### URI
+
+##### Template
+
+```
+PATCH https://us.api.concursolutions.com/invoice/provider-payment/v4/invoices/{invoiceId}/paymentmetadata
+```
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`invoiceId`|`string`|-|**Required** The identifier of the invoice to update.
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+
+#### Payload
+
+[Payment Patch](#schema-payment-patch)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+
+#### Payload
+
+[Payment Patch Result](#schema-payment-patch-result)
+
+### Example
+
+#### Request
+
+```
+POST https://us.api.concursolutions.com/invoice/provider-payment/v4/payments/0f27533f-ce38-4f43-a2f3-fa9f0e6b33fc
+Authorization: BEARER {token}
+Content-Type: application/json
+```
+
+```json
+{
+"erpDocumentNumber": "patch erpDocumentNumber - success"
+}
+```
+
+#### Response
+
+```
+200 OK
+Content-Type: application/json
+```
+
+```json
+{
+    "erpDocumentNumber": "patch erpDocumentNumber - success"
 }
 ```
 
@@ -293,6 +381,7 @@ Name | Type | Format | Description
 `invoiceId`|`string`|-|Unique identifier of the invoice in SAP Concur. This can be used to get additional invoice information from other APIs. This is the same as `paymentRequestID` in other Invoice APIs. Maximum 20 characters.
 `notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier. Maximum 500 characters.
 `paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice.
+`erpDocumentNumber`|`string`|-|ErpDocumentNumber of that invoice.
 
 ### <a name="schema-vendor"></a>Vendor
 
@@ -336,6 +425,20 @@ Name|Type|Format|Description
 `thirdPartyPaymentIdentifier`|`string`|-|Check number if the payment was done via check or trace number for ACH payments. Maximum 255 characters.
 `paymentMethod`|`string`|[Payment Provider Method](#schema-payment-provider-method)|**Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED** Payment method used by the payment provider.
 `paidAmount`|`object`|[Amount](#schema-amount)|**Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED** Amount paid by the payment provider.
+
+
+### <a name="schema-payment-patch"></a>Payment Patch
+
+Name|Type|Format|Description
+---|---|---|---
+`erpDocumentNumber`|`string`|-|ErpDocumentNumber of the invoice.
+
+### <a name="schema-payment-patch-result"></a>Payment Patch Result
+
+Name|Type|Format|Description
+---|---|---|---
+`erpDocumentNumber`|`string`|-|ErpDocumentNumber of the invoice.
+
 
 ### <a name="schema-payment-update-result"></a>Payment Update Result
 
