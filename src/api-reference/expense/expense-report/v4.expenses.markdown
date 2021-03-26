@@ -104,7 +104,7 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v1.0 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: `TRAVELER` |
 |`reportId`|`string`|-|**Required** The unique identifier of the report that is being read.|
 
@@ -343,7 +343,7 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v1.0 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: `TRAVELER`, `PROXY`|
 |`reportId`|`string`|-|**Required** The unique identifier of the report to which this expense entry belongs.|
 |`expenseId`|`string`|-|**Required** The unique identifier of the expense entry that is being read.|
@@ -554,7 +554,7 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v1.0 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: `TRAVELER`, `PROXY`|
 |`reportId`|`string`|-|**Required** The unique identifier of the report to which this expense entry belongs.|
 |`expenseId`|`string`|-|**Required** The unique identifier of the expense entry that is being read.|
