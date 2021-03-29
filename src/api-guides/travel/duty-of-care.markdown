@@ -135,7 +135,7 @@ Schema and Sample API Request and Response can be found in:
 
 ### <a name="enumeration-types"></a>References for Enumeration Types
 
-#### Booking Owners Types
+#### Booking Owner Types
 
 The BookingOwner on the booking level identifies the system the booking originated from.
 
