@@ -139,13 +139,13 @@ Schema and Sample API Request and Response can be found in:
 
 > **Note:** The source name appears both at the itinerary level and the booking level. The value at the booking level is generally more useful. The value at the itinerary level represents that value of the first booking added to the itinerary and could therefore be misleading.
 
-Itinerary Source Name|Description
+BookingOwner Types|Description
 -----|-----
-Cliqbook | Bookings created using Concur Travel or booked directly with a TMC agent and sent to SAP Concur solution via the GDS.
-Panama | Trip confirmation emails sent to plans\@concur.com, a feature of Concur TripLink.
-Agency | Bookings made on other booking tools and posted using the SAP Concur API.
-TravelSupplier | Concur TripLink bookings made directly on supplier websites and mobile apps then posted using the SAP Concur API  .
-TripIt | Trip confirmation emails sent to plans\@tripit.com, a feature of Concur TripLink.
+ConcurTravel | Bookings created using Concur Travel or booked directly with a TMC agent and sent to SAP Concur solution via the GDS.
+OpenBookingEmail | Trip confirmation emails sent to plans@concur.com, a feature of Concur TripLink.
+ConcurConnectAPI | Bookings made on other booking tools and posted using the SAP Concur API.
+OpenBookingSupplier | Concur TripLink bookings made directly on supplier websites and mobile apps then posted using the SAP Concur API.
+TripIt | Trip confirmation emails sent to plans@tripit.com, a feature of Concur TripLink.
 TravelRequest | Travel plans from Concur Request that signal traveler intent but might not yet have actual reservations in place.
 
 ### Trip Status Values
