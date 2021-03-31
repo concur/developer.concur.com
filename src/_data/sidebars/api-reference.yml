@@ -137,6 +137,8 @@
         url: /api-reference/expense/attendees/v3.attendees.html
       - title: Digital Tax Invoices v3
         url: /api-reference/expense/digital-tax-invoices/digital-tax-invoice.html
+      - title: Comments v4
+        url: /api-reference/expense/expense-report/v4.comments.html
       - title: Company Card Transactions v1.1
         url: /api-reference/expense/expense-report/company-card-transaction-resource.html
       - title: Exchange Rate v4

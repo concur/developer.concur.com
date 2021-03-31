@@ -24,6 +24,15 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "paramType": "query",
+            "name": "invoiceId",
+            "description": "InvoiceId",
+            "dataType": "string",
+            "required": false
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -119,6 +128,10 @@
     "invoice": {
       "type": "object",
       "properties": {
+        "erpDocumentNumber": {
+          "type": "string",
+          "description": "ErpDocumentNumber of that invoice.Maximum 20 characters."
+        },
         "invoiceAmount": {
           "$ref": "#/definitions/amount"
         },
