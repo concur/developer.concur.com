@@ -127,7 +127,7 @@
 - title: Event Subscription Service
   url: ''
   children:
-      - title: ESS Getting Started
+      - title: Getting Started
         url: /api-reference/ess/v4.event-subscription.html
 - title: Expense
   url: ''
