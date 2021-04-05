@@ -125,10 +125,7 @@
       - title: XSD-schema
         url: /api-reference/direct-connects/hotel-service-2/xsd-schema.html
 - title: Event Subscription Service
-  url: ''
-  children:
-      - title: Getting Started
-        url: /api-reference/ess/v4.event-subscription.html
+  url: /api-reference/ess/v4.event-subscription.html
 - title: Expense
   url: ''
   children:
