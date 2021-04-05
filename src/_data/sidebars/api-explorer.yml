@@ -78,6 +78,8 @@
         url: /api-explorer/v4-0/Reports.html
       - title: Budget
         url: /api-explorer/v4-0/Budget.html
+      - title: Comments
+        url: /api-explorer/v4-0/Reports.html
       - title: Exchange Rate
         url: /api-explorer/v4-0/ExchangeRate.html
       - title: Expenses

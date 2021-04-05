@@ -135,9 +135,9 @@ Schema and Sample API Request and Response can be found in:
 
 ### <a name="enumeration-types"></a>References for Enumeration Types
 
-#### Itinerary Source Types
+#### Booking Owner Types
 
-> **Note:** The source name appears both at the itinerary level and the booking level. The value at the booking level is generally more useful. The value at the itinerary level represents that value of the first booking added to the itinerary and could therefore be misleading.
+The BookingOwner on the booking level identifies the system the booking originated from.
 
 BookingOwner Types|Description
 -----|-----

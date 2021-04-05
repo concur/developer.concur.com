@@ -3,8 +3,6 @@ title: Comments v4
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 The Comments v4 API is used to read the comments entered on the expense report header, or expenses of an existing expense report. This API is used to detail information about spending that occurs out of policy, which is justified by the report owner, or inaccuracies pointed out by the approvers of the expense report.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
@@ -50,7 +48,7 @@ Optional Scope:
 
 ## <a name="dependencies"></a>Dependencies
 
-SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the Identity v4 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -76,7 +74,7 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4](/api-reference/profile/v4.identity.html) to retrieve the `userID`.|
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
 |`reportId`|string|-|**Required** The unique identifier of the report that is being read.|
 
@@ -167,7 +165,7 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4](/api-reference/profile/v4.identity.html) to retrieve the `userID`.|
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
 |`reportId`|string|-|**Required** The unique identifier of the report to which this expense entry belongs.|
 |`expenseId`|`string`|-|**Required** The unique identifier of the expense entry to which the comments belong.|

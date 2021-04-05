@@ -34,6 +34,8 @@ layout: reference
 
 # App Center Release Notes
 
+Updates on available User Connection apps.
+
 * [2021 Consolidated Release Notes](./app-center-2021.html)
 * [2020 Consolidated Release Notes](./app-center-2020.html)
 * [2019 Consolidated Release Notes](./app-center-2019.html)
