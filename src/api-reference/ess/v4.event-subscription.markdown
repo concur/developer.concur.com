@@ -1,17 +1,15 @@
 ---
-title: ESS Getting Started
+title: Event Subscription Service
 layout: reference
 
 ---
 
-{% include prerelease.html %}
-
 ## Menu
 
-* [Getting Started](#getting-started)
-* [Subscription Management](./subscription-management.html)
+* [Event Subscription Service](#ess)
+* [Subscription Management](/event-topics/index.html)
 
-## <a name="getting-started"></a>Getting Started
+## <a name="ess"></a>Event Subscription Service
 
 * [Overview](#ess-terminology)
 * [Scope Usage](#scope-usage)
@@ -20,7 +18,7 @@ layout: reference
 * [Delivery Model](#ess-delivery)
 * [Endpoint Requirements](#endpoint-requirements)
 * [Authentication](#ess-authentication)
-* [Service Behavior](#ess-behavior")
+* [Service Behavior](#ess-behavior)
 
 ## <a name="ess-terminology"></a>ESS Overview
 

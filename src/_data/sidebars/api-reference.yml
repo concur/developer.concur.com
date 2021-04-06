@@ -124,6 +124,8 @@
         url: /api-reference/direct-connects/hotel-service-2/Appendix.html
       - title: XSD-schema
         url: /api-reference/direct-connects/hotel-service-2/xsd-schema.html
+- title: Event Subscription Service
+  url: /api-reference/ess/v4.event-subscription.html
 - title: Expense
   url: ''
   children:
