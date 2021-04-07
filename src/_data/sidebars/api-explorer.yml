@@ -80,6 +80,8 @@
         url: /api-explorer/v4-0/Budget.html
       - title: Comments
         url: /api-explorer/v4-0/Reports.html
+      - title: Event Subscription Service
+        url: /api-explorer/v4-0/EventSubscriptionService.html    
       - title: Exchange Rate
         url: /api-explorer/v4-0/ExchangeRate.html
       - title: Expenses
