@@ -38,7 +38,6 @@ The following application programming interfaces (APIs) and other resources have
   * [List Resource](/api-reference/common/list-item/v1.list-resource.html)
   * [Get a list of lists](/api-reference/common/list-item/v1.list-resource-get.html)
   * [Post new list items](/api-reference/common/list-item/v1.list-resource-post.html)
-* [Receipts v3](/api-reference/receipts/v3.receipts.html)
 * Request v3
   * [Request v3 Reference](/api-reference/request/v3.request.html)
   * [Request v3 Explorer](/api-explorer/v3-0/Requests.html)

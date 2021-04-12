@@ -7,7 +7,6 @@ redirect_from:
 
 * [Overview](#overview)
   * [Important Usage Restrictions](#usage-restrictions)
-* [Version](#version)
 * [Regional Availability](#regional-availability)
 * [Explore the API](#explore-the-api)
   * [Prerequisites](#prerequisites)
@@ -40,10 +39,6 @@ These two different resources are sent/fetched from the Receipts V4 API via diff
 
 * The e-receipt must come directly from the original merchant issuing the receipt or from a third party authorized by the merchant to issue receipts on behalf of the merchant.
 * All receipt data fields that are required by the relevant government jurisdiction must be provided even if the SAP Concur documentation indicates the data field is optional. If a government required data field is not available in the current schema then a legally compliant receipt image must be attached.
-
-## Prior Versions
-
-* Receipts v3 (Deprecated) documentation is available [here](./v3.receipts.html)
 
 ## <a name="version"></a>Overview of Version 4.0
 
