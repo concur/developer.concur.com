@@ -81,17 +81,17 @@ Sequence|Expected Event|Concur Expense Payment Status|FIS Posting Document Statu
 
 ### <a name="invoice-matrix"></a>FI Sequence Flow Matrix - Invoice
 
-Sequence |Expected Event |Concur Expense Payment Status |FIS Posting Document Status |ERP| FIS
+Sequence|Expected Event|Concur Invoice Payment Status|FIS Posting Document Status|ERP|FIS
 ----|----|----|----|----|----
-1 | Report is submitted by user and enters workflow | Submitted/Not Paid| Doesn’t exist| Doesn’t exist  | NA
-2 | Report is “final approved” in Processor workflow step | Processing Payment| Queued and Ready | Doesn’t exist   | NA
-3 | ERP calls FIS for “ready” posting documents| Processing Payment| Queued and Ready  | Received | GET financial documents
-4 | ERP calls FIS to acknowledge documents retrieved |Processing Payment |Acknowledged | Acknowledged| POST acknowledge financial documents
-5 | ERP Sends Posting Feedback - Failed | Financial Posting Failed| Posting Failed | Posting Failed  | POST Posting Feedback
-6 | Processor Recalls Report for Posting Corrections | Not Paid | Posting Failed | Posting Failed  | N/A
-7 | Report is re-submitted with corrections and re-enters workflow (steps 1-4 repeat)| Submitted/Not Paid | Posting Failed | Posting Failed | N/A
-8 | ERP Sends Posting Feedback – Success | Paid| Posting Success | Posting Success |POST Posting Feedback
-9 | ERP Sends Payment Feedback (Optional)| Payment Confirmed | Payment Confirmed | Paid | POST Payment Confirmation
+1| Invoice is submitted by user and enters workflow | Submitted/Not Paid| Doesn’t exist | Doesn’t exist | NA
+2| Invoice is “final approved” in Processor workflow step| Pending Payment| Queued and Ready| Doesn’t exist | NA
+3| ERP calls FIS for “ready” posting documents | Pending Payment | Queued and Ready | Received | GET financial documents
+4| ERP calls FIS to acknowledge documents retrieved| Pending Payment| Acknowledged| Acknowledged| POST acknowledge financial documents
+5| ERP Sends Posting Feedback - Failed| Financial Posting Failed | Posting Failed| Posting Failed  | POST Posting Feedback
+6| Processor Recalls Invoice for Posting Corrections| Not Paid| Posting Failed| Posting Failed  | N/A
+7| Invoice is re-submitted with corrections and re-enters workflow (steps 1-4 repeat) | Submitted/Not Paid | Posting Failed | Posting Failed  | N/A
+8| ERP Sends Posting Feedback – Success | Posted to Financial ERP | Posting Success| Posting Success | POST Posting Feedback
+9| ERP Sends Payment Feedback (currently not supported for Invoice)| Paid | Payment Confirmed | Paid | POST Payment Confirmation
 
 ### <a name="expense-pay"></a>Expense Pay
 
