@@ -90,8 +90,8 @@ Sequence|Expected Event|Concur Invoice Payment Status|FIS Posting Document Statu
 5| ERP Sends Posting Feedback - Failed| Financial Posting Failed | Posting Failed| Posting Failed  | POST Posting Feedback
 6| Processor Recalls Invoice for Posting Corrections| Not Paid| Posting Failed| Posting Failed  | N/A
 7| Invoice is re-submitted with corrections and re-enters workflow (steps 1-4 repeat) | Submitted/Not Paid | Posting Failed | Posting Failed  | N/A
-8| ERP Sends Posting Feedback – Success | Posted to Financial ERP | Posting Success| Posting Success | POST Posting Feedback
-9| ERP Sends Payment Feedback (currently not supported for Invoice)| Paid | Payment Confirmed | Paid | POST Payment Confirmation
+8| ERP Sends Posting Feedback – Success | Extracted | Posting Success| Posting Success | POST Posting Feedback
+9| ERP Sends Payment Feedback (currently not supported for Invoice)|  |  |  | 
 
 ### <a name="expense-pay"></a>Expense Pay
 
