@@ -23,7 +23,7 @@ layout: reference
 
 ### <a name="column-description"></a>Column Description
 
-|Role Code|Role Full Name|Description|Group-aware|Product Area|
+|Role Code|Role Full Name|Description|Group-Aware|Product Area|
 |---|---|---|---|---|
 The role code value that can be used for provisioning with the `Spend Role Extension`.|The full name of the role.|The usage of the role.|When assigning this role, one or more groups must be given.|Shared with two or more SAP Concur products.|
 
@@ -31,7 +31,7 @@ The role code value that can be used for provisioning with the `Spend Role Exten
 
 ### <a name="expense-roles"></a>Expense Product Roles
 
-|Role Code|Role Full Name|Description|Group-aware|Product Area|
+|Role Code|Role Full Name|Description|Group-Aware|Product Area|
 |---|---|---|---|---|
 |`SHD_APP_CENTER_ADMIN`|App Center Listing Administrator|The user assigned this role can submit App Center listings. This role is only assigned by SAP Concur to certain App Center partners.|N|Y|
 |`EXP_ATTENDEE_ADMIN`|Attendee Administrator|The user assigned this role can view, modify, and activate or inactivate any attendee record in the system.|Y|Y|
@@ -81,7 +81,7 @@ The role code value that can be used for provisioning with the `Spend Role Exten
 |`EXP_FB_TAX_ADMIN`|Fringe Benefits Tax Administrator|Along with the Tax Administration role, the user assigned this role can manage fringe-benefit tax.|N|N
 |`SHD_IMPORT_EXTRACT_ADMIN`|Import/Extract Administrator (formerly Integration Administrator)|**This role is intended to be assigned to and used by SAP Concur internal staff only.**|N|Y|
 |`SHD_IMPORT_EXTRACT_ADMIN_RO`|Import/Extract Monitor (formerly Integration Administrator - Restricted)|A user assigned this role can view details of import, extract, archive, and reporting consolidation jobs, job schedule, system logs. Depending on configuration, this user may also be able to upload import files, and download extract files.|N|Y|
-|`SHD_PASSWORD_ADMIN`|Password Manager|The user assigned this role can update passwords for Expense users. <br>User will have read only access to the following fields on the User Details page in User Administration: Title, First Name, Middle Name, Nickname, Last Name, Suffix, and Email.<br>**Preventing Access**: A module property is available to restrict this role from changing password. Please contact SAP Concur directly to have the Password Access Restriction feature activated.<br>**NOTE:** The users with Expense and either Travel or Invoice have one password for all applications. When any of the Password Manager roles changes a password, it changes for all applications.|Y|Y|
+|`SHD_PASSWORD_ADMIN`|Password Manager|The user assigned this role can update passwords for Expense users. <br>User will have read only access to the following fields on the User Details page in User Administration: Title, First Name, Middle Name, Nickname, Last Name, Suffix, and Email.<br>**Preventing Access**: A module property is available to restrict this role from changing password. Please contact SAP Concur directly to have the Password Access Restriction feature activated.<br>**NOTE:** The users with Expense and either Travel or Invoice have one password for all applications. When any of the Password Manager roles changes a password, it changes for all.| applications.|Y|Y|
 |`EXP_REIMBURSEMENT_AUDITOR`|Reimbursement Auditor|A user assigned this role can view Expense Pay functionality: Funding Accounts, Batch Configurations, Card Programs, Expense Pay Settings, Current and Historical Batch List, Daily Funding and Returned Amounts, Payment Demand List, Report Payees List, and Employee Banking Status|N|Y|
 |`EXP_REIMBURSEMENT_APPROVER`|Reimbursement Manager|A user assigned this role can fully manage (add, edit, delete) Expense Pay functionality: Funding Accounts, Batch Configurations, Card Programs, and Expense Pay Settings. <br>In addition, a user assigned this role can view the following Expense Pay details: Current and Historical Batch List, Daily Funding and Returned Amounts, Payment Demand List, and Report Payees List. <br>Only global Reimbursement Managers can create and view payment demands: Employee Banking Status|Y|Y|
 |`SHD_ROLE_ADMIN`|Role Administrator|A user assigned this role is granted access to the **Expense, Invoice,** and **Request** tabs through User Permissions.|Y|Y|
@@ -98,7 +98,7 @@ The role code value that can be used for provisioning with the `Spend Role Exten
 
 ### <a name="request-roles"></a>Request Product Roles
 
-|Role Code|Role Full Name|Description|Group-aware|Product Area|
+|Role Code|Role Full Name|Description|Group-Aware|Product Area|
 |---|---|---|---|---|
 |`SHD_DATA_RETENTION_ADMIN`|Data Retention Administrator|The user assigned this role views and configures the data retention policy for the company and can hold and purge individual users.|N|Y|
 |`REQ_PROCESSOR_ADMIN`|Request Administrator|**This is one of the Request processor roles.**<br>The user assigned this role can view and fully manage virtually all requests.|Y|N|
@@ -114,7 +114,7 @@ The role code value that can be used for provisioning with the `Spend Role Exten
 
 ### <a name="invoice-roles"></a>Invoice (Payment) Product Roles
 
-|Role Code|Role Full Name|Description|Group-aware|Product Area|
+|Role Code|Role Full Name|Description|Group-Aware|Product Area|
 |---|---|---|---|---|
 |`SHD_BUDGET_ADMIN`|Budget Administrator|The user assigned this role can configure the Fiscal Calendar, Budget Categories, Budget Tracking Fields, Budget Items, and Budget Settings. The Budget Administrator can see the budget amounts as configured in the Budget Items, but not the budget actuals as is shown in the dashboards. Budget Administrators have access to all budget items within an entity.|N|Y|
 |`SHD_BUDGET_APPROVER`|Budget Approver/Manager|The user assigned this role can approve invoices, purchase requests, and expense reports and can view budgets in the budget dashboards. The Budget Approver does not have access to the budget configuration information.|N|Y|
@@ -152,7 +152,7 @@ The role code value that can be used for provisioning with the `Spend Role Exten
 
 ### <a name="reporting-roles"></a>Reporting Product Roles
 
-|Role Code|Role Full Name|Description|Group-aware|Product Area|
+|Role Code|Role Full Name|Description|Group-Aware|Product Area|
 |---|---|---|---|---|
 |`BUDGET_REPORTING_USER`|Budget Role for Cognos|The user assigned this role can access the Budget module in the Concur Insight data model.|Y|N|
 |`REPORTING_CAS_ANALYST`|CAS Analyst|**NOTE: Do not use. This role is retired.**|Y|N|
