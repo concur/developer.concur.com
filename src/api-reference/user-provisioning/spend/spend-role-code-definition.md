@@ -7,10 +7,9 @@ layout: reference
 
 ## Menu
 
-* [Getting Started](#getting-started)
+* [Getting Started](./v4.spend-user-get-started.html)
 * [Spend User Provisioning](./v4.spend-user-provisioning.html)
 * [Spend User Retrieval](./v4.spend-user-retrieval.html)
-* [Spend User Role Code Definition](./v4.spend-role-code-definition.html)
 
 ## Spend Role Codes
 
@@ -19,7 +18,6 @@ layout: reference
 * [Request Product Roles](#request-roles)
 * [Invoice (Payment) Product Roles](#invoice-roles)
 * [Reporting Product Roles](#reporting-roles)
-* [FAQ](#faq)
 
 ### <a name="column-description"></a>Column Description
 
@@ -81,7 +79,7 @@ The role code value that can be used for provisioning with the `Spend Role Exten
 |`EXP_FB_TAX_ADMIN`|Fringe Benefits Tax Administrator|Along with the Tax Administration role, the user assigned this role can manage fringe-benefit tax.|N|N
 |`SHD_IMPORT_EXTRACT_ADMIN`|Import/Extract Administrator (formerly Integration Administrator)|**This role is intended to be assigned to and used by SAP Concur internal staff only.**|N|Y|
 |`SHD_IMPORT_EXTRACT_ADMIN_RO`|Import/Extract Monitor (formerly Integration Administrator - Restricted)|A user assigned this role can view details of import, extract, archive, and reporting consolidation jobs, job schedule, system logs. Depending on configuration, this user may also be able to upload import files, and download extract files.|N|Y|
-|`SHD_PASSWORD_ADMIN`|Password Manager|The user assigned this role can update passwords for Expense users. <br>User will have read only access to the following fields on the User Details page in User Administration: Title, First Name, Middle Name, Nickname, Last Name, Suffix, and Email.<br>**Preventing Access**: A module property is available to restrict this role from changing password. Please contact SAP Concur directly to have the Password Access Restriction feature activated.<br>**NOTE:** The users with Expense and either Travel or Invoice have one password for all applications. When any of the Password Manager roles changes a password, it changes for all.| applications.|Y|Y|
+|`SHD_PASSWORD_ADMIN`|Password Manager|The user assigned this role can update passwords for Expense users. <br>User will have read only access to the following fields on the User Details page in User Administration: Title, First Name, Middle Name, Nickname, Last Name, Suffix, and Email.<br>**Preventing Access**: A module property is available to restrict this role from changing password. Please contact SAP Concur directly to have the Password Access Restriction feature activated.<br>**NOTE:** The users with Expense and either Travel or Invoice have one password for all applications. When any of the Password Manager roles changes a password, it changes for all.|Y|Y|
 |`EXP_REIMBURSEMENT_AUDITOR`|Reimbursement Auditor|A user assigned this role can view Expense Pay functionality: Funding Accounts, Batch Configurations, Card Programs, Expense Pay Settings, Current and Historical Batch List, Daily Funding and Returned Amounts, Payment Demand List, Report Payees List, and Employee Banking Status|N|Y|
 |`EXP_REIMBURSEMENT_APPROVER`|Reimbursement Manager|A user assigned this role can fully manage (add, edit, delete) Expense Pay functionality: Funding Accounts, Batch Configurations, Card Programs, and Expense Pay Settings. <br>In addition, a user assigned this role can view the following Expense Pay details: Current and Historical Batch List, Daily Funding and Returned Amounts, Payment Demand List, and Report Payees List. <br>Only global Reimbursement Managers can create and view payment demands: Employee Banking Status|Y|Y|
 |`SHD_ROLE_ADMIN`|Role Administrator|A user assigned this role is granted access to the **Expense, Invoice,** and **Request** tabs through User Permissions.|Y|Y|
@@ -163,15 +161,3 @@ The role code value that can be used for provisioning with the `Spend Role Exten
 |`REPORTING_HIST_DATA_USER`|Cognos Hist Data Access|Cognos Hist Data Access.|N|N|
 |`REPORTING_DASHBOARD_USER`|Dashboard User|**NOTE: Do not use. This role is retired.**|N|N|
 |`REPORTING_EMPLOYEE_ADMIN`|Employee Admin Permission on Reporting Hierarchy|The user assigned this role can grant Reporting Hierarchy Nodes permission to users in the Employee Admin.<br>**NOTE**: Each user assigned Employee admin must also be assigned permissions for reporting (BI), expense, and payment (Invoice). These additional permissions govern the roles the employee administrator can assign for the employees in his or her assigned groups.|Y|N|
-
-
-### <a name="faq"></a>FAQ
-
-1. Does SAP Concur support custom roles?
-No.
-
-2. Am I able to provision a role other than those listed above?
-No.
-
-3. Will I be able to get the roles other than those listed above from the GET user's response?
-No.
