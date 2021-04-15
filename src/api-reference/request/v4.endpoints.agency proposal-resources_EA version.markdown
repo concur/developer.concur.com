@@ -3,6 +3,8 @@ title: Travel Request v4 - Request Proposals Resources
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 ## Menu
 
 * [Getting Started](./v4.get-started.html)
@@ -18,7 +20,7 @@ layout: reference
 
 # <a name="request-agencyproposals-resource"></a>Agency Proposals Resources
 
-* [Send agency proposals within a Request](#pst-request-agencyproposals-resource)
+* [Send agency proposals within a Request](#post-request-agencyproposals-resource)
 * [Get the list of existing agency proposals within a Request](#get-request-agencyproposals-resource)
 
 ## <a name="post-request-agencyproposals-resource"></a>Send proposals within a Request
@@ -54,7 +56,7 @@ To learn more about response HTTP status codes for this API see [Travel Request 
 
 #### Payload
 
-[Agency proposals](#schema-agencyproposals) - The created proposal(s).
+[Agency proposals](#schema-agencyproposals)
 
 ### Example
 
@@ -128,7 +130,7 @@ Authorization: Bearer {token}
       },
       "transactionDate": "2021-03-29T03:04:05.678Z"
     },
-    
+
     {
       "agencyProposalSegments": [
            {
@@ -233,7 +235,7 @@ Authorization: Bearer {token}
       },
       "transactionDate": "2021-03-29T03:04:05.678Z"
     },
-    
+
     {
       "agencyProposalSegments": [
            {
@@ -607,21 +609,21 @@ Authorization: Bearer {token}
 Name|Type|Format|Description
 ---|---|---|---
 `agencyProposalType`|`string`|-|**Required** The agency proposal type value. Supported value: `API`.
-`importDate`|`timestamp`|[RFC 3339] Format: `YYYY-MM-DDThh:mm:ss.SSS'Z`|**Read only** The date of the import.
+`importDate`|`timestamp`|`YYYY-MM-DDThh:mm:ss.SSS'Z`|**Read only** The date of the import.
 `proposalUuid`|`string`|-|**Read only** The unique identifier of one proposal for a Request.
 `providerMessageId`|`string`|-|The unique identifier of the client’s batch of proposal.
 `proposalBatchSize`|`integer`|-|**Required** Size of the client’s batch of proposal. <br>Note: If this value is greater than 1, the Request will not be sent back to the traveler as long as the expected number of proposals (respective proposalOrder) are not integrated into the Request.
 `proposalOrder`|`integer`|-|**Required** Sequence order of the proposal for the request.
-`booked`|`boolean`|-|**Required** `true` if this trip is (or has to be) handled by a travel agency.
-`approvalLimitDate`|[RFC 3339] `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|Limit approval date of the proposal. Past this date, the proposal will not be viable any more. <br>Note: Offset MUST be in form YYYY-MM-DDThh:mm:ss.
+`booked`|`boolean`|-|**Required** If `true`, this trip is (or has to be) handled by a travel agency.
+`approvalLimitDate`|-|`yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|Limit approval date of the proposal. Past this date, the proposal will not be viable any more.
 `status`|`string`|-|**Required** Supported values: `PROPOSAL`,`CONFIRMED`,`TICKETISSUED`.
-`proposal`|`boolean`|-|**Read only** `true` if this “proposal” is still in the `PROPOSAL` status; `false` if the "proposal" status is `CONFIRMED` (tickets issued).
+`proposal`|`boolean`|-|**Read only** If `true`, this proposal is still in the `PROPOSAL` status.  If `false`, the proposal status is `CONFIRMED` (tickets issued).
 `comments`|`string`|-|Free text.
-`itineraryLocator`|`string`|-|The unique identifier for ConcurTravel itinerary.
-`autoSelect`|`boolean`|-|Set to `true` only when a Request is approved and the confirmed proposal is sent back into the Request. **Not managed yet**.
+`itineraryLocator`|`string`|-|The unique identifier for Concur Travel itinerary.
+`autoSelect`|`boolean`|-| If `true`, the Request is approved and the confirmed proposal is sent back into the Request. **Not managed yet**.
 `selected`|`boolean`|-|**Read only** Value becomes `true` when that proposal is selected by the user.
 `totalPostedAmount`|`object`|[`Amount`](#schema-amount)|The total amount for that proposal.
-`policyCompliant`|`boolean`|-|Whether the Agency Proposal is policy compliant or not. Default value is `true`.
+`policyCompliant`|`boolean`|-|If `true`, the the Agency Proposal is policy compliant. Default: `true`
 `agencyProposalEntries`|`array`|[`Agency proposal entry`](#schema-agencyproposalentry)|Minimum required: 1.
 
 ### <a name="schema-agencyproposalentry"></a>Agency proposal entry
@@ -630,7 +632,7 @@ Name|Type|Format|Description
 ---|---|---|---
 `proposalEntryUuid`|`string`|-|**Read only** The unique identifier of one entry in a proposal for a request.
 `comments`|`string`|-|**Read only** Concatenate the comments of underlying segments.
-`transactionDate`|`timestamp`|[RFC 3339] Format: `YYYY-MM-DDThh:mm:ss.SSS'Z`|**Read only** The date of the transaction (local time).
+`transactionDate`|`timestamp`|`YYYY-MM-DDThh:mm:ss.SSS'Z`|**Read only** The date of the transaction in local time.
 `transactionAmount`|`object`|[`Amount`](#schema-amount)|The amount of this entry.
 `exchangeRate`|`object`|[`Exchange Rate`](#schema-exchangerate)|**Read only** The exchange rate that applies to this entry.
 `agencyProposalSegment`|`array`|[`Agency proposal segment`](#schema-agencyproposalsegment)|Minimum required: 1.
@@ -641,19 +643,19 @@ Name|Type|Format|Description
 ---|---|---|---
 `proposalSegmentUuid`|`string`|-|**Read only** The unique identifier of one segment in a proposal for a request.
 `pnr`|`string`|-|**Required** The personal number of reservation.
-`booked`|`boolean`|-|**Required** `true` if this trip is (or has to be) handled by a travel agency.
-`policyCompliant`|`boolean`|-|**Read only** Whether the Agency Proposal is policy compliant or not. `true` if policyComplianceLevel is 100.
-`policyCompliantLevel`|`integer`|-|A value between 0 & 100 that matches the segment compliance. 100 if fully policyCompliant, 0 if not compliant at all. Default value 100.
+`booked`|`boolean`|-|**Required** If `true`, this trip is (or has to be) handled by a travel agency.
+`policyCompliant`|`boolean`|-|**Read only** If `true`, the Agency Proposal is policy compliant. `true` if `policyComplianceLevel` is 100.
+`policyCompliantLevel`|`integer`|-|A value between 0 & 100 that matches the segment compliance. `100` if fully `policyCompliant`, `0` if not compliant at all. Default value: `100`.
 `comments`|`string`|-|Free text.
-`startDate`|`date`|[ISO 8601] `yyyy-MM-dd`|The date of the beginning of this segment.
-`startTime`|`time`|[ISO 8601] `yyyy-MM-dd`|The time of the beginning of this segment. <br> Required if this field set as mandator for the corresponding segment.
-`endDate`|`date`|[ISO 8601] `yyyy-MM-dd`|The date of the ending of this segment.
-`endTime`|`time`|[ISO 8601] `yyyy-MM-dd`|The time of the ending of this segment. <br> Required if this field set as mandator for the corresponding segment.
+`startDate`|`date`|`yyyy-MM-dd`|The date of the beginning of this segment.
+`startTime`|`time`|`yyyy-MM-dd`|The time of the beginning of this segment. <br> **Required** if this field set as mandator for the corresponding segment.
+`endDate`|`date`|`yyyy-MM-dd`|The date of the ending of this segment.
+`endTime`|`time`|`yyyy-MM-dd`|The time of the ending of this segment. <br> **Required** if this field set as mandator for the corresponding segment.
 `vendorName`|`string`|-|**Required** The vendor name for this segment.
 `confirmationNumber`|`string`|-|**Required** The record locator or confirmation number for the flight from the airline.
-`proposalSegmentType`|`string`|-|**Required** Supported values: `AIR`, `RAIL`, `CAR`, `HOTEL`, `MISC`.
-`segmentTypeCode`|`object`|[`Segment Type`](#schema-segmenttype)|**Required** The type of the segment. Supported values: `AIRFR`, `CARRT`, `HOTEL`, `RAILF`, `MISC`.
-`timeZone`|`zoneId`|-|The time zone of the booking. Format: <br>- Fixed offsets: a fully resolved offset from UTC/Greenwich, that uses the same offset for all local date-times; Br>- Geographical regions: an area where a specific set of rules for finding the offset from UTC/Greenwich apply (default group is the IANA Time Zone Database (TZDB)).
+`proposalSegmentType`|`string`|-|**Required** Supported values: `AIR`, `RAIL`, `CAR`, `HOTEL`, `MISC`
+`segmentTypeCode`|`object`|[`Segment Type`](#schema-segmenttype)|**Required** The type of the segment. Supported values: `AIRFR`, `CARRT`, `HOTEL`, `RAILF`, `MISC`
+`timeZone`|`zoneId`|-|The time zone of the booking. <br>Format: <br>- Fixed offsets: a fully resolved offset from UTC/Greenwich, that uses the same offset for all local date-times; <Br>- Geographical regions: an area where a specific set of rules for finding the offset from UTC/Greenwich apply (default group is the IANA Time Zone Database (TZDB)).
 `agencyProposalAirSegment`|`array`|[`Agency proposal air segment`](#schema-agencyproposalairsegment)|Additional fields for Air segments.
 `agencyProposalRailSegment`|`array`|[`Agency proposal rail segment`](#schema-agencyproposalrailsegment)|Additional fields for Rail segments.
 `agencyProposalCarSegment`|`array`|[`Agency proposal car segment`](#schema-agencyproposalcarsegment)|Additional fields for Car segments.
@@ -665,7 +667,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `classOfService`|`string`|-|**Required** The class of the air segment.
-`duration`|`integer`|-|**Required** The duration of the booked flight. <br> Must be > 0.
+`duration`|`integer`|-|**Required** The duration of the booked flight. Must be greater than 0.
 `flightNumber`|`string`|-|**Required** The flight number for the booking.
 `seatNumber`|`string`|-|The number of the seat.
 `aircraft`|`string`|-|The code of the aircraft type.
@@ -680,7 +682,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `classOfService`|`string`|-|**Required** The class of the segment leg.
-`duration`|`integer`|-|**Required** The duration of the booked train. <br> Must be > 0.
+`duration`|`integer`|-|**Required** The duration of the booked train. Must be greater than 0.
 `trainNumber`|`string`|-|**Required** The train number for the booking.
 `wagonNumber`|`string`|-|The number of the wagon.
 `seatNumber`|`string`|-|The number of the seat.
@@ -696,10 +698,10 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`airConditioning`|`boolean`|-|Indicates if car has an air conditioner. Supported values: `R` for AC or `N` for No AC.
+`airConditioning`|`boolean`|-|Indicates if car has an air conditioner. Supported values: `R` - AC, `N` - No AC
 `carEquipment`|`string`|-|Any special equipment required by the renter.
 `classOfService`|`string`|-|The class of the segment leg.
-`transmissionPreference`|`string`|-|The character code that indicates if the car has auto-transmission. Supported values `A` for Auto or `M` for Manual.
+`transmissionPreference`|`string`|-|The character code that indicates if the car has auto-transmission. Supported values `A` - Auto, `M` - Manual
 `dropOffCollectionPhoneNumber`|`string`|-|The phone number for the drop-off address when the rental service offers drop-off.
 `endLocation`|`object`|[`Location`](#schema-location)|**Required** The end location of the car segment leg (city location schema).
 `pickupDeliveryPhoneNumber`|`string`|-|The phone number for the pickup address when the rental service offers pickup.
@@ -712,7 +714,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `name`|`string`|-|**Required** The hotel name for the booking.
-`roomDescription`|`string`|-|The room description for the booking. Max Length: 2000.
+`roomDescription`|`string`|-|The room description for the booking. Maximum Length: 2000
 `providerPhone`|`string`|-|The phone number for the booking.
 `location`|`object`|[`Location`](#schema-location)|**Required** The location of the hotel segment leg (city location schema).
 `locationDetail`|`string`|-|Additional details about the location.
