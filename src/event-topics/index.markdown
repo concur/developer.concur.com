@@ -3,8 +3,6 @@ title: Event Subscription Management
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 * [Access Control (JWT)](#ac-jwt)
 * [Browse Available Topics](#get-topics)
 * [Create a Subscription](#put-subscription)

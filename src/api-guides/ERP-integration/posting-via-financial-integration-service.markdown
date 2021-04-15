@@ -49,10 +49,10 @@ Quick Connect describes the process customers use to connect their SAP Concur si
 
 The flow consists of calling the API in this sequence:
 
-1. [Get Financial Transactions](/api-reference/financial-integration/v4.financial-integration.html#get-transactions) - Obtain final-approved reports (or invoices) from the FIS queue.
-1. [Post Financial Transaction Acknowledgements](/api-reference/financial-integration/v4.financial-integration.html#post-acknowledgements) - **Required step** Acknowledge each report or invoice has been obtained.
-1. [Post Financial Transactions Confirmations](/api-reference/financial-integration/v4.financial-integration.html#post-confirmations) - **Required step** Post the status of the ERP integration for each report (success or failure) back into the SAP Concur solution after integrating into the customer's ERP.
-1. [Post Financial Payment Confirmations](/api-reference/financial-integration/v4.financial-integration.html#payment-confirmations) - **Recommended** Post the financial payment results into the SAP Concur solution.
+1. Get Financial Transactions - Obtain final-approved reports (or invoices) from the FIS queue.
+1. Post Financial Transaction Acknowledgements - **Required step** Acknowledge each report or invoice has been obtained.
+1. Post Financial Transactions Confirmations - **Required step** Post the status of the ERP integration for each report (success or failure) back into the SAP Concur solution after integrating into the customer's ERP.
+1. Post Financial Payment Confirmations - **Recommended** Post the financial payment results into the SAP Concur solution.
 
 The following are the recommended steps when you create a file based on FIS data prior to importing into the ERP:
 
@@ -81,17 +81,17 @@ Sequence|Expected Event|Concur Expense Payment Status|FIS Posting Document Statu
 
 ### <a name="invoice-matrix"></a>FI Sequence Flow Matrix - Invoice
 
-Sequence |Expected Event |Concur Expense Payment Status |FIS Posting Document Status |ERP| FIS
+Sequence|Expected Event|Concur Invoice Payment Status|FIS Posting Document Status|ERP|FIS
 ----|----|----|----|----|----
-1 | Report is submitted by user and enters workflow | Submitted/Not Paid| Doesn’t exist| Doesn’t exist  | NA
-2 | Report is “final approved” in Processor workflow step | Processing Payment| Queued and Ready | Doesn’t exist   | NA
-3 | ERP calls FIS for “ready” posting documents| Processing Payment| Queued and Ready  | Received | GET financial documents
-4 | ERP calls FIS to acknowledge documents retrieved |Processing Payment |Acknowledged | Acknowledged| POST acknowledge financial documents
-5 | ERP Sends Posting Feedback - Failed | Financial Posting Failed| Posting Failed | Posting Failed  | POST Posting Feedback
-6 | Processor Recalls Report for Posting Corrections | Not Paid | Posting Failed | Posting Failed  | N/A
-7 | Report is re-submitted with corrections and re-enters workflow (steps 1-4 repeat)| Submitted/Not Paid | Posting Failed | Posting Failed | N/A
-8 | ERP Sends Posting Feedback – Success | Paid| Posting Success | Posting Success |POST Posting Feedback
-9 | ERP Sends Payment Feedback (Optional)| Payment Confirmed | Payment Confirmed | Paid | POST Payment Confirmation
+1| Invoice is submitted by user and enters workflow | Submitted/Not Paid| Doesn’t exist | Doesn’t exist | NA
+2| Invoice is “final approved” in Processor workflow step| Pending Payment| Queued and Ready| Doesn’t exist | NA
+3| ERP calls FIS for “ready” posting documents | Pending Payment | Queued and Ready | Received | GET financial documents
+4| ERP calls FIS to acknowledge documents retrieved| Pending Payment| Acknowledged| Acknowledged| POST acknowledge financial documents
+5| ERP Sends Posting Feedback - Failed| Financial Posting Failed | Posting Failed| Posting Failed  | POST Posting Feedback
+6| Processor Recalls Invoice for Posting Corrections| Not Paid| Posting Failed| Posting Failed  | N/A
+7| Invoice is re-submitted with corrections and re-enters workflow (steps 1-4 repeat) | Submitted/Not Paid | Posting Failed | Posting Failed  | N/A
+8| ERP Sends Posting Feedback – Success | Extracted | Posting Success| Posting Success | POST Posting Feedback
+9| ERP Sends Payment Feedback (currently not supported for Invoice)|  |  |  | 
 
 ### <a name="expense-pay"></a>Expense Pay
 
