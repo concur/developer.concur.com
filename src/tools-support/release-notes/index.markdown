@@ -10,6 +10,7 @@ layout: reference
 
 # Developer Platform Release Notes
 
+* [April 2021](./api/2021-04-16.html)
 * [March 2021](./api/2021-03-19.html)
 * [February 2021](./api/2021-02-19.html)
 * [January 2021](./api/2021-01-22.html)
