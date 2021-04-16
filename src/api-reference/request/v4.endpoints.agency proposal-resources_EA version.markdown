@@ -1,0 +1,728 @@
+---
+title: Travel Request v4 - Request Proposals Resources
+layout: reference
+---
+
+{% include prerelease.html %}
+
+## Menu
+
+* [Getting Started](./v4.get-started.html)
+* [Request](./v4.endpoints.request-resources.html)
+* [Workflow](./v4.endpoints.workflow-resources.html)
+* [Expected Expense](./v4.endpoints.expected-expense-resources.html)
+* [Request Cash Advance](./v4.endpoints.cashadvance-resources.html)
+* [Request Policy](./v4.endpoints.policy-resources.html)
+* [Travel Agency](./v4.endpoints.travel-agency-resources.html)
+* [Schema](./v4.endpoints.schemas.html)
+* [HTTP Status Codes](./v4.response-codes.html)
+* [Run in Postman](https://app.getpostman.com/run-collection/8273d843078f0bcf0823)
+
+# <a name="request-agencyproposals-resource"></a>Agency Proposals Resources
+
+* [Send agency proposals within a Request](#post-request-agencyproposals-resource)
+* [Get the list of existing agency proposals within a Request](#get-request-agencyproposals-resource)
+
+## <a name="post-request-agencyproposals-resource"></a>Send proposals within a Request
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+POST {datacenter}/travelrequest/v4/requests/{requestUuid}/agencyproposals
+```
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+`userId`|`string`|-|The unique identifier of the travel agent assigned to the travel agency linked to the proposal feature. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed.
+
+#### Payload
+
+[Agency proposals](#schema-agencyproposals)
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Agency proposals](#schema-agencyproposals)
+
+### Example
+
+#### HTTP Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/{requestUuid}/agencyproposals
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json.
+{
+  "agencyProposalEntries": [
+    {
+      "agencyProposalSegments": [
+        {
+          "booked": true,
+          "confirmationNumber": "RecordLocator246",
+          "endDate": "2021-05-02",
+          "endTime": "21:18",
+          "pnr": "OYY5T",
+          "policyCompliantLevel": 50,
+          "proposalSegmentType": "AIR",
+          "startDate": "2021-05-02",
+          "startTime": "20:06",
+          "vendorName": "AIR FRANCE",
+          "timeZone": "UTC+12:00",
+          "classOfService": "Economy",
+          "duration": 60,
+          "flightNumber": "AF030",
+          "endLocation": {
+            "iataCode": "CDG"
+          },
+          "startLocation": {
+            "iataCode": "OSL"
+          }
+        },
+        {
+           "booked" : true,
+          "confirmationNumber": "RecordLocator246",
+          "endDate": "2021-05-01",
+          "endTime": "08:30",
+          "pnr": "OYY5T",
+          "policyCompliantLevel": 50,
+          "proposalSegmentType": "AIR",
+          "startDate": "2021-05-01",
+          "startTime": "07:24",
+          "vendorName": "AIR FRANCE",
+          "timeZone": "UTC+12:00",
+          "classOfService": "Economy",
+          "duration": 60,
+          "flightNumber": "AF029",
+          "startLocation": {
+            "iataCode": "CDG"
+          },
+          "endLocation": {
+            "iataCode": "OSL"
+          }
+        }
+              ],
+      "transactionAmount": {
+        "currency": "EUR",
+        "value": 300.16
+      },
+      "transactionDate": "2021-03-29T03:04:05.678Z"
+    },
+
+    {
+      "agencyProposalSegments": [
+           {
+          "booked": true,
+          "comments": "Staying at Liberty Hotel",
+          "confirmationNumber": "RecordLocator123",
+          "endDate": "2021-05-02",
+          "endTime": "10:00",
+          "pnr": "OCC5T",
+          "policyCompliantLevel": 50,
+          "proposalSegmentType": "HOTEL",
+          "startDate": "2021-05-01",
+          "startTime": "18:00",
+          "vendorName": "ACCOR",
+          "timeZone": "UTC+12:00",
+          "location": {
+            "countryCode": "NO",
+            "city": "Oslo"
+          },
+          "name": "Liberty Hotel",
+          "roomDescription": "Single",
+          "providerPhone": "+3260000000",
+          "locationDetail": "No smoker",
+          "address": "Fjord Place"
+        }
+      ],
+      "transactionAmount": {
+        "currency": "EUR",
+        "value": 146.00
+      },
+      "transactionDate": "2021-03-29T03:04:05.678Z"
+    }
+  ],
+  "agencyProposalType": "API",
+  "approvalLimitDate": "2021-04-24T03:04:05.678Z",
+  "autoSelect": false,
+  "booked": true,
+  "comments": "",
+  "itineraryLocator": "AR15U",
+  "policyCompliant": true,
+  "proposalOrder": 1,
+  "proposalBatchSize": 2,
+  "providerMessageId": "XKRDFGE",
+  "status": "PROPOSAL",
+  "totalPostedAmount": {
+    "currency": "EUR",
+    "value": 446.16
+  }
+}
+{
+  "agencyProposalEntries": [
+    {
+      "agencyProposalSegments": [
+        {
+          "booked": true,
+          "confirmationNumber": "RecordLocator246",
+          "endDate": "2021-05-02",
+          "endTime": "20:18",
+          "pnr": "OYY5T",
+          "policyCompliantLevel": 50,
+          "proposalSegmentType": "AIR",
+          "startDate": "2021-05-02",
+          "startTime": "19:06",
+          "vendorName": "AIR FRANCE",
+          "timeZone": "UTC+12:00",
+          "classOfService": "Economy",
+          "duration": 60,
+          "flightNumber": "AF031",
+          "endLocation": {
+            "iataCode": "CDG"
+          },
+          "startLocation": {
+            "iataCode": "OSL"
+          }
+        },
+        {
+           "booked" : true,
+          "confirmationNumber": "RecordLocator246",
+          "endDate": "2021-05-01",
+          "endTime": "09:30",
+          "pnr": "OYY5T",
+          "policyCompliantLevel": 50,
+          "proposalSegmentType": "AIR",
+          "startDate": "2021-05-01",
+          "startTime": "08:24",
+          "vendorName": "AIR FRANCE",
+          "timeZone": "UTC+12:00",
+          "classOfService": "Economy",
+          "duration": 60,
+          "flightNumber": "AF030",
+          "startLocation": {
+            "iataCode": "CDG"
+          },
+          "endLocation": {
+            "iataCode": "OSL"
+          }
+        }
+              ],
+      "transactionAmount": {
+        "currency": "EUR",
+        "value": 350.17
+      },
+      "transactionDate": "2021-03-29T03:04:05.678Z"
+    },
+
+    {
+      "agencyProposalSegments": [
+           {
+          "booked": false,
+          "comments": "Staying at Opera Hotel",
+          "confirmationNumber": "RecordLocator123",
+          "endDate": "2021-05-02",
+          "endTime": "10:00",
+          "pnr": "OCC5T",
+          "policyCompliantLevel": 50,
+          "proposalSegmentType": "HOTEL",
+          "startDate": "2021-05-01",
+          "startTime": "18:00",
+          "vendorName": "ACCOR",
+          "timeZone": "UTC+12:00",
+          "location": {
+            "countryCode": "NO",
+            "city": "Oslo"
+          },
+          "name": "Opera Hotel",
+          "roomDescription": "Double",
+          "providerPhone": "+3260000000",
+          "locationDetail": "No smoker",
+          "address": "Ulriken Place"
+        }
+      ],
+      "transactionAmount": {
+        "currency": "EUR",
+        "value": 200.00
+      },
+      "transactionDate": "2021-03-29T03:04:05.678Z"
+    }
+  ],
+  "agencyProposalType": "API",
+  "approvalLimitDate": "2021-04-26T03:04:05.678Z",
+  "autoSelect": false,
+  "booked": true,
+  "comments": "",
+  "itineraryLocator": "AR15U",
+  "policyCompliant": true,
+  "proposalOrder": 2,
+  "proposalBatchSize": 2,
+  "providerMessageId": "XKRDFGE",
+  "status": "PROPOSAL",
+  "totalPostedAmount": {
+    "currency": "EUR",
+    "value": 550.17
+  }
+}
+
+```
+
+## <a name="get-request-agencyproposals-resource"></a>Get the list of agency proposals
+
+### Scopes
+
+`travelrequest.write` - Refer to [Scope Usage](./v4.get-started.html#scope-usage) for full details.
+
+### HTTP Request
+
+##### URI Template
+
+```
+GET {datacenter}/travelrequest/v4/requests/{requestUuid}/agencyproposals
+```
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`requestUuid`|`string`|-|**Required** The unique identifier of the Request.
+
+#### Payload
+
+None.
+
+### HTTP Response
+
+#### HTTP Status Codes
+
+To learn more about response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+
+#### Payload
+
+[Agency proposals](#schema-agencyproposals)
+
+### Example
+
+#### HTTP Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/{requestUuid}/agencyproposals
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### HTTP Response
+
+```shell
+200 OK
+```
+
+```json.
+[
+    {
+        "proposalUuid": "c76eb8f5-10fa-4840-95e0-3c730b0cad46",
+        "agencyProposalEntries": [
+            {
+                "proposalEntryUuid": "38607d43-477b-4544-9cc3-3bcc224db838",
+                "matchingExpense": {},
+                "transactionDate": "2021-03-29T03:04:06.000Z",
+                "comments": "Staying at Opera Hotel",
+                "transactionAmount": {
+                    "value": 200.00000000,
+                    "currency": "EUR"
+                },
+                "agencyProposalSegments": [
+                    {
+                        "address": "Ulriken Place",
+                        "booked": false,
+                        "comments": "Staying at Opera Hotel",
+                        "confirmationNumber": "RecordLocator123",
+                        "endDate": "2021-05-02",
+                        "endTime": "10:00",
+                        "location": {
+                            "countryCode": "NO",
+                            "city": "Oslo"
+                        },
+                        "locationDetail": "No smoker",
+                        "matchingSegmentLeg": {},
+                        "name": "Opera Hotel",
+                        "pnr": "OCC5T",
+                        "policyCompliant": false,
+                        "policyCompliantLevel": 50,
+                        "proposalSegmentType": "HOTEL",
+                        "proposalSegmentUuid": "ea706941-462b-4d63-a28f-9ac560adcb5e",
+                        "providerPhone": "+3260000000",
+                        "roomDescription": "Double",
+                        "segmentTypeCode": "HOTEL",
+                        "startDate": "2021-05-01",
+                        "startTime": "18:00",
+                        "timeZone": "UTC+12:00",
+                        "vendorName": "ACCOR"
+                    }
+                ]
+            },
+            {
+                "proposalEntryUuid": "654fb089-0fed-4891-ac2f-da2f480dfab4",
+                "matchingExpense": {},
+                "transactionDate": "2021-03-29T03:04:06.000Z",
+                "comments": "",
+                "transactionAmount": {
+                    "value": 350.17000000,
+                    "currency": "EUR"
+                },
+                "agencyProposalSegments": [
+                    {
+                        "booked": true,
+                        "classOfService": "Economy",
+                        "confirmationNumber": "RecordLocator246",
+                        "duration": 60,
+                        "endDate": "2021-05-02",
+                        "endLocation": {
+                            "iataCode": "CDG"
+                        },
+                        "endTime": "20:18",
+                        "flightNumber": "AF031",
+                        "matchingSegmentLeg": {},
+                        "pnr": "OYY5T",
+                        "policyCompliant": false,
+                        "policyCompliantLevel": 50,
+                        "proposalSegmentType": "AIR",
+                        "proposalSegmentUuid": "e43b521a-b1b1-48a5-b368-74d36d3fc56e",
+                        "segmentTypeCode": "AIRFR",
+                        "startDate": "2021-05-02",
+                        "startLocation": {
+                            "iataCode": "OSL"
+                        },
+                        "startTime": "19:06",
+                        "timeZone": "UTC+12:00",
+                        "vendorName": "AIR FRANCE"
+                    },
+                    {
+                        "booked": true,
+                        "classOfService": "Economy",
+                        "confirmationNumber": "RecordLocator246",
+                        "duration": 60,
+                        "endDate": "2021-05-01",
+                        "endLocation": {
+                            "iataCode": "OSL"
+                        },
+                        "endTime": "09:30",
+                        "flightNumber": "AF030",
+                        "matchingSegmentLeg": {},
+                        "pnr": "OYY5T",
+                        "policyCompliant": false,
+                        "policyCompliantLevel": 50,
+                        "proposalSegmentType": "AIR",
+                        "proposalSegmentUuid": "f9c55ba6-bdcf-4e65-b189-40f343076784",
+                        "segmentTypeCode": "AIRFR",
+                        "startDate": "2021-05-01",
+                        "startLocation": {
+                            "iataCode": "CDG"
+                        },
+                        "startTime": "08:24",
+                        "timeZone": "UTC+12:00",
+                        "vendorName": "AIR FRANCE"
+                    }
+                ]
+            }
+        ],
+        "agencyProposalType": "API",
+        "approvalLimitDate": "2021-04-26T03:04:06.000Z",
+        "autoSelect": false,
+        "booked": true,
+        "comments": "",
+        "importDate": "2021-03-29T09:44:36.000Z",
+        "itineraryLocator": "AR15U",
+        "policyCompliant": true,
+        "proposal": true,
+        "proposalBatchSize": 2,
+        "proposalOrder": 2,
+        "providerMessageId": "XKRDFGE",
+        "selected": false,
+        "status": "PROPOSAL",
+        "totalPostedAmount": {
+            "value": 550.17000000,
+            "currency": "EUR"
+        }
+    },
+    {
+        "proposalUuid": "d6de71be-3716-48cb-b133-a82e03e25bfe",
+        "agencyProposalEntries": [
+            {
+                "proposalEntryUuid": "99a44f02-b1c3-4712-af72-77cabc6f725d",
+                "matchingExpense": {
+                    "id": "1ECBCB87CE27FE4AB9B5D76E20E05B98"
+                },
+                "transactionDate": "2021-03-29T03:04:06.000Z",
+                "comments": "",
+                "transactionAmount": {
+                    "value": 300.16000000,
+                    "currency": "EUR"
+                },
+                "agencyProposalSegments": [
+                    {
+                        "booked": true,
+                        "classOfService": "Economy",
+                        "confirmationNumber": "RecordLocator246",
+                        "duration": 60,
+                        "endDate": "2021-05-02",
+                        "endLocation": {
+                            "iataCode": "CDG"
+                        },
+                        "endTime": "21:18",
+                        "flightNumber": "AF030",
+                        "matchingSegmentLeg": {
+                            "id": "25C97F6CD6AD9F4AB5E80D6F61730D2D"
+                        },
+                        "pnr": "OYY5T",
+                        "policyCompliant": false,
+                        "policyCompliantLevel": 50,
+                        "proposalSegmentType": "AIR",
+                        "proposalSegmentUuid": "7835f703-2f6b-4b71-96ef-0445355f24f8",
+                        "segmentTypeCode": "AIRFR",
+                        "startDate": "2021-05-02",
+                        "startLocation": {
+                            "iataCode": "OSL"
+                        },
+                        "startTime": "20:06",
+                        "timeZone": "UTC+12:00",
+                        "vendorName": "AIR FRANCE"
+                    },
+                    {
+                        "booked": true,
+                        "classOfService": "Economy",
+                        "confirmationNumber": "RecordLocator246",
+                        "duration": 60,
+                        "endDate": "2021-05-01",
+                        "endLocation": {
+                            "iataCode": "OSL"
+                        },
+                        "endTime": "08:30",
+                        "flightNumber": "AF029",
+                        "matchingSegmentLeg": {
+                            "id": "51B98284E6232A40A600E9E92710CADF"
+                        },
+                        "pnr": "OYY5T",
+                        "policyCompliant": false,
+                        "policyCompliantLevel": 50,
+                        "proposalSegmentType": "AIR",
+                        "proposalSegmentUuid": "9e363bdc-0ef4-4332-b5ad-98ab5b759d8f",
+                        "segmentTypeCode": "AIRFR",
+                        "startDate": "2021-05-01",
+                        "startLocation": {
+                            "iataCode": "CDG"
+                        },
+                        "startTime": "07:24",
+                        "timeZone": "UTC+12:00",
+                        "vendorName": "AIR FRANCE"
+                    }
+                ]
+            },
+            {
+                "proposalEntryUuid": "b4b50e4d-4082-43ee-8a08-ccc6996fcfd3",
+                "matchingExpense": {
+                    "id": "CA964E3216D64746A4CFF3EFD49410C6"
+                },
+                "transactionDate": "2021-03-29T03:04:06.000Z",
+                "comments": "Staying at Liberty Hotel",
+                "transactionAmount": {
+                    "value": 146.00000000,
+                    "currency": "EUR"
+                },
+                "agencyProposalSegments": [
+                    {
+                        "address": "Fjord Place",
+                        "booked": true,
+                        "comments": "Staying at Liberty Hotel",
+                        "confirmationNumber": "RecordLocator123",
+                        "endDate": "2021-05-02",
+                        "endTime": "10:00",
+                        "location": {
+                            "countryCode": "NO",
+                            "city": "Oslo"
+                        },
+                        "locationDetail": "No smoker",
+                        "matchingSegmentLeg": {
+                            "id": "8D364364F706994994BA226B3356D9FE"
+                        },
+                        "name": "Liberty Hotel",
+                        "pnr": "OCC5T",
+                        "policyCompliant": false,
+                        "policyCompliantLevel": 50,
+                        "proposalSegmentType": "HOTEL",
+                        "proposalSegmentUuid": "72ad0da9-ebe6-459b-94e0-4db1cafe173b",
+                        "providerPhone": "+3260000000",
+                        "roomDescription": "Single",
+                        "segmentTypeCode": "HOTEL",
+                        "startDate": "2021-05-01",
+                        "startTime": "18:00",
+                        "timeZone": "UTC+12:00",
+                        "vendorName": "ACCOR"
+                    }
+                ]
+            }
+        ],
+        "agencyProposalType": "API",
+        "approvalLimitDate": "2021-04-24T03:04:06.000Z",
+        "autoSelect": false,
+        "booked": true,
+        "comments": "",
+        "importDate": "2021-03-29T09:44:34.000Z",
+        "itineraryLocator": "AR15U",
+        "policyCompliant": true,
+        "proposal": true,
+        "proposalBatchSize": 2,
+        "proposalOrder": 1,
+        "providerMessageId": "XKRDFGE",
+        "selected": true,
+        "status": "PROPOSAL",
+        "totalPostedAmount": {
+            "value": 446.16000000,
+            "currency": "EUR"
+        }
+    }
+]
+```
+### <a name="schema-agencyproposals"></a>Agency proposals
+
+Name|Type|Format|Description
+---|---|---|---
+`agencyProposalType`|`string`|-|**Required** The agency proposal type value. Supported value: `API`.
+`importDate`|`timestamp`|`YYYY-MM-DDThh:mm:ss.SSS'Z`|**Read only** The date of the import.
+`proposalUuid`|`string`|-|**Read only** The unique identifier of one proposal for a Request.
+`providerMessageId`|`string`|-|The unique identifier of the client’s batch of proposal.
+`proposalBatchSize`|`integer`|-|**Required** Size of the client’s batch of proposal. <br>Note: If this value is greater than 1, the Request will not be sent back to the traveler as long as the expected number of proposals (respective proposalOrder) are not integrated into the Request.
+`proposalOrder`|`integer`|-|**Required** Sequence order of the proposal for the request.
+`booked`|`boolean`|-|**Required** If `true`, this trip is (or has to be) handled by a travel agency.
+`approvalLimitDate`|-|`yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`|Limit approval date of the proposal. Past this date, the proposal will not be viable any more.
+`status`|`string`|-|**Required** Supported values: `PROPOSAL`,`CONFIRMED`,`TICKETISSUED`.
+`proposal`|`boolean`|-|**Read only** If `true`, this proposal is still in the `PROPOSAL` status.  If `false`, the proposal status is `CONFIRMED` (tickets issued).
+`comments`|`string`|-|Free text.
+`itineraryLocator`|`string`|-|The unique identifier for Concur Travel itinerary.
+`autoSelect`|`boolean`|-| If `true`, the Request is approved and the confirmed proposal is sent back into the Request. **Not managed yet**.
+`selected`|`boolean`|-|**Read only** Value becomes `true` when that proposal is selected by the user.
+`totalPostedAmount`|`object`|[`Amount`](#schema-amount)|The total amount for that proposal.
+`policyCompliant`|`boolean`|-|If `true`, the the Agency Proposal is policy compliant. Default: `true`
+`agencyProposalEntries`|`array`|[`Agency proposal entry`](#schema-agencyproposalentry)|Minimum required: 1.
+
+### <a name="schema-agencyproposalentry"></a>Agency proposal entry
+
+Name|Type|Format|Description
+---|---|---|---
+`proposalEntryUuid`|`string`|-|**Read only** The unique identifier of one entry in a proposal for a request.
+`comments`|`string`|-|**Read only** Concatenate the comments of underlying segments.
+`transactionDate`|`timestamp`|`YYYY-MM-DDThh:mm:ss.SSS'Z`|**Read only** The date of the transaction in local time.
+`transactionAmount`|`object`|[`Amount`](#schema-amount)|The amount of this entry.
+`exchangeRate`|`object`|[`Exchange Rate`](#schema-exchangerate)|**Read only** The exchange rate that applies to this entry.
+`agencyProposalSegment`|`array`|[`Agency proposal segment`](#schema-agencyproposalsegment)|Minimum required: 1.
+
+### <a name="schema-agencyproposalsegment"></a>Agency proposal segment
+
+Name|Type|Format|Description
+---|---|---|---
+`proposalSegmentUuid`|`string`|-|**Read only** The unique identifier of one segment in a proposal for a request.
+`pnr`|`string`|-|**Required** The personal number of reservation.
+`booked`|`boolean`|-|**Required** If `true`, this trip is (or has to be) handled by a travel agency.
+`policyCompliant`|`boolean`|-|**Read only** If `true`, the Agency Proposal is policy compliant. `true` if `policyComplianceLevel` is 100.
+`policyCompliantLevel`|`integer`|-|A value between 0 & 100 that matches the segment compliance. `100` if fully `policyCompliant`, `0` if not compliant at all. Default value: `100`.
+`comments`|`string`|-|Free text.
+`startDate`|`date`|`yyyy-MM-dd`|The date of the beginning of this segment.
+`startTime`|`time`|`yyyy-MM-dd`|The time of the beginning of this segment. <br> **Required** if this field set as mandator for the corresponding segment.
+`endDate`|`date`|`yyyy-MM-dd`|The date of the ending of this segment.
+`endTime`|`time`|`yyyy-MM-dd`|The time of the ending of this segment. <br> **Required** if this field set as mandator for the corresponding segment.
+`vendorName`|`string`|-|**Required** The vendor name for this segment.
+`confirmationNumber`|`string`|-|**Required** The record locator or confirmation number for the flight from the airline.
+`proposalSegmentType`|`string`|-|**Required** Supported values: `AIR`, `RAIL`, `CAR`, `HOTEL`, `MISC`
+`segmentTypeCode`|`object`|[`Segment Type`](#schema-segmenttype)|**Required** The type of the segment. Supported values: `AIRFR`, `CARRT`, `HOTEL`, `RAILF`, `MISC`
+`timeZone`|`zoneId`|-|The time zone of the booking. <br>Format: <br>- Fixed offsets: a fully resolved offset from UTC/Greenwich, that uses the same offset for all local date-times; <Br>- Geographical regions: an area where a specific set of rules for finding the offset from UTC/Greenwich apply (default group is the IANA Time Zone Database (TZDB)).
+`agencyProposalAirSegment`|`array`|[`Agency proposal air segment`](#schema-agencyproposalairsegment)|Additional fields for Air segments.
+`agencyProposalRailSegment`|`array`|[`Agency proposal rail segment`](#schema-agencyproposalrailsegment)|Additional fields for Rail segments.
+`agencyProposalCarSegment`|`array`|[`Agency proposal car segment`](#schema-agencyproposalcarsegment)|Additional fields for Car segments.
+`agencyProposalHotelSegment`|`array`|[`Agency proposal hotel segment`](#schema-agencyproposalhotelsegment)|Additional fields for Hotel segments.
+`agencyProposalMiscSegment`|`array`|[`Agency proposal misc segment`](#schema-agencyproposalmiscsegment)|Additional fields for Misc segments.
+
+### <a name="schema-agencyproposalairsegment"></a>Agency proposal air segment
+
+Name|Type|Format|Description
+---|---|---|---
+`classOfService`|`string`|-|**Required** The class of the air segment.
+`duration`|`integer`|-|**Required** The duration of the booked flight. Must be greater than 0.
+`flightNumber`|`string`|-|**Required** The flight number for the booking.
+`seatNumber`|`string`|-|The number of the seat.
+`aircraft`|`string`|-|The code of the aircraft type.
+`mealPreference`|`string`|-|The booked meal.
+`departureTerminal`|`string`|-|The departure terminal for the air segment leg.
+`arrivalTerminal`|`string`|-|The arrival terminal for the air segment leg.
+`startLocation`|`object`|[`Location`](#schema-location)|**Required** The start location of the air segment leg (Air location schema).
+`endLocation`|`object`|[`Location`](#schema-location)|**Required** The end location of the air segment leg (Air location schema).
+
+### <a name="schema-agencyproposalrailsegment"></a>Agency proposal rail segment
+
+Name|Type|Format|Description
+---|---|---|---
+`classOfService`|`string`|-|**Required** The class of the segment leg.
+`duration`|`integer`|-|**Required** The duration of the booked train. Must be greater than 0.
+`trainNumber`|`string`|-|**Required** The train number for the booking.
+`wagonNumber`|`string`|-|The number of the wagon.
+`seatNumber`|`string`|-|The number of the seat.
+`startRailStation`|`string`|-|The code for the starting station of the segment leg.
+`startRailStationName`|`string`|-|The name of the starting station of the segment leg.
+`startLocation`|`object`|[`Location`](#schema-location)|**Required** The start location of the rail segment leg (Rail location schema).
+`endRailStation`|`string`|-|The code for the ending station of the segment leg.
+`endRailStationName`|`string`|-|The name of the ending station of the segment leg.
+`endLocation`|`object`|[`Location`](#schema-location)|**Required** The end location of the rail segment leg (Rail location schema).
+`mealPreference`|`string`|-|The booked meal.
+
+### <a name="schema-agencyproposalcarsegment"></a>Agency proposal car segment
+
+Name|Type|Format|Description
+---|---|---|---
+`airConditioning`|`boolean`|-|Indicates if car has an air conditioner. Supported values: `R` - AC, `N` - No AC
+`carEquipment`|`string`|-|Any special equipment required by the renter.
+`classOfService`|`string`|-|The class of the segment leg.
+`transmissionPreference`|`string`|-|The character code that indicates if the car has auto-transmission. Supported values `A` - Auto, `M` - Manual
+`dropOffCollectionPhoneNumber`|`string`|-|The phone number for the drop-off address when the rental service offers drop-off.
+`endLocation`|`object`|[`Location`](#schema-location)|**Required** The end location of the car segment leg (city location schema).
+`pickupDeliveryPhoneNumber`|`string`|-|The phone number for the pickup address when the rental service offers pickup.
+`startLocation`|`object`|[`Location`](#schema-location)|**Required** The start location of the car segment leg (city location schema).
+`startLocationDetail`|`string`|-|Additional details about the start location.
+`endLocationDetail`|`string`|-|Additional details about the end location.
+
+### <a name="schema-agencyproposalhotelsegment"></a>Agency proposal hotel segment
+
+Name|Type|Format|Description
+---|---|---|---
+`name`|`string`|-|**Required** The hotel name for the booking.
+`roomDescription`|`string`|-|The room description for the booking. Maximum Length: 2000
+`providerPhone`|`string`|-|The phone number for the booking.
+`location`|`object`|[`Location`](#schema-location)|**Required** The location of the hotel segment leg (city location schema).
+`locationDetail`|`string`|-|Additional details about the location.
+`address`|`string`|-|The address of the booking.
+`postalCode`|`string`|-|The address postal code of the booking.
+
+### <a name="schema-agencyproposalmiscsegment"></a>Agency proposal misc segment
+
+Name|Type|Format|Description
+---|---|---|---
+`name`|`string`|-|**Required** The name for the booking.

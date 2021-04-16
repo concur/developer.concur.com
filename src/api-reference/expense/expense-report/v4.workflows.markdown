@@ -2,8 +2,9 @@
 title: Workflows v4
 layout: reference
 ---
+{% include prerelease.html %}
 
-The Workflows v4 API can be used to Approve or Send Back an expense report that is in the workflow. This API can be used only for normal approval steps currently and not for Cost Object Approval steps(since there is no API that provides the currentProcessInstanceId which is required to approve cost objects) 
+The Workflows v4 API is used to Approve or Send Back an expense report that is in the workflow. This API is used only for normal approval steps and not for Cost Object Approval steps.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
@@ -21,18 +22,16 @@ The Workflows v4 API can be used to Approve or Send Back an expense report that 
 
 ## <a name="Prior-versions"></a>Prior Versions
 
-* Report Workflow Action v1.1 documentation is available [here](/api-reference/expense/expense-report/post-report-workflow-action.html)
+* Report Workflow Action v1.1 documentation is available [here](/api-reference/expense/expense-report/post-report-workflow-action.html).
 
 ## <a name="products-editions"></a>Products and Editions
-
-Delete any unsupported products or editions.
 
 * Concur Expense Professional Edition
 * Concur Expense Standard Edition
 
 ## <a name="scope-usage"></a>Scope Usage
 
-Required Scopes:
+Required Scope:
 
 | Name|Description|Endpoint|
 | ---|---|---|
@@ -50,7 +49,7 @@ Optional Scope:
 
 ## <a name="dependencies"></a>Dependencies
 
-SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the Identity v4 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -58,7 +57,7 @@ This API supports both company level and user level access tokens.
 
 ## <a name="approve-or-send-back-a-report"></a>Approve or Send Back a Report
 
-The Approve function advances the specified report to the next step if it is in a system step. The Send Back function sends back the specified report to report owner .
+The Approve function advances the specified report to the next step if it is in a system step. The Send Back function sends back the specified report to report owner.
 
 ### Scopes
 

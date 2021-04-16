@@ -43,8 +43,6 @@
         url: /api-explorer/v3-0/PurchaseOrders.html
       - title: Receipt Images
         url: /api-explorer/v3-0/ReceiptImages.html
-      - title: Receipts
-        url: /api-explorer/v3-0/Receipts.html
       - title: Reports
         url: /api-explorer/v3-0/Reports.html
       - title: Sales Tax Validation Request
@@ -78,6 +76,10 @@
         url: /api-explorer/v4-0/Reports.html
       - title: Budget
         url: /api-explorer/v4-0/Budget.html
+      - title: Comments
+        url: /api-explorer/v4-0/Reports.html
+      - title: Event Subscription Service
+        url: /api-explorer/v4-0/EventSubscriptionService.html
       - title: Exchange Rate
         url: /api-explorer/v4-0/ExchangeRate.html
       - title: Expenses

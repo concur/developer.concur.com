@@ -52,43 +52,43 @@
           "400": {
             "description": "Invalid request body",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "403": {
             "description": "Permission Denied",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "404": {
             "description": "Not found",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "408": {
             "description": "Timed out",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "500": {
             "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           }
         }
@@ -132,40 +132,43 @@
           "400": {
             "description": "Bad Param: invalid Cash Advance Id.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "403": {
-            "description": "Permission Denied"
+            "description": "Permission Denied",
+            "schema": {
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
+            }
           },
           "404": {
             "description": "Not found",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "408": {
             "description": "Timed out",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "500": {
             "description": "An unexpected error has prevented the operation",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           }
         }
@@ -218,43 +221,43 @@
           "400": {
             "description": "Invalid request body",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "401": {
             "description": "Invalid or nonexistent authorization HTTP header",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "403": {
             "description": "Permission Denied",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "404": {
             "description": "Not found",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
-           "408": {
+          "408": {
             "description": "Timed out",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "500": {
             "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           },
           "503": {
             "description": "The service is currently unavailable",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/ObjectArrayOfErrorItems"
             }
           }
         }
@@ -262,43 +265,41 @@
     }
   },
   "definitions": {
+    "ObjectArrayOfErrorItems": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "$ref": "#/definitions/ArrayOfErrorItems"
+        }
+      }
+    },
+    "ArrayOfErrorItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ErrorItems"
+      }
+    },
+    "ErrorItems": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "integer"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      }
+    },
     "CreateCashAdvanceResponse": {
       "type": "object",
       "properties": {
         "cashAdvanceId": {
           "type": "string",
           "description": "Unique cash advance identifier"
-        },
-        "url": {
-          "type": "string",
-          "description": "The cash advance URL"
         }
       }
     },
-    "ErrorResponse": {
-      "type": "object",
-      "properties": {
-        "errors": {
-          "type": "string",
-          "description": "The unique identifier of the error"
-        },
-        "message": {
-          "type": "string",
-          "description": "Message associated with the error"
-        },
-        "status": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Status"
-        },
-        "timestamp": {
-          "type": "string",
-          "format": "int64",
-          "description": "The timestamp for the error"
-        }
-      }
-    },
-     "CashAdvance": {
+    "CashAdvance": {
       "type": "object",
       "properties": {
         "accountCode": {
@@ -313,11 +314,11 @@
           "type": "string",
           "description": "Comment while creating a cash advance"
         },
-         "name": {
+        "name": {
           "type": "string",
           "description": "Cash advance name"
         },
-         "purpose": {
+        "purpose": {
           "type": "string",
           "description": "Purpose of raising a cash advance"
         },
@@ -409,7 +410,7 @@
         }
       }
     },
-     "RequestedAmount": {
+    "RequestedAmount": {
       "type": "object",
       "properties": {
         "amount": {
@@ -426,7 +427,7 @@
         }
       }
     },
-     "Status": {
+    "Status": {
       "type": "object",
       "properties": {
         "code": {
@@ -439,7 +440,7 @@
         }
       }
     },
-     "AvailableBalance": {
+    "AvailableBalance": {
       "type": "object",
       "properties": {
         "amount": {
@@ -452,7 +453,7 @@
         }
       }
     },
-     "CashAdvanceExchangeRate": {
+    "CashAdvanceExchangeRate": {
       "type": "object",
       "properties": {
         "operation": {
@@ -465,7 +466,7 @@
         }
       }
     },
-     "PaymentType": {
+    "PaymentType": {
       "type": "object",
       "properties": {
         "description": {
@@ -478,7 +479,7 @@
         }
       }
     },
-     "CashAdvanceIssueRequest": {
+    "CashAdvanceIssueRequest": {
       "type": "object",
       "properties": {
         "accountCode": {
@@ -495,7 +496,7 @@
         }
       }
     },
-     "CashAdvanceIssueResponse": {
+    "CashAdvanceIssueResponse": {
       "type": "object",
       "properties": {
         "issuedDate": {
@@ -508,7 +509,7 @@
         }
       }
     },
-     "CashAdvanceStatus": {
+    "CashAdvanceStatus": {
       "type": "object",
       "properties": {
         "code": {
