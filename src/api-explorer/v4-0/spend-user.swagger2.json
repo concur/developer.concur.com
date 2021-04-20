@@ -13,7 +13,7 @@
       "name": "SAP Concur",
       "url": "http://www.concur.com"
     },
-    "version": "0.5.41.latest"
+    "version": "candidate"
   },
   "externalDocs": {
     "description": "Spend User Provision Readme",
@@ -21,14 +21,13 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8061",
+      "url": "https://sus.k8s.cnqr.tech",
       "description": "Generated server url"
     }
   ],
   "security": [
     {
-      "bearer-jwt": ["read", "write"],
-      "common-name": ["read", "write"]
+      "bearer-jwt": ["read", "write"]
     }
   ],
   "paths": {
@@ -47,18 +46,6 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "in": "header",
-            "$ref": "#/components/parameters/companyUuidHeader"
-          },
-          {
-            "in": "header",
-            "$ref": "#/components/parameters/userUuidHeader"
-          },
-          {
-            "in": "header",
-            "$ref": "#/components/parameters/correlationIdHeader"
           }
         ],
         "responses": {
@@ -67,7 +54,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Spend User"
+                  "$ref": "#/components/schemas/FullSpendUser"
                 }
               }
             }
@@ -138,18 +125,6 @@
             "schema": {
               "$ref": "#/components/schemas/SearchRequest"
             }
-          },
-          {
-            "in": "header",
-            "$ref": "#/components/parameters/companyUuidHeader"
-          },
-          {
-            "in": "header",
-            "$ref": "#/components/parameters/userUuidHeader"
-          },
-          {
-            "in": "header",
-            "$ref": "#/components/parameters/correlationIdHeader"
           }
         ],
         "responses": {
@@ -158,7 +133,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListResponseUserSwagger"
+                  "$ref": "#/components/schemas/ListResponse"
                 }
               }
             }
@@ -252,23 +227,6 @@
           }
         }
       },
-      "Email": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          },
-          "display": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "primary": {
-            "type": "boolean"
-          }
-        }
-      },
       "SpendDelegate": {
         "type": "object",
         "properties": {
@@ -335,7 +293,7 @@
         },
         "description": "Adp settings for Employee"
       },
-      "ListResponseUserSwagger": {
+      "ListResponse": {
         "required": ["Resources", "totalResults"],
         "type": "object",
         "properties": {
@@ -362,7 +320,7 @@
           "Resources": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Spend User"
+              "$ref": "#/components/schemas/FullSpendUser"
             }
           },
           "startIndex": {
@@ -388,26 +346,7 @@
           }
         }
       },
-      "UserReference_External": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "displayName": {
-            "type": "string"
-          },
-          "employeeNumber": {
-            "type": "string"
-          },
-          "$ref": {
-            "type": "string",
-            "format": "uri"
-          }
-        }
-      },
-      "Spend User": {
+      "FullSpendUser": {
         "type": "object",
         "properties": {
           "schemas": {
@@ -529,17 +468,23 @@
         "properties": {
           "value": {
             "type": "string",
+            "description": "The internal UUID identifier for the user",
             "format": "uuid"
           },
           "displayName": {
-            "type": "string"
+            "type": "string",
+            "description": "The username for the user",
+            "readOnly": true
           },
           "employeeNumber": {
-            "type": "string"
+            "type": "string",
+            "description": "The employee number for the user"
           },
           "$ref": {
             "type": "string",
-            "format": "uri"
+            "description": "The URI reference for the user",
+            "format": "uri",
+            "readOnly": true
           }
         }
       },
@@ -898,7 +843,7 @@
           },
           "testEmployee": {
             "type": "boolean",
-            "description": "A Boolean value indicating whether the User is a test user. Can't be modified after the user is created."
+            "description": "A Boolean value indicating whether the User is a test user. Can't be modified after the user is created. Can only be set at creation."
           },
           "nonEmployee": {
             "type": "boolean",
@@ -1018,42 +963,11 @@
         }
       }
     },
-    "parameters": {
-      "companyUuidHeader": {
-        "name": "company-uuid",
-        "in": "header",
-        "description": "company UUID header (x509 only)",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "userUuidHeader": {
-        "name": "concur-uid",
-        "in": "header",
-        "description": "user UUID header (x509 only)",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "correlationIdHeader": {
-        "name": "concur-correlationid",
-        "in": "header",
-        "description": "The unique identifier of the consumer making the API calls.",
-        "schema": {
-          "type": "string"
-        }
-      }
-    },
     "securitySchemes": {
       "bearer-jwt": {
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
-      },
-      "common-name": {
-        "type": "apiKey",
-        "name": "concur-forwarded-for",
-        "in": "header"
       }
     }
   }
