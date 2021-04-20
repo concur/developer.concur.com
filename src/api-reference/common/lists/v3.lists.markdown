@@ -3,6 +3,8 @@ title: Lists v3
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 The Lists API allows you to view your configured lists within SAP Concur products, and create new lists. The lists are shared between multiple SAP Concur products. Use the [List Items API](/api-reference/common/list-item/v3.list-item.html) to manage the items in the lists.
 
 * [Products and Editions](#products-editions)
