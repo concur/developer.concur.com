@@ -37,8 +37,8 @@ If you're interested in obtaining profile information of a company or customer w
 
 The SAP Concur Event Subscription Service (ESS) enables the set up of a subscription using partner’s app and a webhook.
 
-*  [ESS (Getting Started)](/api-reference/common/ess/getting-started.html)
-*  [Event Subscription Management](/api-reference/common/ess/subscription-management.html)
+*  [ESS (Getting Started)](/api-reference/ess/v4.event-subscription.html)
+*  [Event Subscription Management](/event-topics/index.html)
 
 The SAP Concur Partner Enablement team will ensure that:
 
