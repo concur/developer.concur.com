@@ -10,7 +10,7 @@ layout: reference
 
 ## <a name="base"></a>What Is the Base URI?
 
-The Base URI (also known as the Instance URL) is the domain where the SAP Concur entity resides. You must specify which location you are trying to work with by making a change to the end point declaration before you make your API call.
+The Base URI (also known as the Instance URL) is the domain where the SAP Concur platform entity resides. You must specify which location you are trying to work with by making a change to the end point declaration before you make your API call.
 
 There will be a different domain for each of the following locations:
 
@@ -19,7 +19,7 @@ There will be a different domain for each of the following locations:
 
 ### <a name="production"></a>Production
 
-SAP Concur customer entities are hosted in various locations based on the client location, government regulations, and other special requirements. As a result, the correct Base URI must be used to reach a particular entity.
+Customer entities are hosted in various locations based on the client location, government regulations, and other special requirements. As a result, the correct Base URI must be used to reach a particular entity.
 
 Data Center|Environment|Base URI|Description
 -----------|-----------|--------|-----------
@@ -34,7 +34,7 @@ PSCC|Production|https://www-usg.api.concursolutions.com |Default for all API cal
 
 ### <a name="implementation"></a>Implementation
 
-The implementation base domains are used for implementation sites. An implementation site is a copy of an SAP Concur entity made from a backup of a client’s production site. This feature is only available for the Professional and Premium editions of SAP Concur products. Clients have the option to have a permanent implementation site established, contact your Client Executive or Account Manager for details.
+The implementation base domains are used for implementation sites. An implementation site is a copy of an SAP Concur platform entity made from a backup of a client’s production site. This feature is only available for the Professional and Premium editions of SAP Concur products. Clients have the option to have a permanent implementation site established, contact your Client Executive or Account Manager for details.
 
 Data Center|Environment|Base URI|Description
 -----------|-----------|--------|-----------

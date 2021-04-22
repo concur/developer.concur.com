@@ -8,7 +8,7 @@ layout: reference
 
 ## <a name="tls"></a>TLS
 
-Clients that use or plan to use SAP Concur [callouts](https://developer.concur.com/api-reference/callouts/callouts-application-connectors.html) (for example, Send Notification, Launch External URL, Fetch List, and Fetch Attendee) need to ensure they meet the SAP Concur security standards. To reduce security risk for our clients and SAP Concur, clients need to ensure that the TLS version 1.2 or greater is used for the encryption protocols of the client’s endpoint. Also, clients using callouts need to ensure their callout host endpoint uses and prioritizes one or more ECDHE cipher suites with an equivalent key length greater than or equal to 2,048 bits, such as one of the ciphers listed below.
+Clients that use or plan to use [callouts](https://developer.concur.com/api-reference/callouts/callouts-application-connectors.html) (for example, Send Notification, Launch External URL, Fetch List, and Fetch Attendee) need to ensure they meet the SAP Concur platform security standards. To reduce security risk, clients need to ensure that the TLS version 1.2 or greater is used for the encryption protocols of the client’s endpoint. Also, clients using callouts need to ensure their callout host endpoint uses and prioritizes one or more ECDHE cipher suites with an equivalent key length greater than or equal to 2,048 bits, such as one of the ciphers listed below.
 
 ## <a name="ciphers"></a>Ciphers
 
