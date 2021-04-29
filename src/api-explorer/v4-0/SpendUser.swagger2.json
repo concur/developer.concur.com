@@ -450,28 +450,35 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "The schemas present in this resource"
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The Id of the resource"
           },
           "externalId": {
-            "type": "string"
+            "type": "string",
+            "description": "The external Id of the resource"
           },
           "meta": {
             "$ref": "#/components/schemas/Meta"
           },
           "scimType": {
-            "type": "string"
+            "type": "string",
+            "description": "A SCIM detailed error keyword."
           },
           "detail": {
-            "type": "string"
+            "type": "string",
+            "description": "A detailed, human readable message."
           },
           "status": {
             "type": "integer",
+            "description": "The HTTP status code.",
             "format": "int32"
           }
-        }
+        },
+        "description": "The error response object"
       },
       "UserReference": {
         "type": "object",
