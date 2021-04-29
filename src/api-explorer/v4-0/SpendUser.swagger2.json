@@ -208,24 +208,30 @@
         "type": "object",
         "properties": {
           "resourceType": {
-            "type": "string"
+            "type": "string",
+            "description": "The resource Type"
           },
           "created": {
             "type": "string",
+            "description": "Date and time the resource was created",
             "format": "date-time"
           },
           "lastModified": {
             "type": "string",
+            "description": "Date and time the resource was last modified",
             "format": "date-time"
           },
           "location": {
             "type": "string",
+            "description": "The location (URI) of the resource",
             "format": "uri"
           },
           "version": {
-            "type": "string"
+            "type": "string",
+            "description": "The version of the resource"
           }
-        }
+        },
+        "description": "SCIM 2.0 Meta Information"
       },
       "SpendDelegate": {
         "type": "object",
@@ -272,7 +278,8 @@
           "temporaryDelegation": {
             "$ref": "#/components/schemas/TemporaryDelegate"
           }
-        }
+        },
+        "description": "The user's spend delegate information"
       },
       "Adp": {
         "required": ["companyCode", "deductionCode", "employeeFileNumber"],
@@ -291,47 +298,47 @@
             "description": "The identifier for the employee within ADP, also known as the \"Employee File Number\"."
           }
         },
-        "description": "Adp settings for Employee"
+        "description": "A user's ADP settings"
       },
       "ListResponse": {
         "required": ["Resources", "totalResults"],
         "type": "object",
         "properties": {
-          "schemas": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The id for the SCIM resource"
           },
           "externalId": {
-            "type": "string"
+            "type": "string",
+            "description": "The external id for the SCIM resource"
           },
           "meta": {
             "$ref": "#/components/schemas/Meta"
           },
           "totalResults": {
             "type": "integer",
+            "description": "The total number of results returned by the list or query operation",
             "format": "int32"
           },
           "Resources": {
             "type": "array",
+            "description": "A multi-valued list of complex objects containing the requested resources",
             "items": {
               "$ref": "#/components/schemas/FullSpendUser"
             }
           },
           "startIndex": {
             "type": "integer",
+            "description": "The 1-based index of the first result in the current set of list results",
             "format": "int32"
           },
           "itemsPerPage": {
             "type": "integer",
+            "description": "The number of resources returned in a list response page",
             "format": "int32"
           }
-        }
+        },
+        "description": "A paginated list of SCIM resources"
       },
       "SpendApprover": {
         "required": ["approver", "primary"],
@@ -344,7 +351,8 @@
             "type": "boolean",
             "description": "The value for indicating whether the associated user is primary approver"
           }
-        }
+        },
+        "description": "The user's spend approver information"
       },
       "FullSpendUser": {
         "type": "object",
@@ -383,7 +391,8 @@
           "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
             "$ref": "#/components/schemas/WorkflowPreferenceExtension"
           }
-        }
+        },
+        "description": "All spend SCIM resources for a given user"
       },
       "ApproverExtension": {
         "type": "object",
@@ -430,7 +439,8 @@
               "$ref": "#/components/schemas/SpendApprover"
             }
           }
-        }
+        },
+        "description": "A user's spend approvers"
       },
       "ErrorMessageResponse": {
         "type": "object",
@@ -486,7 +496,8 @@
             "format": "uri",
             "readOnly": true
           }
-        }
+        },
+        "description": "Reference information for a user within the system"
       },
       "Role": {
         "required": ["roleName"],
@@ -617,7 +628,8 @@
               "$ref": "#/components/schemas/Role"
             }
           }
-        }
+        },
+        "description": "A user's spend roles"
       },
       "WorkflowPreferences": {
         "required": ["id", "uuId"],
@@ -699,7 +711,7 @@
             "enum": ["N, Y"]
           }
         },
-        "description": "Workflow Preferences"
+        "description": "A user's spend workflow preferences"
       },
       "AdpExtension": {
         "type": "object",
@@ -767,7 +779,8 @@
           "allowAutoCreateTripReport": {
             "type": "boolean"
           }
-        }
+        },
+        "description": "A user's spend preferences"
       },
       "SearchRequest": {
         "type": "object",
@@ -789,7 +802,8 @@
             "description": "The filter string used to request a subset of resources. Must follow ABNF syntax rules",
             "example": "urn:ietf:params:scim:schemas:extension:spend:2.0:User:country eq \"US\""
           }
-        }
+        },
+        "description": "The parameters with which to filter and paginate requested SCIM resources"
       },
       "SpendUser": {
         "required": ["country", "locale", "reimbursementCurrency"],
@@ -858,30 +872,35 @@
               "$ref": "#/components/schemas/CustomData"
             }
           }
-        }
+        },
+        "description": "A user's base spend information"
       },
       "DelegateExtension": {
         "type": "object",
         "properties": {
           "expense": {
             "type": "array",
+            "description": "A list of expense delegates",
             "items": {
               "$ref": "#/components/schemas/SpendDelegate"
             }
           },
           "payment": {
             "type": "array",
+            "description": "A list of payment delegates",
             "items": {
               "$ref": "#/components/schemas/SpendDelegate"
             }
           },
           "purchaseRequest": {
             "type": "array",
+            "description": "A list of purchase request delegates",
             "items": {
               "$ref": "#/components/schemas/SpendDelegate"
             }
           }
-        }
+        },
+        "description": "A user's spend delegate information"
       },
       "CustomData": {
         "type": "object",
@@ -895,7 +914,8 @@
             "type": "string",
             "description": "Value of the custom field - For list = List Item Code"
           }
-        }
+        },
+        "description": "The spend custom data associated to the user"
       },
       "TemporaryDelegate": {
         "type": "object",
@@ -960,7 +980,8 @@
             "type": "boolean",
             "description": "Prompt for approver when submitting a payment, defaulted to false."
           }
-        }
+        },
+        "description": "A user's spend workflow preference settings"
       }
     },
     "securitySchemes": {
