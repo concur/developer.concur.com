@@ -357,7 +357,7 @@ Please send your release to [concur_AppCenterMarketing@sap.com](mailto:concur_Ap
 
 ### <a name="social-media-overview"></a>Social Media Overview
 
-In addition to issuing a press release highlighting your SAP Concur integration, we encourage you to promote it through social media channels. Please share all blog posts, Tweets and Facebook posts with App Center Marketing for approval. We will work with you to jointly promote your posts and better amplify the message.
+In addition to issuing a press release highlighting your SAP Concur integration, we encourage you to promote it through social media channels. Please share all blog posts, Tweets and Facebook posts with App Center Marketing for approval.
 
 > Please ensure blog posts, tweets and Facebook posts go out after any press releases are issued.
 
@@ -367,11 +367,11 @@ Blog posts are a great way to create keyword-heavy content that helps optimize y
 
 #### <a name="social-media-overview-twitter"></a>Twitter
 
-SAP Concur will happily follow your company and would appreciate the same from you. If SAP Concur is using a hashtag to promote the partnership, we encourage your company to leverage the same hashtag related to the announcement(s). We also recommend including each other’s handle in the tweet, including “@” (for example, @SAPConcur). For any events, be sure to use the appropriate hashtag, such as #SAPConcurFusion as well.
+If SAP Concur is using a hashtag to promote the partnership, we encourage your company to leverage the same hashtag related to the announcement(s). We also recommend including each other’s handle in the tweet, including “@” (for example, @SAPConcur). For any events, be sure to use the appropriate hashtag, such as #SAPConcurFusion as well.
 
 #### <a name="social-media-facebook"></a>Facebook
 
-You are welcome to promote all related integration with SAP Concur via your corporate Facebook pages. SAP Concur is pleased to “like” your company page and would appreciate the same from you. In addition to the visibility this provides to both our companies, adding “@” in front of the company name will allow the announcement to show up on our timelines.
+You are welcome to promote all related integration with SAP Concur via your corporate Facebook pages. In addition to the visibility this provides to both our companies, adding “@” in front of the company name will allow the announcement to show up on our timelines.
 
 **Please ensure blog posts, tweets and Facebook posts go out after any press releases are issued.**
 
