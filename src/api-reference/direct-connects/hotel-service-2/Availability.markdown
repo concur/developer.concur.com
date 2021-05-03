@@ -52,7 +52,7 @@ Message to retrieved the availability of hotels.
     * [Total](#total)
     * [Rate Description](#rate-description)
     * [TPA Extensions](#tpa-extensions)
-    * [Timespan](#timespan)
+    * [TimeSpan](#timespan)
     * [Basic Property Info](#basic-property-info)
 * [Relationship Between RoomID and RatePlanID](#relationship-roomid-rateplanid)
 
@@ -229,7 +229,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
             </RoomRate>
           </RoomRates>
           <TimeSpan End="2018-10-28" Start="2018-10-26"/>
-          <BasicPropertyInfo ChainCode="ZZ" HotelCode="419430"/>
+          <BasicPropertyInfo HotelCode="419430"/>
         </RoomStay>
       </RoomStays>
       <TPA_Extensions RateDetailsInd="false"></TPA_Extensions>
@@ -463,8 +463,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |Name|Type|Description|
 |----------------|-----------|-------------|
 |`HotelCode`|`complex`|**Required** Refer to the `HotelRef` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
-|`Address`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
-|`ContactNumbers`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
 
 # <a name="relationship-roomid-rateplanid"></a>Relationship between RoomID and RatePlanID
 
@@ -481,9 +479,9 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
         <RoomType RoomID="RT2">...</RoomType>
       </RoomTypes>
       <RatePlans> <!-- Contains cancellation policy info, guarantee type etc. -->
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP3">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP1">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP2">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP3">...</RatePlan>
       </RatePlans>
       <RoomRates> <!-- Represents unique rate (hotel room), contains description part 1, rate cost & supported credit card etc. -->
         <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>
@@ -501,8 +499,8 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
         <RoomType RoomID="RT2">...</RoomType>
       </RoomTypes>
       <RatePlans>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP1">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP2">...</RatePlan>
       </RatePlans>
       <RoomRates>
         <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>
