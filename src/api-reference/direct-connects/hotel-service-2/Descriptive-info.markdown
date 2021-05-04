@@ -97,7 +97,7 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
               <ImageItems>
                 <ImageItem>
                   <ImageFormat>
-                    <URL>http://image_path.jpg</URL>
+                    <URL>https://production.example.com/hotel-image.jpg</URL>
                   </ImageFormat>
                 </ImageItem>
               </ImageItems>
