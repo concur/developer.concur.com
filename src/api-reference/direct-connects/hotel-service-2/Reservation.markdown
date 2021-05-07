@@ -73,7 +73,7 @@ Message to reserve a hotel.
                     PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="1234567"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <HotelReservations>

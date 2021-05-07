@@ -45,7 +45,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
     <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="3" PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="123"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <HotelDescriptiveInfos>
