@@ -355,8 +355,9 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 #### <a name="deadline"></a>Deadline
 
 |Name|Type|Description|
-|------------------------|--------------------|-------------|
+|---------|----------|-----------------------|
 |`AbsoluteDeadline`|`time` or `datetime`|**Required** Defines the absolute deadline in ISO8601 format and in UTC timezone.|
+
 #### <a name="meals-included"></a>MealsIncluded
 
 |Name|Type|Description|
