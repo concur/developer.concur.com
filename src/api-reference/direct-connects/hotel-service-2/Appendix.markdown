@@ -22,7 +22,9 @@ layout: reference
                        EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
                        Version="4" PrimaryLangID="en" AltLangID="en" MaxResponses="100">
       <POS>
-        <Source ISOCurrency="USD"></Source>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
+        </Source>
       </POS>
       <Criteria>
         <Criterion>
@@ -99,7 +101,9 @@ The initial Search request (see above) is followed up by an multi-property Avail
                       EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
                       Version="5" PrimaryLangID="en" AltLangID="en">
       <POS>
-        <Source ISOCurrency="USD"></Source>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
+        </Source>
       </POS>
       <AvailRequestSegments>
         <AvailRequestSegment>
@@ -327,7 +331,9 @@ WIth Availability response also cancellation information comes which can be disp
                                 EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9"
                                 Version="3" PrimaryLangID="en" AltLangID="en">
       <POS>
-        <Source ISOCurrency="USD"></Source>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
+        </Source>
       </POS>
       <HotelDescriptiveInfos>
         <HotelDescriptiveInfo ChainCode="CY" HotelCode="419430"></HotelDescriptiveInfo>
@@ -430,7 +436,9 @@ WIth Availability response also cancellation information comes which can be disp
                     EchoToken="6C85DDBD-EB62-444D-B2C3-F59BDF65BE98"
                     Version="6" PrimaryLangID="en" AltLangID="en">
       <POS>
-        <Source ISOCurrency="USD"></Source>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
+        </Source>
       </POS>
       <HotelReservations>
         <HotelReservation>
@@ -640,7 +648,9 @@ WIth Availability response also cancellation information comes which can be disp
                 EchoToken="4E1B8BF4-ACBD-4709-9FCC-B59EB2550086"
                 Version="5.002" PrimaryLangID="en" AltLangID="en">
       <POS>
-        <Source ISOCurrency="USD"></Source>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
+        </Source>
       </POS>
       <UniqueID Type="14" ID="88618333"></UniqueID>
     </OTA_ReadRQ>
@@ -805,7 +815,9 @@ WIth Availability response also cancellation information comes which can be disp
                   EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228"
                   Version="3" PrimaryLangID="en" AltLangID="en">
       <POS>
-        <Source ISOCurrency="USD"></Source>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
+        </Source>
       </POS>
       <UniqueID Type="14" ID="88618333"></UniqueID>
     </OTA_CancelRQ>

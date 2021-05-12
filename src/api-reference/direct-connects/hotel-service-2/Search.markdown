@@ -54,7 +54,7 @@ Message to perform the initial search for hotels.
                        PrimaryLangID="de" AltLangID="de" MaxResponses="100">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="47777"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <Criteria>

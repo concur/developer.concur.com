@@ -28,7 +28,9 @@ Message used to indicate to the hotel supplier that a given reservation should b
     <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="3"
                   PrimaryLangID="en" AltLangID="en" CancelType="Cancel">
       <POS>
-        <Source ISOCurrency="USD"></Source>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
+        </Source>
       </POS>
       <UniqueID Type="14" ID="11112222"></UniqueID>
     </OTA_CancelRQ>
