@@ -46,28 +46,28 @@ SAP Concur products are highly configurable, and not all clients will have acces
 ## <a name="nonfunctional-requirements"></a>Non-Functional Requirements
 
 ### <a name="payload-limits"></a>Payload Limits
-| Operation | Maximum response content-length |
-|-------|-------------------------------|
-| Search | 1 MB |
-| Availability | 5 MB |
-| Descriptive Information | 150 KB |
-| Rate Details | 5 MB |
-| Reservation | 150 KB |
-| Read Itinerary | 150 KB |
-| Cancel | 150 KB |
+|Operation|Maximum response content-length|
+|---|---|
+Search|1 MB|
+Availability|5 MB|
+Descriptive Information|150 KB|
+Rate Details|5 MB|
+Reservation|150 KB|
+Read Itinerary|150 KB|
+Cancel|150 KB|
 
 Responses that exceed these limits will be dropped and handled as error responses.
 
 ### <a name="response-times"></a>Recommended Response Times, Timeouts, and Retries
-| Operation | Ideal response time | 
-|-----------|---------------------|
-| Search | <4 seconds |
-| Availability | <10 seconds |
-| Descriptive Information | <1 second |
-| Rate Details | <2 seconds |
-| Reservaton | <10 seconds |
-| Read Itinerary | <1 second |
-| Cancel | <10 seconds |
+|Operation|Ideal response time|
+|---|---|
+Search|<4 seconds|
+Availability|<10 seconds|
+Descriptive Information|<1 second|
+Rate Details|<2 seconds|
+Reservaton|<10 seconds|
+Read Itinerary|<1 second|
+Cancel|<10 seconds|
 
 Achieving lower response times helps get information to the traveler sooner which leads to a better user experience. SAP Concur understands that not every hotel program manages their own inventory and requires relays out to other vendors and the numbers above take that scenario into consideration.
 
