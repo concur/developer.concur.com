@@ -46,6 +46,7 @@ SAP Concur products are highly configurable, and not all clients will have acces
 ## <a name="nonfunctional-requirements"></a>Non-Functional Requirements
 
 ### <a name="payload-limits"></a>Payload Limits
+
 |Operation|Maximum response content-length|
 |---|---|
 Search|1 MB|
@@ -59,6 +60,7 @@ Cancel|150 KB|
 Responses that exceed these limits will be dropped and handled as error responses.
 
 ### <a name="response-times"></a>Recommended Response Times, Timeouts, and Retries
+
 |Operation|Ideal response time|
 |---|---|
 Search|<4 seconds|
