@@ -71,7 +71,7 @@ Message to retrieved the availability of hotels.
                       PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="1234567"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <AvailRequestSegments>
@@ -355,8 +355,9 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 #### <a name="deadline"></a>Deadline
 
 |Name|Type|Description|
-|------------------------|--------------------|-------------|
+|---------|----------|-----------------------|
 |`AbsoluteDeadline`|`time` or `datetime`|**Required** Defines the absolute deadline in ISO8601 format and in UTC timezone.|
+
 #### <a name="meals-included"></a>MealsIncluded
 
 |Name|Type|Description|

@@ -28,7 +28,7 @@ Returns detailed information about a hotel reservation. Used in a process of boo
                 PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="123"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <UniqueID Type="14" ID="88618333"></UniqueID>
