@@ -67,7 +67,7 @@ Search|<4 seconds|
 Availability|<10 seconds|
 Descriptive Information|<1 second|
 Rate Details|<2 seconds|
-Reservaton|<10 seconds|
+Reservation|<10 seconds|
 Read Itinerary|<1 second|
 Cancel|<10 seconds|
 
