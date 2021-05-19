@@ -52,7 +52,7 @@ To configure a Fetch List callout:
 8. Click Active.
 9. Click OK.
 
->**Note:** If this Fetch List callout is made inactive and then subsequently saved on the System page, any lists that have been added to this Fetch List as a Configured List will be deleted from that Fetch List service..
+>**Note:** If this Fetch List callout is made inactive and then subsequently saved on the System page, any lists that have been added to this Fetch List as a Configured List will be deleted from that Fetch List service.
 
 ## <a name="fetch-list-process-overview"></a>Fetch List Process Overview
 Once the configuration is complete, the callout uses the following process:
