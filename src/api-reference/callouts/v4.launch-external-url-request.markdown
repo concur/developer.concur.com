@@ -88,7 +88,7 @@ When the request is received by the connector:
 4. Calculate your own base signature string by appending the values as such:
 {company_domain} + {logged_in_user_id} + {report_owner_user_id} + {report_owner_employee_id} +  {item_url} + {connector username} + {connector password} + {nonce}
 
-5. Use HMacSHA256 to generate a signature hash using the base signature string. To generate the key, concatenate the lower-case value for {connector username} and the exact {connector password}. For example, if the connector username is JohnDoe, and the password is password, the key would be johndoepassword.
+5. Use HMacSHA256 to generate its signature (message authentication code) hash using the base signature string. To generate the key, concatenate the lower-case value for {connector username} and the exact {connector password}. For example, if the connector username is "JohnDoe", and the password is "Password", the key would be "johndoePassword".
 
 6. Compare the generated signature hash with the signature hash provided in the request query string. If the signature hashes match, then you know the credentials are valid and the request has not been tampered with.
 

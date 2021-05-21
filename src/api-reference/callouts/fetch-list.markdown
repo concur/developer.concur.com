@@ -15,11 +15,11 @@ This callout differs from the inbound SAP Concur web services in the following w
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Product Restrictions](#product-restrictions)
+* [Concur Expense and Fetch List Configuration](#concur-expense-config)
 * [Fetch List Process Overview](#fetch-list-process-overview)
 * [Security](#security)
 * [Authentication](#authentication)
 * [Functions](#functions)
-* [Concur Expense Configuration](#concur-expense-config)
 * [Responses and Errors](#responses-errors)
 
 ### <a name="process-flow"></a>Process Flow
@@ -37,19 +37,27 @@ Partner developers must determine which configurations are required for their so
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
+##  <a name="concur-expense-config"></a>Concur Expense and Fetch List Configuration
+
+Expense must have a list field configured to use an external source before this callout can be used. The client creates the list, SAP Concur configures it to use the external source, and the client creates the connected list definition if necessary. If using a connected list, Expense Admin creates a connected list definition in Forms and Fields.
+
+To configure a Fetch List callout:
+1. Follow the process to create a new Application Connector (refer to [Managing Application Connectors](https://developer.concur.com/api-reference/callouts/callouts-application-connectors.html#managing-app-connectors))
+2. On the Application Connector Registration page (from Manage Application Connectors), select the desired registration from the list.
+3. Click Modify.
+4. On the Sytem page under Services, select Fetch List.
+5. Click Configure.
+6. Add the details of your previously configured list(s): the List Name, List Category, Language Code, and Connected List Leve (if applicable).
+7. Click Add List. (Repeat steps 6-7 until all desired lists are added.)
+8. Click Active.
+9. Click OK.
+
+>**Note:** If this Fetch List callout is made inactive and then subsequently saved on the System page, any lists that have been added to this Fetch List as a Configured List will be deleted from that Fetch List service.
 
 ## <a name="fetch-list-process-overview"></a>Fetch List Process Overview
-The configuration process has the following steps:
-
-1. Third-party developer, client or SAP Concur downloads, installs, configures, and customizes the application connector.  
-2. SAP Concur registers the application connector.  
-3. Expense Admin creates a new list in List Management.
-4. SAP Concur configures the list to search for external items.
-5. If using a connected list, Expense Admin creates a connected list definition in Forms and Fields.
-
 Once the configuration is complete, the callout uses the following process:
 
-1. The user selects the external source list field while creating an expense entry.
+1. The user selects the external source list field while creating an expense entry.
 2. Expense sends the list field information and the item codes for the previously selected levels (for connected lists) to the application connector.
 3. The application connector queries the list system of record and returns the set of list items to Expense.
 4. Expense displays the list items in a drop down list.
@@ -68,10 +76,6 @@ Authentication between SAP Concur and the application connector is performed usi
 ## <a name="functions"></a>Functions
 
 * [Version 1.2: Post List Search Request][3]
-
-##  <a name="concur-expense-config"></a>Concur Expense Configuration
-
-Expense must have a list field configured to use an external source before this callout can be used. The client creates the list, SAP Concur configures it to use the external source, and the client creates the connected list definition if necessary.
 
 ##  <a name="responses-errors"></a>Responses and Errors
 
