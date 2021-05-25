@@ -65,7 +65,7 @@ The following are the different Event Types available:
 
 `ItineraryCreated/ItineraryUpdated/ItineraryCancelled`
 
-```
+`
 {
 
 "eventType": "ItineraryCreated",
@@ -94,11 +94,11 @@ The following are the different Event Types available:
 }
 
 }
-```
+`
 
 `ItineraryDeleted/ItineraryAnonymized`
 
-```
+`
 {
 
 "eventType": "ItineraryDeleted",
@@ -120,9 +120,11 @@ The following are the different Event Types available:
 }
 
 }
-```
+`
 
 > **Note**: For `ItineraryDeleted` and `ItineraryAnonymized` events there is no callback or hrefs, as that trip record is deleted or anonymized and no further updates will be provided for the trip.
+
+> **Declaimer**: Href is subject to change and we advise against storing these values.
 
 ## <a name="itinerary"></a>Itinerary V4 API
 
