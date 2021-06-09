@@ -7,20 +7,20 @@ layout: reference
 
 # API Lifecycle & Deprecation Policy
 
-The Concur API Lifecycle & Deprecation Policy is part of our [API terms and conditions of use.](/Terms-of-Use.html) We may make periodic updates to this Policy, at which time we will notify those who have agreements with us.
+The API Lifecycle & Deprecation Policy is part of our [API terms and conditions of use.](/Terms-of-Use.html) We may make periodic updates to this policy, at which time we will notify those who have agreements with us.
 
 ## API Version Status  
 
-* **Active:** An active API version is the most current and fully supported API. It is the recommended version to use by everyone.
+* **Active:** An active API version is the most current and fully supported API. It is the recommended version for everyone to use.
 * **Deprecated:** A deprecated API version has been superseded by a newer API version.  New apps will be denied access to deprecated APIs.
 * **Decommissioned:** A decommissioned API version is no longer available on production.
 
-# API Lifespan and State Change
+## API Lifespan and State Change
 
-* **Minimum Lifespan:** SAP Concur will provide a minimum lifespan of active APIs of 24 months in the active or deprecated status before announcing a decommissioned state.
-*	**Deprecated -> Decommissioned:** Once an API transitions from an active to deprecated status, SAP Concur will maintain the API in the deprecated state for a minimum of 12 months before transitions the API to decommissioned state.
-*	**Decommissioned:** Decommissioned APIs are no longer supported and any and all documentation may be deleted at SAP Concur’s discretion.  
-*	**Exceptions:** There may be exceptions where SAP Concur is not able to satisfy the foregoing minimum lifespan or minimum deprecated state duration. This is including but not limited too:
+* **Minimum Lifespan:** We will provide a minimum lifespan for active APIs of 24 months in the active or deprecated status before announcing a decommissioned state.
+*	**Deprecated -> Decommissioned:** Once an API transitions from an active to deprecated status, we will maintain the API in the deprecated state for a minimum of 12 months before transitioning the API to decommissioned state.
+*	**Decommissioned:** Decommissioned APIs are no longer supported and any and all documentation may be deleted at our discretion.  
+*	**Exceptions:** There may be exceptions where we are not able to satisfy the foregoing minimum lifespan or minimum deprecated state duration. This is including but not limited to:
   * Where required by law or regulatory authority.
   * Where required by a third party licensor.
   * To address a security risk.
@@ -28,7 +28,7 @@ The Concur API Lifecycle & Deprecation Policy is part of our [API terms and cond
   * Where the associated SAP Concur product has entered end of life.
   * Due to business reasons.    
 
-### API Version Status Table
+## API Version Status Table
 
 Active|Deprecated|Decommissioned
 ---|---|---
