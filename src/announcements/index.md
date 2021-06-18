@@ -5,7 +5,7 @@ layout: reference
 
 ### 2021-06-18 :: June 2021 Release Notes Published
 
-SAP Concur has published the June 2021 release notes. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
+The June 2021 release notes have been published. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
 
 ### 2021-05-21 :: May 2021 Release Notes Published
 
