@@ -86,17 +86,15 @@ The following are the different Event Types available:
 
 ```
 {
-  "eventType": "ItineraryCreated",
+  "id": "51519e89-2c1d-47ec-bd93-7c4ace9c57e7",
+  "eventType": "ItineraryDeleted|ItineraryAnonymized",
   "timeStamp": "2016-01-01T23:01:01.000Z",
   "topic": "public.concur.travel.itinerary",
   "correlationId": "b2fd900a-5935-46fc-8d29-599de9864e21",
   "facts": {
-    "id": "51519e89-2c1d-47ec-bd93-7c4ace9c57e6",
+    "id": "51519e89-2c1d-47ec-bd93-7c4ace9c57e8",
     "userId": "b7d12989-0489-471a-81cd-175f8b78afa5",
-    "companyId": "ab83bc5f-f66e-4ce0-9dcc-7dbf0195e061",
-    "hrefs": {
-      "v4": "https://us.api.concursolutions.com/travel/trips/api/v4/trip/51519e89-2c1d-47ec-bd93-7c4ace9c57e6"
-    }
+    "companyId": "ab83bc5f-f66e-4ce0-9dcc-7dbf0195e061"
   }
 }
 ```
