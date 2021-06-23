@@ -144,7 +144,8 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
 8. The UI displays all available rates for the chosen hotel. The Business traveler selects the top most rate. The Trip Summary page is displayed where the Business traveler can set the Hotel Preferences, Enter Guest information (from their profile), select the method of payment and view the total estimated price. The Rate rules and cancellation policy will be displayed as well. Like the previous step, if the cancellation details were deferred, a [RateDetails](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html) request will be invoked.
 
-9. The business traveler agrees to the rate rules, restrictions and cancellation policy and clicks Reserve Hotel and Continue.
+### Hotel Reservation
+9. The business traveler agrees to the rate rules, restrictions and cancellation policy and clicks **Reserve Hotel and Continue**.
 
     <a href='./images/general-walkthrough/review-and-reserve-hotel.png'><img style="max-width:300px" src="./images/general-walkthrough/review-and-reserve-hotel.png"/></a>
 
