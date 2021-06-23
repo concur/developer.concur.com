@@ -17,6 +17,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
 ## <a name="walkthrough"></a>Hotel search, reserve, and cancel walkthrough
 
+### Hotel Search
 1. <a name="#start-shop"></a>Business traveler performs a hotel search. The criterion for the [Search](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Search.html) request will be comprised of the input in the search form, and the search radius will be obtained from the travel configuration (link to TSG).
     
     <a href='./images/general-walkthrough/search-form.png'><img style="max-width:300px" src="./images/general-walkthrough/search-form.png"/></a>
