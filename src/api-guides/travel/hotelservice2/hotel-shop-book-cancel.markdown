@@ -82,7 +82,7 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
     
     <a href='./images/general-walkthrough/search-results-unpriced.png'><img style="max-width:300px" src="./images/general-walkthrough/search-results-unpriced.png"/></a>
 
-4. If the business traveler selects Get Rates, an additional [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) request will be made for the selected hotel. The request will be sent with the single hotel code. The response will be used to display the lead rate, and the button will change to View Rooms. 
+4. If a business traveler selects **Get Rates**, an additional [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) request will be made for the selected hotel. The request will be sent with a single hotel code. The response will be used to display the lead rate, and the button will change to **View Rooms**.
 
     [Sample availability request for single hotel](./sample-requests/general-walkthrough/avail-rq-single.xml)
 
