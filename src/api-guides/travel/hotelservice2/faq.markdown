@@ -66,6 +66,6 @@ A: The names are defined on the Concur Travel profile and can be up to 60 charac
 
 Q: Will `ReadItinerary` be invoked if my connection is lost during the reservation request?
 
-A: If the connection is lost (e.g. browser closed) before the reservation request is completed, the ReadItinerary request will not be invoked. The request to twShopTrip.asp occurs after the reservation completes and it is for this page that the `ReadItinerary` request is invoked.
+A: If the connection is lost (e.g. browser closed) before the reservation request is completed, the `ReadItinerary` request will not be invoked. The request to twShopTrip.asp occurs after the reservation completes and it is for this page that the `ReadItinerary` request is invoked.
 
 ## <a name="cancel"></a>Cancel
