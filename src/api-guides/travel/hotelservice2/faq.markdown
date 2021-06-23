@@ -34,7 +34,7 @@ A: The first `n` hotels from the `Search` response will be specified in the `Ava
 
 *** 
 
-Q: If a property does not have availablity based on the request, how is the expected value for the `RoomStays` element?
+Q: If a property does not have availablity based on the request, what is the expected value for the `RoomStays` element?
 
 A: `RoomStays` is optional. When not included, it indicates the hotel is not available.
 
