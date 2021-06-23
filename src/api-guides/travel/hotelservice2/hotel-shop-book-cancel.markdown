@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Search, reserve, and cancel walkthrough
 layout: reference
 ---
 
-Basic scenario describing functionality provided by Hotel Service 2 incorporated into SAP Concur Travel starting from a hotel search, through to confirmation of a booking and ending with a cancellation.
+Basic scenario describing functionality provided by the Hotel Service v2 API incorporated into SAP Concur Travel starting from a hotel search, through to confirmation of a booking and ending with a cancellation.
 
 * [Actors](#actors)
 * [Hotel search, reserve, and cancel walkthrough](#walkthrough)
