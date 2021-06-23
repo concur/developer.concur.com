@@ -172,7 +172,6 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
 13. The UI shows the Cancel Trip pop-up where the Business traveler may chooser to enter a comment. The Business traveler clicks OK. At this time a [ReadItinerary](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Read-Itinerary.html) request is made to reconcile differences between the local details, and the details of the reservation from the supplier.
 
-    <a href='./images/general-walkthrough/accept-cancellation-policy-before-cancelling.png'><img style="max-width:300px" src="./images/general-walkthrough/accept-cancellation-policy-before-cancelling.png"/></a>
 
 14. The UI shows the Rules and cancellation policy. The Business traveler accepts the policies by checking the 'I agree ...' button and clicking Continue. A [Cancel](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Cancel.html) request will be made.
 
