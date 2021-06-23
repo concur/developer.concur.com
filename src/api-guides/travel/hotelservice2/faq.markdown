@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Frequently Asked Questions
 layout: reference
 ---
 
-Frequently asked questions on how HotelService API content is leveraged in the SAP Concur Travel Hotel online booking tool.
+Frequently asked questions on how the HotelService API content is leveraged in the SAP Concur Travel Hotel online booking tool.
 
 * [General](#general)
 * [Search](#search)
