@@ -44,7 +44,7 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
     More details about the `Search` requests [here](./faq#search)
 
-2. Once the [Search](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Search.html) response is received, an [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) request is invoked. The number of hotel codes specified in the Availability request is determined by the travel configuration setting.
+2. Once the [Search](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Search.html) response is received, an [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) request is invoked. The number of hotel codes specified in the Availability request is determined by the travel configuration settings shown below.
 
     ````
     <AvailRequestSegments>
