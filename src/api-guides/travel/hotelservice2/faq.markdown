@@ -20,7 +20,7 @@ Frequently asked questions on how the HotelService API content is leveraged in t
 
 Q: What is the maximum value possible for `Distance` and `DistanceMax`? 
 
-A: Concur can be configured to allow up to 100 mile search radius.
+A: SAP Concur can be configured to allow up to a 100 mile search radius.
 
 ***
 
