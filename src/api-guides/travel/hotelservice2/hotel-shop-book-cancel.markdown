@@ -168,7 +168,7 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
     More details about the `ReadItinerary` requests [here](./faq#read-itinerary)
 
-12. The business traveler can view the trip in the Upcoming Trips tab on the main Travel page. The Business traveler clicks on the Trip name. The Business traveler chooses the cancel the hotel reservation, by clicking cancel.
+12. The business traveler can view the trip in the **Upcoming Trips** tab on the main Travel page. The Business traveler clicks on the **Trip name**. The Business traveler chooses to cancel the hotel reservation, by clicking **cancel**.
 
     <a href='./images/general-walkthrough/trip-details.png'><img style="max-width:300px" src="./images/general-walkthrough/trip-details.png"/></a>
 
