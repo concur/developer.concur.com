@@ -160,6 +160,7 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
     More details about the `Reservation` requests [here](./faq#reservation)
 
+### Hotel Cancellation
 11. When the reservation details are displayed SAP Concur will invoke a [ReadItinerary](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Read-Itinerary.html) request. If a Read request does not arrive within 5 minutes for a given Reservation, then the supplier should treat that Reservation as an orphan and should thus seek to cancel it.
 
     [Sample read request](./sample-requests/general-walkthrough/read-rq-load-trip.xml)
