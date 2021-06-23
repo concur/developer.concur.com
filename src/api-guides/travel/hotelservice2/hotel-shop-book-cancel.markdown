@@ -90,7 +90,7 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
     [Sample availability response for single hotel](./sample-requests/general-walkthrough/avail-rs-single.xml)
 
 
-5. Before viewing the rooms, the business traveler clicks Hotel details to obtain more information about the property. This results in a [HotelDescriptiveInfo](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Descriptive-info.html) request. The content from the response will be displayed in a popup window.
+5. Before viewing the rooms, the business traveler clicks **Hotel details** to obtain more information about the property. This results in a [HotelDescriptiveInfo](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Descriptive-info.html) request. The content from the response will be displayed in a popup window.
 
     <a href='./images/general-walkthrough/hotel-details.png'><img style="max-width:300px" src="./images/general-walkthrough/hotel-details.png"/></a>
 
