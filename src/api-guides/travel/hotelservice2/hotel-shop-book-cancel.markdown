@@ -76,7 +76,7 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
     More details about the `Availability` requests [here](./faq#availability)
 
 
-3. When the [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) response is received, the UI displays the available hotels. The business traveler can then select View Rooms for a hotel with a lead rate displayed, or request to Get Rates in case they are not present. 
+3. When the [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) response is received, the UI displays the available hotels. The business traveler can then select **View Rooms** for a hotel with a lead rate displayed, or request to **Get Rates** in case they are not present.
 
     <a href='./images/general-walkthrough/search-results.png'><img style="max-width:300px" src="./images/general-walkthrough/search-results.png"/></a>
     
