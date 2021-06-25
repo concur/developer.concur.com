@@ -20,7 +20,7 @@ Concur services follow these standard naming conventions for scopes.
 
 ```
 Template: {resource}.{optional subresource}.{action}
-Examples: expense.report.delete
+Examples: mileage.rate.read
           receipts.read
 ```
 
@@ -30,10 +30,10 @@ Examples: expense.report.delete
 
 Action|Description|Examples
 ---|---|---
-`read`|Read only access (GET)|`receipts.read`, `expense.report.read`
+`read`|Read only access (GET)|`receipts.read`, `budgetitem.read`
 `write`|Read AND Write access (GET, POST, UPDATE etc)|`company.write`, `travel.receipts.write`
 `writeonly`|Write only access|`mileage.journey.writeonly`, `receipts.writeonly`
-`delete`|Delete access|`expense.report.delete`
+`delete`|Delete access|N/A
 
 ## <a name="v4apiscopes"></a>List of v4 API Scopes
 
@@ -41,41 +41,42 @@ These are the list of scopes for the v4+ APIs.
 
 Scope|Description
 ---|---
-budgetitem.read|Read access to budget data including fiscal calendar.
-budgetitem.write|Read and write access to budget data including fiscal calendar.
+budgetitem.read|Read access to budget data including fiscal calendar
+budgetitem.write|Read and write access to budget data including fiscal calendar
 company.read|Read company profile
 company.write|Read and Write company profile
 creditcardaccount.read|Read credit card account data
-expense.report.read|Read only access to report resource within the Concur Expense service
-expense.report.readwrite|Read write access to report resource within the Concur Expense Report service
-expense.report.delete|Delete only access to report resource within the Concur Expense Report service
-quickexpense.writeonly|Write quick expense
+expense.report.read|Read only access to expense reports, expenses and allocations
+expense.report.readwrite|Read and write access from/to expense reports, expenses and allocations
+expense.report.workflowstatus.write|Access to approve/reject an expense report
 fiscalcalendar.read|Access to fiscal calendar
-fiscalcalendar.write|Read and write access to fiscal calendar.
-mileage.journey.read|Read-only access to mileage journey resources.
-mileage.journey.writeonly|Write-only access to mileage journey resources.
-mileage.vehicle.read|Read-only access to vehicle resources.
-mileage.vehicle.writeonly|Write-only access to vehicle resources.
-mileage.rate.read|Read-only access to rate configuration resources.
-mileage.rate.writeonly|Write-only access to rate configuration resources.
-notifications.messages.writeonly|Write messages to the notifications platform
-openid|Return OPENID Token
-realtimeingest.location.writeonly|Post user location object upon trip completion|
+fiscalcalendar.write|Read and write access to fiscal calendar
+invoice.providerpayment.write |	Read access to pending payments, and write access to payment status
+mileage.journey.read|Read-only access to mileage journey resources
+mileage.journey.writeonly|Write-only access to mileage journey resources
+mileage.rate.read|Read-only access to rate configuration resources
+mileage.rate.writeonly|Write-only access to rate configuration resources
+mileage.vehicle.read|Read-only access to vehicle resources
+mileage.vehicle.writeonly|Write-only access to vehicle resources
+openid|Return OPENID token
+purchaserequest.write|Write only access to purchase requests
+purchaserequest.read|Read only access purchase requests
+quickexpense.writeonly|Write quick expense
+realtimeingest.location.writeonly|Post user location object upon trip completion
 receipts.read|Read receipts and invoices
 receipts.write|Read and Write receipts and invoices
 receipts.writeonly|Write only access for receipts and invoices
+travelallowance.itinerary.read|Read only access to itinerary data
+travelallowance.itinerary.writeonly|Write only access to itinerary data
+travelallowance.configuration.read|Read only access to itinerary configuration data
+travelallowance.configuration.writeonly|Write only access to itinerary configuration data
+travelallowance.itineraryresult.read|Read only access to itinerary result data
 travel.receipts.read|Read requests for travel receipts
-travel.receipts.write|Read and Write travel receipts|
-travelallowance.itinerary.read|Read only access to Itinerary data|
-travelallowance.itinerary.writeonly|Write only access to Itinerary Data|
-travelallowance.configuration.read|Read only access to Itinerary Configuration data
-travelallowance.configuration.writeonly|Write only access to Itinerary Configuration data
-travelallowance.itineraryresult.read|Read only access to Itinerary Result data
-travelrequest.write|Read and write Travel Requests
+travel.receipts.write|Read and write travel receipts
+travelrequest.write|Read and write travel requests
 user.read|Read user profile
-user.write|Read and Write user profile
-purchaserequest.write | Write only access to Purchase Requests
-purchaserequest.read | Read only access Purchase Requests
+user.write|Read and write user profile
+
 
 ## <a name="connectscopes"></a>List of Connect API scopes
 

@@ -118,7 +118,7 @@ Name|Type|Format|Description
 -----|------|------|--------------
 `EmpId`|`string`|-|Required. The unique identifier for the user. The default value is the user's email address. Maximum 48 characters.
 `FeedRecordNumber`|`string`|-|Required. The record number in the current batch.
-`LoginId`|`string`|-|Required. The user's login ID. The default value is the user's email address. Maximum 128 characters.
+`LoginId`|`string`|-|Required. The user's login ID. The default value is the user's email address. The value MUST have a '@'. Maximum 128 characters.
 `LocaleName`|`string`|-|The user's language locale code. List of locale codes are available in the [Employee Import](https://www.concurtraining.com/customers/tech_pubs/Docs/_Current/SPC/Spc_Shr/Shr_SPEC_Emp_Imp.pdf) Appendix. One of the Supported Locales. Example: United States English is en_US. The supported languages vary by company but always include en_US. Maximum: 5 characters.
 `Active`|`Boolean`|Y/N|Whether the user is currently active.
 `Password`|`string`|-|Required. The user's password. This element can be used to enter the password for a new user, but cannot be used to update the password for an existing user. Maximum 255 characters.
@@ -187,13 +187,16 @@ Name|Type|Format|Description
 
 Updates passwords for up to 500 users.
 
+Please keep in mind that this method will not update the user password expiry date, if you are updating the password to overcome password expiration policy.
+User will still have to change his password when they login to SAP Concur if the original password before update was expired.
+
 ### <a name="updatePwdRequestSchema"></a>Update User's Password Request Schema
 
 This function requires as its arguments a `UserBatch` element containing a User child element for each user. The `User` element must have the following elements:
 
 Name|Type|Format|Description
 -----|------|------|--------------
-`LoginID`|`string`|-|Required. The user's login ID. The default value is the user's email address.
+`LoginID`|`string`|-|Required. The user's login ID. The default value is the user's email address. The value MUST contain '@'.
 `Password`|`string`|-|The user's new password.
 
 ### <a name="updatePwdResponseSchema"></a>Update User's Password Response Schema

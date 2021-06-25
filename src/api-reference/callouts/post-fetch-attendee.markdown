@@ -21,7 +21,7 @@ The Fetch Attendee version 2.0 callout sends the attendee information to a URI f
 
 For backward compatibility, Fetch Attendee version 1.0 is used instead of version 2.0 when the URI uses v1.0 instead of v2.0. The URI is configured on the **Application Connector Registration** page under **Web Services>Administration>Manage Applications**.
 
-The application connector responds to the Fetch Attendee request by returning all attendees that match the search criteria. The result is limited to the maximum number of records specified in the request. If more than the maximum number of records are sent, SAP Concur Expense displays a message in the Attendee Search window asking the user to refine their search. The authorization functionality in version 2.0 is the same as version 1.0
+The application connector responds to the Fetch Attendee request by returning all attendees that match the search criteria. The result is limited to the maximum number of records specified in the request. If more than the maximum number of records are sent, Concur Expense displays a message in the Attendee Search window asking the user to refine their search. The authorization functionality in version 2.0 is the same as version 1.0
 
 ### Headers
 
@@ -41,7 +41,7 @@ The request body contains an **AttendeeSearchRequest** parent element with an **
 |  Company |  Attendee's company. Also used for Institution Name for Healthcare Provider attendees. Maximum length is 150 characters. Required in the response. |
 |  Custom1 through Custom20 |Custom fields which vary for a given configuration. Maximum length is 100 characters. Required in the response.<br><br>For clients who purchased the HCP Connector, Custom7, Custom8, and Custom9 are mapped to the HCP Attendee Form as follows:<br/>Custom7: License number<br/>Custom8: State of license<br/>Custom9: Healthcare specialty description |
 |  Custom21 through Custom25 |Custom fields which vary for a given configuration. Maximum length is 100 characters. Required in the response.<br>For clients who purchased the HCP Connector, Custom15, Custom21, Custom22, and Custom23 are mapped to the HCP Attendee Form as follows:<br/>Custom15: Healthcare practice address<br/>Custom21: Attendee taxonomy<br/>Custom22: Attendee tax ID<br/>Custom23: Covered recipient ID |
-|  ExternalID |  Attendee's unique identifier outside of SAP Concur. Maximum length is 48 characters.|
+|  ExternalID |  Attendee's unique identifier outside of the SAP Concur solution. Maximum length is 48 characters.|
 |  FirstName |  Attendee's first name. Maximum length is 50 characters. |
 |  LastName |  Attendee's last name. Maximum length is 132 characters. |
 |  MaximumNumberRecords |  Maximum number of records that will be returned to the user for the given search criteria. |
@@ -121,7 +121,7 @@ The **Attendee** child element must contain all of the elements described below.
 |  AttendeeTypeCode |  The attendee type code for the attendee type assigned to this attendee. Maximum length: 8 |
 |  Company |  The attendee's company. Required in the response. Also used for Institution Name for Healthcare Provider attendees. Maximum length: 150 |
 |  Custom1 through Custom25 | Varies depending on configuration. Required in the response. Maximum length of Custom1 through Custom20: 100 characters. Maximum length of Custom21 through Custom25: 48 characters. For information about Custom fields that are used by healthcare providers, see the **Custom fields for healthcare provider attendees** table below.  |
-|  ExternalID |  The attendee's unique identifier outside of SAP Concur. Maximum length: 32 |
+|  ExternalID |  The attendee's unique identifier outside of the SAP Concur solution. Maximum length: 32 |
 |  FirstName |  The attendee's first name. Maximum length: 50 |
 |  LastName |  The attendee's last name. Maximum length: 132 |
 |  MiddleInitial |  The middle initial of the attendee. Maximum length: 1. |
@@ -150,7 +150,7 @@ The **Attendee** child element must contain all of the elements described below.
 **NOTES**:
 
 * When implementing the search logic, the search criteria should use logical AND between the fields, not logical OR. For example, if in the search dialog the user specifies Doe in the last name field and Acme in the company field, the connector must return only records where the Acme company has contacts with the last name of Doe. It must not return records for contacts with the last name Doe who belong to another company such as Apex.
-* If the application connector does not respond or returns an error, the user is notified in a popup window within Expense. SAP Concur will not resend the request unless the user manually initiates the search again.
+* If the application connector does not respond or returns an error, the user is notified in a popup window within Expense. The SAP Concur solution will not resend the request unless the user manually initiates the search again.
 
 ####  <a name="res-example"></a>XML Example of Successful Response
 

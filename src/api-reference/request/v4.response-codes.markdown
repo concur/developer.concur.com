@@ -27,10 +27,10 @@ HTTP Status Code|Response Body|Description
 -|`invalidDate` error while parsing date value {dateValue}|A date or datetime value couldn't be parsed
 -|`invalidUuid` for concur-correlationid {correlationId}|The concur correlation id of the request is not a valid UUID
 -|`invalidUuid` {requestName}|The name of the request doesn't have the expected format
--|`invalidLocation` the location cannot be resolved, please provide either {iataCode} or {countryCode} and {cityName}|Required location input is missing
--|`invalidLocation` the location cannot be resolved, no location found for iataCode={iataCode}|No location found matching the iataCode provided
--|`invalidLocation` the location cannot be resolved, no city found for countryCode={countryCode} and cityName={cityName}|No location found matching the country code and city name provided
--|`invalidLocation` the location cannot be resolved, multiple locations available for countryCode={countryCode} and cityName={cityName}|Multiple locations found matching the country code and city name provided
+-|`invalidLocation` The location cannot be resolved, please provide either {iataCode} or {countryCode} and {cityName}|Required location input is missing
+-|`invalidLocation` The location cannot be resolved, no location found for iataCode={iataCode}|No location found matching the iataCode provided
+-|`invalidLocation` The location cannot be resolved, no city found for countryCode={countryCode}, cityName={cityName} and locationCode={locationCode}|No location found matching the country code, city name and location code provided
+-|`severalLocationsMatch` The location cannot be resolved, multiple locations available for countryCode={countryCode} and cityName={cityName}. Please provide a locationCode from the possible matches|Multiple locations found matching the country code and city name provided, location code is required.
 -|`invalidPolicy` invalid policy id|
 -|`listValidationError` validation of list items failed|
 -|`missingRequiredField` at least 1 required field has an empty value|A request with no value on a mandatory field has been submitted|
@@ -76,8 +76,7 @@ HTTP Status Code|Response Body|Description
 -|`CASH_ADVANCE_NO_APPROVER_CHANGE_MY_INFO`|Cash Advance: Missing the required approver for the next workflow step. Contact your Expense administrator for assistance.|
 -|`CASH_ADVANCE_NOT_AN_APPROVER`|Cash Advance: This request cannot be sent to the next approver because the selected approver is no longer authorised to approve requests. Please select another approver.||
 -|`CASH_ADVANCE_REVIEW_APPROVAL_FLOW_APPROVER`|Cash Advance: Review Approvers in the workflow.|
-500 Internal Server Error|`timeOut` timeout has occurred|
--|`createReportError` error while creating an expense report|
+500 Internal Server Error|`createReportError` error while creating an expense report|
 -|`internalServerError` internal server error|
 -|`associateReportError` error while associating an expense report to a Request|
 503 Service Unavailable|`circuitBreaker` Circuit Breaker is open, please try again on a different node|The server node might be unavailable, be retrying the request you may reach a healthy node

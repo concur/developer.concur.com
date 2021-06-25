@@ -21,6 +21,8 @@ Message to retrieve descriptive details about a given hotel. This may include te
   * [Schema](#res-schema)
     * [Hotel Descriptive Contents](#hotel-desc-contents)
     * [Hotel Descriptive Content](#hotel-desc-content)
+    * [Hotel Info](#hotel-info)
+    * [Descriptions](#descriptions)
     * [TPA Extensions](#tpa-extensions)
     * [Description](#description)
     * [Multimedia Descriptions](#multi-descs)
@@ -43,7 +45,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
     <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="3" PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="123"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <HotelDescriptiveInfos>
@@ -95,7 +97,7 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
               <ImageItems>
                 <ImageItem>
                   <ImageFormat>
-                    <URL>http://image_path.jpg</URL>
+                    <URL>https://production.example.com/hotel-image.jpg</URL>
                   </ImageFormat>
                 </ImageItem>
               </ImageItems>
@@ -127,7 +129,7 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
 
 |Name|Type|Description|
 |-------------------------|-----------|-------------|
-|`HotelDescriptiveContent`|`complex|**Required** Contains hotel details content which is made up of text and image URLs. SAP Concur expects one (1) `HotelDescriptiveContent`.|
+|`HotelDescriptiveContent`|`complex`|**Required** Contains hotel details content which is made up of text and image URLs. SAP Concur expects one (1) `HotelDescriptiveContent`.|
 
 #### <a name="hotel-desc-content"></a>HotelDescriptiveContent
 
@@ -135,8 +137,21 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
 |------------------------|-------------------|-------------|
 |`HotelCode`|`stringLength1to16`|**Required** The code that uniquely identifies a single hotel property. The hotel code is decided between vendors.|
 |`HotelName`|`stringLength1to128`|**Required** A text field used to communicate the proper name of the hotel. SAP Concur always expects the Hotel Name to be provided.|
+|`HotelInfo`|`complex`|Contains descriptive information about a hotel.|
 |`TPA_Extensions`|`complex`|SAP Concur specific extensions.|
 |`MultimediaDescriptions`|`complex`|Multimedia information about a collection of multimedia objects. SAP Concur expects one (1) `MultimediaDescription` element.|
+
+### <a name="hotel-info"></a>HotelInfo
+
+|Name|Type|Description|
+|------------------------|-------------------|-------------|
+|`Descriptions`|`complex`|Contains descriptive information about a hotel. SAP Concur expects one (1) `Descriptions`.|
+
+### <a name="descriptions"></a>Descriptions
+
+|Name|Type|Description|
+|------------------------|-------------------|-------------|
+|`DescriptiveText`|`string`|Descriptive text that describes the hotel. SAP Concur expects one (1) `DescriptiveText`|
 
 #### <a name="tpa-extensions"></a>TPA_Extensions
 
@@ -149,7 +164,7 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
 |Name|Type|Description|
 |---------|--------------------|-------------|
 |`name`|`stringLength1to64`|The contents of this element will be rendered as a heading on the hotel details page.|
-|`Text`|`stringLength1to255`|**Required** The contents of this element will be rendered as a paragraph. SAP Concur expects a maximum of 20 text elements per description, which will be concatenated to into one (1) paragraph.|
+|`Text`|`string`|**Required** The contents of this element will be rendered as a paragraph. SAP Concur expects a maximum of 20 text elements per description, which will be concatenated to into one (1) paragraph.|
 
 #### <a name="multi-descs"></a>MultimediaDescriptions
 
@@ -179,4 +194,4 @@ The maximum allowed size of `OTA_HotelDescriptiveInfoRS` is 150 KB. Any response
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`URL`|`stringLength1to32`|**Required** Contains a HTTPS URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with `.png` and `.jpg` files.|
+|`URL`|`string`|**Required** Contains a HTTPS URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with `.png` and `.jpg` files.|

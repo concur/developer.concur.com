@@ -28,7 +28,7 @@ layout: reference
 
 SAP Concur partners with external payment providers for processing invoice payments. These payment providers are listed on the App Center and can integrate with the Invoice product by using the Invoice Pay APIs. Payment providers can get a list of all the payments authorized to be processed by them, and send back status of those payments.
 
-> **Limitations**: This API is only available for use by payment partners who will be processing invoice payments. This API can accept a maximum of 1,000 requests per minute across all payment providers. This API is available only in the North America Data Center.
+> **Limitations**: This API is only available for use by payment partners who will be processing invoice payments. This API can accept a maximum of 10,000 requests per minute across all payment providers. This API is available only in the North America Data Center.
 
 ## <a name="process-flow"></a>Process Flow
 
@@ -69,6 +69,12 @@ Payment providers can use this endpoint to get a list of payments.
 ```
 GET https://us.api.concursolutions.com/invoice/provider-payment/v4/payments
 ```
+
+##### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`invoiceId`|`string`|-|**Optional**: Gets specific payment info along with erpDocumentNumber.
 
 #### Headers
 
@@ -137,7 +143,8 @@ Content-Type: application/json
             "amount": "30.00",
             "currency": "USD"
           },
-          "notesToSupplier": null
+          "notesToSupplier": null,
+          "erpDocumentNumber": "erp1234"
         }
       ],
       "vendor":{
@@ -293,6 +300,7 @@ Name | Type | Format | Description
 `invoiceId`|`string`|-|Unique identifier of the invoice in SAP Concur. This can be used to get additional invoice information from other APIs. This is the same as `paymentRequestID` in other Invoice APIs. Maximum 20 characters.
 `notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier. Maximum 500 characters.
 `paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice.
+`erpDocumentNumber`|`string`|-|ErpDocumentNumber of that invoice.
 
 ### <a name="schema-vendor"></a>Vendor
 

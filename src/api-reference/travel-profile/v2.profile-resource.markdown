@@ -158,7 +158,7 @@ Name|Data Type|Description|Update|Create|Comments
 `CostCenter`|`string`|The user’s cost center. Format: nvarchar(25)|-|-|Requires Company Details scope.
 `CompanyEmployeeID`|`string`|The user’s employee ID. Format: nvarchar(48)|-|-|Requires Company Details scope.  Must be unique in the company.
 `Division`|`string`|The user's division. Format: nvarchar(60)|-|-|Requires Company Details scope.  Must already be setup in the company configuration.
-`PreferredLanguage`|`string`|The user's preferred language locale. Example: United States English is en-US. Format: varchar(20)|-|-|-
+`PreferredLanguage`|`string`|The user's preferred language locale. Example: United States English is en-US. Format: varchar(20)|-|-|See list of allowed canonical values below. Values not on this list will write an empty string|
 `EReceiptOptIn`|`boolean`|Whether the user has opted in to receive e-receipts. Format: true\false|-|-
 `HasOpenBooking`|`boolean`|Whether the user has the TripLink User (formerly Open Booking User) permission. Format: true\false|Cannot Update|-|-
 `CountryCode`|`string`|The country code in from the [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) specification. Format: char(2)|Cannot Update|-|-
@@ -174,6 +174,83 @@ Name|Data Type|Description|Update|Create|Comments
 `UUID`|`string`|The user's Unique Identifier. Format: GUID, 32 characters|Cannot Update|-|Requires TMC Specific scope.
 
 **NOTE**:  If MiddleName is provided, the NoMiddleName flag in TSAInfo section is set to false.
+
+#### Canonical List of Preferred Language Values
+  * "bg"
+  * "cs"
+  * "da"
+  * "de"
+  * "el"
+  * "en"
+  * "es"
+  * "fi"
+  * "fr"
+  * "hr"
+  * "hu"
+  * "id"
+  * "it"
+  * "ja"
+  * "ko"
+  * "nb"
+  * "nl"
+  * "nn"
+  * "no"
+  * "pl"
+  * "pt"
+  * "ro"
+  * "ru"
+  * "sk"
+  * "sv"
+  * "tr"
+  * "zh"
+  * "de-AT"
+  * "de-CH"
+  * "de-DE"
+  * "de-LU"
+  * "en-AU"
+  * "en-CA"
+  * "en-GB"
+  * "en-IE"
+  * "en-IN"
+  * "en-NZ"
+  * "en-US"
+  * "en-ZA"
+  * "es-AR"
+  * "es-BO"
+  * "es-CL"
+  * "es-CO"
+  * "es-CR"
+  * "es-DO"
+  * "es-EC"
+  * "es-ES"
+  * "es-GT"
+  * "es-HN"
+  * "es-MX"
+  * "es-NI"
+  * "es-PA"
+  * "es-PE"
+  * "es-PR"
+  * "es-PY"
+  * "es-SV"
+  * "es-UY"
+  * "es-VE"
+  * "fr-BE"
+  * "fr-CA"
+  * "fr-CH"
+  * "fr-FR"
+  * "fr-LU"
+  * "it-CH"
+  * "it-IT"
+  * "ja-JP"
+  * "nl-BE"
+  * "nl-NL"
+  * "no-NO"
+  * "pt-BR"
+  * "pt-PT"
+  * "sv-SE"
+  * "zh-CN"
+  * "zh-HK"
+  * "zh-TW"
 
 #### <a name="schema-emergency-contact"></a>EmergencyContact
 
@@ -215,7 +292,7 @@ Name|Data Type|Description|Update|Create|Comments
 `ContactOptIn attribute`|`boolean`|Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell. Format: true\false|-|-|-
 `PrimaryMobile attribute`|`boolean`|This is the user's preferred mobile device. Format: true\false|-|-|-
 `CountryCode`|`string`|The country code in from the [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) specification. Format: Char(2)|required (Cell)|required (Cell)|Required for Cell types.
-`PhoneNumber`|`string`|The phone number as entered by the user, which may contain characters such as () or -. Format: nvarchar(60) <br>|required (Cell)|required (Cell)|Required for Cell types.
+`PhoneNumber`|`string`|The phone number as entered by the user, which may contain characters such as () or -. For CellPhone, Number may only contain digits, dashes, parenthesis, and spaces. Format: nvarchar(60) <br>|required (Cell)|required (Cell)|Required for Cell types. 
 `Extension`|`string`|The phone extension. Format: nvarchar(60)|-|-|-
 `MobileDevice`|`string`|The OS of the mobile device. Values are:<br> Android Phone<br> Android Tablet<br> Blackberry<br> iOS Phone<br> iOS Tablet<br> Not a smartphone<br> Other iOS device<br> Other smartphone<br> Unknown<br> Window Mobile|-|-|-
 `MobileName`|`string`|The name the user assigned to the mobile device. Format: nvarchar(255)|-|-|-
@@ -276,13 +353,13 @@ Name|Data Type|Description|Update|Create|Comments
 
 #### <a name="schema-HasNoPassport"></a>HasNoPassport
 
-A flag which is triggered automatically when adding a new passport to a user.
+A flag which is set when adding a new passport to a user.
 
 * Passport Visa Information scope must be enabled to receive or update the data.
 
 Name|Data Type|Description|Update|Create|Comments
 ---|---|---|---|---|---
-`HasNoPassport`|`boolean`|Format: true\false.|-|If passport value added, then this value becomes false.
+`HasNoPassport`|`boolean`|Format: true\false.|-|If passport value added, then this value becomes false. |* If explicitely being set to false, passport information must exist in the user's profile or be provided within the same API call. </br> * If explicitely set to true, no passport information must exist in the user's profile.|
 
 #### <a name="schema-passports"></a>Passports
 
@@ -744,19 +821,20 @@ This endpoint provides a list of travel profile summaries that have been updated
 ### Request
 
 ```shell
-GET {InstanceURI}/api/travelprofile/v2.0/summary?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+GET {InstanceURI}/api/travelprofile/v2.0/summary?LastModifiedDate=2020-01-01T01:00:00&travelConfigs=100,200,3000 HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
 #### Request parameters
 
-All request parameters are optional. Available request parameters are as follows:
+LastModifiedDate is required. All other request parameters are optional. Available request parameters are as follows:
 
 Parameter Name|Required/Optional|Parameter Type|Data Type|Description
 ---|---|---|---|---
 `LastModifiedDate`|Required|path|`string`|The date and time, in UTC, that the profiles must be updated after to be included in the response. Format: `YYYY-MM-DDThh:mm:ss`
-`Page`|Optional|path|`string`|The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty
+`Page`|Optional|path|`string`|The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty.
 `ItemsPerPage`|Optional|path|`string`|The number of travel profiles per page. The maximum value is 200. The default value is 200.
+`travelConfigs`|Optional|path|`string`| One or more Config IDs, separated by commas.
 
 #### Headers
 

@@ -2,10 +2,7 @@
 title: Allocations v4
 layout: reference
 
-
 ---
-
-{% include prerelease.html %}
 
 The Allocations API can be used to read the allocations that belong to a specific expense on an expense report and modify an allocation on an existing expense in an expense report. This API can be used to change custom field attributes, etc.
 
@@ -30,7 +27,7 @@ The Allocations API can be used to read the allocations that belong to a specifi
 
 ## Prior Versions
 
-* Allocations v3 documentation is available [here](./api-reference/expense/allocations/expense-allocations.html)
+* Allocations v3 documentation is available [here](/api-reference/expense/allocations/expense-allocations.html)
 
 ## <a name="products-editions"></a>Products and Editions
 
@@ -45,7 +42,7 @@ Required Scopes:
 |---|---|---|
 |`expense.report.read`|Get information about expense reports.|GET|
 |`expense.report.readwrite`|Read and write expense report headers.        |PATCH|
-|`user.read`|Get User Information, necessary for `userID`.|POST|
+|`user.read`|Get User Information, necessary for `userID`.|GET|
 
 Optional Scope:
 
@@ -56,7 +53,7 @@ Optional Scope:
 
 ## <a name="dependencies"></a>Dependencies
 
-SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the Identity v4 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -72,19 +69,17 @@ Retrieves the allocations that belong to a specific expense ID on a specific rep
 
 ### Request
 
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/allocations
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: `TRAVELER` |
 |`reportId`|`string`|-|**Required** The unique identifier of the report to which the expense entry belongs whose allocations are being retrieved.|
 |`expenseId`|`string`|-|**Required** The unique identifier of the expense entry whose allocations are being retrieved.|
@@ -205,19 +200,17 @@ Retrieves the details of the specific allocation of an expense entry on a report
 
 ### Request
 
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/allocations/{allocationId}
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`.|
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
 |`reportId`|`string`|-|**Required** The unique identifier of the report to which this allocation belongs.|
 |`allocationId`|`string`|-|**Required** The unique identifier of the allocation that is being retrieved.|
@@ -308,19 +301,17 @@ Updates the attributes of a specific allocation.
 
 ### Request
 
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/allocations/{allocationId}
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`.|
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
 |`reportId`|`string`|-|**Required** The unique identifier of the report to which this allocation belongs.|
 |`allocationId`|`string`|-|**Required** The unique identifier of the allocation that is being retrieved.|

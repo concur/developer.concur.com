@@ -4,9 +4,7 @@ layout: reference
 
 ---
 
-{% include prerelease.html %}
-
-The Expenses API can be used to read the expenses that belong to a specific expense report and modify an expense on an existing expense report. This API can be used to change attributes like transaction date, transaction amount, location, etc
+The Expenses API can be used to read the expenses that belong to a specific expense report and modify an expense on an existing expense report. This API can be used to change attributes like transaction date, transaction amount, location, etc.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
@@ -16,8 +14,10 @@ The Expenses API can be used to read the expenses that belong to a specific expe
 * [Access Token Usage](#access-token-usage)
 * [Retrieve expenses on a specific Report ID](#specific-report-expenses)
 * [Retrieve an Expense by ID](#retrieve-expense-entry)
-* [Update an Expense](#update-expense-entry)
+* [Update an Expense in an unsubmitted report](#update-expense-entry-in-an-unsubmitted-report)
+* [Update an Expense in a submitted report](#update-expense-entry-in-a-submitted-report)
 * [Schema](#schema)
+  * [Update Report Expense Compact Schema](#update-report-expense-compact-schema)
   * [Report Expense Summary](#report-expense-summary-schema)
   * [Report Expense Detail](#report-expense-detail-schema)
   * [Custom Data](#custom-data-schema)
@@ -52,7 +52,7 @@ The Expenses API can be used to read the expenses that belong to a specific expe
 
 ## Prior Versions
 
-* Expense entry v1.1 (Deprecated) documentation is available [here](./api-reference/expense/expense-report/v1dot1.expense-entry.html)
+* Expense entry v1.1 (Deprecated) documentation is available [here](./v1dot1.expense-entry.html)
 * Expense Entry v3 documentation is available [here](./expense-entry.html)
 
 ## <a name="products-editions"></a>Products and Editions
@@ -67,8 +67,8 @@ Required Scopes:
 |Name|Description|Endpoint|
 |---|---|---|
 |`expense.report.read`|Get information about expense reports.|GET|
-|`expense.report.readwrite`|Read and write expense report headers.        |PATCH|
-|`user.read`|Get User Information, necessary for `userID`.|POST|
+|`expense.report.readwrite`|Read and write expense report headers.|PATCH|
+|`user.read`|Get User Information, necessary for `userID`.|GET|
 
 Optional Scope:
 
@@ -79,7 +79,7 @@ Optional Scope:
 
 ## <a name="dependencies"></a>Dependencies
 
-SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the Identity v4 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -94,20 +94,17 @@ Retrieves the expenses that belong to a specific report ID.
 `expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
 
 ### Request
-
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: `TRAVELER` |
 |`reportId`|`string`|-|**Required** The unique identifier of the report that is being read.|
 
@@ -152,7 +149,7 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 --header 'Content-Type: application/json'
 ```
 
-#### Response
+#### <a name="expenses-response-schema"></a> Response
 
 ```shell
 200 OK
@@ -336,20 +333,17 @@ Retrieves the details of the specific expense entry on a report.
 `expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
 
 ### Request
-
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses/{expenseId}
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: `TRAVELER`, `PROXY`|
 |`reportId`|`string`|-|**Required** The unique identifier of the report to which this expense entry belongs.|
 |`expenseId`|`string`|-|**Required** The unique identifier of the expense entry that is being read.|
@@ -395,7 +389,7 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 --header 'Content-Type: application/json'
 ```
 
-#### Response
+#### <a name="expense-entry-response-schema"></a> Response
 
 ```shell
 200 OK
@@ -541,29 +535,26 @@ curl --location --request GET 'https://us.api.concursolutions.com/expensereports
 }
 ```
 
-## <a name="update-expense-entry"></a>Update a Specific Expense Entry
+## <a name="update-expense-entry-in-an-unsubmitted-report"></a>Update a Specific Expense Entry in an Unsubmitted Report
 
-Updates the attributes of a specific expense entry.
+Updates the specified expense in an unsubmitted report and is flexible for modifying multiple attributes in the schema detailed below
 
 ### Scopes
 
 `expense.report.readwrite` - Refer to [Scope Usage](#scope-usage) for full details.
 
 ### Request
-
-#### URI
-
-##### Template
+#### URI Template
 
 ```shell
 https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses/{expenseId}
 ```
 
-##### Parameters
+#### Parameters
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`. |
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`. |
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported value: `TRAVELER`, `PROXY`|
 |`reportId`|`string`|-|**Required** The unique identifier of the report to which this expense entry belongs.|
 |`expenseId`|`string`|-|**Required** The unique identifier of the expense entry that is being read.|
@@ -587,7 +578,7 @@ PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specifica
 
 #### Payload
 
-* [Patch Expense Request](#patch-expense-request-schema)
+* [Patch Expense Request](#patch-unsubmitted-expense-request-schema)
 
 ### Response
 
@@ -610,7 +601,7 @@ PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specifica
 
 ### Example
 
-#### Request
+#### <a name="patch-unsubmitted-expense-request-schema"></a> Request
 
 ```shell
 curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB/expenses/84FCBB92BD4E5342B849DAC29FD163A1' \
@@ -635,7 +626,113 @@ curl --location --request PATCH 'https://us.api.concursolutions.com/expenserepor
 }'
 ```
 
-#### Response
+#### <a name="patch-expense-response-schema"></a> Response
+
+```shell
+204 No Content
+```
+## <a name="update-expense-entry-in-a-submitted-report"></a>Update a Specific Expense Entry in a Submitted Report
+
+Updates the specified expense in an unsubmitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.
+
+### Scopes
+
+`expense.report.readwrite` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+#### URI Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/reports/{reportId}/expenses/{expenseId}
+```
+
+#### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`reportId`|`string`|-|**Required** The unique identifier of the report to which this expense entry belongs.|
+|`expenseId`|`string`|-|**Required** The unique identifier of the expense entry that is being read.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### REST Design Specification
+
+PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specification:
+
+* [RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
+
+#### Payload
+
+* [Patch Submitted Expense Request](#patch-submitted-expense-request-schema)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Patch Submitted Expense Response](#patch-submitted-expense-response-schema)
+
+### <a name="update-report-expense-compact-schema"></a>Update Report Expense Compact Schema
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`businessPurpose`|`string`|-|The text input for the business purpose by the user. Maximum length: 64 characters|
+|`customData`|[`CustomData`](#custom-data-schema)|-|The details from the `customData` fields. These fields may not have data, depending on the configuration.|
+|`expenseSource`|`string`|-|**Required** The source of the expense. Supported values: `EA` - Expense Assistant, `MOB` - Mobile, `OTHER` - Unknown, `SE` - Smart Expense, `TA` - Travel Allowance, `TR` - Travel Request, `UI` - Web UI|
+
+#### <a name="report-expense-custom-data-schema"></a>CustomData
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|**Required** The unique identifier of the custom field. Examples: `custom1`, `orgUnit1`|
+|`isValid`|`boolean`|`true`/`false`|Whether the value returned is valid or not. This value is returned for custom fields of all data types and is specifically evaluated for list items to represent the current status. Default: `true`|
+|`value`|`string`|-|The value of the custom field. This field can have values for all the supported data types such as `text`, `integer`, `boolean` and `listItemId`. Maximum length: 48 characters|
+
+### Example
+
+#### <a name="patch-submitted-expense-request-schema"></a> Request
+
+```shell
+curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/v4/reports/764428DD6A664AF0BFCB/expenses/84FCBB92BD4E5342B849DAC29FD163A1' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Test' \
+--header 'Content-Type: application/json' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+	"customData": [
+        {
+            "id": "custom09",
+            "value": "81188b39-605d-2d4f-b80b-43efa84a7b49",
+            "isValid": true
+        }
+    ],
+    "businessPurpose":"Office Supplies",
+    "expenseSource":"OTHER"
+}'
+```
+
+#### <a name="patch-submitted-expense-response-schema"></a> Response
 
 ```shell
 204 No Content

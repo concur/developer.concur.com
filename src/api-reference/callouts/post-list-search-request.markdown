@@ -38,7 +38,7 @@ The request will contain a **fetch-list-request** parent element, containing the
 |`query`|It is possible that the asterisk wildcard will be passed from Expense to the application connector. <ul><li>Asterisk only (\*) - Return all items in the list represented by the long code.</li><li>Text followed by asterisk (West\*) - Return all items beginning with the text.</li><li>Asterisk followed by text - Return all items ending with the text.</li></ul>|
 |`search-by`|Indicates which list item attribute should be searched. Supported values: `TEXT`, `CODE`.<br/>**NOTE**: The application connector must support both attributes in order to properly handle wildcard searches.|
 |`lang-code`|The two character code for the language of the user.|
-|`num-to-return`|Expense will specify the number of items to return. The application connector must use this value to ensure that it does not return more results than requested. There is a system limit of 1000 items.|
+|`num-to-return`|Expense will specify the number of items to return. The application connector must use this value to ensure that it does not return more results than requested. There is a system limit of 100 items.|
 |`protected-list-key`|Internal connector information, not used by customers.|
 |`list-name`|Internal connector information, not used by customers.|
 |`connector-version`|Internal connector information, not used by customers.|
@@ -63,7 +63,7 @@ Content-Length: {length of content body}
     <query>Alph*</query>
     <search-by>TEXT</search-by>
     <lang-code>EN</lang-code>
-    <num-to-return>500</num-to-return>
+    <num-to-return>80</num-to-return>
     <protected-list-key />
     <list-name />
     <connector-version />
@@ -89,7 +89,7 @@ Content-Length: {length of content body}
     <query>San*</query>
     <search-by>TEXT</search-by>
     <lang-code>EN</lang-code>
-    <num-to-return>500</num-to-return>
+    <num-to-return>80</num-to-return>
     <protected-list-key />
     <list-name />
     <connector-version />

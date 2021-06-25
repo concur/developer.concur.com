@@ -3,20 +3,25 @@ title: List Item v4
 layout: reference
 ---
 
-{% include prerelease.html %}
-
 The SAP Concur List Item API provides an automated solution to clients who would like to retrieve and add list items. Use of the API is subject to some limitations on the volume of list data. You may need to manage the initial load of large volumes of data via a file import due to capacity limitations. This is also true if ongoing maintenance of list values involves a large volume.
 
 > **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+## Contents
 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Access Token Usage](#access-token-usage)
-* [Retrieve List Items by ID](#get-list-item-ID)
+* [Retrieve a List Item by ID](#get-list-item-ID)
 * [Create a List Item](#post-list-item)
 * [Update a List Item](#put-list-item)
+* [Delete a List Item](#delete-list-item)
+* [Delete a List Item from a List](#delete-list-item-from-list)
 * [Retrieve Children of a List Item](#children-list-item-ID)
+* [Retrieve Children of a List Item by List](#children-list-item-by-list)
+* [Retrieve First Level Children of a List](#children-list-ID)
+* [Filtering](#filtering)
 * [Schema](#schema)
   * [List Item](#schema-list-item)
   * [List Item Create](#schema-list-item-create)
@@ -53,6 +58,7 @@ Name|Description|Endpoint
 ---|---|---
 `spend.listitem.read`|Read-only access to spend list items.|GET
 `spend.listitem.write`|Read and write access to spend list items.|GET, POST, PUT
+`spend.listitem.delete`|Delete capabilities for spend list items.|DELETE
 
 ## <a name="dependencies"></a>Dependencies
 Users must be an Expense, Invoice, Shared or Request Configuration Administrator in order to perform POST and PUT actions.
@@ -61,7 +67,7 @@ Users must be an Expense, Invoice, Shared or Request Configuration Administrator
 
 This API supports both company level and user level access tokens.
 
-## <a name="get-list-item-ID"></a>Retrieve List Items by ID
+## <a name="get-list-item-ID"></a>Retrieve a List Item by ID
 
 Retrieve a list item by ID.
 
@@ -83,11 +89,8 @@ GET /list/v4/items/{itemId}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
-|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
-|`itemId`|`string`| **Required** The unique identifier of the list item (SYNC_GUID).|
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
+|`itemId`|`string`| **Required** The unique identifier of the list item.|
 
 #### Headers
 
@@ -101,7 +104,7 @@ GET /list/v4/items/{itemId}
 #### Status Codes
 
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
-* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
 * [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
@@ -124,7 +127,7 @@ GET /list/v4/items/{itemId}
 
 #### Request
 
-```http
+```shell
 GET https://us.api.concursolutions.com/list/v4/items/{itemId}
 Accept: application/json
 Accept-Language: en
@@ -151,11 +154,11 @@ cache-control: no-cache, private
   "value": "SECOND LEVEL ITEM",
   "parentId": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
   "level": 2,
-  "hasChildren": false,
   "isDeleted": false,
   "lists": [
     {
-      "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f"
+      "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+      "hasChildren": false
     }
   ]
 }
@@ -183,10 +186,7 @@ POST /list/v4/items
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
-|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
 |`listItem`|-|**Required** List Item object that is created for the company.|
 
 #### Headers
@@ -230,14 +230,14 @@ POST /list/v4/items
 
 #### Request
 
-```http
-GET https://us.api.concursolutions.com/list/v4/lists
+```shell
+POST https://us.api.concursolutions.com/list/v4/lists
 Accept: application/json
 Accept-Language: en
 Content-Type: application/json
 Authorization: Bearer {token}
 ```
-Example 1:
+Example 1 (create first level list item):
 ```json
 {
   "listId": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
@@ -246,11 +246,21 @@ Example 1:
 }
 ```
 
-Example 2:
+Example 2 (create second level list item by parent list item ID):
 ```json
 {
   "listId": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
   "parentId": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
+  "shortCode": "SECOND LEVEL ITEM",
+  "value": "SECOND LEVEL ITEM"
+}
+```
+
+Example 3 (create second level list item by parent list item code):
+```json
+{
+  "listId": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+  "parentCode": "ITEM",
   "shortCode": "SECOND LEVEL ITEM",
   "value": "SECOND LEVEL ITEM"
 }
@@ -276,16 +286,16 @@ Example 1:
   "value": "ITEM",
   "parentId": null,
   "level": 1,
-  "hasChildren": false,
   "isDeleted": false,
   "lists": [
     {
-      "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f"
+      "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+      "hasChildren": false
     }
   ]
 }
 ```
-Example 2:
+Example 2 and Example 3:
 ````json
 {
   "id": "63b7fbd9-ae08-0840-abdb-62b0b9160081",
@@ -294,11 +304,11 @@ Example 2:
   "value": "SECOND LEVEL ITEM",
   "parentId": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
   "level": 2,
-  "hasChildren": false,
   "isDeleted": false,
   "lists": [
     {
-      "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f"
+      "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+      "hasChildren": false
     }
   ]
 }
@@ -326,11 +336,8 @@ PUT /list/v4/items/{itemId}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|`string`|Language code. Default: `en` |
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters|
-|`concur-uuid`|`string`|SAP Concur employee UUID of the caller.|
-|`itemId`|`string`| **Required** The unique identifier of the list item (SYNC_GUID).|
+|`Accept-Language`|`string`|Language code. Default: Company defined default language |
+|`itemId`|`string`| **Required** The unique identifier of the list item.|
 |`listItem`|-|**Required** List Item object that is updated.|
 
 #### Headers
@@ -349,7 +356,7 @@ PUT /list/v4/items/{itemId}
 #### Status Codes
 
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
-* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Entity does not exist
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
 * [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
 * [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
@@ -374,7 +381,7 @@ PUT /list/v4/items/{itemId}
 
 #### Request
 
-```http
+```shell
 PUT https://us.api.concursolutions.com/list/v4/items/7c6d0435-c4d1-8b48-8492-7e7b625e148d
 Accept: application/json
 Accept-Language: en
@@ -408,19 +415,157 @@ cache-control: no-cache, private
   "value": "ITEM UPDATED",
   "parentId": null,
   "level": 1,
-  "hasChildren": true,
   "isDeleted": false,
   "lists": [
     {
-      "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f"
+      "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+      "hasChildren": true
     }
   ]
 }
 ```
 
+## <a name="delete-list-item"></a>Delete a List Item
+
+Delete a list item by list item ID. A list item shared between multiple lists will be deleted from all lists.
+
+### Scopes
+
+`spend.listitem.delete` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+DELETE /list/v4/items/{itemId}
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`itemId`|`string`| **Required** The unique identifier of the list item.|
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+
+#### Payload
+
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```shell
+DELETE https://us.api.concursolutions.com/list/v4/items/7c6d0435-c4d1-8b48-8492-7e7b625e148d
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 204
+concur-correlationid: d92ab0c7-510b-4730-99a8-14a79ad99b7c
+date: Wed, 08 Jul 2020 14:16:21 GMT
+cache-control: no-cache, private
+```
+
+## <a name="delete-list-item-from-list"></a>Delete a List Item from a List
+
+Delete a list item by list item ID from a particular list. This enables deleting a shared list item from one list, not all lists.
+
+### Scopes
+
+`spend.listitem.delete` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+DELETE /list/v4/lists/{listId}/items/{itemId}
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`listId`|`string`| **Required** The unique identifier of the list.|
+|`itemId`|`string`| **Required** The unique identifier of the list item.|
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) - Company does not exist
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```shell
+DELETE https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f/items/7c6d0435-c4d1-8b48-8492-7e7b625e148d
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 204
+concur-correlationid: d92ab0c7-510b-4730-99a8-14a79ad99b7c
+date: Wed, 08 Jul 2020 14:16:21 GMT
+cache-control: no-cache, private
+```
+
 ## <a name="children-list-item-ID"></a>Retrieve Children of a List Item
 
-Allows you to retrieve children for a given list item.
+Retrieve the direct children for a given list item.
 
 ### Scopes
 
@@ -440,20 +585,15 @@ GET /list/v4/items/{itemId}/children?page={page}&sortBy={sortBy}
 
 |Name|Type|Description|
 |---|---|---|
-|`Accept-Language`|'string'|Language code. Default: `en`|
-|`company-uuid`|`string`|Company UUID of the user.|
-|`concur-correlationid`|`string`|The unique identifier of the consumer making the API calls. Minimum length: 6 characters.|
-|`concur-uuid`|`string`|SAP Concur Employee UUID of the caller.|
-|`endDate`|`string`|Filter capabilities for `endDate`.|
+|`Accept-Language`|`string`|Language code. Default: Company defined default language|
 |`hasChildren`|`boolean`|If `true`, displays items with children.|
 |`isDeleted`|`boolean`|If `true`, displays deleted items.|
-|`itemId`|`string`|**Required** The unique identifier of the list item (SYNC_GUID).|
+|`itemId`|`string`|**Required** The unique identifier of the list item.|
 |`page`|`integer`|Page number starting from 1. Default: `1`|
 |`shortCode`|`string`|Filter capabilities for `shortCode`.|
 |`shortCodeOrValue`|`string`|Filter capabilities for `value` or `shortCode`.|
 |`sortBy`|`string`|Field to sort by. Supported values: `value`, `shortCode`. Default: `value`|
 |`sortDirection`|`string`|Sort direction. Supported values: `asc`, `desc`|
-|`startDate`|`string`|Filter capabilities for `startDate`.|
 |`value`|`string`|Filter capabilities for `value`. |
 
 #### Headers
@@ -484,14 +624,14 @@ GET /list/v4/items/{itemId}/children?page={page}&sortBy={sortBy}
 
 #### Payload
 
-* [List Item](#schema-list-item)
+* [Paged Resources List Item](#schema-paged-resources-list-item)
 * [Error Message](#schema-error-message)
 
 ### Example
 
 #### Request
 
-```http
+```shell
 GET https://us.api.concursolutions.com/list/v4/items/7c6d0435-c4d1-8b48-8492-7e7b625e148d/children?page=1&sortBy=value
 Accept: application/json
 Accept-Language: en
@@ -521,11 +661,11 @@ cache-control: no-cache, private
       "value": "SECOND LEVEL ITEM",
       "parentId": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
       "level": 2,
-      "hasChildren": false,
       "isDeleted": false,
       "lists": [
         {
-          "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f"
+          "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+          "hasChildren": false
         }
       ]
     }
@@ -539,6 +679,359 @@ cache-control: no-cache, private
 }
 ```
 
+## <a name="children-list-item-by-list"></a>Retrieve Children of a List Item by List
+
+Retrieve the direct children for a given list item in a particular list. For a list item shared between multiple lists, this API enables retrieving children from a particular list.
+
+### Scopes
+
+`spend.listitem.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+GET /list/v4/lists/{listId}/items/{itemId}/children?page={page}&sortBy={sortBy}
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: Company defined default language|
+|`hasChildren`|`boolean`|If `true`, displays items with children.|
+|`isDeleted`|`boolean`|If `true`, displays deleted items.|
+|`itemId`|`string`|**Required** The unique identifier of the list item.|
+|`listId`|`string`|**Required** The unique identifier of the list.|
+|`page`|`integer`|Page number starting from 1. Default: `1`|
+|`shortCode`|`string`|Filter capabilities for `shortCode`.|
+|`shortCodeOrValue`|`string`|Filter capabilities for `value` or `shortCode`.|
+|`sortBy`|`string`|Field to sort by. Supported values: `value`, `shortCode`. Default: `value`|
+|`sortDirection`|`string`|Sort direction. Supported values: `asc`, `desc`|
+|`value`|`string`|Filter capabilities for `value`. |
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [Paged Resources List Item](#schema-paged-resources-list-item)
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/list/v4/lists/80edb3fa-c15e-a34a-b97f-f2ec291ab44f/items/7c6d0435-c4d1-8b48-8492-7e7b625e148d/children?page=1&sortBy=value
+Accept: application/json
+Accept-Language: en
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200
+concur-correlationid: 50dcec14-c984-479c-84e2-186a7e62f87e
+content-length: 449
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 14:27:13 GMT
+etag: "05cb0f0ed5a73bedf1e8cd4171e360e41"
+cache-control: no-cache, private
+```
+
+```json
+{
+  "links": [],
+  "content": [
+    {
+      "id": "63b7fbd9-ae08-0840-abdb-62b0b9160081",
+      "code": "ITEM-SECOND LEVEL ITEM",
+      "shortCode": "SECOND LEVEL ITEM",
+      "value": "SECOND LEVEL ITEM",
+      "parentId": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
+      "level": 2,
+      "isDeleted": false,
+      "lists": [
+        {
+          "id": "80edb3fa-c15e-a34a-b97f-f2ec291ab44f",
+          "hasChildren": false
+        }
+      ]
+    }
+  ],
+  "page": {
+    "size": 100,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 1
+  }
+}
+```
+
+## <a name="children-list-ID"></a>Retrieve First Level Children Items of a List
+
+Retrieves the first level list items for a given List ID.
+
+### Scopes
+
+`spend.listitem.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+GET /list/v4/lists/{listId}/children?page={page}&sortBy={sortBy}
+```
+
+##### Parameters
+
+|Name|Type|Description|
+|---|---|---|
+|`Accept-Language`|`string`|Language code. Default: Company defined default language|
+|`hasChildren`|`boolean`|If `true`, displays items with children.|
+|`isDeleted`|`boolean`|If `true`, displays deleted items.|
+|`listId`|`string`|**Required** The unique identifier of the list.|
+|`page`|`integer`|Page number starting from 1. Default: `1`|
+|`shortCode`|`string`|Filter capabilities for `shortCode`.|
+|`shortCodeOrValue`|`string`|Filter capabilities for `value` or `shortCode`.|
+|`sortBy`|`string`|Field to sort by. Supported values: `value`, `shortCode`. Default: `value`|
+|`sortDirection`|`string`|Sort direction. Supported values: `asc`, `desc`|
+|`value`|`string`|Filter capabilities for `value`. |
+
+#### Headers
+
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+
+#### Payload
+
+* [Paged Resources List Item](#schema-paged-resources-list-item)
+* [Error Message](#schema-error-message)
+
+### Example
+
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/list/v4/lists/7c6d0435-c4d1-8b48-8492-7e7b625e148d/children?page=1&sortBy=value
+Accept: application/json
+Accept-Language: en
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200
+concur-correlationid: 50dcec14-c984-479c-84e2-186a7e62f87e
+content-length: 449
+content-type: application/json;charset=UTF-8
+date: Wed, 08 Jul 2020 14:27:13 GMT
+etag: "05cb0f0ed5a73bedf1e8cd4171e360e41"
+cache-control: no-cache, private
+```
+
+```json
+{
+  "links": [],
+  "content": [
+    {
+      "id": "63b7fbd9-ae08-0840-abdb-62b0b9160081",
+      "code": "ITEM-FIRST LEVEL ITEM",
+      "shortCode": "FIRST LEVEL ITEM",
+      "value": "FIRST LEVEL ITEM",
+      "level": 1,
+      "isDeleted": false,
+      "lists": [
+        {
+          "id": "7c6d0435-c4d1-8b48-8492-7e7b625e148d",
+          "hasChildren": false
+        }
+      ]
+    }
+  ],
+  "page": {
+    "size": 100,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 1
+  }
+}
+```
+
+## <a name="filtering"></a>Filtering
+
+### <a name="filter-apis"></a>Supported APIs
+
+The List Item API supports filtering on the [Retrieve First Level Children Items of a List](#children-list-ID),
+[Retrieve Children of a List Item](#children-list-item-ID), and [Retrieve Children of a List Item by List](#children-list-item-by-list) APIs.
+The filter may be applied to the `value`, `shortCode`, and `shortCodeOrValue` query parameters.
+
+##### Retrieve First Level Children Items of a List
+
+```shell
+GET /lists/v4/lists/{listId}/children?value=test
+GET /lists/v4/lists/{listId}/children?shortCode=test
+GET /lists/v4/lists/{listId}/children?shortCodeOrValue=test
+```
+
+##### Retrieve Children of a List Item
+
+```shell
+GET /lists/v4/items/{listId}/children?value=test
+GET /lists/v4/items/{listId}/children?shortCode=test
+GET /lists/v4/items/{listId}/children?shortCodeOrValue=test
+```
+
+##### Retrieve Children of a List Item by List
+
+```shell
+GET /list/v4/lists/{listId}/items/{itemId}/children?value=test
+GET /list/v4/lists/{listId}/items/{itemId}/children?shortCode=test
+GET /list/v4/lists/{listId}/items/{itemId}/children?shortCodeOrValue=test
+```
+
+### <a name="query-syntax"></a>Query Syntax
+
+The general format of a query syntax parameter is as follows:
+
+```shell
+/lists/v4/resource?field_name=<op>:<value>
+```
+
+* `field_name` - The name of the field that will be compared against.
+
+* `op` - (Optional) The [comparison operator](#comparison-operators) to use when comparing the specified value to the field. Defaults to `eq`.
+
+* `value` - The value being checked for.
+
+Ensure the url generated is properly **`URL encoded`**. For example, if you have a `field_name` or `value` with a `&`, please convert it to `%26`.
+
+Examples:
+
+```shell
+/lists/v4/lists/{listId}/children?value=PSO
+```
+
+```shell
+/lists/v4/lists/{listId}/children?shortCode=sw:British
+```
+
+```shell
+/lists/v4/lists/{listId}/children?value=ew:Airlines&shortCode=not:British+Airlines
+```
+
+```shell
+/lists/v4/lists/{listId}/children?value=sw:Question%3FMark
+```
+
+### <a name="conjunction-operators"></a>Conjunction Operators
+
+Complex queries using parentheses are not supported.
+
+There is basic support for OR functionality with the `shortCodeOrValue` query parameter. `shortCodeOrValue` will search both `shortCode` and `value` properties and return all resources that match either field.
+
+### <a name="comparison-operators"></a>Comparison Operators
+
+#### Equals
+
+`eq` returns results where a field is *equal to* the supplied value. This is the default if no operator is specified.
+
+```shell
+/lists/v4/lists/{listId}/children?value=test
+```
+
+```shell
+/lists/v4/items/{itemId}/children?value=eq:test
+```
+
+```shell
+/lists/v4/items/{itemId}/children?shortCodeOrValue=eq:test
+```
+
+#### Contains Pattern
+
+`cp` returns results where the provided pattern exists in the specified field.
+
+```shell
+/lists/v4/lists/{listId}/children?value=cp:test
+```
+
+#### Not
+
+`not` returns results where a field is *not equal to* the supplied value.
+
+```shell
+/lists/v4/items/{itemId}/children?shortCode=not:test
+```
+
+#### Starts With
+
+`sw` returns results where a field *startsWith* the supplied value.
+
+```shell
+/lists/v4/lists/{listId}/children?shortCode=sw:test
+```
+
+#### Ends With
+
+`ew` returns results where a field *endsWith* the supplied value.
+
+```shell
+/lists/v4/items/{itemId}/children?value=ew:test
+```
 ## <a name="schema"></a>Schema
 
 ### <a name="schema-list-item"></a>List Item
@@ -552,15 +1045,15 @@ cache-control: no-cache, private
 |`parentId`|`string`|`uuid`|The unique identifier of the parent list item.|
 |`listId`|`string`|`uuid`|The unique identifier of the list that contains the list item.|
 |`level`|`integer`|`int32`|Level of the list item within the list.|
-|`hasChildren`|`boolean`|`true`/`false`|If `true`, the list item has children.|
-|`lists`|[`ListItemMemberList`](#schema-list-item-member-list)|-|The unique identifiers of the lists that contains the list item.|
-|`isDeleted`|`boolean`|`true`/`false`|If `true`, the list item is deleted.|
+|`lists`|[`ListItemMemberList`](#schema-list-item-member-list)|-|The unique identifiers of the lists that contains the list item. The list item may exist under one or more lists.|
+|`isDeleted`|`boolean`|`true`/`false`|Indicates the deleted state of the item in a particular list. If `false`, the list item is not deleted from one or more lists. The `lists` field will include only the lists that contain the list item in a not-deleted state. `isDeleted` will only be `true` when the list item is deleted from all lists. The `lists` field will include all lists that contain the list item.|
 
 ### <a name="schema-list-item-create"></a>List Item Create
 
 |Name|Type|Format|Description|
 |---|---|---|---|
 |`listId`|`string`|`uuid`|**Required** The unique identifier of the list that contains the list item.|
+|`parentCode`|`string`|-|The long code of parent list item.|
 |`parentId`|`string`|`uuid`|The unique identifier of parent list item.|
 |`shortCode`|`string`|-|**Required** List item short code.|
 |`value`|`string`|-|**Required** List item value.|
@@ -577,6 +1070,7 @@ cache-control: no-cache, private
 |Name|Type|Format|Description|
 |---|---|---|---|
 |`id`|`string`|`uuid`|The unique identifier of the list that contains the list item.|
+|`hasChildren`|`boolean`|`true`/`false`|If `true`, the list item has children in this particular list.|
 
 ### <a name="schema-paged-resources-list-item"></a>Paged Resources List Item
 
@@ -584,7 +1078,7 @@ cache-control: no-cache, private
 |---|---|---|---|
 |`content`|`array`|[`ListItem`](#schema-list-item)|-|
 |`page`|[`PageMetadata`](#schema-page-metadata)|-|Metadata for the page of data returned|
-|`links`|`array`|[`Link`](#schema-link)|Metadata for the page of data returned|
+|`links`|`array`|[`Link`](#schema-link)|Href links to the next, previous, first, and/or last pages of data.|
 
 ### <a name="schema-error-message"></a>Error Message
 
@@ -607,7 +1101,7 @@ cache-control: no-cache, private
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`msg`|`string`|-|The detailed error message.|
+|`message`|`string`|-|The detailed error message.|
 |`id`|`string`|-|The identifier of the error.|
 
 ### <a name="schema-page-metadata"></a>Page Metadata
@@ -615,7 +1109,7 @@ cache-control: no-cache, private
 |Name|Type|Format|Description|
 |---|---|---|---|
 |`number`|`integer`|`int32`|The page number.|
-|`size`|`integer`|`int32`|The page size.|
+|`size`|`integer`|`int32`|The number of items per page, which is fixed at 100.|
 |`totalElements`|`integer`|`int32`|The number of total elements.|
 |`totalPages`|`integer`|`int32`|The number of total pages.|
 

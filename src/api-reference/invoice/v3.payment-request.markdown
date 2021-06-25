@@ -59,7 +59,7 @@ Name|Type|Format|Description
 `CompanyShipToAddressCode`|`string`|-|The code which identifies the company location to which the vendor shipped items listed in the invoice.
 `CountryCode`|`string`|-|**Required** The country code.
 `CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the invoice currency. Examples: `USD` - US dollars; `BRL` - Brazilian real; `CAD` - Canadian dollar; `CHF` - Swiss franc; `EUR` - Euro; `GBO` - Pound sterling; `HKD` - Hong Kong dollar; `INR` - Indian rupee; `MXN` - Mexican peso; `NOK` - Norwegian krone; `SEK` - Swedish krona.
-`Custom1` through `Custom9`|`string`|-|The details from the Custom fields. These may not have data, depending on configuration.
+`Custom1` through `Custom24`|`string`|-|The details from the Custom fields. These may not have data, depending on configuration.
 `DataSource`|`string`|-|A code which indicates the method used to created the Invoice. Use GET /invoice/localizeddata to translate the code into text.
 `DeliverySlipNumber`|`string`|-|The delivery slip number associated with receiving receipt.
 `Description`|`string`|-|User entered description of the Invoice.
@@ -92,7 +92,7 @@ Name|Type|Format|Description
 `PaymentDueDate`|`string`|-|The date the vendor needs to be paid by.
 `PaymentTermsDays`|`string`|-|This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid.
 `ProvincialTaxId`|`string`|-|The Vendor Provincial Tax ID.
-`PurchaseOrderId`|`string`|-|The ID of the Purchase Order to which the Invoice should be matched. This value is required if none of the following are provided: `LedgerCode`; `EmployeeLoginId`, `EmployeeId`, `EmployeeEmail`, `ExternalPolicyId`.
+`PurchaseOrderNumber`|`string`|-|The ID of the Purchase Order to which the Invoice should be matched. This value is required if none of the following are provided: `LedgerCode`; `EmployeeLoginId`, `EmployeeId`, `EmployeeEmail`, `ExternalPolicyId`.
 `ReceiptConfirmationType`|`string`|-|A code which indicates the receipt confirmation type for this Invoice (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text.
 `ShippingAmount`|`string`|-|The value for the Shipping Amount header field.
 `TaxAmount`|`string`|-|The value for the Tax Amount header field.

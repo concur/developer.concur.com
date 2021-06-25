@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "<b>Expense Report Service (ERS) is the next-generation v4 API for operations related to  creating and processing Expense Reports</b>. In order to interact with this API, a client  must include either an authorized User or Company JWT in the header of each request, or  use an X.509 client certificate which has been white-listed by the ERS team.\n",
-        "version": "4.0.56",
+        "description": "<b>Expense Report Service (ERS) is the next-generation v4 API for operations related to  creating and processing Expense Reports</b>. In order to interact with this API, a client  must include either an authorized User or Company JWT in the header of each request, or  use an X.509 client certificate with a CN included in the Allowed List by the ERS team.\n",
+        "version": "4.0.72",
         "title": "Expense Report Service",
         "contact": {
             "name": "expensereportservice@sap.onmicrosoft.com",
@@ -15,6 +15,10 @@
     "host": "api.concursolutions.com",
     "basePath": "/",
     "tags": [
+        {
+            "name": "Comments",
+            "description": "Comments API "
+        },
         {
             "name": "Reports",
             "description": "Reports API "
@@ -116,7 +120,103 @@
                         }
                     },
                     "404": {
-                        "description": "reportId not found",
+                        "description": "ReportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/reports/{reportId}/expenses/{expenseId}": {
+            "patch": {
+                "tags": [
+                    "Expenses"
+                ],
+                "summary": "Updates the specified expense in an un-submitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.",
+                "description": "Updates the specified expense in an un-submitted or submitted report and is restricted to modify 'Business Purpose' and 'Custom/Org unit' fields only.",
+                "operationId": "updateReportExpenseUsingShortURLUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "expenseId",
+                        "in": "path",
+                        "description": "The unique identifier of the expense",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "expenseData",
+                        "description": "Expense data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateReportExpenseCompact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid field value specified\n\nCannot perform the operation as the report is already paid",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "204": {
+                        "description": "Successfully updated the report expense"
+                    },
+                    "403": {
+                        "description": "User is not allowed to modify the reopened report",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "ReportId not found\n\nexpenseId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "409": {
+                        "description": "The specified resource in your request has an operation currently in progress. Please retry your request once the operation is completed",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -207,7 +307,7 @@
                         }
                     },
                     "404": {
-                        "description": "reportId not found",
+                        "description": "ReportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -302,7 +402,7 @@
                         }
                     },
                     "404": {
-                        "description": "reportId not found",
+                        "description": "ReportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -313,8 +413,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Updates the specified report",
-                "description": "Updates the specified report.",
+                "summary": "Updates the report header in an un-submitted expense report specified and is flexible for modifying multiple attributes in the schema",
+                "description": "Updates the report header in an un-submitted expense report specified and is flexible for modifying multiple attributes in the schema",
                 "operationId": "updateReportUsingPATCH",
                 "consumes": [
                     "application/json"
@@ -401,7 +501,208 @@
                         }
                     },
                     "404": {
-                        "description": "reportId not found",
+                        "description": "ReportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/comments": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Gets comments for the specified report",
+                "description": "Returns comments for the specified report.",
+                "operationId": "getReportCommentsUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Comments successfully retrieved",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CommentDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Specified context not supported",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type,\nUser is not authorized to access this report with this context type",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "ReportId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/comments": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Gets comments for the specified expense",
+                "description": "Returns comments for the specified expense.",
+                "operationId": "getReportEntryCommentsUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "concur-correlationid",
+                        "in": "header",
+                        "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "header",
+                        "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The unique identifier of the report",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "expenseId",
+                        "in": "path",
+                        "description": "The unique identifier of the expense",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The unique identifier of the Concur user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contextType",
+                        "in": "path",
+                        "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "TRAVELER"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Comments successfully retrieved",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CommentDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Specified context not supported",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Missing or invalid authorization header",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error. Retry your request again",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "403": {
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type,\nUser is not authorized to access this report with this context type",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "ReportId not found,\nexpenseId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -503,7 +804,7 @@
                         }
                     },
                     "404": {
-                        "description": "reportId not found\n\nallocationId not found",
+                        "description": "ReportId not found\n\nallocationId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -603,13 +904,13 @@
                         "description": "Successfully updated the allocation"
                     },
                     "403": {
-                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nSystem allocation cannot be modified\n\nUser is not authorized to access this report with this context type",
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nSystem allocation cannot be modified\n\nUser is not authorized to access this report with this context type\n\nCaller does not have access permissions to perform the requested allocation operation",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
                     },
                     "404": {
-                        "description": "reportId not found\n\nallocationId not found\n\nexpenseId not found\n\nThe policy of the specified report does not have an allocation form defined. Contact your Concur Administrator",
+                        "description": "ReportId not found\n\nallocationId not found\n\nexpenseId not found\n\nThe policy of the specified report does not have an allocation form defined. Contact your Concur Administrator",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -707,7 +1008,7 @@
                         }
                     },
                     "404": {
-                        "description": "reportId not found",
+                        "description": "ReportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -809,7 +1110,7 @@
                         }
                     },
                     "404": {
-                        "description": "reportId not found\n\nexpenseId not found",
+                        "description": "ReportId not found\n\nexpenseId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -820,8 +1121,8 @@
                 "tags": [
                     "Expenses"
                 ],
-                "summary": "Updates the specified expense",
-                "description": "Updates the specified expense.",
+                "summary": "Updates the specified expense in an un-submitted report and is flexible for modifying multiple attributes in the schema",
+                "description": "Updates the specified expense in an un-submitted report and is flexible for modifying multiple attributes in the schema.",
                 "operationId": "updateReportExpenseUsingPATCH",
                 "consumes": [
                     "application/json"
@@ -888,7 +1189,7 @@
                 ],
                 "responses": {
                     "400": {
-                        "description": "Specified context not supported\n\nInvalid field value specified\n\nUser does not have proper role",
+                        "description": "Specified context not supported\n\nInvalid field value specified\n\nUser does not have proper role\n\nUser is not allowed to modify the transaction amount on an expense that is matched to a credit card transaction\n\nUser is not allowed to modify the vendor description on an expense that is matched to a credit card transaction\n\nUser is not allowed to modify the exchange rate on an expense that is matched to a credit card transaction",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -909,13 +1210,19 @@
                         "description": "Successfully updated the report expense"
                     },
                     "403": {
-                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nUser is not allowed to modify this report ",
+                        "description": "Specified context type is invalid for this API. Review the documentation for supported context type\n\nUser is not allowed to modify this report \n\nUser is not allowed to modify the reopened report",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
                     },
                     "404": {
-                        "description": "reportId not found\n\nexpenseId not found",
+                        "description": "ReportId not found\n\nexpenseId not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorMessage"
+                        }
+                    },
+                    "409": {
+                        "description": "The specified resource in your request has an operation currently in progress. Please retry your request once the operation is completed",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -1020,7 +1327,7 @@
                         }
                     },
                     "404": {
-                        "description": "reportId not found",
+                        "description": "ReportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -1066,6 +1373,7 @@
             "type": "object",
             "required": [
                 "allocationState",
+                "canDelete",
                 "exchangeRate",
                 "expenseId",
                 "expenseType",
@@ -1083,7 +1391,7 @@
             "properties": {
                 "allocationSetId": {
                     "type": "string",
-                    "description": "The identifier of the Allocation set associated with the expense. Allocations which belong to the same set were created at the same time."
+                    "description": "The identifier of the Allocation set associated with the expense. Allocations which belong to the same set were created at the same time"
                 },
                 "allocationState": {
                     "type": "string",
@@ -1094,7 +1402,7 @@
                     "$ref": "#/definitions/Amount"
                 },
                 "approverAdjustedAmount": {
-                    "description": "The total amount adjusted for the expense by the approver",
+                    "description": "The total amount adjusted for the expense by the approver or processor",
                     "$ref": "#/definitions/Amount"
                 },
                 "attendeeCount": {
@@ -1105,6 +1413,10 @@
                 "businessPurpose": {
                     "type": "string",
                     "description": "The text input for the business purpose by the user"
+                },
+                "canDelete": {
+                    "type": "boolean",
+                    "description": "Indicates whether or not the expense entry can be deleted"
                 },
                 "claimedAmount": {
                     "description": "The total non-personal amount claimed for reimbursement for the expense",
@@ -1413,11 +1725,36 @@
                 },
                 "isDeleted": {
                     "type": "boolean",
-                    "description": "Whether the expense type returned is deleted or not."
+                    "description": "Whether the expense type returned is deleted or not"
+                },
+                "listItemId": {
+                    "type": "string",
+                    "description": "The unique identifier of the list item for this expense type"
                 },
                 "name": {
                     "type": "string",
                     "description": "The name of the expense type (localized as per accept-language header)"
+                }
+            }
+        },
+        "Employee": {
+            "type": "object",
+            "required": [
+                "firstName",
+                "lastName"
+            ],
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "description": "First name of the employee"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "Last name of the employee"
+                },
+                "middleInitial": {
+                    "type": "string",
+                    "description": "Middle initial of the employee"
                 }
             }
         },
@@ -1451,9 +1788,14 @@
                     "type": "string",
                     "description": "The HTTP method required for the related call"
                 },
+                "name": {
+                    "type": "string"
+                },
+                "profile": {
+                    "type": "string"
+                },
                 "rel": {
-                    "type": "string",
-                    "description": "The link relationship that describes how the href relates to the API call"
+                    "type": "string"
                 },
                 "title": {
                     "type": "string"
@@ -1501,6 +1843,10 @@
                     "format": "date",
                     "description": "The end date (ISO-8601) of the report as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
                 },
+                "hasReceivedCashAdvanceReturns": {
+                    "type": "boolean",
+                    "description": "Whether the Processor has received funds from the user for a cash advance return"
+                },
                 "isCopyDownInherited": {
                     "type": "boolean",
                     "description": "If this flag is set to true, any change in the report header fields will be copied down to expenses, itemizations and allocations, as per the configuration. Usage of this flag should be deliberate as data corruption could result."
@@ -1520,6 +1866,10 @@
                 "policyId": {
                     "type": "string",
                     "description": "The unique identifier of the policy that applies to this report"
+                },
+                "receiptContainerId": {
+                    "type": "string",
+                    "description": "The unique identifier of the physical location where the paper receipts are stored"
                 },
                 "redirectFund": {
                     "description": "Funds redirected to IBCP card",
@@ -1541,6 +1891,10 @@
                         "TR",
                         "UI"
                     ]
+                },
+                "sponsorId": {
+                    "type": "string",
+                    "description": "The unique identifier of the Employee, who is the official sponsor of the report owner"
                 },
                 "startDate": {
                     "type": "string",
@@ -1605,9 +1959,51 @@
                     "type": "boolean",
                     "description": "Whether the value returned is valid or not. This value is returned for custom fields of all data types and is specifically evaluated for list items to represent the current status. Default value: true"
                 },
+                "listItemUrl": {
+                    "type": "string",
+                    "description": "href (string): The URL of the related HATEOAS link that you can use for subsequent calls"
+                },
                 "value": {
                     "type": "string",
                     "description": "The value of the custom field. This field can have values for all the supported data types such as 'text', 'integer', 'boolean' and 'listItemId'. Maximum length: 48 characters"
+                }
+            }
+        },
+        "CommentDetails": {
+            "type": "object",
+            "required": [
+                "author",
+                "comment",
+                "createdForEmployee",
+                "createdForEmployeeId",
+                "creationDate",
+                "isLatest"
+            ],
+            "properties": {
+                "author": {
+                    "description": "The comment author's name",
+                    "$ref": "#/definitions/Employee"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "The comments input on the report/expense by all users"
+                },
+                "createdForEmployee": {
+                    "description": "The name of the Employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment",
+                    "$ref": "#/definitions/Employee"
+                },
+                "createdForEmployeeId": {
+                    "type": "string",
+                    "description": "The unique identifier of the Employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment"
+                },
+                "creationDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The UTC datetime when the comment was created on the report/expense (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DDTHH:mm:ssZ.SSS'Z'"
+                },
+                "isLatest": {
+                    "type": "boolean",
+                    "description": "This attribute represents whether a specific comment is the latest comment by the user."
                 }
             }
         },
@@ -1713,6 +2109,8 @@
             "type": "object",
             "required": [
                 "allocationState",
+                "canAllocate",
+                "canDelete",
                 "exchangeRate",
                 "expenseId",
                 "expenseType",
@@ -1735,7 +2133,7 @@
             "properties": {
                 "allocationSetId": {
                     "type": "string",
-                    "description": "The identifier of the Allocation set associated with the expense. Allocations which belong to the same set were created at the same time."
+                    "description": "The identifier of the Allocation set associated with the expense. Allocations which belong to the same set were created at the same time"
                 },
                 "allocationState": {
                     "type": "string",
@@ -1746,7 +2144,7 @@
                     "$ref": "#/definitions/Amount"
                 },
                 "approverAdjustedAmount": {
-                    "description": "The total amount adjusted for the expense by the approver",
+                    "description": "The total amount adjusted for the expense by the approver or processor",
                     "$ref": "#/definitions/Amount"
                 },
                 "attendeeCount": {
@@ -1766,6 +2164,14 @@
                 "businessPurpose": {
                     "type": "string",
                     "description": "The text input for the business purpose by the user"
+                },
+                "canAllocate": {
+                    "type": "boolean",
+                    "description": "Whether the expense can be allocated"
+                },
+                "canDelete": {
+                    "type": "boolean",
+                    "description": "Indicates whether or not the expense entry can be deleted"
                 },
                 "claimedAmount": {
                     "description": "The total non-personal amount claimed for reimbursement for the expense",
@@ -1922,6 +2328,10 @@
                 "vendor": {
                     "description": "The vendor information for the expense. Please refer to the 'Vendor' object for more information",
                     "$ref": "#/definitions/Vendor"
+                },
+                "xmlReceiptId": {
+                    "type": "string",
+                    "description": "The unique identifier of the XML receipt associated with the expense"
                 }
             }
         },
@@ -2075,6 +2485,10 @@
                     "type": "string",
                     "description": "The name of the airline vendor. Maximum length: 255 characters. Example: 'Alaska Airlines'"
                 },
+                "comparisonFare": {
+                    "description": "This amount represents the cost of lowest airfare available at time of booking.",
+                    "$ref": "#/definitions/Amount"
+                },
                 "endDate": {
                     "type": "string",
                     "format": "date",
@@ -2084,6 +2498,13 @@
                     "type": "integer",
                     "format": "int32",
                     "description": "The number of days of travel. Minimum value: 1"
+                },
+                "reasonCodes": {
+                    "type": "array",
+                    "description": "The Reason Code defines the reason for booked fare against the comparison fare.",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "startDate": {
                     "type": "string",
@@ -2095,7 +2516,7 @@
                     "description": "The airline class of service. Maximum length: 10 characters, Example: 'Economy'"
                 },
                 "totalAmountPaid": {
-                    "description": "The total amount paid",
+                    "description": "The total amount paid for the ticketed airfare",
                     "$ref": "#/definitions/Amount"
                 }
             }
@@ -2123,7 +2544,7 @@
             ],
             "properties": {
                 "approverAdjustedAmount": {
-                    "description": "The total amount adjusted for the expense by the approver",
+                    "description": "The total amount adjusted for the expense by the approver or processor",
                     "$ref": "#/definitions/Amount"
                 },
                 "authorizationRequestExpenseId": {
@@ -2133,7 +2554,7 @@
                 "budgetAccrualDate": {
                     "type": "string",
                     "format": "date",
-                    "description": "The budget accrual date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601). Format: YYYY-MM-DD"
+                    "description": "The budget accrual date (ISO-8601) of the expense (https://en.wikipedia.org/wiki/ISO_8601)Format: YYYY-MM-DD"
                 },
                 "businessPurpose": {
                     "type": "string",
@@ -2193,7 +2614,7 @@
                 },
                 "isPaperReceiptReceived": {
                     "type": "boolean",
-                    "description": "Whether paper receipts have been received for the expense. "
+                    "description": "Whether paper receipts have been received for the expense"
                 },
                 "isPersonalExpense": {
                     "type": "boolean",
@@ -2429,6 +2850,7 @@
                 "approvalStatus",
                 "approvalStatusId",
                 "approvedAmount",
+                "canAddExpense",
                 "canRecall",
                 "claimedAmount",
                 "concurAuditStatus",
@@ -2440,6 +2862,8 @@
                 "isPaperReceiptsReceived",
                 "isReceiptImageAvailable",
                 "isReceiptImageRequired",
+                "isSentBack",
+                "isSubmitted",
                 "ledger",
                 "ledgerId",
                 "name",
@@ -2499,6 +2923,10 @@
                 "businessPurpose": {
                     "type": "string",
                     "description": "The text input for the business purpose by the user"
+                },
+                "canAddExpense": {
+                    "type": "boolean",
+                    "description": "Indicates whether an expense entry can be added to the report"
                 },
                 "canRecall": {
                     "type": "boolean",
@@ -2562,6 +2990,10 @@
                     "format": "date",
                     "description": "The end date (ISO-8601) of the report as used for trip-based reporting (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DD"
                 },
+                "hasReceivedCashAdvanceReturns": {
+                    "type": "boolean",
+                    "description": "Whether the Processor has received funds from the user for a cash advance return"
+                },
                 "hierarchyNodeId": {
                     "type": "string",
                     "description": "The unique identifier of the group hierarchy node for the report resource"
@@ -2585,6 +3017,14 @@
                 "isReopened": {
                     "type": "boolean",
                     "description": "Whether the report is reopened"
+                },
+                "isSentBack": {
+                    "type": "boolean",
+                    "description": "Indicates whether the report has been sent back"
+                },
+                "isSubmitted": {
+                    "type": "boolean",
+                    "description": "Indicates whether the report has been submitted"
                 },
                 "ledger": {
                     "type": "string",
@@ -2629,6 +3069,10 @@
                     "type": "string",
                     "description": "The unique identifier of the policy that applies to this report"
                 },
+                "receiptContainerId": {
+                    "type": "string",
+                    "description": "The unique identifier of the physical location where the paper receipts are stored"
+                },
                 "redirectFund": {
                     "description": "Funds redirected to IBCP card",
                     "$ref": "#/definitions/RedirectFund"
@@ -2651,7 +3095,7 @@
                     "description": "User friendly unique identifier for the report"
                 },
                 "reportTotal": {
-                    "description": "The total amount on the Report",
+                    "description": "The total amount on the report",
                     "$ref": "#/definitions/Amount"
                 },
                 "reportType": {
@@ -2666,6 +3110,10 @@
                     "format": "int32",
                     "description": "The current version of the report"
                 },
+                "sponsorId": {
+                    "type": "string",
+                    "description": "The unique identifier of the Employee, who is the official sponsor of the report owner"
+                },
                 "startDate": {
                     "type": "string",
                     "format": "date",
@@ -2675,6 +3123,14 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "The UTC datetime when the user submitted the report (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DDTHH:mm:ssZ"
+                },
+                "submitterId": {
+                    "type": "string",
+                    "description": "The unique identifier of the employee, who submitted the report"
+                },
+                "taxConfigId": {
+                    "type": "string",
+                    "description": "The tax config ID of the report"
                 },
                 "userId": {
                     "type": "string",
@@ -3090,6 +3546,38 @@
                 "name": {
                     "type": "string",
                     "description": "The location name (localized as per accept-language header)"
+                }
+            }
+        },
+        "UpdateReportExpenseCompact": {
+            "type": "object",
+            "required": [
+                "expenseSource"
+            ],
+            "properties": {
+                "businessPurpose": {
+                    "type": "string",
+                    "description": "The text input for the business purpose by the user. Maximum length: 64 characters"
+                },
+                "customData": {
+                    "type": "array",
+                    "description": "This is a set of data that the custom fields contain for the resource based on the configuration. This set might be empty if no custom fields are configured",
+                    "items": {
+                        "$ref": "#/definitions/CustomData"
+                    }
+                },
+                "expenseSource": {
+                    "type": "string",
+                    "description": "The source of the expense. Possible values: EA - Expense Assistant, MOB - Mobile, OTHER - Unknown, SE - Smart Expense, TA - Travel Allowance, TR - Travel Request, UI - Web UI",
+                    "enum": [
+                        "EA",
+                        "MOB",
+                        "OTHER",
+                        "SE",
+                        "TA",
+                        "TR",
+                        "UI"
+                    ]
                 }
             }
         }

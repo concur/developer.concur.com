@@ -1,0 +1,290 @@
+---
+title: Comments v4
+layout: reference
+---
+
+The Comments v4 API is used to read the comments entered on the expense report header, or expenses of an existing expense report. This API is used to detail information about spending that occurs out of policy, which is justified by the report owner, or inaccuracies pointed out by the approvers of the expense report.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+* [Prior Versions](#prior-versions)
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Retrieve Report Header Comments](#retrieve-report-header-comments)
+* [Retrieve Expense Comments](#retrieve-expense-comments)
+* [Schema](#schema)
+  * [Report Header Comments](#report-header-comments-response-schema)
+  * [Expense Comments](#expense-comments-response-schema)
+  * [Error Message](#error-message-schema)
+  * [Validation Error](#validation-errors-schema)
+
+## <a name="prior-versions"></a>Prior Versions
+
+* Reports v2 documentation is available [here](./v2.reports.html).
+
+## <a name="products-editions"></a>Products and Editions
+
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Required Scopes:
+
+| Name|Description|Endpoint|
+| ---|---|---|
+|`expense.report.read`| Get information about expense reports.|GET|
+|`user.read`|Get User Information, necessary for `userID`.|GET|
+
+Optional Scope:
+
+|Name|Description|Endpoint|
+|---|---|---|
+|`expense.report.readwrite`|Read and write expense report headers.|PATCH|
+|`expense.report.workflowstatus.write`|Approve or Send Back the Report in the workflow|PATCH|
+
+
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the Identity v4 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens.
+
+## <a name="retrieve-report-header-comments"></a>Retrieve Report Header Comments
+
+Retrieves the comments on the specific report header.
+
+### Scopes
+
+`expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/comments
+```
+
+#### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4](/api-reference/profile/v4.identity.html) to retrieve the `userID`.|
+|`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
+|`reportId`|string|-|**Required** The unique identifier of the report that is being read.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Report Header Comments Response](#report-header-comments-response-schema)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB/comments' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Report-test' \
+--header 'Content-Type: application/json'
+```
+
+#### Response
+
+
+```shell
+200 OK
+
+[
+  {
+    "comment": "This is an expense report for office supplies",
+    "creationDate": "2021-03-17T22:29:50.090Z",
+    "author": {
+      "firstName": "Concur",
+      "lastName": "Administrator",
+      "middleInitial": ""
+    },
+    "createdForEmployeeId": "32c2fcc3-b2e8-4907-9672-5b3f49b1c643",
+    "createdForEmployee": {
+      "firstName": "Tester",
+      "lastName": "Insert",
+      "middleInitial": "A"
+    },
+    "isLatest": true
+  }
+]
+```
+## <a name="retrieve-expense-comments"></a>Retrieve Expense Comments
+
+Retrieves the comments on the specific expense within an expense report.
+
+### Scopes
+
+`expense.report.read` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/comments
+```
+
+#### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4](/api-reference/profile/v4.identity.html) to retrieve the `userID`.|
+|`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
+|`reportId`|string|-|**Required** The unique identifier of the report to which this expense entry belongs.|
+|`expenseId`|`string`|-|**Required** The unique identifier of the expense entry to which the comments belong.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Expense Comments Response](#expense-comments-response)
+
+### Example
+
+#### Request
+
+```shell
+curl --location --request GET 'https://us.api.concursolutions.com/expensereports/v4/users/32C2FCC3-B2E8-4907-9672-5B3F49B1C643/context/TRAVELER/reports/764428DD6A664AF0BFCB/expenses/84FCBB92BD4E5342B849DAC29FD163A1/comments' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Expense-Report-test' \
+--header 'Content-Type: application/json'
+```
+
+#### <a name="expense-comments-response"></a> Expense Comments Response
+
+
+```shell
+200 OK
+
+[
+    {
+        "comment": "This expense is allowed due to the pandemic",
+        "creationDate": "2021-03-17T23:05:40.340Z",
+        "author": {
+            "firstName": "Concur",
+            "lastName": "Administrator",
+            "middleInitial": ""
+        },
+        "createdForEmployeeId": "32c2fcc3-b2e8-4907-9672-5b3f49b1c643",
+        "createdForEmployee": {
+            "firstName": "Tester",
+            "lastName": "Insert",
+            "middleInitial": "A"
+        },
+        "isLatest": true
+    }
+]
+```
+
+## <a name="schema"></a>Schema
+
+### <a name="report-header-comments-response-schema"></a> Report Header Comments
+
+Name|Type|Format|Description
+---|---|---|---
+`commentDetails`|`array`|[`commentDetails`](#comment-details)|A key linking to another schema for the format.
+
+### <a name="expense-comments-response-schema"></a> Expense Comments
+
+Name|Type|Format|Description
+---|---|---|---
+`commentDetails`|`array`|[`commentDetails`](#comment-details)|A key linking to another schema for the format.
+
+#### <a name="comment-details"></a>commentDetails
+
+Name|Type|Format|Description
+---|---|---|---
+`author`|[`Employee`](#employee-schema)|-|**Required** The comment author's name.
+`comment`|`string`|-|**Required** The comments input on the report by all users.
+`createdForEmployee`|[`Employee`](#employee-schema)|-|**Required** The name of the employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment.
+`createdForEmployeeId`|`string`|-|**Required** The unique identifier of the employee the comment was created on behalf of. This would differ from the comment author only in the case of delegates creating the comment.
+`creationDate`|`string`|`YYYY-MM-DDTHH:mm:ssZ.SSS'Z'`|**Required** The UTC datetime when the comment was created on the report or expense.
+`isLatest`|`boolean`|`true`/`false`|**Required** If `true`, this attribute represents the latest comment by the user.
+
+### <a name="employee-schema"></a>Employee
+
+Name|Type|Format|Description
+---|---|---|---
+`firstName`|`string`|-|First name of the employee.
+`lastName`|`string`|-|Last name of the employee.
+`middleInitial`|`string`|-|Middle initial of the employee.
+
+### <a name="error-message-schema"></a>Error Message
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`errorId`|`string`|-|The unique identifier of the error associated with the response.|
+|`errorMessage`|`string`|-|**Required** The detailed error message.|
+|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response.|
+|`path`|`string`|-|**Required** The URI of the attempted request.|
+|`timestamp`|`string`|`date-time`|**Required** The time when the error was captured.|
+|`validationErrors`|[`ValidationError`](#validation-error-schema)|-|The validation error messages.|
+
+### <a name="validation-errors-schema"></a>Validation Error
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|The ID of the validation error.|
+|`message`|`string`|-|The detailed message of the validation error.|
+|`source`|`string`|-|The type of validation which failed.|

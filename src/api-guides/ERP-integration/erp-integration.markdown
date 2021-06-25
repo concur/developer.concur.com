@@ -8,7 +8,8 @@ layout: reference
 * [Integration](#integration)
   * [Quick Connect](#quick-connect)
   * [Company Profile](#profile)
-  * [Financial posting via Extract](#integration-extract)
+  * [Financial posting via Financial Integration Service](./posting-via-financial-integration-service.html)
+  * [Financial posting via Extract](./posting-via-extracts.html)
   * [Manage lists of Cost Object codes](#integration-manage-lists)
   * [Add and update Vendor data](#integration-vendor-data)
   * [Send Purchase Order data to SAP Concur](#integration-purchase-order) (Invoice Only)
@@ -24,47 +25,33 @@ Use the following resources to get familiar with the SAP Concur product and then
 
 ## <a name="phases"></a>Phased Development Approaches
 
-We recognize there is a likelihood of certifying the following in a phased approach. We will provide guidance on which segments can be phased together. Regardless of the phase that is pursued, both Standard & Professional Editions must be supported with each phase. You cannot go to production with support for only one of the Edition types since your sales team will not know which Edition type a prospect uses.
+There is a likelihood the ERP integration components will need to be certified in a phased approach. If necessary, the phases are to be completed as specified below. Standard and Professional Editions must be supported with each phase. You cannot go to production with support for only one of the edition types since you will not know which edition type customers will use. The phases are to be done in this sequence and must include:
 
 Phase 1|Phase 2
 ---|---
-Quick Connect|Manage lists of Cost Object codes (Basic + Advanced)
-Company Profile|Add and update Vendor data (Basic + Advanced)
-Financial posting via Extract|Send Purchase Order data to SAP Concur (Advanced)
--|Send Purchase Order Receipt data to SAP Concur (Advanced)
+Quick Connect|Manage lists of Cost Object codes
+Company Profile|Add and update Vendor data
+Financial posting via Financial Integration Service|Send Purchase Order data to SAP Concur
+-|Send Purchase Order Receipt data to SAP Concur
 
 ## <a name="integration"></a>Integration
 
 ### <a name="quick-connect"></a>Quick Connect
 
+**Quick Connect** describes the process customers use to connect their SAP Concur site with an App Center Partner's Enterprise application. See the separate Quick Connect scope document for details to guide you through the development of this required piece to your certified application.
+
 [Quick Connect Scope for Enterprise Apps](./quick-connect-scope-for-enterprise-apps.html)
 
-**Quick Connect** describes the process customers use to connect their SAP Concur site with an App Center Partner's Enterprise application. See the separate Quick Connect scope document for details to guide you through the development of this required piece to your certified application.
+If you're already familiar with Quick Connect and just need information about Authorization, see [Authentication - Enterprise Business Applications](/api-reference/authentication/apidoc.html#enterprise-business-applications).
 
 ### <a name="profile"></a>Company Profile
 
-[Profile Company API v1 ERP Integration](/api-reference/profile/v1.company.html#erp-integration)
+This API provides the partner with 2 key pieces of information:
 
-### <a name="integration-extract"></a>Financial posting via Extract
-
-**Professional Edition**: Typical code flow is listed in the [Extracts v1 API ERP Integration](/api-reference/common/extracts/v1.extracts.html#erp-integration).
-
-**Standard Edition**: Typical code flow is listed in the  [Payment Batches v1 API ERP Integration](/api-reference/expense/payment-batch/v1.payment-batches.html#erp-integration)
-
-Differences exist between Standard & Professional in regards to how the client code obtains the data / extract file so it is important to first determine the Edition Type as noted in the [Company Profile](#profile) section.
-
-The integration is slightly different depending on Expense or Invoice.
-
-* **Expense**: Standard Accounting Extract
-* **Invoice**: Payment Requests Accounting Extract
-
-#### Optional
-
-If a customer requests that the ERP Partner obtain images to be added to their GL, use the [Image v1 API](/api-reference/image/v1.image.html#get-image-url).
-
-The GET Report Details API request will produce an Entry ID that will be used in this API request. The result will produce a URL that the ERP Partner can use in a separate browser session to render the image. This URL is short-lived (15 minutes). If the URL expires, then the ERP Partner can retry the same call to get another URI to render the image.
-
-> For the purposes of this API, the parameter variable {id} is acquired from the v2 GET Report Details API: `EntryID`.
+*  Company `UUID` - Partner will record this value per customer connection and use it when submitting Support cases.
+*  `MarketingName` data element - Partner will record this value per customer. This will indicate the edition type a customer is using:
+  * `CTE` or `Enterprise` means the customer is using Professional Edition.
+  * `Standard` means the customer is using Standard Edition.
 
 ### <a name="integration-manage-lists"></a>Manage lists of Cost Object codes
 

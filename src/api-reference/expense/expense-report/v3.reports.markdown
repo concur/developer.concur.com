@@ -46,20 +46,20 @@ Name|Type|Format|Description
 `hasBillableExpenses`|`Boolean`|`query`|The IsBillable flag for at least one expense entry in the report. Format: true or false.
 `isTestUser`|`Boolean`|`query`|The report owner is a test user using the report for testing purposes in a non-production environment. Format: true or false.
 `expenseGroupConfigID`|`string`|`query`|The unique identifier for the expense group configuration associated to the report's expense group. Use the ID from the Response of the Expense Group Configurations V3.
-`entryTransactionDateBefore`|`DateTime`|`query`|The entry transaction date for at least one expense entry in the report is before this date. Format: YYYY-MM-DD
-`entryTransactionDateAfter`|`DateTime`|`query`|The entry transaction date for at least one expense entry in the report is after this date. Format: YYYY-MM-DD
-`createDateBefore`|`DateTime`|`query`|The report create date is before this date. Format: YYYY-MM-DD
-`createDateAfter`|`DateTime`|`query`|The report create date is after this date. Format: YYYY-MM-DD
-`userDefinedDateBefore`|`DateTime`|`query`|The report user defined date is before this date. Format: YYYY-MM-DD
-`userDefinedDateAfter`|`DateTime`|`query`|The report user defined date is after this date. Format: YYYY-MM-DD
-`submitDateBefore`|`DateTime`|`query`|The report submit date is before this date. Format: YYYY-MM-DD
-`submitDateAfter`|`DateTime`|`query`|The report submit date is after this date. Format: YYYY-MM-DD
-`processingPaymentDateBefore`|`DateTime`|`query`|The report processing payment date is before this date. Format: YYYY-MM-DD
-`processingPaymentDateAfter`|`DateTime`|`query`|The report processing payment date is after this date. Format: YYYY-MM-DD
-`paidDateBefore`|`DateTime`|`query`|The report paid date is before this date. Format: YYYY-MM-DD
-`paidDateAfter`|`DateTime`|`query`|The report paid date is after this date. Format: YYYY-MM-DD
-`modifiedDateBefore`|`DateTime`|`query`|The report modified date is before this date. Format: YYYY-MM-DD
-`modifiedDateAfter`|`DateTime`|`query`|The report modified date is after this date. Format: YYYY-MM-DD
+`entryTransactionDateBefore`|`DateTime`|`query`|The entry transaction date for at least one expense entry in the report is before this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`entryTransactionDateAfter`|`DateTime`|`query`|The entry transaction date for at least one expense entry in the report is after this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`createDateBefore`|`DateTime`|`query`|The report create date is before this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`createDateAfter`|`DateTime`|`query`|The report create date is after this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`userDefinedDateBefore`|`DateTime`|`query`|The report user defined date is before this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`userDefinedDateAfter`|`DateTime`|`query`|The report user defined date is after this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`submitDateBefore`|`DateTime`|`query`|The report submit date is before this date. Format: Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`submitDateAfter`|`DateTime`|`query`|The report submit date is after this date. Format: Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`processingPaymentDateBefore`|`DateTime`|`query`|The report processing payment date is before this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`processingPaymentDateAfter`|`DateTime`|`query`|The report processing payment date is after this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`paidDateBefore`|`DateTime`|`query`|The report paid date is before this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`paidDateAfter`|`DateTime`|`query`|The report paid date is after this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`modifiedDateBefore`|`DateTime`|`query`|The report modified date is before this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
+`modifiedDateAfter`|`DateTime`|`query`|The report modified date is after this date. Accepted Formats: yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss.SSS
 
 
 ### Request URL
@@ -148,13 +148,12 @@ https://www.concursolutions.com/api/v3.0/expense/reports?limit=15&user=ALL
 Name|Type|Format|Description
 -----|------|--------|------------
 `id`|`string`|`path`|**Required** Report ID
-`user`|`string`|`query`|Optional. The login ID of the report owner(s) to use when searching for reports. If the value is set to LoginID, reports for the report owner with this login ID value are returned. If the value is set to ALL, reports for all report owners are returned. If this parameter is not specified, reports for the OAuth Consumer are returned. The access token owner (OAuth Consumer) must have the Web Services Admin role to use this parameter.
-
+`user`|`string`|`query`|LoginID of the report owner needs to be specified in the query parameter when searching for specific report using ReportID. If Bearer Access token used in the API call is equal to the Bearer access token of the owner of the report, user parameter can be omitted. Parameter equal to ALL (user=ALL) is not allowed when operating on a single resource (single ReportID).
 
 ### Request URL
 
 ```
-https://www.concursolutions.com/api/v3.0/expense/reports/39BD9F7C5C3F4986A6A5
+https://www.concursolutions.com/api/v3.0/expense/reports/39BD9F7C5C3F4986A6A5?user=jimadmin@concurconnect2.com
 ```
 
 ### JSON example of a successful response
@@ -306,7 +305,7 @@ Name|Type|Format|Description
 `PaymentStatusCode`|`string`|-|The code for the payment status of the report.
 `PaymentStatusName`|`string`|-|The report's payment status, in the OAuth consumer's language.
 `PersonalAmount`|`Decimal`|-|The total amount of expenses marked as personal. Maximum 23 characters.
-`PolicyID`|`string`|-|The unique identifier of the policy that applies to this report. Maximum 64 characters. User's default expense policy is being used when creating a new expense report
+`PolicyID`|`string`|-|The unique identifier of the policy that applies to this report. Maximum 64 characters. User's default expense policy is being used when creating a new expense report.  **Note**: Policy cannot be changed via the v3 Reports API.
 `ProcessingPaymentDate`|`DateTime`|-|The date that the report completed all approvals and was ready to be extracted for payment.
 `ReceiptsReceived`|`Boolean`|-|If Y, then this entry has been marked as confirmed by the Expense Processor. Format: Y/N
 `SubmitDate`|`DateTime`|-|The date the report was submitted.

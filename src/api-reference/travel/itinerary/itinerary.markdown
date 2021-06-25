@@ -67,9 +67,7 @@ TripLink suppliers, travel management companies (TMCs), and SAP Concur clients a
 * Get trip information for SAP Concur users. SAP Concur clients who purchase Web Services have access to their own trip data, while third party developers have access to the SAP Concur trip data of the clients who authorize them.
 * Third-party partner developers must determine which configurations are required for their solution prior to the review process.
 
-If you would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team. SAP Concur products are highly configurable, and not all clients will have access to all features.
-
-Some itinerary data may have come from Sabre. SAP Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
+SAP Concur products are highly configurable, and not all clients will have access to all features. Some itinerary data may have come from Sabre. SAP Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
 
 ## <a name="itin-auth"></a>Authentication and Authorization
 
@@ -523,7 +521,7 @@ The Fixed element contains the following child elements.
 | Description | String |  | The description for the rate.  |
 | IsPaid | Boolean |  | Whether the rate has been paid. Format: true/false. |
 | IsPrimary | Boolean |  | Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary. Format: true/false. |
-| SemanticsCode | String |  | Indicates the charge category for the line item. Refer to the [Semantics Codes][3] table for more information.  |
+| SemanticsCode | String |  | Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics-codes) table for more information.  |
 | SemanticsVendorType | String |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
 | StartDateLocal | DateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | String |  |  The vendor for the booking charge. |
@@ -549,7 +547,7 @@ The percent of fixed charges. This parent element contains the following child e
 | Description | sring |  | The description for the rate.  |
 | IsPaid | boolean |  | Whether the rate has been paid. Format: true/false. |
 | IsPrimary | boolean |  | Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary. Format: true/false. |
-| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the [Semantics Codes][3] table for more information.  |
+| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics-codes) table for more information.  |
 | SemanticsVendorType | string |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
 | StartDateLocal | dateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | string |  |  The vendor for the booking charge. |
@@ -669,7 +667,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
 | EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
-| Vendor | string |  | The two letter GDS vendor code. See the [Car Vendor Codes][5] table for  car vendor codes.|
+| Vendor | string |  | The two letter GDS vendor code. See the [Car Vendor Codes](#car-vendor-codes) table for  car vendor codes.|
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor. |
 | Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges Elements** table. |
@@ -1117,7 +1115,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | IsPrimary | boolean |  |  Whether the rate is primary. Format: true/false. |  
 | NumUnits | decimal |  |  The  number of units expected for the charge. For instance, 3 days |  
 | PerUnit | string |  |  The  unit of measure for the charge. Values represent rates like per DAY, WEEK, or  MONTH |  
-| SemanticsCode | string |  |  Indicates the charge category for the line item. Refer to the [Semantics Codes][3] table for more information. |  
+| SemanticsCode | string |  |  Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics-codes) table for more information. |  
 | SemanticsVendorType | string |  |  The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |  
 | StartDateLocal | dateTime |  |   The start date of the booking, in the user's local time.  Format: YYYY-MM-DDThh:mm:ss |  
 | Vendor | string |  |  The vendor for the booking charge. |  
@@ -1847,7 +1845,5 @@ SAP Concur converts local date/time to UTC.  In order to do that we need to be a
 
 [1]: https://en.wikipedia.org/wiki/ISO_4217
 [2]: https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A
-[3]: https://www.concur.com/en-us/connect-platform/suppliers
-[5]: https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#car_vendor_codes
 [6]: https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/#objects
 [9]: Itinerarywebserviceoverview.png

@@ -3,13 +3,15 @@ title: SAP Concur Deprecated API List
 layout: reference
 ---
 
-The following application programming interfaces (APIs) have been deprecated according to the [API Lifecycle & Deprecation Policy](/tools-support/deprecation-policy.html).
+The following application programming interfaces (APIs) and other resources have been deprecated according to the [API Lifecycle & Deprecation Policy](/tools-support/deprecation-policy.html).
 
 * [Attendees v1](/api-reference/expense/attendees/v1.attendees.html)
 * [Attendees v1.1](/api-reference/expense/attendees/v1dot1.attendees.html)
 * [Attendees v2](/api-reference/expense/attendees/v2.attendees.html)
 * [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html)
 * [Authorization (Pre-2017)](/api-reference/authentication/authorization-pre-2017.html)
+* Direct Connect - Ground Transportation v1
+  * [Update reservation with Travel](/api-reference/direct-connects/ground-transportation/update-reservation-travel.html)
 * Expense Entry v1.1
   * [Expense Entry Itemization](/api-reference/expense/expense-report/v1dot1.expense-itemization.html)
   * [Expense Entry](/api-reference/expense/expense-report/v1dot1.expense-entry.html)
@@ -36,7 +38,8 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [List Resource](/api-reference/common/list-item/v1.list-resource.html)
   * [Get a list of lists](/api-reference/common/list-item/v1.list-resource-get.html)
   * [Post new list items](/api-reference/common/list-item/v1.list-resource-post.html)
-* [Receipts v3](/api-reference/receipts/v3.receipts.html)
+* [Lists v3](/api-reference/common/lists/v3.lists.html)
+* [List Item v3](/api-reference/common/list-item/v3.list-item.html)
 * Request v3
   * [Request v3 Reference](/api-reference/request/v3.request.html)
   * [Request v3 Explorer](/api-explorer/v3-0/Requests.html)
@@ -47,3 +50,7 @@ The following application programming interfaces (APIs) have been deprecated acc
 * Travel Web Service v1
   * [Profile Resource](/api-reference/travel-profile/v1.profile-resource.html)
 * [Trip Approval v1](/api-reference/travel/trip-approval/v1.trip-approval-resource.html)
+
+* Resources
+  * [Videos](/tools-support/videos/index.html)
+  * [Samples](/tools-support/samples/index.html)

@@ -1,0 +1,180 @@
+---
+title: Workflows v4
+layout: reference
+---
+{% include prerelease.html %}
+
+The Workflows v4 API is used to Approve or Send Back an expense report that is in the workflow. This API is used only for normal approval steps and not for Cost Object Approval steps.
+
+> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
+
+* [Prior Versions](#Prior-versions)
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Approve or Send Back a Report](#approve-or-send-back-a-report)
+* [Schema](#schema)
+  * [Report Send Back Request](#report-send-back-request-schema)
+  * [Report Approve Request](#report-approve-request-schema)
+  * [Error](#schema-error)
+* [Validation Errors](#validation-errors-schema)
+
+## <a name="Prior-versions"></a>Prior Versions
+
+* Report Workflow Action v1.1 documentation is available [here](/api-reference/expense/expense-report/post-report-workflow-action.html).
+
+## <a name="products-editions"></a>Products and Editions
+
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Required Scope:
+
+| Name|Description|Endpoint|
+| ---|---|---|
+|`expense.report.workflowstatus.write`|Approve or Send Back the Report in the workflow|PATCH|
+
+Optional Scope:
+
+|Name|Description|Endpoint|
+|---|---|---|
+|`expense.report.read`| Get information about expense reports.|GET|
+|`expense.report.readwrite`|Read and write expense report headers.|PATCH|
+|`spend.listitem.read`|Read only access to spend list items `listItemId`.|GET|
+|`spend.list.read`|Read only access to spend list and category details.|GET|
+|`user.read`|Get User Information, necessary for `userID`.|GET|
+
+## <a name="dependencies"></a>Dependencies
+
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the Identity v4 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API supports both company level and user level access tokens.
+
+## <a name="approve-or-send-back-a-report"></a>Approve or Send Back a Report
+
+The Approve function advances the specified report to the next step if it is in a system step. The Send Back function sends back the specified report to report owner.
+
+### Scopes
+
+`expense.report.workflowstatus.write` - Refer to [Scope Usage](#scope-usage) for full details.
+
+### Request
+
+#### URI Template
+
+```shell
+https://{datacenterURI}/expensereports/v4/reports/{reportId}/approve
+https://{datacenterURI}/expensereports/v4/reports/{reportId}/sendBack
+```
+
+#### Parameters
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`reportId`|string|-|**Required** The unique identifier of the report that is being approved or sent back.|
+
+#### Headers
+
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### REST Design Specification
+
+PATCH operations in Expense Reports v4 conform to the JSON Merge Patch specification:
+
+* [RFC 7386 Authorization - JSON Merge Patch](https://tools.ietf.org/html/rfc7386)
+
+#### Payload
+
+* [Approve/Sendback Report Request](#patch-approve-sendback-report-request-schema)
+
+### Response
+
+#### Status Codes
+
+* [204 No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Approve/Reject Report Response](#patch-approve-sendback-report-response-schema)
+
+### Example
+
+#### <a name="patch-approve-sendback-report-request-schema"></a>Request
+
+```shell
+curl --location --request PATCH 'https://us.api.concursolutions.com/expensereports/reports/764428DD6A664AF0BFCB/Approve' \
+--header 'Authorization: Bearer {access_token}' \
+--header 'Concur-CorrelationId: Viswa test' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "reportSource":"OTHER"
+}'
+```
+
+#### <a name="patch-approve-sendback-report-response-schema"></a>Response
+
+```shell
+204 No Content
+```
+
+## <a name="schema"></a>Schema
+
+### <a name="report-send-back-request-schema"></a>ReportSendBackRequest
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`comment`|`string`|-|**Required** Comments for sending back the report.|
+|`currentProcessInstanceId`|`string`|-|Current workflow process instance ID for validation.|
+|`currentSequence`|`integer`|`int32`|Current workflow process sequence number for validation.|
+|`reasonCodeId`|`string`|-|The unique identifier of the Reason Code only by processor.|
+|`reportSource`|`string`|-|The source of the report. Supported values: `EA` - Expense Assistant, `MOB` - Mobile, `OTHER` - Unknown, `SE` - Smart Expense, `TR` - Travel Request, `UI` - Web UI|
+
+### <a name="report-approve-request-schema"></a>ReportApproveRequest
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`comment`|`string`|-|Approver comments.|
+|`currentProcessInstanceId`|`string`|-|Current workflow process instance ID for validation.|
+|`currentSequence`|`integer`|`int32`|Current workflow process sequence number for validation.|
+|`reportSource`|`string`|-|The source of the report. Supported values: `EA` - Expense Assistant, `MOB` - Mobile, `OTHER` - Unknown, `SE` - Smart Expense, `TR` - Travel Request, `UI` - Web UI|
+|`statusId`|`string`|-|Status that will be assigned to the report by this workflow transition.|
+
+### <a name="schema-error"></a>Error
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`errorId`|`string`|-|The unique identifier of the error associated with the response.|
+|`errorMessage`|`string`|-|**Required** The detailed error message.|
+|`httpStatus`|`string`|-|**Required** The http response code and phrase for the response.|
+|`path`|`string`|-|**Required** The URI of the attempted request.|
+|`timestamp`|`string`|`date-time`|**Required** The time when the error was captured.|
+|`validationErrors`|[`ValidationError`](#validation-error-schema)|-|The validation error messages.|
+
+### <a name="validation-errors-schema"></a>ValidationError
+
+|Name|Type|Format|Description|
+|---|---|---|---|
+|`id`|`string`|-|The ID of the validation error.|
+|`message`|`string`|-|The detailed message of the validation error.|
+|`source`|`string`|-|The type of validation which failed.|

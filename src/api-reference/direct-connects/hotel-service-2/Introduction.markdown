@@ -18,7 +18,9 @@ This call-out differs from the in-bound SAP Concur web services in the following
 * [Product Restrictions](#product-restrictions)
 * [Supported Operations](#supported-ops)
 * [Non-Functional Requirements](#nonfunctional-requirements)
-  * [Response Times](#response-times)
+  * [Payload Limits](#payload-limits)
+  * [Recommended Response Times, Timeouts, and Retries](#response-times)
+  * [Maximum Connections and Throttling](#max-connections)
   * [Emergency Technical Contact](#emergency-tech-contact)
   * [Testing Environment](#testing-enviro)
   * [Security](#security)
@@ -29,7 +31,7 @@ This call-out differs from the in-bound SAP Concur web services in the following
   * [Responses](#responses)
 
 ## <a name="product-restrictions"></a>Product Restrictions
-Hotel Service 2 API inventory is not accessible from the SAP Concur mobile app. SAP Concur products are highly configurable, and not all clients will have access to all features.
+SAP Concur products are highly configurable, and not all clients will have access to all features.
 
 ## <a name="supported-ops"></a>Supported Operations
 
@@ -43,8 +45,44 @@ Hotel Service 2 API inventory is not accessible from the SAP Concur mobile app. 
 
 ## <a name="nonfunctional-requirements"></a>Non-Functional Requirements
 
-### <a name="response-times"></a>Response Times
-SAP Concur needs to receive all responses within 55 seconds, otherwise it causes timeout. To prevent no show fees, duplicate bookings and other similar issues, SAP Concur recommends to perform Auto-Cancel by the Hotel Supplier if ReadRQ message is not sent by SAP Concur 5 minutes after HotelResRS message was sent to SAP Concur.
+### <a name="payload-limits"></a>Payload Limits
+
+|Operation|Maximum response content-length|
+|---|---|
+Search|1 MB|
+Availability|5 MB|
+Descriptive Information|150 KB|
+Rate Details|5 MB|
+Reservation|150 KB|
+Read Itinerary|150 KB|
+Cancel|150 KB|
+
+Responses that exceed these limits will be dropped and handled as error responses.
+
+### <a name="response-times"></a>Recommended Response Times, Timeouts, and Retries
+
+|Operation|Ideal response time|
+|---|---|
+Search|<4 seconds|
+Availability|<10 seconds|
+Descriptive Information|<1 second|
+Rate Details|<2 seconds|
+Reservation|<10 seconds|
+Read Itinerary|<1 second|
+Cancel|<10 seconds|
+
+Achieving lower response times helps get information to the traveler sooner which leads to a better user experience. SAP Concur understands that not every hotel program manages their own inventory and requires relays out to other vendors and the numbers above take that scenario into consideration.
+
+All endpoints carry a timeout of 55 seconds. No endpoints will attempt a retry in the event there is a timeout.
+
+SAP Concur has monitoring in place for each endpoint and will open a ticket with suppliers if a significant degradation or variance of service quality is detected.
+
+NOTE: To prevent no show fees, duplicate bookings and other similar issues, SAP Concur recommends the Hotel Supplier auto-cancel the reservation if a corresponding ReadRQ message is not sent by SAP Concur within 5 minutes after the HotelResRS message was sent to SAP Concur.
+
+
+### <a name="max-connections"></a>Maximum Connections and Throttling
+SAP Concur is unable to share details regarding maximum connections and/or throttling questions due to their sensitivity in nature.
+
 
 ### <a name="emergency-tech-contact"></a>Emergency Technical Contact
 The Hotel supplier needs to provide emergency technical contact email that will be used for communication in case of blocking technical issues.

@@ -23,10 +23,6 @@
         url: /api-explorer/v3-0/Itemizations.html
       - title: Latest Bookings
         url: /api-explorer/v3-0/LatestBookings.html
-      - title: List Items
-        url: /api-explorer/v3-0/ListItems.html
-      - title: Lists
-        url: /api-explorer/v3-0/Lists.html
       - title: Localized Data
         url: /api-explorer/v3-0/LocalizedData.html
       - title: Locations
@@ -43,8 +39,6 @@
         url: /api-explorer/v3-0/PurchaseOrders.html
       - title: Receipt Images
         url: /api-explorer/v3-0/ReceiptImages.html
-      - title: Receipts
-        url: /api-explorer/v3-0/Receipts.html
       - title: Reports
         url: /api-explorer/v3-0/Reports.html
       - title: Sales Tax Validation Request
@@ -74,15 +68,31 @@
 - title: v4.0
   url: ''
   children:
+      - title: Allocations
+        url: /api-explorer/v4-0/Reports.html
       - title: Budget
         url: /api-explorer/v4-0/Budget.html
+      - title: Comments
+        url: /api-explorer/v4-0/Reports.html
+      - title: Event Subscription Service
+        url: /api-explorer/v4-0/EventSubscriptionService.html
+      - title: Exchange Rate
+        url: /api-explorer/v4-0/ExchangeRate.html
+      - title: Expenses
+        url: /api-explorer/v4-0/Reports.html
+      - title: Financial Integration Service
+        url: /api-explorer/v4-0/FinancialIntegrationService.html
       - title: Invoice Pay
         url: /api-explorer/v4-0/InvoicePay.html
-      - title: Notifications
-        url: /api-explorer/v4-0/PartnerNotifications.html
+      - title: List
+        url: /api-explorer/v4-0/List.html
+      - title: List Item
+        url: /api-explorer/v4-0/ListItem.html
       - title: Purchase Requests
         url: /api-explorer/v4-0/PurchaseRequest.html
       - title: Quick Expenses
         url: /api-explorer/v4-0/QuickExpenses.html
+      - title: Reports
+        url: /api-explorer/v4-0/Reports.html
       - title: Request
         url: /api-explorer/v4-0/ConcurRequest.html

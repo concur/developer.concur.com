@@ -13,14 +13,14 @@ Message to retrieved the availability of hotels.
 
 * [Request](#request)
   * [Schema](#req-schema)
-    * [Available Request Segments](#available-req-segments)
-    * [Available Request Segment](#available-req-segment)
+    * [Available Request Segments](#available-request-segments)
+    * [Available Request Segment](#available-request-segment)
     * [Hotel Search Criteria](#hotel-search-criteria)
     * [Criterion](#criterion)
     * [Stay Date Range](#stay-date-range)
-    * [Room Stay Candidates](#room-stay-cadidates)
+    * [Room Stay Candidates](#room-stay-candidates)
     * [Room Stay Candidate](#room-stay-candidate)
-    * [Guest Counts](#guest-counds)
+    * [Guest Counts](#guest-counts)
     * [Guest Count](#guest-count)
 * [Response](#response)
   * [Schema](#res-schema)
@@ -28,7 +28,7 @@ Message to retrieved the availability of hotels.
     * [Room Stay](#room-stay)
     * [Room Types](#room-types)
     * [Room Type](#room-type)
-    * [Room Descriptions](#room-descriptions)
+    * [Room Description](#room-description)
     * [Rate Plans](#rate-plans)
     * [Rate Plan](#rate-plan)
     * [Rate Plan Description](#rate-plan-description)
@@ -38,7 +38,7 @@ Message to retrieved the availability of hotels.
     * [Deadline](#deadline)
     * [Cancel Penalties](#cancel-penalties)
     * [Cancel Penalty](#cancel-penalty)
-    * [Meals Included](#meal-included)
+    * [Meals Included](#meals-included)
     * [Rooms Rates](#room-rates)
     * [Room Rate](#room-rate)
     * [Rates](#rates)
@@ -50,9 +50,9 @@ Message to retrieved the availability of hotels.
     * [Payment Card](#payment-card)
     * [Card Type](#card-type)
     * [Total](#total)
-    * [Rate Descriptions](#rate-descriptions)
+    * [Rate Description](#rate-description)
     * [TPA Extensions](#tpa-extensions)
-    * [Timespan](#timespan)
+    * [TimeSpan](#timespan)
     * [Basic Property Info](#basic-property-info)
 * [Relationship Between RoomID and RatePlanID](#relationship-roomid-rateplanid)
 
@@ -71,7 +71,7 @@ Message to retrieved the availability of hotels.
                       PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="1234567"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <AvailRequestSegments>
@@ -130,7 +130,7 @@ Message to retrieved the availability of hotels.
 
 |Name|Type|Description|
 |---------|------------------|-------------|
-|`HotelRef/HotelCode`|`stringLength1to16`|The code that uniquely identifies a single hotel property. The hotel code is decided by vendors.|
+|`HotelRef/HotelCode`|`stringLength1to16`|**Required** The code that uniquely identifies a single hotel property. The hotel code is decided by vendors.|
 |`HotelRef/ChainCode`|`stringLength1to8`|The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the `HotelCode` attribute.|
 
 #### <a name="stay-date-range"></a>StayDateRange
@@ -188,15 +188,13 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
           </RoomTypes>
           <RatePlans>
             <RatePlan RatePlanID="XNFYP4I" AvailabilityStatus="ChangeDuringStay">
-              <Guarantee>
-                <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
-              </Guarantee>
+              <Guarantee GuaranteeType="GuaranteeRequired" />
               <CancelPenalties>
-                <CancelPenalty>
+                <CancelPenalty NoCancelInd="true">
                   <Deadline AbsoluteDeadline="2017-01-26T18:00:00"/>
                   <PenaltyDescription>
                     <Text>REFUNDABLE</Text>
-                    <Text>test cancel description</Text>
+                    <Text>Cancellation without penalty allowed before 2017-01-26T18:00:00</Text>
                   </PenaltyDescription>
                 </CancelPenalty>
               </CancelPenalties>
@@ -219,7 +217,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
                       </AcceptedPayments>
                     </GuaranteePayment>
                   </PaymentPolicies>
-                  <Total AmountAfterTax="348.00" AmountBeforeTax="248.00" CurrencyCode="EUR" DecimalPlaces="2"/>
+                  <Total AmountAfterTax="348.00" AmountBeforeTax="248.00" CurrencyCode="EUR"/>
                   <RateDescription>
                     <Text>Test rate description. Both before and after tax.</Text>
                   </RateDescription>
@@ -231,7 +229,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
             </RoomRate>
           </RoomRates>
           <TimeSpan End="2018-10-28" Start="2018-10-26"/>
-          <BasicPropertyInfo ChainCode="ZZ" HotelCode="419430"/>
+          <BasicPropertyInfo HotelCode="419430"/>
         </RoomStay>
       </RoomStays>
       <TPA_Extensions RateDetailsInd="false"></TPA_Extensions>
@@ -253,7 +251,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
 
 |Name|Type|Description|
 |----------|-----------|-------------|
-|`RoomStay`|`complex`|**Required** Details on the room stay including time span of this room stay, and financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties. A room stay represents one (1) hotel.|
+|`RoomStay`|`complex`|Details on the room stay including time span of this room stay, and financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties. A room stay represents one (1) hotel. It can be excluded to identify there is no rate available at the hotel.|
 
 #### <a name="room-stay"></a>RoomStay
 
@@ -261,7 +259,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |-------------------|--------------|-------------|
-|`RoomTypes`|`complex`|**Required** Details on the room stay including guest counts, time span of this room stay, pointers to res guests, guest memberships, comments, and special requests pertaining to this particular room stay. Financial information related to the room stay, including guarantee, deposit, payment, and cancellation penalties.|
+|`RoomTypes`|`complex`|**Required** Details on the room type.|
 |`RatePlans`|`complex`|**Required** A collection of rate plans associated with a particular room stay. The rate plan element is used to contain all the rate information for a single rate plan Code (example: `RACK`) for a given date range. A given rate plan may have variable rates, over the effective period of the rate plan, this is represented by the child element rates.|
 |`RoomRates`|`complex`|**Required** List of room rates.|
 |`TimeSpan`|`datetimespan` |**Required** The time span which covers the room stay. The attributes of the OTA `DateTimeSpan` data type are based on the W3C base data types of `timeInstant` and `timeDuration` using ISO 8601.|
@@ -284,7 +282,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`stringLength1to32`|**Required** Only one (1) text element is supported. If multiple text elements are specified, the last one is used and all others are dropped. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** If multiple text elements are provided, the contents will be concatenated. All text passed is HTML encoded.|
 
 #### <a name="rate-plans"></a>RatePlans
 
@@ -300,21 +298,20 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`AvailabilityStatus`|`stringLength1to32`|**Required** Used to specify an availability status for the rate plan. Supported values: `AvailableForSale`, `ChangeDuringStay`.|
 |`Guarantee`|`complex`|**Required** Guarantee information that applies to the rate plan. SAP Concur only expects one (1) Guarantee element per `RatePlan`.|
 |`CancelPenalties`|`complex`|**Required if `RateDetailsInd` is `true` or not present** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
-|`MealsIncluded`|`complex`|**Required if `RateDetailsInd` is `true` or not present** Defines which meals are included with this rate program.|
+|`MealsIncluded`|`complex`|Defines which meals are included with this rate program.|
 |`RatePlanDescription`|`complex`|Textual information regarding the Rate Plan.|
 
 #### <a name="rate-plan-description"></a>RatePlanDescription
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`stringLength1to32`|**Required** Only one (1) text element is supported. If multiple text elements are specified, the last one is used and all others are dropped. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** If multiple text elements are specified, the contents of this element will be rendered as a paragraph. All text passed is HTML encoded.|
 
 #### <a name="guarantee"></a>Guarantee
 
 |Name|Type|Description|
 |-----------------|-----------|-------------|
 |`GuaranteeType`|`string`|**Required** The guarantee information to hold a reservation.|
-|`Deadline`|`complex`|**Required** Guarantee deadline, absolute or relative.|
 
 #### <a name="supported-guarantee-types"></a>Supported GuaranteeTypes
 
@@ -327,19 +324,13 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`None`|In SAP Concur this value is seen as `Never`. No guarantee is required if user books a room with this type.|
 |`GuaranteeRequired`|`RequiredGuarantee`. If the Guarantee type cannot be mapped to any accepted type, it will be set to `RequiredGuarantee`. This value is the default.|
 
-#### <a name="supported-gurantee-required"></a>Supported GuaranteeRequired
+#### <a name="supported-guarantee-required"></a>Supported GuaranteeRequired
 
 |GuaranteeRequired|Description|
 |-------------------|-------------|  
 |`always`|Guarantee is required all the time independently on deposit account setting.|
 |`never`|Guarantee is never required.|
 |`default`|Guarantee is required if no deposit account is set up.|
-
-#### <a name="deadline"></a>Deadline
-
-|Name|Type|Description|
-|------------------------|--------------------|-------------|
-|`AbsoluteDeadline`|`time` or `datetime` |**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
 
 #### <a name="cancel-penalties"></a>CancelPenalties
 
@@ -351,20 +342,28 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |--------------------|-----------|-------------|
+|`NoCancelInd`|`boolean`| If `true`, the reservation cannot be cancelled once the cancellation deadline has expired. `False` or missing flag will be treated as rate being not cancellable.|
 |`PenaltyDescription`|`complex`|Text description of the penalty in a given language. This element may contain a maximum of 9 children text fields. Any excess text elements are dropped.|
-|`Deadline`|`complex`|**Required** Cancellation deadline, absolute or relative. See Deadline above.|
+|`Deadline`|`complex`| Cancellation deadline.|
 
 #### <a name="penalty-description"></a>PenaltyDescription
 
 |Name|Type|Description|
 |---------|----------|-----------------------|
-|`Text`|`formattedText`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** Formatted text content in a given language. All text passed is HTML encoded.|
+
+#### <a name="deadline"></a>Deadline
+
+|Name|Type|Description|
+|---------|----------|-----------------------|
+|`AbsoluteDeadline`|`time` or `datetime`|**Required** Defines the absolute deadline in ISO8601 format and in UTC timezone.|
 
 #### <a name="meals-included"></a>MealsIncluded
 
 |Name|Type|Description|
 |-------------|-----------|-------------|
-|`Breakfast`|`boolean`|**Required** If `true`, indicates breakfast is included. If `false`, indicates it is excluded. In both cases this information is shown to a customer in the rate description.|
+|`Breakfast`|`boolean`|If `true`, indicates breakfast is included. If `false`, indicates it is excluded. In both cases this information is shown to a customer in the rate description. The `MealsIncluded` element must be omitted to avoid any adjustment to the rate description.|
+
 
 #### <a name="room-rates"></a>RoomRates
 
@@ -376,8 +375,8 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |--------------|-----------|-------------|
-|`RoomID`|`complex`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
-|`RatePlanID`|`complex`|**Required** Rate plan ID for which this rate is applicable for.|
+|`RoomID`|`stringLength1to16`|**Required** Room Type ID. The combination of `RoomID` and `RatePlanID` must be unique for a `RoomStay`.|
+|`RatePlanID`|`stringLength1to64`|**Required** Rate plan ID for which this rate is applicable for.|
 |`Rates`|`complex`|**Required** Contains the rate for the given room.  SAP Concur only expects one (1) rate inside the `Rates` element. Refer to [Rate Details](/api-reference/direct-connects/hotel-service-2/Rate-details.html) for rate change details.|
 
 #### <a name="rates"></a>Rates
@@ -426,7 +425,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |----------|-----------|-------------|
 |`CardType`|`complex`|**Required** String representation of a card type. Allowed values: `AmericanExpress`, `BankOfAmerica`, `BritishAirways`, `CapitalOne`, `Chase`, `Citibank`, `ContinentalAirlines`, `DeltaAirlines`, `DiscoverCard`, `Disney`, `Eurocard`, `Hilton`, `Hyatt`, `Mariott`, `Mastercard`, `RitzCarlton`, `SouthwestAirlines`, `StarwoodHotels`, `UnitedAirlines`, `USAirways`, `VISA`, `Other_`. See `Code` and `Description` if card type is `other_`.|
 
-#### <a name="cardtype"></a>CardType
+#### <a name="card-type"></a>CardType
 
 |Name|Type|Description|
 |----------|-----------|-------------|
@@ -437,16 +436,15 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |-------------------|--------------|-------------|
-|`AmountBeforeTax`|`string`|**Required** The total amount not including any associated tax. Examples: `sales tax`, `VAT`, `GST`|
+|`AmountBeforeTax`|`string`|The total amount not including any associated tax. Examples: `sales tax`, `VAT`, `GST`|
 |`AmountAfterTax`|`string`|**Required** The total amount including all associated taxes. Examples: `sales tax`, `VAT`, `GST`|
 |`CurrencyCode`|`alphaLength3`|**Required** Currency code.|
-|`DecimalPlaces`|`integer`|Decimal places for currency code. This is an ISO 4217 standard "minor unit" for the number of decimal places for a particular currency.|
 
 #### <a name="rate-description"></a>RateDescription
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Text`|`stringLength1to32`|**Required** SAP Concur only expects one (1) text field for the rate description. Any excess text elements will be ignored. All text passed is HTML encoded.|
+|`Text`|`string`|**Required** If multiple text elements are provided, the contents will be concatenated. All text passed is HTML encoded.|
 
 #### <a name="tpa-extensions"></a>TPA_Extensions
 
@@ -466,8 +464,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |Name|Type|Description|
 |----------------|-----------|-------------|
 |`HotelCode`|`complex`|**Required** Refer to the `HotelRef` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
-|`Address`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
-|`ContactNumbers`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
 
 # <a name="relationship-roomid-rateplanid"></a>Relationship between RoomID and RatePlanID
 
@@ -484,9 +480,9 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
         <RoomType RoomID="RT2">...</RoomType>
       </RoomTypes>
       <RatePlans> <!-- Contains cancellation policy info, guarantee type etc. -->
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP3">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP1">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP2">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP3">...</RatePlan>
       </RatePlans>
       <RoomRates> <!-- Represents unique rate (hotel room), contains description part 1, rate cost & supported credit card etc. -->
         <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>
@@ -504,8 +500,8 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
         <RoomType RoomID="RT2">...</RoomType>
       </RoomTypes>
       <RatePlans>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP1">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP2">...</RatePlan>
       </RatePlans>
       <RoomRates>
         <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>

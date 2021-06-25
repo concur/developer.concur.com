@@ -28,9 +28,6 @@ Once you complete the walkthrough demonstration(s) of your integration, you may 
 
 After your app is approved, your SAP Concur App Center Listing will be reviewed before publishing in the [SAP Concur App Center](https://www.concur.com/en-us/app-center).  
 
-#### **Watch Our Certification Overview Video**
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AcvXN3jzn2s?list=PLLNSVdjqNPVtnNCWTZR5zBH91ZVf3UJZA" frameborder="0" allowfullscreen></iframe>
-
 #### **How Does App Review Work?**  
 
 SAP Concur conducts an initial application and security review in the sandbox environment.  For solutions that process, transmit or store sensitive information, an additional review may be conducted in our sandbox as well as your production environment.  

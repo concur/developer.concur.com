@@ -20,14 +20,14 @@ layout: reference
 ## <a name="new-authentication"></a>New World Authentication
 
 ### <a name="oauth2"></a>1. Oauth2
-  - SAP Concur's new Oauth2 implementation follows the established Oauth2 Authorization Framework RFC : https://tools.ietf.org/html/rfc6749
+  - The SAP Concur new Oauth2 implementation follows the established Oauth2 Authorization Framework RFC : https://tools.ietf.org/html/rfc6749
   - This new service has an endpoint of `/oauth2/v0/token`
   - Unlike the old world auth, access tokens have a 1 hour expiry and refresh tokens have a 6 months expiry. This is in accordance to the best practice of using short lived tokens.
   - This would mean that clients would need to perform token management.
 
 ### <a name="getting-started"></a>2. Getting Started
   - Getting clientID / clientSecret
-    - Work with SAP Concur's implementation team to obtain a new oauth2 `client_id` and `client_secret` and to define the scope of client's application.
+    - Work with the SAP Concur implementation team to obtain a new oauth2 `client_id` and `client_secret` and to define the scope of client's application.
     - Process will take no longer than 48 hours.
     - Implementation Team will respond with new `client_id`, `client_secret`, company's `refreshToken` and `expiry date`.
     - Client stores and configures application with this info.

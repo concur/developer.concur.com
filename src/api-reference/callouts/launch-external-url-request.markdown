@@ -1,5 +1,5 @@
 ---
-title: Launch an external URL request
+title: Launch an external URL request v1
 layout: reference
 ---
 
@@ -45,7 +45,7 @@ To authenticate the request, the developer of the page in the application connec
 
 When the request is received by the connector:
 
-1. Obtain the username and password for the application connector. How you do this will be specific to your implementation.
+1. Obtain the username and password for the application connector. How you do this will be specific to your implementation. Note: both the username and password must be at least 10 characters for increased security and the maximum allowed length is 50 characters.
 2. Parse and URL decode the following from the query string:
     1. xcompanydomain
     2. xuserid (used for subsequent web service call)

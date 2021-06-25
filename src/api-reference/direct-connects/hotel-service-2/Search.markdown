@@ -34,8 +34,10 @@ Message to perform the initial search for hotels.
     * [Contact Number](#contact-number)
     * [Award](#award)
     * [Hotel Amenity](#hotel-amenity)
+    * [Supported Hotel Amenities](#supported-hotel-amenities)
     * [TPA Extensions](#res-tpa-extensions)
     * [TPA Hotel Preview Image URI](#tpa-hotel-preview)
+    * [TPA Property Reference Info](#tpa-property-reference-info)
 
 ## <a name="request"></a>Request
 
@@ -52,12 +54,12 @@ Message to perform the initial search for hotels.
                        PrimaryLangID="de" AltLangID="de" MaxResponses="100">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="47777"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <Criteria>
         <Criterion>
-          <Position Latitude="52.520007" Longitude="13.404954"></Position>
+          <Position Latitude="47.61037" Longitude="-122.20067"></Position>
           <RefPoint></RefPoint>
           <HotelRef HotelName="sunshine"></HotelRef>
           <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
@@ -156,24 +158,29 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
     <OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05" AltLangID="EN" PrimaryLangID="EN" Version="4">
       <Success/>
       <Properties>
-        <Property ChainCode="AB" ChainName="1111" HotelCode="22222" HotelName="Sunshine Hotel">
-          <Position Latitude="52.4567" Longitude="13.5635"/>
+        <Property ChainCode="HI" ChainName="Holiday Inn" HotelCode="22222" HotelName="Holiday Inn Express Sunshine">
+          <Position Latitude="47.61038" Longitude="-122.20068"/>
           <Address>
-            <AddressLine>An der Wuhlheide</AddressLine>
-            <CityName>Berlin</CityName>
-            <PostalCode>10115</PostalCode>
-            <CountryName Code="DE">Federal Republic of Germany</CountryName>
+            <AddressLine>99 East 27th Street</AddressLine>
+            <CityName>Bellevue</CityName>
+            <PostalCode>98009</PostalCode>
+            <StateProv StateCode="WA">Washington</StateProv>
+            <CountryName Code="US">United States of America</CountryName>
           </Address>
           <ContactNumbers>
-            <ContactNumber CountryAccessCode="49" PhoneNumber="56940033" PhoneTechType="1"/>
+            <ContactNumber PhoneNumber="+14255551234" PhoneTechType="1"/>
           </ContactNumbers>
           <Award Rating="4"/>
-          <HotelAmenity Code="68"/>
+          <HotelAmenity Code="173"/>
+          <HotelAmenity Code="255"/>
           <TPA_Extensions>
             <HotelPreference>not_preferred</HotelPreference>
             <TPA_HotelPreviewImageURI>
-              <URL>url_to_the_picture.jpg</URL>
+              <URL>https://production.example.com/hotel-image.jpg</URL>
             </TPA_HotelPreviewImageURI>
+            <TPA_PropertyReferenceInfo>
+              <PropertyReference ReferenceCatalogCode="1376249" ReferenceCatalogName="giata"/>
+            </TPA_PropertyReferenceInfo>
           </TPA_Extensions>
         </Property>
       </Properties>
@@ -202,14 +209,14 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |----------------|-------------------|-------------|
-|`ChainCode`|`stringLength1to32`|2-letter valid GDS chain code. The code that identifies a hotel chain or management group. Must be present to support filtering, preferences or travel rules base on chains|
-|`ChainName`|`stringLength1to32`|The name of the hotel chain. Examples: `Hilton`, `Marriott`, `Hyatt`, `Starwood`|
-|`HotelCode`|`stringLength1to32`|**Required** The code that uniquely identifies a single hotel property. Used in other OTA messages.|
-|`HotelName`|`stringLength1to32`|**Required** A text field used to communicate the proper name of the hotel.|
+|`ChainCode`|`stringLength1to8`|2-letter valid GDS chain code. The code that identifies a hotel chain or management group. Must be present to support filtering, preferences or travel rules base on chains|
+|`ChainName`|`stringLength1to64`|The name of the hotel chain. Examples: `Hilton`, `Marriott`, `Hyatt`, `Starwood`|
+|`HotelCode`|`stringLength1to16`|**Required** The code that uniquely identifies a single hotel property. Used in other OTA messages.|
+|`HotelName`|`stringLength1to128`|**Required** A text field used to communicate the proper name of the hotel.|
 |`Position`|`complex`|**Required** Refer to `Position` in the Request.|
 |`Address`|`complex`|**Required** Public address of the hotel property.|
-|`ContactNumbers`|`complex`|Contact numbers.|
-|`Award`|`complex`|An element that identifies the hotel ratings.|
+|`ContactNumbers`|`complex`|Property contact numbers.|
+|`Award`|`complex`|An element that identifies the hotel rating.|
 |`HotelAmenity`|`complex`|List of hotel amenities.|
 |`TPA_Extensions`|`complex`|SAP Concur-specific extension of OTA spec. This adds support for extra property fields.|
 
@@ -217,7 +224,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |-------------|-----------|--------------|
-|`AddressLine`|`stringLength1to255`|The screenname and number. Maximum occurrences: `5`|
+|`AddressLine`|`stringLength1to255`|The street name and number. Maximum occurrences: `5`|
 |`CityName`|`stringLength1to64`|Name of the city.|
 |`PostalCode`|`stringLength1to16`|The postal code.|
 |`StateProv`|`complex`|Name of the state.|
@@ -239,7 +246,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |---------------|-----------|-------------|
-|`ContactNumber`|`complex|Element which contains the `ContactNumber`. SAP Concur only accepts one (first) `ContactNumber` of each supported type.|
+|`ContactNumber`|`complex`|Element which contains the `ContactNumber`. SAP Concur only accepts the first (1) `ContactNumber` of each supported type.|
 
 #### <a name="contact-number"></a>ContactNumber
 
@@ -253,13 +260,36 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |----------|-----------|-------------|
-|`Rating`|`integer`|**Required** Hotel rating should be an integer number from 0 to 5, representing its star rating.|
+|`Rating`|`integer`|**Required** Hotel rating should be an integer number from 0 to 5, representing its star rating. A rating value of 0 will be ignored and treated as N/A.|
 
 #### <a name="hotel-amenity"></a>HotelAmenity
 
 |Name|Type|Description|
 |---------|--------------|-------------|
-|`Code`|`string`|**Required** Refer to OpenTravel Code List Hotel Amenity Code (HAC).|
+|`Code`|`string`|Refer to `Supported Hotel Amenities`|
+
+#### <a name="supported-hotel-amenities"></a>Supported Hotel Amenities
+
+|Code|Description|
+|-------------------|-------------|  
+|`173`|Breakfast|
+|`255`|Broadband Internet|
+|`228`|Business Center|
+|`215`|Convention Center|
+|`96`|Dry Cleaning|
+|`48`|Fitness Center|
+|`44`|Game Room|
+|`236`|Golf Course|
+|`54`|Indoor Pool|
+|`289`|Kids Activities|
+|`269`|Meeting Rooms|
+|`198`|Non-smoking Rooms|
+|`66`|Outdoor Pool|
+|`224`|Pets Allowed|
+|`76`|Restaurant|
+|`71`|Swimming Pool|
+|`233`|Tennis Court|
+|`101`|Wheelchair Accessible|
 
 #### <a name="res-tpa-extensions"></a>TPA Extensions
 
@@ -267,9 +297,17 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 |------------------------|-------------------|-------------|
 |`HotelPreference`|`stringLength1to32`|**Required** SAP Concur allows customers to override property preference in the system settings. Supported values: `not_preferred`, `less_preferred`, `preferred`, `most_preferred`|
 |`TPA_HotelPreviewImageURI`|`complex`|**Required** Details for an image of a given category.|
+|`TPA_PropertyReferenceInfo`|`complex`|Alternate property ID. Required for Corporate Discount Note support|
 
 #### <a name="tpa-hotel-preview"></a>TPA_HotelPreviewImageURI
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`URL`|`stringLength1to32`|**Required** URL of the multimedia item for a specific format. SAP Concur supports one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message. The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
+|`URL`|`string`|**Required** Contains an HTTPS URL pointing to a .png or .jpg hotel image file. SAP Concur supports one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message. The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
+
+#### <a name="tpa-property-reference-info"></a>TPA_PropertyReferenceInfo
+
+|Name|Type|Description|
+|---------|-------------------|-------------|
+|`ReferenceCatalogName`|`string`|**Required** which catalog the property reference comes from. Support `giata` only for now |
+|`ReferenceCatalogCode`|`string`|**Required** alternate property id (only giata id of hotel for now) from specified reference catalog |
