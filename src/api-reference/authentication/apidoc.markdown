@@ -150,6 +150,7 @@ Connection: Close
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
+When the token has been refreshed, store the GEO location and the refresh token as they may have changed.  On subsequant calls, use the updated GEO location and refresh token.  
 
 ## <a name="revoke_token"></a>Revoking a token
 
