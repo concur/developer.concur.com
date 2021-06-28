@@ -28,7 +28,9 @@ Message used to indicate to the hotel supplier that a given reservation should b
     <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="3"
                   PrimaryLangID="en" AltLangID="en" CancelType="Cancel">
       <POS>
-        <Source ISOCurrency="USD"></Source>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
+        </Source>
       </POS>
       <UniqueID Type="14" ID="11112222"></UniqueID>
     </OTA_CancelRQ>
@@ -41,13 +43,13 @@ Message used to indicate to the hotel supplier that a given reservation should b
 
 |Name|Type|Description|
 |---------|------------|-------------|
-|`UniqueID`|`complex|**Required** Element to hold the type and the ID of the reservation to be cancelled.|
+|`UniqueID`|`complex`|**Required** Element to hold the type and the ID of the reservation to be cancelled.|
 
 **UniqueID**
 
 |Name|Type|Description|
 |---------|------------|-------------|
-|`Type`|`string`|**Required** `UniqueID` with Type=`14` identifies the reservation to cancel.|
+|`Type`|`string`|**Required** `UniqueID` with `Type` of `14` identifies the reservation to cancel.|
 |`ID`|`stringLength1to32`|**Required** A unique identifying value assigned by the creating system.|
 
 ---
@@ -75,5 +77,5 @@ The maximum allowed size of OTA_CancelRS is 150 KB. Any response that exceeds th
 |Name|Type|Description|
 |---------|------------|-------------|
 |`Status`|`string`|**Required** Supported values: `Cancelled`, `Unsuccessful`|
-|`Success`|`successType|An element that is not intended to contain any data. The mere presence of a success element within the response message indicates that the incoming request message was processed successfully.|
+|`Success`|`successType`|An element that is not intended to contain any data. The mere presence of a success element within the response message indicates that the incoming request message was processed successfully.|
 |`UniqueID`|`string`|**Required** See `UniqueID` above. SAP Concur expects two (2) `UniqueID`s to be returned in the response. The first with an `Type` of `14` containing the original reservation number, and the second `Type` of `15` containing a confirmation number. Both elements are mandatory.|

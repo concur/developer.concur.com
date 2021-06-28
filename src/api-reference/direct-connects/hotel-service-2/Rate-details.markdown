@@ -72,7 +72,7 @@ Message to retrieve the details of a hotel rate.
                       PrimaryLangID="de" AltLangID="de" RateDetailsInd="true">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="1234567"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <AvailRequestSegments>

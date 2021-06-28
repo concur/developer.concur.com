@@ -66,12 +66,8 @@
         url: /api-reference/common/connection-requests/connection-requests-resource.html
       - title: Extracts v1
         url: /api-reference/common/extracts/v1.extracts.html
-      - title: Lists v3
-        url: /api-reference/common/lists/v3.lists.html
       - title: List v4
         url: /api-reference/common/lists/v4.list.html
-      - title: List Item v3
-        url: /api-reference/common/list-item/v3.list-item.html
       - title: List Item v4
         url: /api-reference/common/list-item/v4.list-item.html
       - title: Locations v3
@@ -124,6 +120,8 @@
         url: /api-reference/direct-connects/hotel-service-2/Appendix.html
       - title: XSD-schema
         url: /api-reference/direct-connects/hotel-service-2/xsd-schema.html
+- title: Event Subscription Service v4
+  url: /api-reference/ess/v4.event-subscription.html
 - title: Expense
   url: ''
   children:
@@ -137,6 +135,8 @@
         url: /api-reference/expense/attendees/v3.attendees.html
       - title: Digital Tax Invoices v3
         url: /api-reference/expense/digital-tax-invoices/digital-tax-invoice.html
+      - title: Comments v4
+        url: /api-reference/expense/expense-report/v4.comments.html
       - title: Company Card Transactions v1.1
         url: /api-reference/expense/expense-report/company-card-transaction-resource.html
       - title: Exchange Rate v4

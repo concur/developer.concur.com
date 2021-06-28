@@ -6,7 +6,7 @@ layout: reference
 
 ## Welcome!
 
-SAP Concur is pleased to welcome you as a partner. We encourage all SAP Concur App Center partners to create comprehensive marketing plans that incorporate PR, social media, digital marketing, events, and sales training to help make your integrated solution successful. The App Center Marketing team is here to support and extend your efforts by largely focusing on two audiences – 1) our customers and prospects, and 2) our field organization that interfaces with prospects and maintains our relationships with customers.​
+We're happy to welcome you as a partner. We encourage all SAP Concur App Center partners to create comprehensive marketing plans that incorporate PR, social media, digital marketing, events, and sales training to help make your integrated solution successful. The App Center Marketing team is here to support and extend your efforts by largely focusing on two audiences – 1) our customers and prospects, and 2) our field organization that interfaces with prospects and maintains our relationships with customers.​
 
 Through our App Center marketplace, our events, and direct marketing campaigns, we communicate the value of your solutions directly to customers. Through our internal-facing resources and programs, we enable our field organization to understand and speak effectively about our partner solutions. ​
 
@@ -170,7 +170,7 @@ Acceptable|Branding
 
 ### <a name="sap-concur-logos"></a>SAP Concur Logos
 
-In general, SAP Concur logo usage is not permitted. However, App Center partners may, with approval, use the SAP Concur logo in certain instances, such as your integration UI, connection page, and a page or collateral listing multiple partners’ logos including SAP Concur.
+In general, SAP Concur logo usage is not permitted. However, App Center partners may, with approval, use the SAP Concur logo in certain instances, such as your integration UI, connection page, and a page or collateral listing multiple partners’ logos including ours.
 
 * [Using the Logo](#sap-concur-logos-using)
 * [Clear Space and Size Requirements](#sap-concur-logos-clear-space-and-size)
@@ -328,7 +328,7 @@ Amplify your company’s voice to your prospects, clients, and colleagues. By su
 ### <a name="partner-hosted-webinars-best-practices"></a>Partner-Hosted Webinars Best Practices​
 1.  Make sure that you have thoroughly reviewed your distribution list to ensure that no inappropriate contacts receive your invitations and email campaigns.​
 2.  Send invitations at least one week in advance; we find that sending a series of emails works best.​
-3.  If referring to the partnership with SAP Concur, be sure to follow the [partner brand guidelines](https://partnerportal.concur.com/ResourceFiles/ce0de379-1db9-46c8-9560-f24049b00cee.zip).​
+3.  If referring to the SAP Concur partnership, be sure to follow the [partner brand guidelines](https://partnerportal.concur.com/ResourceFiles/ce0de379-1db9-46c8-9560-f24049b00cee.zip).​
 4.  If your webinar is focused on the integration, email [App](mailto:concur_AppCenterMarketing@sap.com) [Center Marketing](mailto:concur_AppCenterMarketing@sap.com) to let us know. Someone from the App Center team may want to review your content or help participate to explain the App Center and answer questions.​
 
 ## <a name="public-relations-and-social-media-guidelines"></a>Public Relations and Social Media Guidelines
@@ -338,17 +338,17 @@ Amplify your company’s voice to your prospects, clients, and colleagues. By su
 
 ### <a name="press-release"></a>Press Release
 
-SAP expects to review and approve all partner press releases that reference SAP or an SAP subsidiary, including SAP Concur, its solutions, products, services, and/or partnerships with SAP before a partner distributes publicly.
+SAP expects to review and approve all partner press releases that reference SAP or an SAP subsidiary, including SAP Concur solutions, products, services, and/or partnerships with SAP before a partner distributes publicly.
 
 *	The following guidelines are designed to make the approval process easier:
 *	Press releases are limited to new partners or partners with an application update. Your application must be live in the App Center prior to issuing a press release. 
-*	Press releases must be issued by the partner, not by SAP Concur. Please refrain from using language such as “Partner and SAP Concur announce…”
+*	Press releases must be issued by the partner, not by SAP. Please refrain from using language such as “Partner and SAP Concur announce…”
 *	Use the provided templates to help streamline review timelines and approvals.
 	*	For non-English language press releases, please email concur_AppCenterMarketing@sap.com. 
 *	Please refrain from overstating the nature of the relationship or making claims about future details or expansions of the partnership that are not yet public.
 *	Refer to your partner status as an “SAP Concur partner,” and not a “Concur partner.”
 *	No SAP Concur quote, logo, or boilerplate should be included in partner-issued press releases or blogs.
-	*	Note: On rare exception SAP Concur may permit an SAP Concur quote in a partner-issued press release or blog. Including a quote on an exceptional basis is at the sole determination and discretion of the SAP Partner PR Team. Additional approvals and time are required in the event an SAP Concur quote is approved for use.
+	*	Note: On rare exception SAP may permit an SAP Concur quote in a partner-issued press release or blog. Including a quote on an exceptional basis is at the sole determination and discretion of the SAP Partner PR Team. Additional approvals and time are required in the event an SAP Concur quote is approved for use.
 
 Please send your release to [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com) for review prior to submission to the SAP PR Team.
 
@@ -357,21 +357,21 @@ Please send your release to [concur_AppCenterMarketing@sap.com](mailto:concur_Ap
 
 ### <a name="social-media-overview"></a>Social Media Overview
 
-In addition to issuing a press release highlighting your SAP Concur integration, we encourage you to promote it through social media channels. Please share all blog posts, Tweets and Facebook posts with App Center Marketing for approval. We will work with you to jointly promote your posts and better amplify the message.
+In addition to issuing a press release highlighting your SAP Concur integration, we encourage you to promote it through social media channels. Please share all blog posts, Tweets and Facebook posts with App Center Marketing for approval.
 
 > Please ensure blog posts, tweets and Facebook posts go out after any press releases are issued.
 
 #### <a name="social-media-overview-blog-posts"></a>Blog Posts
 
-Blog posts are a great way to create keyword-heavy content that helps optimize your site for search engines in order to help people find you online and feature your integration with SAP Concur. We encourage these blog posts to include as many visuals, including screenshots of the application integration points, if possible. Links back to the SAP Concur website are also highly encouraged. Create content that clearly and accurately describes the integration and be thoughtful about which keywords are linked back to your App Center listing. For example, if you want people to find your application when they’re searching for “VAT reclaim on expenses,” hyperlink this phrase back to your App Center listing.
+Blog posts are a great way to create keyword-heavy content that helps optimize your site for search engines in order to help people find you online and feature your integration with SAP Concur solutions. We encourage these blog posts to include as many visuals, including screenshots of the application integration points, if possible. Links back to our website are also highly encouraged. Create content that clearly and accurately describes the integration and be thoughtful about which keywords are linked back to your App Center listing.
 
 #### <a name="social-media-overview-twitter"></a>Twitter
 
-SAP Concur will happily follow your company and would appreciate the same from you. If SAP Concur is using a hashtag to promote the partnership, we encourage your company to leverage the same hashtag related to the announcement(s). We also recommend including each other’s handle in the tweet, including “@” (for example, @SAPConcur). For any events, be sure to use the appropriate hashtag, such as #SAPConcurFusion as well.
+If we are using a hashtag to promote the partnership, we encourage your company to leverage the same hashtag related to the announcement(s). We also recommend including each other’s handle in the tweet, including “@” (for example, @SAPConcur). For any events, be sure to use the appropriate hashtag, such as #SAPConcurFusion as well.
 
 #### <a name="social-media-facebook"></a>Facebook
 
-You are welcome to promote all related integration with SAP Concur via your corporate Facebook pages. SAP Concur is pleased to “like” your company page and would appreciate the same from you. In addition to the visibility this provides to both our companies, adding “@” in front of the company name will allow the announcement to show up on our timelines.
+You are welcome to promote your integration with SAP Concur solutions via your corporate Facebook pages. In addition to the visibility this provides to both our companies, adding “@” in front of the company name will allow the announcement to show up on our timelines.
 
 **Please ensure blog posts, tweets and Facebook posts go out after any press releases are issued.**
 
@@ -411,10 +411,10 @@ If you are in the above categories, we will also add a link to your App Center l
 * Partners who would like to mention SAP Concur anywhere in ad copy (headline, main copy or display URL) can do so with approval. If SAP Concur is mentioned, the ad must clearly state that you are an SAP Concur partner. Contact App Center marketing with your request for approval.
 * Phrase and Exact matches may be acceptable if your keyword research identifies a specific phrase which targets our integrated solution (examples: “Concur VAT reclaim” or “Concur FCPA”). Contact App Center Marketing for approval before bidding.
 * To keep advertising costs under control for all of us, partners should not bid on our SAP Concur brand names (concur or SAP concur) or brand misspells (concur, concure, concurs, etc.) or brand + products terms (concur expense, concur travel etc.) in any match type. That would cause prices for these terms to go up, and we shouldn’t have to pay more for our own brand terms. Non-brand, generic terms can be bid on by anyone.
-* SAP Concur does not bid on competitor names as that can be an expensive and inefficient activity. Partners are also advised not to bid on SAP Concur competitors as that would result in competitors bidding on SAP Concur.
-* Partners should never misrepresent the SAP Concur company, brands or pricing. All prices displayed in search engine results and landing pages should be accurate and match with the price listed.
-* Paid keyword landing pages must clearly state that you are an SAP Concur partner. They must not mislead customers into thinking you are SAP Concur and/or are an exclusive or preferred SAP Concur partner.
-* Partners must never state or imply that they are the “official site” of SAP Concur in any territories.
+* SAP does not bid on competitor names as that can be an expensive and inefficient activity. Partners are also advised not to bid on SAP Concur competitors.
+* Partners should never misrepresent the SAP Concur company, brands, or pricing. All prices displayed in search engine results and landing pages should be accurate and match with the price listed.
+* Paid keyword landing pages must clearly state that you are an SAP Concur partner. They must not mislead customers into thinking you are SAP and/or are an exclusive or preferred SAP Concur partner.
+* Partners must never state or imply that they are the “official site” of SAP or any subsidiaries in any territories.
 * Affected territories: These guidelines hold true for all search engines in all territories.
 * Prohibited display URLs: Partners should not use the following URLs either as display URLs or as ad-landing URLs in any territories:
 
@@ -439,7 +439,7 @@ etc.
 ```
 [Download the full guidelines](https://partnerportal.concur.com/ResourceFiles/bc98dd52-190c-4594-b526-6851e59e46c6.pdf)
 
-## <a name="working-with-sap-concur"></a>Working with SAP Concur 
+## <a name="working-with-sap-concur"></a>Working with the App Center Team 
 
 ### <a name="listing-process"></a>App Center Listing Creation and Update Process
 
@@ -460,7 +460,7 @@ etc.
 ### <a name="approval-process"></a>Approval Process
 
 
-**Do I need to have my content reviewed and approved by SAP Concur? Or can I just follow the rules and turn in my content at the deadline?**
+**Do I need to have my content reviewed and approved by SAP? Or can I just follow the rules and turn in my content at the deadline?**
 
 Please do request all content to be reviewed and approved by App Center Marketing, and be sure to include lead times (10 business days minimum) into your planning. Brands evolve, and we want to make sure that you have the latest information possible, and that your ideas help us to grow our brands further.
 
