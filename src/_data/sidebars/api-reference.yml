@@ -259,7 +259,12 @@
       - title: Booking Endpoint
         url: /api-reference/travel/itinerary/booking/booking-resource.html
 - title: User
-  url: /api-reference/user/index.html
+  url: ''
+  children:
+      - title: User v1
+        url: /api-reference/user/index.html
+      - title: Identity v4
+        url: /api-reference/profile/v4.identity.html
 - title: General
   url: ''
   children:
