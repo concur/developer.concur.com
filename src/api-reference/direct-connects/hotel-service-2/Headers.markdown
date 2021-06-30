@@ -33,6 +33,7 @@ Supported Soapactions:
 |--------------|---------------|
 |`search`| Used to perform Search  |
 |`availability`|Used to perform Availability |
+|`ratedetails`|Used to perform Rate Details |
 |`detail`|Used to perform Hotel Description |
 |`book`|Used to perform Reservation |
 |`read`|Used to perform Read Itinerary |
