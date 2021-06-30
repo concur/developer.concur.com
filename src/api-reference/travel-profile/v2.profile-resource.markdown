@@ -92,7 +92,7 @@ Creating/Updating a Profile uses the same model as what is retrieved.
 	* `LastName`
 	* `TravelConfigID` (used to verify agency and Company access to create user)
 	* `LoginID`
-	* `Password`
+	* `Password` (we will set a random, strong password if not provided)
 	* `RuleClass` (uses default rule class if not provided)
 * Omitted elements will be ignored and not updated
 * Empty elements of datatype string will be cleared out; nillable elements will be cleared out if set as nil refer to XSD for nillable elements.
