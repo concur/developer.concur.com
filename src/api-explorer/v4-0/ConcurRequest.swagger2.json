@@ -6,7 +6,7 @@
     "title": "Concur Request API Documentation"
   },
   "host": "us.api.concursolutions.com",
-  "basePath": "/travelrequest/v4",
+  "basePath": "/",
   "tags": [
     {
       "name": "Request Resource",
@@ -31,10 +31,14 @@
     {
       "name": "Cash Advance Resource",
       "description": "Retrieve cash advance for Concur Request"
+    },
+    {
+      "name": "Agency Proposal Resource",
+      "description": "Manage the agency proposals for a Request"
     }
   ],
   "paths": {
-    "/requests": {
+    "/travelrequest/v4/requests": {
       "get": {
         "tags": [
           "Request Resource"
@@ -2282,9 +2286,491 @@
           }
         }
       }
+    },
+    "/v4/requests/{requestUuid}/agencyproposals": {
+      "get": {
+        "tags": [
+          "Agency Proposal Resource"
+        ],
+        "summary": "Get the list of Agency Proposals for a Request",
+        "description": "Provides the list of existing agency proposals within a Request.",
+        "operationId": "getUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "requestUuid",
+            "in": "path",
+            "description": "The unique identifier of the Request to which the agency proposals are attached",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AgencyProposal"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad param(s) : the request is invalid",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "You do not have permission to perform this operation.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Agency Proposal Resource"
+        ],
+        "summary": "Create an Agency Proposal",
+        "description": "Enables the import of agency proposals into a Request, those proposals will be available in the proposal comparison screen at the traveler level.",
+        "operationId": "createUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "Enable test request partition",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Client generated request identifier passed through all requests",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "requestUuid",
+            "in": "path",
+            "description": "requestUuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "agencyProposal",
+            "description": "agencyProposal",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AgencyProposal"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/AgencyProposal"
+            }
+          },
+          "400": {
+            "description": "Bad param(s) : the request is invalid",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "userNotFound",
+                    "errorMessage": "User is not found"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "You do not have permission to perform this operation.",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "permissionDenied",
+                    "errorMessage": "Permission denied"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "internalServerError",
+                    "errorMessage": "An unexpected error has prevented the operation"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "503": {
+            "description": "The service is currently unavailable",
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "errorCode": "entityOffline",
+                    "errorMessage": "Entity is offline, please try again later."
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
+    "AgencyProposal": {
+      "type": "object",
+      "required": [
+        "agencyProposalEntries",
+        "booked",
+        "importDate"
+      ],
+      "properties": {
+        "agencyProposalEntries": {
+          "type": "array",
+          "description": "List of the proposal entries",
+          "items": {
+            "$ref": "#/definitions/AgencyProposalEntry"
+          }
+        },
+        "agencyProposalType": {
+          "type": "string",
+          "description": "The agency proposal type - equal API for generic proposition",
+          "enum": [
+            "CWTF",
+            "AEBT",
+            "API",
+            "NONE"
+          ]
+        },
+        "approvalLimitDate": {
+          "type": "string",
+          "description": "The date by which the Request must be approved. This element appears only when integrated with Concur Travel"
+        },
+        "autoSelect": {
+          "type": "boolean",
+          "example": false,
+          "description": "The option AutoSelect allows to choose automatically a Proposal"
+        },
+        "booked": {
+          "type": "boolean",
+          "example": false,
+          "description": "True if this trip is (or has to be) handled by a Travel Agency"
+        },
+        "comments": {
+          "type": "string",
+          "description": "Comment",
+          "minLength": 0,
+          "maxLength": 2000
+        },
+        "importDate": {
+          "type": "string",
+          "description": "The date of the import"
+        },
+        "itineraryLocator": {
+          "type": "string",
+          "description": "Itinerary Locator",
+          "minLength": 0,
+          "maxLength": 32
+        },
+        "policyCompliant": {
+          "type": "boolean",
+          "example": false,
+          "description": "The policy Compliant"
+        },
+        "proposal": {
+          "type": "boolean",
+          "example": false,
+          "description": "True if the status is proposal and false if the status is confirmed or Ticket issued"
+        },
+        "proposalBatchSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The size of the batch of Proposals imported.",
+          "minimum": 1,
+          "exclusiveMinimum": false
+        },
+        "proposalOrder": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The position of the Proposal",
+          "minimum": 1,
+          "exclusiveMinimum": false
+        },
+        "proposalUuid": {
+          "type": "string",
+          "description": "Unique identifier of Agency Proposal"
+        },
+        "providerMessageId": {
+          "type": "string",
+          "description": "The provider Message Id",
+          "minLength": 0,
+          "maxLength": 32
+        },
+        "selected": {
+          "type": "boolean",
+          "example": false,
+          "description": "True if the Traveler has selected the current Proposal"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status send in the proposal equal [proposal] or [confirmed] or [ticketissue]",
+          "enum": [
+            "PROPOSAL",
+            "CONFIRMED",
+            "TICKETISSUED"
+          ]
+        },
+        "totalPostedAmount": {
+          "description": "The total Amount of the proposal",
+          "$ref": "#/definitions/Amount"
+        }
+      }
+    },
+    "AgencyProposalEntry": {
+      "type": "object",
+      "required": [
+        "agencyProposalSegments",
+        "transactionDate"
+      ],
+      "properties": {
+        "agencyProposalSegments": {
+          "type": "array",
+          "description": "List of the segments composing this entry",
+          "items": {
+            "$ref": "#/definitions/AgencyProposalSegment"
+          }
+        },
+        "comments": {
+          "type": "string",
+          "description": "Legs comments"
+        },
+        "exchangeRate": {
+          "description": "The exchange rate that applies to the Proposal Segment amount",
+          "$ref": "#/definitions/ExchangeRate"
+        },
+        "matchingExpense": {
+          "description": "The expense link",
+          "$ref": "#/definitions/ResourceLink"
+        },
+        "proposalEntryUuid": {
+          "type": "string",
+          "description": "Unique Identifier of Agency Proposal entry receive"
+        },
+        "transactionAmount": {
+          "description": "The amount of the Proposal Entry",
+          "$ref": "#/definitions/Amount"
+        },
+        "transactionDate": {
+          "type": "string",
+          "description": "The date of the transaction"
+        }
+      }
+    },
+    "AgencyProposalSegment": {
+      "type": "object",
+      "required": [
+        "booked",
+        "confirmationNumber",
+        "pnr",
+        "proposalSegmentType",
+        "vendorName"
+      ],
+      "properties": {
+        "booked": {
+          "type": "boolean",
+          "example": false,
+          "description": "True if this travel is (or has to be) handled by a travel agency"
+        },
+        "comments": {
+          "type": "string",
+          "description": "A comments for this Proposal Segment",
+          "minLength": 0,
+          "maxLength": 2000
+        },
+        "confirmationNumber": {
+          "type": "string",
+          "description": "The number of the confirmation of this Proposal Segment",
+          "minLength": 0,
+          "maxLength": 32
+        },
+        "endDate": {
+          "type": "string",
+          "description": "The end date of the Proposal Segment (in the format YYYY-MM-DD).It represents the arrival date of AIRFR and TRAIN segments, check out date for HOTEL or drop off for CARRT"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "The end time of the Proposal Segment (in the format HH:MM). It is expressed in the local time of the endLocation"
+        },
+        "matchingSegmentLeg": {
+          "description": "The Segment Leg link",
+          "$ref": "#/definitions/ResourceLink"
+        },
+        "pnr": {
+          "type": "string",
+          "description": "PNR of the proposal",
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "policyCompliant": {
+          "type": "boolean",
+          "example": false,
+          "description": "The policy Compliant"
+        },
+        "policyCompliantLevel": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The policy Compliant Level",
+          "minimum": 0,
+          "maximum": 100,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false
+        },
+        "proposalSegmentType": {
+          "type": "string",
+          "description": "The proposal type : AIR, RAIL, CAR, HOTEL or MISC of this Proposal Segment",
+          "enum": [
+            "AIR",
+            "RAIL",
+            "CAR",
+            "HOTEL",
+            "MISC"
+          ]
+        },
+        "proposalSegmentUuid": {
+          "type": "string",
+          "description": "Unique Identifier of Agency Proposal Segment receive"
+        },
+        "segmentTypeCode": {
+          "type": "string",
+          "description": "The segment type : AIRFR, RAILF, CARRT, HOTEL or MISC of this Proposal Segment",
+          "enum": [
+            "AIRFR",
+            "CARRT",
+            "HOTEL",
+            "LIMOF",
+            "TAXIF",
+            "MISC",
+            "PARKG",
+            "DININ",
+            "EVENT",
+            "OTHER",
+            "VISA",
+            "INSUR",
+            "AIRSU",
+            "RAISU",
+            "RAILF"
+          ]
+        },
+        "startDate": {
+          "type": "string",
+          "description": "The start date of the Proposal Segment (in the format YYYY-MM-DD).It represents the departure date of AIRFR and TRAIN segments, check in date for HOTEL or pickup for CARRT"
+        },
+        "startTime": {
+          "type": "string",
+          "description": "The start time of the proposal segment (in the format HH:MM). It is expressed in the local time of the startLocation\""
+        },
+        "timeZone": {
+          "description": "The timezone. Either in UTC/GMT + offset format or matching TZDB names.",
+          "$ref": "#/definitions/ZoneId"
+        },
+        "vendorName": {
+          "type": "string",
+          "description": "The name of the vendor of this Proposal Segment.",
+          "minLength": 0,
+          "maxLength": 64
+        }
+      }
+    },
     "Allocation": {
       "type": "object",
       "properties": {
@@ -2547,6 +3033,37 @@
         "value": {
           "type": "string",
           "description": "The value of the custom field or the value of the list item id for list fields"
+        }
+      }
+    },
+    "Duration": {
+      "description": "A time-based amount of time.",
+      "type": "object",
+      "properties": {
+        "nano": {
+          "description": "The number of nanoseconds within the second in this duration.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "negative": {
+          "description": "If this duration is negative, excluding zero.",
+          "type": "boolean"
+        },
+        "seconds": {
+          "description": "The number of seconds in this duration.",
+          "type": "integer",
+          "format": "int64"
+        },
+        "units": {
+          "description": "The set of units supported by this duration.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TemporalUnit"
+          }
+        },
+        "zero": {
+          "description": "If this duration is zero length.",
+          "type": "boolean"
         }
       }
     },
@@ -2978,6 +3495,32 @@
         "value": {
           "type": "string",
           "description": "The value of the list item id."
+        }
+      }
+    },
+    "LocalTime": {
+      "description": "The local time of day of the transition.",
+      "type": "object",
+      "properties": {
+        "hour": {
+          "description": "The hour-of-day field.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "minute": {
+          "description": "The minute-of-hour field.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "nano": {
+          "description": "The nano-of-second field.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "second": {
+          "description": "The second-of-minute field.",
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -3904,6 +4447,28 @@
         }
       }
     },
+    "TemporalUnit": {
+      "description": "A unit of date-time, such as Days or Hours.",
+      "type": "object",
+      "properties": {
+        "dateBased": {
+          "description": "If this unit represents a component of a date.",
+          "type": "boolean"
+        },
+        "duration": {
+          "description": "The duration of this unit, which may be an estimate.",
+          "$ref": "#/definitions/Duration"
+        },
+        "durationEstimated": {
+          "description": "If the duration of the unit is an estimate.",
+          "type": "boolean"
+        },
+        "timeBased": {
+          "description": "If this unit represents a component of a time.",
+          "type": "boolean"
+        }
+      }
+    },
     "TravelAllowance": {
       "type": "object",
       "properties": {
@@ -3967,6 +4532,175 @@
     "WorkflowAction": {
       "type": "string",
        "description": "Comment when the workflow action is ‘sendback’."
+    },
+    "ZoneId": {
+      "description": "The time zone of the booking.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The time zone abbreviations.",
+          "type": "string"
+        },
+        "rules": {
+          "description": "Rules of the time offset",
+          "$ref": "#/definitions/ZoneRules"
+        }
+      }
+    },
+    "ZoneOffset": {
+      "description": "The offset applicable at the specified instant in these rules.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The normalized zone offset ID.",
+          "type": "string"
+        },
+        "rules": {
+          "description": "Rules of the time offset",
+          "$ref": "#/definitions/ZoneRules"
+        },
+        "totalSeconds": {
+          "description": "The total zone offset in seconds.",
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ZoneOffsetTransition": {
+      "description": " The offset transition applicable at the specified local date-time.",
+      "type": "object",
+      "properties": {
+        "dateTimeAfter": {
+          "description": "The local transition date-time, as would be expressed with the 'after' offset.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateTimeBefore": {
+          "description": "The local transition date-time, as would be expressed with the 'before' offset.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration": {
+          "description": "The duration of the transition.",
+          "$ref": "#/definitions/Duration"
+        },
+        "gap": {
+          "description": "Does this transition represent a gap in the local time-line.",
+          "type": "boolean"
+        },
+        "instant": {
+          "description": "The transition instant.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "offsetAfter": {
+          "description": "The offset after the transition.",
+          "$ref": "#/definitions/ZoneOffset"
+        },
+        "offsetBefore": {
+          "description": "The offset before the transition.",
+          "$ref": "#/definitions/ZoneOffset"
+        },
+        "overlap": {
+          "description": "Does this transition represent an overlap in the local time-line.",
+          "type": "boolean"
+        }
+      }
+    },
+    "ZoneOffsetTransitionRule": {
+      "description": "The list of transition rules for years beyond those defined in the transition list.",
+      "type": "object",
+      "properties": {
+        "dayOfMonthIndicator": {
+          "description": "The indicator of the day-of-month of the transition.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "dayOfWeek": {
+          "description": "The day-of-week of the transition.",
+          "type": "string",
+          "enum": [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY",
+            "SATURDAY",
+            "SUNDAY"
+          ]
+        },
+        "localTime": {
+          "description": "The local time of day of the transition.",
+          "$ref": "#/definitions/LocalTime"
+        },
+        "midnightEndOfDay": {
+          "description": "Is the transition local time midnight at the end of day.",
+          "type": "boolean"
+        },
+        "month": {
+          "description": "The month of the transition.",
+          "type": "string",
+          "enum": [
+            "JANUARY",
+            "FEBRUARY",
+            "MARCH",
+            "APRIL",
+            "MAY",
+            "JUNE",
+            "JULY",
+            "AUGUST",
+            "SEPTEMBER",
+            "OCTOBER",
+            "NOVEMBER",
+            "DECEMBER"
+          ]
+        },
+        "offsetAfter": {
+          "description": "The offset applicable at the specified instant in these rules.",
+          "$ref": "#/definitions/ZoneOffset"
+        },
+        "offsetBefore": {
+          "description": "The offset applicable at the specified instant in these rules.",
+          "$ref": "#/definitions/ZoneOffset"
+        },
+        "standardOffset": {
+          "description": "The offset applicable at the specified instant in these rules.",
+          "$ref": "#/definitions/ZoneOffset"
+        },
+        "timeDefinition": {
+          "description": "The local time can be converted to an instant using the standard offset, the wall offset or UTC.",
+          "type": "string",
+          "enum": [
+            "UTC",
+            "WALL",
+            "STANDARD"
+          ]
+        }
+      }
+    },
+    "ZoneRules": {
+      "description": "Rules of the time offset",
+      "type": "object",
+      "properties": {
+        "fixedOffset": {
+          "description": "true if the time-zone is fixed and the offset never changes",
+          "type": "boolean"
+        },
+        "transitionRules": {
+          "description": "The list of transition rules for years beyond those defined in the transition list.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ZoneOffsetTransitionRule"
+          }
+        },
+        "transitions": {
+          "description": "The offset transition applicable at the specified local date-time.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ZoneOffsetTransition"
+          }
+        }
+      }
     }
   }
 }
