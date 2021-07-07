@@ -1,3 +1,9 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HTTP-headers>
 accept-charset: utf-8
 soapaction: search
 concur-correlationid: 25506b4f5539549f05aaefd02b4a7460
@@ -6,8 +12,7 @@ concur-loginid:  xxxxxxxxxxxx
 authorization: Basic xxxxxxxxxxxxxxxx
 content-type: application/xml; charset="utf-8"
 accept: application/xml
-
-<?xml version="1.0" encoding="UTF-8"?>
+</HTTP-headers>
 
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
