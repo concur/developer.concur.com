@@ -82,6 +82,8 @@
         url: /api-explorer/v4-0/Reports.html
       - title: Financial Integration Service
         url: /api-explorer/v4-0/FinancialIntegrationService.html
+      - title: Identity
+        url: /api-explorer/v4-0/Identity.html
       - title: Invoice Pay
         url: /api-explorer/v4-0/InvoicePay.html
       - title: List

@@ -1,0 +1,2349 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HTTP-headers>
+200 OK (HTTP Status 200) HTTP/1.1
+cache-control: private, max-age=0
+connection: keep-alive
+content-length: 104179
+content-type: text/xml; charset=utf-8
+date: Mon, 14 Jun 2021 04:41:32 GMT
+x-scheme: https
+x-xss-protection: 1; mode=block
+</HTTP-headers>
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <OTA_HotelSearchRS Version="4" EchoToken="18899B6B-9655-4AAF-8934-ACD252C054A2"
+            xmlns="http://www.opentravel.org/OTA/2003/05">
+            <Success />
+            <Properties>
+                <Property ChainCode="PF" HotelCode="HP070213" HotelName="Pan Pacific Seattle - COVID Measures">
+                    <Position Latitude="47.618248" Longitude="-122.337174" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="41" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/2000000/1510000/1509800/1509734/639e7f07_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="174840" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="HH910312" HotelName="Palihotel Seattle - COVID Measures">
+                    <Position Latitude="47.60979" Longitude="-122.340385" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/28000000/27100000/27098800/27098716/99485889_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="TL" HotelCode="HT030025" HotelName="Travelodge Seattle by The Space Needle - COVID Measures">
+                    <Position Latitude="47.620142" Longitude="-122.344649" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/13200/13140/39fb2dcf_t.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="23295" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CU" HotelCode="HH871486" HotelName="Citizenm Seattle South Lake Union - COVID Measures">
+                    <Position Latitude="47.619985" Longitude="-122.338931" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/30000000/29830000/29823200/29823115/7729a44f_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="900301" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="LQ" HotelCode="HL031350" HotelName="La Quinta Inn Ste Seattle Downtown - COVID Measures">
+                    <Position Latitude="47.617643" Longitude="-122.339453" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="97" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/16400/16349/751150c0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="119554" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="NC" HotelCode="HE030953" HotelName="Edgewater - COVID Measures">
+                    <Position Latitude="47.612516" Longitude="-122.352024" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/11200/11133/aed66a73_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="83498" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WK" HotelCode="HW030255" HotelName="Warwick Seattle - COVID Measures">
+                    <Position Latitude="47.613812" Longitude="-122.340695" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/10000/6900/6839/1a256285_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="24333" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BW" HotelCode="HB030284" HotelName="Best Western Plus Pioneer Square - COVID Measures">
+                    <Position Latitude="47.601649" Longitude="-122.335282" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/25300/25221/9ed0cd0f_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="113374" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HP030567" HotelName="Paramount Hotel Seattle - COVID Measures">
+                    <Position Latitude="47.612752" Longitude="-122.333912" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/60000/58800/58703/e3880a5c_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="24380" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="QQ" HotelCode="HH784890" HotelName="The Charter Seattle Curio Collection By - COVID Measures">
+                    <Position Latitude="47.610964" Longitude="-122.339961" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/24000000/23380000/23379400/23379389/7b4ea424_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="853174" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="KC" HotelCode="HV030009" HotelName="Vintage Park A Kimpton - COVID Measures">
+                    <Position Latitude="47.607331" Longitude="-122.33241" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/25100/25015/1a4ebb70_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="24180" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HH" HotelCode="HH030344" HotelName="Hilton Seattle - COVID Measures">
+                    <Position Latitude="47.609386" Longitude="-122.332923" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/10000/8000/7910/0adfb633_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="27206" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="EI" HotelCode="HE030935" HotelName="Executive Hotel Pacific - COVID Measures">
+                    <Position Latitude="47.607066" Longitude="-122.333166" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/23800/23764/1b9f1538_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="123831" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CP" HotelCode="HC030868" HotelName="Crowne Plaza Seattle Downtown - COVID Measures">
+                    <Position Latitude="47.608267" Longitude="-122.332248" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/18600/18518/8e156962_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="10994" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="KC" HotelCode="HM030093" HotelName="Hotel Monaco Seattle A Kimpton - COVID Measures">
+                    <Position Latitude="47.606988" Longitude="-122.333922" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/70000/62800/62800/e0362330_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="41808" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HG030527" HotelName="Grand Hyatt Seattle - COVID Measures">
+                    <Position Latitude="47.612337" Longitude="-122.333258" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="107" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/550000/546500/546475/14c5d17c_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="38112" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GI" HotelCode="HP170269" HotelName="Hilton Garden Inn Seattle Downtown - COVID Measures">
+                    <Position Latitude="47.616649" Longitude="-122.332612" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/12000000/11550000/11546400/11546353/90672a4e_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="431528" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HH090553" HotelName="Hyatt At Olive 8 - COVID Measures">
+                    <Position Latitude="47.61332" Longitude="-122.333395" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="107" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/3000000/2310000/2309400/2309333/d5405d49_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="167540" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HM030854" HotelName="Mayflower Park Hotel - COVID Measures">
+                    <Position Latitude="47.612188" Longitude="-122.338003" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/26900/26893/3e2a8bbc_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="87776" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HH851538" HotelName="Hyatt Regency Seattle - COVID Measures">
+                    <Position Latitude="47.614538" Longitude="-122.333934" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/30000000/29050000/29049600/29049536/8a9232c3_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="907776" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="TM" HotelCode="HH649527" HotelName="Thompson Seattle - COVID Measures">
+                    <Position Latitude="47.61051" Longitude="-122.341316" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/14000000/13190000/13187500/13187434/d452038f_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="535865" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="DN" HotelCode="HR031856" HotelName="Motif Seattle - COVID Measures">
+                    <Position Latitude="47.610378" Longitude="-122.335379" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/60000/51000/50947/3161bcfa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="83469" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HG" HotelCode="HH033084" HotelName="Homewood Suites Seattle Cntn Cntr Pike S - COVID Measures">
+                    <Position Latitude="47.612999" Longitude="-122.329237" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/28300/28273/41e34031_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="22303" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="FA" HotelCode="HF030271" HotelName="Fairmont Olympic Hotel Seattle - COVID Measures">
+                    <Position Latitude="47.60829" Longitude="-122.33418" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="5" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/20300/20230/e5f37edc_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="12941" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="SN" HotelCode="HA031126" HotelName="The Alexis Royal Sonesta Hotel - COVID Measures">
+                    <Position Latitude="47.604865" Longitude="-122.336669" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="5" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/10000/6300/6227/b2b45ef6_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="41807" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="DT" HotelCode="HD080059" HotelName="Doubletree by Hilton Arctic Club Sea - COVID Measures">
+                    <Position Latitude="47.603754" Longitude="-122.332097" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/2000000/1740000/1736200/1736119/35b5e64d_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="166874" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BR" HotelCode="HR030030" HotelName="Renaissance Seattle Hotel - COVID Measures">
+                    <Position Latitude="47.606593" Longitude="-122.330751" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="107" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/14500/14405/e9975df0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="120515" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HH100268" HotelName="Hyatt Place Seattle Downtown - COVID Measures">
+                    <Position Latitude="47.619021" Longitude="-122.344989" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/4000000/3570000/3568500/3568411/e02b46c8_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="249256" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="KC" HotelCode="HF336825" HotelName="Kimpton Palladian - COVID Measures">
+                    <Position Latitude="47.6118" Longitude="-122.342" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/10000000/9500000/9490100/9490029/7a688630_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="420711" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CY" HotelCode="HC100005" HotelName="Courtyard Seattle Downtown Pioneer Sq - COVID Measures">
+                    <Position Latitude="47.602464" Longitude="-122.332629" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/4000000/3300000/3300000/3299932/8c1e237e_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="249197" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HH781123" HotelName="Hotel Theodore - COVID Measures">
+                    <Position Latitude="47.612321" Longitude="-122.334355" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/28300/28274/18928024_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="57113" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HM031786" HotelName="Hotel Max - COVID Measures">
+                    <Position Latitude="47.614164" Longitude="-122.336458" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/28700/28647/69997ac2_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="201635" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="ES" HotelCode="HH765475" HotelName="Embassy Suites Downtown Pioneer Square - COVID Measures">
+                    <Position Latitude="47.598099" Longitude="-122.330952" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/21000000/20130000/20123400/20123320/590b3b46_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="675747" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="SI" HotelCode="HS030128" HotelName="Sheraton Grand Seattle - COVID Measures">
+                    <Position Latitude="47.610763" Longitude="-122.333686" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/25300/25290/e9270b18_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="181949" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HH850858" HotelName="Palihotel Seattle - COVID Measures">
+                    <Position Latitude="47.6098" Longitude="-122.340566" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="0" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="895325" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HI050795" HotelName="Inn At The Market - COVID Measures">
+                    <Position Latitude="47.609727" Longitude="-122.341347" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="107" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/40000/36600/36514/d1e4785c_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="88713" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WH" HotelCode="HW030175" HotelName="W Seattle - COVID Measures">
+                    <Position Latitude="47.60829" Longitude="-122.33418" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/290000/284400/284304/f04abc1e_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="24280" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BT" HotelCode="HA030672" HotelName="Andra - COVID Measures">
+                    <Position Latitude="47.613433" Longitude="-122.340054" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/17000/16950/503460b8_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="111937" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WI" HotelCode="HW030060" HotelName="The Westin Seattle - COVID Measures">
+                    <Position Latitude="47.61329" Longitude="-122.337858" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/16700/16673/982a6487_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="23042" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HH956864" HotelName="State Hotel Seattle - COVID Measures">
+                    <Position Latitude="47.609405" Longitude="-122.339345" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/28000000/27390000/27380800/27380703/b49aaaac_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="974257" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="H056" HotelCode="HF173162" HotelName="The Baroness - COVID Measures">
+                    <Position Latitude="47.609623" Longitude="-122.326545" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://q-xx.bstatic.com/xdata/images/hotel/max300/19004610.jpg?k=b520a69b979e9fefaa0f4586338c947b435e35a335f13b351b52a71da1b32880&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HI051257" HotelName="The Inn At Virginia Mason - COVID Measures">
+                    <Position Latitude="47.609843" Longitude="-122.326775" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/3000000/2640000/2635500/2635458/89b695c0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="219173" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CB53" HotelCode="HP429114" HotelName="Stay Alfred Pike Place - COVID Measures">
+                    <Position Latitude="47.60849" Longitude="-122.33641" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="0" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://q-xx.bstatic.com/xdata/images/hotel/max300/256978616.jpg?k=ecc2e891b338f84d518b384409531df39560a15ed26561c72d785fed7cc3c5ba&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="XV" HotelCode="HS031742" HotelName="Springhill Stes Dwtn Marriott Seattle - COVID Measures">
+                    <Position Latitude="47.617864" Longitude="-122.329733" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/800000/796000/795921/fcf8b1c0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="175228" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="HH919976" HotelName="The Sound Hotel Seattle Belltown Tapestr - COVID Measures">
+                    <Position Latitude="47.614418" Longitude="-122.341721" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="0" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="H017" HotelCode="HH141898" HotelName="Oakwood At Premiere On Pine">
+                    <Position Latitude="47.613218" Longitude="-122.332191" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/11000000/10450000/10440300/10440256/39d5fd19_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="H017" HotelCode="HO130341" HotelName="Oakwood At Via 6">
+                    <Position Latitude="47.615122" Longitude="-122.340164" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="53" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/7000000/6100000/6099400/6099310/687d88fa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BT" HotelCode="HH927428" HotelName="Staypineapple Hotel Five - COVID Measures">
+                    <Position Latitude="47.615564" Longitude="-122.341832" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://q-xx.bstatic.com/xdata/images/hotel/max300/88152079.jpg?k=eff4dab7e7acbc19b3ed63a868eed18ca97612a62c9c9227533cd5e490e6732b&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="19872" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="HP449781" HotelName="Luxe Hubs Convention Center Apartments - COVID Measures">
+                    <Position Latitude="47.60974" Longitude="-122.32962" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/33000000/32460000/32450400/32450394/5216ce5b_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="RC" HotelCode="HH778708" HotelName="Residence Inn Seattle Downtown Conventio - COVID Measures">
+                    <Position Latitude="47.61589" Longitude="-122.33294" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/21000000/20090000/20088200/20088122/897ca5cd_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="716459" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HI080032" HotelName="Inn At The Wac - COVID Measures">
+                    <Position Latitude="47.609721" Longitude="-122.333611" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://d2573qu6qrjt8c.cloudfront.net/8DA9331A5171429F848C4CFC44C9FC94/A.JPEG</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="178813" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HS054718" HotelName="Silver Cloud Hotel Broadway - COVID Measures">
+                    <Position Latitude="47.611693" Longitude="-122.320628" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://d2573qu6qrjt8c.cloudfront.net/A4157DDDD15F4BB799199FBE4B20D9F6/A.JPEG</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="120723" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WO" HotelCode="HW130339" HotelName="Worldmark Seattle The Camlin">
+                    <Position Latitude="47.614024" Longitude="-122.332591" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="1" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/14000000/13240000/13232100/13232033/4781fffa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="296634" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GD" HotelCode="HH884593" HotelName="Harbor Steps Apartments">
+                    <Position Latitude="47.60641" Longitude="-122.338288" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="250416" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HP164332" HotelName="Hyatt House Seattle Downtown - COVID Measures">
+                    <Position Latitude="47.61985" Longitude="-122.347733" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/10000000/9850000/9844500/9844402/321392e0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="468943" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="XT" HotelCode="HB100115" HotelName="Belltown Inn - COVID Measures">
+                    <Position Latitude="47.614705" Longitude="-122.344662" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/3000000/2340000/2330600/2330513/c41602f2_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="248951" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HM070138" HotelName="The Moore - COVID Measures">
+                    <Position Latitude="47.611588" Longitude="-122.341252" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/2000000/1590000/1585100/1585072/1fd8df25_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="178815" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="MC" HotelCode="HM031778" HotelName="Seattle Marriott Waterfront - COVID Measures">
+                    <Position Latitude="47.610358" Longitude="-122.346797" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/920000/911800/911767/b82718aa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="94287" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="LL" HotelCode="HH743722" HotelName="Lotte Hotel Seattle - COVID Measures">
+                    <Position Latitude="47.605206" Longitude="-122.331044" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/49000000/48220000/48217800/48217742/a56b2768_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="689231" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="VN" HotelCode="HH783778" HotelName="Even Hotel Seattle South Lake Union - COVID Measures">
+                    <Position Latitude="47.62403" Longitude="-122.33437" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/23000000/22520000/22514800/22514765/db9734b6_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="751524" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HA052999" HotelName="Ace Hotel Seattle - COVID Measures">
+                    <Position Latitude="47.614379" Longitude="-122.348816" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/60000000/59120000/59114100/59114043/b8194fcf_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="111878" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HS031707" HotelName="Silver Cloud Inn Lake Union - COVID Measures">
+                    <Position Latitude="47.629689" Longitude="-122.329061" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://q-xx.bstatic.com/xdata/images/hotel/max300/163666670.jpg?k=f77d9d11db684cedbce878e9db5e2fbae759b84277a5dabfad2826e2fef5685e&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="120724" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HS030276" HotelName="Sorrento - COVID Measures">
+                    <Position Latitude="47.608954" Longitude="-122.32677" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/30000/22000/21924/32f9e1b4_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="93818" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="A393" HotelCode="HP433618" HotelName="Domicile Suites At Helios">
+                    <Position Latitude="47.61078" Longitude="-122.33976" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/28000000/27010000/27003400/27003384/e26e5610_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YZ" HotelCode="HH783779" HotelName="Staybridge Suites Sea South Lake Union - COVID Measures">
+                    <Position Latitude="47.62455" Longitude="-122.33496" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/23000000/22520000/22514800/22514773/9d70b73b_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="751331" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX164" HotelCode="HP533244" HotelName="Domicile Suites At Cove">
+                    <Position Latitude="47.61392" Longitude="-122.324141" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HI" HotelCode="HH033364" HotelName="Holiday Inn Seattle Downtown - COVID Measures">
+                    <Position Latitude="47.620304" Longitude="-122.342801" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/810000/805800/805793/7b4171d3_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="135178" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="LZ" HotelCode="H1070014" HotelName="Hilton Lxr Hotel 1000 - COVID Measures">
+                    <Position Latitude="47.604918" Longitude="-122.336282" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/2000000/1500000/1495200/1495139/d11072d7_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="172270" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="H056" HotelCode="HP200808" HotelName="The Art Inn Seattle - COVID Measures">
+                    <Position Latitude="47.60602" Longitude="-122.31568" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/33000000/32750000/32742000/32741986/39c6f4c0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX164" HotelCode="HK050559" HotelName="Kings Inn Seattle">
+                    <Position Latitude="47.614974" Longitude="-122.340679" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="97" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://q-xx.bstatic.com/xdata/images/hotel/max300/119233833.jpg?k=f899a0dc53e107d87d6669690ed7365d93c63a0682b54614a117a9fe6e736084&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HG" HotelCode="HH031478" HotelName="Homewood Ste Seattle Downtown - COVID Measures">
+                    <Position Latitude="47.620416" Longitude="-122.359716" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/120000/119100/119085/57b41402_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="66067" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HB050213" HotelName="Loyal Inn - COVID Measures">
+                    <Position Latitude="47.618163" Longitude="-122.341359" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/17000/16934/36d15ccb_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="113069" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="H056" HotelCode="HP533270" HotelName="Whyhotel Seattle Belltown - COVID Measures">
+                    <Position Latitude="47.615838" Longitude="-122.348095" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/38000000/37770000/37768000/37767939/9ad682e4_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HS060543" HotelName="Silver Cloud Hotel Stadium - COVID Measures">
+                    <Position Latitude="47.592707" Longitude="-122.33369" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://q-xx.bstatic.com/xdata/images/hotel/max300/210156869.jpg?k=1536c62a8b20a11c78b6fefc47563cf39065fddb8142d988efea81b1d9e74024&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="182010" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HQ" HotelCode="HP110193" HotelName="Pensione Nichols">
+                    <Position Latitude="47.610562" Longitude="-122.342362" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="632545" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="OX" HotelCode="HH768724" HotelName="Moxy Seattle Downtown - COVID Measures">
+                    <Position Latitude="47.623377" Longitude="-122.336232" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/20000000/19940000/19937200/19937165/d76c46ab_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="690154" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HX" HotelCode="HH033291" HotelName="Hampton Inn Suites Downtown - COVID Measures">
+                    <Position Latitude="47.625689" Longitude="-122.34738" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/50000/41200/41106/1dbc958c_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="66063" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="RC" HotelCode="HR051929" HotelName="Residence Inn Lk Unio Marriott - COVID Measures">
+                    <Position Latitude="47.626411" Longitude="-122.333178" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/10000/1800/1770/0decfd27_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="181101" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="OH316456" HotelName="Sonder Solis - COVID Measures">
+                    <Position Latitude="47.614384" Longitude="-122.315205" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="0" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/57000000/56930000/56921700/56921611/b9de41fa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="A391" HotelCode="HP420150" HotelName="Domicile Suites At Chroma Slu">
+                    <Position Latitude="47.62209" Longitude="-122.33249" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/25000000/24070000/24060100/24060087/bd29def2_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BT" HotelCode="HH925985" HotelName="Staypineapple University Inn - COVID Measures">
+                    <Position Latitude="47.658129" Longitude="-122.317379" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="121319" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="XT" HotelCode="HM052573" HotelName="Mediterranean Inn - COVID Measures">
+                    <Position Latitude="47.623171" Longitude="-122.356869" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/900000/897600/897598/cb191c7b_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="119924" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CY" HotelCode="HC031754" HotelName="Courtyard Seattle Downtown Lake Union - COVID Measures">
+                    <Position Latitude="47.627659" Longitude="-122.340212" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/210000/202800/202730/1c07b918_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="115839" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="A133" HotelCode="HH030279" HotelName="Holiday Inn Express City Center">
+                    <Position Latitude="47.620237" Longitude="-122.343269" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/80000/79400/79381/b5369cae_t.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HQ" HotelCode="HH672618" HotelName="Seattle Center Luxury Suites B">
+                    <Position Latitude="47.62007" Longitude="-122.34761" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="607622" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GL140" HotelCode="HB120124" HotelName="Bacon Mansion Bed and Breakfast - COVID Measures">
+                    <Position Latitude="47.628485" Longitude="-122.32145" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://q-xx.bstatic.com/xdata/images/hotel/max300/4340311.jpg?k=082590d6984793e2d8503280b67ef4c01c77b4a18775dbc491cbd84827660484&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BT" HotelCode="HM100108" HotelName="Staypineapple Maxwell - COVID Measures">
+                    <Position Latitude="47.625669" Longitude="-122.351216" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="41" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/4000000/3450000/3445700/3445681/2c64d6f4_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="226997" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GD" HotelCode="HH790056" HotelName="Domicile Suites At Mark On 8th">
+                    <Position Latitude="47.620477" Longitude="-122.341473" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="1251878" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="RC" HotelCode="HF498907" HotelName="Residence Inn Seattle University Dist - COVID Measures">
+                    <Position Latitude="47.661611" Longitude="-122.31569" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/11000000/10630000/10622000/10621943/d85fd355_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="432076" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GP" HotelCode="HD030900" HotelName="Graduate Hotel Seattle - COVID Measures">
+                    <Position Latitude="47.661636" Longitude="-122.314418" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/19100/19023/2a2a6104_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="78337" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="HI030467" HotelName="Inn At Queen Anne - COVID Measures">
+                    <Position Latitude="47.62339" Longitude="-122.355553" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/10000/5500/5483/86031f4a_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="FS" HotelCode="HF080165" HotelName="Four Seasons Seattle - COVID Measures">
+                    <Position Latitude="47.607377" Longitude="-122.339156" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="5" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/3000000/2170000/2163100/2163007/ac8ccf13_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="233898" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX164" HotelCode="HB125706" HotelName="Ballard Inn - COVID Measures">
+                    <Position Latitude="47.666549" Longitude="-122.383205" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/5000000/4850000/4849300/4849228/6713ddc4_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YZ" HotelCode="HF154104" HotelName="Staybridge Stes U District - COVID Measures">
+                    <Position Latitude="47.6549" Longitude="-122.347" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/9000000/8270000/8263100/8263036/3083beb5_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="411090" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="A437" HotelCode="HB030274" HotelName="Executive Inn by The Space Needle - COVID Measures">
+                    <Position Latitude="47.619974" Longitude="-122.346239" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/20000/17100/17066/1fa7ce4d_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="A393" HotelCode="HH908128" HotelName="Modern Home In Seattle - COVID Measures">
+                    <Position Latitude="47.603092" Longitude="-122.306749" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://q-xx.bstatic.com/xdata/images/hotel/max300/138578860.jpg?k=4f9524d536822ba0456a824afb8d991dbda729fafc1c8d162f64ae5d0ebff7d0&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CB53" HotelCode="HH895376" HotelName="The House Of Suffrage">
+                    <Position Latitude="47.612129" Longitude="-122.299925" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/24000000/23660000/23659700/23659630/ca5a0e13_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HM030988" HotelName="Marqueen - COVID Measures">
+                    <Position Latitude="47.625051" Longitude="-122.356538" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/1000000/210000/201100/201051/30a66422_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="173970" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="UP" HotelCode="HH940551" HotelName="The Sound Hotel Sea Belltown - COVID Measures">
+                    <Position Latitude="47.61441" Longitude="-122.342115" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://hotelsupplier.com/hotels/32000000/31810000/31802100/31802068/4db289b3_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="971620" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HS031711" HotelName="Silver Cloud Inn University - COVID Measures">
+                    <Position Latitude="47.665857" Longitude="-122.29953" />
+                    <Address>xxxxxxxxxxxx</Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="xxxxxxxxxxxx" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="xxxxxxxxxxxx" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://multimediarepository.amadeus.com/cmr/retrieve/hotel/B53EBC21E9864156ADBA1CF72625A692/A</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="120726" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+            </Properties>
+            <TPA_Extensions>
+                <SearchSessionToken>ed46904d-2d32-4aa3-b2da-8ec15ecce404</SearchSessionToken>
+            </TPA_Extensions>
+        </OTA_HotelSearchRS>
+    </soap:Body>
+</soap:Envelope>

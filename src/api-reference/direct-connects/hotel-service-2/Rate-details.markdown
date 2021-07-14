@@ -410,8 +410,8 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |Name|Type|Description|
 |-------------------|-----------|-------------|
 |`RateTimeUnit`|`string`|Indicates the time unit for the rate. Supported values: `FullDuration`, `Day`. Default: `FullDuration`|
-|`EffectiveDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. The starting value of the time span.|
-|`ExpireDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. The starting value of the time span.|
+|`EffectiveDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. Indicates the start date of the time span.|
+|`ExpireDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. Indicates the end date of the time span.|
 |`PaymentPolicies`|`complex`|Payment policies for this rate.|
 |`Total`|`complex`|**Required** A description of the rate.|
 |`RateDescription`|`complex`|A textual description of a rate. Only one (1) Rate Description element is expected.|
