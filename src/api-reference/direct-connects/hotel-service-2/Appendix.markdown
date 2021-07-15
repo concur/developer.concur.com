@@ -29,7 +29,6 @@ layout: reference
       <Criteria>
         <Criterion>
           <Position Latitude="47.61037" Longitude="-122.20067"></Position>
-          <RefPoint></RefPoint>
           <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
           <StayDateRange Start="2018-02-12" End="2018-02-13"></StayDateRange>
         </Criterion>
