@@ -20,6 +20,6 @@ RUN apk --no-cache add \
   chmod 700 ~/.aws
 
 # Expose volume for adding credentials
-VOLUME ["~/.aws"]
+VOLUME ["/root/.aws"]
 
 CMD ["/bin/bash", "--login"]
