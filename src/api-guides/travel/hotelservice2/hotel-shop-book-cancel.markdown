@@ -7,7 +7,10 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
 * [Actors](#actors)
 * [Hotel search, reserve, and cancel walkthrough](#walkthrough)
-* [Sequence Diagram](#sequence-diagram)
+  * [Search](#search)
+  * [Reserve](#reserve)
+  * [Cancel](#cancel)
+* [General System Overview](#sequence-diagram)
 
 ## <a name="actors"></a>Actors
 
@@ -17,7 +20,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
 ## <a name="walkthrough"></a>Hotel search, reserve, and cancel walkthrough
 
-### Hotel Search
+### <a name="search"></a> Hotel Search
 1. <a name="#start-shop"></a>Business traveler performs a hotel search. The criterion for the [Search](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Search.html) request will be comprised of the input in the search form, and the search radius will be obtained from the travel configuration (link to TSG).
     
     <a href='./images/general-walkthrough/search-form.png'><img style="max-width:300px" src="./images/general-walkthrough/search-form.png"/></a>
@@ -40,11 +43,13 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     [Sample search response](./sample-requests/general-walkthrough/search-rs.xml)
 
-Out of 100 hotels returned in the response from the Hotel Supplier, the first 10 hotels are the Most Preferred hotels within a 30km radius. The next 10 hotels are the Preferred hotels within a 30km radius. The remaining 80 hotels are hotels with no preference within a 5km radius. Note: The preference level is defined by the HotelPreference element in the TPA_Extensions, which is outlined in Search.
+    Out of 100 hotels returned in the response from the Hotel Supplier, the first 10 hotels are the Most Preferred hotels within a 30km radius. The next 10 hotels are the Preferred hotels within a 30km radius. The remaining 80 hotels are hotels with no preference within a 5km radius. Note: The preference level is defined by the HotelPreference element in the TPA_Extensions, which is outlined in Search.
 
-    More details about the `Search` requests [here](./faq#search)
+    Please refer to the Search [FAQ](./faq.html#search) for additional information.
 
-2. Once the [Search](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Search.html) response is received, an [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) request is invoked. The number of hotel codes specified in the Availability request is determined by the travel configuration settings shown below.
+2. Once the [Search](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Search.html) response is received, an [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) request is invoked. The number of hotel codes specified in the Availability request is determined by the Number of hotels to shop setting in travel configuration settings shown below.
+
+    <a href='./images/general-walkthrough/travel-config-hotels-to-shop.png'><img style="max-width:300px" src="./images/general-walkthrough/travel-config-hotels-to-shop.png"/></a>
 
     ````
     <AvailRequestSegments>
@@ -74,7 +79,7 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
     [Sample availability response](./sample-requests/general-walkthrough/avail-rs.xml)
 
-    More details about the `Availability` requests [here](./faq#availability)
+    Please refer to the Availability [FAQ](./faq.html#availability) for additional information.
 
 
 3. When the [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) response is received, the UI displays the available hotels. The business traveler can then select **View Rooms** for a hotel with a lead rate displayed, or request to **Get Rates** in case they are not present.
@@ -126,7 +131,8 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
     [Sample descriptive info response](./sample-requests/general-walkthrough/hoteldetail-rs.xml)
 
-    More details about the `HotelDescriptiveInfo` requests [here](./faq#hotel-descriptive-info)
+    Please refer to the HotelDescriptiveInfo [FAQ](./faq.html#hotel-descriptive-info) for additional information.
+    
 
 6. Upon selecting View Rooms, the UI displays all available rates for the chosen hotel. 
 
@@ -140,11 +146,11 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
     [Sample rate details response](./sample-requests/general-walkthrough/ratedetails-rs.xml)
 
-    More details about the `RateDetails` requests [here](./faq#availability)
+    Please refer to the RateDetails [FAQ](./faq.html#availability) for additional information.
 
 8. The UI displays all available rates for the chosen hotel. The Business traveler selects the top most rate. The Trip Summary page is displayed where the Business traveler can set the Hotel Preferences, Enter Guest information (from their profile), select the method of payment and view the total estimated price. The Rate rules and cancellation policy will be displayed as well. Like the previous step, if the cancellation details were deferred, a [RateDetails](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html) request will be invoked.
 
-### Hotel Reservation
+### <a name="reserve"></a>Hotel Reservation
 9. The business traveler agrees to the rate rules, restrictions and cancellation policy and clicks **Reserve Hotel and Continue**.
 
     <a href='./images/general-walkthrough/review-and-reserve-hotel.png'><img style="max-width:300px" src="./images/general-walkthrough/review-and-reserve-hotel.png"/></a>
@@ -158,16 +164,16 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
     [Sample book response](./sample-requests/general-walkthrough/book-rs.xml)
 
-    More details about the `Reservation` requests [here](./faq#reservation)
+    Please refer to the Reservation [FAQ](./faq.html#reservation) for additional information.
 
-### Hotel Cancellation
+### <a name="cancel"></a> Hotel Cancellation
 11. When the reservation details are displayed SAP Concur will invoke a [ReadItinerary](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Read-Itinerary.html) request. If a Read request does not arrive within 5 minutes for a given Reservation, then the supplier should treat that Reservation as an orphan and should thus seek to cancel it.
 
     [Sample read request](./sample-requests/general-walkthrough/read-rq-load-trip.xml)
 
     [Sample read response](./sample-requests/general-walkthrough/read-rs-load-trip.xml)
 
-    More details about the `ReadItinerary` requests [here](./faq#read-itinerary)
+    Please refer to the ReadItinerary [FAQ](./faq.html#read-itinerary) for additional information.
 
 12. The business traveler can view the trip in the **Upcoming Trips** tab on the main Travel page. The Business traveler clicks on the **Trip name**. The Business traveler chooses to cancel the hotel reservation, by clicking **cancel**.
 
@@ -188,9 +194,9 @@ Out of 100 hotels returned in the response from the Hotel Supplier, the first 10
 
     [Sample cancel response](./sample-requests/general-walkthrough/cancel-rs.xml)
 
-    More details about the `Cancel` requests [here](./faq#cancel)
+    Please refer to the Cancel [FAQ](./faq.html#cancel) for additional information.
     
     
 
-# <a name="sequence-diagram"></a>General System Overview
+## <a name="sequence-diagram"></a>General System Overview
 ![./media/image1.png](./images/diagrams/hs2-sequence-diagram.png)
