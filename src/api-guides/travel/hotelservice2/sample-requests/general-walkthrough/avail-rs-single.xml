@@ -1,0 +1,1206 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HTTP-headers>
+cache-control: private, max-age=0
+connection: keep-alive
+content-length: 121868
+content-type: text/xml; charset=utf-8
+date: Mon, 14 Jun 2021 05:14:16 GMT
+x-scheme: https
+x-xss-protection: 1; mode=block
+</HTTP-headers>
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <OTA_HotelAvailRS Version="5"
+            xmlns="http://www.opentravel.org/OTA/2003/05">
+            <Success />
+            <RoomStays>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType RoomType="Standard" RoomID="S_22A0630201">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_32EC7112D5">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_5C1F011ACD">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_CF0E721D64">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_0AF21CA5F3">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_8A232206A9">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_2781114BBC">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_FE9F2F6DA4">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_113A647359">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Accessible" RoomID="A_B9A02BCFA1">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Accessible" RoomID="A_0FCE11FEF5">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_7D0F0A6C1C">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_BACAC668CA">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_0CBD5DC90C">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_071B023991">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_CCBCD3EB15">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_AB86557F16">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_9CA4921E55">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_C1A80265F7">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_13BF034EB3">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_CBACC0DDE0">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_B1DBFBA636">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_F18986701F">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_038A4D03CC">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Executive" RoomID="E_4AA2227FF3">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_D523BA2264">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_C2F5916095">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_794AA10BFB">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Accessible" RoomID="A_06424CC6CA">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Unknown" RoomID="U_5050EC7881">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_10B9B10B1E">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Executive" RoomID="E_0649E04DB3">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Premium" RoomID="I_9F08FE30A7">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Executive" RoomID="E_C35483184A">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_E5EA52AC36">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_997234328E">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Accessible" RoomID="A_2BB9423D2B">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Unknown" RoomID="U_E59A75F5F7">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_E98090FF3A">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_2D26F1B2CB">
+                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                        </RoomType>
+                    </RoomTypes>
+                    <RatePlans>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="22A0630201#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="32EC7112D5#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="5C1F011ACD#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="CF0E721D64#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:59" />
+                                    <PenaltyDescription>
+                                        <Text>FREE cancellation or modification until Sep 27 2021 23h59,You may cancel free of charge until 00:00 on the day of arrival. You will be charged the cost of the first night if you cancel after 00:00 on the day of arrival.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 101.38 USD,  AmountBeforeTax = 607.50 USD,  AmountAfterTax = 607.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="0AF21CA5F3#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:59" />
+                                    <PenaltyDescription>
+                                        <Text>FREE cancellation or modification until Sep 27 2021 23h59,You may cancel free of charge until 00:00 on the day of arrival. You will be charged the cost of the first night if you cancel after 00:00 on the day of arrival.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 101.38 USD,  AmountBeforeTax = 607.50 USD,  AmountAfterTax = 607.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="8A232206A9#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:59" />
+                                    <PenaltyDescription>
+                                        <Text>FREE cancellation or modification until Sep 27 2021 23h59,You may cancel free of charge until 00:00 on the day of arrival. You will be charged the cost of the first night if you cancel after 00:00 on the day of arrival.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 101.38 USD,  AmountBeforeTax = 607.50 USD,  AmountAfterTax = 607.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="2781114BBC#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:59" />
+                                    <PenaltyDescription>
+                                        <Text>FREE cancellation or modification until Sep 27 2021 23h59,You may cancel free of charge until 00:00 on the day of arrival. You will be charged the cost of the first night if you cancel after 00:00 on the day of arrival.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 101.38 USD,  AmountBeforeTax = 607.50 USD,  AmountAfterTax = 607.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="FE9F2F6DA4#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:59" />
+                                    <PenaltyDescription>
+                                        <Text>FREE cancellation or modification until Sep 27 2021 23h59,You may cancel free of charge until 00:00 on the day of arrival. You will be charged the cost of the first night if you cancel after 00:00 on the day of arrival.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 101.38 USD,  AmountBeforeTax = 607.50 USD,  AmountAfterTax = 607.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="113A647359#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:59" />
+                                    <PenaltyDescription>
+                                        <Text>FREE cancellation or modification until Sep 27 2021 23h59,You may cancel free of charge until 00:00 on the day of arrival. You will be charged the cost of the first night if you cancel after 00:00 on the day of arrival.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 101.38 USD,  AmountBeforeTax = 607.50 USD,  AmountAfterTax = 607.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="B9A02BCFA1#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancellations or changes made between 11:59 PM on Sep 27, 2021 and 11:59 PM on Sep 28, 2021 are subject to 1 Night Room &amp; Tax penalty.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 101.40 USD,  AmountBeforeTax = 607.50 USD,  AmountAfterTax = 607.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="0FCE11FEF5#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancellations or changes made between 11:59 PM on Sep 27, 2021 and 11:59 PM on Sep 28, 2021 are subject to 1 Night Room &amp; Tax penalty.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 101.40 USD,  AmountBeforeTax = 607.50 USD,  AmountAfterTax = 607.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="7D0F0A6C1C#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancellations or changes made between 11:59 PM on Sep 27, 2021 and 11:59 PM on Sep 28, 2021 are subject to 1 Night Room &amp; Tax penalty.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 101.40 USD,  AmountBeforeTax = 607.50 USD,  AmountAfterTax = 607.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="BACAC668CA#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="0CBD5DC90C#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="071B023991#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="CCBCD3EB15#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="AB86557F16#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="9CA4921E55#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="C1A80265F7#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T23:59:59" />
+                                    <PenaltyDescription>
+                                        <Text>FREE cancellation or modification until Sep 27 2021 23h59,You may cancel free of charge until 00:00 on the day of arrival. You will be charged the cost of the first night if you cancel after 00:00 on the day of arrival.. InclusiveTaxAmount = 0.00 USD,  ExclusiveTaxAmount = 105.62 USD,  AmountBeforeTax = 634.50 USD,  AmountAfterTax = 634.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="13BF034EB3#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="CBACC0DDE0#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="B1DBFBA636#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="F18986701F#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="038A4D03CC#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="4AA2227FF3#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="D523BA2264#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="C2F5916095#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="794AA10BFB#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="06424CC6CA#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="5050EC7881#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="10B9B10B1E#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="0649E04DB3#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="9F08FE30A7#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="C35483184A#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="E5EA52AC36#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="997234328E#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="2BB9423D2B#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="E59A75F5F7#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="E98090FF3A#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="2D26F1B2CB#ed46904d-2d32-4aa3-b2da-8ec15ecce404" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                        </RatePlan>
+                    </RatePlans>
+                    <RoomRates>
+                        <RoomRate RatePlanID="22A0630201#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_22A0630201">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="577.13" AmountAfterTax="577.13" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="32EC7112D5#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_32EC7112D5">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="577.13" AmountAfterTax="577.13" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="5C1F011ACD#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_5C1F011ACD">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="577.13" AmountAfterTax="577.13" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="CF0E721D64#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_CF0E721D64">
+                            <Rates>
+                                <Rate RateTypeCode="4383716_266271113_1_2_0">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Exclusive" Code="VAT" Amount="95.38" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="0AF21CA5F3#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_0AF21CA5F3">
+                            <Rates>
+                                <Rate RateTypeCode="4383703_266271113_1_2_0">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Exclusive" Code="VAT" Amount="95.38" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="8A232206A9#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_8A232206A9">
+                            <Rates>
+                                <Rate RateTypeCode="4383718_266271113_1_2_0">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="VAT" Amount="95.38" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Exclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="2781114BBC#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_2781114BBC">
+                            <Rates>
+                                <Rate RateTypeCode="4383716_266271113_2_2_0">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="VAT" Amount="95.38" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Exclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="FE9F2F6DA4#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_FE9F2F6DA4">
+                            <Rates>
+                                <Rate RateTypeCode="4383703_266271113_2_2_0">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="VAT" Amount="95.38" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Exclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="113A647359#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_113A647359">
+                            <Rates>
+                                <Rate RateTypeCode="4383718_266271113_2_2_0">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="VAT" Amount="95.38" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Exclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="B9A02BCFA1#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="A_B9A02BCFA1">
+                            <Rates>
+                                <Rate RateTypeCode="226196216">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="TAS" Amount="101.40" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax Recovery Charges and Service Fees">
+                                                    <Text>Tax Recovery Charges and Service Fees</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="0FCE11FEF5#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="A_0FCE11FEF5">
+                            <Rates>
+                                <Rate RateTypeCode="226196213">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="TAS" Amount="101.40" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax Recovery Charges and Service Fees">
+                                                    <Text>Tax Recovery Charges and Service Fees</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="7D0F0A6C1C#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_7D0F0A6C1C">
+                            <Rates>
+                                <Rate RateTypeCode="226196207">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="TAS" Amount="101.40" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax Recovery Charges and Service Fees">
+                                                    <Text>Tax Recovery Charges and Service Fees</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="BACAC668CA#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_BACAC668CA">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="0CBD5DC90C#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_0CBD5DC90C">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="071B023991#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_071B023991">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="607.50" AmountAfterTax="607.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="CCBCD3EB15#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_CCBCD3EB15">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="613.04" AmountAfterTax="613.04" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="AB86557F16#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_AB86557F16">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="613.04" AmountAfterTax="613.04" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="9CA4921E55#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_9CA4921E55">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="628.43" AmountAfterTax="628.43" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="C1A80265F7#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_C1A80265F7">
+                            <Rates>
+                                <Rate RateTypeCode="4383716_266271113_3_2_0">
+                                    <Total AmountBeforeTax="634.50" AmountAfterTax="634.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Exclusive" Code="VAT" Amount="99.62" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="13BF034EB3#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_13BF034EB3">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="645.30" AmountAfterTax="645.30" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="CBACC0DDE0#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_CBACC0DDE0">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="645.30" AmountAfterTax="645.30" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="B1DBFBA636#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_B1DBFBA636">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="661.50" AmountAfterTax="661.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="F18986701F#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_F18986701F">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="664.33" AmountAfterTax="664.33" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="038A4D03CC#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_038A4D03CC">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="689.98" AmountAfterTax="689.98" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="4AA2227FF3#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="E_4AA2227FF3">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="689.98" AmountAfterTax="689.98" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="D523BA2264#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_D523BA2264">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="699.30" AmountAfterTax="699.30" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="C2F5916095#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_C2F5916095">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="715.63" AmountAfterTax="715.63" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="794AA10BFB#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_794AA10BFB">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="715.63" AmountAfterTax="715.63" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="06424CC6CA#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="A_06424CC6CA">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="715.63" AmountAfterTax="715.63" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="5050EC7881#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="U_5050EC7881">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="715.63" AmountAfterTax="715.63" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="10B9B10B1E#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_10B9B10B1E">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="726.30" AmountAfterTax="726.30" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="0649E04DB3#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="E_0649E04DB3">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="726.30" AmountAfterTax="726.30" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="9F08FE30A7#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="I_9F08FE30A7">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="741.29" AmountAfterTax="741.29" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="C35483184A#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="E_C35483184A">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="741.29" AmountAfterTax="741.29" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="E5EA52AC36#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_E5EA52AC36">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="753.30" AmountAfterTax="753.30" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="997234328E#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_997234328E">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="753.30" AmountAfterTax="753.30" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="2BB9423D2B#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="A_2BB9423D2B">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="753.30" AmountAfterTax="753.30" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="E59A75F5F7#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="U_E59A75F5F7">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="753.30" AmountAfterTax="753.30" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="E98090FF3A#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_E98090FF3A">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="766.94" AmountAfterTax="766.94" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="2D26F1B2CB#ed46904d-2d32-4aa3-b2da-8ec15ecce404" RoomID="S_2D26F1B2CB">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="766.94" AmountAfterTax="766.94" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                        </RoomRate>
+                    </RoomRates>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan End="2021-10-01" Start="2021-09-28" />
+                    <BasicPropertyInfo ChainCode="HH" HotelCode="HH030344" />
+                </RoomStay>
+            </RoomStays>
+            <TPA_Extensions RateDetailsInd="false" />
+        </OTA_HotelAvailRS>
+    </soap:Body>
+</soap:Envelope>

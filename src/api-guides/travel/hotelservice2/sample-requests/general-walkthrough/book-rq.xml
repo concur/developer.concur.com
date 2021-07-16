@@ -1,0 +1,91 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HTTP-headers>
+POST HTTP/1.1
+accept: application/xml
+accept-charset: utf-8
+authorization: Basic xxxxxxxxxxxxxxxx
+concur-correlationid: 06987f1bb6835c7aba2e0a275fbb7395
+concur-loginid:  xxxxxxxxxxxx
+concur-traveleruuid:  xxxxxxxxxxxx
+content-type: application/xml; charset="utf-8"
+soapaction: book
+</HTTP-headers>
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <authentication xmlns="http://www.concur.com/webservice/auth">
+            <userid>xxxxxxxxxxxx</userid>
+            <password>xxxxxxxxxxx</password>
+        </authentication>
+    </Header>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="CC5C9CE2-9917-4322-8F6F-B12A5BC5FE1D" Version="6" PrimaryLangID="en" AltLangID="en">
+            <POS>
+                <Source ISOCurrency="USD">
+                    <RequestorID Type="1" ID="requestor_id"></RequestorID>
+                </Source>
+            </POS>
+            <HotelReservations>
+                <HotelReservation>
+                    <RoomStays>
+                        <RoomStay>
+                            <RatePlans>
+                                <RatePlan RatePlanID="4CE2BBE73E#7b0fb272-f10c-4b10-aebc-33fa73b5c90e">
+                                    <Guarantee GuaranteeType="CC/DC/Voucher">
+                                        <GuaranteesAccepted>
+                                            <GuaranteeAccepted>
+                                                <PaymentCard CardCode="CA" ExpireDate="0230">
+                                                    <CardType Code="CA">Mastercard</CardType>
+                                                    <CardHolderName>xxxxxxxxxxxx</CardHolderName>
+                                                    <Address>xxxxxxxxxxxx</Address>
+                                                    <CardNumber>
+                                                        <PlainText>xxxxxxxxxxxx5100</PlainText>
+                                                    </CardNumber>
+                                                </PaymentCard>
+                                            </GuaranteeAccepted>
+                                        </GuaranteesAccepted>
+                                    </Guarantee>
+                                </RatePlan>
+                            </RatePlans>
+                            <TimeSpan Start="2021-09-28" End="2021-10-01"></TimeSpan>
+                            <BasicPropertyInfo HotelCode="HT030025"></BasicPropertyInfo>
+                        </RoomStay>
+                    </RoomStays>
+                    <ResGuests>
+                        <ResGuest>
+                            <Profiles>
+                                <ProfileInfo>
+                                    <Profile>
+                                        <Customer Gender="xxxxxxxxxxxx">
+                                            <PersonName Language="en">
+                                                <GivenName>xxxxxxxxxxxx</GivenName>
+                                                <Surname>xxxxxxxxxxxx</Surname>
+                                            </PersonName>
+                                            <Telephone PhoneNumber="xxxxxxxxxxxx"></Telephone>
+                                            <Email>xxxxxxxxxxxx</Email>
+                                            <Address>xxxxxxxxxxxx</Address>
+                                            <CitizenCountryName Code="US"></CitizenCountryName>
+                                        </Customer>
+                                        <CompanyInfo>
+                                            <CompanyName>t2hotel</CompanyName>
+                                        </CompanyInfo>
+                                    </Profile>
+                                </ProfileInfo>
+                            </Profiles>
+                            <GuestCounts>
+                                <GuestCount Count="1"></GuestCount>
+                            </GuestCounts>
+                        </ResGuest>
+                    </ResGuests>
+                    <TPA_Extensions>
+                        <SearchSessionToken>7b0fb272-f10c-4b10-aebc-33fa73b5c90e</SearchSessionToken>
+                    </TPA_Extensions>
+                </HotelReservation>
+            </HotelReservations>
+        </OTA_HotelResRQ>
+    </Body>
+</Envelope>
