@@ -26,14 +26,14 @@ jobs:
 
   deploy_preview:
     docker:
-      - image: cgswong/aws:aws
+      - image: quay.io/concur_platform/awscli:1.16.101
     steps:
       - attach_workspace:
           at: ./
       - run: aws s3 sync ./_site s3://preview-developer-concur-com --delete --region us-west-2 --output text
   deploy_livesite:
     docker:
-      - image: cgswong/aws:aws
+      - image: quay.io/concur_platform/awscli:1.16.101
     steps:
       - attach_workspace:
           at: ./
