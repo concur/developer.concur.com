@@ -66,13 +66,14 @@ BookedProposal|	7
 Removed|	Byte.MaxValue
 
 #### Airline Adjustment Types
+
+Charge Type| Description
 ----|----
-Charge Type|	Description
 V|	Void
 R|	Refund
 C|	Credit
 A|	Ancillary
-O	|Other
+O|  Other
 
 #### Rail Adjustment Types
 
