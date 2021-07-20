@@ -1,9 +1,7 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 
-<HTTP-headers>
+<!-- HTTP-headers start 
+
 200 OK (HTTP Status 200) HTTP/1.1
 cache-control: private, max-age=0
 connection: keep-alive
@@ -13,7 +11,8 @@ date: Mon, 14 Jun 2021 05:31:26 GMT
 strict-transport-security: max-age=31536000; includeSubDomains
 x-scheme: https
 x-xss-protection: 1; mode=block
-</HTTP-headers>
+
+    HTTP-headers end -->
 
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -51,9 +50,16 @@ x-xss-protection: 1; mode=block
                             </RoomRates>
                             <TimeSpan Start="2021-09-28" End="2021-10-01" />
                             <BasicPropertyInfo HotelCode="HT030025" HotelName="Travelodge Seattle by The Space Needle">
-                                <Address>xxxxxxxxxxxx</Address>
+                                <Address>
+                                    <AddressLine>200 6th Avenue North</AddressLine>
+                                    <CityName>Seattle</CityName>
+                                    <PostalCode>98109</PostalCode>
+                                    <StateProv StateCode="WA">Washington</StateProv>
+                                    <CountryName Code="US">United States</CountryName>
+                                </Address>
                                 <ContactNumbers>
-                                    <ContactNumber PhoneNumber="xxxxxxxxxxxx" />
+                                    <ContactNumber PhoneTechType="1" PhoneNumber="+12069628678" />
+                                    <ContactNumber PhoneTechType="3" PhoneNumber="+12064484825" />
                                 </ContactNumbers>
                             </BasicPropertyInfo>
                         </RoomStay>
@@ -63,11 +69,22 @@ x-xss-protection: 1; mode=block
                             <Profiles>
                                 <ProfileInfo>
                                     <Profile>
-                                        <Customer>
-                                            <PersonName>
-                                                <GivenName>xxxxxxxxxxxx</GivenName>
-                                                <Surname>xxxxxxxxxxxx</Surname>
+                                        <Customer Gender="Female" BirthDate="1987-05-12">
+                                            <PersonName Language="en">
+                                                <NamePrefix>Mademoiselle</NamePrefix>
+                                                <GivenName>Janelle</GivenName>
+                                                <Surname>Doherty</Surname>
                                             </PersonName>
+                                            <Telephone PhoneNumber="703-555-6100"></Telephone>
+                                            <Email>janelle.doherty@devtravel.com</Email>
+                                            <Address>
+                                                <AddressLine>209 Madison St Suite 400</AddressLine>
+                                                <CityName>Alexandria</CityName>
+                                                <PostalCode>22314</PostalCode>
+                                                <StateProv StateCode="VA"></StateProv>
+                                                <CountryName Code="US">United States of America</CountryName>
+                                            </Address>
+                                            <CitizenCountryName Code="US"></CitizenCountryName>
                                         </Customer>
                                     </Profile>
                                 </ProfileInfo>

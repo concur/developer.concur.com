@@ -99,34 +99,6 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     <a href='./images/general-walkthrough/hotel-details.png'><img style="max-width:300px" src="./images/general-walkthrough/hotel-details.png"/></a>
 
-    ````
-    <HotelInfo>
-      <Descriptions>
-        <DescriptiveText>here are 88 spacious and comfortable rooms, all with High Speed Wireless Internet Access. Our king and double queen rooms have refrigerators, and there is a fitness center on-site. We are just 2 blocks from the Space Needle and Seattle Center and a short walk to Key Arena Pacific Science Center and the Seattle Opera and Ballet. Enjoy hot breakfast each morning and Seattles Best Coffee is served 24-hours daily. We are a 100 percent non-smoking hotel.</DescriptiveText>
-      </Descriptions>
-    </HotelInfo>
-    <MultimediaDescriptions>
-      <MultimediaDescription>
-        <ImageItems>
-          <ImageItem>
-            <ImageFormat>
-              <URL>https://hotelsupplier.com/C57EE13F7FFB4026877B07346B89D109/A.JPEG</URL>
-            </ImageFormat>
-          </ImageItem>
-        </ImageItems>
-      </MultimediaDescription>
-    </MultimediaDescriptions>
-    <TPA_Extensions>
-      <Description Name="What's nearby">
-        <Text>West Maui Mountains</Text>
-        <Text>Oneloa Beach</Text>
-      </Description>
-      <Description Name="Restaurants>
-        <Text>The Banyan Tree</Text>
-      </Description>
-    </TPA_Extensions>
-    ````
-
     [Sample descriptive info request](./sample-requests/general-walkthrough/hoteldetail-rq.xml)
 
     [Sample descriptive info response](./sample-requests/general-walkthrough/hoteldetail-rs.xml)
