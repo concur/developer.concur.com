@@ -46,7 +46,7 @@ Schema and Sample API Request and Response can be found in:
 Itin Source Name|Description
 ----|----
 Cliqbook|	Bookings created using Concur Travel or booked directly with a TMC agent and sent via the GDS.
-Panama|	Trip confirmation emails sent to plans@concur.com, a feature of Concur TripLink.
+Panama|	Trip confirmation emails sent to plans@concur.com, a feature of Concur TripLink. **Note**: The plans@concur.com functionality has been deprecated.
 Agency|	Bookings made on other booking tools and posted to the SAP Concur platform.
 TravelSupplier|	Concur TripLink bookings made directly on supplier websites & mobile apps and posted to the SAP Concur platform.
 TripIt|	Trip confirmation emails sent to plans@tripit.com, a feature of Concur TripLink.
