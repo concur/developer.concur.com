@@ -87,7 +87,7 @@ Then, the nightly rate breakdown (after tax) is computed as:
 
 ***
 
-Q: What is the usage of `GuestCount/AgeQualifyingCode`
+Q: What is the usage of `GuestCount/AgeQualifyingCode`?
 
 A: This value indicates whether the guest is a child or adult. SAP Concur will only supports the value 10, indicating adult.
 
