@@ -63,7 +63,7 @@ For the RateDetails, HotelService accepts multiple `Rate` objects for the case w
 
 ***
 
-Q: What is the usage of EffectiveDate and ExpireDate
+Q: What is the usage of EffectiveDate and ExpireDate?
 
 A: When the AvailabilityStatus value is `ChangeDuringStay` the dates are used to indicate the start and end dates for when the rate is in effect.
 
