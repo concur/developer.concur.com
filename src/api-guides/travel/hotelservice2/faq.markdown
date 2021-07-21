@@ -59,7 +59,7 @@ Q: How is AvailabilityStatus value `ChangeDuringStay` handled?
 
 A: The AvailabilityStatus value `ChangeDuringStay` does not have an effect in the display of rates in the shop workflow. Although one may expect there to be multiple `Rate` items when AvailabilityStatus is set to ChangeDuringStay, the vendor must return just 1 Rate object to cover the full stay in the OTA_HotelAvailRS object. This is documented https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html#rates.
 
-For the RateDetailsRS, HotelService accepts multiple `Rate` objects for the case where AvailabilityStatus is `ChangeDuringStay`, however, it is optional https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html#rates. These details are available to the user in the Rules and Cancellation Policy dialog.
+For the RateDetails, HotelService accepts multiple `Rate` objects for the case where AvailabilityStatus is `ChangeDuringStay`, however, it is optional https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html#rates. These details are available to the user in the Rules and Cancellation Policy dialog.
 
 ***
 
