@@ -115,7 +115,7 @@ A: The names are defined on the Concur Travel profile and can be up to 60 charac
 
 ***
 
-Q: What is the difference between the value 'Committed' and 'Reserved' for ResResponseType
+Q: What is the difference between the value 'Committed' and 'Reserved' for ResResponseType?
 
 A: Both indicate a successful reservation. They are treated in the same manner.
 
