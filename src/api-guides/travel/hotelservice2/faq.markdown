@@ -82,7 +82,7 @@ For example, given
 Then, the nightly rate breakdown (after tax) is computed as:  
 10/25: $110 (Note that RateTimeUnit is FullDuration hence the indicated amount is over 2 nights, hence $110 per night)  
 10/26: $110  
-10/27: $440 (Note that RateTimeUnit is Day so indicated amount is per day)  
+10/27: $440 (Note that RateTimeUnit is Day so the indicated amount is per day)
 10/28: $440
 
 ***
