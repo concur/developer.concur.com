@@ -25,8 +25,14 @@ Data Center|Environment|Base URI|Description
 -----------|-----------|--------|-----------
 US|Production|https://us.api.concursolutions.com |Default for all API calls (Optionally request certs)
 US|Production|https://www-us.api.concursolutions.com |Default for all API calls (Does not request certs)
+US2|Production|https://us2.api.concursolutions.com |Default for all API calls (Optionally request certs)
+US2|Production|https://www-us2.api.concursolutions.com |Default for all API calls (Does not request certs)
 EMEA|Production|https://emea.api.concursolutions.com |Default for all API calls (Optionally request certs)
 EMEA|Production|https://www-emea.api.concursolutions.com |Default for all API calls (Does not request certs)
+EU|Production|https://eu.api.concursolutions.com |Default for all API calls (Optionally request certs).  Same as “EMEA”.
+EU|Production|https://www-eu.api.concursolutions.com |Default for all API calls (Does not request certs).  Same as “EMEA”.
+EU2|Production|https://eu2.api.concursolutions.com |Default for all API calls (Optionally request certs)
+EU2|Production|https://www-eu2.api.concursolutions.com |Default for all API calls (Does not request certs)
 China|Production|https://cn.api.concurcdc.cn |Default for all API calls (Optionally request certs)
 China|Production|https://www-cn.api.concurcdc.cn |Default for all API calls (Does not request certs)
 PSCC|Production|https://usg.api.concursolutions.com |Default for all API calls (Optionally request certs)
