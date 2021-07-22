@@ -23,14 +23,20 @@ Customer entities are hosted in various locations based on the client location, 
 
 Data Center|Environment|Base URI|Description
 -----------|-----------|--------|-----------
-US|Production|https://us.api.concursolutions.com |Default for all API calls (Optionally request certs)
-US|Production|https://www-us.api.concursolutions.com |Default for all API calls (Does not request certs)
-EMEA|Production|https://emea.api.concursolutions.com |Default for all API calls (Optionally request certs)
-EMEA|Production|https://www-emea.api.concursolutions.com |Default for all API calls (Does not request certs)
-China|Production|https://cn.api.concurcdc.cn |Default for all API calls (Optionally request certs)
-China|Production|https://www-cn.api.concurcdc.cn |Default for all API calls (Does not request certs)
-PSCC|Production|https://usg.api.concursolutions.com |Default for all API calls (Optionally request certs)
-PSCC|Production|https://www-usg.api.concursolutions.com |Default for all API calls (Does not request certs)
+US|Production|https://us.api.concursolutions.com |Default for all API calls (Optionally request certs).
+US|Production|https://www-us.api.concursolutions.com |Default for all API calls (Does not request certs).
+US2|Production|https://us2.api.concursolutions.com |Default for all API calls (Optionally request certs).
+US2|Production|https://www-us2.api.concursolutions.com |Default for all API calls (Does not request certs).
+EMEA|Production|https://emea.api.concursolutions.com |Default for all API calls (Optionally request certs).
+EMEA|Production|https://www-emea.api.concursolutions.com |Default for all API calls (Does not request certs).
+EU|Production|https://eu.api.concursolutions.com |Default for all API calls (Optionally request certs). Same as “EMEA."
+EU|Production|https://www-eu.api.concursolutions.com |Default for all API calls (Does not request certs). Same as “EMEA.”
+EU2|Production|https://eu2.api.concursolutions.com |Default for all API calls (Optionally request certs).
+EU2|Production|https://www-eu2.api.concursolutions.com |Default for all API calls (Does not request certs).
+China|Production|https://cn.api.concurcdc.cn |Default for all API calls (Optionally request certs).
+China|Production|https://www-cn.api.concurcdc.cn |Default for all API calls (Does not request certs).
+PSCC|Production|https://usg.api.concursolutions.com |Default for all API calls (Optionally request certs).
+PSCC|Production|https://www-usg.api.concursolutions.com |Default for all API calls (Does not request certs).
 
 ### <a name="implementation"></a>Implementation
 
@@ -38,10 +44,10 @@ The implementation base domains are used for implementation sites. An implementa
 
 Data Center|Environment|Base URI|Description
 -----------|-----------|--------|-----------
-US|Implementation|https://us-impl.api.concursolutions.com |Default for all API calls (Optionally request certs)
-US|Implementation|https://www-us-impl.api.concursolutions.com |Default for all API calls (Does not request certs)
-EMEA|Implementation|https://emea-impl.api.concursolutions.com |Default for all API calls (Optionally request certs)
-EMEA|Implementation|https://www-emea-impl.api.concursolutions.com |Default for all API calls (Does not request certs)
+US|Implementation|https://us-impl.api.concursolutions.com |Default for all API calls (Optionally request certs).
+US|Implementation|https://www-us-impl.api.concursolutions.com |Default for all API calls (Does not request certs).
+EMEA|Implementation|https://emea-impl.api.concursolutions.com |Default for all API calls (Optionally request certs).
+EMEA|Implementation|https://www-emea-impl.api.concursolutions.com |Default for all API calls (Does not request certs).
 
 ### <a name="deprecated"></a>Pre-2017 Legacy URIs (Deprecated)
 
@@ -56,7 +62,7 @@ These URIs support the current authentication and the previous authentication si
 
 Data Center|Environment|Base URI|Description
 -----------|-----------|--------|-----------
-US|Production|https://www.concursolutions.com |Legacy URI for API calls using pre-2017 authentication for production entities in North America
-EMEA|Production|https://eu1.concursolutions.com |Legacy URI for API calls using pre-2017 authentication for production entities in Europe
-US|Implementation|https://implementation.concursolutions.com |Legacy URI for API calls using pre-2017 authentication for implementation entities in North America
-EMEA|Implementation|https://eu1imp.concursolutions.com |Legacy URI for API calls using pre-2017 authentication for implementation entities in Europe
+US|Production|https://www.concursolutions.com |Legacy URI for API calls using pre-2017 authentication for production entities in North America.
+EMEA|Production|https://eu1.concursolutions.com |Legacy URI for API calls using pre-2017 authentication for production entities in Europe.
+US|Implementation|https://implementation.concursolutions.com |Legacy URI for API calls using pre-2017 authentication for implementation entities in North America.
+EMEA|Implementation|https://eu1imp.concursolutions.com |Legacy URI for API calls using pre-2017 authentication for implementation entities in Europe.
