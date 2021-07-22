@@ -14,7 +14,7 @@
       "version": "v4"
   },
   "host": "us.api.concursolutions.com",
-  "basePath": "/travel/trips/api/v4",
+  "basePath": "/travel/v4",
   "produces": [
     "application/json",
     "application/xml"
@@ -23,7 +23,7 @@
     "application/json"
   ],
   "paths": {
-      "/trip/{tripID}": {
+      "/trips/{tripID}": {
           "get": {
               "description": "Gets the trip record",              
               "tags": [

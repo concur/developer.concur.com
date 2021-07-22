@@ -1,3 +1,9 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HTTP-headers>
 200 OK (HTTP Status 200) HTTP/1.1
 cache-control: private, max-age=0
 connection: keep-alive
@@ -6,8 +12,8 @@ content-type: text/xml; charset=utf-8
 date: Mon, 14 Jun 2021 04:41:32 GMT
 x-scheme: https
 x-xss-protection: 1; mode=block
+</HTTP-headers>
 
-<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
