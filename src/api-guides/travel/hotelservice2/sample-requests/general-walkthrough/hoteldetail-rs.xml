@@ -1,3 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
 200 OK (HTTP Status 200) HTTP/1.1
 cache-control: private, max-age=0
 connection: keep-alive
@@ -8,7 +12,8 @@ strict-transport-security: max-age=31536000; includeSubDomains
 x-scheme: https
 x-xss-protection: 1; mode=block
 
-<?xml version="1.0" encoding="utf-8"?>
+    HTTP-headers end -->
+
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -20,19 +25,18 @@ x-xss-protection: 1; mode=block
         <HotelDescriptiveContent HotelCode="HT030025" HotelName="Travelodge Seattle by The Space Needle - COVID Measures">
           <HotelInfo>
             <Descriptions>
-              <DescriptiveText>Hotel                      
- 
-Year Built - 1958            Year Remodeled - 2007        
+              <DescriptiveText>Year Built - 1958            Year Remodeled - 2007        
 Additional Property Description -
-  There are 88 spacious and comfortable rooms, all with 
-  High Speed Wireless Internet Access. Our king and 
-  double queen rooms have refrigerators, and there is a 
-  fitness center on-site. We are just 2 blocks from the 
-  Space Needle and Seattle Center and a short walk to Key 
-  Arena, Pacific Science Center and the Seattle Opera and 
-  Ballet. Enjoy hot breakfast each morning and Seattles 
-  Best Coffee is served 24-hours daily. We are a 100 
-  percent non-smoking hotel.</DescriptiveText>
+There are 88 spacious and comfortable rooms, all with 
+High Speed Wireless Internet Access. Our king and 
+double queen rooms have refrigerators, and there is a 
+fitness center on-site. We are just 2 blocks from the 
+Space Needle and Seattle Center and a short walk to Key 
+Arena, Pacific Science Center and the Seattle Opera and 
+Ballet. Enjoy hot breakfast each morning and Seattles 
+Best Coffee is served 24-hours daily. We are a 100 
+percent non-smoking hotel.
+              </DescriptiveText>
             </Descriptions>
           </HotelInfo>
           <MultimediaDescriptions>
@@ -40,12 +44,12 @@ Additional Property Description -
               <ImageItems>
                 <ImageItem>
                   <ImageFormat>
-                    <URL>https://hotelsupplier.com/C57EE13F7FFB4026877B07346B89D109/A.JPEG</URL>
+                    <URL>https://images.samplehost.com/C57EE13F7FFB4026877B07346B89D109/A.JPEG</URL>
                   </ImageFormat>
                 </ImageItem>
                 <ImageItem>
                   <ImageFormat>
-                    <URL>https://hotelsupplier.com/C57EE13F7FFB4026877B07346B89D109/F.JPEG</URL>
+                    <URL>https://images.samplehost.com/C57EE13F7FFB4026877B07346B89D109/F.JPEG</URL>
                   </ImageFormat>
                 </ImageItem>
               </ImageItems>
