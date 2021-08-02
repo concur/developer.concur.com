@@ -23,10 +23,6 @@
         url: /api-explorer/v3-0/Itemizations.html
       - title: Latest Bookings
         url: /api-explorer/v3-0/LatestBookings.html
-      - title: List Items
-        url: /api-explorer/v3-0/ListItems.html
-      - title: Lists
-        url: /api-explorer/v3-0/Lists.html
       - title: Localized Data
         url: /api-explorer/v3-0/LocalizedData.html
       - title: Locations
@@ -86,6 +82,8 @@
         url: /api-explorer/v4-0/Reports.html
       - title: Financial Integration Service
         url: /api-explorer/v4-0/FinancialIntegrationService.html
+      - title: Identity
+        url: /api-explorer/v4-0/Identity.html
       - title: Invoice Pay
         url: /api-explorer/v4-0/InvoicePay.html
       - title: List

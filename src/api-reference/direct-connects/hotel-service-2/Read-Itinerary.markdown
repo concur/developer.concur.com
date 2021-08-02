@@ -28,7 +28,7 @@ Returns detailed information about a hotel reservation. Used in a process of boo
                 PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="123"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <UniqueID Type="14" ID="88618333"></UniqueID>
@@ -55,4 +55,4 @@ Returns detailed information about a hotel reservation. Used in a process of boo
 
 ## Response
 
-The response to the Read Itinerary message is the same the response to the Reservation Request, which can be found under Reservation.
+The response to the Read Itinerary message is the same as the response to the Reservation request, which can be found under Reservation. The response content for cancelled reservations still requires fields marked as **Required**

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+accept-charset: utf-8
+soapaction: search
+concur-correlationid: 25506b4f5539549f05aaefd02b4a7460
+concur-traveleruuid:  xxxxxxxxxxxx
+concur-loginid:  xxxxxxxxxxxx
+authorization: Basic xxxxxxxxxxxxxxxx
+content-type: application/xml; charset="utf-8"
+accept: application/xml
+
+    HTTP-headers end -->
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <authentication xmlns="http://www.concur.com/webservice/auth">
+            <userid>xxxxxxxxxxxx</userid>
+            <password>xxxxxxxxxxx</password>
+        </authentication>
+    </Header>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="18899B6B-9655-4AAF-8934-ACD252C054A2" Version="4" PrimaryLangID="en" AltLangID="en" MaxResponses="100">
+            <POS>
+                <Source ISOCurrency="USD">
+                    <RequestorID Type="1" ID="requestor_id"></RequestorID>
+                </Source>
+            </POS>
+            <Criteria>
+                <Criterion>
+                    <Position Latitude="47.606209" Longitude="-122.332071"></Position>
+                    <RefPoint></RefPoint>
+                    <HotelRef HotelName="Downtown"></HotelRef>
+                    <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
+                    <StayDateRange Start="2021-09-28" End="2021-10-01"></StayDateRange>
+                </Criterion>
+            </Criteria>
+        </OTA_HotelSearchRQ>
+    </Body>
+</Envelope>

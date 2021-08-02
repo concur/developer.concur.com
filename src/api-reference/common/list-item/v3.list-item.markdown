@@ -3,7 +3,9 @@ title: List Item v3
 layout: reference
 ---
 
-The SAP Concur List Item API provides an automated solution to clients who would like to add, update, or delete list items. Use of the API is subject to some limitations on the volume of List data. You may need to manage the initial load of large volumes of data via a file import due to capacity limitations. This is also true if ongoing maintenance of List values involves a large volume. 
+{% include deprecation-alert.html %}
+
+The SAP Concur List Item API provides an automated solution to clients who would like to add, update, or delete list items. Use of the API is subject to some limitations on the volume of List data. You may need to manage the initial load of large volumes of data via a file import due to capacity limitations. This is also true if ongoing maintenance of List values involves a large volume.
 
 * [Retrieve all list items based on the search criteria](#get)
 * [Retrieve a list item by ID](#getID)

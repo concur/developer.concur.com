@@ -116,7 +116,7 @@ The installation process includes installing the application connector, and regi
     7. Click **Configure**. The **Configure Service** window appears.    
     8. Enter the endpoint that SAP Concur will connect to on your server. Example: /concur/v1.0/notify
     9. Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
-    10. In the Workflows section, select the workflow step for each expense report or travel request workflow that requires notifications.
+    10. In the Workflows section, select the workflow step for each expense report or travel request workflow that requires notifications. The two supported work steps are "External Validation - Pre-Extract" and "External Validation - Submit".
     11. Click **OK**.
     12. Click **Test Connection**. SAP Concur will attempt to access the configured endpoint with the provided user credentials.
     13. Click **Save**. The application connector is now registered with SAP Concur and enabled.

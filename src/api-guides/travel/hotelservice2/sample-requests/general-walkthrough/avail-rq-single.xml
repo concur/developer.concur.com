@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+POST HTTP/1.1
+accept: application/xml
+accept-charset: utf-8
+authorization: Basic xxxxxxxxxxxxxxxx
+concur-correlationid: f44b213193acead7f85b90d80e9b2e0d
+concur-loginid:  xxxxxxxxxxxx
+concur-traveleruuid:  xxxxxxxxxxxx
+content-type: application/xml; charset="utf-8"
+soapaction: availability
+
+    HTTP-headers end -->
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <authentication xmlns="http://www.concur.com/webservice/auth">
+            <userid>xxxxxxxxxxxx</userid>
+            <password>xxxxxxxxxxx</password>
+        </authentication>
+    </Header>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="60750EA3-9D51-44F5-A26D-2C5C97BCCF0F" Version="5" PrimaryLangID="en" AltLangID="en">
+            <POS>
+                <Source ISOCurrency="USD">
+                    <RequestorID Type="1" ID="requestor_id"></RequestorID>
+                </Source>
+            </POS>
+            <AvailRequestSegments>
+                <AvailRequestSegment>
+                    <HotelSearchCriteria>
+                        <Criterion>
+                            <HotelRef ChainCode="HH" HotelCode="HH030344"></HotelRef>
+                        </Criterion>
+                    </HotelSearchCriteria>
+                    <StayDateRange Start="2021-09-28" End="2021-10-01"></StayDateRange>
+                    <RoomStayCandidates>
+                        <RoomStayCandidate>
+                            <GuestCounts>
+                                <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
+                            </GuestCounts>
+                        </RoomStayCandidate>
+                    </RoomStayCandidates>
+                    <TPA_Extensions>
+                        <SearchSessionToken>ed46904d-2d32-4aa3-b2da-8ec15ecce404</SearchSessionToken>
+                    </TPA_Extensions>
+                </AvailRequestSegment>
+            </AvailRequestSegments>
+        </OTA_HotelAvailRQ>
+    </Body>
+</Envelope>
