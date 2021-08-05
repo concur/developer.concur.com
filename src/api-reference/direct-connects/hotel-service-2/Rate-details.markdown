@@ -53,7 +53,6 @@ Message to retrieve the details of a hotel rate.
     * [Card Type](#card-type)
     * [Total](#total)
     * [Rate Description](#rate-description)
-    * [TPA Extensions](#tpa-extensions)
     * [Timespan](#timespan)
     * [Basic Property Info](#basic-property-info)
 
@@ -238,12 +237,9 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
                   <RateDescription>
                     <Text>Test rate description. Both before and after tax.</Text>
                   </RateDescription>
-                  <TPA_Extensions>
-                    <RequireSeriesCode>true</RequireSeriesCode>
-                  </TPA_Extensions>
                 </Rate>
                 <Rate RateTimeUnit="FullDuration" EffectiveDate="2018-10-27" ExpireDate="2018-10-28">
-                    <Total AmountAfterTax="149.00" AmountBeforeTax="99.00" CurrencyCode="EUR"/>
+                  <Total AmountAfterTax="149.00" AmountBeforeTax="99.00" CurrencyCode="EUR"/>
                 </Rate>
               </Rates>
             </RoomRate>
@@ -410,8 +406,8 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |Name|Type|Description|
 |-------------------|-----------|-------------|
 |`RateTimeUnit`|`string`|Indicates the time unit for the rate. Supported values: `FullDuration`, `Day`. Default: `FullDuration`|
-|`EffectiveDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. The starting value of the time span.|
-|`ExpireDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. The starting value of the time span.|
+|`EffectiveDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. Indicates the start date of the time span.|
+|`ExpireDate`|`date`, or `time`, or `datetime`|For `ChangeDuringStay`. Indicates the end date of the time span.|
 |`PaymentPolicies`|`complex`|Payment policies for this rate.|
 |`Total`|`complex`|**Required** A description of the rate.|
 |`RateDescription`|`complex`|A textual description of a rate. Only one (1) Rate Description element is expected.|
@@ -474,12 +470,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |---------|-------------------|-------------|
 |`Text`|`string`|**Required** If multiple text elements are provided, the contents will be concatenated. All text passed is HTML encoded. |
 
-#### <a name="tpa-extensions"></a>TPA_Extensions
-
-|Name|Type|Description|
-|-------------------|-----------|-------------|
-|`RequireSeriesCode`|`boolean`|**Required** If `true`, the CVV code is required for the given rate.|
-
 #### <a name="timespan"></a>Timespan
 
 |Name|Type|Description|
@@ -491,6 +481,6 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |----------------|-----------|-------------|
-|`HotelCode`|`complex`|**Required** Refer to the `HotelRef` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
+|`HotelCode`|`complex`|**Required** Refer to the `Property` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html#property).|
 |`Address`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
 |`ContactNumbers`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|

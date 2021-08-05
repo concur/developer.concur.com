@@ -7,6 +7,9 @@ History of changes in HS2 developer documentation
 
 |Date of Change|Description|
 |--------------|------------|
+|July 22, 2021|Remove references to RefPoint in the Search criteria, it is not used.|
+|July 21, 2021|Removing `required` tag on Avail/RequireSeriesCode. Removing mention of RequireSeriesCode on RateDetails.|
+|June 23, 2021|More details on ReadItin response and fix to Rate/ExpireDate on RateDetails.|
 |May 17, 2021|Update description for Reservation response confirmation number of type 40 to specify Hotel reservation number.|
 |May 7, 2021| Add response time and content length expectations to Intro page. Add RequestorID to examples for consistency.|
 |Apr 23, 2021| Correcting examples to remove elements/attributes that are not supported. Adding clarification for Reservation.PersonName.NamePrefix. Adding examples of usage for StateProv element. Clarifying expectations for imageURLs in Seach and DescriptiveInfo |

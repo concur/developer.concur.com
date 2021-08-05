@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+POST HTTP/1.1
+accept: application/xml
+accept-charset: utf-8
+authorization: Basic xxxxxxxxxxxxxxxx
+concur-correlationid: 632135a48b9f9d38ede0110c543784d0
+concur-loginid:  xxxxxxxxxxxx
+concur-traveleruuid:  xxxxxxxxxxxx
+content-type: application/xml; charset="utf-8"
+soapaction: detail
+
+    HTTP-headers end -->
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+      <userid>xxxxxxxxxxxx</userid>
+      <password>xxxxxxxxxxx</password>
+    </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="6D2ED130-A941-47E0-92E5-AAFA9D1A6C0C" Version="3" PrimaryLangID="en" AltLangID="en">
+      <POS>
+        <Source ISOCurrency="USD">
+          <RequestorID Type="1" ID="requestor_id"></RequestorID>
+        </Source>
+      </POS>
+      <HotelDescriptiveInfos>
+        <HotelDescriptiveInfo ChainCode="TL" HotelCode="HT030025"></HotelDescriptiveInfo>
+      </HotelDescriptiveInfos>
+    </OTA_HotelDescriptiveInfoRQ>
+  </Body>
+</Envelope>
