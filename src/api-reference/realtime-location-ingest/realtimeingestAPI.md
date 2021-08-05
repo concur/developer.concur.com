@@ -3,7 +3,7 @@ title: Realtime Ingest Location
 layout: reference
 ---
 
-{% include prerelease.html %}
+{% include deprecation-alert.html %}
 
 # Realtime Ingest Location
 
@@ -17,10 +17,10 @@ layout: reference
   * [dropOffLocation](#schema-dropOffLocation)
   * [address](#schema-address)
   * [errorDescription](#schema-errorDescription)
-  
+
 ## <a name="overview"></a>Overview
 
-This API provides an endpoint to ingest real time user location information from Rideshare Services. 
+This API provides an endpoint to ingest real time user location information from Rideshare Services.
 
 ## <a name="regional-availability"></a>Regional Availability
 
@@ -108,7 +108,7 @@ concur-correlationid: {concur-correlationid}
 
 ### Response Body
 ```json
-{ 
+{
   "concur-correlationId": "concur-correlationId",
   "requestId": "requestId",  
   "appVersion": "appVersion",                    
