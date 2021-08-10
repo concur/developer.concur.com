@@ -276,7 +276,7 @@ The Connect page that customers use to enable the integration should follow our 
 
 We’re always looking to build out new written or video testimonials – contact us if you have a happy client willing to share their experience using your integration with SAP Concur solutions.
 
-[Submit your customer success story](https://app.smartsheet.com/b/form/bf7c655708514611a55f01cee8452737?mkt_tok=eyJpIjoiWWpZMVl6azBPVGxpWVRaaCIsInQiOiJPWStaNUZBUjN0KzduaWtFZFNQeWxKTXZiMlBKSTB6S1QyamJ2YWNTa0xJNFwvY2ZIQjBQQXprTDEwTTdob2lnbVZoWVNRYkRIcFY5aUVVWU1wN0VsZXdKUm9SSjRcL01uZTg2cWFTOFBscU5VY3ZTN05FR00zdUdyOVU0ejk4bUxhIn0%3D)​
+[Submit your customer success story](https://sapinsights.eu.qualtrics.com/jfe/form/SV_01AhveTeuDZxF42)​
 
 ## <a name="events-best-practices"></a>Events Best Practices
 
