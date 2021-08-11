@@ -50,7 +50,7 @@ Quick Connect describes the process customers use to connect their SAP Concur si
 The flow consists of calling the API in this sequence:
 
 1. Get Financial Transactions - Obtain final-approved reports (or invoices) from the FIS queue.
-1. Post Financial Transaction Acknowledgements - **Required step** Acknowledge each report or invoice has been obtained.
+1. Post Financial Transaction Acknowledgements - **Required step** Acknowledge each Document ID that has been obtained. The application should complete this acknowledgement immediately for all of the Document IDs that have been obtained to avoid the processor from recalling the document while the app is trying to integrate it into the ERP.
 1. Post Financial Transactions Confirmations - **Required step** Post the status of the ERP integration for each report (success or failure) back into the SAP Concur solution after integrating into the customer's ERP.
 1. Post Financial Payment Confirmations - **Recommended** Post the financial payment results into the SAP Concur solution.
 
@@ -91,7 +91,7 @@ Sequence|Expected Event|Concur Invoice Payment Status|FIS Posting Document Statu
 6| Processor Recalls Invoice for Posting Corrections| Not Paid| Posting Failed| Posting Failed  | N/A
 7| Invoice is re-submitted with corrections and re-enters workflow (steps 1-4 repeat) | Submitted/Not Paid | Posting Failed | Posting Failed  | N/A
 8| ERP Sends Posting Feedback – Success | Extracted | Posting Success| Posting Success | POST Posting Feedback
-9| ERP Sends Payment Feedback (currently not supported for Invoice)|  |  |  | 
+9| ERP Sends Payment Feedback (currently not supported for Invoice)|  |  |  |
 
 ### <a name="expense-pay"></a>Expense Pay
 
