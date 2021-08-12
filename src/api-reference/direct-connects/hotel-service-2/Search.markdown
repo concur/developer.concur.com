@@ -238,7 +238,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Code`|`stringLength0to64`|**Required** The name or ISO 3166 code of a country.|
+|`Code`|`string`|**Required** The 2-letter ISO 3166 code of a country.|
 
 #### <a name="contact-numbers"></a>ContactNumbers
 
