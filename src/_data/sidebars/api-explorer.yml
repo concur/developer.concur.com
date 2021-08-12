@@ -71,7 +71,7 @@
       - title: Allocations
         url: /api-explorer/v4-0/Reports.html
       - title: Budget
-        url: /api-explorer/v4-0/Budget.html
+        url: https://api.sap.com/api/ConcurSharedBudget/overview
       - title: Comments
         url: /api-explorer/v4-0/Reports.html
       - title: Event Subscription Service
