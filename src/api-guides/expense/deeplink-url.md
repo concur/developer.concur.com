@@ -5,7 +5,7 @@ layout: reference
 
 {% include prerelease.html %}
 
-The Deeplink URL integration provides the ability for a user on a third-party website or portal to access the resource in Concur Expense. This is useful when the user needs to navigate to the SAP Concur Solutions website or the SAP Concur Mobile app to complete their operation on the resource or requires more insights on the resource than that provided in the third-party website or portal.  
+The Deeplink URL integration provides the ability for a user on a third-party website or portal to access the resource in Concur Expense. This is useful when the user needs to navigate to the SAP Concur solutions website or the SAP Concur Mobile app to complete their operation on the resource, or requires more insights on the resource than that provided in the third-party website or portal.  
 
 * [Limitations](#limitations)
 * [Process Flow](#process-flow)
@@ -54,12 +54,12 @@ When the deep link URL is generated without the company UUID, the user will be p
 https://www.concursolutions.com/goto/expense-report/474EB203C0DE4F08A517?companyUUID=ae4a796a-68da-4b80-b508-36022e2bacef
 ```
 
-This deep link URL will support the feature to access SAP Concur Solutions via SSO or username/password authentication when launched from third party applications. When clicked, this link will:
+This deep link URL will support the feature to access SAP Concur solutions via SSO or username/password authentication when launched from third party applications. When clicked, this link will:
 
 * **Web UI:** Enable the user to access the specific report whose summary or link they were viewing in the third-party application.
 * **Mobile UI:** Enable the user to access the specific report whose summary they were viewing in the third-party application’s mobile app.
 
 #### Pre-requisites:
 
-* The user must already exist as an active user in the SAP Concur Solution with a Concur Expense role such as Expense User, Expense Manager or Expense Processor.
+* The user must already exist as an active user in the SAP Concur solution with a Concur Expense role such as Expense User, Expense Manager, or Expense Processor.
 *	If multiple identity providers (IdPs) are in use, the user may be required to select the correct IdP or provide the login credentials prior to the SSO process.
