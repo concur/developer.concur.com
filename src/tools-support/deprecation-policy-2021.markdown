@@ -26,6 +26,7 @@ The API Lifecycle & Deprecation Policy is part of our [API terms and conditions 
     * To address a security risk.
     * To address a claim by a third party of intellectual property infringement.
     * Where the associated SAP Concur product has entered end of life.
+    * Where the API or the associated application have no adoption and hence are being deleted
 
 ## API Version Status Table
 
