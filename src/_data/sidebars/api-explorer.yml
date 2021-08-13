@@ -84,6 +84,8 @@
         url: https://api.sap.com/api/ConcurFinancialIntegration/overview
       - title: Identity
         url: /api-explorer/v4-0/Identity.html
+      - title: Itinerary
+        url: /api-explorer/v4-0/Itinerary.html
       - title: Invoice Pay
         url: https://api.sap.com/api/ConcurInvoicePay/overview
       - title: List
