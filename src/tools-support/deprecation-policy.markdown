@@ -1,9 +1,7 @@
 ---
 title: API Lifecycle & Deprecation Policy
 layout: reference
-
 ---
-{% include new-policy.html %}
 
 # API Lifecycle & Deprecation Policy
 
