@@ -1,10 +1,13 @@
 ---
 title: API Lifecycle & Deprecation Policy
 layout: reference
-
-redirect_from:
-  - /tools-support/reference/deprecation-policy.html
 ---
+
+<div class="alert alert-danger">
+  <p><strong>This policy is no longer in effect.</strong></p>
+   <p>Deprecation Date: August 15, 2021</p>
+    <p>The current policy is available at: <a href="/tools-support/deprecation-policy.html">API Lifecycle & Deprecation Policy.</a></p>
+</div>
 
 # API Lifecycle & Deprecation Policy
 
