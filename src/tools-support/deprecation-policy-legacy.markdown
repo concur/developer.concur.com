@@ -9,9 +9,8 @@ layout: reference
     <p>The current policy is available at: <a href="/tools-support/deprecation-policy.html">API Lifecycle & Deprecation Policy.</a></p>
 </div>
 
-# API Lifecycle & Deprecation Policy
 
-The Concur API Lifecycle & Deprecation Policy is part of our [API terms and conditions of use.](/Terms-of-Use.html) We may make periodic updates to this Policy, at which time we will notify those who have agreements with us.
+The API Lifecycle & Deprecation Policy is part of our [API terms and conditions of use.](/Terms-of-Use.html) We may make periodic updates to this Policy, at which time we will notify those who have agreements with us.
 
 ## API Version Status  
 
