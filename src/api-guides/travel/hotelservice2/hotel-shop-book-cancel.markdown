@@ -49,7 +49,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     [Sample search response](./sample-requests/general-walkthrough/search-rs.xml)
 
-    Out of 100 returned hotels in the response from the Hotel Supplier, the response may contain 10 Most Preferred hotels within the 30 mile radius, 10 Preferred within the 30 mile radius, and 10 Less Preferred hotels within the 30 mile radius. The remaining 70 hotels would be non-preferred hotels within the 5 mile radius. Note: The preference level is defined by the HotelPreference element in the TPA_Extensions, which is outlined in Search.
+    Out of 100 returned hotels in the response from the Hotel Supplier, the response may contain the 10 `most_preferred` hotels within a 30 mile radius, the 10 `preferred` hotels within a 30 mile radius, and the 10 `less_preferred` hotels within a 30 mile radius. The remaining 70 hotels would be `not_preferred` hotels within a 5 mile radius. Note: The preference level is defined by the `HotelPreference` element in the TPA_Extensions, which is outlined in Search.
 
     Please refer to the [FAQ](./faq.html#search) for additional information regarding Search.
 
