@@ -122,7 +122,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     [Sample rate details response](./sample-requests/general-walkthrough/ratedetails-rs.xml)
 
-    Please refer to the [FAQ](./faq.html#availability) for additional information regarding RateDetails.
+    Please refer to the [FAQ](./faq.html#availability) for additional information regarding `RateDetails`.
 
 8. The business traveler closes the “Rules and cancellation policy” pop-up window and selects a rate. The Trip Summary page is displayed where the Business traveler can set the Hotel Preferences, Enter Guest information (from their profile), select the method of payment and view the total estimated price. The Rate rules and cancellation policy will be displayed as well. Like the previous step, if the cancellation details were deferred, a [RateDetails](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html) request will be invoked.
 
