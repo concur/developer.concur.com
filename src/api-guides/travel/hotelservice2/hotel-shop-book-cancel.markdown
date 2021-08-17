@@ -148,7 +148,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     [Sample read response](./sample-requests/general-walkthrough/read-rs-load-trip.xml)
 
-    Please refer to the [FAQ](./faq.html#read-itinerary) for additional information regarding ReadItinerary.
+    Please refer to the [FAQ](./faq.html#read-itinerary) for additional information regarding `ReadItinerary`.
 ### <a name="view"></a> View Reservation
 
 12. The business traveler can view the trip listed in the **Trip Library**. From this view, the traveler could choose to cancel the entire trip. However, to view the details, the Business traveler clicks on the **trip name**.
