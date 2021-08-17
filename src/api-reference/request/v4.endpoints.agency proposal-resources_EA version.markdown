@@ -671,7 +671,6 @@ Name|Type|Format|Description
 `flightNumber`|`string`|-|**Required** The flight number for the booking.
 `seatNumber`|`string`|-|The number of the seat.
 `aircraft`|`string`|-|The code of the aircraft type.
-`mealPreference`|`string`|-|The booked meal.
 `departureTerminal`|`string`|-|The departure terminal for the air segment leg.
 `arrivalTerminal`|`string`|-|The arrival terminal for the air segment leg.
 `startLocation`|`object`|[`Location`](#schema-location)|**Required** The start location of the air segment leg (Air location schema).
@@ -692,7 +691,6 @@ Name|Type|Format|Description
 `endRailStation`|`string`|-|The code for the ending station of the segment leg.
 `endRailStationName`|`string`|-|The name of the ending station of the segment leg.
 `endLocation`|`object`|[`Location`](#schema-location)|**Required** The end location of the rail segment leg (Rail location schema).
-`mealPreference`|`string`|-|The booked meal.
 
 ### <a name="schema-agencyproposalcarsegment"></a>Agency proposal car segment
 
