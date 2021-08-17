@@ -108,7 +108,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     [Sample descriptive info response](./sample-requests/general-walkthrough/hoteldetail-rs.xml)
 
-    Please refer to the [FAQ](./faq.html#hotel-descriptive-info) for additional information regarding HotelDescriptiveInfo.
+    Please refer to the [FAQ](./faq.html#hotel-descriptive-info) for additional information regarding `HotelDescriptiveInfo`.
 
 6. Upon selecting View Rooms, the UI displays all available rates for the chosen hotel. 
 
