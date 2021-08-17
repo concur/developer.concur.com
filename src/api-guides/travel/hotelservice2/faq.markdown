@@ -101,7 +101,7 @@ A: This value indicates whether the guest is a child or adult. SAP Concur only s
 
 Q: What comprises the content of a rate description in the rates listing?
 
-A: The rate description is made up of the RateDescription, RatePlanDescription, RoomDescription, and MealsIncluded (breakfast) from the Availability response.
+A: The rate description is made up of the `RateDescription`, `RatePlanDescription`, `RoomDescription`, and `MealsIncluded` (breakfast) from the Availability response.
 
 ***
 
