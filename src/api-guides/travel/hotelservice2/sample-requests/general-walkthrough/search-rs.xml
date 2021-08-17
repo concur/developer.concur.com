@@ -21,7 +21,7 @@ x-xss-protection: 1; mode=block
             xmlns="http://www.opentravel.org/OTA/2003/05">
             <Success />
             <Properties>
-                <Property ChainCode="CU" HotelCode="HH871486" HotelName="Citizenm Seattle South Lake Union - COVID Measures">
+                <Property ChainCode="CU" HotelCode="HH871486" HotelName="Citizenm Seattle South Lake Union">
                     <Position Latitude="47.619985" Longitude="-122.338931" />
                     <Address>
                         <AddressLine>201 Westlake Avenue N</AddressLine>
@@ -46,7 +46,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="PF" HotelCode="HP070213" HotelName="Pan Pacific Seattle - COVID Measures">
+                <Property ChainCode="PF" HotelCode="HP070213" HotelName="Pan Pacific Seattle">
                     <Position Latitude="47.618248" Longitude="-122.337174" />
                     <Address>
                         <AddressLine>2125 Terry Avenue</AddressLine>
@@ -88,7 +88,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="AX12" HotelCode="HH910312" HotelName="Palihotel Seattle - COVID Measures">
+                <Property ChainCode="AX12" HotelCode="HH910312" HotelName="Palihotel Seattle">
                     <Position Latitude="47.60979" Longitude="-122.340385" />
                     <Address>
                         <AddressLine>107 Pine St</AddressLine>
@@ -110,7 +110,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="TL" HotelCode="HT030025" HotelName="Travelodge Seattle by The Space Needle - COVID Measures">
+                <Property ChainCode="TL" HotelCode="HT030025" HotelName="Travelodge Seattle by The Space Needle">
                     <Position Latitude="47.620142" Longitude="-122.344649" />
                     <Address>
                         <AddressLine>200 6th Avenue North</AddressLine>
@@ -141,7 +141,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="LQ" HotelCode="HL031350" HotelName="La Quinta Inn Ste Seattle Downtown - COVID Measures">
+                <Property ChainCode="LQ" HotelCode="HL031350" HotelName="La Quinta Inn Ste Seattle Downtown">
                     <Position Latitude="47.617643" Longitude="-122.339453" />
                     <Address>
                         <AddressLine>2224 Eighth Ave</AddressLine>
@@ -175,7 +175,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="NC" HotelCode="HE030953" HotelName="Edgewater - COVID Measures">
+                <Property ChainCode="NC" HotelCode="HE030953" HotelName="Edgewater">
                     <Position Latitude="47.612516" Longitude="-122.352024" />
                     <Address>
                         <AddressLine>2411 Alaskan Way</AddressLine>
@@ -206,7 +206,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="WV" HotelCode="HP030567" HotelName="Paramount Hotel Seattle - COVID Measures">
+                <Property ChainCode="WV" HotelCode="HP030567" HotelName="Paramount Hotel Seattle">
                     <Position Latitude="47.612752" Longitude="-122.333912" />
                     <Address>
                         <AddressLine>724 Pine Street</AddressLine>
@@ -240,7 +240,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="WK" HotelCode="HW030255" HotelName="Warwick Seattle - COVID Measures">
+                <Property ChainCode="WK" HotelCode="HW030255" HotelName="Warwick Seattle">
                     <Position Latitude="47.613812" Longitude="-122.340695" />
                     <Address>
                         <AddressLine>401 Lenora Street</AddressLine>
@@ -272,7 +272,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HY" HotelCode="HH100268" HotelName="Hyatt Place Seattle Downtown - COVID Measures">
+                <Property ChainCode="HY" HotelCode="HH100268" HotelName="Hyatt Place Seattle Downtown">
                     <Position Latitude="47.619021" Longitude="-122.344989" />
                     <Address>
                         <AddressLine>110 6th Ave North</AddressLine>
@@ -306,7 +306,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="BT" HotelCode="HH927428" HotelName="Staypineapple Hotel Five - COVID Measures">
+                <Property ChainCode="BT" HotelCode="HH927428" HotelName="Staypineapple Hotel Five">
                     <Position Latitude="47.615564" Longitude="-122.341832" />
                     <Address>
                         <AddressLine>2200 Fifth Avenue</AddressLine>
@@ -331,7 +331,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HY" HotelCode="HH851538" HotelName="Hyatt Regency Seattle - COVID Measures">
+                <Property ChainCode="HY" HotelCode="HH851538" HotelName="Hyatt Regency Seattle">
                     <Position Latitude="47.614538" Longitude="-122.333934" />
                     <Address>
                         <AddressLine>808 Howell Street</AddressLine>
@@ -355,7 +355,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HY" HotelCode="HP164332" HotelName="Hyatt House Seattle Downtown - COVID Measures">
+                <Property ChainCode="HY" HotelCode="HP164332" HotelName="Hyatt House Seattle Downtown">
                     <Position Latitude="47.61985" Longitude="-122.347733" />
                     <Address>
                         <AddressLine>201 Fifth Avenue North</AddressLine>
@@ -380,7 +380,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HY" HotelCode="HG030527" HotelName="Grand Hyatt Seattle - COVID Measures">
+                <Property ChainCode="HY" HotelCode="HG030527" HotelName="Grand Hyatt Seattle">
                     <Position Latitude="47.612337" Longitude="-122.333258" />
                     <Address>
                         <AddressLine>721 Pine Street</AddressLine>
@@ -419,7 +419,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HI080032" HotelName="Inn At The Wac - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HI080032" HotelName="Inn At The Wac">
                     <Position Latitude="47.609721" Longitude="-122.333611" />
                     <Address>
                         <AddressLine>1325 Sixth Avenue</AddressLine>
@@ -458,7 +458,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HY" HotelCode="HH090553" HotelName="Hyatt At Olive 8 - COVID Measures">
+                <Property ChainCode="HY" HotelCode="HH090553" HotelName="Hyatt At Olive 8">
                     <Position Latitude="47.61332" Longitude="-122.333395" />
                     <Address>
                         <AddressLine>1635 8th Avenue</AddressLine>
@@ -501,7 +501,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="TM" HotelCode="HH649527" HotelName="Thompson Seattle - COVID Measures">
+                <Property ChainCode="TM" HotelCode="HH649527" HotelName="Thompson Seattle">
                     <Position Latitude="47.61051" Longitude="-122.341316" />
                     <Address>
                         <AddressLine>110 Stewart Street</AddressLine>
@@ -526,7 +526,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HI" HotelCode="HH033364" HotelName="Holiday Inn Seattle Downtown - COVID Measures">
+                <Property ChainCode="HI" HotelCode="HH033364" HotelName="Holiday Inn Seattle Downtown">
                     <Position Latitude="47.620304" Longitude="-122.342801" />
                     <Address>
                         <AddressLine>211 Dexter Ave North</AddressLine>
@@ -561,7 +561,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="WV" HotelCode="HM030854" HotelName="Mayflower Park Hotel - COVID Measures">
+                <Property ChainCode="WV" HotelCode="HM030854" HotelName="Mayflower Park Hotel">
                     <Position Latitude="47.612188" Longitude="-122.338003" />
                     <Address>
                         <AddressLine>405 Olive Way</AddressLine>
@@ -594,7 +594,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="GI" HotelCode="HP170269" HotelName="Hilton Garden Inn Seattle Downtown - COVID Measures">
+                <Property ChainCode="GI" HotelCode="HP170269" HotelName="Hilton Garden Inn Seattle Downtown">
                     <Position Latitude="47.616649" Longitude="-122.332612" />
                     <Address>
                         <AddressLine>1821 Boren Avenue</AddressLine>
@@ -619,7 +619,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YZ" HotelCode="HH783779" HotelName="Staybridge Suites Sea South Lake Union - COVID Measures">
+                <Property ChainCode="YZ" HotelCode="HH783779" HotelName="Staybridge Suites Sea South Lake Union">
                     <Position Latitude="47.62455" Longitude="-122.33496" />
                     <Address>
                         <AddressLine>1119 Mercer Street</AddressLine>
@@ -643,7 +643,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="VN" HotelCode="HH783778" HotelName="Even Hotel Seattle South Lake Union - COVID Measures">
+                <Property ChainCode="VN" HotelCode="HH783778" HotelName="Even Hotel Seattle South Lake Union">
                     <Position Latitude="47.62403" Longitude="-122.33437" />
                     <Address>
                         <AddressLine>527 Fairview Avenue N</AddressLine>
@@ -668,7 +668,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="DN" HotelCode="HR031856" HotelName="Motif Seattle - COVID Measures">
+                <Property ChainCode="DN" HotelCode="HR031856" HotelName="Motif Seattle">
                     <Position Latitude="47.610378" Longitude="-122.335379" />
                     <Address>
                         <AddressLine>1415 Fifth Avenue</AddressLine>
@@ -704,7 +704,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="WI" HotelCode="HW030060" HotelName="The Westin Seattle - COVID Measures">
+                <Property ChainCode="WI" HotelCode="HW030060" HotelName="The Westin Seattle">
                     <Position Latitude="47.61329" Longitude="-122.337858" />
                     <Address>
                         <AddressLine>1900 Fifth Avenue</AddressLine>
@@ -740,7 +740,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="QQ" HotelCode="HH784890" HotelName="The Charter Seattle Curio Collection By - COVID Measures">
+                <Property ChainCode="QQ" HotelCode="HH784890" HotelName="The Charter Seattle Curio Collection By">
                     <Position Latitude="47.610964" Longitude="-122.339961" />
                     <Address>
                         <AddressLine>1610 Second Avenue</AddressLine>
@@ -765,7 +765,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="XV" HotelCode="HS031742" HotelName="Springhill Stes Dwtn Marriott Seattle - COVID Measures">
+                <Property ChainCode="XV" HotelCode="HS031742" HotelName="Springhill Stes Dwtn Marriott Seattle">
                     <Position Latitude="47.617864" Longitude="-122.329733" />
                     <Address>
                         <AddressLine>1800 Yale Avenue</AddressLine>
@@ -801,7 +801,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HH956864" HotelName="State Hotel Seattle - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HH956864" HotelName="State Hotel Seattle">
                     <Position Latitude="47.609405" Longitude="-122.339345" />
                     <Address>
                         <AddressLine>1501 2nd Avenue</AddressLine>
@@ -826,7 +826,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="RC" HotelCode="HR051929" HotelName="Residence Inn Lk Unio Marriott - COVID Measures">
+                <Property ChainCode="RC" HotelCode="HR051929" HotelName="Residence Inn Lk Unio Marriott">
                     <Position Latitude="47.626411" Longitude="-122.333178" />
                     <Address>
                         <AddressLine>800 Fairview Ave N</AddressLine>
@@ -863,7 +863,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HM031786" HotelName="Hotel Max - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HM031786" HotelName="Hotel Max">
                     <Position Latitude="47.614164" Longitude="-122.336458" />
                     <Address>
                         <AddressLine>620 Stewart St</AddressLine>
@@ -898,7 +898,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="WV" HotelCode="HI050795" HotelName="Inn At The Market - COVID Measures">
+                <Property ChainCode="WV" HotelCode="HI050795" HotelName="Inn At The Market">
                     <Position Latitude="47.609727" Longitude="-122.341347" />
                     <Address>
                         <AddressLine>86 Pine Street</AddressLine>
@@ -939,7 +939,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="SI" HotelCode="HS030128" HotelName="Sheraton Grand Seattle - COVID Measures">
+                <Property ChainCode="SI" HotelCode="HS030128" HotelName="Sheraton Grand Seattle">
                     <Position Latitude="47.610763" Longitude="-122.333686" />
                     <Address>
                         <AddressLine>1400 Sixth Avenue</AddressLine>
@@ -972,7 +972,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="RC" HotelCode="HH778708" HotelName="Residence Inn Seattle Downtown Conventio - COVID Measures">
+                <Property ChainCode="RC" HotelCode="HH778708" HotelName="Residence Inn Seattle Downtown Conventio">
                     <Position Latitude="47.61589" Longitude="-122.33294" />
                     <Address>
                         <AddressLine>1815 Terry Avenue</AddressLine>
@@ -997,7 +997,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="OX" HotelCode="HH768724" HotelName="Moxy Seattle Downtown - COVID Measures">
+                <Property ChainCode="OX" HotelCode="HH768724" HotelName="Moxy Seattle Downtown">
                     <Position Latitude="47.623377" Longitude="-122.336232" />
                     <Address>
                         <AddressLine>1016 Republican Street</AddressLine>
@@ -1022,7 +1022,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HH" HotelCode="HH030344" HotelName="Hilton Seattle - COVID Measures">
+                <Property ChainCode="HH" HotelCode="HH030344" HotelName="Hilton Seattle">
                     <Position Latitude="47.609386" Longitude="-122.332923" />
                     <Address>
                         <AddressLine>1301 6th Avenue</AddressLine>
@@ -1057,7 +1057,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="WV" HotelCode="HA052999" HotelName="Ace Hotel Seattle - COVID Measures">
+                <Property ChainCode="WV" HotelCode="HA052999" HotelName="Ace Hotel Seattle">
                     <Position Latitude="47.614379" Longitude="-122.348816" />
                     <Address>
                         <AddressLine>2423 1st Ave</AddressLine>
@@ -1086,7 +1086,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="CP" HotelCode="HC030868" HotelName="Crowne Plaza Seattle Downtown - COVID Measures">
+                <Property ChainCode="CP" HotelCode="HC030868" HotelName="Crowne Plaza Seattle Downtown">
                     <Position Latitude="47.608267" Longitude="-122.332248" />
                     <Address>
                         <AddressLine>1113 6th Avenue</AddressLine>
@@ -1119,7 +1119,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HG" HotelCode="HH033084" HotelName="Homewood Suites Seattle Cntn Cntr Pike S - COVID Measures">
+                <Property ChainCode="HG" HotelCode="HH033084" HotelName="Homewood Suites Seattle Cntn Cntr Pike S">
                     <Position Latitude="47.612999" Longitude="-122.329237" />
                     <Address>
                         <AddressLine>1011 Pike Street</AddressLine>
@@ -1151,7 +1151,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="BT" HotelCode="HA030672" HotelName="Andra - COVID Measures">
+                <Property ChainCode="BT" HotelCode="HA030672" HotelName="Andra">
                     <Position Latitude="47.613433" Longitude="-122.340054" />
                     <Address>
                         <AddressLine>2000 Fourth Avenue</AddressLine>
@@ -1190,7 +1190,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="CY" HotelCode="HC031754" HotelName="Courtyard Seattle Downtown Lake Union - COVID Measures">
+                <Property ChainCode="CY" HotelCode="HC031754" HotelName="Courtyard Seattle Downtown Lake Union">
                     <Position Latitude="47.627659" Longitude="-122.340212" />
                     <Address>
                         <AddressLine>925 Westlake Ave N</AddressLine>
@@ -1229,7 +1229,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="MC" HotelCode="HM031778" HotelName="Seattle Marriott Waterfront - COVID Measures">
+                <Property ChainCode="MC" HotelCode="HM031778" HotelName="Seattle Marriott Waterfront">
                     <Position Latitude="47.610358" Longitude="-122.346797" />
                     <Address>
                         <AddressLine>2100 Alaskan Way</AddressLine>
@@ -1268,7 +1268,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="FA" HotelCode="HF030271" HotelName="Fairmont Olympic Hotel Seattle - COVID Measures">
+                <Property ChainCode="FA" HotelCode="HF030271" HotelName="Fairmont Olympic Hotel Seattle">
                     <Position Latitude="47.60829" Longitude="-122.33418" />
                     <Address>
                         <AddressLine>411 University St</AddressLine>
@@ -1309,7 +1309,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="KC" HotelCode="HV030009" HotelName="Vintage Park A Kimpton - COVID Measures">
+                <Property ChainCode="KC" HotelCode="HV030009" HotelName="Vintage Park A Kimpton">
                     <Position Latitude="47.607331" Longitude="-122.33241" />
                     <Address>
                         <AddressLine>1100 Fifth Avenue</AddressLine>
@@ -1362,7 +1362,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="FP" HotelCode="HC051777" HotelName="Four Points by Sheraton Downtown Seattle - COVID Measures">
+                <Property ChainCode="FP" HotelCode="HC051777" HotelName="Four Points by Sheraton Downtown Seattle">
                     <Position Latitude="47.625553" Longitude="-122.344627" />
                     <Address>
                         <AddressLine>601 Roy Street</AddressLine>
@@ -1395,7 +1395,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="WH" HotelCode="HW030175" HotelName="W Seattle - COVID Measures">
+                <Property ChainCode="WH" HotelCode="HW030175" HotelName="W Seattle">
                     <Position Latitude="47.60829" Longitude="-122.33418" />
                     <Address>
                         <AddressLine>1112 Fourth Avenue</AddressLine>
@@ -1428,7 +1428,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="KC" HotelCode="HM030093" HotelName="Hotel Monaco Seattle A Kimpton - COVID Measures">
+                <Property ChainCode="KC" HotelCode="HM030093" HotelName="Hotel Monaco Seattle A Kimpton">
                     <Position Latitude="47.606988" Longitude="-122.333922" />
                     <Address>
                         <AddressLine>1101 4th Ave</AddressLine>
@@ -1456,7 +1456,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HB050213" HotelName="Loyal Inn - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HB050213" HotelName="Loyal Inn">
                     <Position Latitude="47.618163" Longitude="-122.341359" />
                     <Address>
                         <AddressLine>2301 8th Ave</AddressLine>
@@ -1487,7 +1487,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="XT" HotelCode="HB100115" HotelName="Belltown Inn - COVID Measures">
+                <Property ChainCode="XT" HotelCode="HB100115" HotelName="Belltown Inn">
                     <Position Latitude="47.614705" Longitude="-122.344662" />
                     <Address>
                         <AddressLine>2301 Third Avenue</AddressLine>
@@ -1519,7 +1519,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="KC" HotelCode="HF336825" HotelName="Kimpton Palladian - COVID Measures">
+                <Property ChainCode="KC" HotelCode="HF336825" HotelName="Kimpton Palladian">
                     <Position Latitude="47.6118" Longitude="-122.342" />
                     <Address>
                         <AddressLine>2000 2nd Avenue</AddressLine>
@@ -1544,7 +1544,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HH781123" HotelName="Hotel Theodore - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HH781123" HotelName="Hotel Theodore">
                     <Position Latitude="47.612321" Longitude="-122.334355" />
                     <Address>
                         <AddressLine>1531 7th Avenue</AddressLine>
@@ -1589,7 +1589,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="EI" HotelCode="HE030935" HotelName="Executive Hotel Pacific - COVID Measures">
+                <Property ChainCode="EI" HotelCode="HE030935" HotelName="Executive Hotel Pacific">
                     <Position Latitude="47.607066" Longitude="-122.333166" />
                     <Address>
                         <AddressLine>400 Spring Street</AddressLine>
@@ -1622,7 +1622,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="BR" HotelCode="HR030030" HotelName="Renaissance Seattle Hotel - COVID Measures">
+                <Property ChainCode="BR" HotelCode="HR030030" HotelName="Renaissance Seattle Hotel">
                     <Position Latitude="47.606593" Longitude="-122.330751" />
                     <Address>
                         <AddressLine>515 Madison Street</AddressLine>
@@ -1682,7 +1682,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HH850858" HotelName="Palihotel Seattle - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HH850858" HotelName="Palihotel Seattle">
                     <Position Latitude="47.6098" Longitude="-122.340566" />
                     <Address>
                         <AddressLine>107 Pine Street</AddressLine>
@@ -1706,7 +1706,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HX" HotelCode="HH033291" HotelName="Hampton Inn Suites Downtown - COVID Measures">
+                <Property ChainCode="HX" HotelCode="HH033291" HotelName="Hampton Inn Suites Downtown">
                     <Position Latitude="47.625689" Longitude="-122.34738" />
                     <Address>
                         <AddressLine>700 Fifth Ave North</AddressLine>
@@ -1788,7 +1788,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HS031707" HotelName="Silver Cloud Inn Lake Union - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HS031707" HotelName="Silver Cloud Inn Lake Union">
                     <Position Latitude="47.629689" Longitude="-122.329061" />
                     <Address>
                         <AddressLine>1150 Fairview Avenue North</AddressLine>
@@ -1844,7 +1844,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="BW" HotelCode="HB030284" HotelName="Best Western Plus Pioneer Square - COVID Measures">
+                <Property ChainCode="BW" HotelCode="HB030284" HotelName="Best Western Plus Pioneer Square">
                     <Position Latitude="47.601649" Longitude="-122.335282" />
                     <Address>
                         <AddressLine>77 Yesler Way</AddressLine>
@@ -1876,7 +1876,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HM070138" HotelName="The Moore - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HM070138" HotelName="The Moore">
                     <Position Latitude="47.611588" Longitude="-122.341252" />
                     <Address>
                         <AddressLine>1926 2nd Ave</AddressLine>
@@ -1903,7 +1903,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="A437" HotelCode="HB030274" HotelName="Executive Inn by The Space Needle - COVID Measures">
+                <Property ChainCode="A437" HotelCode="HB030274" HotelName="Executive Inn by The Space Needle">
                     <Position Latitude="47.619974" Longitude="-122.346239" />
                     <Address>
                         <AddressLine>200 Taylor North</AddressLine>
@@ -1978,7 +1978,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="CB53" HotelCode="HP429114" HotelName="Stay Alfred Pike Place - COVID Measures">
+                <Property ChainCode="CB53" HotelCode="HP429114" HotelName="Stay Alfred Pike Place">
                     <Position Latitude="47.60849" Longitude="-122.33641" />
                     <Address>
                         <AddressLine>1920 1st Avenue</AddressLine>
@@ -2020,7 +2020,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="BT" HotelCode="HM100108" HotelName="Staypineapple Maxwell - COVID Measures">
+                <Property ChainCode="BT" HotelCode="HM100108" HotelName="Staypineapple Maxwell">
                     <Position Latitude="47.625669" Longitude="-122.351216" />
                     <Address>
                         <AddressLine>300 Roy Street</AddressLine>
@@ -2052,7 +2052,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="AX12" HotelCode="HP449781" HotelName="Luxe Hubs Convention Center Apartments - COVID Measures">
+                <Property ChainCode="AX12" HotelCode="HP449781" HotelName="Luxe Hubs Convention Center Apartments">
                     <Position Latitude="47.60974" Longitude="-122.32962" />
                     <Address>
                         <AddressLine>800 Seneca St</AddressLine>
@@ -2119,7 +2119,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="UP" HotelCode="HH940551" HotelName="The Sound Hotel Sea Belltown - COVID Measures">
+                <Property ChainCode="UP" HotelCode="HH940551" HotelName="The Sound Hotel Sea Belltown">
                     <Position Latitude="47.61441" Longitude="-122.342115" />
                     <Address>
                         <AddressLine>2120 4th Avenue</AddressLine>
@@ -2144,7 +2144,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="FS" HotelCode="HF080165" HotelName="Four Seasons Seattle - COVID Measures">
+                <Property ChainCode="FS" HotelCode="HF080165" HotelName="Four Seasons Seattle">
                     <Position Latitude="47.607377" Longitude="-122.339156" />
                     <Address>
                         <AddressLine>99 Union Street</AddressLine>
@@ -2203,7 +2203,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="H056" HotelCode="HF173162" HotelName="The Baroness - COVID Measures">
+                <Property ChainCode="H056" HotelCode="HF173162" HotelName="The Baroness">
                     <Position Latitude="47.609623" Longitude="-122.326545" />
                     <Address>
                         <AddressLine>1005 Spring Street</AddressLine>
@@ -2225,7 +2225,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HI051257" HotelName="The Inn At Virginia Mason - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HI051257" HotelName="The Inn At Virginia Mason">
                     <Position Latitude="47.609843" Longitude="-122.326775" />
                     <Address>
                         <AddressLine>1006 Spring Street</AddressLine>
@@ -2255,7 +2255,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HG" HotelCode="HH031478" HotelName="Homewood Ste Seattle Downtown - COVID Measures">
+                <Property ChainCode="HG" HotelCode="HH031478" HotelName="Homewood Ste Seattle Downtown">
                     <Position Latitude="47.620416" Longitude="-122.359716" />
                     <Address>
                         <AddressLine>206 Western Ave West</AddressLine>
@@ -2289,7 +2289,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="LL" HotelCode="HH743722" HotelName="Lotte Hotel Seattle - COVID Measures">
+                <Property ChainCode="LL" HotelCode="HH743722" HotelName="Lotte Hotel Seattle">
                     <Position Latitude="47.605206" Longitude="-122.331044" />
                     <Address>
                         <AddressLine>809 5th Avenue</AddressLine>
@@ -2314,7 +2314,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="CY" HotelCode="HC100005" HotelName="Courtyard Seattle Downtown Pioneer Sq - COVID Measures">
+                <Property ChainCode="CY" HotelCode="HC100005" HotelName="Courtyard Seattle Downtown Pioneer Sq">
                     <Position Latitude="47.602464" Longitude="-122.332629" />
                     <Address>
                         <AddressLine>612 2nd Ave</AddressLine>
@@ -2375,7 +2375,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="WV" HotelCode="HS030276" HotelName="Sorrento - COVID Measures">
+                <Property ChainCode="WV" HotelCode="HS030276" HotelName="Sorrento">
                     <Position Latitude="47.608954" Longitude="-122.32677" />
                     <Address>
                         <AddressLine>900 Madison St At Terry</AddressLine>
@@ -2402,7 +2402,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HS054718" HotelName="Silver Cloud Hotel Broadway - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HS054718" HotelName="Silver Cloud Hotel Broadway">
                     <Position Latitude="47.611693" Longitude="-122.320628" />
                     <Address>
                         <AddressLine>1100 Broadway</AddressLine>
@@ -2435,7 +2435,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="SN" HotelCode="HA031126" HotelName="The Alexis Royal Sonesta Hotel - COVID Measures">
+                <Property ChainCode="SN" HotelCode="HA031126" HotelName="The Alexis Royal Sonesta Hotel">
                     <Position Latitude="47.604865" Longitude="-122.336669" />
                     <Address>
                         <AddressLine>1007 First Ave At Madison St</AddressLine>
@@ -2471,7 +2471,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="XT" HotelCode="HM052573" HotelName="Mediterranean Inn - COVID Measures">
+                <Property ChainCode="XT" HotelCode="HM052573" HotelName="Mediterranean Inn">
                     <Position Latitude="47.623171" Longitude="-122.356869" />
                     <Address>
                         <AddressLine>425 Queen Anne Avenue North</AddressLine>
@@ -2501,7 +2501,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="AX12" HotelCode="HI030467" HotelName="Inn At Queen Anne - COVID Measures">
+                <Property ChainCode="AX12" HotelCode="HI030467" HotelName="Inn At Queen Anne">
                     <Position Latitude="47.62339" Longitude="-122.355553" />
                     <Address>
                         <AddressLine>505 First Avenue North</AddressLine>
@@ -2527,7 +2527,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="GL140" HotelCode="HB120124" HotelName="Bacon Mansion Bed and Breakfast - COVID Measures">
+                <Property ChainCode="GL140" HotelCode="HB120124" HotelName="Bacon Mansion Bed and Breakfast">
                     <Position Latitude="47.628485" Longitude="-122.32145" />
                     <Address>
                         <AddressLine>959 Broadway East</AddressLine>
@@ -2550,7 +2550,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="GP" HotelCode="HD030900" HotelName="Graduate Hotel Seattle - COVID Measures">
+                <Property ChainCode="GP" HotelCode="HD030900" HotelName="Graduate Hotel Seattle">
                     <Position Latitude="47.661636" Longitude="-122.314418" />
                     <Address>
                         <AddressLine>4507 Brooklyn Avenue Ne</AddressLine>
@@ -2579,7 +2579,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="DT" HotelCode="HD080059" HotelName="Doubletree by Hilton Arctic Club Sea - COVID Measures">
+                <Property ChainCode="DT" HotelCode="HD080059" HotelName="Doubletree by Hilton Arctic Club Sea">
                     <Position Latitude="47.603754" Longitude="-122.332097" />
                     <Address>
                         <AddressLine>700 3rd Avenue At Cherry Street</AddressLine>
@@ -2610,7 +2610,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="BT" HotelCode="HH925985" HotelName="Staypineapple University Inn - COVID Measures">
+                <Property ChainCode="BT" HotelCode="HH925985" HotelName="Staypineapple University Inn">
                     <Position Latitude="47.658129" Longitude="-122.317379" />
                     <Address>
                         <AddressLine>4140 Roosevelt Way Ne</AddressLine>
@@ -2635,7 +2635,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="AX12" HotelCode="OH316456" HotelName="Sonder Solis - COVID Measures">
+                <Property ChainCode="AX12" HotelCode="OH316456" HotelName="Sonder Solis">
                     <Position Latitude="47.614384" Longitude="-122.315205" />
                     <Address>
                         <AddressLine>1300 East Pike Street</AddressLine>
@@ -2656,7 +2656,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HM030988" HotelName="Marqueen - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HM030988" HotelName="Marqueen">
                     <Position Latitude="47.625051" Longitude="-122.356538" />
                     <Address>
                         <AddressLine>600 Queen Anne Avenue North</AddressLine>
@@ -2688,7 +2688,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="ES" HotelCode="HH765475" HotelName="Embassy Suites Downtown Pioneer Square - COVID Measures">
+                <Property ChainCode="ES" HotelCode="HH765475" HotelName="Embassy Suites Downtown Pioneer Square">
                     <Position Latitude="47.598099" Longitude="-122.330952" />
                     <Address>
                         <AddressLine>255 S King St</AddressLine>
@@ -2713,7 +2713,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="H1070014" HotelName="Hilton Lxr Hotel 1000 - COVID Measures">
+                <Property ChainCode="YX" HotelCode="H1070014" HotelName="Hilton Lxr Hotel 1000">
                     <Position Latitude="47.604918" Longitude="-122.336282" />
                     <Address>
                         <AddressLine>1000 First Avenue</AddressLine>
@@ -2763,7 +2763,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YZ" HotelCode="HF154104" HotelName="Staybridge Stes U District - COVID Measures">
+                <Property ChainCode="YZ" HotelCode="HF154104" HotelName="Staybridge Stes U District">
                     <Position Latitude="47.6549" Longitude="-122.347" />
                     <Address>
                         <AddressLine>3926 Aurora Avenue North</AddressLine>
@@ -2789,7 +2789,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="H056" HotelCode="HP200808" HotelName="The Art Inn Seattle - COVID Measures">
+                <Property ChainCode="H056" HotelCode="HP200808" HotelName="The Art Inn Seattle">
                     <Position Latitude="47.60602" Longitude="-122.31568" />
                     <Address>
                         <AddressLine>1225 E Jefferson Street</AddressLine>
@@ -2810,7 +2810,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="RC" HotelCode="HF498907" HotelName="Residence Inn Seattle University Dist - COVID Measures">
+                <Property ChainCode="RC" HotelCode="HF498907" HotelName="Residence Inn Seattle University Dist">
                     <Position Latitude="47.661611" Longitude="-122.31569" />
                     <Address>
                         <AddressLine>4501 12th Avenue Northeast</AddressLine>
@@ -2835,7 +2835,7 @@ x-xss-protection: 1; mode=block
                         </TPA_PropertyReferenceInfo>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="HQ" HotelCode="BC183089" HotelName="Gaslight Inn - COVID Measures">
+                <Property ChainCode="HQ" HotelCode="BC183089" HotelName="Gaslight Inn">
                     <Position Latitude="47.617299" Longitude="-122.313106" />
                     <Address>
                         <AddressLine>1727 15th Avenue</AddressLine>
@@ -2900,7 +2900,7 @@ x-xss-protection: 1; mode=block
                         </TPA_HotelPreviewImageURI>
                     </TPA_Extensions>
                 </Property>
-                <Property ChainCode="YX" HotelCode="HS060543" HotelName="Silver Cloud Hotel Stadium - COVID Measures">
+                <Property ChainCode="YX" HotelCode="HS060543" HotelName="Silver Cloud Hotel Stadium">
                     <Position Latitude="47.592707" Longitude="-122.33369" />
                     <Address>
                         <AddressLine>1046 1st Ave S</AddressLine>

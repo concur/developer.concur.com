@@ -37,15 +37,21 @@ If the response does not give rates in the currency requested in the request SOA
 
 Q: What is the maximum value possible for `Distance` and `DistanceMax`? 
 
-A: SAP Concur can be configured to allow up to a 100 mile search radius.
+A: SAP Concur can be configured to allow up to a 100 mile / 100 km search radius. The distance unit is based on the traveller profile setting.
 
 ***
 
 ## <a name="availability"></a>Availability & RateDetails
 
-Q: How does SAP Concur select the `HotelRef/HotelCode` to be included in the Availability request? What is the maximum number of hotels automatically rate searched?
+Q: How does SAP Concur select the `HotelRef/HotelCode` to be included in the Availability request? 
 
-A: The first `n` hotels from the `Search` response will be specified in the `Availability` request. `n` is the value defined for `Number of hotels to shop` from the Travel Configuration.
+A: The first `n` hotels from the `Search` response will be specified in the `Availability` request. 
+
+***
+
+Q: What is the maximum number of hotels automatically rate searched?
+
+A: The number of hotels priced is set by `Number of hotels to shop` from the Travel Configuration. This setting can be up to 100.
 
 *** 
 
@@ -92,6 +98,20 @@ Q: What is the usage of `GuestCount/AgeQualifyingCode`?
 A: This value indicates whether the guest is a child or adult. SAP Concur only supports the value of 10 which represents an adult guest.
 
 ***
+
+Q: What comprises the content of a rate description in the rates listing?
+
+A: The rate description is made up of the `RateDescription`, `RatePlanDescription`, `RoomDescription`, and `MealsIncluded` (breakfast) from the Availability response.
+
+***
+
+Q: What content is used to populate the Rules and Cancellation Policy?
+
+A: The text is generated using the content from Availability (or `RateDetails` when used). Including the following:
+  - From `Rate/Total` the total cost. 
+  - From `PaymentPolicies`, the accepted credit card types.
+  - From `RatePlan/CancelPenalties`, details for the cancellation deadline and the penalty description. 
+  - From `RatePlanDescription` and `RoomRateDescription` text descriptions for the rate. 
 
 ## <a name="hotel-descriptive-info"></a>HotelDescriptiveInfo
 

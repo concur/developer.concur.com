@@ -21,172 +21,172 @@ x-xss-protection: 1; mode=block
                     <RoomTypes>
                         <RoomType RoomType="Standard" RoomID="S_70C639B292">
                             <RoomDescription>
-                                <Text>King Room - single occupancy - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>King room</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_AD0239C2B6">
                             <RoomDescription>
-                                <Text>King Room with City View - Disability Access - single occupancy - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>King room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_3D59B54298">
                             <RoomDescription>
-                                <Text>King Room - Disability Access - single occupancy - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>King Room</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_51823CD17E">
                             <RoomDescription>
-                                <Text>King Room with City View - Disability Access - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>King room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_168BDB4734">
                             <RoomDescription>
-                                <Text>King Room - Disability Access - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>King room</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_DEA0B098E4">
                             <RoomDescription>
-                                <Text>King Room - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>King room</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_2B6D7463CE">
                             <RoomDescription>
-                                <Text>Double Room - single occupancy - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Double room</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Executive" RoomID="E_A80CCE4BA6">
                             <RoomDescription>
-                                <Text>One King Bed Executive Floor - single occupancy - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>One king bed, executive floor</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Executive" RoomID="E_A1613319EE">
                             <RoomDescription>
-                                <Text>One King Bed Executive Floor - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>One king bed, executive floor</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_D9D3159D77">
                             <RoomDescription>
-                                <Text>Double Room - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Double Room</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_A7F16D4C99">
                             <RoomDescription>
-                                <Text>1 KING BED</Text>
+                                <Text>One king bed</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_60E79FE18A">
                             <RoomDescription>
-                                <Text>1 KING MOB ACCESS ROLLIN SHWR AND CITY VIEW</Text>
+                                <Text>Accessible, one king bed, roll-in shower and city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_7F84FFE715">
                             <RoomDescription>
-                                <Text>1 KING BED - This rate requires a valid Loyalty Membership ID</Text>
+                                <Text>One king bed</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_FF517EC8CD">
                             <RoomDescription>
-                                <Text>1 KING MOB ACCESS ROLLIN SHWR AND CITY VIEW - This rate requires a valid Loyalty Membership ID</Text>
+                                <Text>Accessible, one king bed, roll-in shower and city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_0D3071F3B0">
                             <RoomDescription>
-                                <Text>1 KING BED MOB ACCESS W/ TUB - This rate requires a valid Loyalty Membership ID</Text>
+                                <Text>Accessible, one king bed with tub</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_9F8D1F46CF">
                             <RoomDescription>
-                                <Text>2 DOUBLE BEDS</Text>
+                                <Text>2 double beds</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_F72B258AFA">
                             <RoomDescription>
-                                <Text>1 KING BED NO DESK 230SQFT</Text>
+                                <Text>Suite with one king bed</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_CADE94C4F4">
                             <RoomDescription>
-                                <Text>2 DOUBLE BEDS - This rate requires a valid Loyalty Membership ID</Text>
+                                <Text>2 double beds</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_FA2DAD84A0">
                             <RoomDescription>
-                                <Text>1 KING BED NO DESK 230SQFT - This rate requires a valid Loyalty Membership ID</Text>
+                                <Text>1 king bed, no desk</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_F66DE64007">
                             <RoomDescription>
-                                <Text>1 KING BED W/ PARTIAL SKYLINE VIEW</Text>
+                                <Text>1 king bed with partial skyline view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_4C098D3046">
                             <RoomDescription>
-                                <Text>1 KING BED W/ PARTIAL SKYLINE VIEW - This rate requires a valid Loyalty Membership ID</Text>
+                                <Text>1 king bed with partial skyline view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_5EC78391CF">
                             <RoomDescription>
-                                <Text>2 DOUBLE BEDS PARTIAL SKYLINE VIEW</Text>
+                                <Text>2 double beds with partial skyline view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_62055290BF">
                             <RoomDescription>
-                                <Text>2 DOUBLE BEDS PARTIAL SKYLINE VIEW - This rate requires a valid Loyalty Membership ID</Text>
+                                <Text>2 double beds with partial skyline view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_88C6DECF60">
                             <RoomDescription>
-                                <Text>1 KING BED EXEC FLOOR CITY VIEW</Text>
+                                <Text>1 king bed with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Executive" RoomID="E_934D67C467">
                             <RoomDescription>
-                                <Text>2 DOUBLE BEDS EXECUTIVE CITY VIEW</Text>
+                                <Text>2 double beds on executive floor with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_76FDB53B81">
                             <RoomDescription>
-                                <Text>1 KING BED EXEC FLOOR CITY VIEW - This rate requires a valid Loyalty Membership ID</Text>
+                                <Text>1 king bed with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_37A09C6CFE">
                             <RoomDescription>
-                                <Text>1 KING BED EXEC FLOOR SKYLINE VIEW</Text>
+                                <Text>1 king bed with skyline view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_F58D677B8C">
                             <RoomDescription>
-                                <Text>2 DOUBLE BEDS EXEC FLR SKYLINE VIEW</Text>
+                                <Text>2 double beds with skyline view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Accessible" RoomID="A_7787E5603A">
                             <RoomDescription>
-                                <Text>2 DBL MOBILITY ACCESSIBLE RI SHWR</Text>
+                                <Text>Accessible, 2 double beds, roll-in shower</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Unknown" RoomID="U_295CB8E3A6">
                             <RoomDescription>
-                                <Text>1KG EXE LVL CTY VW MOBILITY ACCESS W/ RI SHWR</Text>
+                                <Text>Accessible room with roll-in shower. 1 king, executive floor with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Premium" RoomID="I_FFD6187943">
                             <RoomDescription>
-                                <Text>2 DBL BEDS PREMIUM EXEC FLOOR SHOWER ONLY</Text>
+                                <Text>2 double beds on executive floor</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Executive" RoomID="E_B7CFED69FD">
                             <RoomDescription>
-                                <Text>1 KING EXECUTIVE FLOOR SHOWER ONLY CITY VIEW</Text>
+                                <Text>1 king on executive floor with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_FBA7F7FF3C">
                             <RoomDescription>
-                                <Text>2 DBL BEDS EXEC FLR SHOWER ONLY SKYLINE VIEW</Text>
+                                <Text>2 double beds, executive floor with skyline view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Standard" RoomID="S_2478312CBF">
                             <RoomDescription>
-                                <Text>1 KING BED EXEC FLR SHOWER ONLY SKYLINE VIEW</Text>
+                                <Text>1 king bed, executive floor with skyline view</Text>
                             </RoomDescription>
                         </RoomType>
                     </RoomTypes>
@@ -337,7 +337,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -351,7 +351,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -365,7 +365,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -379,7 +379,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -393,7 +393,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -407,7 +407,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -421,7 +421,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -435,7 +435,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -449,7 +449,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -463,7 +463,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -477,7 +477,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -491,7 +491,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -505,7 +505,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -519,7 +519,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -533,7 +533,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -547,7 +547,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -561,7 +561,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -575,7 +575,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -589,7 +589,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -603,7 +603,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -617,7 +617,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -631,7 +631,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -645,7 +645,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -659,7 +659,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -687,7 +687,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -716,7 +716,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -745,7 +745,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -774,7 +774,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -803,7 +803,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -832,7 +832,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -861,7 +861,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -890,7 +890,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -919,7 +919,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -948,7 +948,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -996,7 +996,7 @@ x-xss-protection: 1; mode=block
                                         <Taxes />
                                     </Total>
                                     <RateDescription>
-                                        <Text>CWT PROGRAM -HONORS SEMI-FLEX</Text>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
                                     </RateDescription>
                                 </Rate>
                             </Rates>
@@ -1011,7 +1011,7 @@ x-xss-protection: 1; mode=block
                                         <Taxes />
                                     </Total>
                                     <RateDescription>
-                                        <Text>CWT PROGRAM -HONORS SEMI-FLEX</Text>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
                                     </RateDescription>
                                 </Rate>
                             </Rates>
@@ -1026,7 +1026,7 @@ x-xss-protection: 1; mode=block
                                         <Taxes />
                                     </Total>
                                     <RateDescription>
-                                        <Text>CWT PROGRAM -HONORS SEMI-FLEX</Text>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
                                     </RateDescription>
                                 </Rate>
                             </Rates>
@@ -1071,7 +1071,7 @@ x-xss-protection: 1; mode=block
                                         <Taxes />
                                     </Total>
                                     <RateDescription>
-                                        <Text>CWT PROGRAM -HONORS SEMI-FLEX</Text>
+                                        <Text>This rate requires a valid Loyalty Membership ID</Text>
                                     </RateDescription>
                                 </Rate>
                             </Rates>
@@ -1086,7 +1086,7 @@ x-xss-protection: 1; mode=block
                                         <Taxes />
                                     </Total>
                                     <RateDescription>
-                                        <Text>CWT PROGRAM -HONORS SEMI-FLEX</Text>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
                                     </RateDescription>
                                 </Rate>
                             </Rates>
@@ -1116,7 +1116,7 @@ x-xss-protection: 1; mode=block
                                         <Taxes />
                                     </Total>
                                     <RateDescription>
-                                        <Text>CWT PROGRAM -HONORS SEMI-FLEX</Text>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
                                     </RateDescription>
                                 </Rate>
                             </Rates>
@@ -1146,7 +1146,7 @@ x-xss-protection: 1; mode=block
                                         <Taxes />
                                     </Total>
                                     <RateDescription>
-                                        <Text>CWT PROGRAM -HONORS SEMI-FLEX</Text>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
                                     </RateDescription>
                                 </Rate>
                             </Rates>
@@ -1191,7 +1191,7 @@ x-xss-protection: 1; mode=block
                                         <Taxes />
                                     </Total>
                                     <RateDescription>
-                                        <Text>CWT PROGRAM -HONORS SEMI-FLEX</Text>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
                                     </RateDescription>
                                 </Rate>
                             </Rates>
