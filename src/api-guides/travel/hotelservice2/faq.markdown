@@ -107,7 +107,7 @@ A: The rate description is made up of the `RateDescription`, `RatePlanDescriptio
 
 Q: What content is used to populate the Rules and Cancellation Policy?
 
-A: The text is generated using the content from Availability (or RateDetails when used). Including the following:
+A: The text is generated using the content from Availability (or `RateDetails` when used). Including the following:
   - From `Rate/Total` the total cost. 
   - From `PaymentPolicies`, the accepted credit card types.
   - From `RatePlan/CancelPenalties`, details for the cancellation deadline and the penalty description. 
