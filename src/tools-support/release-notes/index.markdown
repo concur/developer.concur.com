@@ -10,6 +10,7 @@ layout: reference
 
 # Developer Platform Release Notes
 
+* [August 2021](./api/2021-08-20.html)
 * [July 2021](./api/2021-07-16.html)
 * [June 2021](./api/2021-06-18.html)
 * [May 2021](./api/2021-05-21.html)
@@ -38,16 +39,7 @@ layout: reference
 
 # App Center Release Notes
 
-Updates on available User Connection apps.
-
-* [2021 Consolidated Release Notes](./app-center-2021.html)
-* [2020 Consolidated Release Notes](./app-center-2020.html)
-* [2019 Consolidated Release Notes](./app-center-2019.html)
-* [2018 Release Notes](./archive/2018-archive-app-center.html)
-* [2017 Release Notes](./archive/2017-archive-app-center.html)
-* [2016 Release Notes](./archive/2016-archive-app-center.html)
-* [2015 Release Notes](./archive/2015-archive-app-center.html)
-* [2014 Release Notes](./archive/2014-archive-app-center.html)
+To view App Center release notes, please visit [ConcurTraining](http://www.concurtraining.com/customers/tech_pubs/Docs/AppCenter/ReleaseNotesAppCenter_Client.htm).
 
 # Combined App Center and Developer Platform Release Notes
 
