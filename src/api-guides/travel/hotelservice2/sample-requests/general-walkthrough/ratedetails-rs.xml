@@ -1,9 +1,7 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 
-<HTTP-headers>
+<!-- HTTP-headers start 
+
 200 OK (HTTP Status 200) HTTP/1.1
 cache-control: private, max-age=0
 connection: keep-alive
@@ -13,7 +11,8 @@ date: Mon, 14 Jun 2021 05:22:14 GMT
 strict-transport-security: max-age=31536000; includeSubDomains
 x-scheme: https
 x-xss-protection: 1; mode=block
-</HTTP-headers>
+
+    HTTP-headers end -->
 
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -26,7 +25,7 @@ x-xss-protection: 1; mode=block
                 <RoomStay>
                     <RoomTypes>
                         <RoomType RoomType="Standard" RoomID="S_0A8CFB4B1B">
-                            <RoomDescription>xxxxxxxxxxxx</RoomDescription>
+                            <RoomDescription>Deluxe Queen Bed, City View Room</RoomDescription>
                         </RoomType>
                     </RoomTypes>
                     <RatePlans>
@@ -36,12 +35,14 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text> CXL 1600 HTL TIME ON 27SEP21-FEE 1 NIGHT-EXCL TAX-FEES CANCEL 24 HRS BY 4PM DAY OF ARRIVAL TO AVOID 1NT CHG PLUS TAX.
+                                        <Text>CXL 1600 HTL TIME ON 27SEP21-FEE 1 NIGHT-EXCL TAX-FEES CANCEL 24 HRS BY 4PM DAY OF ARRIVAL TO AVOID 1NT CHG PLUS TAX.
 &lt;br /&gt;InclusiveTaxAmount = 0.00 USD&lt;br /&gt;ExclusiveTaxAmount = 61.68 USD&lt;br /&gt;AmountBeforeTax = 356.88 USD&lt;br /&gt;AmountAfterTax = 418.56 USD</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
-                            <RatePlanDescription>xxxxxxxxxxxx</RatePlanDescription>
+                            <RatePlanDescription>
+                                <Text>QUEEN DELUXE 270 SQFT-WIFI-COFFEE TEA MAKER-LAPTOP SAFE</Text>
+                            </RatePlanDescription>
                         </RatePlan>
                     </RatePlans>
                     <RoomRates>
@@ -67,10 +68,12 @@ x-xss-protection: 1; mode=block
                                             </Tax>
                                         </Taxes>
                                     </Total>
-                                    <RateDescription>xxxxxxxxxxxx</RateDescription>
+                                    <RateDescription>Business Rate</RateDescription>
                                 </Rate>
                             </Rates>
-                            <RoomRateDescription>xxxxxxxxxxxx</RoomRateDescription>
+                            <RoomRateDescription>
+                                <Text>Free high speed internet, free wifi</Text>
+                            </RoomRateDescription>
                         </RoomRate>
                     </RoomRates>
                     <GuestCounts>

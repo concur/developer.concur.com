@@ -24,9 +24,13 @@
 - title: Travel
   url: ''
   children:
+      - title: Duty of Care
+        url: /api-guides/travel/duty-of-care.html
       - title: Itinerary - GET Itinerary & Trip Details
         url: /api-guides/travel/get-itinerary.html
       - title: Itinerary - Add a New Itinerary Manually
         url: /api-guides/travel/new-itinerary-manual.html
+      - title: Itinerary - Business Travel Events
+        url: /api-guides/travel/itin-with-events.html
 - title: VAT Reclaim Integration
   url: /api-guides/vat-reclaim/vat-reclaim-guide.html
