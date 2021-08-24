@@ -2,8 +2,8 @@
 title: Company Level Authentication
 layout: reference
 ---
+# Company Level Authentication
 
-* [Overview]()
 * [Company](#company)
 * [Obtaining a one-time auth token](#obtain_token)
 * [Response Codes](#response_codes)

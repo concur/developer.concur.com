@@ -3,7 +3,7 @@ title: Authentication
 layout: reference
 ---
 
-### Special Note (Please Read First)
+# Authentication
 
 If you are an existing partner with an existing app, please read both the [Migration to Oauth2 Tokens](/api-reference/authentication/migrationguide.html) and [Getting Started](/api-reference/authentication/getting-started.html) documentation first. If you have any questions, please contact your Partner Enablement team representative before proceeding.
 
