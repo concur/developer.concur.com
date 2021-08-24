@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference/travel-profile/01-profile-resource.html
 ---
 
+# Travel Profile v2 - Resource
+
 The Travel Profile resource represents a Concur Travel profile that contains travel-related information about a user.
 
 ## Operations
@@ -292,7 +294,7 @@ Name|Data Type|Description|Update|Create|Comments
 `ContactOptIn attribute`|`boolean`|Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell. Format: true\false|-|-|-
 `PrimaryMobile attribute`|`boolean`|This is the user's preferred mobile device. Format: true\false|-|-|-
 `CountryCode`|`string`|The country code in from the [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) specification. Format: Char(2)|required (Cell)|required (Cell)|Required for Cell types.
-`PhoneNumber`|`string`|The phone number as entered by the user, which may contain characters such as () or -. For CellPhone, Number may only contain digits, dashes, parenthesis, and spaces. Format: nvarchar(60) <br>|required (Cell)|required (Cell)|Required for Cell types. 
+`PhoneNumber`|`string`|The phone number as entered by the user, which may contain characters such as () or -. For CellPhone, Number may only contain digits, dashes, parenthesis, and spaces. Format: nvarchar(60) <br>|required (Cell)|required (Cell)|Required for Cell types.
 `Extension`|`string`|The phone extension. Format: nvarchar(60)|-|-|-
 `MobileDevice`|`string`|The OS of the mobile device. Values are:<br> Android Phone<br> Android Tablet<br> Blackberry<br> iOS Phone<br> iOS Tablet<br> Not a smartphone<br> Other iOS device<br> Other smartphone<br> Unknown<br> Window Mobile|-|-|-
 `MobileName`|`string`|The name the user assigned to the mobile device. Format: nvarchar(255)|-|-|-
