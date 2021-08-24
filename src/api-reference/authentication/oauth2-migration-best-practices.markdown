@@ -2,6 +2,7 @@
 title: Oauth2 Migration Best Practices
 layout: reference
 ---
+# OAuth2 Migration Best Practices
 
 * [Old World Authentication](#old-authentication)
 * [New World Authentication](#new-authentication)

@@ -3,16 +3,7 @@ title: Budget v4 - Getting Started
 layout: reference
 ---
 
-## Menu
-
-* [Getting Started](./getting-started.html)
-* [Fiscal Year](/api-reference/budget/v4.fiscal-year.html)
-* [Budget Category](/api-reference/budget/v4.budget-category.html)
-* [Budget Item](/api-reference/budget/v4.budget-header.html)
-* [Budget Tracking Field](/api-reference/budget/v4.budget-trackingfield.html)
-* [Budget Adjustments](/api-reference/budget/v4.budget-adjustments.html)
-
-## Getting Started
+# Getting Started
 
 * [Overview](#overview)
 * [Process Flow](#process-flow)
