@@ -2,6 +2,7 @@
 title: API Lifecycle & Deprecation Policy
 layout: reference
 ---
+# API Lifecycle & Deprecation Policy
 
 <div class="alert alert-danger">
   <p><strong>This policy is no longer in effect.</strong></p>
