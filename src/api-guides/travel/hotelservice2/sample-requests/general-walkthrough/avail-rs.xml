@@ -21,202 +21,202 @@ x-xss-protection: 1; mode=block
                     <RoomTypes>
                         <RoomType RoomType="Deluxe" RoomID="D_DC64E03AC4">
                             <RoomDescription>
-                                <Text>DELUXE QUEEN CITY VIEW ROOM</Text>
+                                <Text>Deluxe queen room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_D903B1078A">
                             <RoomDescription>
-                                <Text>ACCESSIBLE DELUXE DOUBLE CITY VIEW ROOM</Text>
+                                <Text>Accessible deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_6E74F6D2CA">
                             <RoomDescription>
-                                <Text>DELUXE DOUBLE CITY VIEW ROOM</Text>
+                                <Text>Deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Premium" RoomID="I_E670A10A79">
                             <RoomDescription>
-                                <Text>PREMIUM CITY VIEW KING</Text>
+                                <Text>Premium king room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Premium" RoomID="I_E2896E9CDF">
                             <RoomDescription>
-                                <Text>PREMIUM SPACE NEEDLE VIEW ROOM</Text>
+                                <Text>Premium room with view of Space Needle</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_2A4836CF0B">
                             <RoomDescription>
-                                <Text>DELUXE QUEEN CITY VIEW ROOM</Text>
+                                <Text>Deluxe queen room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_09AC129C96">
                             <RoomDescription>
-                                <Text>ACCESSIBLE DELUXE DOUBLE CITY VIEW ROOM</Text>
+                                <Text>Accessible deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_EC044DC8B4">
                             <RoomDescription>
-                                <Text>DELUXE DOUBLE CITY VIEW ROOM</Text>
+                                <Text>Deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_36556CA561">
                             <RoomDescription>
-                                <Text>DELUXE DOUBLE SPACE NEEDLE VIEW ROOM</Text>
+                                <Text>Deluxe double room with view of Space Needle</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Premium" RoomID="I_BC12530C6C">
                             <RoomDescription>
-                                <Text>PREMIUM CITY VIEW KING</Text>
+                                <Text>Premium king room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Premium" RoomID="I_385A1C2D27">
                             <RoomDescription>
-                                <Text>PREMIUM SPACE NEEDLE VIEW ROOM</Text>
+                                <Text>Premium room with view of Space Needle</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Suite" RoomID="T_B21303BD5D">
                             <RoomDescription>
-                                <Text>STUDIO SUITE</Text>
+                                <Text>Studio suite</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_DD9D0AC557">
                             <RoomDescription>
-                                <Text>DELUXE DOUBLE SPACE NEEDLE VIEW ROOM</Text>
+                                <Text>Deluxe double room with view of Space Needle</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_F988CF1250">
                             <RoomDescription>
-                                <Text>Deluxe Double Room with City View - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_806F9D4F12">
                             <RoomDescription>
-                                <Text>Deluxe Queen Room - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Deluxe Queen Room</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Unknown" RoomID="U_725710F67A">
                             <RoomDescription>
-                                <Text>SPACE NEEDLE CORNER ROOM</Text>
+                                <Text>Corner room with view of Space Needle</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_9805A59C12">
                             <RoomDescription>
-                                <Text>DELUXE QUEEN CITY VIEW ROOM</Text>
+                                <Text>Deluxe queen room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Suite" RoomID="T_DC8328DD18">
                             <RoomDescription>
-                                <Text>STUDIO SUITE</Text>
+                                <Text>Studio suite</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Suite" RoomID="T_3649AF52D0">
                             <RoomDescription>
-                                <Text>BALCONY STUDIO SUITE</Text>
+                                <Text>Studio suite with balcony</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Premium" RoomID="I_605C3A09B1">
                             <RoomDescription>
-                                <Text>Premium King Room - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Premium king room</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_C4397A8DF2">
                             <RoomDescription>
-                                <Text>DELUXE DOUBLE CITY VIEW ROOM</Text>
+                                <Text>Deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_CCAA7A74BD">
                             <RoomDescription>
-                                <Text>Deluxe Room, 1 Queen Bed - Rates provided by Expedia - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Deluxe queen room</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_B00F57034C">
                             <RoomDescription>
-                                <Text>Deluxe Room, 2 Double Beds, City View - Rates provided by Expedia - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Deluxe room with 2 Double Beds and city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_F3DEE4EBBE">
                             <RoomDescription>
-                                <Text>Deluxe Double Room with City View - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Premium" RoomID="I_1F988FD70E">
                             <RoomDescription>
-                                <Text>Premium King Room with Space Needle View - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Premium king room with Space Needle view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_4B6490F07B">
                             <RoomDescription>
-                                <Text>Deluxe Double Room with Space Needle View - Non-refundable - Rates provided by Booking.com - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Deluxe double room with Space Needle view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_BACD19941F">
                             <RoomDescription>
-                                <Text>Deluxe Room, 1 Queen Bed - Rates provided by Expedia - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Deluxe Room, 1 Queen Bed</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_3CB8BB7814">
                             <RoomDescription>
-                                <Text>Deluxe Room, 2 Double Beds, City View - Rates provided by Expedia - loyalty benefits will not apply to this rate. See Rules</Text>
+                                <Text>Deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_A54A2ED4DC">
                             <RoomDescription>
-                                <Text>DELUXE QUEEN CITY VIEW ROOM</Text>
+                                <Text>Deluxe queen room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_8D3EE863B3">
                             <RoomDescription>
-                                <Text>ACCESSIBLE DELUXE DOUBLE CITY VIEW ROOM</Text>
+                                <Text>Accessible deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_C522E9D864">
                             <RoomDescription>
-                                <Text>DELUXE DOUBLE CITY VIEW ROOM</Text>
+                                <Text>Deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Unknown" RoomID="U_EC37B4F156">
                             <RoomDescription>
-                                <Text>SPACE NEEDLE CORNER ROOM</Text>
+                                <Text>Corner suite with view of Space Needle</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Suite" RoomID="T_64387EE65F">
                             <RoomDescription>
-                                <Text>SPACE NEEDLE SUITE</Text>
+                                <Text>Suite with view of Space Needle</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Premium" RoomID="I_8F912AC413">
                             <RoomDescription>
-                                <Text>PREMIUM CITY VIEW KING</Text>
+                                <Text>Premium king room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Suite" RoomID="T_55FC999050">
                             <RoomDescription>
-                                <Text>BALCONY STUDIO SUITE</Text>
+                                <Text>Stuidio suite with balcony</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Suite" RoomID="T_CAF9497539">
                             <RoomDescription>
-                                <Text>BALCONY SUITE</Text>
+                                <Text>Balcony suite</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_98C846DBA2">
                             <RoomDescription>
-                                <Text>DELUXE DOUBLE SPACE NEEDLE VIEW ROOM</Text>
+                                <Text>Deluxe double room with view of Space Needle</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Premium" RoomID="I_6CB159AF12">
                             <RoomDescription>
-                                <Text>PREMIUM SPACE NEEDLE VIEW ROOM</Text>
+                                <Text>Premium room with view of Space Needle</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_D8A797B07B">
                             <RoomDescription>
-                                <Text>DELUXE QUEEN CITY VIEW ROOM</Text>
+                                <Text>Deluxe queen room with city viw</Text>
                             </RoomDescription>
                         </RoomType>
                         <RoomType RoomType="Deluxe" RoomID="D_DFA988C40E">
                             <RoomDescription>
-                                <Text>ACCESSIBLE DELUXE DOUBLE CITY VIEW ROOM</Text>
+                                <Text>Accessible deluxe double room with city view</Text>
                             </RoomDescription>
                         </RoomType>
                     </RoomTypes>
@@ -227,7 +227,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -241,7 +241,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -255,7 +255,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -269,7 +269,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -283,7 +283,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -297,7 +297,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -311,7 +311,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -325,7 +325,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -339,7 +339,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -353,7 +353,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -367,7 +367,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -381,7 +381,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -395,7 +395,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -437,7 +437,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -465,7 +465,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -479,7 +479,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -661,7 +661,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -675,7 +675,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -703,7 +703,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -717,7 +717,7 @@ x-xss-protection: 1; mode=block
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -996,7 +996,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Non-refundable. Rate provided by Booking.com, loyalty benefits will not apply to this rate. See Rules</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -1025,7 +1025,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Non-refundable. Rate provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -1114,7 +1114,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Non-refundable. Rate provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -1153,7 +1153,7 @@ x-xss-protection: 1; mode=block
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Refundable</Text>
+                                        <Text>Refundable. Rate provided by Expedia, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -1181,7 +1181,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Refundable</Text>
+                                        <Text>Refundable. Rate provided by Expedia. loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -1214,7 +1214,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Non-refundable. Rate provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -1243,7 +1243,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -1272,7 +1272,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Non-refundable. Rate provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -1296,7 +1296,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Non-refundable. Rate provided by Expedia, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -1324,7 +1324,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                         </Taxes>
                                     </Total>
                                     <RateDescription>
-                                        <Text>Not Refundable</Text>
+                                        <Text>Not refundable. Rate provided by Expedia, loyalty benefits will not apply to this rate.</Text>
                                     </RateDescription>
                                     <TPA_Extensions>
                                         <RequireSeriesCode>false</RequireSeriesCode>
@@ -2312,7 +2312,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2326,7 +2326,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2340,7 +2340,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2354,7 +2354,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2368,7 +2368,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2382,7 +2382,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2396,7 +2396,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2410,7 +2410,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2424,7 +2424,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2438,7 +2438,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2452,7 +2452,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2466,7 +2466,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2480,7 +2480,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2494,7 +2494,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2508,7 +2508,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 12pm.</Text>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2522,7 +2522,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2536,7 +2536,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2550,7 +2550,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2564,7 +2564,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2578,7 +2578,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -2592,7 +2592,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -3578,7 +3578,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -3593,7 +3593,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -3608,7 +3608,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -3623,7 +3623,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -3817,7 +3817,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -3832,7 +3832,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -3847,7 +3847,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -3862,7 +3862,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -3937,7 +3937,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -4027,7 +4027,7 @@ Optional: The following fees and deposits are charged by the property at time of
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -4963,7 +4963,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -4977,7 +4977,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -4991,7 +4991,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5019,7 +5019,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5033,7 +5033,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5075,7 +5075,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5089,7 +5089,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5103,7 +5103,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5117,7 +5117,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5131,7 +5131,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5145,7 +5145,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5159,7 +5159,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5201,7 +5201,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5243,7 +5243,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5285,7 +5285,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5299,7 +5299,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5313,7 +5313,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5327,7 +5327,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5341,7 +5341,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5355,7 +5355,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5369,7 +5369,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5383,7 +5383,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5397,7 +5397,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5411,7 +5411,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5425,7 +5425,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5439,7 +5439,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5453,7 +5453,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5467,7 +5467,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5481,7 +5481,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -5495,7 +5495,7 @@ Know before you go:  Children 18 years old and younger stay free when occupying 
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10178,7 +10178,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10192,7 +10192,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10206,7 +10206,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10220,7 +10220,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10248,7 +10248,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10262,7 +10262,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10332,7 +10332,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10346,7 +10346,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10360,7 +10360,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10374,7 +10374,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10388,7 +10388,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10402,7 +10402,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10416,7 +10416,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10430,7 +10430,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10486,7 +10486,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10500,7 +10500,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10514,7 +10514,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10528,7 +10528,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10542,7 +10542,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10556,7 +10556,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10570,7 +10570,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10584,7 +10584,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 03 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10598,7 +10598,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
@@ -10612,7 +10612,7 @@ Know before you go:  The property has connecting/adjoining rooms, which are subj
                                 <CancelPenalty>
                                     <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
                                     <PenaltyDescription>
-                                        <Text>Cancel By 01 Days Prior To Arrival.</Text>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
                                     </PenaltyDescription>
                                 </CancelPenalty>
                             </CancelPenalties>
