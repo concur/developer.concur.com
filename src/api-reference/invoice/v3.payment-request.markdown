@@ -5,6 +5,8 @@ redirect_from:
   - /api-reference/invoice/payment-request.html
 ---
 
+# Invoice v3
+
 * [Retrieve an Invoice](#get)
 * [Create a New Invoice](#post)
 * [Update an Invoice](#put)

@@ -4,11 +4,11 @@ layout: reference
 redirect_from:
   - /api-reference/invoice/vendor.html
 ---
+# Vendor v3
 
 The Vendor API allows you to develop processes that can be used to manage your Vendor collection for invoicing, adding new Vendors, updating, getting, or deleting information for existing Vendors.
 
-> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. This API is not available in the China data center.
-
+* [Limitations](#limitations)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
@@ -21,6 +21,10 @@ The Vendor API allows you to develop processes that can be used to manage your V
 * [Add Vendor Group](#vendorGroupPut)
 * [Delete Vendor Group](#vendorGroupDelete)
 * [Schema](#schema)
+
+## <a name="limitations"></a>Limitations
+
+This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. This API is not available in the China data center.
 
 ## <a name="products-editions"></a>Products and Editions
 

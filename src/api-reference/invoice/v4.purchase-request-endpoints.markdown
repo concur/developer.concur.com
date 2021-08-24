@@ -4,6 +4,7 @@ layout: reference
 redirect_from:
   - /api-reference/invoice/purchase-request-endpoints.html
 ---
+# Purchase Request v4 - Endpoints
 
 * [Create a New Purchase Request](#post)
 * [Get Purchase Request Details](#get)
@@ -284,7 +285,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`purchaseType`|`string`|-|**Required**: The type of item, either goods or services. Displayed as **Type** in Concur Invoice. Supported values: GOODS, SERVICES. 
+`purchaseType`|`string`|-|**Required**: The type of item, either goods or services. Displayed as **Type** in Concur Invoice. Supported values: GOODS, SERVICES.
 `vendorCode`|`string`|-|**Required**: The code that identifies the vendor. This value can be found in the vendor information form of Vendor Manager. This is used along with `Vendor Address Code` to determine the specific Vendor record.
 `vendorAddressCode`|`string`|-|**Required**: The code that identifies the vendor's address. This value can be found in the vendor information form of Vendor Manager and is labeled **Address Accounting Code**. This is used along with `Vendor Code` to determine the specific Vendor record.
 `description`|`string`|-|**Required**: A description of the line item.
@@ -314,11 +315,11 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`purchaseRequestId`|`string`|-|The unique purchase request reference Id. Returned by the Create Purchase Request API call. 
-`purchaseRequestNumber`|`string`|-|The unique purchase request identifier which can be used to uniquely identify a purchase request in SAP Concur products. 
+`purchaseRequestId`|`string`|-|The unique purchase request reference Id. Returned by the Create Purchase Request API call.
+`purchaseRequestNumber`|`string`|-|The unique purchase request identifier which can be used to uniquely identify a purchase request in SAP Concur products.
 `purchaseRequestQueueStatus`|`string`|-|The creation status of the purchase request. Possible values are: PENDING_CREATION, CREATED, CREATE_FAILED.
 `purchaseRequestWorkflowStatus`|`string`|-|The workflow status of the purchase request. Possible values are: Approved, Pending Approval, Pending Cost Object Approval, Sent Back To Employee, Not Submitted, Submitted, Pending Processor Review, Vendor Approval, Approval Time Expired.
-`purchaseOrders`|`array`|[`PurchaseOrders`](#schema-purchaseOrders)|If the purchase request has been approved and a purchase order generated, this array contains the purchase order details. If empty, this element will not be returned. 
+`purchaseOrders`|`array`|[`PurchaseOrders`](#schema-purchaseOrders)|If the purchase request has been approved and a purchase order generated, this array contains the purchase order details. If empty, this element will not be returned.
 `purchaseRequestExceptions`|`array`|[`PurchaseRequestExceptions`](#schema-purchaseRequestExceptions)|An array of exceptions, if present on the purchase request. If empty, this element will not be returned.
 
 #### <a name="schema-purchase-orders"></a>PurchaseOrders
