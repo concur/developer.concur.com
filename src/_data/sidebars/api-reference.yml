@@ -250,14 +250,16 @@
   children:
       - title: Travel Services
         url: /api-reference/travel/travel.html
-      - title: Itinerary API – Overview & Getting Started
+      - title: Itinerary v1 – Getting Started
         url: /api-reference/travel/itinerary/itinerary.html
-      - title: Itinerary API Usage
+      - title: Itinerary v1 Usage
         url: /api-reference/travel/itinerary-tmc-thirdparty/index.html
-      - title: Trip Endpoint
+      - title: Trip v1.1
         url: /api-reference/travel/itinerary/trip/trip-resource.html
-      - title: Booking Endpoint
+      - title: Booking v1.1
         url: /api-reference/travel/itinerary/booking/booking-resource.html
+      - title: Itinerary v4
+        url: /api-reference/travel/itinerary-v4/v4.itinerary.html
 - title: User
   url: ''
   children:
