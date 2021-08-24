@@ -3,7 +3,7 @@ title: Financial Posting via Extracts
 layout: reference
 ---
 
-## Learn More
+# Financial Posting via Extracts
 
 An ERP user has two options to obtain data for financial journal entries into the ERP:
 
