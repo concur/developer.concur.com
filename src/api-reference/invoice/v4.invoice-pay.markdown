@@ -4,7 +4,8 @@ layout: reference
 ---
 # Invoice Pay v4
 
-* [Limitations](#limitations)* [Process Flow](#process-flow)
+* [Limitations](#limitations)
+* [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
