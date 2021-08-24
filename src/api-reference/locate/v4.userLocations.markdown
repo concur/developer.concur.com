@@ -2,12 +2,13 @@
 title: User Locations v4
 layout: reference
 ---
+# User Locations v4
 
 {% include prerelease.html %}
 
 # User Locations
 
-* [Overview](#overview)
+* [Limitations](#limitations)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
@@ -21,13 +22,13 @@ layout: reference
   * [Transaction](#transaction)
 * [Examples](#example)
 
-## <a name="overview"></a>Overview
-
 The goal of this API is to allow customers and third party vendors to add their traveler's location data to Concur Locate so it can be utilized locate and contact travelers to address their duty of care requirements.
 
 This API supports POST only.
 
-> **Limitations**: This API is available only in the North America and EMEA Data Centers.
+## <a name="limitations"></a>Limitations
+
+This API is available only in the North America and EMEA Data Centers.
 
 ## <a name="products-editions"></a>Products and Editions
 
