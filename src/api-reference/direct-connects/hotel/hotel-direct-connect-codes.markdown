@@ -6,6 +6,8 @@ redirect_from:
   - /tools-support/reference/hotel-direct-connect-codes.html
 ---
 
+# Hotel v1 - Codes
+
 {% include deprecation-alert.html %}
 
 # Hotel Direct Connect Codes

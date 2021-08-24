@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Read Itinerary
 layout: reference
 ---
 
-# Read Itinerary
+# Hotel v2 - Read Itinerary
 
 Returns detailed information about a hotel reservation. Used in a process of booking a hotel to write information to Itinerary. Not invoked by user, but by automatic Concur process. Hotel Supplier should reply with HotelRes RS message in the same format, as for HotelResRQ.
 

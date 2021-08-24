@@ -8,6 +8,8 @@ redirect_from:
   - /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html
 ---
 
+# Expense Entry Attendee v2
+
 {% include deprecation-alert.html %}
 
 **NOTE:** Find the newer version 3.0 [here.](./v3.expense-entry-attendee.html)

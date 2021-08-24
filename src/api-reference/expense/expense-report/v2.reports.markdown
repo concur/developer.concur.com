@@ -7,6 +7,8 @@ redirect_from:
   - /api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html
 ---
 
+# Reports v2
+
 {% include deprecation-alert.html %}
 
 **NOTE:** Find the newer version 3.0 [here.](/api-reference/expense/expense-report/v3.reports.html)  

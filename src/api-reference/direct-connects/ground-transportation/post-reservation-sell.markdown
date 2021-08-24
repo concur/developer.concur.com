@@ -3,6 +3,8 @@ title: Direct Connect - Ground Transportation - Post a reservation sell request
 layout: reference
 ---
 
+# Post a Reservation Sell Request
+
 A post reservation sell request is sent when a Travel user attempts to book a ground transportation reservation.
 
 * [Request](#request)

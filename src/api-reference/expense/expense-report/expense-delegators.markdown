@@ -3,6 +3,8 @@ title: Expense Delegators
 layout: reference
 ---
 
+# Expense Delegators
+
 Users that have granted delegate permissions to the another Expense user.
 
 Retrieves the list of users that have granted delegate permissions to the user specified in the OAuth access token.

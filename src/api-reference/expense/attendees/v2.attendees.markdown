@@ -7,6 +7,8 @@ redirect_from:
   - /api-reference-deprecated/version-two/attendees/attendee-resource-get.html
 ---
 
+# Attendees v2
+
 {% include deprecation-alert.html %}
 
 The attendees in the Concur company. This resource can be used to retrieve attendee information for any attendee in the Concur company, regardless of whether they are Private or Shared. In future releases, this resource will be enhanced to provide full attendee management functionality.
