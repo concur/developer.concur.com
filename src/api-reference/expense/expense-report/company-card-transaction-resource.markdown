@@ -3,6 +3,8 @@ title: Company Card Transactions
 layout: reference
 ---
 
+# Company Card Transactions
+
 The corporate or credit card charges that are available for use in expense reports for the OAuth consumer.
 
 Retrieves a list of unassigned company card charges for the user specified in the OAuth access token.

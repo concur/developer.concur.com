@@ -2,8 +2,9 @@
 title: Direct Connect - Hotel v2 - Appendix
 layout: reference
 ---
+# Hotel v2 - Appendix
 
-# Search
+## Search
 
 ![./media/image1.png](./images/examples/search.png)
 

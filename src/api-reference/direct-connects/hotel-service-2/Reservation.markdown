@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Reservation
 layout: reference
 ---
 
-# Reservation Message
+# Hotel v2 - Reservation Message
 
 Message to reserve a hotel.
 
