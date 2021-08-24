@@ -3,6 +3,8 @@ title: Transport Layer Security (TLS)
 layout: reference
 ---
 
+# Transport Layer Security (TLS)
+
 * [Overview](#overview)
 * [What the Customer Sees](#customer)
 * [Affected Connections](#connections)
