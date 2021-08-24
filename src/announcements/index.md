@@ -2,8 +2,9 @@
 title: SAP Concur Developer Center - Announcements
 layout: reference
 ---
+# Announcements
 
-### 2021-08-27 :: August 2021 Release Notes Published
+### 2021-08-24 :: August 2021 Release Notes Published
 
 The August 2021 release notes have been published. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
 
