@@ -4,7 +4,7 @@ layout: reference
 ---
 
 
-## About This Integration Guide
+# Expense - Associating External Attendees to Expense Entries
 
 This guide prescribes how to associate external attendees to expense entries in Concur Expense. It assumes you are familiar with Concur Expense and the system of record for the external attendees. It also assumes that you have registered your application, and that you know how to make API calls to the SAP Concur Platform.
 

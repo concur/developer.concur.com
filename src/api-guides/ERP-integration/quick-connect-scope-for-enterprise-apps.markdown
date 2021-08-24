@@ -3,6 +3,8 @@ title: Quick Connect Scope for Enterprise Apps
 layout: reference
 ---
 
+# Quick Connect Scope for Enterprise Apps
+
 **Quick Connect** describes the process customers use to connect their Concur site with an App Center Partner's Enterprise application. This process starts from the Partner's App Center Listing (within a customer's Concur site) and results in a company-level access token that is unique per customer.  The Partner will use each token to access company-wide data for the respective customer that has connected.  (note: The type of company-wide data is limited to the Partner application's Scopes).  The Partner's Landing Page and the SAP Concur Authentication Service (based on OAuth2) facilitate this connection process.  This document and accompanying links guide the Partner through the development steps for the Landing Page and OAuth2.
 
 Once the customer’s administrator clicks the Connect button within the Partner's App Center Listing page, they will be re-directed to the Partner’s Landing Page. (note: Concur manages the Listing page for the Partner). The Landing page initiates the OAuth2 Flow and will prompt the admin to take one of the following actions depending on how the Partner designed their Landing Page:
