@@ -6,6 +6,8 @@ redirect_from:
   - /tools-support/reference/spend-category-codes.html
 ---
 
+# Spend Category Codes
+
 The following table lists Spend Category codes that are used in several of the Concur APIs.
 
 Code|Name
