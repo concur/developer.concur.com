@@ -3,6 +3,8 @@ title: Direct Connect - Ground Transportation - Post a reservation detail search
 layout: reference
 ---
 
+# Post a Reservation Detail Search
+
 * [Response Schema](#res-schema)
   * [Error](#error)
   * [Primary Passenger Child](#primary-passenger-child)

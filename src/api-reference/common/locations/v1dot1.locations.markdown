@@ -7,6 +7,8 @@ redirect_from:
   - /api-reference-deprecated/version-one-one/expense-report/location-resource.html
 ---
 
+# Locations v1.1
+
 {% include deprecation-alert.html %}
 
 **NOTE:** Find the newer version 3.0 [here](./v3.locations.markdown)

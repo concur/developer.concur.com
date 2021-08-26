@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v2 - Frequently Asked Questions
 layout: reference
 ---
 
+# Direct Connect - Hotel v2 - Frequently Asked Questions
+
 Frequently asked questions on how the HotelService API content is leveraged in the SAP Concur Travel Hotel online booking tool.
 
 * [General](#general)
@@ -27,7 +29,7 @@ A: For endpoints such as `Search`, `Cancel` and `Detail`, the currency code in t
 
 For the `Availability`, `RateDetails`, and `Reservation` endpoints, the currency in the SOAP header is defined by the traveller's travel configuration.
 
-For the `Itinerary` endpoint, the currency in the SOAP header is based on the currency recorded in the PNR. In most cases, it is the currency specified in the reservation requeest. 
+For the `Itinerary` endpoint, the currency in the SOAP header is based on the currency recorded in the PNR. In most cases, it is the currency specified in the reservation requeest.
 
 If the response does not give rates in the currency requested in the request SOAP header, SAP Concur will convert the rate to the currency specifed by the travel configuration.
 
@@ -35,19 +37,25 @@ If the response does not give rates in the currency requested in the request SOA
 
 ## <a name="search"></a>Search
 
-Q: What is the maximum value possible for `Distance` and `DistanceMax`? 
+Q: What is the maximum value possible for `Distance` and `DistanceMax`?
 
-A: SAP Concur can be configured to allow up to a 100 mile search radius.
+A: SAP Concur can be configured to allow up to a 100 mile / 100 km search radius. The distance unit is based on the traveller profile setting.
 
 ***
 
 ## <a name="availability"></a>Availability & RateDetails
 
-Q: How does SAP Concur select the `HotelRef/HotelCode` to be included in the Availability request? What is the maximum number of hotels automatically rate searched?
+Q: How does SAP Concur select the `HotelRef/HotelCode` to be included in the Availability request?
 
-A: The first `n` hotels from the `Search` response will be specified in the `Availability` request. `n` is the value defined for `Number of hotels to shop` from the Travel Configuration.
+A: The first `n` hotels from the `Search` response will be specified in the `Availability` request.
 
-*** 
+***
+
+Q: What is the maximum number of hotels automatically rate searched?
+
+A: The number of hotels priced is set by `Number of hotels to shop` from the Travel Configuration. This setting can be up to 100.
+
+***
 
 Q: If a property does not have availablity based on the request, what is the expected value for the `RoomStays` element?
 
@@ -93,6 +101,20 @@ A: This value indicates whether the guest is a child or adult. SAP Concur only s
 
 ***
 
+Q: What comprises the content of a rate description in the rates listing?
+
+A: The rate description is made up of the `RateDescription`, `RatePlanDescription`, `RoomDescription`, and `MealsIncluded` (breakfast) from the Availability response.
+
+***
+
+Q: What content is used to populate the Rules and Cancellation Policy?
+
+A: The text is generated using the content from Availability (or `RateDetails` when used). Including the following:
+  - From `Rate/Total` the total cost.
+  - From `PaymentPolicies`, the accepted credit card types.
+  - From `RatePlan/CancelPenalties`, details for the cancellation deadline and the penalty description.
+  - From `RatePlanDescription` and `RoomRateDescription` text descriptions for the rate.
+
 ## <a name="hotel-descriptive-info"></a>HotelDescriptiveInfo
 
 Q: Where is the content of `HotelInfo` displayed?
@@ -101,15 +123,15 @@ A: This text will be displayed as the last paragraph in the Hotel Details dialog
 
 ***
 
-Q: How should hotel descriptive info be provided via `TPA_Extensions/Description` if the sentences are greater than 64 characters in length? Should they be chunked into 20 segments? How would sections/paragraphs be represented? 
+Q: How should hotel descriptive info be provided via `TPA_Extensions/Description` if the sentences are greater than 64 characters in length? Should they be chunked into 20 segments? How would sections/paragraphs be represented?
 
-A: The Description `name` attribute is used as the header. Each `Description` corresponds to a new paragraph, and the value of each `Text` element will be concatenated to form the paragraph. This will be used as content in the Hotel Details dialog. 
+A: The Description `name` attribute is used as the header. Each `Description` corresponds to a new paragraph, and the value of each `Text` element will be concatenated to form the paragraph. This will be used as content in the Hotel Details dialog.
 
-*** 
+***
 
 ## <a name="reservation"></a>Reservation
 
-Q: What is the maximum possible length for `PersonName/GivenName` and `PersonName/Surname`? 
+Q: What is the maximum possible length for `PersonName/GivenName` and `PersonName/Surname`?
 
 A: The names are defined on the Concur Travel profile and can be up to 60 characters in length.
 
@@ -123,7 +145,7 @@ A: Both indicate a successful reservation. They are treated in the same manner.
 
 Q: What are the maximum lengths possible for PersonName/NamePrefix, PersonName/GivenName, and PersonName/Surname?
 
-A: 60 characters 
+A: 60 characters
 
 ***
 

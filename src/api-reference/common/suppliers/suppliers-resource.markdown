@@ -3,7 +3,7 @@ title: Suppliers v3
 layout: reference
 ---
 
-# Suppliers
+# Suppliers v3
 
 Supplier companies provide travel services to users. The Suppliers resource can be used to retrieve information about suppliers.
 

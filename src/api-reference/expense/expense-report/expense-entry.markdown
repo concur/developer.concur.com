@@ -1,7 +1,9 @@
 ---
-title: Entries
+title: Expense Entries v3
 layout: reference
 ---
+
+# Expense Entries v3
 
 * [Retrieve All Expense Entries](#get)
 * [Create a New Expense Entry](#post)

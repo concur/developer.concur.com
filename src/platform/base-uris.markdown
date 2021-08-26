@@ -3,6 +3,8 @@ title: Base URIs
 layout: reference
 ---
 
+# Base URIs
+
 * [What Is the Base URI](#base)
 * [Production](#production)
 * [Implementation](#implementation)

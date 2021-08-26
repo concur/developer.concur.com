@@ -2,8 +2,7 @@
 title: Learn More About Scopes
 layout: reference
 ---
-
-## Partner Application Scope Usage
+#  Learn More About Scopes
 
 The table below lists all the possible scopes that an SAP Concur Partner Application might have access to. Please refer to the App Center Terms and Conditions and look under the "Shared Information" dialogue. Links to API endpoints that are accessible by each scope are mapped out.
 

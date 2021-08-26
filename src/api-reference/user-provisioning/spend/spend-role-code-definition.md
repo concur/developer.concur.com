@@ -3,15 +3,9 @@ title: Spend Role Codes
 layout: reference
 ---
 
+# Spend Role Codes
+
 {% include prerelease.html %}
-
-## Menu
-
-* [Getting Started](./v4.spend-user-get-started.html)
-* [Spend User Provisioning](./v4.spend-user-provisioning.html)
-* [Spend User Retrieval](./v4.spend-user-retrieval.html)
-
-## Spend Role Codes
 
 * [Column Description](#column-description)
 * [Expense Product Roles](#expense-roles)

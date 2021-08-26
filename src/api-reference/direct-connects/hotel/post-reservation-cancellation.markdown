@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v1 - Post a reservation cancellation
 layout: reference
 ---
 
+# Hotel v1 - Post a Hotel Search
+
 {% include deprecation-alert.html %}
 
 ## Description

@@ -3,6 +3,8 @@ title: Travel Itinerary API v4 with Business Events
 layout: reference
 ---
 
+# Travel Itinerary API v4 with Business Events
+
 * [Introduction](#introduction)
 * [Data Scope](#data-scope)
 * [Event details](#event-details)

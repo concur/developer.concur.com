@@ -1,9 +1,9 @@
 ---
-title: Trips
+title: Trips v1.1
 layout: reference
 ---
 
-# Trips
+# Trips v1.1
 
 The Trips resource represents itineraries in the Concur Travel system. TripLink suppliers use this resource to display a subset of the full booking fields.
 
