@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v1
 layout: reference
 ---
 
+# Direct Connect - Hotel v1
+
 {% include deprecation-alert.html %}
 
 ## Description

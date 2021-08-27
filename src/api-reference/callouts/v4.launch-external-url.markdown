@@ -3,6 +3,8 @@ title: Launch External URL v4
 layout: reference
 ---
 
+# Launch External URL Request v4
+
 The Launch External URL callout gives clients and third-party developers the ability to extend the functionality of the SAP Concur platform providing a means to deliver custom user interactions, or access functionality found in an external system. The client can add a Report Header, Expense Entry, or Allocation form field that is configured to use the Launch External URL callout. Concur Expense will display this field with an attached button that launches a separate browser window when clicked. The window is controlled by an application connector, created by a third-party developer or the client. The application connector is a web server that presents information in the window.
 
 The application connector can access SAP Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), they click a button such as “Done” that indicates the user has concluded their work in the window. The application connector or user closes the window.
@@ -63,7 +65,7 @@ Any audit rules configured as Save actions will not be visible to the end user u
 
 The Android app is currently in pre-release status and is only available to approved early access participants. To become an early access participant, contact your SAP Concur Representative.
 
-Launch External URL v4 is not currently supported in the China Datacenter. 
+Launch External URL v4 is not currently supported in the China Datacenter.
 
 ## <a name="leu-process-overview"></a>Launch URL Process Overview
 
@@ -106,9 +108,9 @@ Concur Expense will not be able to connect to the application connector until a 
 
 ## <a name="auth"></a>Authorization
 Launch External URL V4 uses the [Authentication Grant](https://developer.concur.com/api-reference/authentication/apidoc.html#auth_grant) process. When Launch External URL V4 calls are made, and the end-user is already logged into Concur, the customer or third party application will receive a temporary token in the query parameter, "client_auth_code".  Since the Launch External URL callout completes the first leg of this 3-legged Oauth2 grant, your application must then exchange the temporary token for a refresh token and access token. For this, please refer to the [Authentication Grant](https://developer.concur.com/api-reference/authentication/apidoc.html#auth_grant) page for the POST /oauth2/v0/token details.
- 
+
 >**Note**: users must be logged into their Concur account for this process to work correctly.
- 
+
 Information on the Launch External URL setup is provided in the [Configure Launch External URL - V4 Service](#config-leu) section below.
 
 

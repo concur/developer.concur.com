@@ -7,7 +7,7 @@ redirect_from:
   - /tools-support/requesting-partner-support.html
 ---
 
-## Support Scenarios
+# Support Scenarios
 
 >**Note**: For issues with a partner app, please contact the partner’s support desk. If they can’t resolve the issue they will file an SAP Concur support ticket.
 

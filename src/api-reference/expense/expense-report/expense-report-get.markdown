@@ -3,6 +3,8 @@ title: Get report details
 layout: reference
 ---
 
+# Get Report Details
+
 Retrieves the full set of information for the report. Includes the Report Header, Entry, Attendee, Itemization and Allocation details.  
 
 Some elements will appear only if the OAuth consumer has the Web Services Admin role. These include: The **ReportKey** element, the employee's credit card information, and the employee's bank account information, VAT information, Journal entries. Connectors that utilize this information go through a review process with SAP Concur that includes verification of secure data handling.

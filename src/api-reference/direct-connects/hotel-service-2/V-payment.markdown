@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v2 - Virtual Payment Solution
 layout: reference
 ---
 
+# Hotel v2 - Virtual Payment Solution
+
 The goal of this document is to establish the flow for virtual / alternative payment methods in conjunction with booking hotels via Concur’s hotel API (HS2).   While doing so, it seeks to minimize complexity of implementation that often arises when configuration work needs to be done on both ends (Concur and supplier side).
 Since the payment solution is typically handled on suppliers’ side, the supplier should control which form of payment will be made available in Concur for each specific client and property by passing the form of payment to Concur. Concur will then offer the accepted payment method to users in the booking flow.
 

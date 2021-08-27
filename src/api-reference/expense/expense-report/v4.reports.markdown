@@ -3,11 +3,12 @@ title: Reports v4
 layout: reference
 ---
 
+# Reports v4
+
 The Reports v4 API can be used to read and modify an expense report header of an existing expense report. This API can be used to change attributes like report name, business purpose, etc.
 
-> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
-
 * [Prior Versions](#prior-versions)
+* [Limitations](#limitations)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
@@ -31,6 +32,10 @@ The Reports v4 API can be used to read and modify an expense report header of an
 
 * Report Header v1 (Deprecated) documentation is available [here](./v1dot1.reports.html)
 * Reports v3 documentation is available [here](./v3.reports.html)
+
+## <a name="limitations"></a>Limitations
+
+This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
 ## <a name="products-editions"></a>Products and Editions
 

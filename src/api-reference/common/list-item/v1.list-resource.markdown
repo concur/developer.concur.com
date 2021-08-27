@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference-deprecated/version-one/list-item/list-resource.html
 ---
 
+# List Item Web Service v1 - List Resource
+
 {% include deprecation-alert.html %}
 
 ## Description

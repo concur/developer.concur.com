@@ -3,21 +3,16 @@ title: Expense Group Configurations
 layout: reference
 ---
 
-
-
-# Expense Group Configurations
+# Expense Group Configurations v3
 
 Retrieves the list of Expense Polices, Expense Types and Payment Types for the Expense Group the user specified in the OAuth access token is assigned to. Each Expense Policy contains a list of valid Expense Types. The Payment Types are associated with the user’s Expense Group and apply to all the returned policies. Only the payment types that are valid for the Post Expense Entry endpoint are returned.
 
 NOTE: The Concur Expense product is highly configurable, and each client may have a unique set of payment types. If a payment type is not included in the response, it is not available for use with this client.
 
-
-
 * [Retrieve a configuration of an expense group](#get)
 * [Retrieve an expense group configuration by ID](#getID)
 * [Schema](#schema)
 * [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations)
-
 
 ## Version
 3.0

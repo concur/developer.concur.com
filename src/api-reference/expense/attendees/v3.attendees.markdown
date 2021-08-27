@@ -5,6 +5,8 @@ redirect_from:
   - /api-reference/expense/attendees/index.html
 ---
 
+# Attendees v3
+
 * [Retrieve all attendees owned by the specified user](#get)
 * [Retrieve a single attendee by ID](#getID)
 * [Create a new attendee](#post)

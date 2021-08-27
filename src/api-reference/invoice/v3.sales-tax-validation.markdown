@@ -4,9 +4,9 @@ layout: reference
 redirect_from:
   - /api-reference/invoice/sales-tax-validation.html
 ---
+# Sales Tax Validation v3
 
-> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. This API is not available in Implementation environments.
-
+* [Limitations](#limitations)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
@@ -20,6 +20,10 @@ redirect_from:
   * [Vendor](#vendor)
   * [Ship To Address](#ship-to-address)
 * [Status Schema](#schema-status)
+
+## <a name="limitations"></a>Limitations
+
+This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API. This API is not available in Implementation environments.
 
 ## <a name="products-editions"></a>Products and Editions
 

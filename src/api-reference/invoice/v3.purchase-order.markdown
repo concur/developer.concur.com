@@ -4,11 +4,11 @@ layout: reference
 redirect_from:
   - /api-reference/invoice/purchase-order.html
 ---
+# Purchase Orders v3
 
 The Purchase Orders API gives SAP Concur clients the ability to leverage external data to create and update approved purchase orders. Clients can build a direct connection to the Purchase Orders API which will create purchase orders for invoices to be associated to. It also allows clients to update created purchase orders when orders change, need to be closed, or identify and resolve matching exceptions on PO invoices.
 
-> **Limitations**: This API is not available in the China Data center. This API is only available for direct integrations with an existing SAP Concur client. This API can only be used to create new purchase requests and get the details of the created purchase request. This API cannot update, edit, or delete purchase requests. All edits or processing of the purchase request after it is sent to SAP Concur and created must be done in SAP Concur.
-
+* [Limitations](#limitations)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
@@ -21,6 +21,10 @@ The Purchase Orders API gives SAP Concur clients the ability to leverage externa
 * [Response Schema](#schema-response)
 * [Receipt Schema](#schema-receipt)
 * [Error Codes](#error-codes)
+
+## <a name="limitations"></a>Limitations
+
+This API is not available in the China Data center. This API is only available for direct integrations with an existing SAP Concur client. This API can only be used to create new purchase requests and get the details of the created purchase request. This API cannot update, edit, or delete purchase requests. All edits or processing of the purchase request after it is sent to SAP Concur and created must be done in SAP Concur.
 
 ## <a name="products-editions"></a>Products and Editions
 
