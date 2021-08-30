@@ -2,8 +2,9 @@
 title: Invoice Pay v4
 layout: reference
 ---
+# Invoice Pay v4
 
-* [Overview](#overview)
+* [Limitations](#limitations)
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
@@ -24,11 +25,11 @@ layout: reference
   * [Payment Update Status](#schema-payment-update-status)
   * [Payment Provider Method](#schema-payment-provider-method)
 
-## <a name="overview"></a>Overview
-
 SAP Concur partners with external payment providers for processing invoice payments. These payment providers are listed on the App Center and can integrate with the Invoice product by using the Invoice Pay APIs. Payment providers can get a list of all the payments authorized to be processed by them, and send back status of those payments.
 
-> **Limitations**: This API is only available for use by payment partners who will be processing invoice payments. This API can accept a maximum of 10,000 requests per minute across all payment providers. This API is available only in the North America Data Center.
+## <a name="limitations"></a>Limitations
+
+This API is only available for use by payment partners who will be processing invoice payments. This API can accept a maximum of 10,000 requests per minute across all payment providers. This API is available only in the North America Data Center.
 
 ## <a name="process-flow"></a>Process Flow
 

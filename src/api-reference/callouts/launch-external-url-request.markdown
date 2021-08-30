@@ -2,6 +2,7 @@
 title: Launch an external URL request v1
 layout: reference
 ---
+# Launch External URL v1
 
 SAP Concur will send a request with the information in an encoded query string when the user clicks the button.
 

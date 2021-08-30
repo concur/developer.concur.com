@@ -3,6 +3,8 @@ title: Financial Integration Service v4 - Getting Started
 layout: reference
 ---
 
+# Financial Integration Service v4 - Getting Started
+
 ## Menu
 
 * [Getting Started](./v4.financial-integration.html)
@@ -25,10 +27,9 @@ Below are some benefits for using the Financial Integration service:
 * Opportunity to modify and retry before the object is locked in SAP Concur.
 * Ensures data sync between systems.
 
-> **Limitations**: This API is available to both customers and partners who have been granted access by SAP Concur. Invoice Standard customers should reach out to their SAP Concur representative to receive more information on implementation. Access to this documentation does not provide access to the API. The API is available in North America, EMEA, and China Production and Implementation environments.
-
 ## Getting Started
 
+* [Limitations](#limitations)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Access Token Usage](#access-token-usage)
@@ -62,6 +63,10 @@ Below are some benefits for using the Financial Integration service:
     * [Expense](#example-expense)
     * [Invoice](#example-invoice)
     * [Cash Advance](#example-cashadvance)
+
+## <a name="limitations"></a>Limitations
+
+This API is available to both customers and partners who have been granted access by SAP Concur. Invoice Standard customers should reach out to their SAP Concur representative to receive more information on implementation. Access to this documentation does not provide access to the API. The API is available in North America, EMEA, and China Production and Implementation environments.
 
 ## <a name="products-editions"></a>Products and Editions
 

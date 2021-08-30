@@ -3,6 +3,8 @@ title: Booking
 layout: reference
 ---
 
+# Booking v1.1
+
 The Booking resource represents booking segments in the SAP Concur Travel system. TripLink suppliers use this resource to display a subset of the full booking fields.
 
 * [Create or Update Booking](#create-update-booking)

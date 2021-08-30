@@ -3,10 +3,13 @@ title: Direct Connect - Hotel v2 - Update History
 layout: reference
 ---
 
+# Hotel v2 - Update History
+
 History of changes in HS2 developer documentation
 
 |Date of Change|Description|
 |--------------|------------|
+|Aug 11, 2021|Specify 2-letter ISO 3166 country code|
 |July 22, 2021|Remove references to RefPoint in the Search criteria, it is not used.|
 |July 21, 2021|Removing `required` tag on Avail/RequireSeriesCode. Removing mention of RequireSeriesCode on RateDetails.|
 |June 23, 2021|More details on ReadItin response and fix to Rate/ExpireDate on RateDetails.|
@@ -22,4 +25,3 @@ History of changes in HS2 developer documentation
 |Jan 11, 2021|`formattedText` type is replaced with `string`. No longer accepts `Deadline` node under `Guarantee` in Availability and Rate Details. Updated `ImageFormat`'s URL type. Updated `RateId` and `RatePlanId` type. Added description of `RoomRates` in Reservation. `AmountBeforeTax` is now optional in Availability and Rate Details.|
 |Dec 15, 2020| Added BasicPropertyInfo and Timespan to Reservation Response Docs|
 |Dec 4, 2020| Clarification of NoCancelInd and Absolute Deadline in CancelPenalty, Rate-Details and Availability|
-

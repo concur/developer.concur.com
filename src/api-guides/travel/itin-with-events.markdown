@@ -3,15 +3,17 @@ title: Travel Itinerary API v4 with Business Events
 layout: reference
 ---
 
+# Travel Itinerary API v4 with Business Events
+
 * [Introduction](#introduction)
 * [Data Scope](#data-scope)
 * [Event details](#event-details)
-* [Itinerary V4 API](#itinerary)
+* [Itinerary v4 API](#itinerary)
 * [References for Enumeration Types](#references)
 
 ## <a name="introduction"></a>Introduction
 
-The event driven GET Itinerary V4 API will provide a scalable solution by allowing partners to get near real time updates for trips being created, updated, cancelled, deleted, and anonymized.
+The event driven GET Itinerary v4 API will provide a scalable solution by allowing partners to get near real time updates for trips being created, updated, cancelled, deleted, and anonymized.
 
 ## <a name="data-scope"></a>Data Scope
 
@@ -27,9 +29,9 @@ The Event Subscription Service (ESS) enables the set up/creation of a subscripti
 *  [Event Subscription Management](/event-topics/index.html)
 *	 [Travel Itinerary Event](/event-topics/travel/v4.itinerary-events.html)
 
-## <a name="itinerary"></a>Itinerary V4 API
+## <a name="itinerary"></a>Itinerary v4 API
 
-Using a Company Level Token and the href from the Events payload, partners use the Itinerary V4 API endpoint to obtain trip details.
+Using a Company Level Token and the `href` from the Events payload, partners use the Itinerary v4 API endpoint to obtain trip details.
 
 Schema and Sample API Request and Response can be found in:
 
@@ -39,7 +41,7 @@ Schema and Sample API Request and Response can be found in:
 
 ## <a name="References"></a>References for Enumeration Types
 
-#### Itin Source  Names
+#### Itinerary Source  Names
 
 >**Note**: The source name appears both at the Itinerary level and the Booking level.  The value at the Booking level is generally more useful.  The value at the Itinerary level represents that value of the first booking added to the Itinerary and could therefore be misleading.
 

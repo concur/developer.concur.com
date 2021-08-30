@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v2 - Rate Details
 layout: reference
 ---
 
+# Hotel v2 - Rate Details
+
 Message to retrieve the details of a hotel rate.
 
 |SOAPAction|OTA Name|Message Structure|

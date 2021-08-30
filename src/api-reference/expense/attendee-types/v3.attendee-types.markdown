@@ -5,6 +5,8 @@ redirect_from:
   -/api-reference/expense/attendee-types/attendee-type-resource.html
 ---
 
+# Attendee Types v3
+
 The Attendee Type resource represents the type of attendee as configured in Concur.
 
 * [Retrieve all attendee types](#get)

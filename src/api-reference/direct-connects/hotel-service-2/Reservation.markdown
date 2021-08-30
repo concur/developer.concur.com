@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Reservation
 layout: reference
 ---
 
-# Reservation Message
+# Hotel v2 - Reservation Message
 
 Message to reserve a hotel.
 
@@ -442,7 +442,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                 <Address>
                   <AddressLine>Rosenstr. 1</AddressLine>
                   <CityName>Berlin</CityName>
-                  <CountryName Code="DEU">Federal Republic of Germany</CountryName>
+                  <CountryName Code="DE">Federal Republic of Germany</CountryName>
                   <StateProv StateCode="BE">Berlin District</StateProv>
                   <PostalCode>BE123</PostalCode>
                 </Address>

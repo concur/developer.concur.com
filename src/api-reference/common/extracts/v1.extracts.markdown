@@ -3,6 +3,8 @@ title: Extracts v1
 layout: reference
 ---
 
+# Extracts v1
+
 * [Get an array of extract definitions](#get-definitions)
 * [Get a single extract definition](#get-definition)
 * [Get an extract file or files](#get-file)

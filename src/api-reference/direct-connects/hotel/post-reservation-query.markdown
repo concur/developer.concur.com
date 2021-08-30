@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v1 - Post a reservation query
 layout: reference
 ---
 
+# Hotel v1 - Post a Reservation Query
+
 {% include deprecation-alert.html %}
 
 ## Description

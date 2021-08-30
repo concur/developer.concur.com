@@ -2,6 +2,7 @@
 title: Event Notification Callout
 layout: reference
 ---
+# Event Notification Callout
 
 The Event Notification callout allows clients to choose to be notified through web services when certain actions take place in their SAP Concur company. If the client uses Concur Expense, the supported events are the Expense report entering the Post-Submit or Pre-Extract workflow steps. If the client uses Concur Travel Request, the supported events are the Travel Request entering the Post-Submit or Pre-Extract workflow steps. When the event happens, SAP Concur generates a notification and places it into the notification system queue. When the notification reaches the front of the queue, SAP Concur sends a request to the configured endpoint with event information.
 

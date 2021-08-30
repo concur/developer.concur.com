@@ -2,3 +2,5 @@
   url: /event-topics/
 - title: Concur Expense Event
   url: /event-topics/expense/v4.expense-events.html
+- title: Concur Itinerary Event
+  url: /event-topics/travel/v4.itinerary-events.html

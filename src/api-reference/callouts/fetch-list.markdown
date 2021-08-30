@@ -2,6 +2,7 @@
 title: Fetch List Callout
 layout: reference
 ---
+# Fetch List Callout
 
 The Concur Fetch List callout allows clients to import list items from an internal system to Expense when a user is filling out list fields for an expense. The Expense service sends a request for list items to an application connector, created by the client, a third-party developer, or SAP Concur. The connector is hosted by the client or developer, and has access to the list item system of record. The connector uses the list information sent from Expense to search for all matching list items in the system of record. Once the connector has the list items, it sends the data to Expense. The user sees the list items and can select the appropriate item for the expense. When the user saves the expense, the list item is added to the list within Expense.
 

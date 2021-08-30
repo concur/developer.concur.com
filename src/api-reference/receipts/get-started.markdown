@@ -4,6 +4,7 @@ layout: reference
 redirect_from:
   - /api-reference/expense/receipts/
 ---
+# Receipts v4 - Get Started
 
 * [Overview](#overview)
   * [Important Usage Restrictions](#usage-restrictions)

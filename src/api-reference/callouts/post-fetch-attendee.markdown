@@ -3,6 +3,8 @@ title: Post an attendee search request
 layout: reference
 ---
 
+# Post an Attendee Search Request
+
 * [Request](#request)
   * [Request Schema](#req-schema)
   * [Request Example](#req-example)

@@ -3,6 +3,8 @@ title: Duty of Care
 layout: reference
 ---
 
+# Duty of Care 
+
 * [Introduction](#introduction)
 * [Data Scope](#data-scope)
 * [Quick Connect (Authentication)](#quick-connect)

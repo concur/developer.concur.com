@@ -3,6 +3,8 @@ title: Financial Integration Use Cases Extract Information
 layout: reference
 ---
 
+# Financial Integration Use Cases Extract Information
+
 ## Menu
 
 * [Getting Started](./v4.financial-integration.html)

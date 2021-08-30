@@ -3,6 +3,8 @@ title: Testing App Center Partner Applications
 layout: reference
 ---
 
+# Testing App Center Partner Applications
+
 Many App Center partner applications do not need to be validated in a test environment because they are obtaining data directly from the customer's site and processing it on the partner's side. In other words, the presence of the partner's application has no impact on the normal use of the SAP Concur site as a result of obtaining data. However, some Enterprise Applications send data to the customer's SAP Concur site, which the customer may want to test before deploying.
 
 ## Test User Functionality

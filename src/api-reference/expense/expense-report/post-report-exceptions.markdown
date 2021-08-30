@@ -3,6 +3,8 @@ title: Create an exception to a report
 layout: reference
 ---
 
+# Create an Exception to a Report
+
 Posts an exception to the report, and associates it with one of the following data levels: Report Header, Entry, Itemization, Allocation. This endpoint requires familiarity with the company's exception code configuration.
 
 * [Request](#request)

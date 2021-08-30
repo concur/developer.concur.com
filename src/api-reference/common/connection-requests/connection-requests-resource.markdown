@@ -2,6 +2,7 @@
 title: Connection Requests v3.2
 layout: reference
 ---
+# Connection Requests v3.2
 
 The Connection Requests resource is used to integrate TripLink partner applications with Concur. It can be used to create, update, and manage connections between a user's Concur account and a select travel loyalty program. With Connection Requests a TripLink partner application can retrieve new connection requests in order to match users who want to connect to the supplier with the user's account in the supplier system. After the request is retrieved, the supplier is expected to provide a status if the connection was successful or failed. When retrieving new connections, the results can be filtered by status, page offset, and a limit for the number of records to return.
 
