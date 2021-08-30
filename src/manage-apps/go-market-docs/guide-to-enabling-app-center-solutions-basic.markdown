@@ -77,6 +77,7 @@ A user at your company with the appropriate permissions is required to activate 
 * Click **Administration**, then **Company**, then **Company Admin**.
 * Click **User Permissions** (left menu).
 * Find the user who will activate the application, and select **Add** to grant Web Services Administrator Permission.
+* If your company utilizes both Concur Travel and Concur Expense, this role should be added for **both** Travel and Expense
 
 ![Professional Enabling WS Admin Image](./guide-to-enabling-app-center-solutions-basic-enable-ws-admin-professional.png)
 
