@@ -77,15 +77,15 @@
       - title: Event Subscription Service
         url: /api-explorer/v4-0/EventSubscriptionService.html
       - title: Exchange Rate
-        url: /api-explorer/v4-0/ExchangeRate.html
+        url: https://api.sap.com/api/ConcurExchangeRate/overview
       - title: Expenses
         url: /api-explorer/v4-0/Reports.html
       - title: Financial Integration Service
         url: https://api.sap.com/api/ConcurFinancialIntegration/overview
       - title: Identity
-        url: /api-explorer/v4-0/Identity.html
+        url: https://api.sap.com/api/ConcurIdentity/overview
       - title: Itinerary
-        url: /api-explorer/v4-0/Itinerary.html
+        url: https://api.sap.com/api/ConcurTravelItinerary/overview
       - title: Invoice Pay
         url: https://api.sap.com/api/ConcurInvoicePay/overview
       - title: List
