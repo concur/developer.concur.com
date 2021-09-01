@@ -39,7 +39,7 @@ You should have some background with core SAP Concur applications and services s
 * Concur Travel System Administration, Agency Configuration Administration, Expense Administration, User Administration experience.
 * Concur traveler profile / GDS Profiles / Concur XML Profile Sync.
 * RESTful API / XML development, OAuth 2.0, data structures.
-* Browse https://developer.concur.com, for information on authentication and relevant APIs.
+* Browse the [Developer Center](https://developer.concur.com), for information on authentication and relevant APIs.
 
 ## Objectives
 
@@ -85,7 +85,7 @@ App Center partners, Triplink suppliers, and  clients can use the Travel Profile
 
 For TMCs using the Itinerary API and Travel Profile API, the access control service has been built into the Itinerary and Profile web service. Data returned by the API is now controlled by a system that monitors all active Agency IDs and their associative active Travel Configuration IDs. Itinerary data associated with a different agency ID will NOT be returned. To use this security feature, an agency UUID must be specified in the properties (profile) of the agency’s application ID (Client_ID).
 
-For specific profile information see the [Travel Profile Guide](/profile-v2-guide.html#access-control).
+For specific profile information see the [Travel Profile Guide](/api-guides/tmc/profile-v2-guide.html#access-control).
 
 ## Application Request Procedure
 
@@ -245,10 +245,10 @@ RESPONSE
 
 We have multiple [data centers](https://developer.concur.com/platform/base-uris.html) See the following for information specific to the API you're interested in:
 
-* [Itinerary](/itinerary-v1-guide.html#geolocation)
-* [Profile](/profile-v2-guide.html#geolocation)
-* [Receipts](/receipts-v4-guide.html#geolocation)
-* [Request](/request-v4-guide.html#geolocation)
+* [Itinerary](/api-guides/tmc/itinerary-v1-guide.html#geolocation)
+* [Profile](/api-guides/tmc/profile-v2-guide.html#geolocation)
+* [Receipts](/api-guides/tmc/receipts-v4-guide.html#geolocation)
+* [Request](/api-guides/tmc/request-v4-guide.html#geolocation)
 
 ## <a name="unique-user"></a>Unique User ID
 
@@ -265,7 +265,7 @@ UUID was exposed in the Travel Profile API and it was also made available in the
 
 **REQUIRED**: Retain the GUID returned in all responses under the header “concur-correlationid”. It is a value that will be referenced to locate transactions in our logging system.
 
-**REQUIRED**: Support the following HTTP error conditions / codes: https://developer.concur.com/api-reference/http-status-codes.html.
+**REQUIRED**: Support the following HTTP error conditions / codes: [Status codes](https://developer.concur.com/api-reference/http-status-codes.html).
 
 **REQUIRED**: Provide retry logic for timeouts and 500/503 errors.
 
