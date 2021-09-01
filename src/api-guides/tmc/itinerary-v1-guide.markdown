@@ -1,6 +1,7 @@
 ---
 title: Guide to the Itinerary v1 API, TMC Edition
 layout: reference
+parent: TMC
 ---
 
 # Guide to the Itinerary v1 API, TMC Edition
