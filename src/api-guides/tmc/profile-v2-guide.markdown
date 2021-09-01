@@ -1,6 +1,8 @@
 ---
 title: Guide to the Travel Profile v2 API, TMC Edition
 layout: reference
+parent: TMC
+nav_order: 2
 ---
 
 # Guide to the Travel Profile v2 API, TMC Edition

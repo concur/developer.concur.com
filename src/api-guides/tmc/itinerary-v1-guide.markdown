@@ -2,6 +2,7 @@
 title: Guide to the Itinerary v1 API, TMC Edition
 layout: reference
 parent: TMC
+nav_order: 1
 ---
 
 # Guide to the Itinerary v1 API, TMC Edition
