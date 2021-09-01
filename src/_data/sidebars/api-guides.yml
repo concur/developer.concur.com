@@ -17,8 +17,10 @@
 - title: Testing App Center Partner Applications
   url: /api-guides/preproduction-testing.html
 - title: TMC
-  url: /api-guides/tmc/tmc-overview.html
+  url: ''
   children:
+     - title: TMC
+       url: /api-guides/tmc/tmc-overview.html
      - title: Guide to the Itinerary v1.0 API, TMC Edition
        url: /api-guides/tmc/itinerary-v1-guide.html
      - title: Guide to the Profile v2.0 API, TMC Edition
