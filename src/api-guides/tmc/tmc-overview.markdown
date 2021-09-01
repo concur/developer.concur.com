@@ -123,9 +123,9 @@ The following is a summary of steps necessary to obtain a company-level refresh 
 * Obtain company name and company ID (also known as CliqID).
 * Authorized SAP Concur representatives will generate 24-hour request tokens and issue the tokens using secured and encrypted communication methods.
 * Use the 24-hour request token to generate a refresh token. The request token can only be used up five times.
-* Store and reuse the refresh_token – a UUID4 identifier that allows your application to obtain fresh access_tokens.
-* Use the 60 minute access_tokens to make transaction API calls.
-* Develop a process that updates refresh_tokens before their 6 month expiration period.
+* Store and reuse the `refresh_token` – a UUID4 identifier that allows your application to obtain fresh `access_tokens`.
+* Use the 60 minute `access_tokens` to make transaction API calls.
+* Develop a process that updates `refresh_tokens` before their 6 month expiration period.
 * Develop a process that obtains access tokens before the 60 minute expiration period.
 * Avoid generating new access tokens for repeated transactions within a 60 minute time period.
 
@@ -171,11 +171,13 @@ RESPONSE
 
 ### Descriptions
 
-* The **expires_in** value is returned in seconds. Your access_token is valid for sixty minutes.
+Term|Definition
+---|---
+* The **expires_in** value is returned in seconds. Your `access_token` is valid for sixty minutes.
 * The **scopes** returned in the response are what your application has been registered to work with. Scopes are selectively enabled based on the functionality required. The values returned in the response should never change. If new scopes are added, your application will require re-certification.
-* The **token_type** – We return the value of “Bearer,, an industry standard. The value of “Bearer” can be interpreted as “allow access to the bearer of this token.”
-* The **access_token**, a JWT, informs us that the bearer of the returned token has been authorized to access our API and perform specific actions as specified by the scopes that have been granted. The access_token is valid for sixty minutes from the time of the response. If necessary, you may architect your application to scale up and use multiple access tokens to spawn multiple threads.
-* The **refresh_token**, also a JWT, is the unique token that contains the information required to obtain a new access_token or id_token. Refresh tokens are good for a minimum of six months and are subject to strict storage requirements to ensure they are not compromised. Refresh tokens can also be revoked. Your application is expected to overwrite or replace your stored refresh tokens in case the response returns a different refresh_token value.
+* The **token_type** – We return the value of “Bearer, an industry standard. The value of “Bearer” can be interpreted as “allow access to the bearer of this token.”
+* The **access_token**, a JWT, informs us that the bearer of the returned token has been authorized to access our API and perform specific actions as specified by the scopes that have been granted. The `access_token` is valid for sixty minutes from the time of the response. If necessary, you may architect your application to scale up and use multiple access tokens to spawn multiple threads.
+* The **refresh_token**, also a JWT, is the unique token that contains the information required to obtain a new `access_token` or `id_token`. Refresh tokens are good for a minimum of six months and are subject to strict storage requirements to ensure they are not compromised. Refresh tokens can also be revoked. Your application is expected to overwrite or replace your stored refresh tokens in case the response returns a different `refresh_token` value.
 * The value in **refresh_expires_in** is returned in epoch time. Use a library that provides conversion capability. For a UI version, navigate to https://www.epochconverter.com.
 * The **id_token**, also a JWT, is returned. For company-level or enterprise-level applications, there is little need to retrieve details of the company-level authenticated user unless it is for auditing purposes. The information stored in the ID token JWT is necessary for user-level mobile-based based applications such as Uber or Triplink supplier applications like Avis or Marriott.
 * The value for **geolocation** should be stored as your application’s base URI. Since we have multiple data centers, it may be required to obtain and store data from customers who are hosted in EMEA as well as the US. If your application receives **error code 16, “invalid request”,** **user lives elsewhere** , your application must be able to submit a second request to “us.api.concursolutions.com” or “emea.api.concursolutions.com” and store that geolocation. The geolocation also identifies geographically where the user is stored.
@@ -225,11 +227,11 @@ RESPONSE
 
 ### Descriptions
 
-* The **expires_in** value is returned in seconds. Your access_token is valid for sixty minutes.
+* The **expires_in** value is returned in seconds. Your `access_token` is valid for sixty minutes.
 * The **scopes** returned in the response are what your application has been registered to work with. Scopes are selectively enabled based on the functionality required. The values returned in the response should never change. If new scopes are added, your application will require re-certification.
 * The **token_type** – We return the value of “Bearer", an industry standard. The value of “Bearer” can be interpreted as “allow access to the bearer of this token.”
-* The **access_token**, a JWT, informs us that the bearer of the returned token has been authorized to access our API and perform specific actions as specified by the scopes that have been granted. The access_token is valid for sixty minutes from the time of the response. If necessary, you may architect your application to scale up and use multiple access tokens to spawn multiple threads.
-* The **refresh_token**, also a JWT, is the unique token that contains the information required to obtain a new access_token or id_token. Refresh tokens are good for a minimum of six months and are subject to strict storage requirements to ensure they are not compromised. Refresh tokens can also be revoked. Your application is expected to overwrite or replace your stored refresh tokens in case the response returns a different refresh_token value.
+* The **access_token**, a JWT, informs us that the bearer of the returned token has been authorized to access our API and perform specific actions as specified by the scopes that have been granted. The `access_token` is valid for sixty minutes from the time of the response. If necessary, you may architect your application to scale up and use multiple access tokens to spawn multiple threads.
+* The **refresh_token**, also a JWT, is the unique token that contains the information required to obtain a new `access_token` or `id_token`. Refresh tokens are good for a minimum of six months and are subject to strict storage requirements to ensure they are not compromised. Refresh tokens can also be revoked. Your application is expected to overwrite or replace your stored refresh tokens in case the response returns a different `refresh_token` value.
 * The value in **refresh_expires_in** is returned in epoch time. Use a library that provides conversion capability. For a UI version, navigate to https://www.epochconverter.com.
 * The **id_token**, also a JWT, is returned. For company-level or enterprise-level applications, there is little need to retrieve details of the company-level authenticated user unless it is for auditing purposes. The information stored in the ID token JWT is necessary for user-level mobile-based based applications such as Uber or Triplink supplier applications like Avis or Marriott.
 * The value for **geolocation** should be stored as your application’s base URI. Since we have multiple data centers, it may be required to obtain and store data from customers who are hosted in EMEA as well as the US. If your application receives **error code 16**, “**invalid request**, **user lives elsewhere** , your application must be able to submit a second request to “us.api.concursolutions.com” or “emea.api.concursolutions.com” and store that geolocation. The geolocation also identifies geographically where the user is stored.
@@ -241,15 +243,7 @@ RESPONSE
 
 ## Geolocation
 
-We have multiple [data centers](https://developer.concur.com/platform/base-uris.html):
-
-* United States: https://us.api.concursolutions.com
-* EMEA: https://emea.api.concursolutions.com
-* Public Sector: https://usg.api.concursolutions.com
-* China: https://www-cn.api.concurcdc.cn
-* Implementation: Not Supported
-
-See the following for information specific to the API you're interested in:
+We have multiple [data centers](https://developer.concur.com/platform/base-uris.html) See the following for information specific to the API you're interested in:
 
 * [Itinerary](/itinerary-v1-guide.html#geolocation)
 * [Profile](/profile-v2-guide.html#geolocation)
@@ -286,9 +280,10 @@ concur-correlationid: 2997-e17fb88b-5b9a-41b9-b285-6da70eeba98a
 ## Development Support
 
 * For travel configuration questions/support, contact Travel Solutions or your Alliance Manager.
-* Review Release Notes regularly – API updates are delivered with monthly releases:
-    * http://www.concurtraining.com/customers/tech_pubs/
-    * http://www.concurtraining.com/customers/tech_pubs/TravelDocs/ReleaseNotes/_CCC_RN.htm
+* Review Release Notes regularly to see the latest API updates.
+  * [API Release Notes](https://developer.concur.com/tools-support/release-notes/index.html)
+  * [Concur Product Release Notes](http://www.concurtraining.com/customers/tech_pubs/)
+  * [Concur Travel Release Notes](http://www.concurtraining.com/customers/tech_pubs/TravelDocs/ReleaseNotes/_CCC_RN.htm)
 * Review content on https://developer.concur.com/ regularly.
 * If you need access or permissions to preview content on http://developer.concur.com, please contact your Travel Solutions or Travel Support representative.
 * For reproducible issues, log a case via case management system to the SAP Concur Support team. Support will escalate to respective Platform Partner Services and R&D teams.
