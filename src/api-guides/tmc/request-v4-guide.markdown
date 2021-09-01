@@ -7,6 +7,8 @@ layout: reference
 
 The Request v4.0 API provides travel request information for a specified traveler. Request v4.0 allows applications to pull and post information about the traveler’s request for travel.
 
+This guide is part of a collection designed for TMCs, to read the shared content about audience, development, authentication, and other key information see the [TMC Guide Overview]( /api-guides/tmc/tmc-overview.html).
+
 ![Sequence Diagram](images/1-sequence-diagram-travel-requestV4.png)
 
 ## <a name="scope-management"></a>Application Scopes

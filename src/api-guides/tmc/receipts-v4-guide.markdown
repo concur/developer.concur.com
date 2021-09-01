@@ -8,6 +8,8 @@ Last Revised: October 13 , 2020
 
 This endpoint provides partner merchants the ability to post a travel invoice on behalf of a traveler using the eReceipts API v4.0. The Receipts API v4.0 API allows RESTful developed applications to use the agency’s merchandising system to post fees, service charges, change fees, etc. as an electronic receipt (also referred to as a travel invoice) directly to the user’s account in Concur Expense. This endpoint requires OAuth v2.0 and uses UUID as the matching fact for the user.
 
+This guide is part of a collection designed for TMCs, to read the shared content about audience, development, authentication, and other key information see the [TMC Guide Overview]( /api-guides/tmc/tmc-overview.html).
+
 ## Application Scopes
 
 Development Receipts v4.0 API applications by default will have the following scopes registered:

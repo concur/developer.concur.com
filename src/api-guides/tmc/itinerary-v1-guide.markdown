@@ -9,6 +9,8 @@ Last Revised: October 20 , 2020
 This endpoint provides detailed travel itinerary information for a specified traveler or traveler’s trip ID. It compliments internal versions of travel itinerary data synchronizations to Travel Reporting tools, agency tools, or travel supplier queues. The Travel Itinerary API is publicly exposed and allows RESTful developed applications to retrieve the most recent information about a traveler’s trip regardless of booking source. Trip details include destination, departure and arrival
 dates, flight details, lodging, transportation and company custom information. This version of the API was originally released in late 2012.
 
+This guide is part of a collection designed for TMCs, to read the shared content about audience, development, authentication, and other key information see the [TMC Guide Overview]( /api-guides/tmc/tmc-overview.html).
+
 ##  Application Scopes
 
 Development travel applications by default have the following scopes registered:

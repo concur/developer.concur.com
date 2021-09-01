@@ -9,6 +9,8 @@ layout: reference
 This endpoint provides travel profile information for a specified traveler. It replaces the previous version of travel profile synchronization known as XML Profile Sync or XML Sync. While XML Profile sync is internal to the Concur Travel
 offering, the travel profile APIs are publicly exposed and allows RESTful developed applications to pull and post information such as the traveler’s identity, contact information, rate preferences, discount codes by travel type, as well as custom fields. The 2.0 version of the API was originally released in late 2016. The updated 2.1 version of the API, specific to TMCs, was released in December 2019.
 
+This guide is part of a collection designed for TMCs, to read the shared content about audience, development, authentication, and other key information see the [TMC Guide Overview]( /api-guides/tmc/tmc-overview.html).
+
 ## <a name="access-control"></a>Travel Access Control Service
 
 User profile information:
