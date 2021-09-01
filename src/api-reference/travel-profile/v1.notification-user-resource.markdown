@@ -5,6 +5,9 @@ layout: reference
 redirect_from:
   - /api-reference/travel-profile/05-notification-user-resource.html
 ---
+
+# Travel Profile v1 - User Notification
+
 {% include deprecation-alert.html %}
 
 A subscription to a notification when the SAP Concur user changes the specified features of their SAP Concur account or data. Currently supports notifications for the following events: Itinerary change (create or update), Travel Profile basic information change, or Travel Profile Form of Payment change. This functionality is restricted to Travel Suppliers or TMCs (Travel Management Companies) who have registered with SAP Concur.

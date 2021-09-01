@@ -3,6 +3,8 @@ title: Financial Posting via Financial Integration Service
 layout: reference
 ---
 
+# Financial Posting via Financial Integration Service
+
 * [Learn More](#learn)
   * [Comparison of extract files vs. FIS data](#comparison)
 * [Quick Connect](#quick-connect)

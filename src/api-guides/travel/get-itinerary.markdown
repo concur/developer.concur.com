@@ -1,13 +1,14 @@
 ---
 title: Itinerary - GET Itinerary & Trip Details
 layout: reference
-
 ---
+
+# Itinerary - GET Itinerary & Trip Details
 
 ## API Recipes: API Tasks
 This series of API Recipes describes API tasks associated with developing apps,  apps for Travel Management Companies, (TMC), Travel Suppliers and businesses who need to get data about their employees' travel related booking.  This recipe assumes you are a current customer or platform partner.
 
-### Before you begin
+### Before You Begin
 Review the following checklist to ensure you are able to perform the task in this recipe. To see reference information, click the link in the bullet point
 
 - Understand the [authentication process](/api-reference/authentication/getting-started.html)
