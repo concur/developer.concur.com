@@ -19,7 +19,7 @@
 - title: TMC
   url: ''
   children:
-     - title: TMC
+     - title: TMC Guide Overview
        url: /api-guides/tmc/tmc-overview.html
      - title: Guide to the Itinerary v1.0 API, TMC Edition
        url: /api-guides/tmc/itinerary-v1-guide.html
