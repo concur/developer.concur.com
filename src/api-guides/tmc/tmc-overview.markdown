@@ -1,6 +1,7 @@
 ---
-title: TMC Guide Overview
+title: TMC
 layout: reference
+has_children: true
 ---
 
 # TMC Guide Overview
