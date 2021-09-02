@@ -5,178 +5,14 @@ layout: reference
 
 # Guide to the Request v4.0 API, TMC Edition
 
-* [Target Audience](#audience)
-* [Prerequisites](#prerequisites)
-* [Objectives](#objectives)
-* [Development Environment](#environment)
-* [Application Scope](#scope)
-  * [Company Level OAuth](#oauth)
-  * [Obtain Company Level OAuth Token](#company-oauth-token)
-  * [Definitions](#definitions)
-  * [Obtain Company Level Refresh Token](#company-refresh-token)
-  * [Obtain Company Level Access Token](#company-access-token)
-  * [Scopes & Scope Management](#scope-management)
-  * [Geolocation](#geolocation)
-* [Unique User ID](#unique-user)
-* [Using the Request v4 API](#request-api)
-  * [Traveler Plans Trip](#plan-trip)
-  * [Make a Travel Request](#travel-request)
-  * [Agency Receives Travel Request Notification](#agency-receives-request)
-  * [Get Travel Request Information](#get-request)
-* [Agency Submits Proposal](#agency-proposal)
-  * [Trip Status](#trip-status)
-* [Reviewing a Proposal](#review-proposal)
-  * [Agencies Receive Notification of Proposal Selected by Traveler](#agency-notification)
-  * [Convert Proposal to Actual PNR](#convert-proposal)
-  * [Traveler Notified of Confirmed Booking and Receives Itinerary](#traveler-notified)
-  * [Cancel Itinerary](#cancel)
 
 The Request v4.0 API provides travel request information for a specified traveler. Request v4.0 allows applications to pull and post information about the traveler’s request for travel.
 
-## <a name="audience"></a>Target Audience
-
-Audience|Description
----|---
-**Primary** |SAP Concur TMC Partners who plan to develop an SAP Concur certified application to support Request v4.0 API and agency proposal.
-**Secondary** |SAP Concur customers who wish to develop an internal-only application to support Request v4.0. Internally developed applications do not require certification, however, most the specifications in this document should be considered best practices for SAP Concur application development and support.
-
-## <a name="prerequisites"></a>Prerequisites
-
-You should have some familiarity with core SAP Concur applications and services such as Concur Travel and Concur Request. The following list of technical knowledge and skills will aid in the development and certification of your application.
-
-* Business travel industry experience.
-* RESTful API / XML development, JSON, OAuth 2.0, and data structures.
-
-## <a name="objectives"></a>Objectives
-
-After reading this document, you will have a better understanding of the following:
-
-* How to develop SAP Concur connectors (applications).
-* How to support the Request v4.0 API to:
-  * Create a travel request.
-  * Retrieve a list of travel request summaries based on desired parameters.
-  * Retrieve a traveler’s specific request.
-  * Submit traveler’s proposals.
-  * Review traveler’s proposals.
-  * Convert an accepted proposal to a passenger name record (PNR).
-  * Cancel a proposal.
-* Save/store the `concur-correlationid`.
-* Support travel request error conditions and messages.
-* Prepare for application certification.
-* Prepare for application enablement and deployment.
-
-## Development Environment
-
-The following is a general list of items necessary to build your application:
-
-* Professional Edition instance of Concur Request, Concur Travel or Concur Travel & Expense.
-* Default travel configuration.
-* Default agency configuration with Concur-Sabre PCC.
-* Sandboxes may not have SAP Concur Travel booking capabilities, this is available upon request.
-* To POST a travel proposal within a company, that company’s instance must be activated.
-* A default development app with a unique Client ID, Client Secret, and applicable scopes.
-* Sandbox Admin credentials with Demo/Dev user credentials.
-* OPTIONAL: Access to RESTful development tool such as Postman or SoapUI to review JSON/XML requests.
+This guide is part of a collection designed for TMCs, to read the shared content about audience, development, authentication, and other key information see the [TMC Guide Overview]( /api-guides/tmc/tmc-overview.html).
 
 ![Sequence Diagram](images/1-sequence-diagram-travel-requestV4.png)
 
-## <a name="scope"></a>Application Scope
-
-### <a name="oauth"></a>Company Level OAuth
-
-Your application will obtain and store one company-level OAuth refresh token for each company that opts to uses your application.  You will obtain that authenticated refresh token via an authorized 24-hour single-use request token from SAP Concur. Your 24-hour request token allows you to obtain a six-month refresh token which that is keyed off a unique application identifier, application secret, and the company’s UUID.  The refresh token will be used repeatedly to obtain 60-minute access (bearer) tokens which that your application will use to conduct API calls to and from SAP Concur. If you plan to deploy your application across specific agencies or travel configurations within a single company, SAP Concur will provide that capability in the future via a new role or group.
-
-![Company Authentication Flow Diagram](images/2-company-authentication-flow.png)
-
-The following steps are necessary to obtain a company-level refresh token:
-
-* Obtain company name and company ID (also known as CliqID).
-* Authorized SAP Concur Consultants/PMs will generate 12-hour request tokens.
-* Use the 12-hour request token to generate a refresh token. You have up to five opportunities before the request token expires.
-* Store and reuse the `refresh_token` – a UUID4 identifier that allows your application to obtain fresh `access_tokens`.
-* Use the `access_tokens` (also known as bearer tokens) to make API calls.
-
-### <a name="company-oauth-token"></a>Obtain Company Level OAuth Token
-
-#### Request
-
-```
-POST https://us.api.concursolutions.com/oauth2/v0/token
-```
-
-#### Header
-
-```
-Content-Type:application/x-www-form-urlencoded
-```
-
-#### Body
-
-```
-client_id:c14f2547##############e94f235c39
-client_secret:1bfb####-#####################245ce
-grant_type:password
-username:3b#####################ecd
-password:fd44###################5d331
-credtype:authtoken
-```
-
-#### Response
-
-```
-{
-    "expires_in": 3600,
-    "scope": "openid TRVPRF PASSV COMPD EMERG TSAI TMCSP MEDIC UNUTX USER COMPANY NOTIF FOP TRVREQ ITINER user_read user.read company.read",
-    "token_type": "Bearer",
-    "access_token": "BYxVfClZpo-zw…",
-    "refresh_token":"a95caa0f-249a…",
-    "refresh_expires_in": 1517039403,
-    "id_token": "4n7i2-e9zP9qrpc4B…",
-    "geolocation": "https://us.api.concursolutions.com "
-}
-```
-
-### <a name="definitions"></a>Definitions
-
-* The `expires_in` value is returned in seconds. Your `access_token` is valid for 60 minutes.
-* The scopes returned in the response are what your application has been registered to work with. Scopes are selectively enabled based on the functionality required. The values returned in the response should never change. If new scopes are added, your application will require recertification.
-* The `token_type` – Bearer, which SAP Concur returns, is an industry standard. Bearer can be interpreted as “allow access to the bearer of this token.”
-* The `access_token`, a JWT, informs SAP Concur that the bearer of the returned token has been authorized to access the SAP Concur API and perform specific actions as specified by the scopes that have been granted. The `access_token` is valid for sixty minutes from the time of the response. If necessary, you may architect your application to scale up and use multiple access tokens to spawn multiple threads.
-* The `refresh_token`, also a JWT, is the unique token that contains the information required to obtain a new `access_token` or `id_token`. Refresh tokens are good for a minimum of six months and are subject to strict storage requirements to ensure they are not compromised. Refresh tokens can also be revoked. Your application is expected to overwrite or replace your stored refresh tokens in case the response returns a different `refresh_token` value.
-* The `refresh_expires_in` value is returned in epoch time. Use a library that provides conversion capability. For a UI version, navigate to https://www.epochconverter.com.
-* The `id_token`, also a JWT, is returned. For company-level or enterprise-level applications like Travel Profile, there is no need to retrieve details of the company-level authenticated user. The information stored in the ID token JWT is necessary for User-level authentication based applications such as Uber or Triplink supplier applications like Avis or Marriot.
-* The geolocation value should be stored as your application’s base URI. Since SAP Concur has multiple data centers, it may be required to obtain and store data from customers who are hosted in EMEA as well as the US. If your application receives error code 16, “invalid request”, user lives elsewhere, your application must be able to submit a second request to “us.api.concursolutions.com” or “eu1.api.concursolutions.com” and store that geolocation. The geolocation also identifies for SAP Concur geographically where the user is stored.
-* Store the refresh token, access tokens, expiration date, and instance URL (geolocation) along with your internal information about the company’s profile.
-
-### <a name="company-refresh-token"></a>Obtain Company Level Refresh Token
-
-![Postman example request for company level refresh token](images/3-company-level-refresh-token.png)
-
-* Username = Company GUID
-* Password = Request token
-
-**Important**: Do not submit any HTTP requests with the above parameters in your request headers or the request will be rejected.
-
-![Image showing various token, including company level refresh token](images/4-company-level-refresh-token.png)
-
-### <a name="company-access-token"></a>Obtain Company Level Access Token
-
-Store and manage the following:
-
-* `Token_type`
-* `Refresh_token`
-* `Access_token`
-* Expiration date
-* Geolocation
-* `Refresh_token_expiration`
-
-![Postman collection to obtain company level refresh token](images/5-company-level-refresh-token.png)
-
-![Postman results for previous Postman call](images/6-company-level-refresh-token.png)
-
-> **Note**: In your application, always overwrite the refresh token that is returned by SAP Concur. You can validate or compare but overwriting the `refresh_token` from SAP Concur is best. This ensures that your refresh token is always valid.
-
-### <a name="scope-management"></a>Scopes & Scope Management
+## <a name="scope-management"></a>Application Scopes
 
 Travel applications normally have the following scopes registered:
 
@@ -205,27 +41,10 @@ Explanations for these scopes are documented on developer.concur.com. If you wis
 
 ### <a name="geolocation"></a>Geolocation
 
-SAP Concur has multiple datacenters:
-
-* US = https://us.api.concursolutions.com
-* EMEA = https://emea.api.concursolutions.com
-
 Host Location|URL from refresh token based on host location of Company GUID|URL to use for Travel Profile
 ---|---|---
 EMEA|https://emea.api.concursolutions.com/oauth2/v0/token|https://emea.api.concursolutions.com/api/travelprofile/v2.0/profile
 US|https://us.api.concursolutions.com/oauth2/v0/token|https://us.api.concursolutions.com/api/travelprofile/v2.0/profile
-
-## <a name="unique-user"></a>Unique User ID
-
-The UUID format is being used throughout the SAP Concur platform and new OAuth methodology. It is recommended that you adopt the SAP Concur UUID as the traveler's unique identifier. Your application’s client (company) identifier, client secret, and authentication tokens are all in UUID format. Even error IDs are returned in UUID format.
-
-UUID v4 information can be found here: https://en.wikipedia.org/wiki/Universally_unique_identifier. This tool is also useful: https://www.uuidgenerator.net/.
-
-UUID is now available with every user record stored at SAP Concur. UUIDs are automatically generated whenever an employee or traveler record is created - even during 350 record type imports. And as the standard indicates, the UUID value (which is randomly generated) is guaranteed unique at SAP Concur. Because of this uniqueness, UUID can be used as a matching-fact and the unique identifier at SAP Concur. You no longer need to rely on XML Sync ID or Employee ID which are often not unique and is responsible for numerous user record errors and support queries. Login ID, still unique at SAP Concur, is widely adopted by SAP Concur Platform partner applications but has not be widely adopted with XML Profile Sync.
-We do not recommend using the old Sync ID associated with XML Profile Sync. We highly recommend transitioning to support SAP Concur UUID.
-
-
-UUID was exposed in the Travel Profile API and it was also made available in the PNR editing tool. The label and data in the travel profile response will look like this: e588fcc4-417f-4d6c-81de-6b51bfc9c90a SAP Concur UUID is required for the Request v4 API. It is the only element supported as its matching-fact.
 
 ## <a name="request-api"></a>Using the Request v4.0 API
 
