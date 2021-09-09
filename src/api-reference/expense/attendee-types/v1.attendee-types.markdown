@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
 ---
 
+# Attendee Types v1
+
 {% include deprecation-alert.html %}
 
 ## Description

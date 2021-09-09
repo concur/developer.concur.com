@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference/common/locations/locations-resource.html
 ---
 
+# Locations v3
+
 Gets details of locations that are used by Concur and that are valid at the user's company.
 
 * [Retrieve details of locations that are used by Concur and that are valid at the user's company](#get)

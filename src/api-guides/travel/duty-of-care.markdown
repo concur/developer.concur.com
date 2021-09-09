@@ -3,6 +3,8 @@ title: Duty of Care
 layout: reference
 ---
 
+# Duty of Care 
+
 * [Introduction](#introduction)
 * [Data Scope](#data-scope)
 * [Quick Connect (Authentication)](#quick-connect)
@@ -37,8 +39,8 @@ If you're interested in obtaining profile information of a company or customer w
 
 The SAP Concur Event Subscription Service (ESS) enables the set up of a subscription using partner’s app and a webhook.
 
-*  [ESS (Getting Started)](/api-reference/common/ess/getting-started.html)
-*  [Event Subscription Management](/api-reference/common/ess/subscription-management.html)
+*  [ESS (Getting Started)](/api-reference/ess/v4.event-subscription.html)
+*  [Event Subscription Management](/event-topics/index.html)
 
 The SAP Concur Partner Enablement team will ensure that:
 
@@ -67,32 +69,18 @@ The following are the different Event Types available:
 
 ```
 {
-
-"eventType": "ItineraryCreated",
-
-"timeStamp": "2016-01-01T23:01:01.000Z",
-
-"topic": "public.concur.travel.itinerary",
-
-"correlationId": "b2fd900a-5935-46fc-8d29-599de9864e21",
-
-"facts": {
-
-"id": "51519e89-2c1d-47ec-bd93-7c4ace9c57e6",
-
-"userId": "b7d12989-0489-471a-81cd-175f8b78afa5",
-
-"companyId": "ab83bc5f-f66e-4ce0-9dcc-7dbf0195e061",
-
-"hrefs": {
-
-"v4":
-“<https://us.api.concursolutions.com/travel/trips/api/v4/trip/51519e89-2c1d-47ec-bd93-7c4ace9c57e6>”
-
-}
-
-}
-
+  "eventType": "ItineraryCreated",
+  "timeStamp": "2016-01-01T23:01:01.000Z",
+  "topic": "public.concur.travel.itinerary",
+  "correlationId": "b2fd900a-5935-46fc-8d29-599de9864e21",
+  "facts": {
+    "id": "51519e89-2c1d-47ec-bd93-7c4ace9c57e6",
+    "userId": "b7d12989-0489-471a-81cd-175f8b78afa5",
+    "companyId": "ab83bc5f-f66e-4ce0-9dcc-7dbf0195e061",
+    "hrefs": {
+      "v4": "https://us.api.concursolutions.com/travel/v4/trips/51519e89-2c1d-47ec-bd93-7c4ace9c57e6"
+    }
+  }
 }
 ```
 
@@ -100,29 +88,22 @@ The following are the different Event Types available:
 
 ```
 {
-
-"eventType": "ItineraryDeleted",
-
-"timeStamp": "2020-11-01T23:01:01.000Z",
-
-"topic": "public.concur.travel.itinerary",
-
-"correlationId": "b2fd900a-5935-46fc-8d29-599de9864e21",
-
-"facts": {
-
-"id": "51519e89-2c1d-47ec-bd93-7c4ace9c57e6",
-
-"userId": "b7d12989-0489-471a-81cd-175f8b78afa5",
-
-"companyId": "ab83bc5f-f66e-4ce0-9dcc-7dbf0195e061"
-
-}
-
+  "id": "51519e89-2c1d-47ec-bd93-7c4ace9c57e7",
+  "eventType": "ItineraryDeleted|ItineraryAnonymized",
+  "timeStamp": "2016-01-01T23:01:01.000Z",
+  "topic": "public.concur.travel.itinerary",
+  "correlationId": "b2fd900a-5935-46fc-8d29-599de9864e21",
+  "facts": {
+    "id": "51519e89-2c1d-47ec-bd93-7c4ace9c57e8",
+    "userId": "b7d12989-0489-471a-81cd-175f8b78afa5",
+    "companyId": "ab83bc5f-f66e-4ce0-9dcc-7dbf0195e061"
+  }
 }
 ```
 
 > **Note**: For `ItineraryDeleted` and `ItineraryAnonymized` events there is no callback or hrefs, as that trip record is deleted or anonymized and no further updates will be provided for the trip.
+
+> **Disclaimer**: The href is subject to change and we advise against storing these values.
 
 ## <a name="itinerary"></a>Itinerary V4 API
 

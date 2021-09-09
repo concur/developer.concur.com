@@ -3,11 +3,12 @@ title: Comments v4
 layout: reference
 ---
 
+# Comments v4
+
 The Comments v4 API is used to read the comments entered on the expense report header, or expenses of an existing expense report. This API is used to detail information about spending that occurs out of policy, which is justified by the report owner, or inaccuracies pointed out by the approvers of the expense report.
 
-> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
-
 * [Prior Versions](#prior-versions)
+* [Limitations](#limitations)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
@@ -23,6 +24,10 @@ The Comments v4 API is used to read the comments entered on the expense report h
 ## <a name="prior-versions"></a>Prior Versions
 
 * Reports v2 documentation is available [here](./v2.reports.html).
+
+## <a name="limitations"></a>Limitations
+
+This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
 ## <a name="products-editions"></a>Products and Editions
 

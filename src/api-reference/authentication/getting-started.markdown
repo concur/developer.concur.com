@@ -2,8 +2,9 @@
 title: OAuth2 - Getting Started
 layout: reference
 ---
+# Getting Started
 
-The SAP Concur new Oauth2 framework is a very simple way to implement a Unified Token Authentication mechanism within your application. Here is a four step guide to helping you get up to speed and making calls to a SAP Concur API.  
+The SAP Concur new OAuth2 framework is a very simple way to implement a Unified Token Authentication mechanism within your application. Here is a four step guide to helping you get up to speed and making calls to a SAP Concur API.  
 
 **Note:** The Pre-2017 Authorization (Deprecated) documentation can be found [here](/api-reference/authentication/authorization-pre-2017.html)
 

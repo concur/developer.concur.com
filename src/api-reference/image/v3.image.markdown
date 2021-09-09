@@ -5,6 +5,8 @@ redirect_from:
   - /api-reference/image/index.html
 ---
 
+# Receipt Image v3
+
 * [Scope Usage](#scope-usage)
 * [Retrieve a list of all receipt images](#get)
 * [Retrieve a receipt image by ID](#getID)

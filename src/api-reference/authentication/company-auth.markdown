@@ -2,8 +2,8 @@
 title: Company Level Authentication
 layout: reference
 ---
+# Company Level Authentication
 
-* [Overview]()
 * [Company](#company)
 * [Obtaining a one-time auth token](#obtain_token)
 * [Response Codes](#response_codes)
@@ -16,7 +16,7 @@ Company is a top-level principal within Concur and you would be able to obtain a
 
 To begin the authentication flow for a company, one must first obtain a temporary auth token through AppCenter's interface. AppCenter will request for a temporary auth token and hand it off to the partner, who will then in turn use [Password grant](/api-reference/authentication/apidoc.html#password_grant) to exchange the temporary auth token for a full access token and refresh token for the company.
 
-Auth tokens are valid only for 12 hours.  Partners have 12 hours to exchange the auth token for a refresh and access token, and can use this auth token multiple times within the 12 hours in case of network failure.
+Auth tokens are valid only for 24 hours.  Partners have 24 hours to exchange the auth token for a refresh and access token, and can use this auth token multiple times within the 24 hours in case of network failure.
 
 This auth flow diagram describes this handshake:
 
@@ -33,7 +33,7 @@ POST /profile-service/v1/keys/principals/<companyId>/authtoken/
 Sample Curl:
 
 ```shell
-curl -E appcenter.p12:. -H 'concur-correlationid: githbuwiki' -XPOST https://us.api.concursolutions.com/profile-service/v1/keys/principals/08BCCA1E-0D4F-4261-9F1B-F778D96617D6/authtoken/
+curl -E appcenter.p12:. -H 'concur-correlationid: githubwiki' -XPOST https://us.api.concursolutions.com/profile-service/v1/keys/principals/08BCCA1E-0D4F-4261-9F1B-F778D96617D6/authtoken/
 ```
 
 ```shell
@@ -156,6 +156,7 @@ Code|Error|Description
 14|`invalid_grant`|Account Locked. Please contact support
 16|`invalid_request`|user lives elsewhere
 19|`invalid_grant`|Incorrect credentials. Please Retry
+20|`invalid_grant`| Logon Denied. Please contact support (typically due to IP restriction)
 51|`invalid_request`|username was not supplied
 52|`invalid_request`|password was not supplied
 53|`invalid_client`|company is not enabled for this client
@@ -191,3 +192,7 @@ Code|Error|Description
 118|`invalid_request`|display is invalid
 119|`invalid_request`|prompt is invalid
 119|`invalid_request`|prompt must be set to consent for `offline_access`
+120|`invalid_request`|`credtype` is invalid
+121|`invalid_request`|`login_type` is invalid
+122|`invalid_request`|proxies supplied are invalid
+123|`invalid_request`|principal is disabled

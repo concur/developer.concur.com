@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Search
 layout: reference
 ---
 
-# Search
+# Hotel v2 - Search
 
 Message to perform the initial search for hotels.
 
@@ -54,13 +54,12 @@ Message to perform the initial search for hotels.
                        PrimaryLangID="de" AltLangID="de" MaxResponses="100">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="47777"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <Criteria>
         <Criterion>
-          <Position Latitude="52.520007" Longitude="13.404954"></Position>
-          <RefPoint></RefPoint>
+          <Position Latitude="47.61037" Longitude="-122.20067"></Position>
           <HotelRef HotelName="sunshine"></HotelRef>
           <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
           <StayDateRange Start="2018-09-26" End="2018-09-27"></StayDateRange>
@@ -98,7 +97,6 @@ The criterion is used to define the search criteria.  Currently we support only 
 |---------------|-----------|-------------|
 |`Position`|`complex`|**Required for Search request only, but optional for Availability request.** Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709.|
 |`HotelRef`|`complex`|Indicates the detail of hotel reference information.|
-|`RefPoint`|`stringLength0to64`|The reference point element allows for a search by proximity to a designated reference point by name.|
 |`Radius`|`complex`|Used to specify the extent of a search area. The extent is relative to an element (`position`, `address`, `hotelRef`, etc.) present in this `ItemSearchCriterionType` that specifies a location.|
 |`StayDateRange`|`complex`|**Required** Range of dates using ISO 8601.|
 
@@ -158,16 +156,17 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
     <OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05" AltLangID="EN" PrimaryLangID="EN" Version="4">
       <Success/>
       <Properties>
-        <Property ChainCode="AB" ChainName="1111" HotelCode="22222" HotelName="Sunshine Hotel">
-          <Position Latitude="52.4567" Longitude="13.5635"/>
+        <Property ChainCode="HI" ChainName="Holiday Inn" HotelCode="22222" HotelName="Holiday Inn Express Sunshine">
+          <Position Latitude="47.61038" Longitude="-122.20068"/>
           <Address>
-            <AddressLine>An der Wuhlheide</AddressLine>
-            <CityName>Berlin</CityName>
-            <PostalCode>10115</PostalCode>
-            <CountryName Code="DE">Federal Republic of Germany</CountryName>
+            <AddressLine>99 East 27th Street</AddressLine>
+            <CityName>Bellevue</CityName>
+            <PostalCode>98009</PostalCode>
+            <StateProv StateCode="WA">Washington</StateProv>
+            <CountryName Code="US">United States of America</CountryName>
           </Address>
           <ContactNumbers>
-            <ContactNumber CountryAccessCode="49" PhoneNumber="56940033" PhoneTechType="1"/>
+            <ContactNumber PhoneNumber="+14255551234" PhoneTechType="1"/>
           </ContactNumbers>
           <Award Rating="4"/>
           <HotelAmenity Code="173"/>
@@ -175,7 +174,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
           <TPA_Extensions>
             <HotelPreference>not_preferred</HotelPreference>
             <TPA_HotelPreviewImageURI>
-              <URL>url_to_the_picture.jpg</URL>
+              <URL>https://production.example.com/hotel-image.jpg</URL>
             </TPA_HotelPreviewImageURI>
             <TPA_PropertyReferenceInfo>
               <PropertyReference ReferenceCatalogCode="1376249" ReferenceCatalogName="giata"/>
@@ -214,8 +213,8 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 |`HotelName`|`stringLength1to128`|**Required** A text field used to communicate the proper name of the hotel.|
 |`Position`|`complex`|**Required** Refer to `Position` in the Request.|
 |`Address`|`complex`|**Required** Public address of the hotel property.|
-|`ContactNumbers`|`complex`|Contact numbers.|
-|`Award`|`complex`|An element that identifies the hotel ratings.|
+|`ContactNumbers`|`complex`|Property contact numbers.|
+|`Award`|`complex`|An element that identifies the hotel rating.|
 |`HotelAmenity`|`complex`|List of hotel amenities.|
 |`TPA_Extensions`|`complex`|SAP Concur-specific extension of OTA spec. This adds support for extra property fields.|
 
@@ -223,7 +222,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |-------------|-----------|--------------|
-|`AddressLine`|`stringLength1to255`|The screenname and number. Maximum occurrences: `5`|
+|`AddressLine`|`stringLength1to255`|The street name and number. Maximum occurrences: `5`|
 |`CityName`|`stringLength1to64`|Name of the city.|
 |`PostalCode`|`stringLength1to16`|The postal code.|
 |`StateProv`|`complex`|Name of the state.|
@@ -239,13 +238,13 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Code`|`stringLength0to64`|**Required** The name or ISO 3166 code of a country.|
+|`Code`|`string`|**Required** The 2-letter ISO 3166 code of a country.|
 
 #### <a name="contact-numbers"></a>ContactNumbers
 
 |Name|Type|Description|
 |---------------|-----------|-------------|
-|`ContactNumber`|`complex|Element which contains the `ContactNumber`. SAP Concur only accepts one (first) `ContactNumber` of each supported type.|
+|`ContactNumber`|`complex`|Element which contains the `ContactNumber`. SAP Concur only accepts the first (1) `ContactNumber` of each supported type.|
 
 #### <a name="contact-number"></a>ContactNumber
 
@@ -302,7 +301,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`URL`|`string`|**Required** URL of the multimedia item for a specific format. SAP Concur supports one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message. The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
+|`URL`|`string`|**Required** Contains an HTTPS URL pointing to a .png or .jpg hotel image file. SAP Concur supports one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message. The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
 
 #### <a name="tpa-property-reference-info"></a>TPA_PropertyReferenceInfo
 

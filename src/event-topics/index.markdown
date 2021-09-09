@@ -3,6 +3,8 @@ title: Event Subscription Management
 layout: reference
 ---
 
+# Event Subscription Management
+
 * [Access Control (JWT)](#ac-jwt)
 * [Browse Available Topics](#get-topics)
 * [Create a Subscription](#put-subscription)

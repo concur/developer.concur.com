@@ -1,0 +1,1333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+cache-control: private, max-age=0
+connection: keep-alive
+content-length: 121868
+content-type: text/xml; charset=utf-8
+date: Mon, 14 Jun 2021 05:14:16 GMT
+x-scheme: https
+x-xss-protection: 1; mode=block
+
+    HTTP-headers end -->
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <OTA_HotelAvailRS Version="5" xmlns="http://www.opentravel.org/OTA/2003/05">
+            <Success />
+            <RoomStays>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType RoomType="Standard" RoomID="S_70C639B292">
+                            <RoomDescription>
+                                <Text>King room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_AD0239C2B6">
+                            <RoomDescription>
+                                <Text>King room with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_3D59B54298">
+                            <RoomDescription>
+                                <Text>King Room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_51823CD17E">
+                            <RoomDescription>
+                                <Text>King room with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_168BDB4734">
+                            <RoomDescription>
+                                <Text>King room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_DEA0B098E4">
+                            <RoomDescription>
+                                <Text>King room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_2B6D7463CE">
+                            <RoomDescription>
+                                <Text>Double room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Executive" RoomID="E_A80CCE4BA6">
+                            <RoomDescription>
+                                <Text>One king bed, executive floor</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Executive" RoomID="E_A1613319EE">
+                            <RoomDescription>
+                                <Text>One king bed, executive floor</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_D9D3159D77">
+                            <RoomDescription>
+                                <Text>Double Room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_A7F16D4C99">
+                            <RoomDescription>
+                                <Text>One king bed</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_60E79FE18A">
+                            <RoomDescription>
+                                <Text>Accessible, one king bed, roll-in shower and city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_7F84FFE715">
+                            <RoomDescription>
+                                <Text>One king bed</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_FF517EC8CD">
+                            <RoomDescription>
+                                <Text>Accessible, one king bed, roll-in shower and city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_0D3071F3B0">
+                            <RoomDescription>
+                                <Text>Accessible, one king bed with tub</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_9F8D1F46CF">
+                            <RoomDescription>
+                                <Text>2 double beds</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_F72B258AFA">
+                            <RoomDescription>
+                                <Text>Suite with one king bed</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_CADE94C4F4">
+                            <RoomDescription>
+                                <Text>2 double beds</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_FA2DAD84A0">
+                            <RoomDescription>
+                                <Text>1 king bed, no desk</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_F66DE64007">
+                            <RoomDescription>
+                                <Text>1 king bed with partial skyline view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_4C098D3046">
+                            <RoomDescription>
+                                <Text>1 king bed with partial skyline view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_5EC78391CF">
+                            <RoomDescription>
+                                <Text>2 double beds with partial skyline view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_62055290BF">
+                            <RoomDescription>
+                                <Text>2 double beds with partial skyline view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_88C6DECF60">
+                            <RoomDescription>
+                                <Text>1 king bed with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Executive" RoomID="E_934D67C467">
+                            <RoomDescription>
+                                <Text>2 double beds on executive floor with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_76FDB53B81">
+                            <RoomDescription>
+                                <Text>1 king bed with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_37A09C6CFE">
+                            <RoomDescription>
+                                <Text>1 king bed with skyline view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_F58D677B8C">
+                            <RoomDescription>
+                                <Text>2 double beds with skyline view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Accessible" RoomID="A_7787E5603A">
+                            <RoomDescription>
+                                <Text>Accessible, 2 double beds, roll-in shower</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Unknown" RoomID="U_295CB8E3A6">
+                            <RoomDescription>
+                                <Text>Accessible room with roll-in shower. 1 king, executive floor with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Premium" RoomID="I_FFD6187943">
+                            <RoomDescription>
+                                <Text>2 double beds on executive floor</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Executive" RoomID="E_B7CFED69FD">
+                            <RoomDescription>
+                                <Text>1 king on executive floor with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_FBA7F7FF3C">
+                            <RoomDescription>
+                                <Text>2 double beds, executive floor with skyline view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_2478312CBF">
+                            <RoomDescription>
+                                <Text>1 king bed, executive floor with skyline view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                    </RoomTypes>
+                    <RatePlans>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="70C639B292#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 157.73 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 966.45 USD,  AmountAfterTax = 1124.18 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="AD0239C2B6#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 157.73 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 966.45 USD,  AmountAfterTax = 1124.18 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="3D59B54298#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 157.73 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 966.45 USD,  AmountAfterTax = 1124.18 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="51823CD17E#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 157.73 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 966.45 USD,  AmountAfterTax = 1124.18 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="168BDB4734#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 157.73 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 966.45 USD,  AmountAfterTax = 1124.18 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="DEA0B098E4#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 157.73 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 966.45 USD,  AmountAfterTax = 1124.18 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="2B6D7463CE#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 163.34 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 1002.16 USD,  AmountAfterTax = 1165.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="A80CCE4BA6#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 163.34 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 1002.16 USD,  AmountAfterTax = 1165.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="A1613319EE#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 163.34 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 1002.16 USD,  AmountAfterTax = 1165.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="D9D3159D77#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T04:50:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged.. InclusiveTaxAmount = 163.34 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 1002.16 USD,  AmountAfterTax = 1165.50 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="A7F16D4C99#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="60E79FE18A#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="7F84FFE715#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="FF517EC8CD#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="0D3071F3B0#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="9F8D1F46CF#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="F72B258AFA#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="CADE94C4F4#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="FA2DAD84A0#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="F66DE64007#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="4C098D3046#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="5EC78391CF#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="62055290BF#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="88C6DECF60#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="934D67C467#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="76FDB53B81#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-25T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 3 days prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="37A09C6CFE#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="F58D677B8C#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="7787E5603A#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="295CB8E3A6#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="FFD6187943#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="B7CFED69FD#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="FBA7F7FF3C#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="2478312CBF#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                    </RatePlans>
+                    <RoomRates>
+                        <RoomRate RatePlanID="70C639B292#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_70C639B292">
+                            <Rates>
+                                <Rate RateTypeCode="4383703_94263814_1_2_0">
+                                    <Total AmountBeforeTax="966.45" AmountAfterTax="1124.18" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="151.73" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 374.73 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="AD0239C2B6#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_AD0239C2B6">
+                            <Rates>
+                                <Rate RateTypeCode="4383716_94263814_1_2_0">
+                                    <Total AmountBeforeTax="966.45" AmountAfterTax="1124.18" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="151.73" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 374.73 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="3D59B54298#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_3D59B54298">
+                            <Rates>
+                                <Rate RateTypeCode="4383718_94263814_1_2_0">
+                                    <Total AmountBeforeTax="966.45" AmountAfterTax="1124.18" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="151.73" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 374.73 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="51823CD17E#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_51823CD17E">
+                            <Rates>
+                                <Rate RateTypeCode="4383716_94263814_2_2_0">
+                                    <Total AmountBeforeTax="966.45" AmountAfterTax="1124.18" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="151.73" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 374.73 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="168BDB4734#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_168BDB4734">
+                            <Rates>
+                                <Rate RateTypeCode="4383718_94263814_2_2_0">
+                                    <Total AmountBeforeTax="966.45" AmountAfterTax="1124.18" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="151.73" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 374.73 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="DEA0B098E4#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_DEA0B098E4">
+                            <Rates>
+                                <Rate RateTypeCode="4383703_94263814_2_2_0">
+                                    <Total AmountBeforeTax="966.45" AmountAfterTax="1124.18" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="151.73" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 374.73 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="2B6D7463CE#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_2B6D7463CE">
+                            <Rates>
+                                <Rate RateTypeCode="4383701_94263814_1_2_0">
+                                    <Total AmountBeforeTax="1002.16" AmountAfterTax="1165.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="157.34" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Disability access, single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 388.50 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="A80CCE4BA6#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="E_A80CCE4BA6">
+                            <Rates>
+                                <Rate RateTypeCode="4383719_94263814_1_2_0">
+                                    <Total AmountBeforeTax="1002.16" AmountAfterTax="1165.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="157.34" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 388.50 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="A1613319EE#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="E_A1613319EE">
+                            <Rates>
+                                <Rate RateTypeCode="4383719_94263814_2_2_0">
+                                    <Total AmountBeforeTax="1002.16" AmountAfterTax="1165.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="157.34" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 388.50 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="D9D3159D77#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_D9D3159D77">
+                            <Rates>
+                                <Rate RateTypeCode="4383701_94263814_2_2_0">
+                                    <Total AmountBeforeTax="1002.16" AmountAfterTax="1165.50" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="157.34" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Single occupancy, non-refundable. Rates provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 388.50 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="A7F16D4C99#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_A7F16D4C99">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1057.41" AmountAfterTax="1228.37" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 300.39 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 392.46 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="60E79FE18A#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_60E79FE18A">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1057.41" AmountAfterTax="1228.37" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 300.39 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 392.46 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="7F84FFE715#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_7F84FFE715">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="1063.68" AmountAfterTax="1235.61" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 304.32 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 393.60 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="FF517EC8CD#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_FF517EC8CD">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="1063.68" AmountAfterTax="1235.61" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 304.32 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 393.60 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="0D3071F3B0#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_0D3071F3B0">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="1063.68" AmountAfterTax="1235.61" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 304.32 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 393.60 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="9F8D1F46CF#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_9F8D1F46CF">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1096.47" AmountAfterTax="1273.52" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 313.41 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 405.48 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="F72B258AFA#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_F72B258AFA">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1096.47" AmountAfterTax="1273.52" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 313.41 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 405.48 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="CADE94C4F4#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_CADE94C4F4">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="1102.08" AmountAfterTax="1280.00" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>This rate requires a valid Loyalty Membership ID</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 316.80 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 406.08 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="FA2DAD84A0#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_FA2DAD84A0">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="1102.08" AmountAfterTax="1280.00" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 316.80 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 406.08 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="F66DE64007#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_F66DE64007">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1114.14" AmountAfterTax="1293.95" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 318.99 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 411.06 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="4C098D3046#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_4C098D3046">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="1120.32" AmountAfterTax="1301.09" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 322.56 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 411.84 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="5EC78391CF#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_5EC78391CF">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1153.20" AmountAfterTax="1339.10" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 332.01 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 424.08 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="62055290BF#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_62055290BF">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="1159.68" AmountAfterTax="1346.59" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 336.00 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 425.28 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="88C6DECF60#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_88C6DECF60">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1181.10" AmountAfterTax="1371.35" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 341.31 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 433.38 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="934D67C467#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="E_934D67C467">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1181.10" AmountAfterTax="1371.35" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 341.31 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 433.38 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="76FDB53B81#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_76FDB53B81">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="1188.48" AmountAfterTax="1379.88" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>This rate requires a valid rewards membership ID</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 345.60 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 434.88 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="37A09C6CFE#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_37A09C6CFE">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1209.00" AmountAfterTax="1403.60" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 350.61 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 442.68 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="F58D677B8C#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_F58D677B8C">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1209.00" AmountAfterTax="1403.60" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 350.61 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 442.68 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="7787E5603A#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="A_7787E5603A">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1209.00" AmountAfterTax="1403.60" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 350.61 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 442.68 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="295CB8E3A6#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="U_295CB8E3A6">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1209.00" AmountAfterTax="1403.60" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 350.61 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 442.68 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="FFD6187943#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="I_FFD6187943">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1236.90" AmountAfterTax="1435.86" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 359.91 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 451.98 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="B7CFED69FD#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="E_B7CFED69FD">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1236.90" AmountAfterTax="1435.86" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 359.91 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 451.98 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="FBA7F7FF3C#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_FBA7F7FF3C">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1264.80" AmountAfterTax="1468.11" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 369.21 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 461.28 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="2478312CBF#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_2478312CBF">
+                            <Rates>
+                                <Rate RateTypeCode="CWV">
+                                    <Total AmountBeforeTax="1264.80" AmountAfterTax="1468.11" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>CWT SMALLBIZ -24HR CXL LATE CK</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 369.21 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29Amount = 461.28 USD, effectiveDate = 2021-09-30, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. Hygiene guards or some other protective screen(s) installed at front desk terminals. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                    </RoomRates>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan End="2021-10-01" Start="2021-09-28" />
+                    <BasicPropertyInfo ChainCode="HH" HotelCode="HH030344" />
+                </RoomStay>
+            </RoomStays>
+            <TPA_Extensions RateDetailsInd="false" />
+        </OTA_HotelAvailRS>
+    </soap:Body>
+</soap:Envelope>

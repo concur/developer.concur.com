@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Reservation
 layout: reference
 ---
 
-# Reservation Message
+# Hotel v2 - Reservation Message
 
 Message to reserve a hotel.
 
@@ -53,9 +53,6 @@ Message to reserve a hotel.
     * [Room Stays](#res-room-stays)
     * [Room Stay](#room-stay)
     * [Rate Plan](#res-rate-plan)
-    * [Cancel Penalty](#cancel-penalty)
-    * [Penalty Description](#penalty-description)
-    * [Deadline](#deadline)
     * [RoomRates](#room-rates)
     * [RoomRate](#room-rate)
     * [Rates](#rates)
@@ -76,7 +73,7 @@ Message to reserve a hotel.
                     PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="4" ID="s1"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <HotelReservations>
@@ -88,15 +85,15 @@ Message to reserve a hotel.
                   <Guarantee GuaranteeType="CC/DC/Voucher">
                     <GuaranteesAccepted>
                       <GuaranteeAccepted>
-                        <PaymentCard CardCode="VI" ExpireDate="1018">
+                        <PaymentCard CardCode="VI" ExpireDate="1027">
                           <CardType Code="VI">VISA</CardType>
                           <CardHolderName>Jane Doe</CardHolderName>
                           <Address>
                             <StreetNmbr>600 13TH ST NE</StreetNmbr>
                             <CityName>WASHINGTON</CityName>
                             <PostalCode>20002</PostalCode>
-                            <StateProv StateCode="DC"></StateProv>
-                            <CountryName>US</CountryName>
+                            <StateProv StateCode="DC">District of Columbia</StateProv>
+                            <CountryName Code="US">United States of America</CountryName>
                           </Address>
                           <SeriesCode>
                             <PlainText>xxx</PlainText>
@@ -130,14 +127,14 @@ Message to reserve a hotel.
                         <GivenName>JANE</GivenName>
                         <Surname>DOE</Surname>
                       </PersonName>
-                      <Telephone PhoneNumber="703-837-6100"></Telephone>
+                      <Telephone PhoneNumber="703-555-6100"></Telephone>
                       <Email>jane.doe@example.com</Email>
                       <Address>
                         <AddressLine>209 Madison St Suite 400</AddressLine>
                         <CityName>Alexandria</CityName>
                         <PostalCode>22314</PostalCode>
                         <StateProv StateCode="VA"></StateProv>
-                        <CountryName Code="US">USA</CountryName>
+                        <CountryName Code="US">United States of America</CountryName>
                       </Address>
                       <CitizenCountryName Code="US"></CitizenCountryName>
                     </Customer>
@@ -164,8 +161,8 @@ Message to reserve a hotel.
         <TPA_Extensions>
           <NotifyEmails>
             <NotifyEmails>jane.doe@example.com</NotifyEmails>
-            <NotifyEmails>a@b.cz</NotifyEmails>
-            <NotifyEmails>d@f.cz</NotifyEmails>
+            <NotifyEmails>arranger@example.com</NotifyEmails>
+            <NotifyEmails>manager@example.com</NotifyEmails>
           </NotifyEmails>
           <CustomFields>
             <CustomField Name="trip1" Value="value1t"></CustomField>
@@ -299,7 +296,7 @@ Message to reserve a hotel.
 |`BirthDate`|`date`|Customer's birthday.|
 |`PersonName`|`complex`|Element representing a customer's name.|
 |`Telephone`|`complex`|Element representing a telephone number.|
-|`Email`|`stringLength1to32`|Email address.|
+|`Email`|`stringLength1to128`|Email address.|
 |`Address`|`complex`|Refer to `Address` in [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
 |`CitizenCountryName`|`complex`|ISO 3166 representation of the user's country as defined in their SAP Concur Profile.|
 
@@ -307,7 +304,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |-------------|-------------------|-------------|
-|`NamePrefix`|`stringLength1to16`|Salutation of honorific. List subject to change. Example values: `Mr`, `Mrs`, `Ms`, `Miss`, `Dr`, `Rev`, `Sir`, `Lord`, `Lady`, `Dr Mr`, `Dr Mrs`, `Dr Ms`, `Prof Mr`, `Prof Mrs`, `Prof Ms`, `Prof Dr Mr`, `Prof Dr Mrs`, `Prof Dr Ms`|
+|`NamePrefix`|`stringLength1to16`|Salutation of honorific. List subject to change. Example values: `Mr`, `Mrs`, `Ms`, `Miss`, `Dr`, `Rev`, `Sir`, `Lord`, `Lady`, `Dr Mr`, `Dr Mrs`, `Dr Ms`, `Prof Mr`, `Prof Mrs`, `Prof Ms`, `Prof Dr Mr`, `Prof Dr Mrs`, `Prof Dr Ms`. **Note:** Prefixes can be specified in any of the languages supported by Concur Travel.|
 |`GivenName`|`stringLength1to64`|Given name, first name or names.|
 |`Surname`|`stringLength1to64`|**Required** Family name, last name. May also be used for full name if the sending system does not have the ability to separate a full name into its parts. Example: the surname element may be used to pass the full name.|
 
@@ -376,7 +373,7 @@ Message to reserve a hotel.
 
 |Name|Type|Description|
 |--------------|--------- |-------------|
-|`NotifyEmails`|`stringLength1to32`|**Required** There will be one (1) `NotifyEmails` element per email address in the configuration.|
+|`NotifyEmails`|`stringLength1to128`|**Required** There will be one (1) `NotifyEmails` element per email address in the configuration.|
 
 #### <a name="custom-fields"></a>CustomFields
 
@@ -445,7 +442,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                 <Address>
                   <AddressLine>Rosenstr. 1</AddressLine>
                   <CityName>Berlin</CityName>
-                  <CountryName Code="DEU">Federal Republic of Germany</CountryName>
+                  <CountryName Code="DE">Federal Republic of Germany</CountryName>
                   <StateProv StateCode="BE">Berlin District</StateProv>
                   <PostalCode>BE123</PostalCode>
                 </Address>
@@ -532,7 +529,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |-------|-------------|
 |`14`|Reservation ID used in subsequent calls (`Itinerary`, `Cancel`).|
 |`15`|Cancellation number, displayed in UI, proof of cancellation. |
-|`40`|Confirmation number for future use (not used now).|
+|`40`|Hotel Reservation System Confirmation number (for future use).|
 |`1000`|Cancellation/modification code. This will be rendered on itinerary page and can be used to change the reservation outside of the SAP Concur system. SAP Concur-specific OTA extension. |
 
 #### <a name="res-room-stays"></a>RoomStays
@@ -546,34 +543,14 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |Name|Type|Description|
 |---------|------------|-------------|
 |`RatePlans`|`complex`|**Required** A collection of rate plans associated with a particular room stay.|
-|`Timespan`|`complex`|**Required** Refer to `Time-span` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
+|`Timespan`|`complex`|**Required** Refer to `TimeSpan` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 |`BasicPropertyInfo`|`complex`|**Required** See [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 
 #### <a name="res-rate-plan"></a>RatePlan
 
 |Name|Type|Description|
 |---------|------------|-------------|
-|`CancelPenalties`|`complex`|Collection of cancellation penalties.|
-|`CancelPolicyIndicator`|`boolean`|If `true`, indicates a cancel policy exists. If `false`, no cancel policy exists. Typically this indicator is used when details are not being sent.|
-
-#### <a name="cancel-penalty"></a>CancelPenalty
-
-|Name|Type|Description|
-|---------|------------|-------------|
-|`PenaltyDescription`|`complex`|Text description of the penalty in a given language. Maximum elements: `9`|
-|`Deadline`|`complex`|Cancellation deadline, absolute or relative. See Deadline above. Absolute deadline should be ISO8601 format and in UTC timezone.|
-
-#### <a name="penalty-description"></a>PenaltyDescription
-
-|Name|Type|Description|
-|---------|------------|-------------|
-|`Text`|`string`|Formatted text content.|
-
-#### <a name="deadline"></a>Deadline
-
-|Name|Type|Description|
-|------------------------|--------------------|-------------|
-|`AbsoluteDeadline`|`time` or `datetime` |**Required** Defines the absolute deadline. Either this or the offset attributes may be used.|
+|`CancelPenalties`|`complex`| Refer to `CancelPenalties` in [Availability](/api-reference/direct-connects/hotel-service-2/Availability.html).|
 
 #### <a name="room-rates"></a>RoomRates
 

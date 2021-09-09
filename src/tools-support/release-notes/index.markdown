@@ -2,14 +2,20 @@
 title: Release Notes
 layout: reference
 ---
+# Release Notes
 
-# Client Release Notes
+## Client Release Notes
 
 * [Professional Edition](http://www.concurtraining.com/customers/tech_pubs/_RN_CCC.htm)
 * [Standard Edition](http://www.concurtraining.com/customers/tech_pubs/_RN_CCC_CPS.htm)
 
-# Developer Platform Release Notes
+## Developer Platform Release Notes
 
+* [August 2021](./api/2021-08-20.html)
+* [July 2021](./api/2021-07-16.html)
+* [June 2021](./api/2021-06-18.html)
+* [May 2021](./api/2021-05-21.html)
+* [April 2021](./api/2021-04-16.html)
 * [March 2021](./api/2021-03-19.html)
 * [February 2021](./api/2021-02-19.html)
 * [January 2021](./api/2021-01-22.html)
@@ -32,20 +38,11 @@ layout: reference
 * [2015 Release Notes](./api/archive/2015-archive-dev.html)
 * [2014 Release Notes](./api/archive/2014-archive-dev.html)
 
-# App Center Release Notes
+## App Center Release Notes
 
-Updates on available User Connection apps.
+To view App Center release notes, please visit [ConcurTraining](http://www.concurtraining.com/customers/tech_pubs/Docs/AppCenter/ReleaseNotesAppCenter_Client.htm).
 
-* [2021 Consolidated Release Notes](./app-center-2021.html)
-* [2020 Consolidated Release Notes](./app-center-2020.html)
-* [2019 Consolidated Release Notes](./app-center-2019.html)
-* [2018 Release Notes](./archive/2018-archive-app-center.html)
-* [2017 Release Notes](./archive/2017-archive-app-center.html)
-* [2016 Release Notes](./archive/2016-archive-app-center.html)
-* [2015 Release Notes](./archive/2015-archive-app-center.html)
-* [2014 Release Notes](./archive/2014-archive-app-center.html)
-
-# Combined App Center and Developer Platform Release Notes
+## Combined App Center and Developer Platform Release Notes
 
 * [2015 Release Notes](./archive/app-center-dev-platform-2015-04-01.pdf)
 * [2014 Release Notes](./archive/2014-archive-app-center-dev.html)

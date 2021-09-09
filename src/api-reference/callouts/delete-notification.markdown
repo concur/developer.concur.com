@@ -3,7 +3,7 @@ title: Delete notification requests
 layout: reference
 ---
 
-Delete an event notification.
+# Delete Notification Requests
 
 * [Request](#request)
   * [Request Example](#req-example)

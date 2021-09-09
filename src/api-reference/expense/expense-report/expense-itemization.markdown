@@ -3,8 +3,7 @@ title: Itemizations
 layout: reference
 ---
 
-
-#  Itemizations
+#  Itemizations v3
 
 * [Retrieve all expense itemizations owned by the user](#get) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Retrieve an expense itemization by ID](#getID)
@@ -12,7 +11,6 @@ layout: reference
 * [Update an expense itemization](#put) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Delete an expense itemization](#delete) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Schema](#schema)
-
 
 ## Version
 
@@ -25,7 +23,6 @@ layout: reference
 **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
     GET  /api/v3.0/expense/itemizations
-
 
 ### Parameters
 

@@ -5,7 +5,7 @@ redirect_from:
   - /api-reference-deprecated/old-auth/old-auth.html
 ---
 
-# Authentication
+# Pre-2017 Authorization (Deprecated)
 
 {% capture deprecation_content %}
 

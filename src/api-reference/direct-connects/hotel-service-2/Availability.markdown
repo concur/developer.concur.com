@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v2 - Availability
 layout: reference
 ---
 
+# Hotel v2 - Availability
+
 Message to retrieved the availability of hotels.
 
 |SOAPAction|OTA Name|Message Structure|
@@ -52,7 +54,7 @@ Message to retrieved the availability of hotels.
     * [Total](#total)
     * [Rate Description](#rate-description)
     * [TPA Extensions](#tpa-extensions)
-    * [Timespan](#timespan)
+    * [TimeSpan](#timespan)
     * [Basic Property Info](#basic-property-info)
 * [Relationship Between RoomID and RatePlanID](#relationship-roomid-rateplanid)
 
@@ -71,7 +73,7 @@ Message to retrieved the availability of hotels.
                       PrimaryLangID="de" AltLangID="de">
       <POS>
         <Source ISOCurrency="USD">
-          <RequestorID Type="1" ID="1234567"></RequestorID>
+          <RequestorID Type="1" ID="HTL011235"></RequestorID>
         </Source>
       </POS>
       <AvailRequestSegments>
@@ -229,7 +231,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
             </RoomRate>
           </RoomRates>
           <TimeSpan End="2018-10-28" Start="2018-10-26"/>
-          <BasicPropertyInfo ChainCode="ZZ" HotelCode="419430"/>
+          <BasicPropertyInfo HotelCode="419430"/>
         </RoomStay>
       </RoomStays>
       <TPA_Extensions RateDetailsInd="false"></TPA_Extensions>
@@ -355,8 +357,9 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 #### <a name="deadline"></a>Deadline
 
 |Name|Type|Description|
-|------------------------|--------------------|-------------|
+|---------|----------|-----------------------|
 |`AbsoluteDeadline`|`time` or `datetime`|**Required** Defines the absolute deadline in ISO8601 format and in UTC timezone.|
+
 #### <a name="meals-included"></a>MealsIncluded
 
 |Name|Type|Description|
@@ -449,7 +452,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |-------------------|-----------|-------------|
-|`RequireSeriesCode`|`boolean`|**Required** If `true`, the CVV code is required for the given rate.|
+|`RequireSeriesCode`|`boolean`|If `true`, the CVV code is required for the given rate. When `false` or not provided, the rate will be treated as CVV code not required.|
 
 #### <a name="timespan"></a>Timespan
 
@@ -462,9 +465,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |----------------|-----------|-------------|
-|`HotelCode`|`complex`|**Required** Refer to the `HotelRef` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
-|`Address`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
-|`ContactNumbers`|`complex`|Refer to [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
+|`HotelCode`|`complex`|**Required** Refer to the `Property` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html#property).|
 
 # <a name="relationship-roomid-rateplanid"></a>Relationship between RoomID and RatePlanID
 
@@ -481,9 +482,9 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
         <RoomType RoomID="RT2">...</RoomType>
       </RoomTypes>
       <RatePlans> <!-- Contains cancellation policy info, guarantee type etc. -->
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP3">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP1">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP2">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP3">...</RatePlan>
       </RatePlans>
       <RoomRates> <!-- Represents unique rate (hotel room), contains description part 1, rate cost & supported credit card etc. -->
         <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>
@@ -501,8 +502,8 @@ The combination of these IDs must be unique per `RoomStay`.  IDs with the same v
         <RoomType RoomID="RT2">...</RoomType>
       </RoomTypes>
       <RatePlans>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
-        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP1">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" RatePlanID="RP2">...</RatePlan>
       </RatePlans>
       <RoomRates>
         <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>

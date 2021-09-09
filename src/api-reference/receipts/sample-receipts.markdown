@@ -3,9 +3,7 @@ title: Sample Receipts
 layout: reference
 ---
 
-# Receipts
-
-## Sample Receipts
+# Receipts v4 - Sample Receipts
 
 Below we have sample receipt data and the corresponding receipt images for the following receipt types:
 

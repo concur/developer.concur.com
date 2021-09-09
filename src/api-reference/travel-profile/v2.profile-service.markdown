@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference/travel-profile/00-profile-services.html
 ---
 
+# Travel Profile v2
+
 The Travel Profile service consists of a set of resources that provide travel profile functionality customized in specific ways for developers, travel suppliers, and travel management companies (TMCs).
 
 ### [Profile v2](./v2.profile-resource.html)

@@ -3,6 +3,8 @@ title: Payment Provider Integration
 layout: reference
 ---
 
+# Payment Provider Integration
+
 > Note: The scopes related to this documentation are currently limited to Early Access developers at this time.  Once the Early Access phase has been completed, all developers that are interested in pursuing this integration will be given the scope in their Development app.
 
 * [Integration](#integration)

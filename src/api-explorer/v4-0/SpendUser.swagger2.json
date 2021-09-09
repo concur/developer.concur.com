@@ -1,0 +1,1002 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Spend User Service",
+    "description": "Rest API for Spend User Service",
+    "termsOfService": "http://www.concur.com",
+    "contact": {
+      "name": "Team Up",
+      "url": "",
+      "email": "Team_Up@sap.com"
+    },
+    "license": {
+      "name": "SAP Concur",
+      "url": "http://www.concur.com"
+    },
+    "version": "candidate"
+  },
+  "externalDocs": {
+    "description": "Spend User Provision Readme",
+    "url": "https://github.concur.com/spend-user/spend-user-service"
+  },
+  "servers": [
+    {
+      "url": "https://sus.k8s.cnqr.tech",
+      "description": "Generated server url"
+    }
+  ],
+  "security": [
+    {
+      "bearer-jwt": ["read", "write"]
+    }
+  ],
+  "paths": {
+    "/spend/v4/Users/{uuid}": {
+      "get": {
+        "tags": ["Spend User APIs"],
+        "description": "Get the aggregated user.",
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "UUID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullSpendUser"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/spend/v4/Users": {
+      "get": {
+        "tags": ["Spend User APIs"],
+        "description": "Get the filtered and paginated spend users from the specified company",
+        "operationId": "getSpendUsers",
+        "parameters": [
+          {
+            "name": "searchRequest",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SearchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not Implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "description": "The resource Type"
+          },
+          "created": {
+            "type": "string",
+            "description": "Date and time the resource was created",
+            "format": "date-time"
+          },
+          "lastModified": {
+            "type": "string",
+            "description": "Date and time the resource was last modified",
+            "format": "date-time"
+          },
+          "location": {
+            "type": "string",
+            "description": "The location (URI) of the resource",
+            "format": "uri"
+          },
+          "version": {
+            "type": "string",
+            "description": "The version of the resource"
+          }
+        },
+        "description": "SCIM 2.0 Meta Information"
+      },
+      "SpendDelegate": {
+        "type": "object",
+        "properties": {
+          "canApprove": {
+            "type": "boolean",
+            "description": "Determines if delegate can approve"
+          },
+          "canPrepare": {
+            "type": "boolean",
+            "description": "Determines if delegate can prepare"
+          },
+          "canPrepareForApproval": {
+            "type": "boolean",
+            "description": "Determines if delegate can prepare for approval"
+          },
+          "canReceiveApprovalEmail": {
+            "type": "boolean",
+            "description": "Determines if delegate can receive approval emails"
+          },
+          "canReceiveEmail": {
+            "type": "boolean",
+            "description": "Determines if delegate can receive emails"
+          },
+          "canSubmit": {
+            "type": "boolean",
+            "description": "Determines if delegate can submit"
+          },
+          "canSubmitTravelRequest": {
+            "type": "boolean",
+            "description": "Determines if delegate can submit travel request"
+          },
+          "canUseBi": {
+            "type": "boolean",
+            "description": "Determines if delegate can use BI"
+          },
+          "canViewReceipt": {
+            "type": "boolean",
+            "description": "Determines if delegate can view receipts"
+          },
+          "delegate": {
+            "$ref": "#/components/schemas/UserReference"
+          },
+          "temporaryDelegation": {
+            "$ref": "#/components/schemas/TemporaryDelegate"
+          }
+        },
+        "description": "The user's spend delegate information"
+      },
+      "Adp": {
+        "required": ["companyCode", "deductionCode", "employeeFileNumber"],
+        "type": "object",
+        "properties": {
+          "companyCode": {
+            "type": "string",
+            "description": "The company code for the employee within ADP."
+          },
+          "deductionCode": {
+            "type": "string",
+            "description": "The deduction code for the employee within ADP."
+          },
+          "employeeFileNumber": {
+            "type": "string",
+            "description": "The identifier for the employee within ADP, also known as the \"Employee File Number\"."
+          }
+        },
+        "description": "A user's ADP settings"
+      },
+      "ListResponse": {
+        "required": ["Resources", "totalResults"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The id for the SCIM resource"
+          },
+          "externalId": {
+            "type": "string",
+            "description": "The external id for the SCIM resource"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "totalResults": {
+            "type": "integer",
+            "description": "The total number of results returned by the list or query operation",
+            "format": "int32"
+          },
+          "Resources": {
+            "type": "array",
+            "description": "A multi-valued list of complex objects containing the requested resources",
+            "items": {
+              "$ref": "#/components/schemas/FullSpendUser"
+            }
+          },
+          "startIndex": {
+            "type": "integer",
+            "description": "The 1-based index of the first result in the current set of list results",
+            "format": "int32"
+          },
+          "itemsPerPage": {
+            "type": "integer",
+            "description": "The number of resources returned in a list response page",
+            "format": "int32"
+          }
+        },
+        "description": "A paginated list of SCIM resources"
+      },
+      "SpendApprover": {
+        "required": ["approver", "primary"],
+        "type": "object",
+        "properties": {
+          "approver": {
+            "$ref": "#/components/schemas/UserReference"
+          },
+          "primary": {
+            "type": "boolean",
+            "description": "The value for indicating whether the associated user is primary approver"
+          }
+        },
+        "description": "The user's spend approver information"
+      },
+      "FullSpendUser": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "externalId": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+            "$ref": "#/components/schemas/SpendUser"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
+            "$ref": "#/components/schemas/ApproverExtension"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": {
+            "$ref": "#/components/schemas/DelegateExtension"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
+            "$ref": "#/components/schemas/SpendRole"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
+            "$ref": "#/components/schemas/UserPreferenceExtension"
+          },
+          "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": {
+            "$ref": "#/components/schemas/AdpExtension"
+          },
+          "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
+            "$ref": "#/components/schemas/WorkflowPreferenceExtension"
+          }
+        },
+        "description": "All spend SCIM resources for a given user"
+      },
+      "ApproverExtension": {
+        "type": "object",
+        "properties": {
+          "report": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "cashAdvance": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "request": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "invoice": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "purchaseRequest": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "statement": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          },
+          "budget": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendApprover"
+            }
+          }
+        },
+        "description": "A user's spend approvers"
+      },
+      "ErrorMessageResponse": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The schemas present in this resource"
+          },
+          "id": {
+            "type": "string",
+            "description": "The Id of the resource"
+          },
+          "externalId": {
+            "type": "string",
+            "description": "The external Id of the resource"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "scimType": {
+            "type": "string",
+            "description": "A SCIM detailed error keyword."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A detailed, human readable message."
+          },
+          "status": {
+            "type": "integer",
+            "description": "The HTTP status code.",
+            "format": "int32"
+          }
+        },
+        "description": "The error response object"
+      },
+      "UserReference": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The internal UUID identifier for the user",
+            "format": "uuid"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "The username for the user",
+            "readOnly": true
+          },
+          "employeeNumber": {
+            "type": "string",
+            "description": "The employee number for the user"
+          },
+          "$ref": {
+            "type": "string",
+            "description": "The URI reference for the user",
+            "format": "uri",
+            "readOnly": true
+          }
+        },
+        "description": "Reference information for a user within the system"
+      },
+      "Role": {
+        "required": ["roleName"],
+        "type": "object",
+        "properties": {
+          "roleName": {
+            "type": "string",
+            "description": "Expense Role for Employee",
+            "enum": [
+              "EXP_FB_TAX_ADMIN",
+              "EXP_USER",
+              "EXP_TRAVEL_AND_EXPENSE_USER",
+              "EXP_PROXY_USER",
+              "EXP_APPROVER",
+              "EXP_CONFIG_ADMIN",
+              "EXP_CONFIG_ADMIN_CLIENT",
+              "EXP_CONFIG_ADMIN_RO",
+              "EXP_EMPLOYEE_ADMIN",
+              "EXP_CARD_ADMIN",
+              "EXP_CASHADVANCE_ADMIN",
+              "EXP_EXTRACT_ADMIN",
+              "EXP_PROCESSOR",
+              "EXP_PROCESSOR_AUDIT",
+              "EXP_PROCESSOR_ADMIN",
+              "EXP_PROCESSOR_CR",
+              "EXP_ATTENDEE_ADMIN",
+              "EXP_ATTENDEE_ADMIN_RO",
+              "EXP_REIMBURSEMENT_AUDITOR",
+              "EXP_REIMBURSEMENT_APPROVER",
+              "EXP_FIND_ATTENDEES_USER",
+              "EXP_PCARD_ADMIN",
+              "EXP_RECEIPT_PROCESSOR",
+              "STATEMENT_PROCESSOR_AUDITOR",
+              "STATEMENT_PROCESSOR",
+              "STATEMENT_PROCESSOR_ADMIN",
+              "STATEMENT_APPROVER",
+              "STATEMENT_USER",
+              "TRAVEL_USER",
+              "INV_PURCH_RECEIVER",
+              "INV_EMPLOYEE_ADMIN",
+              "INV_IMAGE_PROCESSOR",
+              "INV_RECEIPT_PROCESSOR",
+              "INV_PMT_MANAGER",
+              "INV_PURCH_USER",
+              "INV_APPROVER",
+              "INV_AP_USER",
+              "INV_PROCESSOR_AUDIT",
+              "INV_PMT_USER",
+              "INV_PROCESSOR",
+              "INV_PROCESSOR_MANAGER",
+              "INV_CONFIG_ADMIN",
+              "INV_CONFIG_ADMIN_RO",
+              "INV_IC_VERIFIER",
+              "INV_PROXY_USER",
+              "INV_TAX_ADMIN",
+              "INV_VENDOR_ADMIN",
+              "INV_PURCH_ORDER_PROCESSOR_AUDIT",
+              "INV_PURCH_ORDER_PROCESSOR",
+              "INV_PURCH_REQ_APPROVER",
+              "INV_PURCH_REQ_PROCESSOR_AUDIT",
+              "INV_PURCH_REQ_PROCESSOR",
+              "INV_PURCH_REQ_USER",
+              "INV_PURCH_REQ_PROXY_USER",
+              "INV_RECEIPT_USER",
+              "REQ_CONFIG_ADMIN",
+              "REQ_CONFIG_ADMIN_RO",
+              "REQ_EVENT_ADMIN",
+              "REQ_APPROVER",
+              "REQ_PROCESSOR",
+              "REQ_PROCESSOR_ADMIN",
+              "REQ_PROCESSOR_AUDIT",
+              "REQ_PROXY_USER",
+              "REQ_USER",
+              "REQ_RISK_ADMIN",
+              "BUDGET_REPORTING_USER",
+              "REPORTING_CONFIG_ADMIN",
+              "REPORTING_HIST_DATA_USER",
+              "REPORTING_DASHBOARD_USER",
+              "REPORTING_EMPLOYEE_ADMIN",
+              "REPORTING_CAS_ANALYST",
+              "REPORTING_BUSINESS_AUTHOR",
+              "REPORTING_CONSUMER",
+              "REPORTING_PRO_AUTHOR",
+              "SHD_APP_CENTER_ADMIN",
+              "SHD_AUTHORIZED_APPROVER",
+              "SHD_BUDGET_APPROVER",
+              "SHD_BILLING_ATTRIBUTES_USER",
+              "SHD_BUDGET_ADMIN",
+              "SHD_BUDGET_OWNER",
+              "SHD_BUDGET_VIEWER",
+              "SHD_COST_OBJECT_APPROVER",
+              "SHD_DATA_RETENTION_ADMIN",
+              "SHD_COMPANY_INFO_ADMIN",
+              "SHD_EMPLOYEE_ADMIN",
+              "SHD_EMPLOYEE_ADMIN_RO",
+              "SHD_IMPORT_EXTRACT_ADMIN",
+              "SHD_IMPORT_EXTRACT_ADMIN_RO",
+              "SHD_PASSWORD_ADMIN",
+              "SHD_ROLE_ADMIN",
+              "SHD_CONFIG_ADMIN",
+              "SHD_CONFIG_ADMIN_RO",
+              "SHD_TAX_ADMIN",
+              "SHD_TAX_ADMIN_RO",
+              "SHD_TRAINING_ADMIN",
+              "SHD_WEB_SERVICES_ADMIN"
+            ]
+          },
+          "roleGroups": {
+            "uniqueItems": true,
+            "type": "array",
+            "description": "Group(s) to be associated with the Expense Role",
+            "items": {
+              "type": "string",
+              "description": "Group(s) to be associated with the Expense Role"
+            }
+          }
+        },
+        "description": "Expense Roles for Employee"
+      },
+      "SpendRole": {
+        "type": "object",
+        "properties": {
+          "roles": {
+            "uniqueItems": true,
+            "type": "array",
+            "description": "Expense Roles for Employee",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            }
+          }
+        },
+        "description": "A user's spend roles"
+      },
+      "WorkflowPreferences": {
+        "required": ["id", "uuId"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the input Preferences object"
+          },
+          "uuId": {
+            "type": "string",
+            "description": "User Id as a UUID matches user profile uuid",
+            "format": "uuid"
+          },
+          "emailOnCaStatusChange": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Send email when the cash advance status changes, defaulted to Y",
+            "enum": ["N, Y"]
+          },
+          "emailOnCaAwaitApproval": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Send email when a cash advance is awaiting approval, defaulted to Y",
+            "enum": ["N, Y"]
+          },
+          "emailOnRptStatusChange": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Send email when the report status changes, defaulted to Y",
+            "enum": ["N, Y"]
+          },
+          "emailOnRptAwaitApproval": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Send email when a report is awaiting approval, defaulted to Y",
+            "enum": ["N, Y"]
+          },
+          "promptForApproverOnSubmit": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Prompt for approver when submitting a report, defaulted to N",
+            "enum": ["N, Y"]
+          },
+          "emailOnTrStatusChange": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Send email when the travel request status changes, defaulted to Y",
+            "enum": ["N, Y"]
+          },
+          "emailOnTrAwaitApproval": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Send email when a travel request is awaiting approval, defaulted to Y",
+            "enum": ["N, Y"]
+          },
+          "promptForTrApproverOnSubmit": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Prompt for approver when submitting a travel request, defaulted to N",
+            "enum": ["N, Y"]
+          },
+          "emailOnPmtStatusChange": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Send email when the payment status changes, defaulted to Y",
+            "enum": ["N, Y"]
+          },
+          "emailOnPmtAwaitApproval": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Send email when a payment is awaiting approval, defaulted to Y",
+            "enum": ["N, Y"]
+          },
+          "promptForPmtApproverOnSubmit": {
+            "pattern": "(N|Y)",
+            "type": "string",
+            "description": "Prompt for approver when submitting a payment, defaulted to N",
+            "enum": ["N, Y"]
+          }
+        },
+        "description": "A user's spend workflow preferences"
+      },
+      "AdpExtension": {
+        "type": "object",
+        "properties": {
+          "adp": {
+            "$ref": "#/components/schemas/Adp"
+          }
+        }
+      },
+      "UserPreferenceExtension": {
+        "type": "object",
+        "properties": {
+          "showImagingIntro": {
+            "type": "boolean",
+            "description": "Display imaging introduction, defaulted to true."
+          },
+          "expenseAuditRequired": {
+            "type": "string",
+            "description": "Expense Audit is required.",
+            "example": "REQUIRED"
+          },
+          "allowCreditCardTransArrivalEmails": {
+            "type": "boolean",
+            "description": "Allow Credit Card Transaction Arrival Notification Emails, defaulted to true."
+          },
+          "allowReceiptImageAvailEmails": {
+            "type": "boolean",
+            "description": "Send email when faxed receipts are successfully received, defaulted to true."
+          },
+          "promptForCardTransactionsOnReport": {
+            "type": "boolean",
+            "description": "Prompt for Company Card Transactions when creating a new report, defaulted to true."
+          },
+          "autoAddTripCardTransOnReport": {
+            "type": "boolean",
+            "description": "Add company card transactions within trip dates to 1 click expense report."
+          },
+          "promptForReportPrintFormat": {
+            "type": "boolean",
+            "description": "Always prompt for the report format before printing.",
+            "example": false
+          },
+          "defaultReportPrintFormat": {
+            "type": "string",
+            "description": "Default expense report print type.",
+            "example": "DETAILED"
+          },
+          "showTotalOnReport": {
+            "type": "boolean",
+            "description": "Show Report Totals on Detailed Report."
+          },
+          "showExpenseOnReport": {
+            "type": "string",
+            "description": "Show expenses on detailed report.",
+            "example": "ALL"
+          },
+          "showInstructHelpPanel": {
+            "type": "boolean",
+            "description": "Display instructional help, defaulted to true."
+          },
+          "useQuickItinAsDefault": {
+            "type": "boolean",
+            "description": "Use quick itinerary as default."
+          },
+          "allowAutoCreateTripReport": {
+            "type": "boolean"
+          }
+        },
+        "description": "A user's spend preferences"
+      },
+      "SearchRequest": {
+        "type": "object",
+        "properties": {
+          "startIndex": {
+            "type": "integer",
+            "description": "The 1-based index of the first result in the current set of list results.",
+            "format": "int32",
+            "example": 1
+          },
+          "itemsPerPage": {
+            "type": "integer",
+            "description": "The number of resources returned in a list response page.",
+            "format": "int32",
+            "example": 100
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter string used to request a subset of resources. Must follow ABNF syntax rules",
+            "example": "urn:ietf:params:scim:schemas:extension:spend:2.0:User:country eq \"US\""
+          }
+        },
+        "description": "The parameters with which to filter and paginate requested SCIM resources"
+      },
+      "SpendUser": {
+        "required": ["country", "locale", "reimbursementCurrency"],
+        "type": "object",
+        "properties": {
+          "reimbursementCurrency": {
+            "type": "string",
+            "description": "Valid three digit currency code in the list of system reimbursement currencies",
+            "example": "USD"
+          },
+          "reimbursementType": {
+            "type": "string",
+            "description": "The reimbursement type for the user",
+            "example": "ADP_PAYROLL",
+            "enum": [
+              "ACCOUNTS_PAYABLE",
+              "ADP_PAYROLL",
+              "CONCUR_PAY",
+              "OTHER",
+              "PAY_PAL"
+            ]
+          },
+          "ledgerCode": {
+            "type": "string",
+            "description": "Ledger code to associate with the user",
+            "example": "DEFAULT"
+          },
+          "country": {
+            "type": "string",
+            "description": "Valid ISO 3166 country code",
+            "example": "US"
+          },
+          "budgetCountryCode": {
+            "type": "string",
+            "description": "Valid ISO 3166 country code for Budget",
+            "example": "US"
+          },
+          "stateProvince": {
+            "type": "string",
+            "description": "Valid ISO sub country code",
+            "example": "WA"
+          },
+          "locale": {
+            "type": "string",
+            "description": "Valid locale from the list of configured locales as defined in [RFC5646]",
+            "example": "en-US"
+          },
+          "cashAdvanceAccountCode": {
+            "type": "string",
+            "description": "Valid cash advance account code"
+          },
+          "testEmployee": {
+            "type": "boolean",
+            "description": "A Boolean value indicating whether the User is a test user. Can't be modified after the user is created. Can only be set at creation."
+          },
+          "nonEmployee": {
+            "type": "boolean",
+            "description": "A Boolean value indicating whether the User is a NonEmployee"
+          },
+          "biManager": {
+            "$ref": "#/components/schemas/UserReference"
+          },
+          "customData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomData"
+            }
+          }
+        },
+        "description": "A user's base spend information"
+      },
+      "DelegateExtension": {
+        "type": "object",
+        "properties": {
+          "expense": {
+            "type": "array",
+            "description": "A list of expense delegates",
+            "items": {
+              "$ref": "#/components/schemas/SpendDelegate"
+            }
+          },
+          "payment": {
+            "type": "array",
+            "description": "A list of payment delegates",
+            "items": {
+              "$ref": "#/components/schemas/SpendDelegate"
+            }
+          },
+          "purchaseRequest": {
+            "type": "array",
+            "description": "A list of purchase request delegates",
+            "items": {
+              "$ref": "#/components/schemas/SpendDelegate"
+            }
+          }
+        },
+        "description": "A user's spend delegate information"
+      },
+      "CustomData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "custom1 - custom22, orgUnit1 - orgUnit6",
+            "example": "custom1"
+          },
+          "value": {
+            "type": "string",
+            "description": "Value of the custom field - For list = List Item Code"
+          }
+        },
+        "description": "The spend custom data associated to the user"
+      },
+      "TemporaryDelegate": {
+        "type": "object",
+        "properties": {
+          "temporaryDelegationFromDate": {
+            "type": "string",
+            "description": "Start date for delegates temporary approval permissions. Valid ISO 8601 Date",
+            "example": "2020-09-20T22:35:36.532Z"
+          },
+          "temporaryDelegationToDate": {
+            "type": "string",
+            "description": "End date for delegates temporary approval permissions. Valid ISO 8601 Date",
+            "example": "2020-12-20T22:35:36.532Z"
+          }
+        },
+        "description": "Determines if delegate can temporarily approve"
+      },
+      "WorkflowPreferenceExtension": {
+        "type": "object",
+        "properties": {
+          "emailStatusChangeOnCashAdvance": {
+            "type": "boolean",
+            "description": "Send email when the cash advance status changes, defaulted to true."
+          },
+          "emailAwaitApprovalOnCashAdvance": {
+            "type": "boolean",
+            "description": "Send email when a cash advance is awaiting approval, defaulted to true."
+          },
+          "emailStatusChangeOnReport": {
+            "type": "boolean",
+            "description": "Send email when the report status changes, defaulted to true."
+          },
+          "emailAwaitApprovalOnReport": {
+            "type": "boolean",
+            "description": "Send email when a report is awaiting approval, defaulted to true."
+          },
+          "promptForApproverOnReportSubmit": {
+            "type": "boolean",
+            "description": "Prompt for approver when submitting a report, defaulted to false."
+          },
+          "emailStatusChangeOnTravelRequest": {
+            "type": "boolean",
+            "description": "Send email when the travel request status changes, defaulted to true."
+          },
+          "emailAwaitApprovalOnTravelRequest": {
+            "type": "boolean",
+            "description": "Send email when a travel request is awaiting approval, defaulted to true."
+          },
+          "promptForApproverOnTravelRequestSubmit": {
+            "type": "boolean",
+            "description": "Prompt for approver when submitting a travel request, defaulted to false."
+          },
+          "emailStatusChangeOnPayment": {
+            "type": "boolean",
+            "description": "Send email when the payment status changes, defaulted to true."
+          },
+          "emailAwaitApprovalOnPayment": {
+            "type": "boolean",
+            "description": "Send email when a payment is awaiting approval, defaulted to true."
+          },
+          "promptForApproverOnPaymentSubmit": {
+            "type": "boolean",
+            "description": "Prompt for approver when submitting a payment, defaulted to false."
+          }
+        },
+        "description": "A user's spend workflow preference settings"
+      }
+    },
+    "securitySchemes": {
+      "bearer-jwt": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

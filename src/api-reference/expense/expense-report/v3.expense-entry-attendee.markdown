@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference/expense/expense-report/expense-entry-attendee.html
 ---
 
+# Expense Entry Attendee v3
+
 * [Retrieve All Entry-Attendee Associations Owned by the User](#get)
 * [Retrieve an Entry-Attendee Association by ID](#getID)
 * [Create a New Entry-Attendee Association](#post)

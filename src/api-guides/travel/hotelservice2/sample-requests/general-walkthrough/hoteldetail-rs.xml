@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+200 OK (HTTP Status 200) HTTP/1.1
+cache-control: private, max-age=0
+connection: keep-alive
+content-length: 12734
+content-type: text/xml; charset=utf-8
+date: Mon, 14 Jun 2021 04:58:30 GMT
+strict-transport-security: max-age=31536000; includeSubDomains
+x-scheme: https
+x-xss-protection: 1; mode=block
+
+    HTTP-headers end -->
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <OTA_HotelDescriptiveInfoRS Version="0" PrimaryLangID="EN"
+      xmlns="http://www.opentravel.org/OTA/2003/05">
+      <Success />
+      <HotelDescriptiveContents>
+        <HotelDescriptiveContent HotelCode="HT030025" HotelName="Travelodge Seattle by The Space Needle - COVID Measures">
+          <HotelInfo>
+            <Descriptions>
+              <DescriptiveText>Year Built - 1958            Year Remodeled - 2007        
+Additional Property Description -
+There are 88 spacious and comfortable rooms, all with 
+High Speed Wireless Internet Access. Our king and 
+double queen rooms have refrigerators, and there is a 
+fitness center on-site. We are just 2 blocks from the 
+Space Needle and Seattle Center and a short walk to Key 
+Arena, Pacific Science Center and the Seattle Opera and 
+Ballet. Enjoy hot breakfast each morning and Seattles 
+Best Coffee is served 24-hours daily. We are a 100 
+percent non-smoking hotel.
+              </DescriptiveText>
+            </Descriptions>
+          </HotelInfo>
+          <MultimediaDescriptions>
+            <MultimediaDescription>
+              <ImageItems>
+                <ImageItem>
+                  <ImageFormat>
+                    <URL>https://images.samplehost.com/C57EE13F7FFB4026877B07346B89D109/A.JPEG</URL>
+                  </ImageFormat>
+                </ImageItem>
+                <ImageItem>
+                  <ImageFormat>
+                    <URL>https://images.samplehost.com/C57EE13F7FFB4026877B07346B89D109/F.JPEG</URL>
+                  </ImageFormat>
+                </ImageItem>
+              </ImageItems>
+            </MultimediaDescription>
+          </MultimediaDescriptions>
+          <TPA_Extensions>
+            <Description Name="Address">
+              <Text>200 6th Avenue North, Seattle, Washington, United States, 98109T:+1 2069628678,F:+1 2064484825,guestservices@travelodgeseattlecenter.com</Text>
+            </Description>
+            <Description Name="Rating">
+              <Text>2 Star</Text>
+            </Description>
+            <Description Name="Enhanced Health Measures">
+              <Text> Guest accommodation is disinfected between stays. Physical distancing rules followed. Hand sanitizer in guest accommodation and key areas. Contactless check-in/check-out. Process in place to check health of guests. Screens or physical barriers placed between staff and guests in appropriate areas. Linens, towels and laundry washed in accordance with local authority guidelines. Staff follow all safety protocols as directed by local authorities. Physical distancing in dining areas. Cashless payment available. Use of cleaning chemicals that are effective against Coronavirus. First aid kit available. All plates, cutlery, glasses and other tableware have been sanitized. Guest accommodation sealed after cleaning.</Text>
+            </Description>
+            <Description Name="Location">
+              <Text>PRIMARY PROPERTY LOCATION - AIRPORT
+DISTRICT - BUSINESS - DOWNTOWN - ENTERTAINMENT -
+FINANCIAL - SHOPPING - THEATER
+AREA - BY HIGHWAY
+
+BFI AIRPORT                   12 MI S
+
+2 MINUTES VIA MONORAIL TO NORDSTROM FLAGSHIP STORE - NIKE
+  TOWN - GAME WORKS - HOUSE OF BLUES IN 2007-   SEATTLES
+  FINEST DINING AND THE HISTORIC PIKE PLACE MARKET.  1
+  BLOCK TO MCDONALDS-STARBUCKS - LOUNGES AND CLUBS. 1.5
+  MILES TO WATERFRONT PARK - CRUISE TERMINALS AND
+  WASHINGTON STATE FERRIES. 1.5 MILES TO VICTORIA CLIPPER
+  HIGH SPEED JET FOIL TO VICTORIA - BC. SEATTLE ART
+  MUSEUM - BENAROYA HALL.  THIS PROPERTY HAS ONE OF
+  SEATTLES ONLY HEATED OUTDOOR SWIMMING POOL 10AM - 10PM
+  DAILY.  SEASONAL.  AGE POLICY  GUEST MUST BE 21 YEARS
+  OF AGE TO REGISTER FOR A ROOM. SMOKE-FREE HOTEL
+              </Text>
+            </Description>
+            <Description Name="Directions" />
+            <Description Name="Rooms">
+              <Text>DURING YOUR STAY WE ARE SURE THAT YOU WILL FIND THAT ONE
+OF OUR ROOMS WILL SATISFY YOUR CORPORATE REQUIREMENTS OR
+LEISURE NEEDS.  CLOCK RADIO, COFFEEMAKER, IRON   BOARD,
+WORK DESK, 26 INCH TV
+
+ROOM AMENITIES FOR ALL ROOMS -
+ ROOM AMENITIES -
+  AIR CONDITIONING / ALL ROOMS NON-SMOKING / AM/FM ALARM
+  CLOCK / CABLE/SATELLITE TV / CRIBS / DESK / FREE LOCAL
+  TELEPHONE CALLS / FREE NEWSPAPER / HAIRDRYER / HYPO
+  ALLERGENIC ROOMS / IRON/IRONING BOARD / JACUZZI BATH
+  TUB / REMOTE CONTROL TV / ROLLAWAY BEDS/COTS / SAFE
+ TECHNOLOGY -
+  IN-ROOM PRINTER
+ROOM AMENITIES FOR HANDICAP ROOMS -
+  WHEELCHAIR ACCESSIBLE
+
+A2D -
+ MAX OCCUPANCY - 5
+ MAX NBR OF ROLLAWAYS - 1
+
+N2D -
+ MAX OCCUPANCY - 5
+ MAX NBR OF ROLLAWAYS - 1
+              </Text>
+            </Description>
+            <Description Name="Checkin/Checkout Instructions">
+              <Text>CHECK-IN TIME: 15:00&lt;br /&gt;CHECK-OUT TIME: 12:00 PM</Text>
+            </Description>
+            <Description Name="Cancel Policy">
+              <Text>09MAR04 - END -
+
+CANCEL BY 60 DAYS PRIOR TO 1600 HOURS ON DAY OF ARRIVAL,
+  LOCAL HOTEL TIME TO AVOID A CANCELLATION PENALTY
+
+CANCELLATION POLICY TEXT -
+  DUE TO SEASONAL CHANGES, THE MOST ACCURATE CANCEL
+  POLICY IS RETURNED UPON BOOKING.
+              </Text>
+            </Description>
+            <Description Name="Guarantee Policy">
+              <Text>09MAR04 - END MON-SUN
+  DUE TO SEASONAL CHANGES, PLEASE REVIEW THE RATE RULES
+  PRIOR TO BOOKING FOR THE MOST ACCURATE DEPOSIT POLICY.
+
+ACCEPTED FORMS OF DEPOSIT-
+CREDIT CARD
+, 09MAR04 - END MON-SUN
+GUARANTEE REQUIRED FOR LATE ARRIVAL
+
+GUARANTEE REQUIRED FOR ALL RESERVATIONS
+
+DUE TO SEASONAL CHANGES, PLEASE REVIEW THE RATE RULES
+PRIOR TO BOOKING FOR THE MOST ACCURATE GUARANTEE POLICY.
+
+ACCEPTED FORMS OF GUARANTEE-
+CREDIT CARD
+
+ACCEPTED FORMS OF PAYMENT-
+CASH                         COMPANY CHECK
+CREDIT CARD                  MONEY ORDER
+TRAVELLER S CHECK
+              </Text>
+            </Description>
+            <Description Name="Services">
+              <Text>On-Site General Services - 
+  Airport Shuttle             Dry Cleaning                
+  Express Check-in            Express Check-out           
+  Front Desk  24 Hrs          Interpretation/Translation  
+  Multilingual Staff          Safe Deposit Box            
+  Wake-Up Calls               
+ 
+On-Site Chargeable Services - 
+  Laundry/Valet
+ 
+Additional On-Site Property Services - 
+  Charges may apply  Free Newspaper, Toiletries 
+  Avail,Laundry Valet Services Available/Enhanced Switch 
+  Board and Voice Mail/
+ 
+Business Services -
+  Business Center             Computer Modem Hookups
+  Computer Printing           Computers
+  Copy Service                Fax Service
+  Lighting Controls          
+ 
+Chargeable Business Services -
+  Analog Dial Up Dataport
+  Wireless Data Connection
+ 
+Business and Meeting Services -
+  Charges may apply  Extended Business Center</Text>
+            </Description>
+            <Description Name="Attractions">
+              <Text>Primary City - 
+SEA - SEATTLE
+0 MI W
+ 
+5th Avenue Theatre Tour   0 MI 0 blocks 
+AMC Cinerama 1            0.4 MI 0 blocks 
+AMC Loews Oak Tree 6      5.6 MI 0 blocks 
+AMC Pacific Place 11      0.7 MI 0 blocks 
+Acme Bowl                 13.3 MI 0 blocks 
+Anacortes                 80.4 MI 0 blocks 
+Aquarium                  1 MI SW 
+Asian Plaza Shopping      1.8 MI 0 blocks 
+Auburn                    29.1 MI 0 blocks 
+Bainbridge Island         10.7 MI 0 blocks 
+Ballard                   5.4 MI 0 blocks 
+Bay Pavillion Shopping    1.3 MI 0 blocks 
+Beacon Hill               4.3 MI 0 blocks 
+Bellaura-Beauty,Spa,Massa 0.7 MI 0 blocks 
+Bellevue                  11 MI 0 blocks 
+Bellevue Arts Museum      1.2 MI 0 blocks 
+Bellevue Galleria Stadium 6.8 MI 0 blocks 
+Bellevue Square Shopping  6.5 MI 0 blocks 
+Bellingham                89.6 MI 0 blocks 
+Belltown Underground Shop 0.7 MI 0 blocks 
+Bingo - Seattle Jaycees   8.4 MI 0 blocks 
+Bitter Lake               10.9 MI 0 blocks 
+Boeing Museum             4 MI S 
+Boeing and Eameas Imax Th 0.3 MI 0 blocks 
+Bothell                   19.7 MI 0 blocks 
+Bremerton                 66.5 MI 0 blocks 
+Broadmoor                 3.4 MI 0 blocks 
+Bryant                    50.1 MI 0 blocks 
+Bryn Mawr                 13 MI 0 blocks 
+Bumpers - Family Fun Cent 16.6 MI 0 blocks 
+Burke Museum of Natural H 2.7 MI 0 blocks 
+Bush League Racing        9.9 MI 0 blocks 
+Capitol Hill              1.6 MI 0 blocks 
+Carousel at the Super mal 22.8 MI 0 blocks 
+Cascade                   21.5 MI 0 blocks 
+Central Community College 3 MI E 
+Centralia Outlets         84.8 MI 0 blocks 
+Centurylink Field Tours   0 MI 0 blocks 
+Champs Karting - Race Tra 16 MI 0 blocks 
+Childrens Museum          W 
+Chinatown Discovery Tours 0 MI 0 blocks 
+City Centre Shopping      0.8 MI 0 blocks 
+Clyde Hill                7.6 MI 0 blocks 
+Crown Hill                8.2 MI 0 blocks 
+Downtown Seattle          0.4 MI 0 blocks 
+Downtown Seattle Shopping 0.4 MI 0 blocks 
+Edmonds</Text>
+            </Description>
+            <Description Name="Recreations">
+              <Text>On-Site Recreation -
+  Exercising                  Swimming
+ 
+Onsite Recreational Activities -
+  Seasonal Outdoor Pool and Hot Tub
+ 
+Off-Site Recreation -
+  Amusement Park              Animal Watching
+  Dancing                     Entertainment
+  Fine Dining                 Gambling
+  Ice Skating                 Museum/Gallery Viewing
+  Nature Preserves/Trails     Night Clubs
+  Other Activity              Shopping
+  Sightseeing Tours           Sports Events
+  Theater                    
+ 
+Offsite Recreational Activities -
+  Huskey Stadium 4 miles/Key Arena-West/Kingdome 2 miles 
+  North/Memorial Stadium-West/Mercer Arena-West/Tacoma 
+  Dome 30 miles West/Waterfront 1 mile West/Casinos 12-24 
+  miles/Shopping Malls</Text>
+            </Description>
+            <Description Name="Tourist Information" />
+            <Description Name="TravelIndustry Information" />
+            <Description Name="Facilities Description">
+              <Text>Air conditioning&lt;br /&gt;Business centre&lt;br /&gt;High speed internet&lt;br /&gt;Meeting rooms available&lt;br /&gt;Parking&lt;br /&gt;Outdoor pool&lt;br /&gt;</Text>
+            </Description>
+            <Description Name="Safety">
+              <Text>ROOM SAFETY AND SECURITY -
+  AUDIBLE SMOKE DETECTORS
+  FIRE DETECTORS
+  PRIMARY ENTRANCE ACCESSIBLE BY INTERIOR CORRIDOR/ATRIUM
+  SMOKE DETECTORS
+
+PROPERTY SAFETY AND SECURITY -
+  SMOKE DETECTORS IN HALLWAYS
+  SMOKE DETECTORS IN PUBLIC AREAS
+  WELL-LIT EXIT SIGNS
+  WELL-LIT PARKING AREA S
+  WELL-LIT WALKWAYS
+
+NEW ENHANCED ELECTRONIC LOCKS, CAMERAS AND FIRE SAFETY
+              </Text>
+            </Description>
+            <Description Name="Transportation">
+              <Text>Shuttle Transportation to/from Primary Airport - BFI 
+  Shuttle Hours - From 0700 Hrs to 0000 Hrs
+Arpt Express  chrg 
+ 
+
+Transportation from Primary Airport to Property -
+  Taxi - Orange Taxi
+ 
+  Rental Car
+ 
+  Rail or Subway - Depot 2mi North
+ 
+  Bus or Other Transportation - Greyhound 7 blocks North
+ 
+Transportation from City Center to Property -
+  Taxi - Orange Taxi
+ 
+  Rental Car
+ 
+  Rail or Subway - * Train Depot 2mi North.  * Monorail 2 
+    blocks North.
+ 
+  Bus or Other Transportation - * Free Trans 1 block 
+    North.  * Greyhound 7 blocks North.  * 
+    SHUTTLE-Victoria Pass West.  * SHUTTLE-Washinton 
+    State 2miles SWest.  * SHUTTLE-Victoria Car 2miles 
+    SWest.</Text>
+            </Description>
+            <Description Name="Dining">
+              <Text>Meal Plans Included in Rates
+ 
+Meal Plans Available at Property -
+  Continental Plan              
+ 
+Additional Meal Plan Description -
+  NEW 26 Item Hot and Cold Breakfast Bar with fresh 
+  Belgian Waffles
+ 
+SHILLA
+Hours -
+From 0700Hrs To 0000Hrs
+Restaurant Description -
+  Only 1 mile away
+ 
+FRANCO
+Hours -
+From 1100Hrs To 2100Hrs
+Restaurant Description -
+  Only 1 mile away
+ 
+BENJAMIN
+Hours -
+From 1200Hrs To 0000Hrs
+Restaurant Description -
+  Only 1 mile away
+ 
+GAMEWORKS
+Hours -
+From 0800Hrs To 1700Hrs
+Restaurant Description -
+  Only 1 mile away
+ 
+CHANDLERS
+Hours -
+From 1100Hrs To 0000Hrs
+Restaurant Description -
+  Only 1 mile away
+ 
+Venom
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Vogue
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+5 Spot
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Manray
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Re-Bar
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+PLANET HOLLYWOOD
+Hours -
+From 0800Hrs To 0000Hrs
+Restaurant Description -
+  Only 1 mile away
+ 
+BRELLAS
+Hours -
+From 0000Hrs To 0000Hrs
+Restaurant Description -
+  Only 1 mile away
+ 
+El Gaucho
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Fun House
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Pink Door
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Watertown
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Alibi Room
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Jazz Alley
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+TURN TABLE
+Hours -
+From 1000Hrs To 2200Hrs
+Restaurant Description -
+  Only 1 mile away
+ 
+Atlas Foods
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Baltic Room
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Zeeks Pizza
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Capitol Club
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+I Love Sushi
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Vera Project
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Istanbul Cafe
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Place Pigalle
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Crocodile Club
+Hours -
+From 0000Hrs To 0000Hrs Mon-Sun
+ 
+Gas Works Park
+Hours -
+From 0000</Text>
+            </Description>
+          </TPA_Extensions>
+        </HotelDescriptiveContent>
+      </HotelDescriptiveContents>
+    </OTA_HotelDescriptiveInfoRS>
+  </soap:Body>
+</soap:Envelope>

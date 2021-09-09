@@ -4,10 +4,12 @@ layout: reference
 
 ---
 
+# Event Subscription Service v4
+
 ## Menu
 
 * [Event Subscription Service](#ess)
-* [Subscription Management](/event-topics/index.html)
+* [Event Topic Subscription Management](/event-topics/index.html)
 
 ## <a name="ess"></a>Event Subscription Service
 
