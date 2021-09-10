@@ -5,6 +5,8 @@ redirect_from:
   - /api-reference-deprecated/version-one-one/expense-entry-attendee/expense-entry-attendee-resource-post.html
 ---
 
+# Attendees v1.1
+
 {% include deprecation-alert.html %}
 
 Creates or updates one or more attendee records for the specified expense entry. Attendees are additional people that benefitted from this expense.

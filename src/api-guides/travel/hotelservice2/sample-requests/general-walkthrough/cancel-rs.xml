@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+200 OK (HTTP Status 200) HTTP/1.1
+cache-control: private, max-age=0
+connection: keep-alive
+content-length: 493
+content-type: text/xml; charset=utf-8
+date: Mon, 14 Jun 2021 05:31:50 GMT
+x-scheme: https
+x-xss-protection: 1; mode=block
+
+    HTTP-headers end -->
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <OTA_CancelRS EchoToken="7551F573-EEB1-42C0-9517-CE6357D68CA2" Version="3" Status="Cancelled"
+            xmlns="http://www.opentravel.org/OTA/2003/05">
+            <Success />
+            <UniqueID Type="14" ID="CS700058388-1" />
+            <UniqueID Type="15" ID="1785118482" />
+        </OTA_CancelRS>
+    </soap:Body>
+</soap:Envelope>

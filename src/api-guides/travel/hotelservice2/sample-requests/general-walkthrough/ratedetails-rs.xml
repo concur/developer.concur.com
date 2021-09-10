@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+200 OK (HTTP Status 200) HTTP/1.1
+cache-control: private, max-age=0
+connection: keep-alive
+content-length: 3277
+content-type: text/xml; charset=utf-8
+date: Mon, 14 Jun 2021 05:22:14 GMT
+strict-transport-security: max-age=31536000; includeSubDomains
+x-scheme: https
+x-xss-protection: 1; mode=block
+
+    HTTP-headers end -->
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <OTA_HotelAvailRS Version="5"
+            xmlns="http://www.opentravel.org/OTA/2003/05">
+            <Success />
+            <RoomStays>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType RoomType="Standard" RoomID="S_0A8CFB4B1B">
+                            <RoomDescription>Deluxe Queen Bed, City View Room</RoomDescription>
+                        </RoomType>
+                    </RoomTypes>
+                    <RatePlans>
+                        <RatePlan RatePlanType="CWT BUSINESS RATES" RatePlanID="0A8CFB4B1B#7b0fb272-f10c-4b10-aebc-33fa73b5c90e" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>CXL 1600 HTL TIME ON 27SEP21-FEE 1 NIGHT-EXCL TAX-FEES CANCEL 24 HRS BY 4PM DAY OF ARRIVAL TO AVOID 1NT CHG PLUS TAX.
+&lt;br /&gt;InclusiveTaxAmount = 0.00 USD&lt;br /&gt;ExclusiveTaxAmount = 61.68 USD&lt;br /&gt;AmountBeforeTax = 356.88 USD&lt;br /&gt;AmountAfterTax = 418.56 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text>QUEEN DELUXE 270 SQFT-WIFI-COFFEE TEA MAKER-LAPTOP SAFE</Text>
+                            </RatePlanDescription>
+                        </RatePlan>
+                    </RatePlans>
+                    <RoomRates>
+                        <RoomRate RatePlanID="0A8CFB4B1B#7b0fb272-f10c-4b10-aebc-33fa73b5c90e" RoomID="S_0A8CFB4B1B">
+                            <Rates>
+                                <Rate RateTypeCode="CWT">
+                                    <Total AmountBeforeTax="356.88" AmountAfterTax="418.56" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Exclusive" Code="CIT" Amount="7.50" CurrencyCode="USD">
+                                                <TaxDescription Name="CIT">
+                                                    <Text>CITY TAX</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Exclusive" Code="21" Amount="23.19" CurrencyCode="USD">
+                                                <TaxDescription Name="21">
+                                                    <Text>SALES TAX</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Exclusive" Code="OCC" Amount="30.99" CurrencyCode="USD">
+                                                <TaxDescription Name="OCC">
+                                                    <Text>OCCUPANCY TAX</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>Business Rate</RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Free high speed internet, free wifi</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                    </RoomRates>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan End="2021-10-01" Start="2021-09-28" />
+                    <BasicPropertyInfo HotelCode="HT030025" />
+                </RoomStay>
+            </RoomStays>
+            <TPA_Extensions RateDetailsInd="true" />
+        </OTA_HotelAvailRS>
+    </soap:Body>
+</soap:Envelope>

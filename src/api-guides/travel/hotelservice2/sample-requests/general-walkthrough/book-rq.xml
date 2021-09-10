@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+POST HTTP/1.1
+accept: application/xml
+accept-charset: utf-8
+authorization: Basic xxxxxxxxxxxxxxxx
+concur-correlationid: 06987f1bb6835c7aba2e0a275fbb7395
+concur-loginid:  xxxxxxxxxxxx
+concur-traveleruuid:  xxxxxxxxxxxx
+content-type: application/xml; charset="utf-8"
+soapaction: book
+
+    HTTP-headers end -->
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <authentication xmlns="http://www.concur.com/webservice/auth">
+            <userid>xxxxxxxxxxxx</userid>
+            <password>xxxxxxxxxxx</password>
+        </authentication>
+    </Header>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="CC5C9CE2-9917-4322-8F6F-B12A5BC5FE1D" Version="6" PrimaryLangID="en" AltLangID="en">
+            <POS>
+                <Source ISOCurrency="USD">
+                    <RequestorID Type="1" ID="requestor_id"></RequestorID>
+                </Source>
+            </POS>
+            <HotelReservations>
+                <HotelReservation>
+                    <RoomStays>
+                        <RoomStay>
+                            <RatePlans>
+                                <RatePlan RatePlanID="4CE2BBE73E#7b0fb272-f10c-4b10-aebc-33fa73b5c90e">
+                                    <Guarantee GuaranteeType="CC/DC/Voucher">
+                                        <GuaranteesAccepted>
+                                            <GuaranteeAccepted>
+                                                <PaymentCard CardCode="CA" ExpireDate="0230">
+                                                    <CardType Code="CA">Mastercard</CardType>
+                                                    <CardHolderName>Janelle Doherty</CardHolderName>
+                                                    <Address>
+                                                        <StreetNmbr>600 13th St NE</StreetNmbr>
+                                                        <CityName>Washington</CityName>
+                                                        <PostalCode>20002</PostalCode>
+                                                        <StateProv StateCode="DC">District of Columbia</StateProv>
+                                                        <CountryName Code="US">United States of America</CountryName>
+                                                    </Address>
+                                                    <CardNumber>
+                                                        <PlainText>4111111111111111</PlainText>
+                                                    </CardNumber>
+                                                    <SeriesCode>
+                                                        <PlainText>123</PlainText>
+                                                    </SeriesCode>
+                                                </PaymentCard>
+                                            </GuaranteeAccepted>
+                                        </GuaranteesAccepted>
+                                    </Guarantee>
+                                </RatePlan>
+                            </RatePlans>
+                            <TimeSpan Start="2021-09-28" End="2021-10-01"></TimeSpan>
+                            <BasicPropertyInfo HotelCode="HT030025"></BasicPropertyInfo>
+                        </RoomStay>
+                    </RoomStays>
+                    <ResGuests>
+                        <ResGuest>
+                            <Profiles>
+                                <ProfileInfo>
+                                    <Profile>
+                                        <Customer Gender="Female" BirthDate="1987-05-12">
+                                            <PersonName Language="en">
+                                                <NamePrefix>Mademoiselle</NamePrefix>
+                                                <GivenName>Janelle</GivenName>
+                                                <Surname>Doherty</Surname>
+                                            </PersonName>
+                                            <Telephone PhoneNumber="703-555-6100"></Telephone>
+                                            <Email>janelle.doherty@devtravel.com</Email>
+                                            <Address>
+                                                <AddressLine>209 Madison St Suite 400</AddressLine>
+                                                <CityName>Alexandria</CityName>
+                                                <PostalCode>22314</PostalCode>
+                                                <StateProv StateCode="VA"></StateProv>
+                                                <CountryName Code="US">United States of America</CountryName>
+                                            </Address>
+                                            <CitizenCountryName Code="US"></CitizenCountryName>
+                                        </Customer>
+                                        <CompanyInfo>
+                                            <CompanyName>SAP Concur</CompanyName>
+                                        </CompanyInfo>
+                                    </Profile>
+                                </ProfileInfo>
+                            </Profiles>
+                            <GuestCounts>
+                                <GuestCount Count="1"></GuestCount>
+                            </GuestCounts>
+                        </ResGuest>
+                    </ResGuests>
+                    <TPA_Extensions>
+                        <SearchSessionToken>7b0fb272-f10c-4b10-aebc-33fa73b5c90e</SearchSessionToken>
+                    </TPA_Extensions>
+                </HotelReservation>
+            </HotelReservations>
+        </OTA_HotelResRQ>
+    </Body>
+</Envelope>

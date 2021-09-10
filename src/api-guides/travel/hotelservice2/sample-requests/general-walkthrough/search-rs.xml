@@ -1,0 +1,2941 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+200 OK (HTTP Status 200) HTTP/1.1
+cache-control: private, max-age=0
+connection: keep-alive
+content-length: 104179
+content-type: text/xml; charset=utf-8
+date: Mon, 14 Jun 2021 04:41:32 GMT
+x-scheme: https
+x-xss-protection: 1; mode=block
+
+    HTTP-headers end -->
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <OTA_HotelSearchRS Version="5" EchoToken="jason-test1"
+            xmlns="http://www.opentravel.org/OTA/2003/05">
+            <Success />
+            <Properties>
+                <Property ChainCode="CU" HotelCode="HH871486" HotelName="Citizenm Seattle South Lake Union">
+                    <Position Latitude="47.619985" Longitude="-122.338931" />
+                    <Address>
+                        <AddressLine>201 Westlake Avenue N</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12123727274" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+131208117080" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/30000000/29830000/29823200/29823115/7729a44f_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="900301" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="PF" HotelCode="HP070213" HotelName="Pan Pacific Seattle">
+                    <Position Latitude="47.618248" Longitude="-122.337174" />
+                    <Address>
+                        <AddressLine>2125 Terry Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062648111" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066545049" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="41" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/2000000/1510000/1509800/1509734/639e7f07_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="174840" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="HH910312" HotelName="Palihotel Seattle">
+                    <Position Latitude="47.60979" Longitude="-122.340385" />
+                    <Address>
+                        <AddressLine>107 Pine St</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12065960600" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+13233279702" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/28000000/27100000/27098800/27098716/99485889_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="TL" HotelCode="HT030025" HotelName="Travelodge Seattle by The Space Needle">
+                    <Position Latitude="47.620142" Longitude="-122.344649" />
+                    <Address>
+                        <AddressLine>200 6th Avenue North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12069628678" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064484825" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/13200/13140/39fb2dcf_t.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="23295" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="LQ" HotelCode="HL031350" HotelName="La Quinta Inn Ste Seattle Downtown">
+                    <Position Latitude="47.617643" Longitude="-122.339453" />
+                    <Address>
+                        <AddressLine>2224 Eighth Ave</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066246820" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064676926" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="97" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/16400/16349/751150c0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="119554" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="NC" HotelCode="HE030953" HotelName="Edgewater">
+                    <Position Latitude="47.612516" Longitude="-122.352024" />
+                    <Address>
+                        <AddressLine>2411 Alaskan Way</AddressLine>
+                        <AddressLine>Pier 67</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12067287000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064414119" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/11200/11133/aed66a73_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="83498" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HP030567" HotelName="Paramount Hotel Seattle">
+                    <Position Latitude="47.612752" Longitude="-122.333912" />
+                    <Address>
+                        <AddressLine>724 Pine Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062929500" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062928610" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/60000/58800/58703/e3880a5c_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="24380" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WK" HotelCode="HW030255" HotelName="Warwick Seattle">
+                    <Position Latitude="47.613812" Longitude="-122.340695" />
+                    <Address>
+                        <AddressLine>401 Lenora Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064434300" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064481662" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/10000/6900/6839/1a256285_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="24333" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HH100268" HotelName="Hyatt Place Seattle Downtown">
+                    <Position Latitude="47.619021" Longitude="-122.344989" />
+                    <Address>
+                        <AddressLine>110 6th Ave North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064416041" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064416042" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/4000000/3570000/3568500/3568411/e02b46c8_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="249256" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BT" HotelCode="HH927428" HotelName="Staypineapple Hotel Five">
+                    <Position Latitude="47.615564" Longitude="-122.341832" />
+                    <Address>
+                        <AddressLine>2200 Fifth Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064419785" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064480924" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/88152079.jpg?k=eff4dab7e7acbc19b3ed63a868eed18ca97612a62c9c9227533cd5e490e6732b&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="19872" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HH851538" HotelName="Hyatt Regency Seattle">
+                    <Position Latitude="47.614538" Longitude="-122.333934" />
+                    <Address>
+                        <AddressLine>808 Howell Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12069731234" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/30000000/29050000/29049600/29049536/8a9232c3_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="907776" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HP164332" HotelName="Hyatt House Seattle Downtown">
+                    <Position Latitude="47.61985" Longitude="-122.347733" />
+                    <Address>
+                        <AddressLine>201 Fifth Avenue North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12067271234" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12067271235" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/10000000/9850000/9844500/9844402/321392e0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="468943" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HG030527" HotelName="Grand Hyatt Seattle">
+                    <Position Latitude="47.612337" Longitude="-122.333258" />
+                    <Address>
+                        <AddressLine>721 Pine Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101 1815</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12067741234" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12068596519" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="107" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/550000/546500/546475/14c5d17c_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="38112" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HI080032" HotelName="Inn At The Wac">
+                    <Position Latitude="47.609721" Longitude="-122.333611" />
+                    <Address>
+                        <AddressLine>1325 Sixth Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066227900" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064643058" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/8DA9331A5171429F848C4CFC44C9FC94/A.JPEG</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="178813" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HY" HotelCode="HH090553" HotelName="Hyatt At Olive 8">
+                    <Position Latitude="47.61332" Longitude="-122.333395" />
+                    <Address>
+                        <AddressLine>1635 8th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066951234" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066764400" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="107" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/3000000/2310000/2309400/2309333/d5405d49_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="167540" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="TM" HotelCode="HH649527" HotelName="Thompson Seattle">
+                    <Position Latitude="47.61051" Longitude="-122.341316" />
+                    <Address>
+                        <AddressLine>110 Stewart Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066234600" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066234601" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/14000000/13190000/13187500/13187434/d452038f_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="535865" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HI" HotelCode="HH033364" HotelName="Holiday Inn Seattle Downtown">
+                    <Position Latitude="47.620304" Longitude="-122.342801" />
+                    <Address>
+                        <AddressLine>211 Dexter Ave North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12067288123" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12067282779" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/810000/805800/805793/7b4171d3_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="135178" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HM030854" HotelName="Mayflower Park Hotel">
+                    <Position Latitude="47.612188" Longitude="-122.338003" />
+                    <Address>
+                        <AddressLine>405 Olive Way</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066238700" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063826997" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/26900/26893/3e2a8bbc_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="87776" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GI" HotelCode="HP170269" HotelName="Hilton Garden Inn Seattle Downtown">
+                    <Position Latitude="47.616649" Longitude="-122.332612" />
+                    <Address>
+                        <AddressLine>1821 Boren Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064677770" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064677771" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/12000000/11550000/11546400/11546353/90672a4e_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="431528" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YZ" HotelCode="HH783779" HotelName="Staybridge Suites Sea South Lake Union">
+                    <Position Latitude="47.62455" Longitude="-122.33496" />
+                    <Address>
+                        <AddressLine>1119 Mercer Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12065962301" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/23000000/22520000/22514800/22514773/9d70b73b_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="751331" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="VN" HotelCode="HH783778" HotelName="Even Hotel Seattle South Lake Union">
+                    <Position Latitude="47.62403" Longitude="-122.33437" />
+                    <Address>
+                        <AddressLine>527 Fairview Avenue N</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12065962302" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064586042" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/23000000/22520000/22514800/22514765/db9734b6_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="751524" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="DN" HotelCode="HR031856" HotelName="Motif Seattle">
+                    <Position Latitude="47.610378" Longitude="-122.335379" />
+                    <Address>
+                        <AddressLine>1415 Fifth Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12069718000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12069718085" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/60000/51000/50947/3161bcfa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="83469" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WI" HotelCode="HW030060" HotelName="The Westin Seattle">
+                    <Position Latitude="47.61329" Longitude="-122.337858" />
+                    <Address>
+                        <AddressLine>1900 Fifth Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12067281000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12067282259" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/16700/16673/982a6487_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="23042" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="QQ" HotelCode="HH784890" HotelName="The Charter Seattle Curio Collection By">
+                    <Position Latitude="47.610964" Longitude="-122.339961" />
+                    <Address>
+                        <AddressLine>1610 Second Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062567500" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062567501" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/24000000/23380000/23379400/23379389/7b4ea424_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="853174" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="XV" HotelCode="HS031742" HotelName="Springhill Stes Dwtn Marriott Seattle">
+                    <Position Latitude="47.617864" Longitude="-122.329733" />
+                    <Address>
+                        <AddressLine>1800 Yale Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062540500" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062540990" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/800000/796000/795921/fcf8b1c0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="175228" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HH956864" HotelName="State Hotel Seattle">
+                    <Position Latitude="47.609405" Longitude="-122.339345" />
+                    <Address>
+                        <AddressLine>1501 2nd Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062391870" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062391801" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/28000000/27390000/27380800/27380703/b49aaaac_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="974257" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="RC" HotelCode="HR051929" HotelName="Residence Inn Lk Unio Marriott">
+                    <Position Latitude="47.626411" Longitude="-122.333178" />
+                    <Address>
+                        <AddressLine>800 Fairview Ave N</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066246000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062238160" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/10000/1800/1770/0decfd27_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="181101" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HM031786" HotelName="Hotel Max">
+                    <Position Latitude="47.614164" Longitude="-122.336458" />
+                    <Address>
+                        <AddressLine>620 Stewart St</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12067286299" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064435754" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/28700/28647/69997ac2_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="201635" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HI050795" HotelName="Inn At The Market">
+                    <Position Latitude="47.609727" Longitude="-122.341347" />
+                    <Address>
+                        <AddressLine>86 Pine Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064433600" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064480631" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="107" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/40000/36600/36514/d1e4785c_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="88713" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="SI" HotelCode="HS030128" HotelName="Sheraton Grand Seattle">
+                    <Position Latitude="47.610763" Longitude="-122.333686" />
+                    <Address>
+                        <AddressLine>1400 Sixth Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066219000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066218441" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/25300/25290/e9270b18_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="181949" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="RC" HotelCode="HH778708" HotelName="Residence Inn Seattle Downtown Conventio">
+                    <Position Latitude="47.61589" Longitude="-122.33294" />
+                    <Address>
+                        <AddressLine>1815 Terry Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12063881000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063880900" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/21000000/20090000/20088200/20088122/897ca5cd_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="716459" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="OX" HotelCode="HH768724" HotelName="Moxy Seattle Downtown">
+                    <Position Latitude="47.623377" Longitude="-122.336232" />
+                    <Address>
+                        <AddressLine>1016 Republican Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12067088200" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12067088201" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/20000000/19940000/19937200/19937165/d76c46ab_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="690154" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HH" HotelCode="HH030344" HotelName="Hilton Seattle">
+                    <Position Latitude="47.609386" Longitude="-122.332923" />
+                    <Address>
+                        <AddressLine>1301 6th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066240500" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066829029" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/10000/8000/7910/0adfb633_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="27206" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HA052999" HotelName="Ace Hotel Seattle">
+                    <Position Latitude="47.614379" Longitude="-122.348816" />
+                    <Address>
+                        <AddressLine>2423 1st Ave</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064484721" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063740745" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/60000000/59120000/59114100/59114043/b8194fcf_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="111878" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CP" HotelCode="HC030868" HotelName="Crowne Plaza Seattle Downtown">
+                    <Position Latitude="47.608267" Longitude="-122.332248" />
+                    <Address>
+                        <AddressLine>1113 6th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064641980" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063401617" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/18600/18518/8e156962_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="10994" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HG" HotelCode="HH033084" HotelName="Homewood Suites Seattle Cntn Cntr Pike S">
+                    <Position Latitude="47.612999" Longitude="-122.329237" />
+                    <Address>
+                        <AddressLine>1011 Pike Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066828282" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066827256" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/28300/28273/41e34031_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="22303" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BT" HotelCode="HA030672" HotelName="Andra">
+                    <Position Latitude="47.613433" Longitude="-122.340054" />
+                    <Address>
+                        <AddressLine>2000 Fourth Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064488600" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064417140" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="5039" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/17000/16950/503460b8_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="111937" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CY" HotelCode="HC031754" HotelName="Courtyard Seattle Downtown Lake Union">
+                    <Position Latitude="47.627659" Longitude="-122.340212" />
+                    <Address>
+                        <AddressLine>925 Westlake Ave N</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062130100" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062130101" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/210000/202800/202730/1c07b918_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="115839" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="MC" HotelCode="HM031778" HotelName="Seattle Marriott Waterfront">
+                    <Position Latitude="47.610358" Longitude="-122.346797" />
+                    <Address>
+                        <AddressLine>2100 Alaskan Way</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064435000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062561100" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/920000/911800/911767/b82718aa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="94287" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="FA" HotelCode="HF030271" HotelName="Fairmont Olympic Hotel Seattle">
+                    <Position Latitude="47.60829" Longitude="-122.33418" />
+                    <Address>
+                        <AddressLine>411 University St</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066211700" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066829633" />
+                    </ContactNumbers>
+                    <Award Rating="5" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/20300/20230/e5f37edc_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="12941" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="KC" HotelCode="HV030009" HotelName="Vintage Park A Kimpton">
+                    <Position Latitude="47.607331" Longitude="-122.33241" />
+                    <Address>
+                        <AddressLine>1100 Fifth Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066248000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066230568" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/25100/25015/1a4ebb70_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="24180" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="H017" HotelCode="HO130341" HotelName="Oakwood At Via 6">
+                    <Position Latitude="47.615122" Longitude="-122.340164" />
+                    <Address>
+                        <AddressLine>2121 6th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064488426" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064488426" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="53" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/7000000/6100000/6099400/6099310/687d88fa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="FP" HotelCode="HC051777" HotelName="Four Points by Sheraton Downtown Seattle">
+                    <Position Latitude="47.625553" Longitude="-122.344627" />
+                    <Address>
+                        <AddressLine>601 Roy Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062822600" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062821112" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/50000/41200/41107/c1e91966_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="10665" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WH" HotelCode="HW030175" HotelName="W Seattle">
+                    <Position Latitude="47.60829" Longitude="-122.33418" />
+                    <Address>
+                        <AddressLine>1112 Fourth Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062646000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062646100" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/290000/284400/284304/f04abc1e_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="24280" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="KC" HotelCode="HM030093" HotelName="Hotel Monaco Seattle A Kimpton">
+                    <Position Latitude="47.606988" Longitude="-122.333922" />
+                    <Address>
+                        <AddressLine>1101 4th Ave</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066211770" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066217779" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/70000/62800/62800/e0362330_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="41808" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HB050213" HotelName="Loyal Inn">
+                    <Position Latitude="47.618163" Longitude="-122.341359" />
+                    <Address>
+                        <AddressLine>2301 8th Ave</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066820200" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064678984" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/17000/16934/36d15ccb_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="113069" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="XT" HotelCode="HB100115" HotelName="Belltown Inn">
+                    <Position Latitude="47.614705" Longitude="-122.344662" />
+                    <Address>
+                        <AddressLine>2301 Third Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12065293700" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12065293701" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/3000000/2340000/2330600/2330513/c41602f2_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="248951" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="KC" HotelCode="HF336825" HotelName="Kimpton Palladian">
+                    <Position Latitude="47.6118" Longitude="-122.342" />
+                    <Address>
+                        <AddressLine>2000 2nd Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064481111" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12067289999" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/10000000/9500000/9490100/9490029/7a688630_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="420711" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HH781123" HotelName="Hotel Theodore">
+                    <Position Latitude="47.612321" Longitude="-122.334355" />
+                    <Address>
+                        <AddressLine>1531 7th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066211200" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062330335" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/28300/28274/18928024_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="57113" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="H017" HotelCode="HH141898" HotelName="Oakwood At Premiere On Pine">
+                    <Position Latitude="47.613218" Longitude="-122.332191" />
+                    <Address>
+                        <AddressLine>1525 9th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+16026873322" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/11000000/10450000/10440300/10440256/39d5fd19_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="EI" HotelCode="HE030935" HotelName="Executive Hotel Pacific">
+                    <Position Latitude="47.607066" Longitude="-122.333166" />
+                    <Address>
+                        <AddressLine>400 Spring Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066233900" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+16236232059" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/23800/23764/1b9f1538_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="123831" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BR" HotelCode="HR030030" HotelName="Renaissance Seattle Hotel">
+                    <Position Latitude="47.606593" Longitude="-122.330751" />
+                    <Address>
+                        <AddressLine>515 Madison Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12065830300" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064470992" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="107" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/14500/14405/e9975df0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="120515" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="A391" HotelCode="HP420150" HotelName="Domicile Suites At Chroma Slu">
+                    <Position Latitude="47.62209" Longitude="-122.33249" />
+                    <Address>
+                        <AddressLine>1212 Harrison Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12069269739" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/25000000/24070000/24060100/24060087/bd29def2_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HH850858" HotelName="Palihotel Seattle">
+                    <Position Latitude="47.6098" Longitude="-122.340566" />
+                    <Address>
+                        <AddressLine>107 Pine Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+13236564100" />
+                    </ContactNumbers>
+                    <Award Rating="0" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="895325" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HX" HotelCode="HH033291" HotelName="Hampton Inn Suites Downtown">
+                    <Position Latitude="47.625689" Longitude="-122.34738" />
+                    <Address>
+                        <AddressLine>700 Fifth Ave North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062827700" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062820899" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/50000/41200/41106/1dbc958c_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="66063" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WO" HotelCode="HW130339" HotelName="Worldmark Seattle The Camlin">
+                    <Position Latitude="47.614024" Longitude="-122.332591" />
+                    <Address>
+                        <AddressLine>1619 9th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066820100" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066827415" />
+                    </ContactNumbers>
+                    <Award Rating="1" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/14000000/13240000/13232100/13232033/4781fffa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="296634" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GD" HotelCode="HH790056" HotelName="Domicile Suites At Mark On 8th">
+                    <Position Latitude="47.620477" Longitude="-122.341473" />
+                    <Address>
+                        <AddressLine>285 8th Ave N</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066820858" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063108103" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="1251878" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HS031707" HotelName="Silver Cloud Inn Lake Union">
+                    <Position Latitude="47.629689" Longitude="-122.329061" />
+                    <Address>
+                        <AddressLine>1150 Fairview Avenue North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064479500" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12068124900" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/163666670.jpg?k=f77d9d11db684cedbce878e9db5e2fbae759b84277a5dabfad2826e2fef5685e&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="120724" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HQ" HotelCode="HH672618" HotelName="Seattle Center Luxury Suites B">
+                    <Position Latitude="47.62007" Longitude="-122.34761" />
+                    <Address>
+                        <AddressLine>206 5th Ave N Apt 713</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+18774563376" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="607622" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BW" HotelCode="HB030284" HotelName="Best Western Plus Pioneer Square">
+                    <Position Latitude="47.601649" Longitude="-122.335282" />
+                    <Address>
+                        <AddressLine>77 Yesler Way</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12063401234" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064670707" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/25300/25221/9ed0cd0f_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="113374" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HM070138" HotelName="The Moore">
+                    <Position Latitude="47.611588" Longitude="-122.341252" />
+                    <Address>
+                        <AddressLine>1926 2nd Ave</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064484851" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12067285668" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/2000000/1590000/1585100/1585072/1fd8df25_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="178815" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="A437" HotelCode="HB030274" HotelName="Executive Inn by The Space Needle">
+                    <Position Latitude="47.619974" Longitude="-122.346239" />
+                    <Address>
+                        <AddressLine>200 Taylor North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064489444" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063742548" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/17100/17066/1fa7ce4d_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="FN" HotelCode="OH392968" HotelName="Fairfield Inn and Suites by Marriott Seattle Downtown Seattle Center">
+                    <Position Latitude="47.620341" Longitude="-122.343242" />
+                    <Address>
+                        <AddressLine>226 7th Ave N</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064432012" />
+                    </ContactNumbers>
+                    <Award Rating="0" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/284708249.jpg?k=52bc48a8532a8d1508aa4036bd5286cd610170d6a30536a981e4fa47ee859bc6&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="27790" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="A393" HotelCode="HP433618" HotelName="Domicile Suites At Helios">
+                    <Position Latitude="47.61078" Longitude="-122.33976" />
+                    <Address>
+                        <AddressLine>1600 2nd Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12063108101" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/28000000/27010000/27003400/27003384/e26e5610_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CB53" HotelCode="HP429114" HotelName="Stay Alfred Pike Place">
+                    <Position Latitude="47.60849" Longitude="-122.33641" />
+                    <Address>
+                        <AddressLine>1920 1st Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+18666126606" />
+                    </ContactNumbers>
+                    <Award Rating="0" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/256978616.jpg?k=ecc2e891b338f84d518b384409531df39560a15ed26561c72d785fed7cc3c5ba&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="OW" HotelCode="HH143118" HotelName="Oakwood Seattle South Lake Union">
+                    <Position Latitude="47.625988" Longitude="-122.342746" />
+                    <Address>
+                        <AddressLine>717 Dexter Ave N</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+16026873322" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+16026873385" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/13000000/12020000/12016300/12016226/863e9662_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BT" HotelCode="HM100108" HotelName="Staypineapple Maxwell">
+                    <Position Latitude="47.625669" Longitude="-122.351216" />
+                    <Address>
+                        <AddressLine>300 Roy Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062860629" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062850476" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="41" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/4000000/3450000/3445700/3445681/2c64d6f4_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="226997" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="HP449781" HotelName="Luxe Hubs Convention Center Apartments">
+                    <Position Latitude="47.60974" Longitude="-122.32962" />
+                    <Address>
+                        <AddressLine>800 Seneca St</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064283080" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064283080" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/33000000/32460000/32450400/32450394/5216ce5b_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HQ" HotelCode="HP110193" HotelName="Pensione Nichols">
+                    <Position Latitude="47.610562" Longitude="-122.342362" />
+                    <Address>
+                        <AddressLine>1923 First Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064417125" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064417125" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="632545" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GD" HotelCode="HP193559" HotelName="Civic Hotel Seattle">
+                    <Position Latitude="47.62169" Longitude="-122.34413" />
+                    <Address>
+                        <AddressLine>325 Aurora Ave N</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98119</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064410400" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064483353" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/183192830.jpg?k=4f500b37f222f665ca07c8360183e86d92244c65c4a4c9cd5af163cbf10afdff&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="UP" HotelCode="HH940551" HotelName="The Sound Hotel Sea Belltown">
+                    <Position Latitude="47.61441" Longitude="-122.342115" />
+                    <Address>
+                        <AddressLine>2120 4th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98121</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064417456" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064417208" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/32000000/31810000/31802100/31802068/4db289b3_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="971620" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="FS" HotelCode="HF080165" HotelName="Four Seasons Seattle">
+                    <Position Latitude="47.607377" Longitude="-122.339156" />
+                    <Address>
+                        <AddressLine>99 Union Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12067497000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12067497099" />
+                    </ContactNumbers>
+                    <Award Rating="5" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="79" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/3000000/2170000/2163100/2163007/ac8ccf13_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="233898" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX164" HotelCode="HP533244" HotelName="Domicile Suites At Cove">
+                    <Position Latitude="47.61392" Longitude="-122.324141" />
+                    <Address>
+                        <AddressLine>601 E Pike St</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98122</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+18559290020" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="H056" HotelCode="HF173162" HotelName="The Baroness">
+                    <Position Latitude="47.609623" Longitude="-122.326545" />
+                    <Address>
+                        <AddressLine>1005 Spring Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066240787" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062237545" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/19004610.jpg?k=b520a69b979e9fefaa0f4586338c947b435e35a335f13b351b52a71da1b32880&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HI051257" HotelName="The Inn At Virginia Mason">
+                    <Position Latitude="47.609843" Longitude="-122.326775" />
+                    <Address>
+                        <AddressLine>1006 Spring Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12065836453" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062236771" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/3000000/2640000/2635500/2635458/89b695c0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="219173" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HG" HotelCode="HH031478" HotelName="Homewood Ste Seattle Downtown">
+                    <Position Latitude="47.620416" Longitude="-122.359716" />
+                    <Address>
+                        <AddressLine>206 Western Ave West</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98119</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062819393" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062835022" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="56" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="233" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/120000/119100/119085/57b41402_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="66067" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="LL" HotelCode="HH743722" HotelName="Lotte Hotel Seattle">
+                    <Position Latitude="47.605206" Longitude="-122.331044" />
+                    <Address>
+                        <AddressLine>809 5th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12068008110" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12068008811" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/49000000/48220000/48217800/48217742/a56b2768_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="689231" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CY" HotelCode="HC100005" HotelName="Courtyard Seattle Downtown Pioneer Sq">
+                    <Position Latitude="47.602464" Longitude="-122.332629" />
+                    <Address>
+                        <AddressLine>612 2nd Ave</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066251111" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066253270" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/4000000/3300000/3300000/3299932/8c1e237e_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="249197" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GD" HotelCode="HH884593" HotelName="Harbor Steps Apartments">
+                    <Position Latitude="47.60641" Longitude="-122.338288" />
+                    <Address>
+                        <AddressLine>1221 First Ave</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98101</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+14254544400" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+14254542009" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="250416" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="WV" HotelCode="HS030276" HotelName="Sorrento">
+                    <Position Latitude="47.608954" Longitude="-122.32677" />
+                    <Address>
+                        <AddressLine>900 Madison St At Terry</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066226400" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063436155" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/30000/22000/21924/32f9e1b4_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="93818" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HS054718" HotelName="Silver Cloud Hotel Broadway">
+                    <Position Latitude="47.611693" Longitude="-122.320628" />
+                    <Address>
+                        <AddressLine>1100 Broadway</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98122</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12063251400" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063241995" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/A4157DDDD15F4BB799199FBE4B20D9F6/A.JPEG</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="120723" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="SN" HotelCode="HA031126" HotelName="The Alexis Royal Sonesta Hotel">
+                    <Position Latitude="47.604865" Longitude="-122.336669" />
+                    <Address>
+                        <AddressLine>1007 First Ave At Madison St</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066244844" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066219009" />
+                    </ContactNumbers>
+                    <Award Rating="5" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <HotelAmenity Code="5044" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/10000/6300/6227/b2b45ef6_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="41807" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="XT" HotelCode="HM052573" HotelName="Mediterranean Inn">
+                    <Position Latitude="47.623171" Longitude="-122.356869" />
+                    <Address>
+                        <AddressLine>425 Queen Anne Avenue North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064284700" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12064284699" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="78" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/900000/897600/897598/cb191c7b_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="119924" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="HI030467" HotelName="Inn At Queen Anne">
+                    <Position Latitude="47.62339" Longitude="-122.355553" />
+                    <Address>
+                        <AddressLine>505 First Avenue North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062827357" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062179719" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/10000/5500/5483/86031f4a_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GL140" HotelCode="HB120124" HotelName="Bacon Mansion Bed and Breakfast">
+                    <Position Latitude="47.628485" Longitude="-122.32145" />
+                    <Address>
+                        <AddressLine>959 Broadway East</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98102</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066506310" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12068609025" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/4340311.jpg?k=082590d6984793e2d8503280b67ef4c01c77b4a18775dbc491cbd84827660484&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="GP" HotelCode="HD030900" HotelName="Graduate Hotel Seattle">
+                    <Position Latitude="47.661636" Longitude="-122.314418" />
+                    <Address>
+                        <AddressLine>4507 Brooklyn Avenue Ne</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98105</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066342000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066342000" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/20000/19100/19023/2a2a6104_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="78337" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="DT" HotelCode="HD080059" HotelName="Doubletree by Hilton Arctic Club Sea">
+                    <Position Latitude="47.603754" Longitude="-122.332097" />
+                    <Address>
+                        <AddressLine>700 3rd Avenue At Cherry Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12063400340" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063400349" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="236" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/2000000/1740000/1736200/1736119/35b5e64d_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="166874" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="BT" HotelCode="HH925985" HotelName="Staypineapple University Inn">
+                    <Position Latitude="47.658129" Longitude="-122.317379" />
+                    <Address>
+                        <AddressLine>4140 Roosevelt Way Ne</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98105</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066325055" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12065474937" />
+                    </ContactNumbers>
+                    <Award Rating="2" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="121319" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="OH316456" HotelName="Sonder Solis">
+                    <Position Latitude="47.614384" Longitude="-122.315205" />
+                    <Address>
+                        <AddressLine>1300 East Pike Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98122</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+16173000956" />
+                    </ContactNumbers>
+                    <Award Rating="0" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/57000000/56930000/56921700/56921611/b9de41fa_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HM030988" HotelName="Marqueen">
+                    <Position Latitude="47.625051" Longitude="-122.356538" />
+                    <Address>
+                        <AddressLine>600 Queen Anne Avenue North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062827407" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12062603002" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="5075" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="76" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/1000000/210000/201100/201051/30a66422_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="173970" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="ES" HotelCode="HH765475" HotelName="Embassy Suites Downtown Pioneer Square">
+                    <Position Latitude="47.598099" Longitude="-122.330952" />
+                    <Address>
+                        <AddressLine>255 S King St</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12068594400" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12068594401" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/21000000/20130000/20123400/20123320/590b3b46_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="675747" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="H1070014" HotelName="Hilton Lxr Hotel 1000">
+                    <Position Latitude="47.604918" Longitude="-122.336282" />
+                    <Address>
+                        <AddressLine>1000 First Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98104</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12069571000" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063579457" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="269" />
+                    <HotelAmenity Code="53" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/2000000/1500000/1495200/1495139/d11072d7_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="172270" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="A393" HotelCode="HP429886" HotelName="Sobe Westlake 30 Day Rentals">
+                    <Position Latitude="47.63349" Longitude="-122.34492" />
+                    <Address>
+                        <AddressLine>602 Galer Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98109</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+16154578906" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/39000000/38260000/38250100/38250088/6144b98b_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YZ" HotelCode="HF154104" HotelName="Staybridge Stes U District">
+                    <Position Latitude="47.6549" Longitude="-122.347" />
+                    <Address>
+                        <AddressLine>3926 Aurora Avenue North</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98103</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12066321015" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12066321042" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="54" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/9000000/8270000/8263100/8263036/3083beb5_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="411090" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="H056" HotelCode="HP200808" HotelName="The Art Inn Seattle">
+                    <Position Latitude="47.60602" Longitude="-122.31568" />
+                    <Address>
+                        <AddressLine>1225 E Jefferson Street</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98122</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+1351962453822" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/33000000/32750000/32742000/32741986/39c6f4c0_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="RC" HotelCode="HF498907" HotelName="Residence Inn Seattle University Dist">
+                    <Position Latitude="47.661611" Longitude="-122.31569" />
+                    <Address>
+                        <AddressLine>4501 12th Avenue Northeast</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98105</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12063228887" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+14073131236" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/hotels/11000000/10630000/10622000/10621943/d85fd355_b.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="432076" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="HQ" HotelCode="BC183089" HotelName="Gaslight Inn">
+                    <Position Latitude="47.617299" Longitude="-122.313106" />
+                    <Address>
+                        <AddressLine>1727 15th Avenue</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98122</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12063253654" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12262208543" />
+                    </ContactNumbers>
+                    <Award Rating="3" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/80023376.jpg?k=9f3bcc7e3a04d4450e2a78bb4c6f623fcd3d4074bc6604ad3d172b33fe388129&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="316392" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="AX12" HotelCode="OH180375" HotelName="Eastlake Escape">
+                    <Position Latitude="47.6415" Longitude="-122.32381" />
+                    <Address>
+                        <AddressLine>2401 Boylston Avenue East</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98102</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12064918183" />
+                    </ContactNumbers>
+                    <Award Rating="0" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL />
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="CB53" HotelCode="HH912840" HotelName="Wall Street">
+                    <Position Latitude="47.619956" Longitude="-122.29966" />
+                    <Address>
+                        <AddressLine>134a 25th Avenue East</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98112</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+18885173288" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/130948993.jpg?k=401c1acd8c7d040b07e31af6d4b583747ff6aee48c72a14df6f9f978b04605f0&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+                <Property ChainCode="YX" HotelCode="HS060543" HotelName="Silver Cloud Hotel Stadium">
+                    <Position Latitude="47.592707" Longitude="-122.33369" />
+                    <Address>
+                        <AddressLine>1046 1st Ave S</AddressLine>
+                        <CityName>Seattle</CityName>
+                        <PostalCode>98134</PostalCode>
+                        <StateProv StateCode="WA">Washington</StateProv>
+                        <CountryName Code="US">United States</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber PhoneTechType="1" PhoneNumber="+12062049800" />
+                        <ContactNumber PhoneTechType="3" PhoneNumber="+12063810751" />
+                    </ContactNumbers>
+                    <Award Rating="4" />
+                    <HotelAmenity Code="5" />
+                    <HotelAmenity Code="228" />
+                    <HotelAmenity Code="22" />
+                    <HotelAmenity Code="35" />
+                    <HotelAmenity Code="168" />
+                    <HotelAmenity Code="66" />
+                    <HotelAmenity Code="77" />
+                    <HotelAmenity Code="298" />
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>https://images.samplehost.com/xdata/images/hotel/max300/210156869.jpg?k=1536c62a8b20a11c78b6fefc47563cf39065fddb8142d988efea81b1d9e74024&amp;o=</URL>
+                        </TPA_HotelPreviewImageURI>
+                        <TPA_PropertyReferenceInfo>
+                            <PropertyReference ReferenceCatalogCode="182010" ReferenceCatalogName="giata" />
+                        </TPA_PropertyReferenceInfo>
+                    </TPA_Extensions>
+                </Property>
+            </Properties>
+            <TPA_Extensions>
+                <SearchSessionToken>abba422e-59de-4dd9-8e96-57a31d2f950f</SearchSessionToken>
+            </TPA_Extensions>
+        </OTA_HotelSearchRS>
+    </soap:Body>
+</soap:Envelope>

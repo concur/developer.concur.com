@@ -3,6 +3,8 @@ title: Financial Documents Schemas
 layout: reference
 ---
 
+# Financial Documents Schemas
+
 ## Menu
 
 * [Getting Started](./v4.financial-integration.html)

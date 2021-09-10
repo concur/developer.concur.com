@@ -3,7 +3,7 @@ title: Authentication
 layout: reference
 ---
 
-### Special Note (Please Read First)
+# Authentication
 
 If you are an existing partner with an existing app, please read both the [Migration to Oauth2 Tokens](/api-reference/authentication/migrationguide.html) and [Getting Started](/api-reference/authentication/getting-started.html) documentation first. If you have any questions, please contact your Partner Enablement team representative before proceeding.
 
@@ -22,6 +22,7 @@ If you are an existing partner with an existing app, please read both the [Migra
   * [One Time Password grant](#otp_grant)
 * [Response Codes](#response_codes)
 * [Troubleshooting](#troubleshooting)
+* [Enterprise Business Applications](#enterprise-business-applications)
 
 **Note:** The Pre-2017 Authorization (Deprecated) documentation be found [here](/api-reference/authentication/authorization-pre-2017.html)
 
@@ -39,7 +40,7 @@ Name | Type | Format | Description
 `access_token`|`string`|-|Token used to access protected resources of SAP Concur services.
 `refresh_token`|`string`|-|Refresh token required to request a new access token for a given user.
 `geolocation`|`string`|-|The base URL for where the user profile lives. See [base URI](#base_uri) for usage.
-`id_token`|`string`|-|The OCID Token in the JSON Web Token (JWT) format that describes the user or company
+`id_token`|`string`|-|The OIDC Token in the JSON Web Token (JWT) format that describes the user or company
 
 **Token Response**
 
@@ -58,7 +59,7 @@ Connection: Close
   "token_type": "Bearer",
   "access_token": "access_token",
   "refresh_token": "refresh_token",
-  "id_token": "ocid_token",
+  "id_token": "oidc_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
@@ -76,7 +77,7 @@ You can obtain a token for three different types of principals in the SAP Concur
 
 An `accessToken` has a one hour lifetime.
 
-In order to obtain a token, the client application needs to call the Oauth2 endpoint using various `grants` depending on the authentication scenarios required. The full list of supported scenarios is provided below:
+In order to obtain a token, the client application needs to call the Oauth2 endpoint using various grants depending on the authentication scenarios required. The full list of supported scenarios is provided below:
 
   * [Authorization grant](#auth_grant)
   * [Password grant](#password_grant)
@@ -108,7 +109,7 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `client_id`|`string` | `UUID` | **Required** The client applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | **Required** The client applications client_secret supplied by App Management
-`refresh_token`|`string` | `UUID` | **Required** An existing valid refresh token to be used to request a new access token
+`refresh_token`|`string` |-| **Required** An existing valid refresh token to be used to request a new access token
 `scope`|`string` |-| **Optional** The client applications list of scopes
 `grant_type`|`string` |-| **Required** The grant type instructs the Oauth2 service how to process the request. For refresh token, the value must be `refresh_token`
 
@@ -146,14 +147,15 @@ Connection: Close
   "token_type": "Bearer",
   "access_token": "access_token",
   "refresh_token": "refresh_token",
-  "id_token": "ocid_token",
+  "id_token": "oidc_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
+When the token has been refreshed, store the geolocation and the refresh token as they may have changed.  On subsequant calls, use the last received golocation and refresh token.  
 
 ## <a name="revoke_token"></a>Revoking a token
 
-All refresh_tokens associated to a user for an application can be revoked by calling the `https://us.api.concursolutions.com/app-mgmt/v0/connections` endpoint with a `DELETE` action. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`.
+All refresh tokens associated to a user for an application can be revoked by calling the `https://us.api.concursolutions.com/app-mgmt/v0/connections` endpoint with a `DELETE` action. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`.
 
 ```
 DELETE https://us.api.concursolutions.com/app-mgmt/v0/connections
@@ -178,6 +180,10 @@ Refresh Tokens are strings that allow your application to obtain a fresh `access
 
 ```
 e013335d-b4ce-4c43-a7e4-b67abc1adcb0
+```
+or like this:
+```
+2d725xipty0z7ha3vlpy8b2c3hqxmw
 ```
 
 It is highly recommended that you store Refresh Tokens together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
@@ -225,7 +231,7 @@ Connection: Close
   "token_type": "Bearer",
   "access_token": "access_token",
   "refresh_token": "refresh_token",
-  "id_token": "ocid_token",
+  "id_token": "oidc_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
@@ -360,7 +366,7 @@ Connection: Close
   "token_type": "Bearer",
   "access_token": "access_token",
   "refresh_token": "refresh_token",
-  "id_token": "ocid_token",
+  "id_token": "oidc_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
@@ -558,7 +564,7 @@ Connection: keep-alive
   "token_type": "Bearer",
   "access_token": "access_token",
   "refresh_token": "refresh_token",
-  "id_token": "ocid_token",
+  "id_token": "oidc_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
@@ -695,7 +701,7 @@ Only the [Password Grant Type](#password_grant) is available for obtaining compa
 1. When the Partner application receives the redirect call, the Partner should strip the `id` and `requestToken` values from the URI and use those on a Post request to the SAP Concur Authorization service to obtain the official Oauth2 Access Token and Refresh Token for the customer using the [password grant](https://developer.concur.com/api-reference/authentication/apidoc.html#password_grant). As explained in detail in this [presentation](https://prezi.com/p/lw0qqy51zcmd/), the Partner must have [Data Center Geo Awareness](https://developer.concur.com/api-reference/authentication/apidoc.html#base_uri) related to the token. We currently have 3 Data Centers and the API end points change based on these Data Centers so it is imperative the proper token management is followed.  Otherwise, your app will not make the correct call per Access token.
 1. An access token is valid for only one hour.  The access token should be cached in memory and discarded after use.
 1. After the Admin has successfully completed the login/enrollment process, the Partner should store the following elements with the customer’s profile metadata.
-  * `refresh_token`: (36 characters including dashes) Valid for six months from the day and time issued.
+  * `refresh_token`: Valid for six months from the day and time issued.
   * `refresh_expires_in`: This is Epoch time format, convert to UTC.
   * `geolocation`: To be used when making API calls on behalf of the customer.
   * `id`: Aka `sub`, is the customer’s unique identifier (UUID).  It can be retrieved from the following sources:

@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference-deprecated/version-one/Travel/profile-resource.html
 ---
 
+# Travel Profile Resource v1
+
 {% include deprecation-alert.html deprecation_date="04/01/2016" %}
 
 Current version: [Travel Profile v2](./v2.profile-resource.html)

@@ -8,6 +8,8 @@ redirect_from:
   - /api-reference-deprecated/version-one-one/expense-entry/post-expense-entry.html
 ---
 
+# Expense Entry v1.1
+
 {% include deprecation-alert.html %}
 
 An expense entry in an expense report.

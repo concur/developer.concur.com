@@ -3,11 +3,12 @@ title: Reports v4
 layout: reference
 ---
 
+# Reports v4
+
 The Reports v4 API can be used to read and modify an expense report header of an existing expense report. This API can be used to change attributes like report name, business purpose, etc.
 
-> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
-
 * [Prior Versions](#prior-versions)
+* [Limitations](#limitations)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
@@ -31,6 +32,10 @@ The Reports v4 API can be used to read and modify an expense report header of an
 
 * Report Header v1 (Deprecated) documentation is available [here](./v1dot1.reports.html)
 * Reports v3 documentation is available [here](./v3.reports.html)
+
+## <a name="limitations"></a>Limitations
+
+This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
 ## <a name="products-editions"></a>Products and Editions
 
@@ -57,7 +62,7 @@ Optional Scope:
 
 ## <a name="dependencies"></a>Dependencies
 
-SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the Identity v4 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -83,7 +88,7 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`.|
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
 |`reportId`|string|-|**Required** The unique identifier of the report that is being read.|
 
@@ -273,7 +278,7 @@ https://{datacenterURI}/expensereports/v4/users/{userID}/context/{contextType}/r
 
 |Name|Type|Format|Description|
 |---|---|---|---|
-|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [User Profile v1.0](/api-reference/profile/v1.user.html) to retrieve the `userID`.|
+|`userID`|`string`|-|**Required** The unique identifier of the SAP Concur user. Use [Identity v4 API](/api-reference/profile/v4.identity.html) to retrieve the `userID`.|
 |`contextType`|`string`|-|**Required** The access level of the SAP Concur user, which determines the form fields they can view/modify. Supported values: `TRAVELER`, `PROXY`|
 |`reportId`|string|-|**Required** The unique identifier of the report that is being modified.|
 

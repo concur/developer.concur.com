@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+POST HTTP/1.1
+accept: application/xml
+accept-charset: utf-8
+authorization: Basic xxxxxxxxxxxxxxxx
+concur-correlationid: e74d42a4b86c9149a2cb9ab75432b525
+concur-traveleruuid:  xxxxxxxxxxxx
+content-type: application/xml; charset="utf-8"
+soapaction: read
+
+    HTTP-headers end -->
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <authentication xmlns="http://www.concur.com/webservice/auth">
+            <userid>xxxxxxxxxxxx</userid>
+            <password>xxxxxxxxxxx</password>
+        </authentication>
+    </Header>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="BA2EC894-CC2E-414A-87AF-BEAE9CA56FB3" Version="5.002" PrimaryLangID="en" AltLangID="en">
+            <POS>
+                <Source ISOCurrency="USD">
+                    <RequestorID Type="1" ID="requestor_id"></RequestorID>
+                </Source>
+            </POS>
+            <UniqueID Type="14" ID="CS700058388-1"></UniqueID>
+        </OTA_ReadRQ>
+    </Body>
+</Envelope>

@@ -2,13 +2,15 @@
 title: Workflows v4
 layout: reference
 ---
+
+# Workflows v4
+
 {% include prerelease.html %}
 
 The Workflows v4 API is used to Approve or Send Back an expense report that is in the workflow. This API is used only for normal approval steps and not for Cost Object Approval steps.
 
-> **Limitations**: This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
-
 * [Prior Versions](#Prior-versions)
+* [Limitations](#limitations)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
@@ -23,6 +25,10 @@ The Workflows v4 API is used to Approve or Send Back an expense report that is i
 ## <a name="Prior-versions"></a>Prior Versions
 
 * Report Workflow Action v1.1 documentation is available [here](/api-reference/expense/expense-report/post-report-workflow-action.html).
+
+## <a name="limitations"></a>Limitations
+
+This API is only available to partners who have been granted access by SAP Concur. Access to this documentation does not provide access to the API.
 
 ## <a name="products-editions"></a>Products and Editions
 
@@ -49,7 +55,7 @@ Optional Scope:
 
 ## <a name="dependencies"></a>Dependencies
 
-SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the User v3.1 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
+SAP Concur clients must purchase Concur Expense in order to use this API. This API requires the Identity v4 API which is currently only available to approved early access partners. Please contact your SAP Concur representative for more information.
 
 ## <a name="access-token-usage"></a>Access Token Usage
 

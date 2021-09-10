@@ -1,9 +1,9 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Event Service Api.",
+        "description": "Event Service API.",
         "version": "1.0.1",
-        "title": "Event Service Api",
+        "title": "Event Service API",
         "termsOfService": "http://concur.com",
         "license": {
             "name": "Concur License",

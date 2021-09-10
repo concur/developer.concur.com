@@ -3,6 +3,8 @@ title: E-Receipts Integration Guide
 layout: reference
 ---
 
+# E-Receipts Integration Guide
+
 At SAP Concur, e-receipts are digital representations of receipts with both a receipt image and structured data. The e-receipts come from pre-authorized and trusted merchants and are transmitted to SAP Concur using our **Receipt** API (not email) on behalf of individual users who have connected their accounts/profiles between SAP Concur and the merchant in advance.
 
 ## Getting Started

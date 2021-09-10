@@ -3,12 +3,11 @@ title: Example Response
 layout: reference
 ---
 
+# Travel Receipts - Example Response
+
 {% include prerelease.html %}
 
-# Example Response
-
 Below is a sample of receipt requests to show the response format a partner would receive from the API. The `items` are the receipt requests and the `next` links to the next page of results.
-
 
 ### Receipt Request Response
 
