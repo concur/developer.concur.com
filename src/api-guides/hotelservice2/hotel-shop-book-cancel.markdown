@@ -1,9 +1,9 @@
 ---
-title: Direct Connect - Hotel v2 - Search, Reserve, and Cancel Walkthrough
+title: Search, Reserve, and Cancel Walkthrough
 layout: reference
 ---
 
-# Direct Connect - Hotel v2: Search, Reserve, and Cancel Walkthrough
+# Search, Reserve, and Cancel Walkthrough
 
 This is a basic scenario describing functionality provided by the Hotel Service v2 API incorporated into Concur Travel. This includes a hotel search, confirmation of a booking, and cancellation.
 
