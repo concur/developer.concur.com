@@ -1,11 +1,11 @@
 ---
-title: Direct Connect - Hotel v2 - Frequently Asked Questions
+title: Frequently Asked Questions
 layout: reference
 ---
 
-# Direct Connect - Hotel v2 - Frequently Asked Questions
+# Frequently Asked Questions
 
-Frequently asked questions on how the HotelService API content is leveraged in the SAP Concur Travel Hotel online booking tool.
+Frequently asked questions on how the HotelService API content is leveraged in the SAP Concur Travel hotel online booking tool.
 
 * [General](#general)
 * [Search](#search)
@@ -17,9 +17,9 @@ Frequently asked questions on how the HotelService API content is leveraged in t
 
 ## <a name="general"></a>General
 
-Q: What are the expectations of PrimaryLangID and AltLangID?
+Q: What are the expectations of `PrimaryLangID` and `AltLangID`?
 
-A: Language codes are obtained from the Concur user profile setting. For possible values, see the `Canonical List of Preferred Language Values` in  [Travel Profile v2 - Resource](`https://developer.concur.com/api-reference/travel-profile/v2.profile-resource.html`). `AltLangID` will be set to the same value as PrimaryLangID.
+A: Language codes are obtained from the user profile setting. For possible values, see the Canonical List of Preferred Language Values in  [Travel Profile v2 - Resource](https://developer.concur.com/api-reference/travel-profile/v2.profile-resource.html). `AltLangID` will be set to the same value as PrimaryLangID.
 
 ***
 
@@ -29,9 +29,9 @@ A: For endpoints such as `Search`, `Cancel` and `Detail`, the currency code in t
 
 For the `Availability`, `RateDetails`, and `Reservation` endpoints, the currency in the SOAP header is defined by the traveller's travel configuration.
 
-For the `Itinerary` endpoint, the currency in the SOAP header is based on the currency recorded in the PNR. In most cases, it is the currency specified in the reservation requeest.
+For the `Itinerary` endpoint, the currency in the SOAP header is based on the currency recorded in the PNR. In most cases, it is the currency specified in the reservation request.
 
-If the response does not give rates in the currency requested in the request SOAP header, SAP Concur will convert the rate to the currency specifed by the travel configuration.
+If the response does not give rates in the currency requested in the request SOAP header, the rate will be converted to the currency specified by the travel configuration.
 
 ***
 
@@ -39,13 +39,13 @@ If the response does not give rates in the currency requested in the request SOA
 
 Q: What is the maximum value possible for `Distance` and `DistanceMax`?
 
-A: SAP Concur can be configured to allow up to a 100 mile / 100 km search radius. The distance unit is based on the traveller profile setting.
+A: Concur Travel can be configured to allow up to a 100 mile / 100 km search radius. The distance unit is based on the traveller profile setting.
 
 ***
 
 ## <a name="availability"></a>Availability & RateDetails
 
-Q: How does SAP Concur select the `HotelRef/HotelCode` to be included in the Availability request?
+Q: How does Concur Travel select the `HotelRef/HotelCode` to be included in the Availability request?
 
 A: The first `n` hotels from the `Search` response will be specified in the `Availability` request.
 
@@ -57,25 +57,25 @@ A: The number of hotels priced is set by `Number of hotel results to shop` from 
 
 ***
 
-Q: If a property does not have availablity based on the request, what is the expected value for the `RoomStays` element?
+Q: If a property does not have availability based on the request, what is the expected value for the `RoomStays` element?
 
 A: `RoomStays` is optional. When not included, it indicates the hotel is not available.
 
 ***
 
-Q: How is AvailabilityStatus value `ChangeDuringStay` handled?
+Q: How is `AvailabilityStatus` value `ChangeDuringStay` handled?
 
-A: The AvailabilityStatus value `ChangeDuringStay` does not have an effect in the display of rates in the shop workflow. Although one may expect there to be multiple `Rate` items when AvailabilityStatus is set to ChangeDuringStay, the vendor must return just 1 `Rate` object to cover the full stay in the OTA_HotelAvailRS object. This is documented in the [API Reference](`https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html#rates`).
+A: The `AvailabilityStatus` value `ChangeDuringStay` does not have an effect in the display of rates in the shop workflow. Although one may expect there to be multiple `Rate` items when `AvailabilityStatus` is set to `ChangeDuringStay`, the vendor must return just 1 `Rate` object to cover the full stay in the `OTA_HotelAvailRS` object. This is documented in the rate info section of the [API Reference](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html#rates).
 
-For the RateDetails, HotelService accepts multiple `Rate` objects for the case where AvailabilityStatus is `ChangeDuringStay`, however, it is optional. These details are available to the user in the Rules and Cancellation Policy dialog. Please the [API Reference](`https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html#rates`) for additional details.
+For the RateDetails, Hotel Service accepts multiple `Rate` objects for the case where `AvailabilityStatus` is `ChangeDuringStay`, however, it is optional. These details are available to the user in the Rules and Cancellation Policy dialog. Please see the rate info section of the [API Reference](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html#rates) for additional details.
 
 ***
 
-Q: What is the usage of EffectiveDate and ExpireDate?
+Q: What is the usage of `EffectiveDate` and `ExpireDate`?
 
 A: When the AvailabilityStatus value is `ChangeDuringStay` the dates are used to indicate the start and end dates for when the rate is in effect.
 
-For example, given
+For example:
 
 ```
 <Rates>
@@ -87,17 +87,17 @@ For example, given
   </Rate>
 </Rates>
 ```
-Then, the nightly rate breakdown (after tax) is computed as:  
-10/25: $110 (Note that RateTimeUnit is FullDuration hence the indicated amount is over 2 nights, hence $110 per night)  
+The nightly rate breakdown (after tax) is computed as:  
+10/25: $110 (Note that `RateTimeUnit` is `FullDuration` so the indicated amount is over 2 nights, or $110 per night)  
 10/26: $110  
-10/27: $440 (Note that RateTimeUnit is Day so the indicated amount is per day)  
+10/27: $440 (Note that `RateTimeUnit` is `Day` so the indicated amount is per day)  
 10/28: $440
 
 ***
 
 Q: What is the usage of `GuestCount/AgeQualifyingCode`?
 
-A: This value indicates whether the guest is a child or adult. SAP Concur only supports the value of 10 which represents an adult guest.
+A: This value indicates whether the guest is a child or adult. Concur Travel only supports the value of 10 which represents an adult guest.
 
 ***
 
@@ -110,10 +110,10 @@ A: The rate description is made up of the `RateDescription`, `RatePlanDescriptio
 Q: What content is used to populate the Rules and Cancellation Policy?
 
 A: The text is generated using the content from Availability (or `RateDetails` when used). Including the following:
-  - From `Rate/Total` the total cost.
-  - From `PaymentPolicies`, the accepted credit card types.
-  - From `RatePlan/CancelPenalties`, details for the cancellation deadline and the penalty description.
-  - From `RatePlanDescription` and `RoomRateDescription` text descriptions for the rate.
+  * From `Rate/Total` the total cost.
+  * From `PaymentPolicies`, the accepted credit card types.
+  * From `RatePlan/CancelPenalties`, details for the cancellation deadline and the penalty description.
+  * From `RatePlanDescription` and `RoomRateDescription` text descriptions for the rate.
 
 ## <a name="hotel-descriptive-info"></a>HotelDescriptiveInfo
 
@@ -137,7 +137,7 @@ A: The names are defined on the Concur Travel profile and can be up to 60 charac
 
 ***
 
-Q: What is the difference between the value 'Committed' and 'Reserved' for ResResponseType?
+Q: What is the difference between the value `Committed` and `Reserved` for `ResResponseType`?
 
 A: Both indicate a successful reservation. They are treated in the same manner.
 
@@ -145,7 +145,7 @@ A: Both indicate a successful reservation. They are treated in the same manner.
 
 Q: What are the maximum lengths possible for `PersonName/NamePrefix`, `PersonName/GivenName`, and `PersonName/Surname`?
 
-A: 60 characters
+A: 60 characters.
 
 ***
 
@@ -153,7 +153,7 @@ A: 60 characters
 
 Q: Will `ReadItinerary` be invoked if my connection is lost during the reservation request?
 
-A: If the connection is lost (e.g. browser closed) before the reservation request is completed, the `ReadItinerary` request will not be invoked. The request to twShopTrip.asp occurs after the reservation completes and it is for this page that the `ReadItinerary` request is invoked.
+A: If the connection is lost (for example, browser closed) before the reservation request is completed, the `ReadItinerary` request will not be invoked. The request to `twShopTrip.asp` occurs after the reservation completes and it is for this page that the `ReadItinerary` request is invoked.
 
 ***
 
