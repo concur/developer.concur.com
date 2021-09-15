@@ -19,7 +19,7 @@ Frequently asked questions on how the HotelService API content is leveraged in t
 
 Q: What are the expectations of PrimaryLangID and AltLangID?
 
-A: Language codes are obtained from the Concur user profile setting. For possible values, see the `Canonical List of Preferred Language Values` in  [Travel Profile v2 - Resource](`https://developer.concur.com/api-reference/travel-profile/v2.profile-resource.html`). AltLangID will be set to the same value as PrimaryLangID.
+A: Language codes are obtained from the Concur user profile setting. For possible values, see the `Canonical List of Preferred Language Values` in  [Travel Profile v2 - Resource](`https://developer.concur.com/api-reference/travel-profile/v2.profile-resource.html`). `AltLangID` will be set to the same value as PrimaryLangID.
 
 ***
 
@@ -53,7 +53,7 @@ A: The first `n` hotels from the `Search` response will be specified in the `Ava
 
 Q: What is the maximum number of hotels automatically rate searched?
 
-A: The number of hotels priced is set by `Number of hotels to shop` from the Travel Configuration. This setting can be up to 100.
+A: The number of hotels priced is set by `Number of hotel results to shop` from the Travel Configuration. This setting can be up to 100.
 
 ***
 
@@ -65,9 +65,9 @@ A: `RoomStays` is optional. When not included, it indicates the hotel is not ava
 
 Q: How is AvailabilityStatus value `ChangeDuringStay` handled?
 
-A: The AvailabilityStatus value `ChangeDuringStay` does not have an effect in the display of rates in the shop workflow. Although one may expect there to be multiple `Rate` items when AvailabilityStatus is set to ChangeDuringStay, the vendor must return just 1 Rate object to cover the full stay in the OTA_HotelAvailRS object. This is documented https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html#rates.
+A: The AvailabilityStatus value `ChangeDuringStay` does not have an effect in the display of rates in the shop workflow. Although one may expect there to be multiple `Rate` items when AvailabilityStatus is set to ChangeDuringStay, the vendor must return just 1 `Rate` object to cover the full stay in the OTA_HotelAvailRS object. This is documented in the [API Reference](`https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html#rates`).
 
-For the RateDetails, HotelService accepts multiple `Rate` objects for the case where AvailabilityStatus is `ChangeDuringStay`, however, it is optional https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html#rates. These details are available to the user in the Rules and Cancellation Policy dialog.
+For the RateDetails, HotelService accepts multiple `Rate` objects for the case where AvailabilityStatus is `ChangeDuringStay`, however, it is optional. These details are available to the user in the Rules and Cancellation Policy dialog. Please the [API Reference](`https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html#rates`) for additional details.
 
 ***
 
@@ -90,7 +90,7 @@ For example, given
 Then, the nightly rate breakdown (after tax) is computed as:  
 10/25: $110 (Note that RateTimeUnit is FullDuration hence the indicated amount is over 2 nights, hence $110 per night)  
 10/26: $110  
-10/27: $440 (Note that RateTimeUnit is Day so the indicated amount is per day)
+10/27: $440 (Note that RateTimeUnit is Day so the indicated amount is per day)  
 10/28: $440
 
 ***
@@ -143,7 +143,7 @@ A: Both indicate a successful reservation. They are treated in the same manner.
 
 ***
 
-Q: What are the maximum lengths possible for PersonName/NamePrefix, PersonName/GivenName, and PersonName/Surname?
+Q: What are the maximum lengths possible for `PersonName/NamePrefix`, `PersonName/GivenName`, and `PersonName/Surname`?
 
 A: 60 characters
 

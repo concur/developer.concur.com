@@ -37,7 +37,6 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
     <Criteria>
       <Criterion>
         <Position Latitude="47.606209" Longitude="-122.332071"></Position>
-        <RefPoint></RefPoint>
         <HotelRef HotelName="Downtown"></HotelRef>
         <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
         <StayDateRange Start="2021-09-28" End="2021-10-01"></StayDateRange>
@@ -47,11 +46,14 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     `Distance` is defined by the radius value from the hotel search form, and `DistanceMax` is defined by the Search Radius for Corporate Hotels on the travel configuration.
 
+
+    The following is an example of how properties may be returned based on the specified radii. Out of 100 returned hotels in the response from the Hotel Supplier, the response may contain the 10 `most_preferred` hotels within a 30 mile radius, the 10 `preferred` hotels within a 30 mile radius, and the 10 `less_preferred` hotels within a 30 mile radius. The remaining 70 hotels would be `not_preferred` hotels within a 5 mile radius. Note: The preference level is defined by the `HotelPreference` element in the TPA_Extensions, which is outlined in [Search](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Search.html).    
+
     [Sample search request](./sample-requests/general-walkthrough/search-rq.xml)
 
     [Sample search response](./sample-requests/general-walkthrough/search-rs.xml)
 
-    Out of 100 returned hotels in the response from the Hotel Supplier, the response may contain the 10 `most_preferred` hotels within a 30 mile radius, the 10 `preferred` hotels within a 30 mile radius, and the 10 `less_preferred` hotels within a 30 mile radius. The remaining 70 hotels would be `not_preferred` hotels within a 5 mile radius. Note: The preference level is defined by the `HotelPreference` element in the TPA_Extensions, which is outlined in Search.
+
 
     Please refer to the [FAQ](./faq.html#search) for additional information regarding Search.
 
@@ -112,11 +114,16 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     Please refer to the [FAQ](./faq.html#hotel-descriptive-info) for additional information regarding `HotelDescriptiveInfo`.
 
-6. Upon selecting View Rooms, the UI displays all available rates for the chosen hotel.
+
+6. The business traveler clicks on the thumbnail to open the image gallery for the hotel. This also results in a [HotelDescriptiveInfo](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Descriptive-info.html) request. The `ImageItems` in the response will be used for the gallery images.
+
+    <a href='./images/general-walkthrough/hotel-gallery.png'><img style="max-width:300px" src="./images/general-walkthrough/hotel-gallery.png"/></a>
+
+7. Upon selecting **View Rooms**, the UI displays all available rates for the chosen hotel. 
 
     <a href='./images/general-walkthrough/hotel-rate-listing.png'><img style="max-width:300px" src="./images/general-walkthrough/hotel-rate-listing.png"/></a>
 
-7. Note each rate displays a Rules and cancellation policy link. When the business traveler clicks the link, if the cancellation details were deferred as indicated by [TPA_Extensions/RateDetailsInd](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html#res-schema), a [RateDetails](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html) request will be invoked. The response content will be displayed in a pop-up window.
+8. Note each rate displays a Rules and cancellation policy link. When the business traveler clicks the link, if the cancellation details were deferred as indicated by [TPA_Extensions/RateDetailsInd](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html#res-schema), a [RateDetails](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html) request will be invoked. The response content will be displayed in a pop-up window.
 
     <a href='./images/general-walkthrough/rules-and-cancellation-policy.png'><img style="max-width:300px" src="./images/general-walkthrough/rules-and-cancellation-policy.png"/></a>
 
@@ -126,15 +133,15 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     Please refer to the [FAQ](./faq.html#availability) for additional information regarding `RateDetails`.
 
-8. The business traveler closes the “Rules and cancellation policy” pop-up window and selects a rate. The Trip Summary page is displayed where the Business traveler can set the Hotel Preferences, Enter Guest information (from their profile), select the method of payment and view the total estimated price. The Rate rules and cancellation policy will be displayed as well. Like the previous step, if the cancellation details were deferred, a [RateDetails](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html) request will be invoked.
+9. The business traveler closes the “Rules and cancellation policy” pop-up window and selects a rate. The Trip Summary page is displayed where the Business traveler can set the Hotel Preferences, Enter Guest information (from their profile), select the method of payment and view the total estimated price. The Rate rules and cancellation policy will be displayed as well. Like the previous step, if the cancellation details were deferred, a [RateDetails](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Rate-details.html) request will be invoked.
 
 ### <a name="reserve"></a>Hotel Reservation
-9. The business traveler agrees to the rate rules, restrictions and cancellation policy and clicks **Reserve Hotel and Continue**.
+10. The business traveler agrees to the rate rules, restrictions and cancellation policy and clicks **Reserve Hotel and Continue**.
 
     <a href='./images/general-walkthrough/review-and-reserve-hotel.png'><img style="max-width:300px" src="./images/general-walkthrough/review-and-reserve-hotel.png"/></a>
 
 
-10. When the reservation request succeeds, the details of the reservation will be displayed to the business traveler
+11. When the reservation request succeeds, the details of the reservation will be displayed to the business traveler
 
     <a href='./images/general-walkthrough/trip-confirmation.png'><img style="max-width:300px" src="./images/general-walkthrough/trip-confirmation.png"/></a>
 
@@ -144,7 +151,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
     Please refer to the [FAQ](./faq.html#reservation) for additional information regarding Reservation.
 
-11. When the reservation details are displayed SAP Concur will invoke a [ReadItinerary](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Read-Itinerary.html) request. If a Read request does not arrive within 5 minutes for a given Reservation, then the supplier should treat that Reservation as an orphan and should thus seek to cancel it. The business traveler completes their reservation by confirming the booking.
+12. When the reservation details are displayed SAP Concur will invoke a [ReadItinerary](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Read-Itinerary.html) request. If a Read request does not arrive within 5 minutes for a given Reservation, then the supplier should treat that Reservation as an orphan and should thus seek to cancel it. The business traveler completes their reservation by confirming the booking.
 
     [Sample read request](./sample-requests/general-walkthrough/read-rq-load-trip.xml)
 
@@ -153,7 +160,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
     Please refer to the [FAQ](./faq.html#read-itinerary) for additional information regarding `ReadItinerary`.
 ### <a name="view"></a> View Reservation
 
-12. The business traveler can view the trip listed in the **Trip Library**. From this view, the traveler could choose to cancel the entire trip. However, to view the details, the Business traveler clicks on the **trip name**.
+13. The business traveler can view the trip listed in the **Trip Library**. From this view, the traveler could choose to cancel the entire trip. However, to view the details, the Business traveler clicks on the **trip name**.
 
     <a href='./images/general-walkthrough/trip-library.png'><img style="max-width:300px" src="./images/general-walkthrough/trip-library.png"/></a>
     *Trip Library*
@@ -163,16 +170,16 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 
 ### <a name="cancel"></a> Hotel Cancellation
 
-13. The Business traveler chooses to cancel the hotel reservation, by clicking **cancel** in the hotel segment of the trip details.
+14. The Business traveler chooses to cancel the hotel reservation, by clicking **cancel** in the hotel segment of the trip details.
 
 
-14. The UI shows the **Cancel Trip** pop-up where the Business traveler may choose to enter a comment. The Business traveler clicks **OK**. At this time a [ReadItinerary](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Read-Itinerary.html) request is made to reconcile differences between the local details, and the details of the reservation from the supplier.
+15. The UI shows the **Cancel Trip** pop-up where the Business traveler may choose to enter a comment. The Business traveler clicks **OK**. At this time a [ReadItinerary](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Read-Itinerary.html) request is made to reconcile differences between the local details, and the details of the reservation from the supplier.
 
 
-15. The UI shows the **Rules and cancellation policy**. The Business traveler accepts the policies by checking the 'I agree ...' checkbox and clicking **Continue**. A [Cancel](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Cancel.html) request will be made.
+16. The UI shows the **Rules and cancellation policy**. The Business traveler accepts the policies by checking the 'I agree ...' checkbox and clicking **Continue**. A [Cancel](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Cancel.html) request will be made.
 <a href='./images/general-walkthrough/accept-cancellation-policy-before-cancelling.png'><img style="max-width:300px" src="./images/general-walkthrough/accept-cancellation-policy-before-cancelling.png"/></a>
 
-16. The cancellation confirmation number from the response will be displayed to the business traveler.
+17. The cancellation confirmation number from the response will be displayed to the business traveler.
 
     <a href='./images/general-walkthrough/cancel-confirmation.png'><img style="max-width:300px" src="./images/general-walkthrough/cancel-confirmation.png"/></a>
 
