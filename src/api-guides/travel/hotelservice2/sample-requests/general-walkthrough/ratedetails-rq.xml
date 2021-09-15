@@ -7,8 +7,8 @@ accept: application/xml
 accept-charset: utf-8
 authorization: Basic xxxxxxxxxxxxxxxx
 concur-correlationid: 8da3b31537ccc7455dcc86828cda02e3
-concur-loginid:  xxxxxxxxxxxx
-concur-traveleruuid:  xxxxxxxxxxxx
+concur-loginid: janelle.doherty@devtravel.com
+concur-traveleruuid: 111dfba2-77c3-4ea5-905b-acb98a6c520e
 content-type: application/xml; charset="utf-8"
 soapaction: ratedetails
 
