@@ -7,8 +7,8 @@ accept: application/xml
 accept-charset: utf-8
 authorization: Basic xxxxxxxxxxxxxxxx
 concur-correlationid: 25506b4f5539549f05aaefd02b4a7460
-concur-loginid:  xxxxxxxxxxxx
-concur-traveleruuid:  xxxxxxxxxxxx
+concur-loginid: janelle.doherty@devtravel.com
+concur-traveleruuid: 111dfba2-77c3-4ea5-905b-acb98a6c520e
 content-type: application/xml; charset="utf-8"
 soapaction: availability
 
@@ -42,24 +42,6 @@ soapaction: availability
                         </Criterion>
                         <Criterion>
                             <HotelRef ChainCode="CU" HotelCode="HH871486"></HotelRef>
-                        </Criterion>
-                        <Criterion>
-                            <HotelRef ChainCode="LQ" HotelCode="HL031350"></HotelRef>
-                        </Criterion>
-                        <Criterion>
-                            <HotelRef ChainCode="NC" HotelCode="HE030953"></HotelRef>
-                        </Criterion>
-                        <Criterion>
-                            <HotelRef ChainCode="WK" HotelCode="HW030255"></HotelRef>
-                        </Criterion>
-                        <Criterion>
-                            <HotelRef ChainCode="BW" HotelCode="HB030284"></HotelRef>
-                        </Criterion>
-                        <Criterion>
-                            <HotelRef ChainCode="WV" HotelCode="HP030567"></HotelRef>
-                        </Criterion>
-                        <Criterion>
-                            <HotelRef ChainCode="QQ" HotelCode="HH784890"></HotelRef>
                         </Criterion>
                     </HotelSearchCriteria>
                     <StayDateRange Start="2021-09-28" End="2021-10-01"></StayDateRange>
