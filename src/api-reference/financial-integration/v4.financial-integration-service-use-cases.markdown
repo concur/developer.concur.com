@@ -3,6 +3,8 @@ title: Financial Integration Service Use Cases
 layout: reference
 ---
 
+# Financial Integration Service Use Cases
+
 ## Menu
 
 * [Getting Started](./v4.financial-integration.html)

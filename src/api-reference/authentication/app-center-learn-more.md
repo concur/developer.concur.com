@@ -2,8 +2,7 @@
 title: Learn More About Scopes
 layout: reference
 ---
-
-## Partner Application Scope Usage
+#  Learn More About Scopes
 
 The table below lists all the possible scopes that an SAP Concur Partner Application might have access to. Please refer to the App Center Terms and Conditions and look under the "Shared Information" dialogue. Links to API endpoints that are accessible by each scope are mapped out.
 
@@ -76,6 +75,7 @@ SUPSVC|Get supplier data|[Suppliers v3](/api-reference/common/suppliers/supplier
 TAXINV|Get or validate digital tax invoices|[Sales Tax Validation v3](/api-reference/invoice/v3.sales-tax-validation.html)
 TMCSP|TMC specific information|[Travel Profile v2 TMC](/api-reference/travel-profile/v2.profile-resource.html#General)
 travelallowance.allowancedays.read|View the allowance days in an expense report|[Travel Allowance API](/api-reference/expense/travelallowance/travelallowance-days.html)
+travel.itinerary.read|[Itinerary v4](/api-reference/travel/itinerary-v4/v4.itinerary.html)
 travel.receipts.read|Read travel receipt requests|[Travel Receipts](/api-reference/travel-receipts/getting-started.html), [Travel Receipts Sample](/api-reference/travel-receipts/sample.html)
 travel.receipts.write|Post travel receipts|[Travel Receipts](/api-reference/travel-receipts/getting-started.html), [Travel Receipts Sample](/api-reference/travel-receipts/sample.html)
 travelrequest.write|Add, update, or delete travel requests|[Request v4](/api-reference/request/v4.get-started.html)

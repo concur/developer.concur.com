@@ -1,29 +1,37 @@
 ---
 title: API Lifecycle & Deprecation Policy
 layout: reference
-
-redirect_from:
-  - /tools-support/reference/deprecation-policy.html
 ---
-
 # API Lifecycle & Deprecation Policy
 
-The Concur API Lifecycle & Deprecation Policy is part of our [API terms and conditions of use.](/Terms-of-Use.html) We may make periodic updates to this Policy, at which time we will notify those who have agreements with us.
+The API Lifecycle & Deprecation Policy is part of our [API terms and conditions of use.](/Terms-of-Use.html) We may make periodic updates to this policy, at which time we will notify those who have agreements with us.
+
+>**NOTE**: For the policy that applies to APIs deprecated prior to August 2021, see: https://developer.concur.com/tools-support/deprecation-policy-legacy.html.
 
 ## API Version Status  
 
-* **Active:** An active API version is the most current and fully supported API. It is the recommended version to use by everyone.
-* **Deprecated:** A deprecated API version has been superseded by a newer API version. It is supported (bug fixes) for six months from the deprecation date. New apps will be denied access to deprecated APIs.
-* **Retired:** A retired API version is no longer supported. It includes any API deprecated for more than six months. Any application using a retired API must migrate to an active API.
-* **Decommissioned:** A decommissioned API version is no longer available on production. This occurs after three (3) months of inactivity in Retired state.
+* **Active:** An active API version is the most current and fully supported API. It is the recommended version for everyone to use.
+* **Deprecated:** A deprecated API version has been superseded by a newer API version.  New apps will be denied access to deprecated APIs.
+* **Decommissioned:** A decommissioned API version is no longer available on production.
 
-### API Version Status Table
+## API Lifespan and State Change
 
-Active | Deprecated | Retired | Decommissioned
------|------|-------- | ------
-**API is live in production.** | **API is live in production.** | API is live in production. | API is NOT available in production after three (3) months of inactivity in Retired status.
-**Documentation*:** Available for review 2 weeks prior to launch; Posted day of launch. | **Documentation:** Deprecated status indicated and posted on day of deprecation. | **Documentation:** Retired status indicated and posted on day of retirement. | **Documentation:** n/a
-**Support:** Updated with bug fixes and new features are available. | **Support:** Updated with bug fixes for first six (6) months; No fixes after that period. | **Support:** No longer supported six (6) months after Deprecated. | **Support:** None.
-**Release Notes:** Notify 2 weeks prior to launch; Announce availability when in production. | **Release Notes:** Notify 90 days prior to deprecation; Announce when deprecated. | **Release Notes:** Notify 90 days prior to retirement; Announce when retired. | **Release Notes:** Notify 90 days prior to decommissioning.
+* **Minimum Lifespan:** We will provide a minimum lifespan for APIs of 24 months in the active or deprecated status before announcing a decommissioned state.
+*	**Deprecated -> Decommissioned:** Once an API transitions from an active to deprecated status, we will maintain the API in the deprecated state for a minimum of 12 months before transitioning the API to decommissioned state.
+*	**Decommissioned:** Decommissioned APIs are no longer supported and any and all documentation may be deleted at our discretion.  
+*	**Exceptions:** There may be exceptions where we are not able to satisfy the foregoing minimum lifespan or minimum deprecated state duration. This is including but not limited to:
+    * Where required by law or regulatory authority.
+    * Where required by a third party licensor.
+    * To address a security risk.
+    * To address a claim by a third party of intellectual property infringement.
+    * Where the associated SAP Concur product has entered end of life.
+    * Where the API or the associated application have no adoption and are therefore being deleted.
 
-## *Exception: Changes required due to security issues may have a shorter notification and action window.  
+## API Version Status Table
+
+Active|Deprecated|Decommissioned
+---|---|---
+**API is live in production.**| **API is live in production.** | API is no longer available in production.
+**Documentation:** Available for review two weeks prior to launch. Posted on day of launch. | **Documentation:** Deprecated status indicated and posted on day of deprecation. | **Documentation:** N/A
+**Support:** Updated with bug fixes and new features are available. | **Support:** Updated with bug fixes for a minimum of 12 months. | **Support:** None.
+**Release Notes:** Notify two weeks prior to launch. Announce availability when in production.| **Release Notes:** Notify 30 days prior to deprecation. Announce when deprecated. Time period is at least 12 months in this status. | **Release Notes:** Notify 30 days prior to decommissioning.

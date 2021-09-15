@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference/travel-profile/01-profile-resource.html
 ---
 
+# Travel Profile v2 - Resource
+
 The Travel Profile resource represents a Concur Travel profile that contains travel-related information about a user.
 
 ## Operations
@@ -92,7 +94,7 @@ Creating/Updating a Profile uses the same model as what is retrieved.
 	* `LastName`
 	* `TravelConfigID` (used to verify agency and Company access to create user)
 	* `LoginID`
-	* `Password`
+	* `Password` (we will set a random, strong password if not provided)
 	* `RuleClass` (uses default rule class if not provided)
 * Omitted elements will be ignored and not updated
 * Empty elements of datatype string will be cleared out; nillable elements will be cleared out if set as nil refer to XSD for nillable elements.
@@ -158,6 +160,7 @@ Name|Data Type|Description|Update|Create|Comments
 `CostCenter`|`string`|The user’s cost center. Format: nvarchar(25)|-|-|Requires Company Details scope.
 `CompanyEmployeeID`|`string`|The user’s employee ID. Format: nvarchar(48)|-|-|Requires Company Details scope.  Must be unique in the company.
 `Division`|`string`|The user's division. Format: nvarchar(60)|-|-|Requires Company Details scope.  Must already be setup in the company configuration.
+`AccountTerminationDate`|`Date`|The user's Termination Date|-|-|Requires Company Details scope.
 `PreferredLanguage`|`string`|The user's preferred language locale. Example: United States English is en-US. Format: varchar(20)|-|-|See list of allowed canonical values below. Values not on this list will write an empty string|
 `EReceiptOptIn`|`boolean`|Whether the user has opted in to receive e-receipts. Format: true\false|-|-
 `HasOpenBooking`|`boolean`|Whether the user has the TripLink User (formerly Open Booking User) permission. Format: true\false|Cannot Update|-|-
@@ -291,8 +294,8 @@ Name|Data Type|Description|Update|Create|Comments
 `Type attribute`|`string`|Type of phone. Values are: Home, Work, Fax, Pager, Other, and Cell|required|required|-
 `ContactOptIn attribute`|`boolean`|Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell. Format: true\false|-|-|-
 `PrimaryMobile attribute`|`boolean`|This is the user's preferred mobile device. Format: true\false|-|-|-
-`CountryCode`|`string`|The country code in from the [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) specification. Format: Char(2)|required (Cell)|required (Cell)|Required for Cell types.
-`PhoneNumber`|`string`|The phone number as entered by the user, which may contain characters such as () or -. For CellPhone, Number may only contain digits, dashes and spaces. Format: nvarchar(60) <br>|required (Cell)|required (Cell)|Required for Cell types. 
+`CountryCode`|`string`|The country code in from the [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) specification. Format: Char(2)|-|-|-
+`PhoneNumber`|`string`|The phone number as entered by the user, which may contain characters such as () or -. For CellPhone, Number may only contain digits, dashes, parenthesis, and spaces. Format: nvarchar(60) <br>|required (Cell)|required (Cell)|Required for Cell types.
 `Extension`|`string`|The phone extension. Format: nvarchar(60)|-|-|-
 `MobileDevice`|`string`|The OS of the mobile device. Values are:<br> Android Phone<br> Android Tablet<br> Blackberry<br> iOS Phone<br> iOS Tablet<br> Not a smartphone<br> Other iOS device<br> Other smartphone<br> Unknown<br> Window Mobile|-|-|-
 `MobileName`|`string`|The name the user assigned to the mobile device. Format: nvarchar(255)|-|-|-

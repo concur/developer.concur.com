@@ -3,6 +3,8 @@ title: Post an event notification request
 layout: reference
 ---
 
+# Post an Event Notification Request
+
 * [Request](#request)
   * [Request Schema](#req-schema)
   * [Request Example](#req-example)

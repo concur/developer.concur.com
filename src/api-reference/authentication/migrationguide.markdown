@@ -1,13 +1,14 @@
 ---
-title: Migrating old tokens to new Oauth2 Bearer Tokens
+title: Migrating old tokens to new OAuth2 Bearer Tokens
 layout: reference
 ---
+# Migrating to OAuth2 Tokens
 
 * [Base URIs](#base_uris)
 * [Exchanging a Token](#exchangetoken)
 * [Response Codes](#response_codes)
 
-Existing applications that use the [Pre-2017 Authorization (Deprecated)](/api-reference/authentication/authorization-pre-2017.html) framework need to move to support the new Oauth2 Bearer Tokens. Applications will need to migrate their existing users who already have connected to it to obtain new Oauth2 tokens without requiring users to reauthorize. This can be done by exchanging an old access token for a new refresh token.
+Existing applications that use the [Pre-2017 Authorization (Deprecated)](/api-reference/authentication/authorization-pre-2017.html) framework need to move to support the new OAuth2 Bearer Tokens. Applications will need to migrate their existing users who already have connected to it to obtain new Oauth2 tokens without requiring users to reauthorize. This can be done by exchanging an old access token for a new refresh token.
 
 ## <a name="base_uris"></a>Base URIs
 
@@ -15,14 +16,14 @@ When making API calls, the appropriate base URI for the user's geolocation shoul
 
 ## <a name="exchangetoken"></a>Exchanging a Token
 
-In order to support new Oauth2, applications need to exchange old access token for new `accessToken` and `refreshToken` pair. Once obtained, applications should store these `refreshTokens` as part of users authorization data.
+In order to support new OAuth2, applications need to exchange old access token for new `accessToken` and `refreshToken` pair. Once obtained, applications should store these `refreshTokens` as part of users authorization data.
 
-The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications would need to call Oauth2's `/v0/token` endpoint using a `refresh_grant`, passing in the user's `refreshtoken` to obtain a fresh `accessToken`.
+The new OAuth2 `accessToken` has a one hour lifetime. Once expired, applications would need to call OAuth2's `/v0/token` endpoint using a `refresh_grant`, passing in the user's `refreshtoken` to obtain a fresh `accessToken`.
 
-This is significantly different from how the deprecated /net2/Oauth2's method of handling access tokens. Partner's would have to store the new Oauth2 `refreshToken` instead of the old access token. Before making a call to any of the new v4 APIs, it is advisable to request for a new `accessToken` before making the API call.
+This is significantly different from how the deprecated /net2/OAuth2's method of handling access tokens. Partner's would have to store the new OAuth2 `refreshToken` instead of the old access token. Before making a call to any of the new v4 APIs, it is advisable to request for a new `accessToken` before making the API call.
 
 **Step 1: Obtain Application Token**
-Clients can exchange OLD tokens for NEW Oauth2 tokens by calling the `exchangeRefreshToken/me` endpoint. In order to call this endpoint, you would first need to obtain an Application Token by calling the `/v0/token` endpoint with the [client_credentials](https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) grant.
+Clients can exchange OLD tokens for NEW OAuth2 tokens by calling the `exchangeRefreshToken/me` endpoint. In order to call this endpoint, you would first need to obtain an Application Token by calling the `/v0/token` endpoint with the [client_credentials](https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) grant.
 
 The endpoint also supports a parameter called "returnType=companyToken"  This parameter allows a partner who already has what is known as a "WSAdmin" token for a client, to exchange that token for a Company level refresh token.
 
@@ -97,7 +98,7 @@ successful call, responds with
 
 **Step 3: Obtain New Access Token**
 
-Once you have the NEW `refreshToken` from the response (`8c844478-745c-4c45-adf7-1e2777a50dbf`) you can then proceed to call `/v0/token` using the refresh grant to obtain a NEW Oauth2 `accessToken`.
+Once you have the NEW `refreshToken` from the response (`8c844478-745c-4c45-adf7-1e2777a50dbf`) you can then proceed to call `/v0/token` using the refresh grant to obtain a NEW OAuth2 `accessToken`.
 
 Sample Curl:
 
@@ -143,7 +144,7 @@ successful call, responds with:
 | INVALIDTOKEN  | Bad or expired token                             |
 | UNAUTHORIZED  | Invalid credentials                              |
 
-##### HTTP Status returned by oauth2
+##### HTTP Status returned by OAuth2
 
 | HTTP Status | Description                                      |
 |-------------|--------------------------------------------------|
@@ -177,6 +178,7 @@ successful call, responds with:
 | 14   | `invalid_grant`   | Account Locked. Please contact support                 |
 | 16   | `invalid_request` | user lives elsewhere                                   |
 | 19   | `invalid_grant`   | Incorrect credentials. Please Retry                    |
+| 20   | `invalid_grant`   | Logon Denied. Please contact support (typically due to IP restriction)                    |
 | 51   | `invalid_request` | username was not supplied                              |
 | 52   | `invalid_request` | password was not supplied                              |
 | 53   | `invalid_client`  | company is not enabled for this client                 |
@@ -212,3 +214,7 @@ successful call, responds with:
 | 118  | `invalid_request` | display is invalid                                     |
 | 119  | `invalid_request` | prompt is invalid                                      |
 | 119  | `invalid_request` | prompt must be set to consent for `offline_access`     |
+| 120  | `invalid_request` | `credtype` is invalid                                  |
+| 121  | `invalid_request` | `login_type` is invalid                                |
+| 122  | `invalid_request` | proxies supplied are invalid                           |
+| 123  | `invalid_request` | principal is disabled                                  |

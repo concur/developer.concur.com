@@ -3,6 +3,8 @@ title: Direct Connect - Ground Transportation - Update reservation with Travel
 layout: reference
 ---
 
+# Update reservation with Travel
+
 {% include deprecation-alert.html %}
 
 This request is sent when the ground transportation service provider needs to send an update to the reservation to Travel.

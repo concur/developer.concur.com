@@ -3,6 +3,8 @@ title: correlationid
 layout: reference
 ---
 
+# correlationid
+
 The `concur-correlationid` is an SAP Concur platform specific custom header used for technical support in the form of a [RFC 4122 A](https://tools.ietf.org/html/rfc4122) universally unique identifier (UUID) uniform resource name (URN) namespace.
 
 In order to assist with troubleshooting, a unique `correlationid` is returned in the response header. This unique code can be used during troubleshooting as it identifies the API call in the log files. You should record this information in your own API call logs as well so that you can pass this information on to the SAP Concur support team.

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+200 OK (HTTP Status 200) HTTP/1.1
+cache-control: private, max-age=0
+connection: keep-alive
+content-length: 121868
+content-type: text/xml; charset=utf-8
+date: Mon, 14 Jun 2021 05:27:36 GMT
+x-scheme: https
+x-xss-protection: 1; mode=block
+
+    HTTP-headers end -->
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <OTA_HotelResRS EchoToken="7b0fb272-f10c-4b10-aebc-33fa73b5c90e" Version="6" ResResponseType="Reserved"
+            xmlns="http://www.opentravel.org/OTA/2003/05">
+            <Success />
+            <HotelReservations>
+                <HotelReservation>
+                    <UniqueID Type="1000" ID="1785118482" />
+                    <UniqueID Type="14" ID="CS700058388-1" />
+                    <RoomStays>
+                        <RoomStay>
+                            <RatePlans>
+                                <RatePlan RatePlanID="4CE2BBE73E#7b0fb272-f10c-4b10-aebc-33fa73b5c90e">
+                                    <CancelPenalties>
+                                        <CancelPenalty NoCancelInd="false">
+                                            <PenaltyDescription>
+                                                <Text>Cancellations or changes made between 04:00 PM on Sep 27, 2021 and 04:00 PM on Sep 28, 2021 are subject to 1 Night Room &amp; Tax penalty.InclusiveTaxAmount=0.00 , ExclusiveTaxAmount=58.77 , AmountBeforeTax=335.88 USD, AmountAfterTax=335.88 USD.</Text>
+                                            </PenaltyDescription>
+                                        </CancelPenalty>
+                                    </CancelPenalties>
+                                </RatePlan>
+                            </RatePlans>
+                            <RoomRates>
+                                <RoomRate>
+                                    <Rates>
+                                        <Rate>
+                                            <Total AmountBeforeTax="335.88" AmountAfterTax="335.88" CurrencyCode="USD" />
+                                        </Rate>
+                                    </Rates>
+                                </RoomRate>
+                            </RoomRates>
+                            <TimeSpan Start="2021-09-28" End="2021-10-01" />
+                            <BasicPropertyInfo HotelCode="HT030025" HotelName="Travelodge Seattle by The Space Needle">
+                                <Address>
+                                    <AddressLine>200 6th Avenue North</AddressLine>
+                                    <CityName>Seattle</CityName>
+                                    <PostalCode>98109</PostalCode>
+                                    <StateProv StateCode="WA">Washington</StateProv>
+                                    <CountryName Code="US">United States</CountryName>
+                                </Address>
+                                <ContactNumbers>
+                                    <ContactNumber PhoneTechType="1" PhoneNumber="+12069628678" />
+                                    <ContactNumber PhoneTechType="3" PhoneNumber="+12064484825" />
+                                </ContactNumbers>
+                            </BasicPropertyInfo>
+                        </RoomStay>
+                    </RoomStays>
+                    <ResGuests>
+                        <ResGuest>
+                            <Profiles>
+                                <ProfileInfo>
+                                    <Profile>
+                                        <Customer Gender="Female" BirthDate="1987-05-12">
+                                            <PersonName Language="en">
+                                                <NamePrefix>Mademoiselle</NamePrefix>
+                                                <GivenName>Janelle</GivenName>
+                                                <Surname>Doherty</Surname>
+                                            </PersonName>
+                                            <Telephone PhoneNumber="703-555-6100"></Telephone>
+                                            <Email>janelle.doherty@devtravel.com</Email>
+                                            <Address>
+                                                <AddressLine>209 Madison St Suite 400</AddressLine>
+                                                <CityName>Alexandria</CityName>
+                                                <PostalCode>22314</PostalCode>
+                                                <StateProv StateCode="VA"></StateProv>
+                                                <CountryName Code="US">United States of America</CountryName>
+                                            </Address>
+                                            <CitizenCountryName Code="US"></CitizenCountryName>
+                                        </Customer>
+                                </Profile>
+                                </ProfileInfo>
+                            </Profiles>
+                        </ResGuest>
+                    </ResGuests>
+                </HotelReservation>
+            </HotelReservations>
+        </OTA_HotelResRS>
+    </soap:Body>
+</soap:Envelope>

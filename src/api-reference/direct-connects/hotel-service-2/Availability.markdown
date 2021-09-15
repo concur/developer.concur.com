@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v2 - Availability
 layout: reference
 ---
 
+# Hotel v2 - Availability
+
 Message to retrieved the availability of hotels.
 
 |SOAPAction|OTA Name|Message Structure|
@@ -450,7 +452,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |-------------------|-----------|-------------|
-|`RequireSeriesCode`|`boolean`|**Required** If `true`, the CVV code is required for the given rate.|
+|`RequireSeriesCode`|`boolean`|If `true`, the CVV code is required for the given rate. When `false` or not provided, the rate will be treated as CVV code not required.|
 
 #### <a name="timespan"></a>Timespan
 
@@ -463,7 +465,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 
 |Name|Type|Description|
 |----------------|-----------|-------------|
-|`HotelCode`|`complex`|**Required** Refer to the `HotelRef` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html).|
+|`HotelCode`|`complex`|**Required** Refer to the `Property` element described in [Search](/api-reference/direct-connects/hotel-service-2/Search.html#property).|
 
 # <a name="relationship-roomid-rateplanid"></a>Relationship between RoomID and RatePlanID
 

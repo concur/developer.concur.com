@@ -3,6 +3,8 @@ title: ERP Integrations
 layout: reference
 ---
 
+# ERP Integrations
+
 * [Learn](#learn)
 * [Phased Development Approaches](#phases)
 * [Integration](#integration)

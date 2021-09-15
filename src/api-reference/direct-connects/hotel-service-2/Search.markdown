@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Search
 layout: reference
 ---
 
-# Search
+# Hotel v2 - Search
 
 Message to perform the initial search for hotels.
 
@@ -60,7 +60,6 @@ Message to perform the initial search for hotels.
       <Criteria>
         <Criterion>
           <Position Latitude="47.61037" Longitude="-122.20067"></Position>
-          <RefPoint></RefPoint>
           <HotelRef HotelName="sunshine"></HotelRef>
           <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
           <StayDateRange Start="2018-09-26" End="2018-09-27"></StayDateRange>
@@ -98,7 +97,6 @@ The criterion is used to define the search criteria.  Currently we support only 
 |---------------|-----------|-------------|
 |`Position`|`complex`|**Required for Search request only, but optional for Availability request.** Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709.|
 |`HotelRef`|`complex`|Indicates the detail of hotel reference information.|
-|`RefPoint`|`stringLength0to64`|The reference point element allows for a search by proximity to a designated reference point by name.|
 |`Radius`|`complex`|Used to specify the extent of a search area. The extent is relative to an element (`position`, `address`, `hotelRef`, etc.) present in this `ItemSearchCriterionType` that specifies a location.|
 |`StayDateRange`|`complex`|**Required** Range of dates using ISO 8601.|
 
@@ -240,7 +238,7 @@ The maximum allowed size of `OTA_HotelSearchRS` is 1 MB. Any response that excee
 
 |Name|Type|Description|
 |---------|-------------------|-------------|
-|`Code`|`stringLength0to64`|**Required** The name or ISO 3166 code of a country.|
+|`Code`|`string`|**Required** The 2-letter ISO 3166 code of a country.|
 
 #### <a name="contact-numbers"></a>ContactNumbers
 

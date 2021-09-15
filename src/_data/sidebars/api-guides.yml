@@ -7,6 +7,13 @@
   children:
       - title: Expense - Associating External Attendees to Expense Entries
         url: /api-guides/attendees/external-attendees-to-expense-entries.html
+- title: Direct Connect - Hotel v2
+  url: ''
+  children:
+      - title: Search, Reserve, and Cancel Walkthrough
+        url: /api-guides/hotelservice2/hotel-shop-book-cancel.html
+      - title: Frequently Asked Questions
+        url: /api-guides/hotelservice2/faq.html
 - title: eReceipts Integration
   url: /api-guides/e-receipts.html
 - title: Invoice
@@ -19,14 +26,26 @@
 - title: TMC
   url: ''
   children:
+     - title: TMC Guide Overview
+       url: /api-guides/tmc/tmc-overview.html
+     - title: Guide to the Itinerary v1.0 API, TMC Edition
+       url: /api-guides/tmc/itinerary-v1-guide.html
+     - title: Guide to the Profile v2.0 API, TMC Edition
+       url: /api-guides/tmc/profile-v2-guide.html
+     - title: Guide to the Receipts v4.0 API, TMC Edition
+       url: /api-guides/tmc/receipts-v4-guide.html
      - title: Guide to the Request v4.0 API, TMC Edition
        url: /api-guides/tmc/request-v4-guide.html
 - title: Travel
   url: ''
   children:
+      - title: Duty of Care
+        url: /api-guides/travel/duty-of-care.html
       - title: Itinerary - GET Itinerary & Trip Details
         url: /api-guides/travel/get-itinerary.html
       - title: Itinerary - Add a New Itinerary Manually
         url: /api-guides/travel/new-itinerary-manual.html
+      - title: Itinerary - Business Travel Events
+        url: /api-guides/travel/itin-with-events.html
 - title: VAT Reclaim Integration
   url: /api-guides/vat-reclaim/vat-reclaim-guide.html

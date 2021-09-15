@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference/travel-profile/99-reference-resource.html
 ---
 
+# Travel Profile v2 - References
+
 Various References needed for Travel Profile Services
 
 ## Tables

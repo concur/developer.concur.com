@@ -3,6 +3,8 @@ title: SAP Concur Deprecated API List
 layout: reference
 ---
 
+# SAP Concur Deprecated API List
+
 The following application programming interfaces (APIs) and other resources have been deprecated according to the [API Lifecycle & Deprecation Policy](/tools-support/deprecation-policy.html).
 
 * [Attendees v1](/api-reference/expense/attendees/v1.attendees.html)
@@ -10,6 +12,7 @@ The following application programming interfaces (APIs) and other resources have
 * [Attendees v2](/api-reference/expense/attendees/v2.attendees.html)
 * [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html)
 * [Authorization (Pre-2017)](/api-reference/authentication/authorization-pre-2017.html)
+* [Bulk Users v3.1](/api-reference/authentication/get-users31.html)
 * Direct Connect - Ground Transportation v1
   * [Update reservation with Travel](/api-reference/direct-connects/ground-transportation/update-reservation-travel.html)
 * Expense Entry v1.1

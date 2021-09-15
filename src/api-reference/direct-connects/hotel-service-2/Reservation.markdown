@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Reservation
 layout: reference
 ---
 
-# Reservation Message
+# Hotel v2 - Reservation Message
 
 Message to reserve a hotel.
 
@@ -442,7 +442,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
                 <Address>
                   <AddressLine>Rosenstr. 1</AddressLine>
                   <CityName>Berlin</CityName>
-                  <CountryName Code="DEU">Federal Republic of Germany</CountryName>
+                  <CountryName Code="DE">Federal Republic of Germany</CountryName>
                   <StateProv StateCode="BE">Berlin District</StateProv>
                   <PostalCode>BE123</PostalCode>
                 </Address>
@@ -529,7 +529,7 @@ The maximum allowed size of `OTA_HotelResRS` is 150 KB. Any response that exceed
 |-------|-------------|
 |`14`|Reservation ID used in subsequent calls (`Itinerary`, `Cancel`).|
 |`15`|Cancellation number, displayed in UI, proof of cancellation. |
-|`40`|Confirmation number for future use (not used now).|
+|`40`|Hotel Reservation System Confirmation number (for future use).|
 |`1000`|Cancellation/modification code. This will be rendered on itinerary page and can be used to change the reservation outside of the SAP Concur system. SAP Concur-specific OTA extension. |
 
 #### <a name="res-room-stays"></a>RoomStays

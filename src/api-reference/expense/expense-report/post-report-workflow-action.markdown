@@ -3,6 +3,8 @@ title: Post an expense report workflow action
 layout: reference
 ---
 
+# Post an Expense Report Workflow Action
+
 Posts a workflow action for the supplied expense report. The workflow action moves the expense report through the workflow process.
 
 * [Workflow Actions](#workflow-actions)

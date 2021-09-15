@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v2 - Error Handling
 layout: reference
 ---
 
+# Hotel v2 - Error Handling
+
 SAP Concur is able to handle HTTP errors, but the preference is for the supplier to return an OTA error whenever possible.  SAP Concur only ever expects one OTA error per message. Any extra errors will be ignored.
 Currently OTA Warnings are not supported and will be ignored.
 

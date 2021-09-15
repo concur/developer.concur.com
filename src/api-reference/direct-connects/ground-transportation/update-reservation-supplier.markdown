@@ -3,6 +3,8 @@ title: Direct Connect - Ground Transportation - Update reservation with supplier
 layout: reference
 ---
 
+# Update Reservation with Supplier
+
 This request is sent when the Travel user updates an existing ground transportation reservation.
 
 * [Request](#request)

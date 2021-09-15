@@ -6,6 +6,8 @@ redirect_from:
  - /tools-support/reference/http-codes.html
 ---
 
+# HTTP Status Codes
+
 ## Successful Requests
 
 The web services return a HTTP 2xx response code when the request was successful.

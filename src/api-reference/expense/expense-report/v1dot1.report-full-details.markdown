@@ -6,6 +6,8 @@ redirect_from:
  - /api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html
 ---
 
+# Report Full Details v1.1
+
 {% include deprecation-alert.html %}
 
 Retrieves the full set of information for the report. Includes the Report Header, Entry, Attendee, Itemization and Allocation details.

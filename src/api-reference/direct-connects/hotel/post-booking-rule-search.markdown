@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v1 - Post a booking rule search
 layout: reference
 ---
 
+# Hotel v1 - Post a Booking Rule Search
+
 {% include deprecation-alert.html %}
 
 ## Description
