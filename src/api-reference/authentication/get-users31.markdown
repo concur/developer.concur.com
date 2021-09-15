@@ -2,6 +2,7 @@
 title: GET Users Bulk API
 layout: reference
 ---
+# Bulk User v3.1
 
 <div class="alert alert-danger">
   <p><strong>This API has been deprecated for the US and EMEA data centers. This API is still available in China data centers.</strong></p>

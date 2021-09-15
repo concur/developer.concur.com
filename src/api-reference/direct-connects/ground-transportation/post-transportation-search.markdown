@@ -3,6 +3,8 @@ title: Direct Connect - Ground Transportation - Post a transportation search
 layout: reference
 ---
 
+# Post a Transportation Search
+
 A post transportation search request is sent when the Travel user searches for ground transportation.
 
 * [Request](#request)

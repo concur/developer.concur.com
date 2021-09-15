@@ -3,6 +3,8 @@ title: Direct Connect - Hotel v2 - Availability
 layout: reference
 ---
 
+# Hotel v2 - Availability
+
 Message to retrieved the availability of hotels.
 
 |SOAPAction|OTA Name|Message Structure|

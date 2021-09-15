@@ -5,6 +5,7 @@ layout: reference
 
 {% include prerelease.html %}
 
+# Travel Receipts
 
 The Travel Receipts service offers one endpoint for retrieving receipt requests.
 

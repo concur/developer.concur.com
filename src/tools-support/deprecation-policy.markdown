@@ -2,6 +2,7 @@
 title: API Lifecycle & Deprecation Policy
 layout: reference
 ---
+# API Lifecycle & Deprecation Policy
 
 The API Lifecycle & Deprecation Policy is part of our [API terms and conditions of use.](/Terms-of-Use.html) We may make periodic updates to this policy, at which time we will notify those who have agreements with us.
 

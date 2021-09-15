@@ -12,6 +12,8 @@ redirect_from:
   - /api-reference-deprecated/version-one/Image/report-image-URL-get.html
 ---
 
+# Image v1
+
 * [Post an image](#post-image)
 * [Get an image URL](#get-image-url)
 

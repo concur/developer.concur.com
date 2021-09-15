@@ -6,6 +6,8 @@ redirect_from:
   - /api-reference-deprecated/version-one/list-item/list-resource-get.html
 ---
 
+# List Item Web Service v1 - Get a list of lists
+
 {% include deprecation-alert.html %}
 
 This resource supports the following GET actions:

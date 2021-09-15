@@ -7,6 +7,8 @@ redirect_from:
   - /api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource.html
 ---
 
+# Expense Group Configurations v1.1
+
 {% include deprecation-alert.html %}
 
 The Expense Group Configuration contains the list of Expense Polices, Expense Types and Payment Types for the Expense Group the user specified in the OAuth access token is assigned to.

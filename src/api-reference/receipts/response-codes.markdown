@@ -3,9 +3,7 @@ title: Response Codes
 layout: reference
 ---
 
-# Receipts
-
-## Response Codes
+# Receipts v4 - Response Codes
 
 ### Success Codes
 

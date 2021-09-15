@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Cancel
 layout: reference
 ---
 
-# Cancel
+# Hotel v2 - Cancel
 
 Message used to indicate to the hotel supplier that a given reservation should be cancelled.
 

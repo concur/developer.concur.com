@@ -3,7 +3,7 @@ title: Direct Connect - Hotel v2 - Search
 layout: reference
 ---
 
-# Search
+# Hotel v2 - Search
 
 Message to perform the initial search for hotels.
 

@@ -4,6 +4,8 @@ layout: reference
 
 ---
 
+# Event Subscription Service v4
+
 ## Menu
 
 * [Event Subscription Service](#ess)

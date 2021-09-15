@@ -4,12 +4,13 @@ layout: reference
 redirect_from:
   - /api-reference/invoice/purchase-request.html
 ---
+# Purchase Request v4 - Get Started
 
 The Purchase Request API gives SAP Concur clients the ability to leverage external data to create purchase requests for pre-authorization of purchase orders. Clients can build a direct connection to the Purchase Request API which will create new purchase requests and automatically submit them into the pre-authorization workflow. Once approved, the purchase request results in a purchase order that can be transmitted to a vendor from SAP Concur.
 
 #### Use Case
 
-Many Concur Invoice clients have external systems that have part or service lists with pricing. If they use SAP Concur pre-authorization using purchase request, the data from the external systems must be entered manually into the purchase request cart and submitted for approval by the requesting employee. Using this API and a client-built integration, the requestor can browse and select the items from the external system with quantities and other details needed, and then send the data to SAP Concur. A purchase request will be created and submitted into the workflow. The API returns a response message with a record identifier (URI), which can be used with the Get Purchase Request Details method to get the basic details of the created purchase request: Concur Purchase Request number, workflow status, exceptions, and once approved, the resulting SAP Concur purchase order number. 
+Many Concur Invoice clients have external systems that have part or service lists with pricing. If they use SAP Concur pre-authorization using purchase request, the data from the external systems must be entered manually into the purchase request cart and submitted for approval by the requesting employee. Using this API and a client-built integration, the requestor can browse and select the items from the external system with quantities and other details needed, and then send the data to SAP Concur. A purchase request will be created and submitted into the workflow. The API returns a response message with a record identifier (URI), which can be used with the Get Purchase Request Details method to get the basic details of the created purchase request: Concur Purchase Request number, workflow status, exceptions, and once approved, the resulting SAP Concur purchase order number.
 
 #### Limitations
 
@@ -53,11 +54,11 @@ SAP Concur clients must purchase Concur Invoice, Concur Purchasing, and Concur W
 
 To create purchase requests, you need to supply a Vendor Code and Vendor Address Code. You can access **Vendor Manager** in Concur Invoice to see these values. If you need to get this data from SAP Concur using web services, you can use the [Vendor v3](/api-reference/invoice/v3.vendor.html) API.
 
-If your purchase request form in SAP Concur has required custom fields that are tied to lists, you will need to supply the Item Code for the list items, or configure them to copy down from another source such as Employee. You can access  **List Management** in SAP Concur to see your list items and list item codes. If you need to get this data from SAP Concur using web services, you can use the [List Item v3](/api-reference/common/list-item/v3.list-item.html) API to retrieve the `Level1Code` value for the list items. 
+If your purchase request form in SAP Concur has required custom fields that are tied to lists, you will need to supply the Item Code for the list items, or configure them to copy down from another source such as Employee. You can access  **List Management** in SAP Concur to see your list items and list item codes. If you need to get this data from SAP Concur using web services, you can use the [List Item v3](/api-reference/common/list-item/v3.list-item.html) API to retrieve the `Level1Code` value for the list items.
 
 ### Access Token Usage
 
-This API will work with both Company or User access tokens, however a Company access token is required if the integration will create purchase requests for multiple requestors. Using a User access token to create purchase requests results in the purchase request being assigned to the user that generated the User access token, not the user set in the payload. A User access token can be used for testing purposes. 
+This API will work with both Company or User access tokens, however a Company access token is required if the integration will create purchase requests for multiple requestors. Using a User access token to create purchase requests results in the purchase request being assigned to the user that generated the User access token, not the user set in the payload. A User access token can be used for testing purposes.
 
 #### Retrieve a Company Access Token
 

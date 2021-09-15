@@ -6,6 +6,8 @@ redirect_from:
 - /api-reference/travel-profile/03-loyalty-program-resource.html
 ---
 
+# Travel Profile v1 - Loyalty Program
+
 The loyalty program information for the user, as entered in SAP Concur.
 
 ## URI

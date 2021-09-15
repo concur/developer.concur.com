@@ -1,7 +1,9 @@
 ---
-title: Direct Connect - Hotel v2 - Search, reserve, and cancel walkthrough
+title: Direct Connect - Hotel v2 - Search, Reserve, and Cancel Walkthrough
 layout: reference
 ---
+
+# Direct Connect - Hotel v2 - Search, Reserve, and Cancel Walkthrough
 
 Basic scenario describing functionality provided by the Hotel Service v2 API incorporated into SAP Concur Travel starting from a hotel search, through to confirmation of a booking and ending with a cancellation.
 
@@ -18,14 +20,14 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 1. Secondary Actor - Hotel Supplier
 1. Tertiary Actor - SAP Concur
 
-## <a name="walkthrough"></a>Hotel search, reserve, and cancel walkthrough
+## <a name="walkthrough"></a>Hotel Search, Reserve, and Cancel Walkthrough
 
 ### <a name="search"></a> Hotel Search
 1. <a name="#start-shop"></a>Business traveler performs a hotel search. The criterion for the [Search](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Search.html) request will be comprised of the input in the search form, and the search radius will be obtained from the travel configuration.
-    
+
     <a href='./images/general-walkthrough/search-form.png'><img style="max-width:300px" src="./images/general-walkthrough/search-form.png"/></a>
     *Hotel Search*
-    
+
     <a href='./images/general-walkthrough/travel-config-radius.png'><img style="max-width:300px" src="./images/general-walkthrough/travel-config-radius.png"/></a>
     *Travel Configuration*
 
@@ -41,11 +43,12 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
       </Criterion>
     </Criteria>
     ```
-    
+
     `Distance` is defined by the radius value from the hotel search form, and `DistanceMax` is defined by the Search Radius for Corporate Hotels on the travel configuration.
 
+
     The following is an example of how properties may be returned based on the specified radii. Out of 100 returned hotels in the response from the Hotel Supplier, the response may contain the 10 `most_preferred` hotels within a 30 mile radius, the 10 `preferred` hotels within a 30 mile radius, and the 10 `less_preferred` hotels within a 30 mile radius. The remaining 70 hotels would be `not_preferred` hotels within a 5 mile radius. Note: The preference level is defined by the `HotelPreference` element in the TPA_Extensions, which is outlined in [Search](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Search.html).    
-    
+
     [Sample search request](./sample-requests/general-walkthrough/search-rq.xml)
 
     [Sample search response](./sample-requests/general-walkthrough/search-rs.xml)
@@ -91,7 +94,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
 3. When the [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) response is received, the UI displays the available hotels. Hotels included in the Availability response will display a lead rate and the **View Rooms** button, or Not Available, based on the provider's response. The business traveler can then select **View Rooms** for a hotel with a lead rate displayed, or request to **Get Rates** in case they are not present.
 
     <a href='./images/general-walkthrough/search-results.png'><img style="max-width:300px" src="./images/general-walkthrough/search-results.png"/></a>
-    
+
     <a href='./images/general-walkthrough/search-results-unpriced.png'><img style="max-width:300px" src="./images/general-walkthrough/search-results-unpriced.png"/></a>
 
 4. If a business traveler selects **Get Rates**, an additional [Availability](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Availability.html) request will be made for the selected hotel. The request will be sent with a single hotel code. The response will be used to display the lead rate, and the button will change to **View Rooms**. Parallel Availability requests should be supported as the UI allows users to click **Get Rates** on multiple hotels without blocking.
@@ -110,6 +113,7 @@ Basic scenario describing functionality provided by the Hotel Service v2 API inc
     [Sample descriptive info response](./sample-requests/general-walkthrough/hoteldetail-rs.xml)
 
     Please refer to the [FAQ](./faq.html#hotel-descriptive-info) for additional information regarding `HotelDescriptiveInfo`.
+
 
 6. The business traveler clicks on the thumbnail to open the image gallery for the hotel. This also results in a [HotelDescriptiveInfo](https://developer.concur.com/api-reference/direct-connects/hotel-service-2/Descriptive-info.html) request. The `ImageItems` in the response will be used for the gallery images.
 

@@ -2,6 +2,7 @@
 title: List of Scopes for all SAP Concur APIs
 layout: reference
 ---
+# Scopes
 
 * [Naming Conventions](#conventions)
 * [List of v4 Actions](#actions)

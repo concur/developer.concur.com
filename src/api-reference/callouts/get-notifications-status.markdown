@@ -2,6 +2,7 @@
 title: Get notifications by status
 layout: reference
 ---
+# Get Notifications by Status
 
 Retrieves the list of event notifications that are in the supplied status.
 

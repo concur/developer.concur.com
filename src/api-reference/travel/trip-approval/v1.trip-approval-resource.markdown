@@ -5,6 +5,8 @@ redirect_from:
   - /api-reference/travel/trip-approval/trip-approval-resource.html
 ---
 
+# Trip Approval v1
+
 {% include retired-alert.html retired-date="2018/10/08" %}
 
 ## Description

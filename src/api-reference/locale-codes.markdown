@@ -6,6 +6,8 @@ redirect_from:
   - /tools-support/reference/locale-codes.html
 ---
 
+# Locale Codes
+
 All Concur customers have the following locale set in their entities by default. This is the only locale that is available for all clients.
 
 ## Default Locale
