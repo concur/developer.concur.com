@@ -7,6 +7,13 @@
   children:
       - title: Expense - Associating External Attendees to Expense Entries
         url: /api-guides/attendees/external-attendees-to-expense-entries.html
+- title: Direct Connect - Hotel v2
+  url: ''
+  children:
+      - title: Search, Reserve, and Cancel Walkthrough
+        url: /api-guides/hotelservice2/hotel-shop-book-cancel.html
+      - title: Frequently Asked Questions
+        url: /api-guides/hotelservice2/faq.html
 - title: eReceipts Integration
   url: /api-guides/e-receipts.html
 - title: Invoice
