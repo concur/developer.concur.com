@@ -3,14 +3,12 @@ title: Deeplink URL Integration
 layout: reference
 ---
 
-
 # Deeplink URL Integration
-
-{% include prerelease.html %}
 
 The Deeplink URL integration provides the ability for a user on a third-party website or portal to access the resource in Concur Expense. This is useful when the user needs to navigate to the SAP Concur solutions website or the SAP Concur Mobile app to complete their operation on the resource, or requires more insights on the resource than that provided in the third-party website or portal.  
 
 * [Limitations](#limitations)
+* [Prerequisites](#pre-req)
 * [Process Flow](#process-flow)
 * [Scope Usage](#scope-usage)
 * [Datacenter Availability](#datacenter-availability)
@@ -18,7 +16,12 @@ The Deeplink URL integration provides the ability for a user on a third-party we
 
 ## <a name="limitations"></a>Limitations
 
-This functionality is only available in US and EMEA data centers. Users must purchase Concur Expense in order to use this integration capability. This integration is only available to partners who have been granted access and to customers who either use username/password or SSO SAML2 implementation for authenticating. Access to this documentation does not provide access to the integration.   
+This functionality is only available in US and EMEA data centers. Users must purchase Concur Expense in order to use this integration capability. This integration is only available to partners who have been granted access and to customers who either use username/password or SSO SAML2 implementation for authenticating. Access to this documentation does not provide access to the integration.
+
+## <a name="pre-req"></a>Prerequisites
+
+* The user must already exist as an active user in the SAP Concur solution with a Concur Expense role such as Expense User, Expense Manager, or Expense Processor.
+*	If multiple identity providers (IdPs) are in use, the user may be required to select the correct IdP or provide the login credentials prior to the SSO process.
 
 ## <a name="process-flow"></a>Process Flow
 
@@ -61,8 +64,3 @@ This deep link URL will support the feature to access SAP Concur solutions via S
 
 * **Web UI:** Enable the user to access the specific report whose summary or link they were viewing in the third-party application.
 * **Mobile UI:** Enable the user to access the specific report whose summary they were viewing in the third-party application’s mobile app.
-
-#### Pre-requisites:
-
-* The user must already exist as an active user in the SAP Concur solution with a Concur Expense role such as Expense User, Expense Manager, or Expense Processor.
-*	If multiple identity providers (IdPs) are in use, the user may be required to select the correct IdP or provide the login credentials prior to the SSO process.

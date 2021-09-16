@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HTTP-headers start 
+
+cache-control: private, max-age=0
+connection: keep-alive
+content-length: 798381
+content-type: text/xml; charset=utf-8
+date: Mon, 14 Jun 2021 04:41:44 GMT
+x-scheme: https
+x-xss-protection: 1; mode=block
+
+    HTTP-headers end -->
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <OTA_HotelAvailRS Version="5" xmlns="http://www.opentravel.org/OTA/2003/05">
+            <Success />
+            <RoomStays>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType RoomType="Deluxe" RoomID="D_DC64E03AC4">
+                            <RoomDescription>
+                                <Text>Deluxe queen room with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Premium" RoomID="I_E670A10A79">
+                            <RoomDescription>
+                                <Text>Premium king room with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Deluxe" RoomID="D_09AC129C96">
+                            <RoomDescription>
+                                <Text>Accessible deluxe double room with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Suite" RoomID="T_3649AF52D0">
+                            <RoomDescription>
+                                <Text>Studio suite with balcony</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Premium" RoomID="I_605C3A09B1">
+                            <RoomDescription>
+                                <Text>Premium king room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Deluxe" RoomID="D_CCAA7A74BD">
+                            <RoomDescription>
+                                <Text>Deluxe queen room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Deluxe" RoomID="D_F3DEE4EBBE">
+                            <RoomDescription>
+                                <Text>Deluxe double room with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Deluxe" RoomID="D_8D3EE863B3">
+                            <RoomDescription>
+                                <Text>Accessible deluxe double room with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Suite" RoomID="T_CAF9497539">
+                            <RoomDescription>
+                                <Text>Balcony suite</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Deluxe" RoomID="D_D8A797B07B">
+                            <RoomDescription>
+                                <Text>Deluxe queen room with city view</Text>
+                            </RoomDescription>
+                        </RoomType>
+                    </RoomTypes>
+                    <RatePlans>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="DC64E03AC4#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="E670A10A79#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="09AC129C96#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-28T12:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel by 12PM day of arrival to avoid penalty fees.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="3649AF52D0#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="605C3A09B1#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T05:01:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged. InclusiveTaxAmount = 136.19 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 829.23 USD,  AmountAfterTax = 965.42 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="CCAA7A74BD#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-26T18:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancellations or changes made between 06:00 PM on Sep 26, 2021 and 06:00 PM on Sep 28, 2021 are subject to 1 Night Room &amp; Tax penalty. InclusiveTaxAmount = 137.73 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 838.95 USD,  AmountAfterTax = 976.68 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="F3DEE4EBBE#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T05:01:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged. InclusiveTaxAmount = 139.54 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 850.56 USD,  AmountAfterTax = 990.10 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="8D3EE863B3#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-26T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 2 days prior to arrival to avoid penalty.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="CAF9497539#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="D8A797B07B#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-26T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 2 days prior to arrival to avoid penalty.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                    </RatePlans>
+                    <RoomRates>
+                        <RoomRate RatePlanID="DC64E03AC4#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="D_DC64E03AC4">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="584.01" AmountAfterTax="681.12" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Corporate Rewards Club Rate</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 194.67 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances.   Physical distancing rules followed.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="E670A10A79#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="I_E670A10A79">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="621.81" AmountAfterTax="724.83" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Corporate Rewards Club Rate</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 207.27 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances.   Physical distancing rules followed.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="09AC129C96#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="D_09AC129C96">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="648.90" AmountAfterTax="756.12" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Corporate Rewards Club Rate</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 216.30 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances.   Physical distancing rules followed.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="3649AF52D0#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="T_3649AF52D0">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="829.71" AmountAfterTax="965.16" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Corporate Rewards Club Rate</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 276.57 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances.   Physical distancing rules followed.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="605C3A09B1#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="I_605C3A09B1">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="829.23" AmountAfterTax="965.42" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="130.19" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Non-refundable. Rate provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 321.81 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="CCAA7A74BD#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="D_CCAA7A74BD">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="838.95" AmountAfterTax="976.68" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="TAS" Amount="137.73" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax Recovery Charges and Service Fees">
+                                                    <Text>Tax Recovery Charges and Service Fees</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Refundable. Rate provided by Expedia, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 279.65 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: The hotel allows check-ins from 4:00 PM. Check-ins will be stopped by 3:00 AM.  Guests must check out by 12:00 PM.
+Extra-person charges may apply and vary depending on property policy. Government-issued photo identification and a credit card, debit card, or cash deposit may be required at check-in for incidental charges. Special requests are subject to availability upon check-in and may incur additional charges. Special requests cannot be guaranteed. Safety features at this property include a carbon monoxide detector, a fire extinguisher, and a smoke detector. This property advises that enhanced cleaning and guest safety measures are currently in place.Disinfectant is used to clean the property; commonly-touched surfaces are cleaned with disinfectant between stays; bed sheets and towels are laundered at a temperature of at least 60°C/140°F.Personal protective equipment, including masks and gloves, will be available to guests.Contactless check-out is available.Each guestroom is kept vacant for a minimum of 24 hours  between bookings.The property affirms that it adheres to the SafeStay (AHLA - USA) sanitization guidelines.
+Mandatory: You'll be asked to pay the following charges at the property: Resort fee: USD 17.34 per accommodation, per night The resort fee includes:Fitness center accessInternet accessNewspaperPhone callsHousekeeping We have included all charges provided to us by the property. However, charges can vary, for example, based on length of stay or the room you book. 
+Optional: The following fees and deposits are charged by the property at time of service, check-in, or check-out. Breakfast fee: between USD 12 and USD 50 for adults, USD 10 and USD 25 for children (approximately). Self parking fee: USD 43.00 per night Valet parking fee: USD 52 per night (in/out privileges)   Pet deposit: USD 50 per stay Pet fee: USD 50 per pet, per stay                  The above list may not be comprehensive. Fees and deposits may not include tax and are subject to change. 
+Know before you go:  The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation.  Front desk staff will greet guests on arrival.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="F3DEE4EBBE#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="D_F3DEE4EBBE">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="850.56" AmountAfterTax="990.10" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="133.54" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Non-refundable. Rate provided by Booking.com, loyalty benefits will not apply to this rate.</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 330.03 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="8D3EE863B3#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="D_8D3EE863B3">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="885.70" AmountAfterTax="1011.94" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>SEAPLANE SEATTLE</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 360.40 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances.   Physical distancing rules followed.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="CAF9497539#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="T_CAF9497539">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="924.21" AmountAfterTax="1074.36" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Corporate Rewards Club Rate</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 308.07 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances.   Physical distancing rules followed.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="D8A797B07B#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="D_D8A797B07B">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="927.00" AmountAfterTax="1129.62" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>FLEXIBLE RATE</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 309.00 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances.   Physical distancing rules followed.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                    </RoomRates>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan End="2021-10-01" Start="2021-09-28" />
+                    <BasicPropertyInfo ChainCode="PF" HotelCode="HP070213" />
+                </RoomStay>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType RoomType="Deluxe" RoomID="D_7147F1F591">
+                            <RoomDescription>
+                                <Text>Deluxe Room, 1 King Bed</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_E0BF5EC85F">
+                            <RoomDescription>
+                                <Text>Queen Room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                    </RoomTypes>
+                    <RatePlans>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="7147F1F591#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-28T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancellations or changes made between 12:00 AM on Sep 28, 2021 and 06:00 PM on Sep 28, 2021 are subject to 1 Night Room &amp; Tax penalty. InclusiveTaxAmount = 91.50 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 544.50 USD,  AmountAfterTax = 636.00 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="E0BF5EC85F#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-20T23:59:59" />
+                                    <PenaltyDescription>
+                                        <Text>Free cancellation or modification until Sep 20 2021 23h59. You may cancel free of charge until 7 days before arrival. You will be charged the cost of the first night if you cancel in the 7 days before arrival. InclusiveTaxAmount = 94.71 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 565.00 USD,  AmountAfterTax = 659.71 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                    </RatePlans>
+                    <RoomRates>
+                        <RoomRate RatePlanID="7147F1F591#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="D_7147F1F591">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="544.50" AmountAfterTax="636.00" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="TAS" Amount="91.50" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax Recovery Charges and Service Fees">
+                                                    <Text>Tax Recovery Charges and Service Fees</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Refundable - Rate provided by Expedia</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 175.50 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-29 Check-In Instructions: The hotel allows check-ins from 3:00 PM. Check-ins will be stopped by anytime.  Guests must check out by 11:00 AM.
+Extra-person charges may apply and vary depending on property policy. Government-issued photo identification and a credit card, debit card, or cash deposit may be required at check-in for incidental charges. Special requests are subject to availability upon check-in and may incur additional charges. Special requests cannot be guaranteed.  The name on the credit card used at check-in to pay for incidentals must be the primary name on the guestroom reservation. This property advises that enhanced cleaning and guest safety measures are currently in place.Disinfectant is used to clean the property; commonly-touched surfaces are cleaned with disinfectant between stays; bed sheets and towels are laundered at a temperature of at least 60°C/140°F.Personal protective equipment, including masks and gloves, will be available to guests.Social distancing measures are in place; staff at the property wear personal protective equipment; a shield is in place between staff and guests in main contact areas; periodic temperature checks are conducted on staff; temperature checks are available to guests.Contactless check-in and contactless check-out are available.Individually-wrapped food options are available for breakfast, lunch, and dinner, and also through room service.Each guestroom is kept vacant for a minimum of 72 hours between bookings.The property affirms that it adheres to the SafeStay (AHLA - USA) sanitization guidelines.Please note that cultural norms and guest policies may differ by country and by property. The policies listed are provided by the property. Valet parking is closed 11 PM-7 AM daily.
+Mandatory: You'll be asked to pay the following charges at the property: City/local tax: USD 2.0 We have included all charges provided to us by the property. However, charges can vary, for example, based on length of stay or the room you book. 
+Optional: The following fees and deposits are charged by the property at time of service, check-in, or check-out. Fee for cooked-to-order breakfast: USD 15 for adults and USD 29 for children (approximately)  . Valet parking fee: USD 55 per night (in/out privileges)   Pet fee: USD 125 per pet, per stayService animals are exempt from fees                  The above list may not be comprehensive. Fees and deposits may not include tax and are subject to change.  Front desk staff will greet guests on arrival.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="E0BF5EC85F#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_E0BF5EC85F">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="565.00" AmountAfterTax="659.71" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="88.71" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Refundable - Rate provided by Booking.com</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>true</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 219.90 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                    </RoomRates>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan End="2021-10-01" Start="2021-09-28" />
+                    <BasicPropertyInfo ChainCode="PF" HotelCode="HH910312" />
+                </RoomStay>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType RoomType="Standard" RoomID="S_4613DF4DCB">
+                            <RoomDescription>
+                                <Text>King Room - Non-Smoking</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Family" RoomID="F_49BE1CEDA5">
+                            <RoomDescription>
+                                <Text>Queen Room with Two Queen Beds - Non-Smoking</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="S_867965C3EC">
+                            <RoomDescription>
+                                <Text>1 King - Non-Smoking - Mini-fridge and coffee maker/tea</Text>
+                            </RoomDescription>
+                        </RoomType>
+                        <RoomType RoomType="Standard" RoomID="U_E465E4F48E">
+                            <RoomDescription>
+                                <Text>2 queen beds - Non-Smoking - Mini-fridge and coffee maker/tea</Text>
+                            </RoomDescription>
+                        </RoomType>
+                    </RoomTypes>
+                    <RatePlans>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="4613DF4DCB#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T05:01:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged. InclusiveTaxAmount = 70.42 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 410.29 USD,  AmountAfterTax = 480.71 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Non Refundable" RatePlanID="49BE1CEDA5#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="Deposit" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-07-09T05:01:00" />
+                                    <PenaltyDescription>
+                                        <Text>Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged. InclusiveTaxAmount = 73.81 USD,  ExclusiveTaxAmount = 0.00 USD,  AmountBeforeTax = 431.89 USD,  AmountAfterTax = 505.70 USD</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="867965C3EC#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="E465E4F48E#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-27T00:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel at least 1 day prior to arrival for full refund.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                    </RatePlans>
+                    <RoomRates>
+                        <RoomRate RatePlanID="4613DF4DCB#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_4613DF4DCB">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="410.29" AmountAfterTax="480.71" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="64.42" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Not Refundable - Rate provided by Booking.com</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 160.24 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result. Spa and gym facilities at this property are unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="49BE1CEDA5#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="F_49BE1CEDA5">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="431.89" AmountAfterTax="505.70" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes>
+                                            <Tax Type="Inclusive" Code="VAT" Amount="67.81" CurrencyCode="USD">
+                                                <TaxDescription Name="Tax">
+                                                    <Text>Tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                            <Tax Type="Inclusive" Code="CIT" Amount="6.0" CurrencyCode="USD">
+                                                <TaxDescription Name="City tax">
+                                                    <Text>City tax</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Not Refundable - Rate provided by Booking.com</Text>
+                                    </RateDescription>
+                                    <TPA_Extensions>
+                                        <RequireSeriesCode>false</RequireSeriesCode>
+                                    </TPA_Extensions>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 168.57 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions: Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. In response to Coronavirus (COVID-19), additional safety and sanitation measures are in effect at this property. Food &amp; beverage services at this property may be limited or unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), this property is taking steps to help protect the safety of guests and staff. Certain services and amenities may be reduced or unavailable as a result. Spa and gym facilities at this property are unavailable due to Coronavirus (COVID-19). Due to Coronavirus (COVID-19), wearing a face mask is mandatory in all indoor common areas.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="867965C3EC#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_867965C3EC">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="484.38" AmountAfterTax="565.92" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Hotel special - 15PCT off</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 161.46 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions:  Guest accommodation is disinfected between stays. Physical distancing rules followed. Hand sanitizer in guest accommodation and key areas. Contactless check-in/check-out. Process in place to check health of guests. Screens or physical barriers placed between staff and guests in appropriate areas. Linens, towels and laundry washed in accordance with local authority guidelines. Staff follow all safety protocols as directed by local authorities. Physical distancing in dining areas. Cashless payment available. Use of cleaning chemicals that are effective against Coronavirus. First aid kit available. All plates, cutlery, glasses and other tableware have been sanitized. Guest accommodation sealed after cleaning.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                        <RoomRate RatePlanID="E465E4F48E#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="U_E465E4F48E">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="509.88" AmountAfterTax="595.44" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Corporate Rewards Club RateS</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 169.96 USD, effectiveDate = 2021-09-28, expireDate = 2021-10-01 Check-In Instructions:  Guest accommodation is disinfected between stays. Physical distancing rules followed. Hand sanitizer in guest accommodation and key areas. Contactless check-in/check-out. Process in place to check health of guests. Screens or physical barriers placed between staff and guests in appropriate areas. Linens, towels and laundry washed in accordance with local authority guidelines. Staff follow all safety protocols as directed by local authorities. Physical distancing in dining areas. Cashless payment available. Use of cleaning chemicals that are effective against Coronavirus. First aid kit available. All plates, cutlery, glasses and other tableware have been sanitized. Guest accommodation sealed after cleaning.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                    </RoomRates>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan End="2021-10-01" Start="2021-09-28" />
+                    <BasicPropertyInfo ChainCode="PF" HotelCode="HT030025" />
+                </RoomStay>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType RoomType="Standard" RoomID="S_87AE5FC97F">
+                            <RoomDescription>
+                                <Text>1 king bed, luxury bathroom</Text>
+                            </RoomDescription>
+                        </RoomType>
+                    </RoomTypes>
+                    <RatePlans>
+                        <RatePlan RatePlanType="Refundable" RatePlanID="87AE5FC97F#4239ae61-0749-47ad-89f5-d7f51e3e7922" AvailabilityStatus="AvailableForSale">
+                            <Guarantee GuaranteeType="CC/DC/Voucher" />
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2021-09-28T14:00:00" />
+                                    <PenaltyDescription>
+                                        <Text>Cancel by 2pm day of arrival to avoid penalty fee.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text />
+                            </RatePlanDescription>
+                        </RatePlan>
+                    </RatePlans>
+                    <RoomRates>
+                        <RoomRate RatePlanID="87AE5FC97F#4239ae61-0749-47ad-89f5-d7f51e3e7922" RoomID="S_87AE5FC97F">
+                            <Rates>
+                                <Rate>
+                                    <Total AmountBeforeTax="632.00" AmountAfterTax="736.58" CurrencyCode="USD" DecimalPlaces="2">
+                                        <Taxes />
+                                    </Total>
+                                    <RateDescription>
+                                        <Text>Corporate Rewards Club Rate</Text>
+                                    </RateDescription>
+                                </Rate>
+                            </Rates>
+                            <RoomRateDescription>
+                                <Text>Rate Split: Amount = 209.00 USD, effectiveDate = 2021-09-28, expireDate = 2021-09-30 Check-In Instructions: As this information is sourced from a third party and subject to change we recommend you confirm independently for your circumstances. Practices at the hotel developed based on health service recommendations from public governmental entities or private organizations. Specific cleaning/disinfection routines in place for pillows, duvets and their covers, headboard, bathrobe etc. Hotel cleans and sanitize public areas and publicly accessible facilities (i.e. meeting rooms, restaurants, elevator banks, etc.). Rooms are not accessible until the traveler arrives once they have been cleaned by staff. Rooms disinfected with hospital grade disinfectant before the next guest arrives. All  employees are trained on COVID-19 safety and facility sanitation protocols. Hand sanitizing stations installed and easily accessible by employees and guests at hotel entrances as well as the reception area. Documented process available on what to do if a guest or an employee reports feeling unwell or displays COVID-19 symptoms. Masks and disposable gloves provided on request or pursuant to local authority/public health service requirements. All seating arrangements in restaurants and bars comply with government specified distancing measures Signage is in place reminding staff and guests of proper health and safety procedures. Contactless check in available at the property. Items such as decorative pillows, paper notepads, and pens can be removed upon request Contactless payment procedures in place at the property. Food and beverage room service is able to promote social distancing. Buffets or plated meals are served only by employees/attendants at restaurant. Pre-packaged breakfast items are offered in lieu of buffet or plated meals.</Text>
+                            </RoomRateDescription>
+                        </RoomRate>
+                    </RoomRates>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan End="2021-10-01" Start="2021-09-28" />
+                    <BasicPropertyInfo ChainCode="PF" HotelCode="HH871486" />
+                </RoomStay>
+            </RoomStays>
+            <TPA_Extensions RateDetailsInd="false" />
+        </OTA_HotelAvailRS>
+    </soap:Body>
+</soap:Envelope>
