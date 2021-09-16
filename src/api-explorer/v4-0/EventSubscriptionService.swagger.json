@@ -10,6 +10,8 @@
       "url": "https://concur.com"
     }
   },
+  "host": "awsqa-event-mgmt.nonprod.cnqr.tech",
+  "basePath": "/",
   "tags": [
     {
       "name": "Subscriptions Management",
