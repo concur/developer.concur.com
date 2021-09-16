@@ -9,6 +9,11 @@
         url: /api-guides/attendees/external-attendees-to-expense-entries.html
 - title: eReceipts Integration
   url: /api-guides/e-receipts.html
+- title: Expense
+  url: ''
+  children:
+      - title: Deeplink URL
+        url: /api-guides/expense/deeplink-url.html
 - title: Invoice
   url: ''
   children:
