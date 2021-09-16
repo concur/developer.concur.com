@@ -4,6 +4,14 @@ layout: reference
 ---
 # Announcements
 
+### 2021-09-16 :: Expected Site Downtimes
+
+Expected site downtimes may occur on September 21st, 2021 and September 28th, 2021. We will be providing a new, enhanced user-interface that may cause some disruptions during the migration. If you try to access the site during one of these outages, please return at a later time.
+
+### 2021-09-16 :: September 2021 Release Notes Published
+
+The September 2021 release notes have been published. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.
+
 ### 2021-08-26 :: August 2021 Release Notes Published
 
 The August 2021 release notes have been published. More details can be found on the [Release Notes](https://developer.concur.com/tools-support/release-notes/index.html) page.

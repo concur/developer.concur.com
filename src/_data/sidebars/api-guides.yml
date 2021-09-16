@@ -16,6 +16,11 @@
         url: /api-guides/hotelservice2/faq.html
 - title: eReceipts Integration
   url: /api-guides/e-receipts.html
+- title: Expense
+  url: ''
+  children:
+      - title: Deeplink URL
+        url: /api-guides/expense/deeplink-url.html
 - title: Invoice
   url: ''
   children:
