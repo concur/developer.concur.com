@@ -27,10 +27,6 @@
     {
       "name": "Expected Expense Resource",
       "description": "Manage expected expenses attached to a Request"
-    },
-    {
-      "name": "Cash Advance Resource",
-      "description": "Retrieve cash advance for Concur Request"
     }
   ],
   "paths": {
@@ -59,6 +55,7 @@
             "enum": [
               "ALL",
               "ACTIVE",
+              "ACTIVEAPPROVED",
               "UNSUBMITTED",
               "PENDING",
               "VALIDATED",
@@ -2169,119 +2166,6 @@
           }
         }
       }
-    },
-    "/cashadvances/{cashAdvanceUuid}": {
-      "get": {
-        "tags": [
-          "Cash Advance Resource"
-        ],
-        "summary": "Get the content of an existing cash advance",
-        "description": "Provides the content of an existing cash advance.",
-        "operationId": "getUsingGET_1",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "cashAdvanceUuid",
-            "in": "path",
-            "description": "The unique identifier of the cash advance",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/CashAdvance"
-            }
-          },
-          "400": {
-            "description": "Bad param(s):the request is invalid",
-            "examples":{
-              "application/json":{
-                "errors":[
-                  {
-                    "errorCode":"userNotFound",
-                    "errorMessage":"User is not found"
-                  }
-                ]
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "403": {
-            "description": "Principal is not allowed to perform operation",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "permissionDenied",
-                    "errorMessage": "Permission denied"
-                  }
-                ]
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "404": {
-            "description": "Not found - You tried to get a non-existing request.",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "notFound",
-                    "errorMessage": "Resource not found"
-                  }
-                ]
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "An unexpected error has prevented the operation",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "internalServerError",
-                    "errorMessage": "An unexpected error has prevented the operation"
-                  }
-                ]
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "503": {
-            "description": "The service is currently unavailable",
-            "examples": {
-              "application/json": {
-                "errors": [
-                  {
-                    "errorCode": "entityOffline",
-                    "errorMessage": "Entity is offline, please try again later."
-                  }
-                ]
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
     }
   },
   "definitions": {
@@ -2445,67 +2329,6 @@
         "name": {
           "type": "string",
           "description": "The approval status of the Request in the current user's language",
-          "minLength": 1,
-          "maxLength": 2147483647
-        }
-      }
-    },
-    "CashAdvance": {
-      "type": "object",
-      "properties": {
-        "amountRequested": {
-          "description": "The amount of the cash advance in the Request, expressed in the reimbursement currency of the employee at the time they created the cash advance",
-          "$ref": "#/definitions/Amount"
-        },
-        "approvalStatus": {
-          "description": "The approval status of the cash advance",
-          "$ref": "#/definitions/CashAdvanceApprovalStatus"
-        },
-        "cashAdvanceId": {
-          "type": "string",
-          "description": "The unique identifier of the cash advance"
-        },
-        "comment": {
-          "type": "string",
-          "description": "The last comment related to this cash advance"
-        },
-        "exchangeRate": {
-          "description": "The exchange rate that applies to the cash advance",
-          "$ref": "#/definitions/ExchangeRate"
-        },
-        "issueDate": {
-          "type": "string",
-          "description": "The date the cash advance was issued"
-        },
-        "requestDate": {
-          "type": "string",
-          "description": "The date the cash advance was submitted (last submit date in case of recall)"
-        }
-      }
-    },
-    "CashAdvanceApprovalStatus": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string",
-          "description": "The code of the approval status of the cash advance",
-          "minLength": 1,
-          "maxLength": 2147483647,
-          "enum": [
-            "C_APPR",
-            "C_COMP",
-            "C_FILE",
-            "C_ISSU",
-            "C_NISU",
-            "C_NOTF",
-            "C_PECA",
-            "C_PEND",
-            "C_REJE"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The approval status of the Cash Advance",
           "minLength": 1,
           "maxLength": 2147483647
         }
@@ -3179,6 +3002,11 @@
           "type": "string",
           "description": "The end time of the Request (in the format HH:MM)"
         },
+        "eventRequest": {
+          "type": "object",
+          "description": "The parent Event Request to which this child Request is related.",
+          "$ref": "#/definitions/ResourceLink"
+        },
         "everSentBack": {
           "type": "boolean",
           "example": false,
@@ -3192,8 +3020,9 @@
           }
         },
         "extensionOf": {
+          "type": "object",
           "description": "The Request that this Request is an extension of, or addendum to",
-          "$ref": "#/definitions/RequestLink"
+          "$ref": "#/definitions/ExtensionOf"
         },
         "highestExceptionLevel": {
           "type": "string",
@@ -3438,7 +3267,7 @@
         },
         "extensionOf": {
           "description": "The Request that this Request is an extension of, or addendum to",
-          "$ref": "#/definitions/RequestLink"
+          "$ref": "#/definitions/ExtensionOf"
         },
         "highestExceptionLevel": {
           "type": "string",
@@ -3559,6 +3388,23 @@
         "source": {
           "description": "The source of the exception",
           "$ref": "#/definitions/ExceptionSource"
+        }
+      }
+    },
+    "ExtensionOf": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to the resource"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the related object"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The public key of the Request (unique per customer)."
         }
       }
     },
@@ -3966,7 +3812,7 @@
     },
     "WorkflowAction": {
       "type": "string",
-       "description": "Comment when the workflow action is ‘sendback’."
+      "description": "Comment when the workflow action is ‘sendback’."
     }
   }
 }
