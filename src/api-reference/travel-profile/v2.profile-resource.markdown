@@ -838,7 +838,7 @@ Parameter Name|Required/Optional|Parameter Type|Data Type|Description
 `Page`|Optional|path|`string`|The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty.
 `ItemsPerPage`|Optional|path|`string`|The number of travel profiles per page. The maximum value is 200. The default value is 200.
 `travelConfigs`|Optional|path|`string`| One or more Config IDs, separated by commas.
-`IsActive`|`Optional`|path|`string`|Active status of the user
+`IsActive`|Optional|path|`string`|Active status of the user
 
 #### Headers
 
