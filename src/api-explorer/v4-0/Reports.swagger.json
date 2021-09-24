@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "<b>Expense Report Service (ERS) is the next-generation v4 API for operations related to  creating and processing Expense Reports</b>. In order to interact with this API, a client  must include either an authorized User or Company JWT in the header of each request, or  use an X.509 client certificate with a CN included in the Allowed List by the ERS team.\n",
-        "version": "4.0.72",
+        "version": "4.0.79",
         "title": "Expense Report Service",
         "contact": {
             "name": "expensereportservice@sap.onmicrosoft.com",
@@ -90,7 +90,7 @@
                         }
                     },
                     "400": {
-                        "description": "Specified context not supported\n\nerror.submit.Generic: An error occurred while submitting the selected report. The report was not submitted\n\nerror.submit.no_entries: The expense report has no expenses. You must create at least one expense in order to submit the report\n\nerror.workflow.no_clearingcode: Either the credit card account or the payment type is missing a clearing account code. Contact your Expense administrator\n\nerror.workflow.invalid_action: The action cannot be executed because it is not valid for the report workflow\n\nerror.workflow.incomplete_receipt_review: You have not finished reviewing all the receipts in this report.  Your company requires that you review receipts during approval\n\nerror.submit.rptXctMaxThreshold: This expense report cannot be submitted until all blocking exceptions are resolved\n\nerror.submit.entryXctMaxThreshold: This expense report cannot be submitted until all blocking exceptions are resolved\n\nerror.submit.undefined_expense_type: The expense report contains one or more expenses with an expense type of Undefined. You must select an expense type for each expense before you can submit the report\n\nerror.submit.missing_reqd_fields: At least one required field in this report is empty. Please provide a value and then submit the report\n\nerror.submit.missing_alloc_reqd_fields: At least one required allocation field in this report is empty. Please provide the appropriate value, and then submit the report\n\nerror.submit.missingKids: This report contains a Lodging expense that is not itemized. Lodging expenses must be itemized in the report before it can be submitted\n\nerror.submit.itemDiff: The expense report contains at least one itemized expense. The itemization amounts do not add up to the expense amount. Edit the itemized entries to make the required changes before submitting the report\n\nerror.submit.itemMissing: This report cannot be submitted because one or more entries must be itemized. Itemize the entries and then submit the report\n\nerror.submit.alreadySubmitted: The report has already been submitted and cannot be submitted again\n\nerror.submit.cannotSubmitAsDelegate: The report cannot be submitted by the Delegate\n\nerror.submit.cashadvance_cant_carry_balance: Cash Advances must be entirely utilized or returned. Please enter a Cash Advance Return on this report to return the remaining balance\n\nerror.submit.cashadvance_negative_balance: The Cash Advance Balance is negative because a Cash Advance Return is greater than the remaining balance. Either enter a Currency Gain/Loss expense to bring the balance to zero or adjust the Cash Advance Return amount to bring the balance to zero. Then, click Submit again\n\nerror.submit.single_row_itinerary: This report contains at least one itinerary with a single itinerary row. An itinerary is not valid until it has at least two rows. Please add another row to complete the itinerary\n\nerror.submit.invalidAttendeeType: This report contains at least one entry with an attendee of an invalid type.  Please remove the attendee(s) before submitting the report\n\ninfo.submit.notify_by_delegate: A notification has been sent to the employee\n\ncannot_approve_your_own_report: This expense report was created by you. You cannot approve your own report\n\nno_approver: You must identify an approver before the expense report moves on to the next workflow step\n\ninvalid_auth_approver: This report cannot be sent to the next approver. This workflow step must be approved by a specialized approver called an Authorized Approver. The selected approver is not an Authorized Approver. Select another approver\n\nno_approver.not_editable_step: There are no approvers defined in your workflow. Please contact your Expense administrator\n\nno_approver.change_my_info: Missing the required approver for next workflow step. You may be able to select an approver; otherwise contact your Expense administrator for assistance\n\nwf_config_invalid_next_step: You must identify an approver before the expense report moves on to the next workflow step\n\nnot_an_approver: This report cannot be sent to the next approver because the selected approver is no longer authorized to approve reports. Please select another approver\n\napprover_cum_reportowner: You cannot send this report to this approver since this person created this report\n\napprover_cum_reportowner.is_editableby: Your workflow is configured such that the report would come back to the report owner during some step. Please contact your Employee Administrator to change the approvers\n\ninstance_out_of_date: The approval workflow that this expense report uses has changed. Please select a new approver in order to approve and process this expense report\n\nreview_approval_flow_approver: Review Approvers in the workflow\n\ncost_object_step: The next approval step is a Cost object step and cannot be approved through Mobile\n\nstep_exit_blocking_by_exception: One or more blocking exceptions are preventing approval submission. Resolve the exception before proceeding\n\nreceiptimagehold.workflow.noapprover: Missing the required approver for next step. Cannot advance report out of imaging hold. Contact your Expense administrator for assistance\n\nerror.workflow.invalid_report_key: The expense report no longer exists in the system\n\nattendee_total_error: This report contains at least one entry with invalid attendee amounts.  Please correct the attendee amounts before approving\n\napprover_cashadvance_owner.is_editableby: Your workflow is configured such that the cash advance would come back to the cash advance owner during some step. Please contact your Employee Administrator to change the approvers\n\nerror.workflow.missing_alloc_reqd_fields: At least one required allocation field in this report lacks data. Please provide the appropriate value, and then approve the report\n\nerror.recall.cannotRecall: Expense report cannot be recalled\n\nerror.workflow.noComments: Cannot send report back without providing comments. Add a comment to explain why you are returning the report\n\nstatusId.invalidValue: Invalid 'statusId' value specified",
+                        "description": "Specified context not supported\n\nerror.submit.Generic: An error occurred while submitting the selected report. The report was not submitted\n\nerror.submit.no_entries: The expense report has no expenses. You must create at least one expense in order to submit the report\n\nerror.workflow.no_clearingcode: Either the credit card account or the payment type is missing a clearing account code. Contact your Expense administrator\n\nerror.workflow.invalid_action: The action cannot be executed because it is not valid for the report workflow\n\nerror.workflow.incomplete_receipt_review: You have not finished reviewing all the receipts in this report.  Your company requires that you review receipts during approval\n\nerror.submit.rptXctMaxThreshold: This expense report cannot be submitted until all blocking exceptions are resolved\n\nerror.submit.entryXctMaxThreshold: This expense report cannot be submitted until all blocking exceptions are resolved\n\nerror.submit.undefined_expense_type: The expense report contains one or more expenses with an expense type of Undefined. You must select an expense type for each expense before you can submit the report\n\nerror.submit.missing_reqd_fields: At least one required field in this report is empty. Please provide a value and then submit the report\n\nerror.submit.missing_alloc_reqd_fields: At least one required allocation field in this report is empty. Please provide the appropriate value, and then submit the report\n\nerror.submit.missingKids: This report contains a Lodging expense that is not itemized. Lodging expenses must be itemized in the report before it can be submitted\n\nerror.submit.itemDiff: The expense report contains at least one itemized expense. The itemization amounts do not add up to the expense amount. Edit the itemized entries to make the required changes before submitting the report\n\nerror.submit.itemMissing: This report cannot be submitted because one or more entries must be itemized. Itemize the entries and then submit the report\n\nerror.submit.alreadySubmitted: The report has already been submitted and cannot be submitted again\n\nerror.submit.cannotSubmitAsDelegate: The report cannot be submitted by the Delegate\n\nerror.submit.cashadvance_cant_carry_balance: Cash Advances must be entirely utilized or returned. Please enter a Cash Advance Return on this report to return the remaining balance\n\nerror.submit.cashadvance_negative_balance: The Cash Advance Balance is negative because a Cash Advance Return is greater than the remaining balance. Either enter a Currency Gain/Loss expense to bring the balance to zero or adjust the Cash Advance Return amount to bring the balance to zero. Then, click Submit again\n\nerror.submit.single_row_itinerary: This report contains at least one itinerary with a single itinerary row. An itinerary is not valid until it has at least two rows. Please add another row to complete the itinerary\n\nerror.submit.invalidAttendeeType: This report contains at least one entry with an attendee of an invalid type.  Please remove the attendee(s) before submitting the report\n\ninfo.submit.notify_by_delegate: A notification has been sent to the employee\n\ncannot_approve_your_own_report: This expense report was created by you. You cannot approve your own report\n\nno_approver: You must identify an approver before the expense report moves on to the next workflow step\n\ninvalid_auth_approver: This report cannot be sent to the next approver. This workflow step must be approved by a specialized approver called an Authorized Approver. The selected approver is not an Authorized Approver. Select another approver\n\nno_approver.not_editable_step: There are no approvers defined in your workflow. Please contact your Expense administrator\n\nno_approver.change_my_info: Missing the required approver for next workflow step. You may be able to select an approver; otherwise contact your Expense administrator for assistance\n\nwf_config_invalid_next_step: You must identify an approver before the expense report moves on to the next workflow step\n\nnot_an_approver: This report cannot be sent to the next approver because the selected approver is no longer authorized to approve reports. Please select another approver\n\napprover_cum_reportowner: You cannot send this report to this approver since this person created this report\n\napprover_cum_reportowner.is_editableby: Your workflow is configured such that the report would come back to the report owner during some step. Please contact your Employee Administrator to change the approvers\n\ninstance_out_of_date: The approval workflow that this expense report uses has changed. Please select a new approver in order to approve and process this expense report\n\nreview_approval_flow_approver: Review Approvers in the workflow\n\ncost_object_step: The next approval step is a Cost object step and cannot be approved through Mobile\n\nstep_exit_blocking_by_exception: One or more blocking exceptions are preventing approval submission. Resolve the exception before proceeding\n\nreceiptimagehold.workflow.noapprover: Missing the required approver for next step. Cannot advance report out of imaging hold. Contact your Expense administrator for assistance\n\nerror.workflow.invalid_report_key: The expense report no longer exists in the system\n\nattendee_total_error: This report contains at least one entry with invalid attendee amounts.  Please correct the attendee amounts before approving\n\napprover_cashadvance_owner.is_editableby: Your workflow is configured such that the cash advance would come back to the cash advance owner during some step. Please contact your Employee Administrator to change the approvers\n\nerror.workflow.missing_alloc_reqd_fields: At least one required allocation field in this report lacks data. Please provide the appropriate value, and then approve the report\n\nerror.recall.cannotRecall: Expense report cannot be recalled\n\nerror.workflow.noComments: Cannot send report back without providing comments. Add a comment to explain why you are returning the report\n\nstatusId.invalidValue: Invalid 'statusId' value specified\n\ninvalid.approverId.query: Unable to find approver for the specified user id in the query string parameter.\n\ninvalidAction.currentStep: Approve and Forward operation ('forwardToUserId' querystring parameter in the request) is not supported on this workflow step.",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -120,7 +120,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found",
+                        "description": "reportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -210,7 +210,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found\n\nexpenseId not found",
+                        "description": "reportId not found\n\nexpenseId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -307,7 +307,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found",
+                        "description": "reportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -402,7 +402,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found",
+                        "description": "reportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -501,7 +501,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found",
+                        "description": "reportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -544,6 +544,14 @@
                         "description": "The unique identifier of the report",
                         "required": true,
                         "type": "string"
+                    },
+                    {
+                        "name": "includeAllComments",
+                        "in": "query",
+                        "description": "Return all the comments that are present on the report at all levels",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
                     },
                     {
                         "name": "userId",
@@ -598,7 +606,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found",
+                        "description": "reportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -702,7 +710,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found,\nexpenseId not found",
+                        "description": "reportId not found,\nexpenseId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -804,7 +812,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found\n\nallocationId not found",
+                        "description": "reportId not found\n\nallocationId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -910,7 +918,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found\n\nallocationId not found\n\nexpenseId not found\n\nThe policy of the specified report does not have an allocation form defined. Contact your Concur Administrator",
+                        "description": "reportId not found\n\nallocationId not found\n\nexpenseId not found\n\nThe policy of the specified report does not have an allocation form defined. Contact your Concur Administrator",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -953,6 +961,18 @@
                         "description": "The unique identifier of the report",
                         "required": true,
                         "type": "string"
+                    },
+                    {
+                        "name": "includeItemizations",
+                        "in": "query",
+                        "description": "Include all itemizations of an Expense, if any",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false,
+                        "enum": [
+                            "false",
+                            "true"
+                        ]
                     },
                     {
                         "name": "userId",
@@ -1008,7 +1028,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found",
+                        "description": "reportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -1110,7 +1130,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found\n\nexpenseId not found",
+                        "description": "reportId not found\n\nexpenseId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -1189,7 +1209,7 @@
                 ],
                 "responses": {
                     "400": {
-                        "description": "Specified context not supported\n\nInvalid field value specified\n\nUser does not have proper role\n\nUser is not allowed to modify the transaction amount on an expense that is matched to a credit card transaction\n\nUser is not allowed to modify the vendor description on an expense that is matched to a credit card transaction\n\nUser is not allowed to modify the exchange rate on an expense that is matched to a credit card transaction",
+                        "description": "Specified context not supported\n\nInvalid field value specified\n\nUser does not have proper role\n\nUser is not allowed to modify the transaction amount on an expense that is matched to a credit card transaction\n\nUser is not allowed to modify the vendor description on an expense that is matched to a credit card transaction\n\nUser is not allowed to modify the exchange rate on an expense that is matched to a credit card transaction\n\n A certified image cannot be altered in any way including appending with another image.",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -1216,7 +1236,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found\n\nexpenseId not found",
+                        "description": "reportId not found\n\nexpenseId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -1327,7 +1347,7 @@
                         }
                     },
                     "404": {
-                        "description": "ReportId not found",
+                        "description": "reportId not found",
                         "schema": {
                             "$ref": "#/definitions/ErrorMessage"
                         }
@@ -1488,6 +1508,10 @@
                 "location": {
                     "description": "The location information of the expense. Please refer to the 'Location' object for more information",
                     "$ref": "#/definitions/Location"
+                },
+                "parentExpenseId": {
+                    "type": "string",
+                    "description": "Expense Id of the parent expense"
                 },
                 "paymentType": {
                     "description": "The payment type information for the expense. Please refer to the 'PaymentType' object for more information",
@@ -1744,6 +1768,10 @@
                 "lastName"
             ],
             "properties": {
+                "employeeId": {
+                    "type": "string",
+                    "description": "Unique identifier of the employee that can be referenced in external systems"
+                },
                 "firstName": {
                     "type": "string",
                     "description": "First name of the employee"
@@ -1975,8 +2003,8 @@
                 "author",
                 "comment",
                 "createdForEmployee",
-                "createdForEmployeeId",
                 "creationDate",
+                "isAuditorComment",
                 "isLatest"
             ],
             "properties": {
@@ -2001,9 +2029,17 @@
                     "format": "date-time",
                     "description": "The UTC datetime when the comment was created on the report/expense (https://en.wikipedia.org/wiki/ISO_8601).  Format: YYYY-MM-DDTHH:mm:ssZ.SSS'Z'"
                 },
+                "expenseId": {
+                    "type": "string",
+                    "description": "The unique identifier of the expense"
+                },
+                "isAuditorComment": {
+                    "type": "boolean",
+                    "description": "Whether this comment has been authored by an auditor"
+                },
                 "isLatest": {
                     "type": "boolean",
-                    "description": "This attribute represents whether a specific comment is the latest comment by the user."
+                    "description": "This attribute represents whether a specific comment is the latest comment by the user"
                 }
             }
         },
@@ -2857,6 +2893,7 @@
                 "creationDate",
                 "currency",
                 "currencyCode",
+                "defaultFieldAccess",
                 "hierarchyNodeId",
                 "isFinancialIntegrationEnabled",
                 "isPaperReceiptsReceived",
@@ -2984,6 +3021,19 @@
                     "items": {
                         "$ref": "#/definitions/CustomData"
                     }
+                },
+                "defaultFieldAccess": {
+                    "type": "string",
+                    "description": "The default access level of this reports form fields. RO = read-only, RW = read-write",
+                    "enum": [
+                        "HD",
+                        "RO",
+                        "RW"
+                    ]
+                },
+                "employee": {
+                    "description": "Names and Identifier of the report owner",
+                    "$ref": "#/definitions/Employee"
                 },
                 "endDate": {
                     "type": "string",
