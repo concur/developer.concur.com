@@ -829,8 +829,7 @@
               "ACCOUNTS_PAYABLE",
               "ADP_PAYROLL",
               "CONCUR_PAY",
-              "OTHER",
-              "PAY_PAL"
+              "OTHER"
             ]
           },
           "ledgerCode": {

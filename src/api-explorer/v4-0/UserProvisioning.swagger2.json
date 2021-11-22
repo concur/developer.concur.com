@@ -1094,7 +1094,6 @@
                     "description": "The reimbursement type for the user",
                     "enum": [
                         "OTHER",
-                        "PAY_PAL",
                         "CONCUR_PAY",
                         "ADP_PAYROLL",
                         "ACCOUNTS_PAYABLE"
