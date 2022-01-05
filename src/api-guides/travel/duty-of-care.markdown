@@ -207,7 +207,7 @@ Q: What should be the best practice to handle anonymization events?
 
 Q: Why do some trips have no contact information for the traveler sometimes?
 
->   A: SAP Concur supports trips for Non-Profiled or Guest travelers which allows a Concur user to book trips on behalf od non-profiled/guest users who don't have a profile in the system. These are the trips returned without email addresses or contact information for the traveler as that's not available in the system.
+>   A: SAP Concur supports trips for Non-Profiled or Guest travelers which allows a Concur user to book trips on behalf of non-profiled/guest users who don't have a profile in the system. These are the trips returned without email addresses or contact information for the traveler as that's not available in the system.
 
 ## <a name="identity"></a>Identity V4 API
 
