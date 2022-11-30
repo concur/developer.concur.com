@@ -189,7 +189,7 @@ The maximum allowed size of `OTA_HotelAvailRS` is 5 MB. Any response that exceed
             </RoomType>
           </RoomTypes>
           <RatePlans>
-            <RatePlan RatePlanID="XNFYP4I" AvailabilityStatus="ChangeDuringStay">
+            <RatePlan RatePlanID="XNFYP4I" AvailabilityStatus="ChangeDuringStay" RatePlanType="4">
               <Guarantee GuaranteeType="GuaranteeRequired" />
               <CancelPenalties>
                 <CancelPenalty NoCancelInd="true">
@@ -302,6 +302,7 @@ For a description of the relationship between the `RoomID` and `RatePlanID` refe
 |`CancelPenalties`|`complex`|**Required if `RateDetailsInd` is `true` or not present** Collection of cancellation penalties. If the cancel penalties are not provided SAP Concur will display: "Cancellation policy not provided by vendor".|
 |`MealsIncluded`|`complex`|Defines which meals are included with this rate program.|
 |`RatePlanDescription`|`complex`|Textual information regarding the Rate Plan.|
+|`RatePlanType`|`integer`|Specify the rate plan type of this rate. Refer to Open Travel Code List Rate Plan Type (RPT)|
 
 #### <a name="rate-plan-description"></a>RatePlanDescription
 
