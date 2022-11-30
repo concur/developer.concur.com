@@ -213,8 +213,8 @@ When refreshing a token or when calling any other APIs, the token's geolocation 
 
 **Note:** Client-side calls should use the www- variant of the base URI.
 
-For example:
-When obtaining a token, if the response was the below:
+#### Example
+Consider an example where your application obtains a token and receives the response below:
 
 ```http
 HTTP/1.1 200 OK
@@ -236,7 +236,7 @@ Connection: Close
 }
 ```
 
-When then calling the receipts API to post a receipt, your request should be made to https://us.api.concursolutions.com (if server side) or https://www-us.api.concursolutions.com (for clients).
+When your application calls another API, such as the receipts API to post a receipt, the request should be made using the base URI specified in the geolocation value of the response.  In the example above, that request would be made to https://us.api.concursolutions.com (if server side) or https://www-us.api.concursolutions.com (for clients).  The geolocation value can be any of the supported base URIs.  The application should store the specific geolocation it receives, and use it as the base URI for future API calls.
 
 
 ## <a name="id_token"></a>ID Token
